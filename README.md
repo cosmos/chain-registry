@@ -2,7 +2,11 @@
 
 This repo contains a `chain.json` for a number of tendermint based chains.  A `chain.json` contains data that makes it easy to start running or interacting with a node.
 
+## Contributing
+
 We accept pull requests to add data to an existing chain.json (especially to add peer data or public rpc endpoint) or to add a new chain.
+
+## Sample
 
 A sample `chain.json` includes the following information.
 
@@ -15,7 +19,7 @@ A sample `chain.json` includes the following information.
     "bech32_prefix": "cosmos",
     "genesis": {
         "genesis_url": "http://linktochaingenesis.com/genesis.json",
-        "genesis_zip": false // is genesis at link zipped?
+        "genesis_zipped": false
     },
     "codebase": {
         "git_repo": "https://github.com/chain/chain/",
