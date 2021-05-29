@@ -40,6 +40,9 @@ A sample `chain.json` includes the following information.
         "rpc_addrs": [
             "http://rpc.chain.com:26657"
         ],
+        "grpc_addrs": [
+            "http://rest.chain.com:9090"
+        ],
         "rest_addrs": [
             "http://rest.chain.com:1317"
         ]
