@@ -17,6 +17,8 @@ A sample `chain.json` includes the following information.
     "chain_name": "Chain Name",
     "chain_id": "chainid-1",
     "bech32_prefix": "cosmos",
+    "daemon_name": "gaiad",
+    "node_home": "$HOME/.gaia",
     "genesis": {
         "genesis_url": "http://linktochaingenesis.com/genesis.json",
         "genesis_zipped": false
