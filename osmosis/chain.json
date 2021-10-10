@@ -9,6 +9,10 @@
     "daemon_name": "osmosisd",
     "node_home": "$HOME/.osmosisd",
     "genesis": "https://github.com/osmosis-labs/networks/raw/main/osmosis-1/genesis.json",
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
     "codebase": {
         "git_repo": "https://github.com/osmosis-labs/osmosis",
         "version": "v4.0.0",
@@ -44,6 +48,16 @@
             {
                 "address": "https://osmosis.validator.network/",
                 "provider": "validatornetwork"
+            },
+            {
+                "address": "https://rpc-osmosis.keplr.app",
+                "provider": "chainapsis"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://lcd-osmosis.keplr.app",
+                "provider": "chainapsis"
             }
         ]
     }
