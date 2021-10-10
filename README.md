@@ -12,41 +12,49 @@ A sample `chain.json` includes the following information.
 
 ```json
 {
-    "status": "active|upcoming|killed",
-    "network_type": "mainnet|testnet",
-    "chain_name": "Chain Name",
-    "chain_id": "chainid-1",
-    "bech32_prefix": "cosmos",
-    "daemon_name": "gaiad",
-    "node_home": "$HOME/.gaia",
-    "genesis": {
-        "genesis_url": "http://linktochaingenesis.com/genesis.json",
-        "genesis_zipped": false
-    },
+    "$schema": "../chain.schema.json",
+    "chain_name": "foocoin",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Foocoin",
+    "chain_id": "foocoin-1",
+    "bech32_prefix": "foo",
+    "daemon_name": "food",
+    "node_home": "$HOME/.food",
+    "genesis": "https://github.com/foochain-labs/networks/raw/main/foocoin-1/genesis.json",
     "codebase": {
-        "git_repo": "https://github.com/chain/chain/",
-        "git_version": "v1.0.1",
+        "git_repo": "https://github.com/foochain-labs/foocoin",
+        "version": "v1.0.2",
         "binaries": {
-            "linux/amd64": "https://linktobinany.com/binary.tar.gz"
+            "linux/amd64": "https://github.com/foochain-labs/foocoin/releases/download/v1.0.2/osmosisd-1.0.2-linux-amd64"
         }
     },
     "peers": {
         "seeds": [
-            "0000000000000000000000000000000000000000@1.1.1.1:26656"
-        ],
-        "persistent_peers": [
-            "0000000000000000000000000000000000000000@2.2.2.2:26656"
+            {
+                "id": "8f67a2fcdd7ade970b1983bf1697111d35dfdd6f",
+                "address": "52.79.199.137:26656",
+                "provider": "cosmostation"
+            },
+            {
+                "id": "00c328a33578466c711874ec5ee7ada75951f99a",
+                "address": "35.82.201.64:26656",
+                "provider": "figment"
+            }
         ]
     },
     "apis": {
-        "rpc_addrs": [
-            "http://rpc.chain.com:26657"
+        "rpc": [
+            {
+                "address": "https://foocoin.figment.network/",
+                "provider": "figment"
+            }
         ],
-        "grpc_addrs": [
-            "http://rest.chain.com:9090"
-        ],
-        "rest_addrs": [
-            "http://rest.chain.com:1317"
+        "rest": [
+            {
+                "address": "https://lcd.foo.network/",
+                "provider": "foofoundation"
+            }
         ]
     }
 }
