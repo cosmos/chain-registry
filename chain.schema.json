@@ -46,7 +46,7 @@
         },
         "key_algos": {
             "type": "array",
-            "properties": {
+            "items": {
                 "type": "string",
                 "enum": [
                     "secp256k1",
@@ -59,6 +59,17 @@
         },
         "slip44": {
             "type": "number"
+        },
+        "fees": {
+            "type": "object",
+            "properties": {
+                "fee_tokens": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/fee_token"
+                    }
+                }
+            }
         },
         "codebase": {
             "type": "object",
@@ -125,6 +136,12 @@
                 }
             },
             "additionalProperties": false
+        },
+        "explorers": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/explorer"
+            }
         }
     },
     "$defs": {
@@ -157,6 +174,34 @@
                 },
                 "provider": {
                     "type": "string"
+                }
+            }
+        },
+        "explorer": {
+            "type": "object",
+            "properties": {
+                "kind": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "tx_page": {
+                    "type": "string"
+                }
+            }
+        },
+        "fee_token": {
+            "type": "object",
+            "required": [
+                "denom"
+            ],
+            "properties": {
+                "denom": {
+                    "type": "string"
+                },
+                "fixed_min_gas_price": {
+                    "type": "number"
                 }
             }
         }
