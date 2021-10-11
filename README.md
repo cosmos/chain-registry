@@ -1,6 +1,6 @@
-# tm-networks
+# chain-registry
 
-This repo contains a `chain.json` for a number of tendermint based chains.  A `chain.json` contains data that makes it easy to start running or interacting with a node.
+This repo contains a `chain.json` for a number of cosmos-sdk based chains.  A `chain.json` contains data that makes it easy to start running or interacting with a node.
 
 ## Contributing
 
@@ -13,20 +13,35 @@ A sample `chain.json` includes the following information.
 ```json
 {
     "$schema": "../chain.schema.json",
-    "chain_name": "foocoin",
+    "chain_name": "osmosis",
     "status": "live",
     "network_type": "mainnet",
-    "pretty_name": "Foocoin",
-    "chain_id": "foocoin-1",
-    "bech32_prefix": "foo",
-    "daemon_name": "food",
-    "node_home": "$HOME/.food",
-    "genesis": "https://github.com/foochain-labs/networks/raw/main/foocoin-1/genesis.json",
+    "pretty_name": "Osmosis",
+    "chain_id": "osmosis-1",
+    "bech32_prefix": "osmo",
+    "daemon_name": "osmosisd",
+    "node_home": "$HOME/.osmosisd",
+    "genesis": "https://github.com/osmosis-labs/networks/raw/main/osmosis-1/genesis.json",
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "uosmo",
+                "fixed_min_gas_price": 0
+            }
+        ]
+    },
     "codebase": {
-        "git_repo": "https://github.com/foochain-labs/foocoin",
-        "version": "v1.0.2",
+        "git_repo": "https://github.com/osmosis-labs/osmosis",
+        "version": "v4.0.0",
         "binaries": {
-            "linux/amd64": "https://github.com/foochain-labs/foocoin/releases/download/v1.0.2/osmosisd-1.0.2-linux-amd64"
+            "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-linux-amd64",
+            "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-linux-arm64",
+            "darwin/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-darwin-amd64",
+            "windows/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-windows-amd64.exe"
         }
     },
     "peers": {
@@ -39,23 +54,40 @@ A sample `chain.json` includes the following information.
             {
                 "id": "00c328a33578466c711874ec5ee7ada75951f99a",
                 "address": "35.82.201.64:26656",
-                "provider": "figment"
+                "provider": "cosmostation"
+            },
+            {
+                "id": "cfb6f2d686014135d4a6034aa6645abd0020cac6",
+                "address": "52.79.88.57:26656",
+                "provider": "cosmostation"
             }
-        ]
+        ],
+        "persistent_peers": []
     },
     "apis": {
         "rpc": [
             {
-                "address": "https://foocoin.figment.network/",
-                "provider": "figment"
+                "address": "https://osmosis.validator.network/",
+                "provider": "validatornetwork"
+            },
+            {
+                "address": "https://rpc-osmosis.keplr.app",
+                "provider": "chainapsis"
             }
         ],
         "rest": [
             {
-                "address": "https://lcd.foo.network/",
-                "provider": "foofoundation"
+                "address": "https://lcd-osmosis.keplr.app",
+                "provider": "chainapsis"
             }
         ]
-    }
+    },
+    "explorers": [
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/osmosis",
+            "tx_page": "https://www.mintscan.io/osmosis/txs/${txHash}"
+        }
+    ]
 }
 ```
