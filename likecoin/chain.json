@@ -1,0 +1,73 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "likecoin",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "LikeCoin",
+    "chain_id": "likecoin-mainnet-2",
+    "bech32_prefix": "cosmos",
+    "daemon_name": "liked",
+    "node_home": "$HOME/.liked",
+    "genesis": "https://raw.githubusercontent.com/likecoin/mainnet/982c14399089950a59d3ebbedcbbc7ead6040457/genesis.json",
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "nanolike"
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/likecoin/likecoin-chain",
+        "version": "fotan-1"
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "913bd0f4bea4ef512ffba39ab90eae84c1420862",
+                "address": "34.82.131.35:26656",
+                "provider": "likecoin"
+            },
+            {
+                "id": "e44a2165ac573f84151671b092aa4936ac305e2a",
+                "address": "nnkken.dev:26656",
+                "provider": "nnkken"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "75822abfbcc23dcefd025e245b46e2dec5357f75",
+                "address": "207.246.101.4:26656",
+                "provider": "forbole"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://mainnet-node.like.co/rpc/",
+                "provider": "likecoin"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://mainnet-node.like.co",
+                "provider": "likecoin"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "bigdipper",
+            "url": "https://likecoin.bigdipper.live/",
+            "tx_page": "https://likecoin.bigdipper.live/transactions/${txHash}"
+        },
+        {
+            "kind": "lunie-ng",
+            "url": "https://stake.like.co/"
+        }
+    ]
+}
