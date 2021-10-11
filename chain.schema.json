@@ -75,15 +75,22 @@
             "type": "object",
             "required": [
                 "git_repo",
-                "version"
+                "recommended_version",
+                "compatible_versions"
             ],
             "properties": {
                 "git_repo": {
                     "type": "string",
                     "format": "uri"
                 },
-                "version": {
+                "recommended_version": {
                     "type": "string"
+                },
+                "compatible_versions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "binaries": {
                     "type": "object",
