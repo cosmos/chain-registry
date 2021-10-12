@@ -1,11 +1,8 @@
-on:
-  pull_request:
-    branches:
-      - main
-name: Pull request workflow
+on: [pull_request, workflow_dispatch]
+name: PR workflow
 jobs:
   validate_chainjson:
-    name: Validate chain.json
+    name: Validate edited chains.json
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
