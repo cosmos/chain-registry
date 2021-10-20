@@ -1,24 +1,141 @@
 {
-    "$schema": "../chain.schema.json",
-    "chain_name": "cryptoorg",
-    "status": "live",
-    "network_type": "mainnet",
-    "pretty_name": "Crypto.org",
-    "chain_id": "crypto-org-chain-mainnet-1",
-    "bech32_prefix": "cro",
-    "slip44": 394,
-    "apis": {
-        "rpc": [
-            {
-                "address": "https://rpc-crypto-org.keplr.app/",
-                "provider": "chainapsis"
-            }
-        ],
-        "rest": [
-            {
-                "address": "https://lcd-crypto-org.keplr.app/",
-                "provider": "chainapsis"
-            }
-        ]
+  "$schema": "../chain.schema.json",
+  "chain_name": "cryptoorgchain",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Crypto.org",
+  "chain_id": "crypto-org-chain-mainnet-1",
+  "bech32_prefix": "cro",
+  "node_home": "$HOME/.chain-maind",
+  "genesis": "https://github.com/crypto-org-chain/mainnet/raw/main/crypto-org-chain-mainnet-1/genesis.json",
+  "slip44": 394,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "basecro"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/crypto-org-chain/chain-main",
+    "recommended_version": "v2.1.2",
+    "compatible_versions": ["v2.1.2"],
+    "binaries": {
+      "linux/amd64": "https://github.com/crypto-org-chain/chain-main/releases/download/v2.1.2/chain-main_2.1.2_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/crypto-org-chain/chain-main/releases/download/v2.1.2/chain-main_2.1.2_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/crypto-org-chain/chain-main/releases/download/v2.1.2/chain-main_2.1.2_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/crypto-org-chain/chain-main/releases/download/v2.1.2/chain-main_2.1.2_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/crypto-org-chain/chain-main/releases/download/v2.1.2/chain-main_2.1.2_Windows_x86_64.zip"
     }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "87c3adb7d8f649c51eebe0d3335d8f9e28c362f2",
+        "address": "seed-0.crypto.org:26656",
+        "provider": "crypto-org"
+      },
+      {
+        "id": "e1d7ff02b78044795371beb1cd5fb803f9389256",
+        "address": "seed-1.crypto.org:26656",
+        "provider": "crypto-org"
+      },
+      {
+        "id": "2c55809558a4e491e9995962e10c026eb9014655",
+        "address": "seed-2.crypto.org:26656",
+        "provider": "crypto-org"
+      },
+      {
+        "id": "8dc1863d1d23cf9ad7cbea215c19bcbe8bf39702",
+        "address": "p2p.baaa7e56-cc71-4ae4-b4b3-c6a9d4a9596a.cryptodotorg.bison.run:26656",
+        "provider": "bison-trails"
+      },
+      {
+        "id": "8a7922f3fb3fb4cfe8cb57281b9d159ca7fd29c6",
+        "address": "p2p.aef59b2a-d77e-4922-817a-d1eea614aef4.cryptodotorg.bison.run:26656",
+        "provider": "bison-trails"
+      },
+      {
+        "id": "494d860a2869b90c458b07d4da890539272785c9",
+        "address": "p2p.fabc23d9-e0a1-4ced-8cd7-eb3efd6d9ef3.cryptodotorg.bison.run:26656",
+        "provider": "bison-trails"
+      },
+      {
+        "id": "dc2540dabadb8302da988c95a3c872191061aed2",
+        "address": "p2p.7d1b53c0-b86b-44c8-8c02-e3b0e88a4bf7.cryptodotorg.herd.run:26656",
+        "provider": "bison-trails"
+      },
+      {
+        "id": "33b15c14f54f71a4a923ac264761eb3209784cf2",
+        "address": "p2p.0d20d4b3-6890-4f00-b9f3-596ad3df6533.cryptodotorg.herd.run:26656",
+        "provider": "bison-trails"
+      },
+      {
+        "id": "d2862ef8f86f9976daa0c6f59455b2b1452dc53b",
+        "address": "p2p.a088961f-5dfd-4007-a15c-3a706d4be2c0.cryptodotorg.herd.run:26656",
+        "provider": "bison-trails"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "87c3adb7d8f649c51eebe0d3335d8f9e28c362f2",
+        "address": "seed-0.crypto.org:26656",
+        "provider": "crypto-org"
+      },
+      {
+        "id": "e1d7ff02b78044795371beb1cd5fb803f9389256",
+        "address": "seed-1.crypto.org:26656",
+        "provider": "crypto-org"
+      },
+      {
+        "id": "2c55809558a4e491e9995962e10c026eb9014655",
+        "address": "seed-2.crypto.org:26656",
+        "provider": "crypto-org"
+      },
+      {
+        "id": "8dc1863d1d23cf9ad7cbea215c19bcbe8bf39702",
+        "address": "p2p.baaa7e56-cc71-4ae4-b4b3-c6a9d4a9596a.cryptodotorg.bison.run:26656",
+        "provider": "bison-trails"
+      },
+      {
+        "id": "8a7922f3fb3fb4cfe8cb57281b9d159ca7fd29c6",
+        "address": "p2p.aef59b2a-d77e-4922-817a-d1eea614aef4.cryptodotorg.bison.run:26656",
+        "provider": "bison-trails"
+      },
+      {
+        "id": "d2862ef8f86f9976daa0c6f59455b2b1452dc53b",
+        "address": "p2p.a088961f-5dfd-4007-a15c-3a706d4be2c0.cryptodotorg.herd.run:26656",
+        "provider": "bison-trails"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://mainnet.crypto.org/",
+        "provider": "crypto.org"
+      },
+      {
+        "address": "https://rpc-crypto-org.keplr.app/",
+        "provider": "chainapsis"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://mainnet.crypto.org/",
+        "provider": "crypto.org"
+      },
+      {
+        "address": "https://lcd-crypto-org.keplr.app/",
+        "provider": "chainapsis"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/crypto-org",
+      "tx_page": "https://www.mintscan.io/crypto-org/txs/${txHash}"
+    }
+  ]
 }
