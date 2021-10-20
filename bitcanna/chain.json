@@ -1,0 +1,79 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "bitcanna",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "BitCanna",
+    "chain_id": "bitcanna-1",
+    "bech32_prefix": "bcna",
+    "daemon_name": "bcnad",
+    "node_home": "$HOME/.bcna",
+    "genesis": "https://raw.githubusercontent.com/BitCannaGlobal/bcna/main/genesis.json",
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "ubcna",
+                "fixed_min_gas_price": 0.001
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/BitCannaGlobal/bcna",
+        "recommended_version": "v1.2",
+        "binaries": {
+            "linux/amd64": "https://github.com/BitCannaGlobal/bcna/releases/download/v1.2/bcnad"
+        }
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "d6aa4c9f3ccecb0cc52109a95962b4618d69dd3f",
+                "address": "seed1.bitcanna.io:26656",
+                "provider": "bitcanna"
+            },
+            {
+                "id": "23671067d0fd40aec523290585c7d8e91034a771",
+                "address": "seed2.bitcanna.io:26656",
+                "provider": "bitcanna"
+            }
+        ],
+        "persistent_peers": []
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://rpc.bitcanna.io/",
+                "provider": "bitcanna"
+            }
+        ],
+        "grpc": [
+            {
+                "address": "https://grpc.bitcanna.io",
+                "provider": "bitcanna"
+            }
+        ],      
+        "rest": [
+            {
+                "address": "https://lcd.bitcanna.io",
+                "provider": "bitcanna"
+            }
+        ]
+    },
+    "explorers": [ 
+        {
+            "kind": "forbole",
+            "url": "https://cosmos-explorer.bitcanna.io",
+            "tx_page": "https://cosmos-explorer.bitcanna.io/transactions/${txHash}"
+        },
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/bitcanna/",
+            "tx_page": "https://www.mintscan.io/bitcanna/txs/${txHash}"
+        },
+
+    ]
+}
