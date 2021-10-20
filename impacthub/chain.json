@@ -1,0 +1,111 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "impacthub",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Impact Hub",
+    "chain_id": "impacthub-3",
+    "bech32_prefix": "ixo",
+    "daemon_name": "ixod",
+    "node_home": "$HOME/.ixod",
+    "genesis": {
+        "genesis_url": "https://github.com/ixofoundation/genesis/raw/master/impacthub-3/genesis.json"
+    },
+    "key_algos": [
+        "secp256k1",
+        "ed25519"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "uixo",
+                "fixed_min_gas_price": 0.025
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/ixofoundation/ixo-blockchain",
+        "recommended_version": "v1.6.0",
+        "compatible_versions": [
+            "v1.6.0"
+        ],
+        "binaries": {
+            "linux/amd64": "https://github.com/ixofoundation/ixo-blockchain/releases/download/v1.6.0/ixod-1.6.0-linux-amd64",
+            "linux/arm64": "https://github.com/ixofoundation/ixo-blockchain/releases/download/v1.6.0/ixod-1.6.0-linux-arm64",
+            "darwin/amd64": "https://github.com/ixofoundation/ixo-blockchain/releases/download/v1.6.0/ixod-1.6.0-darwin-amd64",
+            "windows/arm64": "https://github.com/ixofoundation/ixo-blockchain/releases/download/v1.6.0/ixod-1.6.0-windows-amd64.exe"
+        }
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "36e4738c7efcf353d3048e5e6073406d045bae9d",
+                "address": "80.64.208.43:26656",
+                "provider": "simplyvc"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "cbe8c6a5a77f861db8edb1426b734f2cf1fa4020",
+                "address": "18.166.133.210:26656",
+                "provider": "shanzhaicity"
+            },
+            {
+                "id": "36e4738c7efcf353d3048e5e6073406d045bae9d",
+                "address": "80.64.208.43:26656",
+                "provider": "simplyvc"
+            },
+            {
+                "id": "f0d4546fa5e0c2d84a4244def186b9da3c12ba1a",
+                "address": "46.166.138.214:26656",
+                "provider": "ixoworld"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://rpc-impacthub.keplr.app",
+                "provider": "chainapsis"
+            },
+            {
+                "address": "https://proxies.sifchain.finance/api/impacthub-3/rpc",
+                "provider": "sifchain"
+            },
+            {
+                "address": "http://18.220.101.192:26657/",
+                "provider": "regen"
+            },
+            {
+                "address": "https://impacthub.ixo.world/rpc/",
+                "provider": "ixoworld"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://lcd-impacthub.keplr.app",
+                "provider": "chainapsis"
+            },
+            {
+                "address": "https://proxies.sifchain.finance/api/impacthub-3/rest",
+                "provider": "sifchain"
+            },
+            {
+                "address": "http://18.220.101.192:1317/",
+                "provider": "regen"
+            },
+            {
+                "address": "https://impacthub.ixo.world/rest/",
+                "provider": "ixoworld"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "bigdipper",
+            "url": "https://blockscan.ixo.world",
+            "tx_page": "https://blockscan.ixo.world/transactions/${txHash}"
+        }
+    ]
+}
