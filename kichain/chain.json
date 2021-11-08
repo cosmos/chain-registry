@@ -1,0 +1,83 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "kichain",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Ki",
+    "chain_id": "kichain-2",
+    "bech32_prefix": "ki",
+    "daemon_name": "kid",
+    "node_home": "$HOME/.kid",
+    "genesis": {
+        "genesis_url": "https://raw.githubusercontent.com/KiFoundation/ki-networks/v0.1/Mainnet/kichain-2/genesis.json"
+    },
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "uxki",
+                "fixed_min_gas_price": 0.025
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/KiFoundation/ki-tools",
+        "recommended_version": "2.0.0",
+        "compatible_versions": [
+            "2.0.0"
+        ],
+        "binaries": {
+
+        }
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "24cbccfa8813accd0ebdb09e7cdb54cff2e8fcd9",
+                "address": "51.89.166.197:26656",
+                "provider": "kifoundation"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "81396d4703a2e3cbd136c7324e4df5686fd48218",
+                "address": "35.180.8.214:26656",
+                "provider": "everstake"
+            },
+            {
+                "id": "c597db55d9a609b8b77c3d37ecf1fa9a67117cc0",
+                "address": "144.217.82.4:26656",
+                "provider": "everstake"
+            },
+            {
+                "id": "50af457247b59aa558a26a14bd7ac4bf86eeae70",
+                "address": "195.201.164.223:26656",
+                "provider": "everstake"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "http://rpc-mainnet.blockchain.ki",
+                "provider": "kifoundation"
+            }
+        ],
+        "rest": [
+            {
+                "address": "http://api-mainnet.blockchain.ki",
+                "provider": "kifoundation"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/ki-chain",
+            "tx_page": "https://www.mintscan.io/ki-chain/txs/${txHash}"
+        }
+    ]
+}
