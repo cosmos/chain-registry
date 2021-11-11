@@ -1,23 +1,75 @@
 {
-    "$schema": "../chain.schema.json",
-    "chain_name": "isisnet",
-    "status": "live",
-    "network_type": "mainnet",
-    "pretty_name": "Irisnet",
-    "chain_id": "irishub-1",
-    "bech32_prefix": "iris",
-    "apis": {
-        "rpc": [
-            {
-                "address": "https://rpc-iris.keplr.app",
-                "provider": "chainapsis"
-            }
-        ],
-        "rest": [
-            {
-                "address": "https://lcd-iris.keplr.app",
-                "provider": "chainapsis"
-            }
-        ]
-    }
+  "$schema": "../chain.schema.json",
+  "chain_name": "irisnet",
+  "chain_id": "irishub-1",
+  "bech32_prefix": "iaa",
+  "pretty_name": "IRISnet",
+  "status": "live",
+  "network_type": "mainnet",
+  "genesis": {
+    "genesis_url": "https://raw.githubusercontent.com/irisnet/mainnet/master/config/genesis.json"
+  },
+  "daemon_name": "iris",
+  "node_home": "$HOME/.iris",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      "0.2uiris"
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/irisnet/irishub",
+    "recommended_version": "v1.2.0",
+    "compatible_versions": [
+      "v1.2.0"
+    ],
+    "binaries": {}
+  },
+  "peers": {
+    "seeds": [
+      "6a6de770deaa4b8c061dffd82e9c7f4d40c2165d@seed-1.mainnet.irisnet.org:26656",
+      "a17d7923293203c64ba75723db4d5f28e642f469@seed-2.mainnet.irisnet.org:26656"
+    ],
+    "persistent_peers": [
+      "fdc0406afdd3acc63f74f5439e09104f663a7c1f@44.241.177.178:26656",
+      "090bcbe5302e6104821a96c4899912870db04cb9@52.11.128.123:26656",
+      "83b3f989f3ce089afdf733f8aa06e792d7e00c08@3.34.6.30:26656",
+      "87f18756b93d835c59fe5ce2a8da51858837eb5b@54.180.15.28:26656",
+      "90e48220190b16cad95145b6213d512d703e5617@138.197.158.189:26656",
+      "7fad2da10c41b0c1e3c2ce6e708f7fa817b5e19d@135.181.56.26:46656",
+      "ebfb43ca1b592b5f8a1faf3e2aa1a34e8e1099cc@iris01.dokia.cloud:26656",
+      "fbaf634a899c7aab3c159ce1a345122bbeca3717@209.133.200.154:26656",
+      "92fadc989ed29aee0d46afce3226f8565d1f36cb@144.91.116.17:46656",
+      "895d5a5009d042108783a6aeb0991c5186a46617@144.76.96.47:26656",
+      "40821d0ade83d582b29d748f37ecf7bef0a823d0@66.42.116.195:26656",
+      "f4af63df2f5c63428be776e56ffc2899fa47afdf@47.101.160.78:26656",
+      "08e2f9453541b104df84efa68ab2f0d242eb829b@176.9.47.69:26656",
+      "db3dacf404840e067b2f59e304cb2b6662ec0cea@173.212.212.252:26656",
+      "87525da8c830da2c3a861638a77f601278efd353@185.181.103.142:26656",
+      "4ac6200974d3fd80a8e49d145a2c254ed37a9b9a@159.69.106.156:26656",
+      "4e02a4b4f4350ea2b770cd03dc41fedcadb13176@159.69.55.206:26656",
+      "5d659b3edde90344489210f5be90c0682b54b997@49.232.82.149:26656",
+      "63f5646b5f9ce927241383a091b60f797796588f@143.110.240.198:26656",
+      "84cc32adca3986b35953886ad075431d318a98b5@52.214.130.28:46656"
+    ]
+  },
+  "apis": {
+    "rpc": [
+      "https://rpc-iris.keplr.app"
+    ],
+    "rest": [
+      "https://lcd-iris.keplr.app"
+    ],
+    "grpc": []
+  },
+  "explorers": [
+    "https://irishub.iobscan.io",
+    "https://ping.pub/iris-network",
+    "https://www.mintscan.io/iris",
+    "https://hubble.figment.io/iris/chains/irishub",
+    "https://iris.bigdipper.live"
+  ]
 }
