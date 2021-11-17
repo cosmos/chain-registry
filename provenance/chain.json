@@ -1,0 +1,84 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "provenance",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Provenance Blockchain",
+    "chain_id": "pio-mainnet-1",
+    "bech32_prefix": "pb",
+    "daemon_name": "provenanced",
+    "node_home": "$HOME/Provenance",
+    "genesis": {
+        "genesis_url": "https://raw.githubusercontent.com/provenance-io/mainnet/main/pio-mainnet-1/genesis.json"
+    },
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 505,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "nhash",
+                "fixed_min_gas_price": 1905
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/provenance-io/provenance",
+        "recommended_version": "v1.7.5",
+        "compatible_versions": [
+            "v1.7.4",
+            "v1.7.5"
+        ],
+        "binaries": {
+            "linux/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.7.5/provenance-darwin-amd64-v1.7.5.zip",
+            "darwin/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.7.5/provenance-linux-amd64-v1.7.5.zip"
+        }
+    },
+    "peers": {
+        "seeds": [
+
+        {
+            "id": "4bd2fb0ae5a123f1db325960836004f980ee09b4",
+            "address": "seed-0.provenance.io:26656",
+            "provider": "figure"
+        },
+        {
+            "id": "048b991204d7aac7209229cbe457f622eed96e5d",
+            "address": "seed-1.provenance.io:26656",
+            "provider": "figure"
+        }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://rpc.provenance.io/",
+                "provider": "figure"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://api.provenance.io",
+                "provider": "figure"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "provenance",
+            "url": "https://explorer.provenance.io",
+            "tx_page": "https://explorer.provenance.io/tx/${txHash}"
+        },
+        {
+            "kind": "bigdipper",
+            "url": "https://bigdipper.provenance.io",
+            "tx_page": "https://bigdipper.provenance.io/transactions/${txHash}"
+        },
+        {
+            "kind": "hubble",
+            "url": "https://hubble.figment.io/provenance/chains/pio-mainnet-1",
+            "tx_page": "https://hubble.figment.io/provenance/chains/pio-mainnet-1/${block}/transactions/${txHash}"
+        }           
+    ]
+}
