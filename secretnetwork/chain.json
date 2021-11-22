@@ -1,0 +1,69 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "secretnetwork",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Secret Network",
+  "chain_id": "secret-4",
+  "bech32_prefix": "secret",
+  "daemon_name": "secretd",
+  "node_home": "$HOME/.secretd",
+  "genesis": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/genesis.json",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 529,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uscrt",
+        "fixed_min_gas_price": 0.25
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/scrtlabs/SecretNetwork",
+    "recommended_version": "v1.2.0",
+    "binaries": {
+      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/secretnetwork_1.2.0_amd64.deb"
+    },
+    "compatible_versions": [
+      "v1.2.1", "v1.2.2"
+    ]
+  },
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "971911193b09a17c347565d311a3cc4f6004156d",
+        "address": "peer.node.scrtlabs.com:26656",
+        "provider": "SCRT Labs"
+      },
+      {
+        "id": "7649dcfda0eb77b38fde8e817da8071faea3cd13",
+        "address": "bootstrap.scrt.network:26656",
+        "provider": "SCRT Labs"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "http://peer.node.scrtlabs.com:26657",
+        "provider": "SCRT Labs"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lcd-secret.scrtlabs.com/",
+        "provider": "SCRT Labs"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "secret nodes",
+      "url": "https://secretnodes.com/secret/chains/secret-4",
+      "tx_page": "https://secretnodes.com/secret/chains/secret-4/transactions/${txHash}"
+    }
+  ]
+}
