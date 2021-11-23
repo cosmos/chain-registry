@@ -1,0 +1,75 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "cheqd",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Cheqd",
+    "chain_id": "cheqd-mainnet-1",
+    "bech32_prefix": "cheqd",
+    "daemon_name": "cheqd-noded",
+    "node_home": "$HOME/.cheqdnode",
+    "genesis": {
+        "genesis_url": "https://github.com/cheqd/cheqd-node/blob/main/persistent_chains/mainnet/genesis.json"
+    },
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "ncheq",
+                "fixed_min_gas_price": 0
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/cheqd/cheqd-node",
+        "recommended_version": "v0.3.1",
+        "compatible_versions": [
+            "v0.3.1"
+        ],
+        "binaries": {
+            "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v0.3.1/cheqd-node_0.3.1_amd64.deb"
+        }
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "258a9bfb822637bfca87daaab6181c10e7fd0910",
+                "address": "seed1.eu.cheqd.network:26656",
+                "provider": "cheqd"
+            },
+            {
+                "id": "f565ff792b20977face9817df6acb268d41d4092",
+                "address": "seed2.eu.cheqd.net:26656",
+                "provider": "cheqd"
+            },
+            {
+                "id": "388947cc7d901c5c06fedc4c26751634564d68e6",
+                "address": "seed3.eu.cheqd.net:26656",
+                "provider": "cheqd"
+            },
+            {
+                "id": "9b30307a2a2819790d68c04bb62f5cf4028f447e",
+                "address": "seed1.ap.cheqd.net:26656",
+                "provider": "cheqd"
+            }
+        ],
+        "persistent_peers": [
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://rpc.cheqd.network",
+                "provider": "cheqdnetwork"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://api.cheqd.network",
+                "provider": "cheqdnetwork"
+            }
+        ]
+    },
+    "explorers": [
+    ]
+}
