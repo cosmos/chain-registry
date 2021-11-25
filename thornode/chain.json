@@ -1,0 +1,64 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "thornode",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "THORChain",
+    "chain_id": "thor-1",
+    "bech32_prefix": "rune",
+    "daemon_name": "thord",
+    "node_home": "$HOME/.thornode",
+    "slip44": 931,
+    "genesis": {
+        "genesis_url": "https://rpc.thorchain.info/genesis"
+    },
+    "codebase": {
+        "git_repo": "https://github.com/thorchain/thornode",
+        "recommended_version": "master",
+        "compatible_versions": [
+            "master"
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://btc.thorchain.info",
+                "provider": "btc"
+            },
+            {
+                "address": "https://bch.thorchain.info",
+                "provider": "bch"
+            },
+            {
+                "address": "https://ltc.thorchain.info",
+                "provider": "ltc"
+            },
+            {
+                "address": "https://bnb.thorchain.info",
+                "provider": "bnb"
+            },
+            {
+                "address": "https://eth.thorchain.info",
+                "provider": "eth"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://thornode.thorchain.info",
+                "provider": "thornode"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "THORChain explorer",
+            "url": "https://thorchain.net",
+            "tx_page": "https://thorchain.net/#/txs/${txHash}"
+        },
+        {
+            "kind": "viewblock",
+            "url": "https://viewblock.io/thorchain",
+            "tx_page": "https://viewblock.io/thorchain/tx/${txHash}"
+        }
+    ]
+}
