@@ -3,13 +3,13 @@
     "chain_name": "cheqd",
     "status": "live",
     "network_type": "mainnet",
-    "pretty_name": "Cheqd",
+    "pretty_name": "cheqd",
     "chain_id": "cheqd-mainnet-1",
     "bech32_prefix": "cheqd",
     "daemon_name": "cheqd-noded",
     "node_home": "$HOME/.cheqdnode",
     "genesis": {
-        "genesis_url": "https://github.com/cheqd/cheqd-node/blob/main/persistent_chains/mainnet/genesis.json"
+        "genesis_url": "https://raw.githubusercontent.com/cheqd/cheqd-node/main/persistent_chains/mainnet/genesis.json"
     },
     "slip44": 118,
     "fees": {
@@ -34,7 +34,7 @@
         "seeds": [
             {
                 "id": "258a9bfb822637bfca87daaab6181c10e7fd0910",
-                "address": "seed1.eu.cheqd.network:26656",
+                "address": "seed1.eu.cheqd.net:26656",
                 "provider": "cheqd"
             },
             {
@@ -51,25 +51,45 @@
                 "id": "9b30307a2a2819790d68c04bb62f5cf4028f447e",
                 "address": "seed1.ap.cheqd.net:26656",
                 "provider": "cheqd"
+            },
+            {
+                "id": "debcb3fa7d40e681d98bcc7d22278fd58a34b73a",
+                "address": "144.76.183.180:1234",
+                "provider": "notional"
             }
         ],
         "persistent_peers": [
+            {
+                "id": "d1ebb60825e2c29181b499f93493dd440fb87997",
+                "address": "sentry1.eu.cheqd.net:26656",
+                "provider": "cheqd"
+            },
+            {
+                "id": "c3885b3a24e4928ce50f8c8007c9a70462fa4c8d",
+                "address": "sentry2.eu.cheqd.net:26656",
+                "provider": "cheqd"
+            }
         ]
     },
     "apis": {
         "rpc": [
             {
-                "address": "https://rpc.cheqd.network",
-                "provider": "cheqdnetwork"
+                "address": "https://rpc.cheqd.net",
+                "provider": "cheqd"
             }
         ],
         "rest": [
             {
-                "address": "https://api.cheqd.network",
-                "provider": "cheqdnetwork"
+                "address": "https://api.cheqd.net",
+                "provider": "cheqd"
             }
         ]
     },
     "explorers": [
+        {
+            "kind": "bigdipper",
+            "url": "https://cheqd.didx.co.za/",
+            "tx_page": "https://cheqd.didx.co.za/transactions/${txHash}"
+        }
     ]
 }
