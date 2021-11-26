@@ -8,6 +8,10 @@
     "bech32_prefix": "iris",
     "daemon_name": "irisd",
     "node_home": "$HOME/.irisd",
+    "key_algos": [
+        "secp256k1"
+      ],
+    "slip44": 118,
     "genesis": {
         "genesis_url": "https://raw.githubusercontent.com/irisnet/mainnet/master/config/genesis.json"
     },
@@ -93,5 +97,12 @@
                 "provider": "chainapsis"
             }
         ]
-    }
+    },
+    "explorers": [
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/iris",
+            "tx_page": "https://www.mintscan.io/iris/txs/${txHash}"
+        }
+    ]
 }
