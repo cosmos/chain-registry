@@ -75,23 +75,43 @@
     "apis": {
         "rpc": [
             {
-                "address": "https://comdex.audit.one/rpc/",
+                "address": "https://api.comdex.audit.one/rpc",
                 "provider": "audit"
             },
             {
-                "address": "https://rpc.comdex.one/",
+                "address": "https://rpc.comdex.one",
                 "provider": "comdex"
+            },
+            {
+                "address": "http://comdex.node.vitwit.com:26657/",
+                "provider": "vitwit"
             }
         ],
         "rest": [
             {
-                "address": "https://comdex.audit.one/rest/",
+                "address": "https://api.comdex.audit.one/rest",
                 "provider": "audit"
             },
             {
-                "address": "https://rest.comdex.one/",
+                "address": "https://rest.comdex.one",
                 "provider": "comdex"
+            },
+            {
+                "address": "http://comdex.node.vitwit.com:1317/",
+                "provider": "vitwit"
             }
         ]
-    }
+    },
+    "explorers": [
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/comdex",
+            "tx_page": "https://www.mintscan.io/comdex/txs/${txHash}"
+        },
+        {
+            "kind": "aneka",
+            "url": "https://comdex.aneka.io/",
+            "tx_page": "https://comdex.aneka.io/txs/${txHash}"
+        }
+    ]
 }
