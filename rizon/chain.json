@@ -1,0 +1,62 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "rizon",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "RIZON",
+    "chain_id": "titan-1",
+    "bech32_prefix": "rizon",
+    "slip44": 118,
+    "genesis": {
+        "genesis_url": "https://raw.githubusercontent.com/rizon-world/mainnet/master/genesis.json"
+    },
+    "codebase": {
+        "git_repo": "https://github.com/rizon-world/rizon",
+        "recommended_version": "v0.2.8",
+        "compatible_versions": [
+            "v0.2.8"
+        ]
+    },
+    "daemon_name": "rizond",
+    "node_home": "$HOME/.rizon",
+    "key_algos": [
+        "secp256k1"
+    ],
+    "peers": {
+        "seeds": [
+            {
+                "id": "83c9cdc2db2b4eff4acc9cd7d664ad5ae6191080",
+                "address": "seed-1.mainnet.rizon.world:26656"
+            },
+            {
+                "id": "ae1476777536e2be26507c4fbcf86b67540adb64",
+                "address": "seed-2.mainnet.rizon.world:26656"
+            },
+            {
+                "id": "8abf316257a264dc8744dee6be4981cfbbcaf4e4",
+                "address": "seed-3.mainnet.rizon.world:26656"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "http://seed-1.mainnet.rizon.world:26657",
+                "provider": "HDAC Technology AG"
+            }
+        ],
+        "rest": [
+            {
+                "address": "http://seed-1.mainnet.rizon.world:1317",
+                "provider": "HDAC Technology AG"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/rizon",
+            "tx_page": "https://www.mintscan.io/rizon/txs/${txHash}"
+        }
+    ]
+}
