@@ -1,0 +1,117 @@
+{
+    "$id": "https://osmosis.zone/assetlists.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Asset Lists",
+    "description": "Asset lists are a similar mechanism to allow frontends and other UIs to fetch metadata associated with Cosmos SDK denoms, especially for assets sent over IBC.",
+    "type": "object",
+    "required": [
+        "chain_id",
+        "assets"
+    ],
+    "properties": {
+        "chain_id": {
+            "type": "string"
+        },
+        "assets": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/asset"
+            }
+        }
+    },
+    "$defs": {
+        "asset": {
+            "type": "object",
+            "required": [
+                "denom_units",
+                "base",
+                "display"
+            ],
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "A short description of the asset"
+                },
+                "denom_units": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/denom_unit"
+                    }
+                },
+                "base": {
+                    "type": "string",
+                    "description": "The base unit of the asset. Must be in denom_units."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The project name of the asset. For example Bitcoin."
+                },
+                "display": {
+                    "type": "string",
+                    "description": "The human friendly unit of the asset. Must be in denom_units."
+                },
+                "symbol": {
+                    "type": "string",
+                    "description": "The symbol of an asset. For example BTC."
+                },
+                "ibc": {
+                    "type": "object",
+                    "properties": {
+                        "source_channel": {
+                            "type": "string"
+                        },
+                        "dst_channel": {
+                            "type": "string"
+                        },
+                        "source_denom": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "source_channel",
+                        "dst_channel",
+                        "source_denom"
+                    ]
+                },
+                "logo_URIs": {
+                    "type": "object",
+                    "properties": {
+                        "png": {
+                            "type": "string",
+                            "format": "uri-reference"
+                        },
+                        "svg": {
+                            "type": "string",
+                            "format": "uri-reference"
+                        }
+                    }
+                },
+                "coingecko_id": {
+                    "type": "string",
+                    "description": "The coingecko id to fetch asset data from coingecko v3 api. See https://api.coingecko.com/api/v3/coins/list"
+                }
+            }
+        },
+        "denom_unit": {
+            "type": "object",
+            "properties": {
+                "denom": {
+                    "type": "string"
+                },
+                "exponent": {
+                    "type": "integer"
+                },
+                "aliases": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "denom",
+                "exponent"
+            ]
+        }
+    }
+}
