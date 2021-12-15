@@ -1,0 +1,76 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "gravity-bridge",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Gravity Bridge",
+    "chain_id": "gravity-bridge-1",
+    "bech32_prefix": "graviton",
+    "daemon_name": "gravity",
+    "node_home": "$HOME/.gravity",
+    "genesis": {
+        "genesis_url": "https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json"
+    },
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "ugraviton",
+                "fixed_min_gas_price": 0
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/Gravity-Bridge/Gravity-Bridge",
+        "recommended_version": "v1.0.8",
+        "compatible_versions": [
+            "v1.0.7",
+            "v1.0.8"
+        ],
+        "binaries": {
+            "linux/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gravity-linux-amd64",
+            "linux/arm64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gravity-linux-arm64",
+            "darwin/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gravity-darwin-amd64",
+            "windows/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gravity-windows-amd64.exe"
+        }
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "2b089bfb4c7366efb402b48376a7209632380c9c",
+                "address": "65.19.136.133:26656",
+                "provider": "althea"
+            }
+        ],
+        "persistent_peers": [
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "http://gravity-rpc.qwoyn.com:26657",
+                "provider": "qwoyn"
+            },
+            {
+                "address": "chainripper-2.althea.net:26657",
+                "provider": "althea"
+            }
+        ],
+        "rest": [
+            {
+                "address": "http://gravity-rpc.qwoyn.com:1317",
+                "provider": "qwoyn"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/gravity-bridge",
+            "tx_page": "https://www.mintscan.io/osmosis/gravity-bridge/${txHash}"
+        }
+    ]
+}
