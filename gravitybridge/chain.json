@@ -1,0 +1,106 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "gravitybridge",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Gravity Bridge",
+    "chain_id": "gravity-bridge-1",
+    "bech32_prefix": "graviton",
+    "daemon_name": "gravity",
+    "node_home": "$HOME/.gravity",
+    "genesis": {
+        "genesis_url": "https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json"
+    },
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "ugraviton",
+                "fixed_min_gas_price": 0
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/Gravity-Bridge/Gravity-Bridge",
+        "recommended_version": "v1.0.8",
+        "compatible_versions": [
+            "v1.0.7",
+            "v1.0.8"
+        ],
+        "binaries": {
+            "linux/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gravity-linux-amd64",
+            "linux/arm64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gravity-linux-arm64",
+            "darwin/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gravity-darwin-amd64",
+            "windows/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gravity-windows-amd64.exe"
+        }
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "2b089bfb4c7366efb402b48376a7209632380c9c",
+                "address": "65.19.136.133:26656",
+                "provider": "althea"
+            },
+            {
+                "id": "63e662f5e048d4902c7c7126291cf1fc17687e3c",
+                "address": "95.211.103.175:26656",
+                "provider": "amhost"
+
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "21be3f7686c24f8bd9442b325a50f5b5227777a7",
+                "address": "202.61.231.15:26656",
+                "provider": "SkyNet"
+            },
+            {
+                "id": "9aa7e0c250466a2a147f8b7d2b886b0d45d44ca0",
+                "address": "45.138.49.222:26656",
+                "provider": "ps350"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "http://gravity-rpc.qwoyn.com:26657",
+                "provider": "qwoyn"
+            },
+            {
+                "address": "chainripper-2.althea.net:26657",
+                "provider": "althea"
+            },
+            {
+                "address": "gravity-bridge-1-08.nodes.amhost.net:26657",
+                "provider": "amhost"
+            },
+            {
+                "address": "45.138.49.222:26657",
+                "provider": "ps350"
+            }
+        ],
+        "rest": [
+            {
+                "address": "http://gravity-rpc.qwoyn.com:1317",
+                "provider": "qwoyn"
+            }
+        ],
+        "grpc": [
+            {
+                "address": "gravity-bridge-1-08.nodes.amhost.net:9090",
+                "provider": "amhost"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/gravity-bridge",
+            "tx_page": "https://www.mintscan.io/osmosis/gravity-bridge/${txHash}"
+        }
+    ]
+}

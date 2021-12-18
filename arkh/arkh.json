@@ -1,0 +1,67 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "arkh",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Arkhadian",
+    "chain_id": "arkh",
+    "bech32_prefix": "arkh",
+    "daemon_name": "arkhd",
+    "node_home": "$HOME/.arkhd",
+    "genesis": {
+        "https://github.com/vincadian/arkh-blockchain/blob/master/genesis/genesis.json"
+    },
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "uarkh",
+                "fixed_min_gas_price": 0.000000001
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/vincadian/arkh-blockchain",
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+            "v1.0.0"
+        ],
+        "binaries": {
+            "linux/amd64": "https://github.com/vincadian/arkh-blockchain/releases/download/latest/arkh-blockchain_latest_linux_amd64.tar.gz",       
+            "darwin/amd64": "https://github.com/vincadian/arkh-blockchain/releases/download/latest/arkh-blockchain_latest_darwin_amd64.tar.gz"
+        }
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "808f01d4a7507bf7478027a08d95c575e1b5fa3c",
+                "address": "asc-dataseed.arkhadian.com:26656"
+            }
+        ]
+    },
+    
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://asc-dataseed.arkhadian.com/",
+                "provider": "arkhnetwork"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://asc-blockchain-api.arkhadian.com/",
+                "provider": "arkhnetwork"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "Ping",
+            "url": "https://testnet.ping.pub/arkh",
+            "tx_page": "https://testnet.ping.pub/arkh/tx/${txHash}"
+        }
+    ]
+}
