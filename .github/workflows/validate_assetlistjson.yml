@@ -1,0 +1,14 @@
+on: [pull_request, workflow_dispatch]
+name: PR workflow
+jobs:
+  validate_chainjson:
+    name: Validate edited assetlist.json
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Validate Assetlist.json schema
+        uses: snapcart/json-schema-validator@v1.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          json_schema: ./assetlist.schema.json
+          json_path_pattern: .*assetlist.json$
