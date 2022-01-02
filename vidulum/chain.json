@@ -1,0 +1,97 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "vidulum",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Vidulum",
+  "chain_id": "vidulum-1",
+  "bech32_prefix": "vdl",
+  "daemon_name": "vidulumd",
+  "node_home": "$HOME/.vidulum",
+  "genesis": {
+    "genesis_url": "https://github.com/vidulum/mainnet/blob/main/genesis.json"
+  },
+  "key_algos": ["secp256k1"],
+  "slip44": 370,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uvdl",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/vidulum/mainnet",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": ["v1.0.0"],
+    "binaries": {
+      "linux/amd64": "https://github.com/vidulum/mainnet/releases/download/v1.0.0/vidulum_linux_amd64.tar.gz",
+      "linux/arm64": "https://github.com/vidulum/mainnet/releases/download/v1.0.0/vidulum_linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/vidulum/mainnet/releases/download/v1.0.0/vidulum_darwin_amd64.tar.gz",
+      "windows/amd64": "https://github.com/vidulum/mainnet/releases/download/v1.0.0/vidulum_windows_amd64.zip"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "883ec7d5af7222c206674c20c997ccc5c242b38b",
+        "address": "ec2-3-82-120-39.compute-1.amazonaws.com:26656",
+        "provider": "notional"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "3bf3d98dfd4000dd5ff8189882a9f96848b99b87",
+        "address": "137.220.60.196:26656",
+        "provider": "vidulum"
+      },
+      {
+        "id": "7a44ea6ecb59b0e4bd01b58a75163ec64b164bb4",
+        "address": "63.210.148.24:26656",
+        "provider": "vidulum"
+      },
+      {
+        "id": "52051fef449e76eb399966312f523e8e5e27490b",
+        "address": "95.217.118.211:26656",
+        "provider": "minerpool"
+      },
+      {
+        "id": "cae7d9d21c1752300277eab72d861b0c6638b2e3",
+        "address": "164.68.119.151:26656",
+        "provider": "bluebird"
+      },
+      {
+        "id": "209688f5bccb88f6397a97cc11ab545a014aa559",
+        "address": "137.184.92.115:26656",
+        "provider": "1square"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://mainnet-rpc.vidulum.app/",
+        "provider": "vidulum"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://mainnet-lcd.vidulum.app",
+        "provider": "vidulum"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Ping",
+      "url": "https://explorers.vidulum.app/vidulum",
+      "tx_page": "https://explorers.vidulum.app/vidulum/tx/${txHash}"
+    },
+    {
+      "kind": "Ping",
+      "url": "https://ping.pub/vidulum",
+      "tx_page": "https://ping.pub/vidulum/tx/${txHash}"
+    }
+  ]
+}
