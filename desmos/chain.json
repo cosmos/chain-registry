@@ -1,0 +1,65 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "desmos",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Desmos",
+    "chain_id": "desmos-mainnet",
+    "bech32_prefix": "desmos",
+    "daemon_name": "desmos",
+    "node_home": "$HOME/.desmos",
+    "genesis": {
+        "genesis_url": "https://raw.githubusercontent.com/desmos-labs/mainnet/main/genesis.json"
+    },
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "udsm",
+                "fixed_min_gas_price": 0.001
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/desmos-labs/desmos",
+        "recommended_version": "v2.3.1",
+        "compatible_versions": [
+            "v2.3.1"
+        ],
+        "binaries": {
+            "linux/amd64": "https://github.com/desmos-labs/desmos/releases/download/v2.3.1/desmos-2.3.1-linux-amd64",
+            "linux/arm64": "https://github.com/desmos-labs/desmos/releases/download/v2.3.1/desmos-2.3.1-linux-arm64",
+            "darwin/amd64": "https://github.com/desmos-labs/desmos/releases/download/v2.3.1/desmos-2.3.1-darwin-amd64",
+            "windows/amd64": "https://github.com/desmos-labs/desmos/releases/download/v2.3.1/desmos-2.3.1-windows-amd64.exe"
+        }
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "9bde6ab4e0e00f721cc3f5b4b35f3a0e8979fab5",
+                "address": "seed-1.mainnet.desmos.network:26656",
+                "provider": "desmos"
+            },
+            {
+                "id": "5c86915026093f9a2f81e5910107cf14676b48fc",
+                "address": "seed-2.mainnet.desmos.network:26656",
+                "provider": "desmos"
+            },
+            {
+                "id": "45105c7241068904bdf5a32c86ee45979794637f",
+                "address": "seed-3.mainnet.desmos.network:26656",
+                "provider": "desmos"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/desmos",
+            "tx_page": "https://www.mintscan.io/desmos/txs/${txHash}"
+        }
+    ]
+}
