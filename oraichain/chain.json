@@ -1,0 +1,105 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "oraichain",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Oraichain",
+    "chain_id": "Oraichain",
+    "bech32_prefix": "orai",
+    "daemon_name": "oraid",
+    "node_home": "$WORKSPACE/.oraid",
+    "genesis": {
+        "genesis_url": "https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/genesis.json"
+    },
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "orai",
+                "fixed_min_gas_price": 0
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/oraichain/orai",
+        "recommended_version": "v0.40.1",
+        "compatible_versions": [
+            "v0.40.1"
+        ],
+        "binaries": {
+            "linux/amd64": "https://gateway.ipfs.io/ipfs/QmfTWvw7jGcigT7tpD4scSzhgshJtawazgYEPUgzd4tgL8"
+        }
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "0baa806b3a4dd17be6e06369d899f140c3897d6e",
+                "address": "18.223.242.70:26656",
+                "provider": "oraichain-team"
+            },
+            {
+                "id": "9749da4a81526266d7b8fe9a03d260cd3db241ad",
+                "address": "18.116.209.76:26656",
+                "provider": "oraichain-team"
+            },
+            {
+                "id": "59d49e39d507bb190e746bcf5590d65879c132e2",
+                "address": "13.79.247.74:26656",
+                "provider": "vaiot"
+            },
+            {
+                "id": "35c1f999d67de56736b412a1325370a8e2fdb34a",
+                "address": "5.189.169.99:26656",
+                "provider": "ORAI Vanguard"
+            },
+            {
+                "id": "5ad3b29bf56b9ba95c67f282aa281b6f0903e921",
+                "address": "64.225.53.108:26656",
+                "provider": "oraichain-team"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "0baa806b3a4dd17be6e06369d899f140c3897d6e",
+                "address": "18.223.242.70:26656"
+            },
+            {
+                "id": "9749da4a81526266d7b8fe9a03d260cd3db241ad",
+                "address": "18.116.209.76:26656"
+            },
+            {
+                "id": "59d49e39d507bb190e746bcf5590d65879c132e2",
+                "address": "13.79.247.74:26656"
+            },
+            {
+                "id": "35c1f999d67de56736b412a1325370a8e2fdb34a",
+                "address": "5.189.169.99:26656"
+            },
+            {
+                "id": "5ad3b29bf56b9ba95c67f282aa281b6f0903e921",
+                "address": "64.225.53.108:26656"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://rpc.orai.io",
+                "provider": "oraichain-team"
+            }
+        ],
+        "rest": [
+            {
+                "address": "http://lcd.orai.io",
+                "provider": "oraichain-team"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "oraiscan",
+            "url": "https://scan.orai.io",
+            "tx_page": "https://scan.orai.io/txs/{txHash}"
+        }
+    ]
+}
