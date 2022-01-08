@@ -1,27 +1,40 @@
 {
     "$schema": "../chain.schema.json",
     "chain_name": "cosmoshub",
+    "chain_id": "cosmoshub-4",
+    "pretty_name": "Cosmos Hub",
     "status": "live",
     "network_type": "mainnet",
-    "pretty_name": "Cosmos Hub",
-    "chain_id": "cosmoshub-4",
     "bech32_prefix": "cosmos",
-    "daemon_name": "gaiad",
-    "node_home": "$HOME/.gaia",
     "genesis": {
         "genesis_url": "https://github.com/cosmos/mainnet/raw/master/genesis.cosmoshub-4.json.gz"
     },
+    "daemon_name": "gaiad",
+    "node_home": "$HOME/.gaia",
+    "key_algos": [
+        "secp256k1"
+    ],
     "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "uatom",
+                "fixed_min_gas_price": 0
+            }
+        ]
+    },
     "codebase": {
         "git_repo": "https://github.com/cosmos/gaia",
-        "recommended_version": "v5.0.5",
+        "recommended_version": "v6.0.0",
         "compatible_versions": [
-            "v5.0.0",
-            "v5.0.1",
-            "v5.0.4",
-            "v5.0.5",
-            "v5.0.7"
-        ]
+            "v6.0.0"
+        ],
+        "binaries": {
+            "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v6.0.0/gaiad-v6.0.0-linux-amd64",
+            "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v6.0.0/gaiad-v6.0.0-linux-arm64",
+            "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v6.0.0/gaiad-v6.0.0-darwin-amd64",
+            "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v6.0.0/gaiad-v6.0.0-windows-amd64.exe"
+        }
     },
     "peers": {
         "seeds": [
@@ -164,5 +177,12 @@
                 "provider": "chainapsis"
             }
         ]
-    }
+    },
+    "explorers": [
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/cosmos",
+            "tx_page": "https://www.mintscan.io/cosmos/txs/${txHash}"
+        }
+    ]
 }
