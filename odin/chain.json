@@ -1,0 +1,81 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "odin",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "OdinChain",
+  "chain_id": "odin-mainnet-freya",
+  "bech32_prefix": "odin",
+  "daemon_name": "odind",
+  "node_home": "$HOME/.odin",
+  "genesis": {
+    "genesis_url": "https://github.com/ODIN-PROTOCOL/networks/blob/master/mainnets/odin-mainnet-freya/genesis.json"
+  },
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "loki",
+        "fixed_min_gas_price": 0.0125
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/ODIN-PROTOCOL/networks/blob/master/mainnets/odin-mainnet-freya",
+    "recommended_version": "v0.3.0",
+    "binaries": {
+      "linux/amd64": "https://github.com/GeoDB-Limited/odin-core/releases/download/v0.3.0/odinprotocol_v0.3.0_amd64.deb"
+    },
+    "compatible_versions": [
+      "v0.3.0"
+    ]
+  },
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "9d16b1ce74a34b869d69ad5fe34eaca614a36ecd",
+        "address": "35.241.238.207:26656",
+        "provider": "Odin Protocol"
+      },
+      {
+        "id": "02e905f49e1b869f55ad010979931b542302a9e6",
+        "address": "35.241.221.154:26656",
+        "provider": "Odin Protocol"
+      },
+      {
+        "id": "4847c79f1601d24d3605278a0183d416a99aa093",
+        "address": "34.140.252.7:26656",
+        "provider": "Odin Protocol"
+      },
+      {
+        "id": "0165cd0d60549a37abb00b6acc8227a54609c648",
+        "address": "34.79.179.216:26656",
+        "provider": "Odin Protocol"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "http://34.79.179.216:26657",
+        "provider": "Odin Protocol"
+      }
+    ],
+    "rest": [
+      {
+        "address": "http://34.79.179.216:1317/",
+        "provider": "Odin Protocol"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "odin web",
+      "url": "https://mainnet.odinprotocol.io/",
+      "tx_page": "https://mainnet.odinprotocol.io/transactions/${txHash}"
+    }
+  ]
+}
