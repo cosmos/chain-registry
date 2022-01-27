@@ -1,0 +1,88 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "decentr",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Decentr",
+    "chain_id": "mainnet-3",
+    "bech32_prefix": "decentr",
+    "daemon_name": "decentrd",
+    "node_home": "$HOME/.decentr",
+    "genesis": {
+        "genesis_url": "https://raw.githubusercontent.com/Decentr-net/mainnets/master/3.0/genesis.json"
+    },
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "udec",
+                "fixed_min_gas_price": 0.025
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/Decentr-net/decentr",
+        "recommended_version": "v1.5.7",
+        "compatible_versions": [
+            "v1.5.7"
+        ]
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "7708addcfb9d4ff394b18fbc6c016b4aaa90a10a",
+                "address": "ares.mainnet.decentr.xyz:26656"
+            },
+            {
+                "id": "3261bff0b7c16dcf6b5b8e62dd54faafbfd75415",
+                "address": "hera.mainnet.decentr.xyz:26656"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "8a3485f940c3b2b9f0dd979a16ea28de154f14dd",
+                "address": "calliope.mainnet.decentr.xyz"
+            },
+            {
+                "id": "87490fd832f3226ac5d090f6a438d402670881d0",
+                "address": "euterpe.mainnet.decentr.xyz"
+            },
+            {
+                "id": "5f3cfa2e3d5ed2c2ef699c8593a3d93c902406a9",
+                "address": "hermes.mainnet.decentr.xyz"
+            },
+            {
+                "id": "a529801b5390f56d5c280eaff4ae95b7163e385f",
+                "address": "melpomene.mainnet.decentr.xyz"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://poseidon.mainnet.decentr.xyz",
+                "provider": "decentr"
+            },
+            {
+                "address": "https://ares.mainnet.decentr.xyz",
+                "provider": "decentr"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://rest.mainnet.decentr.xyz",
+                "provider": "decentr"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "decentr.net",
+            "url": "https://explorer.decentr.net",
+            "tx_page": "https://explorer.decentr.net/transactions/${txHash}?networkId=mainnet"
+        }
+    ]
+}
