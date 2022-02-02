@@ -1,6 +1,6 @@
 {
     "$id": "https://osmosis.zone/assetlists.schema.json",
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schema": "https://json-schema.org/draft-07/schema",
     "title": "Asset Lists",
     "description": "Asset lists are a similar mechanism to allow frontends and other UIs to fetch metadata associated with Cosmos SDK denoms, especially for assets sent over IBC.",
     "type": "object",
@@ -28,9 +28,18 @@
                 "display"
             ],
             "properties": {
+                "kind": {
+                    "type": "string",
+                    "enum": ["sdk.coin", "cw20", "snip20", "erc20"],
+                    "default": "sdk.coin",
+                    "description": "The potential options for type of asset. By default, assumes sdk.coin"
+                },
                 "description": {
                     "type": "string",
                     "description": "A short description of the asset"
+                },
+                "address": {
+                    "type": "string"
                 },
                 "denom_units": {
                     "type": "array",
@@ -90,6 +99,24 @@
                     "type": "string",
                     "description": "The coingecko id to fetch asset data from coingecko v3 api. See https://api.coingecko.com/api/v3/coins/list"
                 }
+            },
+            "if": {
+                "properties": {
+                    "kind": {
+                        "enum": [
+                        "cw20",
+                        "snip20"
+                        ]
+                    }
+                },
+                "required": [
+                    "kind"
+                ]
+              },
+            "then": {
+                "required": [
+                    "address"
+                ]
             }
         },
         "denom_unit": {

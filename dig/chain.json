@@ -7,7 +7,7 @@
   "chain_id": "dig-1",
   "bech32_prefix": "dig",
   "daemon_name": "digd",
-  "node_home": "$HOME/.digd",
+  "node_home": "$HOME/.dig",
   "genesis": {
     "genesis_url":  "https://raw.githubusercontent.com/notional-labs/dig/master/networks/mainnets/dig-1/genesis.json"
   },
@@ -25,8 +25,8 @@
   },
   "codebase": {
     "git_repo": "https://github.com/notional-labs/dig",
-    "recommended_version": "MainNet",
-    "compatible_versions": ["MainNet"]
+    "recommended_version": "v1.0.0",
+    "compatible_versions": ["v1.0.0"]
   },
   "peers": {
     "seeds": [
@@ -81,13 +81,26 @@
   "apis": {
     "rpc": [
       {
-        "address": "http://65.21.202.37:8001"
+        "address": "https://rpc-1-dig.notional.ventures"
+      },
+      {
+        "address": "https://rpc-2-dig.notional.ventures"
       }
     ],
     "rest": [
       {
-        "address": "http://65.21.202.37:8003"
+        "address": "https://api-1-dig.notional.ventures"
+      },
+      {
+        "address": "https://api-2-dig.notional.ventures"
       }
     ]
-  }
+  },
+  "explorers": [
+        {
+            "kind": "ping.pub",
+            "url": "https://ping.pub/dig",
+            "tx_page": "https://ping.pub/dig/tx/${txHash}"
+        }
+    ]
 }

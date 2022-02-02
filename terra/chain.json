@@ -13,12 +13,14 @@
     },
     "codebase": {
         "git_repo": "https://github.com/terra-money/core/",
-        "recommended_version": "v0.5.9",
+        "recommended_version": "v0.5.14",
         "compatible_versions": [
-            "v0.5.9"
+            "v0.5.14"
         ],
         "binaries": {
-            "linux/amd64": "https://github.com/terra-money/core/releases/download/v0.5.9/terra_0.5.9_Linux_x86_64.tar.gz"
+            "linux/amd64": "https://github.com/terra-money/core/releases/download/v0.5.14/terra_0.5.14_Linux_x86_64.tar.gz",
+            "linux/arm64": "https://github.com/terra-money/core/releases/download/v0.5.14/terra_0.5.14-oracle_Linux_x86_64.tar.gz",
+            "darwin/amd64": "https://github.com/terra-money/core/releases/download/v0.5.14/terra_0.5.14_Darwin_x86_64.tar.gz"
         }
     },
     "peers": {
@@ -46,14 +48,30 @@
     "apis": {
         "rpc": [
             {
+                "address": "https://terra-rpc.easy2stake.com:443",
+                "provider": "Easy2stake"
+            },
+            {
                 "address": "http://64.227.72.101:26657",
                 "provider": "cryptocrew"
+            },
+            {
+                "address": "http://public-node.terra.dev:26657",
+                "provider": "Terra"
+            },
+            {
+                "address": "https://terra.technofractal.com:443",
+                "provider": "strangelove-ventures"
             }
         ],
         "rest": [
             {
                 "address": "http://64.227.72.101:1317",
                 "provider": "cryptocrew"
+            },
+            {
+                "address": "https://blockdaemon-terra-lcd.api.bdnodes.net:1317",
+                "provider": "Blockdaemon"
             }
         ]
     }
