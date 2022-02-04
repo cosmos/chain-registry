@@ -6,29 +6,95 @@
     "pretty_name": "Injective",
     "chain_id": "injective-1",
     "bech32_prefix": "inj",
+    "slip44": 60,
     "daemon_name": "injectived",
-    "node_home": ".injectived",
+    "node_home": "$HOME/.injectived",
     "genesis": {
         "genesis_url": "https://raw.githubusercontent.com/InjectiveLabs/mainnet-config/master/10001/genesis.json"
+    },
+    "codebase": {
+        "git_repo": "https://github.com/InjectiveLabs/injective-chain-releases",
+        "recommended_version": "v1.1.1-1637059884",
+        "compatible_versions": [
+            "v1.1.1-1637059884"
+        ],
+        "binaries": {
+            "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.1.1-1637059884/linux-amd64.zip",
+            "darwin/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.1.1-1637059884/darwin-amd64.zip"
+        }
     },
     "peers": {
         "seeds": [
             {
                 "id": "2ee7586d8e5a4a2020dafddf68efdfdaa3606cc3",
-                "address": "145.40.67.249:26656"
+                "address": "145.40.67.249:26656",
+                "provider": "injectiveprotocol"
             },
             {
                 "id": "7bb20f8e9fa73e34d0d21862528d5fba839eeb56",
-                "address": "145.40.73.39:26656"
+                "address": "145.40.73.39:26656",
+                "provider": "injectiveprotocol"
             },
             {
                 "id": "de25916e19083d44d67e0c336199b215523f1578",
-                "address": "145.40.68.223:26656"
+                "address": "145.40.68.223:26656",
+                "provider": "injectiveprotocol"
             },
             {
                 "id": "1a2ccd9c436eae54d6c767ad566c58dce78f8be2",
-                "address": "145.40.68.125:26656"
+                "address": "145.40.68.125:26656",
+                "provider": "injectiveprotocol"
+
+            }
+        ],
+    "persistent_peers": [
+        {
+            "id": "2ee7586d8e5a4a2020dafddf68efdfdaa3606cc3",
+            "address": "2ee7586d8e5a4a2020dafddf68efdfdaa3606cc3@145.40.67.249:26656",
+            "provider": "injectiveprotocol"
+
+        },
+        {
+            "id": "30e81e1b785eaf82d2260e932251c02c95787740",
+            "address": "30e81e1b785eaf82d2260e932251c02c95787740@86.109.11.215:26656",
+            "provider": "injectiveprotocol"
+        }
+    ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://public.api.injective.network",
+                "provider": "injectiveprotocol"
+            },
+            {
+                "address": "https://injective-rpc.api.chainlayer.network/",
+                "provider": "chainlayer"
+            }
+        ],
+         "rest": [
+            {
+                "address": "https://public.lcd.injective.network",
+                "provider": "injectiveprotocol"
+            },
+            {
+                "address": "https://injective-lcd.api.chainlayer.network/",
+                "provider": "chainlayer"
+            }
+        ],
+        "grpc": [
+            {
+                "address": "https://public.grpc.injective.network",
+                "provider": "injectiveprotocol"
             }
         ]
-    }
+    },
+    "explorers": [
+        {
+         "kind": "injectiveprotocol",
+         "url": "https://explorer.injective.network/",
+         "tx_page": "https://explorer.injective.network/transaction/${txHash}"
+
+        }
+    ]
 }
