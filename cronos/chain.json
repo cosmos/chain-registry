@@ -1,0 +1,102 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "cronos",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Cronos",
+  "chain_id": "cronosmainnet_25-1",
+  "bech32_prefix": "crc",
+  "node_home": "$HOME/.cronos",
+  "genesis": {
+    "genesis_url":  "https://raw.githubusercontent.com/crypto-org-chain/cronos-mainnet/master/cronosmainnet_25-1/genesis.json"
+  },
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "basecro"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/crypto-org-chain/cronos",
+    "recommended_version": "v0.6.4",
+    "compatible_versions": ["v0.6.4"],
+    "binaries": {
+      "linux/amd64": "https://github.com/crypto-org-chain/cronos/releases/download/v0.6.4/cronos_0.6.4-testnet_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/crypto-org-chain/cronos/releases/download/v0.6.4/cronos_0.6.4_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/crypto-org-chain/cronos/releases/download/v0.6.4/cronos_0.6.4_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/crypto-org-chain/cronos/releases/download/v0.6.4/cronos_0.6.4_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/crypto-org-chain/cronos/releases/download/v0.6.4/cronos_0.6.4_Windows_x86_64.zip"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "0d5cf1394a1cfde28dc8f023567222abc0f47534",
+        "address": "cronos-seed-0.crypto.org:26656",
+        "provider": "crypto-org"
+      },
+      {
+        "id": "3032073adc06d710dd512240281637c1bd0c8a7b",
+        "address": "cronos-seed-1.crypto.org:26656",
+        "provider": "crypto-org"
+      },
+      {
+        "id": "04f43116b4c6c70054d9c2b7485383df5b1ed1da",
+        "address": "cronos-seed-2.crypto.org:26656",
+        "provider": "crypto-org"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "0d5cf1394a1cfde28dc8f023567222abc0f47534",
+        "address": "cronos-seed-0.crypto.org:26656",
+        "provider": "crypto-org"
+      },
+      {
+        "id": "3032073adc06d710dd512240281637c1bd0c8a7b",
+        "address": "cronos-seed-1.crypto.org:26656",
+        "provider": "crypto-org"
+      },
+      {
+        "id": "04f43116b4c6c70054d9c2b7485383df5b1ed1da",
+        "address": "cronos-seed-2.crypto.org:26656",
+        "provider": "crypto-org"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-cronos.crypto.org/",
+        "provider": "crypto.org"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest-cronos.crypto.org/",
+        "provider": "crypto.org"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc-cronos.crypto.org/",
+        "provider": "crypto.org"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://evm-cronos.crypto.org/",
+        "provider": "crypto.org"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "crypto-org",
+      "url": "https://cronos.crypto.org/explorer",
+      "tx_page": "https://cronos.crypto.org/explorer/tx/${txHash}"
+    }
+  ]
+}

@@ -105,13 +105,13 @@ A sample `chain.json` includes the following information.
                 "provider": "validatornetwork"
             },
             {
-                "address": "https://rpc-osmosis.keplr.app",
+                "address": "https://rpc-osmosis.blockapsis.com",
                 "provider": "chainapsis"
             }
         ],
         "rest": [
             {
-                "address": "https://lcd-osmosis.keplr.app",
+                "address": "https://lcd-osmosis.blockapsis.com",
                 "provider": "chainapsis"
             }
         ]
