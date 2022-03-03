@@ -1,0 +1,134 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "evmos",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Evmos",
+  "chain_id": "evmos_9001-1",
+  "bech32_prefix": "evmos",
+  "node_home": "$HOME/.evmosd",
+  "genesis": {
+    "genesis_url": "https://archive.evmos.dev/genesis/genesis.json"
+  },
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "aevmos"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/tharsis/evmos",
+    "recommended_version": "v1.1.0",
+    "compatible_versions": [
+      "v1.1.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/tharsis/evmos/releases/download/v1.1.0/evmos_1.1.0_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/tharsis/evmos/releases/download/v1.1.0/evmos_1.1.0_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/tharsis/evmos/releases/download/v1.1.0/evmos_1.1.0_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/tharsis/evmos/releases/download/v1.1.0/evmos_1.1.0_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/tharsis/evmos/releases/download/v1.1.0/evmos_1.1.0_Windows_x86_64.zip"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "906840c2f447915f3d0e37bc68221f5494f541db",
+        "address": "3.39.58.32:26656",
+        "provider": "Cosmostation"
+      },
+      {
+        "id": "7aa31684d201f8ebc0b1e832d90d7490345d77ee",
+        "address": "52.10.99.253:26656",
+        "provider": "Cosmostation"
+      },
+      {
+        "id": "5740e4a36e646e80cc5648daf5e983e5b5d8f265",
+        "address": "54.39.18.27:26656",
+        "provider": "Figment"
+      },
+      {
+        "id": "de2c5e946e21360d4ffa3885579fa038a7d9776e",
+        "address": "46.101.148.190:26656",
+        "provider": "DragonStake"
+      },
+      {
+        "id": "588cedb70fa1d98c14a2f2c1456bfa41e1a156a8",
+        "address": "evmos-sentry.mercury-nodes.net:29539",
+        "provider": "Mercury"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "906840c2f447915f3d0e37bc68221f5494f541db",
+        "address": "3.39.58.32:26656",
+        "provider": "Cosmostation"
+      },
+      {
+        "id": "7aa31684d201f8ebc0b1e832d90d7490345d77ee",
+        "address": "52.10.99.253:26656",
+        "provider": "Cosmostation"
+      },
+      {
+        "id": "5740e4a36e646e80cc5648daf5e983e5b5d8f265",
+        "address": "54.39.18.27:26656",
+        "provider": "Figment"
+      },
+      {
+        "id": "de2c5e946e21360d4ffa3885579fa038a7d9776e",
+        "address": "46.101.148.190:26656",
+        "provider": "DragonStake"
+      },
+      {
+        "id": "588cedb70fa1d98c14a2f2c1456bfa41e1a156a8",
+        "address": "evmos-sentry.mercury-nodes.net:29539",
+        "provider": "Mercury"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://tendermint.bd.evmos.org:26657",
+        "provider": "evmos.org"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.bd.evmos.org:1317",
+        "provider": "evmos.org"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.bd.evmos.org:9090",
+        "provider": "evmos.org"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://eth.bd.evmos.org:8545",
+        "provider": "evmos.org"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/evmos",
+      "tx_page": "https://www.mintscan.io/evmos/txs/${txHash}"
+    },
+    {
+      "kind": "bigdipper",
+      "url": "https://evmos.bigdipper.live",
+      "tx_page": "https://evmos.bigdipper.live/transactions/${txHash}"
+    },
+    {
+      "kind": "blockscout",
+      "url": "https://evm.evmos.org",
+      "tx_page": "https://evm.evmos.org/tx/${txHash}"
+    }
+  ]
+}
