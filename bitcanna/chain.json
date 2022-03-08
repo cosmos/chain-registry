@@ -25,12 +25,12 @@
     },
     "codebase": {
         "git_repo": "https://github.com/BitCannaGlobal/bcna",
-        "recommended_version": "v1.2",
+        "recommended_version": "v1.3.1",
         "compatible_versions": [
-            "v1.2"
+            "v1.3.1"
         ],
         "binaries": {
-            "linux/amd64": "https://github.com/BitCannaGlobal/bcna/releases/download/v1.2/bcnad"
+            "linux/amd64": "https://github.com/BitCannaGlobal/bcna/releases/download/v.1.3.1/bcnad"
         }
     },
     "peers": {
@@ -47,48 +47,71 @@
             }
         ],
         "persistent_peers": [
-            {
-                "id": "7b2d10d188926ea25eb209f037fe4e67e16e06b6",
-                "address": "92.222.25.18:26656",
-                "provider": "StakeLab"
-            },
-            {
-                "id": "5eb75c20a77ccf960df396b187b86d6324b40123",
-                "address": "51.68.226.61:26656",
-                "provider": "StakeLab"
-            },
-            {
-                "id": "6bd989f063b89be680fb3c55c4cf1720a892b12c",
-                "address": "161.97.96.253:26656",
-                "provider": "StakeLab"
-            },
-            {
-                "id": "3cdfe02efd4432280707d2949e064a9d8db412b3",
-                "address": "178.62.98.158:26656",
-                "provider": "Stakely"
-            },
-            {
-                "id": "d806bb39349751c142627a547c23c586a787ef26",
-                "address": "138.68.78.210:26656",
-                "provider": "Stakely"
-            },
-            {
-                "id": "ddb620e7c7a6b5a8a53352037cde927681012ab4",
-                "address": "65.21.229.209:37656",
-                "provider": "Blockscope"
-            }
+          {
+            "id": "bee230fb347722d7f87d22414f57bf9cbe37a410",
+            "address": "95.217.226.95:26039",
+            "provider": "EZStaking.io"
+          },
+          {
+            "id": "90ee680b1738344354c48c23ba1e1fd68e071d80",
+            "address": "65.108.128.241:26696",
+            "provider": "EZStaking.io"
+          },
+          {
+            "id": "7b2d10d188926ea25eb209f037fe4e67e16e06b6",
+            "address": "92.222.25.18:26656",
+            "provider": "StakeLab"
+          },
+          {
+            "id": "5eb75c20a77ccf960df396b187b86d6324b40123",
+            "address": "51.68.226.61:26656",
+            "provider": "StakeLab"
+          },
+          {
+            "id": "6bd989f063b89be680fb3c55c4cf1720a892b12c",
+            "address": "161.97.96.253:26656",
+            "provider": "StakeLab"
+          },
+          {
+            "id": "3cdfe02efd4432280707d2949e064a9d8db412b3",
+            "address": "178.62.98.158:26656",
+            "provider": "Stakely"
+          },
+          {
+            "id": "d806bb39349751c142627a547c23c586a787ef26",
+            "address": "138.68.78.210:26656",
+            "provider": "Stakely"
+          },
+          {
+            "id": "ddb620e7c7a6b5a8a53352037cde927681012ab4",
+            "address": "65.21.229.209:37656",
+            "provider": "Blockscope"
+          },
+          {
+            "id": "df99de6cec9152c517990317b340b8b9a307493c",
+            "address": "193.34.144.156:26656",
+            "provider": "ParanormalBrothers"
+          }
         ]
     },
     "apis": {
         "rpc": [
-            {
+              {
                 "address": "https://rpc.bitcanna.io/",
                 "provider": "bitcanna"
-            },
-            {
+              },
+              {
+                "address": "http://bitcana.paranorm.pro:26657/",
+                "provider": "ParanormalBrothers"
+              },
+              {
+                "address": "https://rpc.bitcanna.ezstaking.io/",
+                "provider": "ezstaking.io"
+              },
+              {
                 "address": "https://rpc-bitcanna.itastakers.com/",
                 "provider": "itastaker"
-            }
+             }
         ],
         "grpc": [
             {
@@ -100,19 +123,36 @@
             {
                 "address": "https://lcd.bitcanna.io",
                 "provider": "bitcanna"
+            },
+            {
+                "address": "https://lcd.bitcanna.ezstaking.io/",
+                "provider": "ezstaking.io"
+            },
+            {
+                "address": "https://lcd-bitcanna.itastakers.com/",
+                "provider": "itastaker"
+            },
+            {
+                "address": "http://bitcanna.stakelab.fr/",
+                "provider": "stakelab"
             }
         ]
     },
     "explorers": [ 
-        {
-            "kind": "forbole",
-            "url": "https://cosmos-explorer.bitcanna.io",
-            "tx_page": "https://cosmos-explorer.bitcanna.io/transactions/${txHash}"
-        },
-        {
-            "kind": "mintscan",
-            "url": "https://www.mintscan.io/bitcanna/",
-            "tx_page": "https://www.mintscan.io/bitcanna/txs/${txHash}"
-        }
+            {
+                "kind": "forbole",
+                "url": "https://cosmos-explorer.bitcanna.io",
+                "tx_page": "https://cosmos-explorer.bitcanna.io/transactions/${txHash}"
+            },
+            {
+                "kind": "ping-pub",
+                "url": "https://ping.pub/bitcanna",
+                "tx_page": "https://ping.pub/bitcanna/transactions/${txHash}"
+            },        
+            {
+                "kind": "mintscan",
+                "url": "https://www.mintscan.io/bitcanna/",
+                "tx_page": "https://www.mintscan.io/bitcanna/txs/${txHash}"
+            }
     ]
 }
