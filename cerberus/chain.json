@@ -1,0 +1,62 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "cerberus",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Cerberus",
+    "chain_id": "cerberus-1",
+    "bech32_prefix": "cerberus",
+    "daemon_name": "cerberusd",
+    "node_home": "$HOME/.cerberus",
+    "genesis": {
+        "genesis_url": ""
+    },
+    "codebase": {
+        "git_repo": "https://github.com/cerberus-zone/cerberus",
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+            "v1.0.0"
+        ]
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "4936e377b4d4f17048f8961838a5035a4d21240c",
+                "address": "chihuahua-seed-01.mercury-nodes.net:29540"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "b140eb36b20f3d201936c4757d5a1dcbf03a42f1",
+                "address": "216.238.79.138:26656",
+                "provider": "artifact"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://rpc.chihuahua.wtf/",
+                "provider": "Chihuahua"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://api.chihuahua.wtf/",
+                "provider": "Chihuahua"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "ping.pub",
+            "url": "https://ping.pub/chihuahua",
+            "tx_page": "https://ping.pub/chihuahua/tx/${txHash}"
+        },
+        {
+            "kind": "mintscan",
+            "url": "https://mintscan.io/chihuahua",
+            "tx_page": "https://mintscan.io/chihuahua/txs/${txHash}"
+        }
+    ]
+}
