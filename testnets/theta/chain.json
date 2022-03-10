@@ -1,0 +1,148 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "theta",
+    "chain_id": "theta-testnet-001",
+    "pretty_name": "Theta Testnet",
+    "status": "live",
+    "network_type": "testnet",
+    "bech32_prefix": "cosmos",
+    "genesis": {
+        "genesis_url": "https://github.com/cosmos/testnets/raw/master/v7-theta/public-testnet/genesis.json.gz"
+    },
+    "daemon_name": "gaiad",
+    "node_home": "$HOME/.gaia",
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "uatom",
+                "fixed_min_gas_price": 0
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/cosmos/gaia",
+        "recommended_version": "v6.0.0",
+        "compatible_versions": [
+            "v6.0.0"
+        ],
+        "binaries": {
+            "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v6.0.0/gaiad-v6.0.0-linux-amd64",
+            "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v6.0.0/gaiad-v6.0.0-linux-arm64",
+            "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v6.0.0/gaiad-v6.0.0-darwin-amd64",
+            "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v6.0.0/gaiad-v6.0.0-windows-amd64.exe"
+        }
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "5c9850dc5ec603b0c97ffd8d67bde3221b877acf",
+                "address": "p2p.sentry-01.theta-testnet.polypore.xyz:26656",
+                "provider": "Hypha"
+            },
+            {
+                "id": "5c9850dc5ec603b0c97ffd8d67bde3221b877acf",
+                "address": "p2p.sentry-02.theta-testnet.polypore.xyz:26656",
+                "provider": "Hypha"
+            },
+            {
+                "id": "5c9850dc5ec603b0c97ffd8d67bde3221b877acf",
+                "address": "p2p.state-sync-01.theta-testnet.polypore.xyz:26656",
+                "provider": "Hypha"
+            },
+            {
+                "id": "5c9850dc5ec603b0c97ffd8d67bde3221b877acf",
+                "address": "p2p.state-sync-02.theta-testnet.polypore.xyz:26656",
+                "provider": "Hypha"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "5c9850dc5ec603b0c97ffd8d67bde3221b877acf",
+                "address": "p2p.sentry-01.theta-testnet.polypore.xyz:26656",
+                "provider": "Hypha"
+            },
+            {
+                "id": "5c9850dc5ec603b0c97ffd8d67bde3221b877acf",
+                "address": "p2p.sentry-02.theta-testnet.polypore.xyz:26656",
+                "provider": "Hypha"
+            },
+            {
+                "id": "5c9850dc5ec603b0c97ffd8d67bde3221b877acf",
+                "address": "p2p.state-sync-01.theta-testnet.polypore.xyz:26656",
+                "provider": "Hypha"
+            },
+            {
+                "id": "5c9850dc5ec603b0c97ffd8d67bde3221b877acf",
+                "address": "p2p.state-sync-02.theta-testnet.polypore.xyz:26656",
+                "provider": "Hypha"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://rpc.sentry-01.theta-testnet.polypore.xyz",
+                "provider": "Hypha"
+            },
+            {
+                "address": "https://rpc.sentry-02.theta-testnet.polypore.xyz",
+                "provider": "Hypha"
+            },
+            {
+                "address": "https://rpc.state-sync-01.theta-testnet.polypore.xyz",
+                "provider": "Hypha"
+            },
+            {
+                "address": "https://rpc.state-sync-02.theta-testnet.polypore.xyz",
+                "provider": "Hypha"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://rest.sentry-01.theta-testnet.polypore.xyz",
+                "provider": "Hypha"
+            },
+            {
+                "address": "https://rest.sentry-02.theta-testnet.polypore.xyz",
+                "provider": "Hypha"
+            },
+            {
+                "address": "https://rest.state-sync-01.theta-testnet.polypore.xyz",
+                "provider": "Hypha"
+            },
+            {
+                "address": "https://rest.state-sync-02.theta-testnet.polypore.xyz",
+                "provider": "Hypha"
+            }
+        ],
+        "grpc": [
+            {
+                "address": "https://grpc.sentry-01.theta-testnet.polypore.xyz",
+                "provider": "Hypha"
+            },
+            {
+                "address": "https://grpc.sentry-02.theta-testnet.polypore.xyz",
+                "provider": "Hypha"
+            },
+            {
+                "address": "https://grpc.state-sync-01.theta-testnet.polypore.xyz",
+                "provider": "Hypha"
+            },
+            {
+                "address": "https://grpc.state-sync-02.theta-testnet.polypore.xyz",
+                "provider": "Hypha"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "Big Dipper",
+            "url": "https://explorer.theta-testnet.polypore.xyz/",
+            "tx_page": "https://explorer.theta-testnet.polypore.xyz/transactions/${txHash}"
+        }
+    ]
+}
