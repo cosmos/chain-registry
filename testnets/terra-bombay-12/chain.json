@@ -1,0 +1,71 @@
+{
+    "$schema": https://raw.githubusercontent.com/cosmos/chain-registry/master/chain.schema.json",
+    "chain_name": "terra",
+    "status": "live",
+    "network_type": "testnet",
+    "pretty_name": "Terra",
+    "chain_id": "bombay-12",
+    "daemon_name": "terrad",
+    "node_home": "$HOME/.terra",
+    "bech32_prefix": "terra",
+    "genesis": {
+        "genesis_url": "https://raw.githubusercontent.com/terra-money/testnet/master/bombay-12/genesis.json"
+    },
+    "slip44": 330,
+    "codebase": {
+        "git_repo": "https://github.com/terra-money/core/",
+        "recommended_version": "v0.5.17",
+        "compatible_versions": [
+            "v0.5.17",
+            "v0.5.16"
+        ],
+        "binaries": {
+            "linux/amd64": "https://github.com/terra-money/core/releases/download/v0.5.17/terra_0.5.17_Linux_x86_64.tar.gz",
+            "darwin/amd64": "https://github.com/terra-money/core/releases/download/v0.5.17/terra_0.5.17_Darwin_x86_64.tar.gz"
+        }
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "e14dcea40de9b7cc31ea3e843c25bcdd8d91c36d",
+                "address": "solarsys.noip.me:38656"
+            },
+            {
+                "id": "4577101e210aa6389f075cdcd6c377f98ef57a84",
+                "address": "bombay.inotel.ro:26656"
+            },
+            {
+                "id": "67f83663158a908b1a0784e642eafde880dd2929",
+                "address": "terra.test.seed.forbole.com:26656"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "2e13408cbe993a291caf02946e902753f7f95a71",
+                "address": "3.34.120.243:26656"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "http://167.99.25.150:26657",
+                "provider": "167.99.25.150"
+            },
+            {
+                "address": "https://bombay.stakesystems.io:2053",
+                "provider": "stakesystems"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://bombay-lcd.terra.dev",
+                "provider": "Terra dev"
+            },
+            {
+                "address": "https://bombay.stakesystems.io",
+                "provider": "stakesystems"
+            }
+        ]
+    }
+}
