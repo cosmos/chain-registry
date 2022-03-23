@@ -4,71 +4,103 @@
   "description": "Path metadata to relay packets between two different chains.",
   "type": "object",
   "required": [
-    "chain_name",
     "paths"
   ],
   "properties": {
-    "chain_name": {
-      "type": "string"
-    },
     "paths": {
       "type": "array",
-      "items": [
-        {
-          "type": "object",
-          "required": [
-            "path_name",
-            "src",
-            "dst"
-          ],
-          "properties": {
-            "path_name": {
-              "type": "string",
-              "description": "A non-dependant name. Usually the combination of two abbreviated chain names. EG: 'hubosmo' which can represent cosmoshub -> osmosis"
-            },
-            "src": {
-              "$ref": "#/$defs/path_meta_data"
-            },
-            "dst": {
-              "$ref": "#/$defs/path_meta_data"
+      "items": {
+        "type": "object",
+        "required": [
+          "src",
+          "dst",
+          "channels"
+        ],
+        "properties": {
+          "src": {
+            "type": "object",
+            "required": [
+              "client-id",
+              "connection-id"
+            ],
+            "properties": {
+              "client-id": {
+                "type": "string",
+                "description": "#/$defs/client-id-description"
+              },
+              "connection-id": {
+                "type": "string",
+                "description": "#/$defs/connection-id-description"
+              }
             }
           },
-          "tags": {
+          "dst": {
+            "type": "object",
+            "required": [
+              "chain-name",
+              "client-id",
+              "connection-id"
+            ],
+            "properties": {
+              "chain-name": {
+                "type": "string"
+              },
+              "client-id": {
+                "type": "string",
+                "description": "#/$defs/client-id-description"
+              },
+              "connection-id": {
+                "type": "string",
+                "description": "#/$defs/connection-id-description"
+              }
+            }
+          },
+          "channels": {
             "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Human readable tag that describes what the path is servicing. E.g. tag 'blessed' is a path that the two chains have comited to maintaining in good health. 'DEX' could be a path that serves deposits to a DEX pool."
+            "items": [
+              {
+                "type": "object",
+                "required": [
+                  "src",
+                  "dst",
+                  "order",
+                  "version"
+                ],
+                "properties": {
+                  "src": {
+                    "$ref": "#/$defs/channel_info"
+                  },
+                  "dst": {
+                    "$ref": "#/$defs/channel_info"
+                  },
+                  "order": {
+                    "type": "string",
+                    "description": "Determines if packets from a sending module must be ORDERED or UNORDERED."
+                  },
+                  "version": {
+                    "type": "string",
+                    "description": "IBC Version"
+                  },
+                  "tags": {
+                    "type": "object",
+                    "description": "Human readable key:value pair that describes what the path is servicing. E.g. 'DEX': 'Osmosis'"
+                  }
+                }
+              }
+            ]
           }
         }
-      ]
+      }
     }
   },
   "$defs": {
-    "path_meta_data": {
+    "channel_info": {
       "type": "object",
       "required": [
-        "chain-id",
-        "client-id",
-        "connection-id",
         "channel-id",
-        "port-id",
-        "order",
-        "version"
+        "port-id"
       ],
       "properties": {
-        "chain-id": {
-          "type": "string",
-          "description" : "The chain ID of the network."
-        },
-        "client-id": {
-          "type": "string",
-          "description" : "The client ID on the corresponding chain representing the other chain's light client."
-        },
-        "connection-id": {
-          "type": "string",
-          "description": "The connection ID on the corresponding chain representing a connection to the other chain."
-        },
         "channel-id": {
           "type": "string",
           "description": "The channel ID on the corresponding chain's connection representing a channel on the other chain."
@@ -76,16 +108,10 @@
         "port-id": {
           "type": "string",
           "description": "The IBC port ID which a relevant module binds to on the corresponding chain."
-        },
-        "order": {
-          "type": "string", 
-          "description": "Determines if packets from a sending module must be ORDERED or UNORDERED."
-        },
-        "version": {
-          "type": "string",
-          "description": "IBC Version"
         }
       }
-    }
+    },
+    "client-id-description": "The client ID on the corresponding chain representing the other chain's light client.",
+    "connection-id-description": "The connection ID on the corresponding chain representing a connection to the other chain."
   }
 }
