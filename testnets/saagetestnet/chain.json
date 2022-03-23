@@ -1,0 +1,74 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "saagetestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Saage-Testnet",
+  "chain_id": "saage-internal-testnet-1.3",
+  "bech32_prefix": "saage",
+  "daemon_name": "saaged",
+  "node_home": "$HOME/.saage",
+  "genesis": {
+    "genesis_url": "https://github.com/saage-tech/network-testnet-1/blob/master/networks/saage-testnet-3/genesis.json"
+  },
+  "key_algos": ["secp256k1"],
+  "slip44": 909,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "usaage",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/saage-tech/saage-testnet-1",
+    "recommended_version": "v0.3.1",
+    "compatible_versions":["v0.3.1"]
+  },
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "5d55107f1e3f759698b9c725242cb0a6f6394c1f",
+        "address": "44.203.79.229:26656",
+        "provider": "saage"
+      },
+      {
+        "id": "61469b7b72457627e65f3c129ecce1c7b36e1b99",
+        "address": "3.235.167.226:26656",
+        "provider": "saage"
+      },
+      {
+        "id": "d888233a7a04e41b5cde7c2b30b7cea882f8a0f2",
+        "address": "52.202.79.213:26656",
+        "provider": "saage"
+      },
+      {
+        "id": "ca44db05bbbe7bf61dd879970ff28372fc4e1670",
+        "address": "54.226.144.104:26656",
+        "provider": "saage"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "http://52.202.79.213:26657/",
+        "provider": "saage"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "http://52.202.79.213:9090",
+        "provider": "saage"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "bigdipper",
+      "url": "http://blockexplorer-1.testnet.saage.io/",
+      "tx_page": "http://blockexplorer-1.testnet.saage.io/transactions/{txHash}"
+    }
+  ]
+}
