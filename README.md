@@ -198,7 +198,7 @@ An example assetlist json contains the following structure:
 # Paths
 A path represents an abstraction between two IBC-connected networks. Specifically, the path abstraction contains metadata about a source chain, a destination chain and a relaying strategy between the two networks.
 
-This information is particually useful when relaying packets and acknoledgments aross IBC enabled chains. 
+This information is particularly useful when relaying packets and acknowledgments across IBC enabled chains. 
 
 An example `paths.json` contains the following structure:
 
@@ -257,5 +257,4 @@ An example `paths.json` contains the following structure:
         }
     ]
 }
-
 ```
