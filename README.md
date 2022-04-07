@@ -206,54 +206,56 @@ An example `paths.json` contains the following structure:
 {
     "paths": [
         {
-        "src": {
-            "client-id": "07-tendermint-48",
-            "connection-id": "connection-23"
-        },
-        "dst": {
-            "chain-name": "cryptoorgchain",
-            "client-id": "07-tendermint-65",
-            "connection-id": "connection-38"
-        },
-        "channels": [
-            {
             "src": {
-                "channel-id": "channel-14",
-                "port-id": "transfer"
+                "client-id": "07-tendermint-48",
+                "connection-id": "connection-23"
             },
             "dst": {
-                "channel-id": "channel-21",
-                "port-id": "transfer"
+                "chain-name": "cryptoorgchain",
+                "client-id": "07-tendermint-65",
+                "connection-id": "connection-38"
             },
-            "ordering": "unordered",
-            "version": "ics20-1",
-            "tags": {}
-            }
-        ]
+            "channels": [
+                {
+                    "src": {
+                        "channel-id": "channel-14",
+                        "port-id": "transfer"
+                    },
+                    "dst": {
+                        "channel-id": "channel-21",
+                        "port-id": "transfer"
+                    },
+                    "ordering": "unordered",
+                    "version": "ics20-1",
+                    "tags": {}
+                }
+            ]
         },
         {
-        "src": {
-            "client-id": "07-tendermint-45",
-            "connection-id": "connection-21"
-        },
-        "dst": {
-            "chain-name": "sentinelhub",
-            "client-id": "07-tendermint-42",
-            "connection-id": "connection-27"
-        },
-        "channels": [
-            {
             "src": {
-                "channel-id": "channel-12",
-                "port-id": "transfer"
+                "client-id": "07-tendermint-45",
+                "connection-id": "connection-21"
             },
             "dst": {
-                "channel-id": "channel-6",
-                "port-id": "transfer"
+                "chain-name": "sentinelhub",
+                "client-id": "07-tendermint-42",
+                "connection-id": "connection-27"
             },
-            "ordering": "unordered",
-            "version": "ics20-1",
-            "tags": {}
+            "channels": [
+                {
+                    "src": {
+                        "channel-id": "channel-12",
+                        "port-id": "transfer"
+                    },
+                    "dst": {
+                        "channel-id": "channel-6",
+                        "port-id": "transfer"
+                    },
+                    "ordering": "unordered",
+                    "version": "ics20-1",
+                    "tags": {}
+                }
+            ]
         }
     ]
 }
