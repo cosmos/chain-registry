@@ -140,63 +140,60 @@ An example assetlist json contains the following structure:
 
 ```
 {
-    "paths": [
+    "chain_id": "steak-chain-1",
+    "assets": [
         {
-            "src": {
-                "client-id": "07-tendermint-48",
-                "connection-id": "connection-23"
-            },
-            "dst": {
-                "chain-name": "cryptoorgchain",
-                "client-id": "07-tendermint-65",
-                "connection-id": "connection-38"
-            },
-            "channels": [
+            "description": "The native token of Steak Chain",
+            "denom_units": [
                 {
-                    "src": {
-                        "channel-id": "channel-14",
-                        "port-id": "transfer"
-                    },
-                    "dst": {
-                        "channel-id": "channel-21",
-                        "port-id": "transfer"
-                    },
-                    "ordering": "unordered",
-                    "version": "ics20-1",
-                    "tags": {}
+                    "denom": "usteak",
+                    "exponent": 0,
+                    "aliases": []
+                },
+                {
+                    "denom": "steak",
+                    "exponent": 6,
+                    "aliases": []
                 }
-            ]
+            ],
+            "base": "usteak",
+            "display": "steak",
+            "symbol": "STK",
+            "logo_URIs": {
+                "png": "https://github.com/linkto/image.png",
+                "svg": "https://stake.com/linkto/steak.svg"
+            }
         },
         {
-            "src": {
-                "client-id": "07-tendermint-45",
-                "connection-id": "connection-21"
-            },
-            "dst": {
-                "chain-name": "sentinelhub",
-                "client-id": "07-tendermint-42",
-                "connection-id": "connection-27"
-            },
-            "channels": [
+            "description": "Foocoin is the native token of the Foochain",
+            "denom_units": [
                 {
-                    "src": {
-                        "channel-id": "channel-12",
-                        "port-id": "transfer"
-                    },
-                    "dst": {
-                        "channel-id": "channel-6",
-                        "port-id": "transfer"
-                    },
-                    "ordering": "unordered",
-                    "version": "ics20-1",
-                    "tags": {}
+                    "denom": "ibc/6ED71011FFBD0D137AFDB6AC574E9E100F61BA3DD44A8C05ECCE7E59D40A7B3E",
+                    "exponent": 0,
+                    "aliases": ["ufoocoin"]
+                },
+                {
+                    "denom": "foocoin",
+                    "exponent": 6,
+                    "aliases": []
                 }
-            ]
+            ],
+            "base": "ibc/6ED71011FFBD0D137AFDB6AC574E9E100F61BA3DD44A8C05ECCE7E59D40A7B3E",
+            "display": "foocoin",
+            "symbol": "FOO",
+            "ibc": {
+                "source_channel": "channel-35",
+                "dst_channel": "channel-1",
+                "source_denom": "ufoocoin"
+            },
+            "logo_URIs": {
+                "png": "ipfs://QmXfzKRvjZz3u5JRgC4v5mGVbm9ahrUiB4DgzHBsnWbTMM",
+                "svg": ""
+            }
         }
     ]
 }
 ```
-
 
 # Paths
 A path represents an abstraction between two IBC-connected networks. Specifically, the path abstraction contains metadata about a source chain, a destination chain and a relaying strategy between the two networks.
