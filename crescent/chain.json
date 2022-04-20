@@ -1,0 +1,130 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "crescent",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Crescent",
+  "chain_id": "crescent-1",
+  "bech32_prefix": "cre",
+  "daemon_name": "crescentd",
+  "node_home": "$HOME/.crescent",
+  "genesis": {
+    "genesis_url": "https://github.com/crescent-network/launch/raw/main/mainnet/crescent-1/genesis.json.tar.gz"
+  },
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ucre",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/crescent-network/crescent",
+    "recommended_version": "v1.1.0",
+    "compatible_versions": [
+      "v1.1.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/crescent-network/crescent/releases/download/v1.1.0/crescentd-v1.1.0-linux-amd64",
+      "darwin/amd64": "https://github.com/crescent-network/crescent/releases/download/v1.1.0/crescentd-v1.1.0-darwin-amd64"
+        }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "929f22a7b04ff438da9edcfebd8089908239de44",
+        "address": "18.180.232.184:26656",
+        "provider": "crescent"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "b34115ba926eb12059ca0ade4d1013cac2f8d289",
+        "address": "crescent-mainnet-01.01node.com:26656",
+        "provider": "01node"
+      },
+      {
+        "id": "06415494b86316c55245d162da065c3c0fee83fc",
+        "address": "172.104.108.21:26656",
+        "provider": "Forbole"
+      },
+      {
+        "id": "3bcffbcb11e96edc84c04a5628639f5ed94b9db2",
+        "address": "128.0.51.5:26656",
+        "provider": "Dokia-capital"
+      },
+      {
+        "id": "68787e8412ab97d99af7595c46514b9ab4b3df45",
+        "address": "54.250.202.17:26656",
+        "provider": "DSRV"
+      },
+      {
+        "id": "3b468af82b8ffa049b3e1f67dc4615a31ec8f01e",
+        "address": "50.21.167.131:26656",
+        "provider": "Simply Staking"
+      },
+      {
+        "id": "dc7c0e331165ba047cc6b304ce467ee25518e0f9",
+        "address": "34.85.89.74:26656",
+        "provider": "Strangelove"
+      },
+      {
+        "id": "b840926fb6a2bd04fc70e501002f9286655c9179",
+        "address": "52.199.91.143:30732",
+        "provider": "0base.vc"
+      },
+      {
+        "id": "d7556e41ba2f333379f6d87b1af3cce2ca545f79",
+        "address": "34.88.102.246:26656",
+        "provider": "P2P validator"
+      },
+      {
+        "id": "4293ce6b47ee2603236437ab44dc499519c71e62",
+        "address": "45.76.97.48:26656",
+        "provider": "Nodes.Guru"
+      },
+      {
+        "id": "24be64cd648958d9f685f95516cb3b248537c386",
+        "address": "52.197.140.210:26656",
+        "provider": "Cosmostation"
+      },
+      {
+        "id": "0ed5ed53ec3542202d02d0d47ac04a2823188fc2",
+        "address": "52.194.172.170:26656",
+        "provider": "Provalidator"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://mainnet.crescent.network:26657",
+        "provider": "crescent"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://mainnet.crescent.network:1317",
+        "provider": "crescent"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "mainnet.crescent.network:9090",
+        "provider": "crescent"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/crescent",
+      "tx_page": "https://www.mintscan.io/crescent/txs/${txHash}"
+    }
+  ]
+}
