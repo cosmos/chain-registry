@@ -1,6 +1,9 @@
 # chain-registry
 
-This repo contains a `chain.json` and `assetlist.json` for a number of cosmos-sdk based chains.  A `chain.json` contains data that makes it easy to start running or interacting with a node.  
+This repo contains a `chain.json` and `assetlist.json` for a number of cosmos-sdk based chains.  A `chain.json` contains data that makes it easy to start running or interacting with a node.
+
+## Web Endpoints
+- https://registry.ping.pub (Update every 24H)
 
 ## Contributing
 
