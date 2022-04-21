@@ -313,11 +313,19 @@
     "apis": {
         "rpc": [
             {
+                "address": "https://rpc.assetmantle.one/",
+                "provider": "AssetMantle"
+            },
+            {
                 "address": "https://rpc-assetmantle.ecostake.com",
                 "provider": "ecostake"
             }
         ],
         "rest": [
+            {
+                "address": "https://rest.assetmantle.one/",
+                "provider": "AssetMantle"
+            },
             {
                 "address": "https://rest-assetmantle.ecostake.com",
                 "provider": "ecostake"
@@ -326,9 +334,19 @@
     },
     "explorers": [
         {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/asset-mantle",
+            "tx_page": "https://www.mintscan.io/asset-mantle/txs/${txHash}"
+        },
+        {
             "kind": "ping.pub",
             "url": "https://explorer.postcapitalist.io/AssetMantle",
             "tx_page": "https://explorer.postcapitalist.io/AssetMantle/tx/${txHash}"
+        },
+        {
+            "kind": "other",
+            "url": "https://explorer.assetmantle.one",
+            "tx_page": "https://explorer.assetmantle.one/transactions/${txHash}"
         }
     ]
 }
