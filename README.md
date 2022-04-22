@@ -9,6 +9,14 @@ Once schemas have matured and client needs are better understood Chain Registry 
 ## Web Endpoints
 - https://registry.ping.pub (Update every 24H)
 
+## APIs
+- https://github.com/cmwaters/skychart
+- https://github.com/empowerchain/cosmos-chain-directory
+
+## Web Interfaces
+- https://cosmos.directory
+- https://chain-registry.netlify.com
+
 ## Contributing
 
 We accept pull requests to add data to an existing assetlist.json or chain.json (especially to add peer data or public rpc endpoint) or to add a new chain.
