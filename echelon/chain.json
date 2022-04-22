@@ -1,0 +1,129 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "echelon",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Echelon",
+  "chain_id": "echelon_3000-3",
+  "bech32_prefix": "echelon",
+  "node_home": "$HOME/.echelond",
+  "genesis": {
+    "genesis_url": "https://gist.githubusercontent.com/echelonfoundation/ee862f58850fc1b5ee6a6fdccc3130d2/raw/55c2c4ea2fee8a9391d0dc55b2c272adb804054a/genesis.json"
+  },
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "aechelon"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/echelonfoundation/echelon",
+    "recommended_version": "v1.0.2",
+    "compatible_versions": [
+      "v1.0.2"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/echelonfoundation/echelon/releases/download/v1.0.2/echelon_1.0.2_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/echelonfoundation/echelon/releases/download/v1.0.2/echelon_1.0.2_Linux_arm64.tar.gz",
+      "darwin/amd64": "",
+      "darwin/arm64": "",
+      "windows/amd64": "https://github.com/echelonfoundation/echelon/releases/download/v1.0.2/echelon_1.0.2_Windows_x86_64.zip"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "395dc53caf836f04474aa8069e8099b0629763a1",
+        "address": "154.53.63.113:26656",
+        "provider": "Universe"
+      },
+      {
+        "id": "302ccf96853501c14060ffac2e1885bed6385f00",
+        "address": "154.53.63.119:26656",
+        "provider": "Rolex"
+      },
+      {
+        "id": "b001eeb22b03e74d5c57c4c097359a9f8c564dd1",
+        "address": "209.126.87.32:26656",
+        "provider": "Supreme"
+      },
+      {
+        "id": "6cd1cc8658dc66523f6e8d9ddf7dacae2ef62e6a",
+        "address": "154.12.237.224:26656",
+        "provider": "LockIt"
+      },
+      {
+        "id": "480db41faea6713405c93c505ff710a05d1fc801",
+        "address": "94.250.203.190:26656",
+        "provider": "Echelon"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "395dc53caf836f04474aa8069e8099b0629763a1",
+        "address": "154.53.63.113:26656",
+        "provider": "Universe"
+      },
+      {
+        "id": "302ccf96853501c14060ffac2e1885bed6385f00",
+        "address": "154.53.63.119:26656",
+        "provider": "Rolex"
+      },
+      {
+        "id": "b001eeb22b03e74d5c57c4c097359a9f8c564dd1",
+        "address": "209.126.87.32:26656",
+        "provider": "Supreme"
+      },
+      {
+        "id": "6cd1cc8658dc66523f6e8d9ddf7dacae2ef62e6a",
+        "address": "154.12.237.224:26656",
+        "provider": "LockIt"
+      },
+      {
+        "id": "480db41faea6713405c93c505ff710a05d1fc801",
+        "address": "94.250.203.190:26656",
+        "provider": "Echelon"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://tendermint.ech.network",
+        "provider": "ech.network"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.ech.network",
+        "provider": "ech.network"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.ech.network",
+        "provider": "ech.network"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://rpc.ech.network",
+        "provider": "ech.network"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "blockscout",
+      "url": "https://scout.ech.network",
+      "tx_page": "https://scout.ech.network/tx/${txHash}"
+    },
+    {
+        "kind": "ping-pub",
+        "url": "https://ping.ech.network/echelon",
+        "tx_page": "https://ping.ech.network/echelon/tx/${txHash}"
+    }
+  ]
+}
