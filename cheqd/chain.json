@@ -22,12 +22,12 @@
     },
     "codebase": {
         "git_repo": "https://github.com/cheqd/cheqd-node",
-        "recommended_version": "v0.4.0",
+        "recommended_version": "v0.5.0",
         "compatible_versions": [
-            "v0.4.0"
+            "v0.5.0"
         ],
         "binaries": {
-            "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v0.4.0/cheqd-node_0.4.0_amd64.deb"
+            "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v0.5.0/cheqd-node_0.5.0_amd64.deb"
         }
     },
     "peers": {
@@ -76,12 +76,20 @@
             {
                 "address": "https://rpc.cheqd.net",
                 "provider": "cheqd"
+            },
+            {
+                "address": "https://rpc.cheqd.ezstaking.io",
+                "provider": "EZStaking.io"
             }
         ],
         "rest": [
             {
                 "address": "https://api.cheqd.net",
                 "provider": "cheqd"
+            },
+            {
+                "address": "https://lcd.cheqd.ezstaking.io",
+                "provider": "EZStaking.io"
             }
         ]
     },
@@ -90,6 +98,16 @@
             "kind": "bigdipper",
             "url": "https://explorer.cheqd.io/",
             "tx_page": "https://explorer.cheqd.io/transactions/${txHash}"
+        },
+        {
+            "kind": "ping-pub",
+            "url": "https://ping.pub/cheqd",
+            "tx_page": "https://ping.pub/cheqd/tx/${txHash}"
+        },
+        {
+            "kind": "aneka",
+            "url": "https://cheqd.aneka.io/",
+            "tx_page": "https://cheqd.aneka.io/txs/${txHash}"
         }
     ]
 }

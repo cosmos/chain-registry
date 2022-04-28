@@ -1,32 +1,70 @@
 {
-    "$schema": "../chain.schema.json",
-    "chain_name": "juno",
-    "status": "live",
-    "network_type": "mainnet",
-    "pretty_name": "Juno",
-    "chain_id": "juno-1",
-    "bech32_prefix": "juno",
-    "slip44": 118,
-    "apis": {
-        "rpc": [
-            {
-                "address": "https://rpc-juno.itastakers.com",
-                "provider": "itastakers"
-            },
-            {
-                "address": "https://juno-1.technofractal.com:443",
-                "provider": "strangelove-ventures"
-            }
-        ],
-        "rest": [
-            {
-                "address": "https://lcd-juno.itastakers.com",
-                "provider": "itastakers"
-            },
-            {
-                "address": "https://lcd.juno-1.technofractal.com/",
-                "provider": "strangelove-ventures"
-            }
-        ]
+  "$schema": "../chain.schema.json",
+  "chain_name": "juno",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Juno",
+  "chain_id": "juno-1",
+  "bech32_prefix": "juno",
+  "slip44": 118,
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-juno.itastakers.com",
+        "provider": "itastakers"
+      },
+      {
+        "address": "https://rpc-juno.ecostake.com",
+        "provider": "ecostake"
+      },
+      {
+        "address": "https://juno-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://rpc.juno.pupmos.network",
+        "provider": "pupmos"
+      },
+      {
+        "address": "https://rpc.junomint.com",
+        "provider": "EZStaking.io"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lcd-juno.itastakers.com",
+        "provider": "itastakers"
+      },
+      {
+        "address": "https://rest-juno.ecostake.com",
+        "provider": "ecostake"
+      },
+      {
+        "address": "https://api.juno.pupmos.network",
+        "provider": "pupmos"
+      },
+      {
+        "address": "https://lcd.junomint.com",
+        "provider": "EZStaking.io"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "35.243.205.230:9090",
+        "provider": "strangelove"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/juno",
+      "tx_page": "https://ping.pub/juno/tx/${txHash}"
+    },
+    {
+      "kind": "explorers.guru",
+      "url": "https://juno.explorers.guru",
+      "tx_page": "https://juno.explorers.guru/transaction/${txHash}"
     }
+  ]
 }

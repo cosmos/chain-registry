@@ -1,0 +1,98 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "axelar",
+    "chain_id": "axelar-dojo-1",
+    "pretty_name": "Axelar",
+    "status": "live",
+    "network_type": "mainnet",
+    "bech32_prefix": "axelar",
+    "genesis": {
+        "genesis_url": "https://raw.githubusercontent.com/axelarnetwork/axelarate-community/main/resources/mainnet/genesis.json"
+    },
+    "daemon_name": "axelard",
+    "node_home": "$HOME/.axelard",
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "uaxl",
+                "fixed_min_gas_price": 0.00005
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/axelarnetwork/axelar-core",
+        "recommended_version": "v0.16.2",
+        "compatible_versions": [
+            "v0.16.2",
+            "v0.16.1"
+        ],
+        "binaries": {
+            "linux/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.16.2/axelard-linux-amd64-v0.16.2",
+            "darwin/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.16.2/axelard-darwin-amd64-v0.16.2"
+        }
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "3d67d0646cddcc203b41434aceea64ade22ba6fc",
+                "address": "k8s-mainnet-axelarco-79b464ee93-f03cb16c57cf7cb2.elb.us-east-2.amazonaws.com:26656",
+                "provider": "axelar-core"
+            },
+            {
+                "id": "9c9b8eb8cad8648f31d3c9da3d14e825f11a7b52",
+                "address": "public-seed.mainnet.axelar.lunanova.tech:26656",
+                "provider": "lunanova"
+            },
+            {
+                "id": "82846f20e20dc80191bc96aa4c72321dd338faa7",
+                "address": "207.180.252.206:26656",
+                "provider": "chainode"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "353f7d0962594bcbfb63c81594e35e39c4c89a1a",
+                "address": "18.223.127.165:26656"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://axelar-rpc.quickapi.com:443",
+                "provider": "chainlayer"
+            },
+            {
+                "address": "https://axelar-rpc.chainode.tech:443",
+                "provider": "chainode"
+            },
+            {
+                "address": "https://axelar-rpc.pops.one:443",
+                "provider": "p-ops"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://axelar-lcd.quickapi.com:443",
+                "provider": "chainlayer"
+            }
+        ],
+        "grpc": []
+    },
+    "explorers": [
+        {
+            "kind": "axelarscan",
+            "url": "https://axelarscan.io",
+            "tx_page": "https://axelarscan.io/tx/${txHash}"
+        },
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/axelar",
+            "tx_page": "https://www.mintscan.io/axelar/txs/${txHash}"
+        }
+    ]
+}
