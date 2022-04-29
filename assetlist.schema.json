@@ -28,24 +28,25 @@
                 "display"
             ],
             "properties": {
-                "kind": {
-                    "type": "string",
-                    "enum": ["sdk.coin", "cw20", "snip20", "erc20"],
-                    "default": "sdk.coin",
-                    "description": "The potential options for type of asset. By default, assumes sdk.coin"
-                },
                 "description": {
                     "type": "string",
-                    "description": "A short description of the asset"
-                },
-                "address": {
-                    "type": "string"
+                    "description": "[OPTIONAL] A short description of the asset"
                 },
                 "denom_units": {
                     "type": "array",
                     "items": {
                         "$ref": "#/$defs/denom_unit"
                     }
+                },
+                "type_asset": {
+                    "type": "string",
+                    "enum": ["sdk.coin", "cw20", "snip20", "erc20"],
+                    "default": "sdk.coin",
+                    "description": "[OPTIONAL] The potential options for type of asset. By default, assumes sdk.coin"
+                },
+                "address": {
+                    "type": "string",
+                    "description": "[OPTIONAL] The address of the asset. Only required for type_asset : cw20, snip20"
                 },
                 "base": {
                     "type": "string",
@@ -65,6 +66,7 @@
                 },
                 "ibc": {
                     "type": "object",
+                    "description": "[OPTIONAL] IBC Channel between src and dst between chain",
                     "properties": {
                         "source_channel": {
                             "type": "string"
@@ -97,12 +99,12 @@
                 },
                 "coingecko_id": {
                     "type": "string",
-                    "description": "The coingecko id to fetch asset data from coingecko v3 api. See https://api.coingecko.com/api/v3/coins/list"
+                    "description": "[OPTIONAL] The coingecko id to fetch asset data from coingecko v3 api. See https://api.coingecko.com/api/v3/coins/list"
                 }
             },
             "if": {
                 "properties": {
-                    "kind": {
+                    "type_asset": {
                         "enum": [
                         "cw20",
                         "snip20"
@@ -110,7 +112,7 @@
                     }
                 },
                 "required": [
-                    "kind"
+                    "type_asset"
                 ]
               },
             "then": {
