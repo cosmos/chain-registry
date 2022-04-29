@@ -216,7 +216,7 @@ The metadata contained in these files represents a path abstraction between two 
 
 This schema also allows us to provide helpful info to describe open channels.
 
-Note: when created these files, please ensure the the chains in both the file name and `chain-` and `chain-2` are in alphabetical order. Ex: `Achain-Zchain.json`
+Note: when creating these files, please ensure the the chains in both the file name and the references of `chain-1` and `chain-2` in the json file are in alphabetical order. Ex: `Achain-Zchain.json`. The chain names used must match name of the chain's directory here in the chain-registry.
 
 An example ibc metadata file contains the following structure:
 
