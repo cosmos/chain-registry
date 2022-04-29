@@ -249,13 +249,6 @@ An example ibc metadata file contains the following structure:
           "status": "live",
           "preferred": true,
           "dex": "osmosis"
-        },
-        "relayers": {
-          "name": "strangelove-ventures",
-          "contact": "twitter: @strangelovefund",
-          "website": "https://www.strangelove.ventures",
-          "chain-1": "juno1kn4tkqezr3c7zc43lsu5r4p2l2qqf4mp89sf66",
-          "chain-2": "osmo1kn4tkqezr3c7zc43lsu5r4p2l2qqf4mpevqzt5"
         }
       }
     ]
