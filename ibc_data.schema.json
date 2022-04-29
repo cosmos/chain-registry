@@ -44,7 +44,10 @@
               }
             },
             "ordering": {
-              "type": "string",
+              "enum": [
+                "ordered",
+                "unordered"
+              ],
               "description": "Determines if packets from a sending module must be ORDERED or UNORDERED."
             },
             "version": {
@@ -53,7 +56,7 @@
             },
             "tags": {
               "type": "object",
-              "description": "Human readable key:value pair that describes what the path is servicing. E.g. 'DEX': 'Osmosis'",
+              "description": "Human readable key:value pair that describes what the path is servicing. E.g. 'dex': 'osmosis'",
               "properties": {
                 "status": {
                   "enum": [
