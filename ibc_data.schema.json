@@ -1,0 +1,149 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [
+    "chain-1",
+    "chain-2",
+    "channels"
+  ],
+  "properties": {
+    "chain-1": {
+      "type": "object",
+      "items": {
+        "$refs": "#/$defs/chain_info"
+      }
+    },
+    "chain-2": {
+      "type": "object",
+      "items": {
+        "$refs": "#/$defs/chain_info"
+      }
+    },
+    "channels": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "required": [
+            "chain-1",
+            "chain-2",
+            "ordering",
+            "version"
+          ],
+          "properties": {
+            "chain-1": {
+              "type": "object",
+              "items": {
+                "$refs": "#/$defs/channel_info"
+              }
+            },
+            "chain-2": {
+              "type": "object",
+              "items": {
+                "$refs": "#/$defs/channel_info"
+              }
+            },
+            "ordering": {
+              "type": "string",
+              "description": "Determines if packets from a sending module must be ORDERED or UNORDERED."
+            },
+            "version": {
+              "type": "string",
+              "description": "IBC Version"
+            },
+            "tags": {
+              "type": "object",
+              "description": "Human readable key:value pair that describes what the path is servicing. E.g. 'DEX': 'Osmosis'",
+              "properties": {
+                "status": {
+                  "enum": [
+                    "live",
+                    "upcoming",
+                    "killed"
+                  ]
+                },
+                "preferred": {
+                  "type": "boolean"
+                },
+                "dex": {
+                  "type": "string"
+                },
+                "relayers": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "website": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "contact": {
+                          "type": "string"
+                        },
+                        "chain-1": {
+                          "type": "string",
+                          "description": "Relayer wallet address from chain-1"
+                        },
+                        "chain-2": {
+                          "type": "string",
+                          "description": "Relayer wallet address from chain-2"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "chain_info": {
+      "type": "object",
+      "required": [
+        "chain-name",
+        "client-id",
+        "connection-id"
+      ],
+      "properties": {
+        "chain-name": {
+          "type": "string"
+        },
+        "client-id": {
+          "type": "string",
+          "description": "The client ID on the corresponding chain representing the other chain's light client."
+        },
+        "connection-id": {
+          "type": "string",
+          "description": "The connection ID on the corresponding chain representing a connection to the other chain."
+        }
+      }
+    },
+    "channel_info": {
+      "type": "object",
+      "required": [
+        "channel-id",
+        "port-id"
+      ],
+      "properties": {
+        "channel-id": {
+          "type": "string",
+          "description": "The channel ID on the corresponding chain's connection representing a channel on the other chain."
+        },
+        "port-id": {
+          "type": "string",
+          "description": "The IBC port ID which a relevant module binds to on the corresponding chain."
+        }
+      }
+    }
+  }
+}

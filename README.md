@@ -210,3 +210,54 @@ An example assetlist json contains the following structure:
 }
 ```
 
+## IBC Data
+
+The metadata contained in these files represents a path abstraction between two IBC-connected networks. This information is particularly useful when relaying packets and acknowledgments across chains.
+
+This schema also allows us to provide helpful info to describe open channels.
+
+Note: when created these files, please ensure the the chains in both the file name and `chain-` and `chain-2` are in alphabetical order. Ex: `Achain-Zchain.json`
+
+An example ibc metadata file contains the following structure:
+
+```json
+{
+    "$schema": "../ibc_data.schema.json",
+    "chain-1": {
+      "chain-name": "juno",
+      "client-id": "07-tendermint-0",
+      "connection-id": "connection-0"
+    },
+    "chain-2": {
+      "chain-name": "osmosis",
+      "client-id": "07-tendermint-1457",
+      "connection-id": "connection-1142"
+    },
+    "channels": [
+      {
+        "chain-1": {
+          "channel-id": "channel-0",
+          "port-id": "transfer"
+        },
+        "chain-2": {
+          "channel-id": "channel-42",
+          "port-id": "transfer"
+        },
+        "ordering": "unordered",
+        "version": "ics20-1",
+        "tags": {
+          "status": "live",
+          "preferred": true,
+          "dex": "osmosis"
+        },
+        "relayers": {
+          "name": "strangelove-ventures",
+          "contact": "twitter: @strangelovefund",
+          "website": "https://www.strangelove.ventures",
+          "chain-1": "juno1kn4tkqezr3c7zc43lsu5r4p2l2qqf4mp89sf66",
+          "chain-2": "osmo1kn4tkqezr3c7zc43lsu5r4p2l2qqf4mpevqzt5"
+        }
+      }
+    ]
+  }
+  ```
