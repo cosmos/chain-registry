@@ -1,14 +1,14 @@
 on: [pull_request, workflow_dispatch]
 name: PR workflow
 jobs:
-  validate_chainjson:
-    name: Validate edited chains.json
+  validate_pathsjson:
+    name: Validate ibc data schemas
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Validate Chain.json schema
+      - name: Validate IBC data schemas
         uses: snapcart/json-schema-validator@v1.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          json_schema: ./chain.schema.json
-          json_path_pattern: .*\/chain.json$
+          json_schema: ./ibc_data.schema.json
+          json_path_pattern: ^_IBC\/.*\.json$
