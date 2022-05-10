@@ -1,0 +1,80 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "clannetwork",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Clan Network",
+  "chain_id": "playstation-2",
+  "bech32_prefix": "clan",
+  "daemon_name": "cland",
+  "node_home": "$HOME/.clan",
+  "genesis": {
+    "genesis_url": "https://raw.githubusercontent.com/ClanNetwork/testnets/main/playstation-2/genesis.json"
+  },
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uclan",
+        "fixed_min_gas_price": 0.00
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/ClanNetwork/clan-network",
+    "recommended_version": "v1.2.0",
+    "binaries": {
+      "linux/amd64": "https://github.com/ClanNetwork/clan-network/releases/download/v1.0.4-alpha/clan-network_v1.0.4-alpha_linux_amd64.tar.gz"
+    },
+    "compatible_versions": ["v1.0.4-alpha"]
+  },
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "ccf7ec7554e3e8ca8f1583d9c943e19a8f32e428",
+        "address": "162.251.235.239:26656",
+        "provider": "secretnodes.com"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "",
+        "provider": ""
+      },
+      {
+        "address": "",
+        "provider": ""
+      },
+      {
+        "address": "",
+        "provider": ""
+      }
+    ],
+    "rest": [
+      {
+        "address": "",
+        "provider": ""
+      },
+      {
+        "address": "",
+        "provider": ""
+      }
+    ],
+    "grpc-web": [
+      {
+        "address": "",
+        "provider": ""
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "secret nodes",
+      "url": "https://secretnodes.com/clan/chains/playstation-2",
+      "tx_page": "https://secretnodes.com/clan/chains/playstation-2/transactions/${txHash}"
+    }
+  ]
+}
