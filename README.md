@@ -136,7 +136,7 @@ A sample `chain.json` includes the following information.
             "kind": "mintscan",
             "url": "https://www.mintscan.io/osmosis",
             "tx_page": "https://www.mintscan.io/osmosis/txs/${txHash}",
-            "acct_page": "https://www.mintscan.io/osmosis/account/${accountAddress}"
+            "account_page": "https://www.mintscan.io/osmosis/account/${accountAddress}"
         }
     ]
 }
