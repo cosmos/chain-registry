@@ -1,0 +1,78 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "octa",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Octa",
+  "chain_id": "octa",
+  "bech32_prefix": "octa",
+  "daemon_name": "octadaemon",
+  "node_home": "$HOME/.octa",
+  "genesis": {
+    "genesis_url": "https://octa-coin-assets.s3.eu-central-1.amazonaws.com/genesis.json"
+  },
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uocta",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "",
+    "recommended_version": "",
+    "compatible_versions": [],
+    "binaries": {
+      "linux/amd64": "",
+      "linux/arm64": "",
+      "darwin/amd64": "",
+      "windows/amd64": ""
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "d35844470ba3c80f052091a9c86d44198e579246",
+        "address": "3.73.39.110:26656"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "935118052f48eede9ed7d38d3da8e20cb5747e39",
+        "address": "3.123.21.45:26656",
+        "provider": "GenesisNode"
+      },
+      {
+        "id": "61823fb4af8a48ac161522114c6640b76fd8a6d9",
+        "address": "3.71.102.151:26656",
+        "provider": "Basic_Validator"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "http://3.71.102.151:26657",
+        "provider": "octa"
+      }
+    ],
+    "rest": [
+      {
+        "address": "http://3.71.102.151:1317",
+        "provider": "octa"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Octa explorer",
+      "url": "http://explorer.octa-coin.com/",
+      "tx_page": "http://explorer.octa-coin.com/txs/${txHash}"
+    }
+  ]
+}
