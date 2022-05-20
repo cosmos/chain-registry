@@ -155,7 +155,7 @@ An example assetlist json contains the following structure:
 
 ```
 {
-    "chain_id": "steak-chain-1",
+    "chain_name": "steak-chain-1",
     "assets": [
         {
             "description": "The native token of Steak Chain",
