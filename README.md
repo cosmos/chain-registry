@@ -137,7 +137,11 @@ A sample `chain.json` includes the following information.
             "url": "https://www.mintscan.io/osmosis",
             "tx_page": "https://www.mintscan.io/osmosis/txs/${txHash}"
         }
-    ]
+    ],
+    "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg"
+    }
 }
 ```
 
@@ -155,7 +159,7 @@ An example assetlist json contains the following structure:
 
 ```
 {
-    "chain_id": "steak-chain-1",
+    "chain_name": "steak-chain-1",
     "assets": [
         {
             "description": "The native token of Steak Chain",
