@@ -1,0 +1,48 @@
+on: 
+  schedule: 
+    - cron: "0 0 * * *"
+name: Update chain.json
+jobs:
+  update_chain.json:
+  name: Update chains' chain.json
+  runs-on: ubuntu-latest
+    steps:
+      - name: checkout registry
+        uses: actions/checkout@v2
+      - name: Validate IBC data schemas
+        uses: snapcart/json-schema-validator@v1.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          json_schema: ./ibc_data.schema.json
+          json_path_pattern: ^_IBC\/.*\.json$
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install Python dependencies
+        run:  |
+          python -m pip install --upgrade pip
+          cd .github/workflows/utility
+
+      - name: Chain JSON Update
+        run:   |
+          python
+          import sys
+          sys.path.insert(1, '.github/workflows/utility')
+          import update_chaindata
+          update_chaindata.checkUpdate()
+      
+      - name: Switch to new branch
+        run:   |
+          git branch bot/patch
+          git checkout bot/patch
+
+      - name: Add & Commit
+        if: update_chaindata.checkUpdate() == True
+        uses: EndBug/add-and-commit@v9.0.0
+        
+      - name: GitHub Action for creating Pull Requests
+        if: update_chaindata.checkUpdate() == True
+        uses: devops-infra/action-pull-request@v0.4.2
