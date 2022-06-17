@@ -1,26 +1,23 @@
-import requests
-import json
+import requests, json
 import os
 from os import getcwd
-from os.path import isfile, isdir, join
 
 rootdir = getcwd()
 
-#Gets a list of all the json file locations for all chains (sorts out unnecessary files)
-def jsonlist():
+def checkUpdate():
     for chainfolder in os.listdir(rootdir):
         chainjson = os.path.join(chainfolder, "chain.json")
-        if os.path.isfile(chainjson):
-            return(chainjson)
-        
-chainjsonlist = jsonlist()
-
-def checkUpdate(jsonlist):
-     for chainjson in jsonlist:
-         # test case plz remove later
-        if chainjson == "osmosis/chainjson":
+        # The following line is commented out: it will be used when everyone adopts the chainjson on their chain repo.
+        # if os.path.isfile(chainjson):
+        if chainjson == "osmosis/chain.json":
             current = json.load(open(os.path.join(rootdir, chainjson)))
-            URL = current.updatelink
-            response = requests.get(URL)
-            if sorted(response.codebase) != sorted(current.codebase):
+            URL = current["updatelink"]
+            chain_data_holder = requests.get("" + URL + "")
+            response = json.loads(chain_data_holder.text)
+            chaindata = response["codebase"]
+            print(chaindata)
+            print(current["codebase"])
+            if sorted(chaindata) != sorted(current["codebase"]):
                 return True
+            else:
+                print("No update needed for " + chainjson)
