@@ -4,8 +4,8 @@ on:
 name: Update chain.json
 jobs:
   update_chain.json:
-  name: Update chains' chain.json
-  runs-on: ubuntu-latest
+    name: Update chains' chain.json
+    runs-on: ubuntu-latest
     steps:
       - name: checkout registry
         uses: actions/checkout@v2
@@ -27,14 +27,14 @@ jobs:
           cd .github/workflows/utility
           python -m pip install requests
 
-      - name: Chain JSON Update
+      - name: Check chain JSON Update
         run:   |
           python
           import sys
           sys.path.insert(1, '.github/workflows/utility')
           import update_chaindata
           update_chaindata.checkUpdate()
-      
+        
       - name: Switch to new branch
         run:   |
           git branch bot/patch
@@ -43,7 +43,7 @@ jobs:
       - name: Add & Commit
         if: update_chaindata.checkUpdate() == True
         uses: EndBug/add-and-commit@v9.0.0
-        
+          
       - name: GitHub Action for creating Pull Requests
         if: update_chaindata.checkUpdate() == True
         uses: devops-infra/action-pull-request@v0.4.2
