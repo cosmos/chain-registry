@@ -76,6 +76,23 @@
                 }
             }
         },
+        "staking": {
+            "type": "object",
+            "properties": {
+                "staking_tokens": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/staking_token"
+                    }
+                },
+                "staking_systems": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/staking_system"
+                    }
+                }
+            }
+        },
         "codebase": {
             "type": "object",
             "required": [
@@ -219,7 +236,27 @@
                 }
             }
         },
-         "logo_URIs": {
+        "staking_token": {
+            "type": "object",
+            "required": [
+                "denom"
+            ],
+            "properties": {
+                "denom": {
+                    "type": "string"
+                }
+            }
+        },
+        "staking_system": {
+            "type": "string",
+            "enum": [
+                "interfluid",
+                "interchain",
+                "epoched",
+                "permissioned-liquid"
+            ]
+        },
+        "logo_URIs": {
             "type": "object",
             "properties": {
                 "png": {
