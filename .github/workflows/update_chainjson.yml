@@ -40,6 +40,12 @@ jobs:
           git branch bot/patch
           git checkout bot/patch
 
-      - name: Add & Commit + GitHub Action for creating Pull Requests
-        uses: EndBug/add-and-commit@v9.0.0
-        uses: devops-infra/action-pull-request@v0.4.2
+      - name: Add Commit Push
+        uses: devops-infra/action-commit-push@master
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          add_timestamp: true
+          commit_prefix: "[AUTO]"
+          commit_message: "Chain.json automatic update"
+          force: false
+          target_branch: update/version
