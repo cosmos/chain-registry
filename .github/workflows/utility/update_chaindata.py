@@ -12,7 +12,9 @@ def checkUpdate():
         if chainjson == "osmosis/chain.json":
             current = json.load(open(os.path.join(rootdir, chainjson)))
             
-            # TODO: Safeguard, current update link doesn't exist
+            if current['updatelink'] == None:
+                continue
+            
             URL = current["updatelink"]
             chain_data_holder = requests.get("" + URL + "")
             response = json.loads(chain_data_holder.text)
