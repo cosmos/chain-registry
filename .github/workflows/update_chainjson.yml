@@ -23,7 +23,8 @@ jobs:
 
       - name: Check chain JSON Update
         uses: jannekem/run-python-script-action@v1.2
-        run:   |
+        with:
+          script: |
           import sys
           sys.path.insert(1, '.github/workflows/utility')
           import update_chaindata
