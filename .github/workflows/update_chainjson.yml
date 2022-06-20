@@ -9,12 +9,6 @@ jobs:
     steps:
       - name: checkout registry
         uses: actions/checkout@v2
-      - name: Validate IBC data schemas
-        uses: snapcart/json-schema-validator@v1.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          json_schema: ./ibc_data.schema.json
-          json_path_pattern: ^_IBC\/.*\.json$
 
       - name: Set up Python
         uses: actions/setup-python@v2
