@@ -25,15 +25,10 @@ jobs:
         uses: jannekem/run-python-script-action@v1.2
         with:
           script: |
-          import sys
-          sys.path.insert(1, '.github/workflows/utility')
-          import update_chaindata
-          update_chaindata.checkUpdate()
-        
-      - name: Switch to new branch
-        run:   |
-          git branch bot/patch
-          git checkout bot/patch
+            import sys
+            sys.path.insert(1, '.github/workflows/utility')
+            import update_chaindata
+            update_chaindata.checkUpdate()
 
       - name: Add Commit Push
         uses: devops-infra/action-commit-push@master
