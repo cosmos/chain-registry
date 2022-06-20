@@ -22,8 +22,8 @@ jobs:
           python -m pip install requests
 
       - name: Check chain JSON Update
+        shell: python
         run: |
-          python
           import sys
           sys.path.insert(1, '.github/workflows/utility')
           import update_chaindata
