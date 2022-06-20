@@ -23,10 +23,11 @@
   },
   "codebase": {
     "git_repo": "https://github.com/osmosis-labs/osmosis",
-    "recommended_version": "v8.0.0",
-    "compatible_versions": ["v8.0.0"],
+    "recommended_version": "v10.0.0",
+    "compatible_versions": ["v10.0.0"],
     "binaries": {
-      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v8.0.0/osmosisd-8.0.0-linux-amd64"
+      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v10.0.0/osmosis-10.0.0-linux-amd64",
+      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v10.0.0/osmosis-10.0.0-linux-arm64"
     }
   },
   "peers": {
@@ -182,8 +183,13 @@
         "id": "8d9fd90a009e4b6e9572bf9a84b532a366790a1d",
         "address": "193.26.156.221:26656",
         "provider": "validatus"
-      }
-    ]
+      },
+      {
+         "id": "44a760a66071dae257c5c044be604219bfc3510c",
+         "address": "49.12.35.177:36656",
+         "provider": "in3s.com"
+       }
+     ]
   },
   "apis": {
     "rpc": [
@@ -210,6 +216,10 @@
       {
         "address": "https://rpc.osmosis.zone/",
         "provider": "Osmosis Foundation"
+      },
+      {
+        "address": "https://rpc.osmosis.interbloc.org",
+        "provider": "Interbloc"
       }
     ],
     "rest": [
@@ -228,6 +238,10 @@
       {
         "address": "https://lcd.osmosis.zone/",
         "provider": "Osmosis Foundation"
+      },
+      {
+        "address": "https://api.osmosis.interbloc.org",
+        "provider": "Interbloc"
       }
     ],
     "grpc": [
@@ -245,7 +259,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/osmosis",
-      "tx_page": "https://www.mintscan.io/osmosis/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/osmosis/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/osmosis/account/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -255,7 +270,11 @@
     {
       "kind": "explorers.guru",
       "url": "https://osmosis.explorers.guru",
-      "tx_page": "https://osmosis.explorers.guru/transaction/${txHash}"
+      "tx_page": "https://osmosis.explorers.guru/transaction/${txHash}",
+      "account_page": "https://osmosis.explorers.guru/transaction/${accountAddress}"
     }
-  ]
+  ],
+  "logo_URIs": {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png"
+  }
 }
