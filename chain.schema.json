@@ -248,12 +248,23 @@
             }
         },
         "staking_system": {
-            "type": "string",
-            "enum": [
-                "interfluid",
-                "interchain",
-                "epoched",
-                "permissioned-liquid"
+            "oneOf": [
+                {
+                    "const": "interfluid",
+                    "description": "Enables liquidity providers on this network to utilize AMM-pooled staking tokens for governance and delegation. As seen on Osmosis."
+                },
+                {
+                    "const": "interchain",
+                    "description": "Enables this network to be secured by the validator set of another network. As seen on Gravity Bridge."
+                },
+                {
+                    "const": "epoched",
+                    "description": "Implements staking and distribution functionality more efficiently by applying updates at timed intervals rather than exhausting compute at every block. As seen on Osmosis."
+                },
+                {
+                    "const": "permissioned-liquid",
+                    "description": "Utilizes a protocol-permissioned whitelist to issue liquid staking derivatives. As seen on Crescent Network."
+                }
             ]
         },
         "logo_URIs": {
