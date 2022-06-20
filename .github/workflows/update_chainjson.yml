@@ -41,9 +41,7 @@ jobs:
           git checkout bot/patch
 
       - name: Add & Commit
-        if: update_chaindata.checkUpdate() == True
         uses: EndBug/add-and-commit@v9.0.0
           
       - name: GitHub Action for creating Pull Requests
-        if: update_chaindata.checkUpdate() == True
         uses: devops-infra/action-pull-request@v0.4.2
