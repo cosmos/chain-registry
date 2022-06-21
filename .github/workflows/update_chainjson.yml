@@ -1,4 +1,4 @@
-on:
+on: workflow_dispatch
   schedule: 
     - cron: "0 0 * * *"
 name: Update chain.json
@@ -38,3 +38,17 @@ jobs:
           commit_message: "Chain.json automatic update"
           force: false
           target_branch: update/version
+      
+      - name: Create A PR
+            uses: devops-infra/action-pull-request@v0.4.2
+            with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              source_branch: update/version
+              target_branch: master
+              title: Chain.json automatic update
+              template: .github/PULL_REQUEST_TEMPLATE.md
+              body: "**Automated pull request**"
+              old_string: "**THIS IS AN AUTOMATED UPDATE OF CHAIN.JSON**"
+              new_string: "** Automatic pull request**"
+              get_diff: true
+              ignore_users: "dependabot"
