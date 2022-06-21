@@ -26,7 +26,7 @@ def checkUpdate():
                 #Add conditional checkers for if various fields that are non-modifiable have been modified.
                 current["codebase"] = chaindata
                 with open(os.path.join(rootdir, chainjson), 'w', encoding='utf-8') as f:
-                    json.dump(current["codebase"], f, ensure_ascii=False, indent=4)
+                    json.dump(current, f, ensure_ascii=False, indent=4)
                 return True
             else:
                 print("No update needed for " + chainjson)
