@@ -37,13 +37,13 @@ jobs:
           commit_prefix: "[AUTO]"
           commit_message: "Chain.json automatic update"
           force: false
-          target_branch: update/version
+          target_branch: update/chainjson
       
       - name: Create A PR
         uses: devops-infra/action-pull-request@v0.4.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          source_branch: update/version
+          source_branch: update/chainjson
           target_branch: master
           title: Chain.json automatic update
           body: "**Automated pull request**"
