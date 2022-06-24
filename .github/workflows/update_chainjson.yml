@@ -1,0 +1,54 @@
+on: 
+  workflow_dispatch:
+  schedule: 
+    - cron: "0 0 * * *"
+name: Update chain.json
+jobs:
+  update_chainjson:
+    name: Update chains' chain.json
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout registry
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install Python dependencies
+        run:  |
+          python -m pip install --upgrade pip
+          cd .github/workflows/utility
+          python -m pip install requests
+
+      - name: Check chain JSON Update
+        shell: python
+        run: |
+          import sys
+          sys.path.insert(1, '.github/workflows/utility')
+          import update_chaindata
+          update_chaindata.checkUpdate()
+
+      - name: Add Commit Push
+        uses: devops-infra/action-commit-push@master
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          add_timestamp: false
+          commit_prefix: "[AUTO]"
+          commit_message: "Chain.json automatic update"
+          force: false
+          target_branch: update/chainjson
+      
+      - name: Create A PR
+        uses: devops-infra/action-pull-request@v0.4.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_branch: update/chainjson
+          target_branch: master
+          title: Chain.json automatic update
+          body: "**Automated pull request**"
+          old_string: "**THIS IS AN AUTOMATED UPDATE OF CHAIN.JSON**"
+          new_string: "** Automatic pull request**"
+          get_diff: true
+          ignore_users: "dependabot"

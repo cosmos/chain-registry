@@ -17,28 +17,33 @@
     "fee_tokens": [
       {
         "denom": "uscrt",
-        "fixed_min_gas_price": 0.25
+        "fixed_min_gas_price": 0.1
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/scrtlabs/SecretNetwork",
-    "recommended_version": "v1.2.0",
+    "recommended_version": "v1.3.1",
     "binaries": {
-      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/secretnetwork_1.2.0_amd64.deb"
+      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretnetwork_1.3.1_mainnet_goleveldb_amd64.deb"
     },
-    "compatible_versions": ["v1.2.1", "v1.2.2"]
+    "compatible_versions": ["v1.3.0", "v1.3.1"]
   },
   "peers": {
-    "persistent_peers": [
+    "seeds": [
       {
-        "id": "971911193b09a17c347565d311a3cc4f6004156d",
-        "address": "peer.node.scrtlabs.com:26656",
+        "id": "6fb7169f7630da9468bf7cc0bcbbed1eb9ed0d7b",
+        "address": "scrt-seed-01.scrtlabs.com:26656",
         "provider": "SCRT Labs"
       },
       {
-        "id": "7649dcfda0eb77b38fde8e817da8071faea3cd13",
-        "address": "bootstrap.scrt.network:26656",
+        "id": "ab6394e953e0b570bb1deeb5a8b387aa0dc6188a",
+        "address": "scrt-seed-02.scrtlabs.com:26656",
+        "provider": "SCRT Labs"
+      },
+      {
+        "id": "9cdaa5856e0245ecd73bd464308fb990fbc53b57",
+        "address": "scrt-seed-03.scrtlabs.com:26656",
         "provider": "SCRT Labs"
       }
     ]
@@ -46,8 +51,16 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-secret.scrtlabs.com/secret-4/rpc/",
-        "provider": "SCRT Labs"
+        "address": "https://secret-4.api.trivium.network:26657",
+        "provider": "Trivium | Trivium.Network"
+      },
+      {
+        "address": "https://rpc.roninventures.io",
+        "provider": "Ronin Ventures"
+      },
+      {
+        "address": "https://scrt-rpc.blockpane.com",
+        "provider": "[block pane]"
       },
       {
         "address": "https://rpc.scrt.network",
@@ -60,8 +73,16 @@
     ],
     "rest": [
       {
-        "address": "https://lcd-secret.scrtlabs.com/",
-        "provider": "SCRT Labs"
+        "address": "https://secret-4.api.trivium.network:1317",
+        "provider": "Trivium | Trivium.Network"
+      },
+      {
+        "address": "https://api.roninventures.io",
+        "provider": "Ronin Ventures"
+      },
+      {
+        "address": "https://scrt-lcd.blockpane.com",
+        "provider": "[block pane]"
       },
       {
         "address": "https://api.scrt.network",
@@ -70,16 +91,20 @@
       {
         "address": "https://secret.api.consensus.one",
         "provider": "Consensus One"
-      },
-      {
-        "address": "https://secret-4.api.trivium.network:1317",
-        "provider": "trivium"
       }
     ],
     "grpc-web": [
       {
-        "address": "https://grpc-web.azure-api.net",
-        "provider": "SCRT Labs"
+        "address": "https://secret-4.api.trivium.network:9091",
+        "provider": "Trivium | Trivium.Network"
+      },
+      {
+        "address": "https://web-rpc.roninventures.io",
+        "provider": "Ronin Ventures"
+      },
+      {
+        "address": "http://scrt-rpc.blockpane.com:9091",
+        "provider": "[block pane]"
       }
     ]
   },
