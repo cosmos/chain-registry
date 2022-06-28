@@ -68,7 +68,9 @@ A sample `chain.json` includes the following information.
             "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-linux-arm64",
             "darwin/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-darwin-amd64",
             "windows/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-windows-amd64.exe"
-        }
+        },
+        "cosmwasm_version": 0.24,
+        "cosmwasm_enabled: true
     },
     "peers": {
         "seeds": [
