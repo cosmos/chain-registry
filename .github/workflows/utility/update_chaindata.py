@@ -22,7 +22,7 @@ def checkUpdate():
             chaindata = response["codebase"]
         
         #If what's on the chain repo doesn't match what's here
-            if sorted(chaindata) != sorted(current["codebase"]):
+            if chaindata != current["codebase"]:
                 #Add conditional checkers for if various fields that are non-modifiable have been modified.
                 current["codebase"] = chaindata
                 with open(os.path.join(rootdir, chainjson), 'w', encoding='utf-8') as f:

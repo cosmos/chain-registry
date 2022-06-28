@@ -1,0 +1,105 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "cudos",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Cudos",
+  "chain_id": "cudos-1",
+  "bech32_prefix": "cudos",
+  "genesis": {
+    "genesis_url": "https://github.com/CudoVentures/cudos-builders/blob/v1.0.0/docker/config/genesis.mainnet.json"
+  },
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "codebase": {
+    "git_repo": "https://github.com/CudoVentures/cudos-builders",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": ["v1.0.0"]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "ff3f0f7b1eecc6844e6512428ef4c7a9448452a8",
+        "address": "cluster-1-seed-1.hosts.cudos.org:26656",
+        "provider": "cudo"
+      },
+      {
+        "id": "6d9beb4d44a530a4a10ebe78ed7717f6083d0c4b",
+        "address": "cluster-2-seed-1.hosts.cudos.org:26656",
+        "provider": "cudo"
+      },
+      {
+        "id": "e0f3bcc574ef66ae4561fad0772a4fd1959969af",
+        "address": "cluster-3-seed-1.hosts.cudos.org:26656",
+        "provider": "cudo"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "f196d7cc811a5ab99e4c5dd5c7f3c0135509d1c4",
+        "address": "cluster-1-sentry-1.hosts.cudos.org:26656",
+        "provider": "cudo"
+      },
+      {
+        "id": "2cc0a12ff1038509b2ed64719fcddfdded9a04ad",
+        "address": "cluster-2-sentry-1.hosts.cudos.org:26656",
+        "provider": "cudo"
+      },
+      {
+        "id": "ab1ec4fb29afc9c0f5a04b7cbd1220b8b30ffea4",
+        "address": "cluster-3-sentry-1.hosts.cudos.org:26656",
+        "provider": "cudo"
+      },
+      {
+        "id": "2958b15e9102cb556cc0f1f1bbbfdfc922a16069",
+        "address": "mainnet-full-node-01.hosts.cudos.org:26656",
+        "provider": "cudo"
+      },
+      {
+        "id": "eb14f9142ad313297653f84754b1caf60efe75ac",
+        "address": "mainnet-full-node-02.hosts.cudos.org:26656",
+        "provider": "cudo"
+      }
+     ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "mainnet-full-node-01.hosts.cudos.org:26657",
+        "provider": "cudo"
+      }
+    ],
+    "rest": [
+      {
+        "address": "mainnet-full-node-01.hosts.cudos.org:1317",
+        "provider": "cudo"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "mainnet-full-node-01.hosts.cudos.org:9090",
+        "provider": "cudo"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "big-dipper-v2",
+      "url": "https://explorer.cudos.org/",
+      "tx_page": "https://explorer.cudos.org/transactions/${txHash}",
+      "account_page": "https://explorer.cudos.org/accounts/${accountAddress}"
+    },
+    {
+      "kind": "big-dipper-v1",
+      "url": "https://explorer-v1.cudos.org/",
+      "tx_page": "https://explorer-v1.cudos.org/transactions/${txHash}",
+      "account_page": "https://explorer-v1.cudos.org/account/${accountAddress}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/cudos",
+      "tx_page": "https://www.mintscan.io/cudos/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/cudos/account/${accountAddress}"
+    }
+  ]
+}
