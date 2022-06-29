@@ -1,0 +1,134 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "terra2",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Terra2",
+    "chain_id": "phoenix-1",
+    "daemon_name": "terrad",
+    "node_home": "$HOME/.terra",
+    "bech32_prefix": "terra",
+    "genesis": {
+        "genesis_url": "https://phoenix-genesis.s3.us-west-1.amazonaws.com/genesis.json"
+    },
+    "slip44": 330,
+    "codebase": {
+        "git_repo": "https://github.com/terra-money/core/",
+        "recommended_version": "v2.0.1",
+        "compatible_versions": [
+            "v2.0.1",
+            "v2.0.0"
+        ],
+        "binaries": {
+            "linux/amd64": "https://github.com/terra-money/core/releases/download/v2.0.1/terra_2.0.1_Linux_x86_64.tar.gz",
+            "darwin/amd64": "https://github.com/terra-money/core/releases/download/v2.0.1/terra_2.0.1_Darwin_x86_64.tar.gz"
+        }
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "406bcf90a7b29df6ae475a1f94abe04ebde805af",
+                "address": "phoenix.seed.stakebin.io:16656"
+            },
+            {
+                "id": "fc608a9a117d8d2302bcd181aec34eec6bb4fa96",
+                "address": "terra2-seed.blockpane.com:26656"
+            },
+            {
+                "id": "8efd8248e06aabd553b56766ec2a850999d0861f",
+                "address": "exitnode.cereslabs.io:36656"
+            },
+            {
+                "id": "b4d3b21747539060b270457437ef1bf99a51c694",
+                "address": "terra2.seed.synergynodes.com:26656"
+            },
+            {
+                "id": "810d1628db9f1db56fa87a93fb6ef809c32d6325",
+                "address": "phoenix.seed.terra.btcsecure.io:26656"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "dc865a0d882f30e41e99ef23d9e6164163607523",
+                "address": "54.147.79.192:26656"
+            },
+            {
+                "id": "bdce6030a2bdebe4c660a76599fe3dee4a42d50f",
+                "address": "35.154.54.64:26656"
+            },
+            {
+                "id": "0f1096278efafcf3f0d3bd5b6544e6b8dcc36a0e",
+                "address": "206.189.129.195:26656"
+            },
+            {
+                "id": "c8ab8910e5f7bfcc6e81351eb851eb8c0540a194",
+                "address": "exitnode.cereslabs.io:26656"
+            },
+            {
+                "id": "33afc1c21cb225bb2cfb9700442a576bbaeb7691",
+                "address": "163.172.100.203:26656"
+            },
+            {
+                "id": "9038d63588e0ab421fa71582720c1efb1ee867f6",
+                "address": "45.34.1.114:27656"
+            },
+            {
+                "id": "daa2fd0dc725d6673e7688c9c57fc3b6d99c83c4",
+                "address": "solarsys.noip.me:27656"
+            },
+            {
+                "id": "331c2bbcd1aab921563dce85dedae840e1369e39",
+                "address": "142.132.199.98:10656"
+            },
+            {
+                "id": "91b675be5f81931375358e02ab687c88fab02e41",
+                "address": "135.148.55.229:11656"
+            },
+            {
+                "id": "9dc9e9b50c4cae52cdbec2034d879427b2a429ae",
+                "address": "54.180.81.122:26656"
+            },
+            {
+                "id": "ad825ef6b29306d80b0eb8101133cedf7933eb5e",
+                "address": "116.203.36.94:26656"
+            },
+            {
+                "id": "f2069012aec5ced4e88e7e4311391eabe72bb5a3",
+                "address": "node-phoenix.terra.lunastations.online:26656"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://rpc.terrav2.ccvalidators.com:443/",
+                "provider": "CryptoCrew"
+            },
+            {
+                "address": "https://terra-rpc.polkachu.com:443/",
+                "provider": "polkachu"
+            },
+            {
+                "address": "https://terra-rpc.stakely.io:443/",
+                "provider": "stakely"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://terra-api.polkachu.com:443/",
+                "provider": "polkachu"
+            },
+            {
+                "address": "https://fcd.terrav2.ccvalidators.com:443/",
+                "provider": "CryptoCrew"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "finder",
+            "url": "http://finder.terra.money/",
+            "tx_page": "https://finder.terra.money/mainnet/tx/${txHash}"
+        }
+    ]
+}
