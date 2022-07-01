@@ -49,7 +49,10 @@ A sample `chain.json` includes the following information.
         "fee_tokens": [
             {
                 "denom": "uosmo",
-                "fixed_min_gas_price": 0
+                "fixed_min_gas_price": 0,
+                "low_gas_price": 0,
+                "average_gas_price": 0.025,
+                "high_gas_price": 0.04
             }
         ]
     },
