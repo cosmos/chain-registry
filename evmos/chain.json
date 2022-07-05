@@ -8,7 +8,7 @@
   "bech32_prefix": "evmos",
   "node_home": "$HOME/.evmosd",
   "genesis": {
-    "genesis_url": "https://archive.evmos.dev/genesis/genesis.json"
+    "genesis_url": "https://archive.evmos.org/mainnet/genesis.json"
   },
   "slip44": 60,
   "fees": {
@@ -19,17 +19,18 @@
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/tharsis/evmos",
-    "recommended_version": "v3.0.0",
+    "git_repo": "https://github.com/evmos/evmos",
+    "recommended_version": "v6.0.1",
     "compatible_versions": [
-      "v3.0.0"
+      "v6.0.1",
+      "v6.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/tharsis/evmos/releases/download/v3.0.0/evmos_3.0.0_Linux_x86_64.tar.gz",
-      "linux/arm64": "https://github.com/tharsis/evmos/releases/download/v3.0.0/evmos_3.0.0_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/tharsis/evmos/releases/download/v3.0.0/evmos_3.0.0_Darwin_x86_64.tar.gz",
-      "darwin/arm64": "https://github.com/tharsis/evmos/releases/download/v3.0.0/evmos_3.0.0_Darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/tharsis/evmos/releases/download/v3.0.0/evmos_3.0.0_Windows_x86_64.zip"
+      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v6.0.1/evmos_6.0.1_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v6.0.1/evmos_6.0.1_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v6.0.1/evmos_6.0.1_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v6.0.1/evmos_6.0.1_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v6.0.1/evmos_6.0.1_Windows_x86_64.zip"
     }
   },
   "peers": {
@@ -96,14 +97,14 @@
       },
       {
         "address": "https://tendermint.bd.evmos.org:26657",
-        "provider": "evmos.org"
+        "provider": "Blockdaemon"
       },
       {
         "address": "https://rpc.evmos.ezstaking.io",
         "provider": "EZStaking.io"
       },
       {
-        "address": "https://rpc-evmos-ia.notional.ventures/",
+        "address": "https://rpc-evmos-ia.notional.ventures:443",
         "provider": "Notional"
       },
       {
@@ -126,7 +127,7 @@
       },
       {
         "address": "https://rest.bd.evmos.org:1317",
-        "provider": "evmos.org"
+        "provider": "Blockdaemon"
       },
       {
         "address": "https://lcd.evmos.ezstaking.io",
@@ -170,7 +171,15 @@
     "evm-http-jsonrpc": [
       {
         "address": "https://eth.bd.evmos.org:8545",
-        "provider": "evmos.org"
+        "provider": "Blockdaemon"
+      },
+      {
+        "address": "https://jsonrpc-evmos-ia.notional.ventures/",
+        "provider": "Notional"
+      },
+      {
+        "address": "https://evmos-json-rpc.stakely.io",
+        "provider": "Stakely"
       }
     ]
   },
