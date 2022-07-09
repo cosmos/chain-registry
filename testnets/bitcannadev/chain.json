@@ -1,0 +1,78 @@
+{
+    "$schema": "../../chain.schema.json",
+    "chain_name": "bitcannadev",
+    "status": "live",
+    "network_type": "testnet",
+    "pretty_name": "BitCanna Devnet",
+    "chain_id": "bitcanna-dev-4",
+    "bech32_prefix": "bcna",
+    "daemon_name": "bcnad",
+    "node_home": "$HOME/.bcna",
+    "genesis": {
+        "genesis_url": "https://raw.githubusercontent.com/BitCannaGlobal/testnet-bcna-cosmos/main/instructions/bitcanna-dev-4/genesis.json"
+    },
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "ubcna",
+                "fixed_min_gas_price": 0.001
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/BitCannaGlobal/bcna",
+        "recommended_version": "v1.4.4-pre",
+        "compatible_versions": [
+            "v1.4.4-pre"
+        ],
+        "binaries": {
+            "linux/amd64": "https://github.com/BitCannaGlobal/bcna/releases/download/v1.4.4-pre/bcna_linux_amd64.tar.gz"
+        }
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "3fde4e73ef3fba3418dde89bffe0057508fc5706",
+                "address": "144.91.127.5:26656"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "d0de90dd8b40dfe231a65875069a31c534359c95",
+                "address": "188.166.126.81:26656"
+            },
+            {
+                "id": "4ccc6689a4d2590f6b60e34a3a3e70e0888bbcc0",
+                "address": "144.91.89.66:26656"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://rpc-testnet.bitcanna.io",
+                "provider": "bitcanna"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://lcd-testnet.bitcanna.io",
+                "provider": "bitcanna"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "url": "https://testnet.explorer.erialos.me/bitcanna",
+            "tx_page": "https://testnet.explorer.erialos.me/bitcanna/tx/${txHash}"
+        },
+        {
+            "url": "https://testnets-cosmos.mintthemoon.xyz/bitcanna",
+            "tx_page": "https://testnets-cosmos.mintthemoon.xyz/bitcanna/tx/${txHash}"
+        }
+    ]
+}
