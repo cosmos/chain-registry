@@ -8,6 +8,7 @@ Once schemas have matured and client needs are better understood Chain Registry 
 
 ## Npm Modules
 - https://www.npmjs.com/package/chain-registry
+
 ## Web Endpoints
 - https://registry.ping.pub (Update every 24H)
 
