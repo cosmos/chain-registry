@@ -1,0 +1,74 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "omniflixhub",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "OmniFlix Hub",
+    "chain_id": "omniflixhub-1",
+    "daemon_name": "omniflixhubd",
+    "node_home": "$HOME/.omniflixhub",
+    "bech32_prefix": "omniflix",
+    "genesis": {
+        "genesis_url": "https://raw.githubusercontent.com/OmniFlix/mainnet/main/omniflixhub-1/genesis.json"
+    },
+    "slip44": 118,
+    "codebase": {
+        "git_repo": "https://github.com/OmniFlix/omniflixhub",
+        "recommended_version": "v0.4.1",
+        "compatible_versions": [
+            "v0.4.1"
+        ]
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "9d75a06ebd3732a041df459849c21b87b2c55cde",
+                "address": "35.187.240.195:26656"
+            },
+            {
+                "id": "19feae28207474eb9f168fff9720fd4d418df1ed",
+                "address": "35.240.196.102:26656"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "2df1f357f08049ba0c0dddfffe805f0e135e54ec",
+                "address": "35.247.185.216:26656"
+            },
+            {
+                "id": "6198ac4bc907f6d1a78309ef58491370afc49799",
+                "address": "34.124.195.219:26656"
+            },
+            {
+                "id": "574b37cc6e80663e70673cbe848147c2643ca48e",
+                "address": "35.240.187.174:26656"
+            },
+            {
+                "id": "8313c9d55006da030588f61806b3e056a113e6e8",
+                "address": "34.87.18.204:26656"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://omniflixhub-rpc.skynetvalidators.com",
+                "provider": "skynet-validators"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://omniflixhub-api.skynetvalidators.com",
+                "provider": "skynet-validators"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/omniflix",
+            "tx_page": "https://www.mintscan.io/omniflix/txs/${txHash}",
+            "account_page": "https://www.mintscan.io/omniflix/account/${accountAddress}"
+        }
+    ]
+}
