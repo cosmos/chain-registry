@@ -6,6 +6,9 @@ Schema files containing the recommended metadata structure can be found in the `
 
 Once schemas have matured and client needs are better understood Chain Registry data is intended to migrate to an on-chain representation hosted on the Cosmos Hub, i.e. the Cosmos Chain Name Service. If you are interested in this effort please join the discussion [here](https://github.com/cosmos/chain-registry/issues/291)!
 
+## Npm Modules
+- https://www.npmjs.com/package/chain-registry
+
 ## Web Endpoints
 - https://registry.ping.pub (Update every 24H)
 
