@@ -77,6 +77,17 @@
                 }
             }
         },
+        "staking": {
+            "type": "object",
+            "properties": {
+                "staking_tokens": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/staking_token"
+                    }
+                }
+            }
+        },
         "codebase": {
             "type": "object",
             "properties": {
@@ -234,7 +245,18 @@
                 }
             }
         },
-         "logo_URIs": {
+        "staking_token": {
+            "type": "object",
+            "required": [
+                "denom"
+            ],
+            "properties": {
+                "denom": {
+                    "type": "string"
+                }
+            }
+        },
+        "logo_URIs": {
             "type": "object",
             "properties": {
                 "png": {
