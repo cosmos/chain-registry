@@ -6,6 +6,9 @@ Schema files containing the recommended metadata structure can be found in the `
 
 Once schemas have matured and client needs are better understood Chain Registry data is intended to migrate to an on-chain representation hosted on the Cosmos Hub, i.e. the Cosmos Chain Name Service. If you are interested in this effort please join the discussion [here](https://github.com/cosmos/chain-registry/issues/291)!
 
+## Npm Modules
+- https://www.npmjs.com/package/chain-registry
+
 ## Web Endpoints
 - https://registry.ping.pub (Update every 24H)
 
@@ -69,6 +72,8 @@ A sample `chain.json` includes the following information.
             "darwin/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-darwin-amd64",
             "windows/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-windows-amd64.exe"
         },
+        "cosmos_sdk_version": "0.45",
+        "tendermint_version": "0.34",
         "cosmwasm_version": "0.24",
         "cosmwasm_enabled": true
     },
