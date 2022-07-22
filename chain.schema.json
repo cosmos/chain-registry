@@ -79,11 +79,6 @@
         },
         "codebase": {
             "type": "object",
-            "required": [
-                "git_repo",
-                "recommended_version",
-                "compatible_versions"
-            ],
             "properties": {
                 "git_repo": {
                     "type": "string",
@@ -106,6 +101,12 @@
                             "format": "uri"
                         }
                     }
+                },
+                "cosmos_sdk_version": {
+                    "type": "string"
+                },
+                "tendermint_version": {
+                    "type": "string"
                 }
             }
         },
@@ -238,11 +239,13 @@
             "properties": {
                 "png": {
                     "type": "string",
-                    "format": "uri-reference"
+                    "format": "uri-reference",
+                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master(/|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/([a-z]|[0-9]){1,}\\.png$"
                 },
                 "svg": {
                     "type": "string",
-                    "format": "uri-reference"
+                    "format": "uri-reference",
+                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/([a-z]|[0-9]){1,}\\.svg$"
                 }
             }
         }
