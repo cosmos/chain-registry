@@ -73,7 +73,9 @@ A sample `chain.json` includes the following information.
             "windows/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-windows-amd64.exe"
         },
         "cosmos_sdk_version": "0.45",
-        "tendermint_version": "0.34"
+        "tendermint_version": "0.34",
+        "cosmwasm_version": "0.24",
+        "cosmwasm_enabled": true
     },
     "peers": {
         "seeds": [
