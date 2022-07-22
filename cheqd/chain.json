@@ -16,18 +16,21 @@
         "fee_tokens": [
             {
                 "denom": "ncheq",
-                "fixed_min_gas_price": 25
+                "fixed_min_gas_price": 25,
+                "low_gas_price": 25,
+                "average_gas_price": 50,
+                "high_gas_price": 100
             }
         ]
     },
     "codebase": {
         "git_repo": "https://github.com/cheqd/cheqd-node",
-        "recommended_version": "v0.5.0",
+        "recommended_version": "v0.6.0",
         "compatible_versions": [
-            "v0.5.0"
+            "v0.6.0"
         ],
         "binaries": {
-            "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v0.5.0/cheqd-node_0.5.0_amd64.deb"
+            "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v0.6.0/cheqd-noded"
         }
     },
     "peers": {
@@ -51,11 +54,6 @@
                 "id": "9b30307a2a2819790d68c04bb62f5cf4028f447e",
                 "address": "seed1.ap.cheqd.net:26656",
                 "provider": "cheqd"
-            },
-            {
-                "id": "debcb3fa7d40e681d98bcc7d22278fd58a34b73a",
-                "address": "144.76.183.180:1234",
-                "provider": "notional"
             }
         ],
         "persistent_peers": [
@@ -67,6 +65,11 @@
             {
                 "id": "513d334bb044296796939e57b522fef7fd4b9c6c",
                 "address": "sentry2.eu.cheqd.net:26656",
+                "provider": "cheqd"
+            },
+            {
+                "id": "9201b408d24941fd342e739f0814aa3eb8ab7577",
+                "address": "sentry1.ap.cheqd.net:26656",
                 "provider": "cheqd"
             }
         ]
@@ -102,6 +105,10 @@
         ],
         "grpc": [
             {
+                "address": "grpc.cheqd.net:443",
+                "provider": "cheqd"
+            },
+            {
                 "address": "grpc-cheqd-ia.notional.ventures:443",
                 "provider": "Notional"
             }
@@ -119,9 +126,10 @@
             "tx_page": "https://ping.pub/cheqd/tx/${txHash}"
         },
         {
-            "kind": "aneka",
-            "url": "https://cheqd.aneka.io/",
-            "tx_page": "https://cheqd.aneka.io/txs/${txHash}"
-        }
+            "kind": "atomscan.com",
+            "url": "https://atomscan.com/cheqd",
+            "tx_page": "https://atomscan.com/cheqd/transactions/${txHash}",
+            "account_page": "https://atomscan.com/cheqd/accounts/${accountAddress}"
+          }
     ]
 }
