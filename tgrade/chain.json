@@ -1,0 +1,87 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "tgrade",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Tgrade",
+    "chain_id": "tgrade-mainnet-1",
+    "bech32_prefix": "tgrade",
+    "daemon_name": "tgrade",
+    "node_home": "$HOME/.tgrade",
+    "genesis": {
+        "genesis_url": "https://raw.githubusercontent.com/confio/tgrade-networks/main/mainnet-1/config/genesis.json"
+    },
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "utgd",
+                "fixed_min_gas_price": 0.05,
+                "low_gas_price": 0.05,
+                "average_gas_price": 0.075,
+                "high_gas_price": 0.1
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/confio/tgrade",
+        "recommended_version": "v1.0.1",
+        "compatible_versions": [
+            "v1.0.1"
+        ]
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "0c3b7d5a4253216de01b8642261d4e1e76aee9d8",
+                "address": "45.76.202.195:26656",
+                "provider": "DSRV"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "0a63421f67d02e7fb823ea6d6ceb8acf758df24d",
+                "address": "142.132.226.137:26656",
+                "provider": "Confio"
+            },
+            {
+                "id": "4a319eead699418e974e8eed47c2de6332c3f825",
+                "address": "167.235.255.9:26656",
+                "provider": "Confio"
+            },
+            {
+                "id": "6918efd409684d64694cac485dbcc27dfeea4f38",
+                "address": "49.12.240.203:26656",
+                "provider": "Confio"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://rpc.mainnet-1.tgrade.confio.run",
+                "provider": "Confio"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://api.mainnet-1.tgrade.confio.run",
+                "provider": "Confio"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "aneka",
+            "url": "https://tgrade.aneka.io",
+            "tx_page": "https://tgrade.aneka.io/txs/${txHash}",
+            "account_page": "https://tgrade.aneka.io/accounts/${accountAddress}"
+        }
+    ],
+    "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tgrade/images/tgrade-logo-gradient_h.png"
+    }
+}
