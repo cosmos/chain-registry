@@ -79,7 +79,7 @@ A sample `chain.json` includes the following information.
           "ics20-1"
         ],
         "cosmwasm_version": "0.24",
-        "cosmwasm_enabled": true,
+        "cosmwasm_enabled": true
     },
     "peers": {
         "seeds": [
