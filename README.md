@@ -75,7 +75,7 @@ A sample `chain.json` includes the following information.
         "cosmos_sdk_version": "0.45",
         "tendermint_version": "0.34",
         "ibc_go_version": "3.0.0",
-        "ics_enabled: [
+        "ics_enabled": [
           "ics20-1"
         ],
         "cosmwasm_version": "0.24",
