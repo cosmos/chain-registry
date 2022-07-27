@@ -59,6 +59,13 @@ A sample `chain.json` includes the following information.
             }
         ]
     },
+    "staking": {
+        "staking_tokens": [
+            {
+                "denom": "uosmo"
+            }
+        ]
+    },
     "codebase": {
         "git_repo": "https://github.com/osmosis-labs/osmosis",
         "recommended_version": "v4.1.0",
