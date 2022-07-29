@@ -2,130 +2,120 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "required": [
-    "chain-1",
-    "chain-2",
-    "channels"
+      "chain-1",
+      "chain-2",
+      "channels"
   ],
   "properties": {
-    "chain-1": {
-      "type": "object",
-      "description": "Top level IBC data pertaining to the chain. `chain-1` and `chain-2` should be in alphabetical order.",
-      "items": {
-        "$refs": "#/$defs/chain_info"
-      }
-    },
-    "chain-2": {
-      "type": "object",
-      "description": "Top level IBC data pertaining to the chain. `chain-1` and `chain-2` should be in alphabetical order.",
-      "items": {
-        "$refs": "#/$defs/chain_info"
-      }
-    },
-    "channels": {
-      "type": "array",
-      "items": [
-        {
+      "chain-1": {
           "type": "object",
+          "$ref": "#/$defs/chain_info"
+      },
+      "chain-2": {
+          "type": "object",
+          "$ref": "#/$defs/chain_info"
+      },
+      "channels": {
+          "type": "array",
+          "items": {
+              "type": "object",
+              "required": [
+                  "chain-1",
+                  "chain-2",
+                  "ordering",
+                  "version"
+              ],
+              "properties": {
+                  "chain-1": {
+                      "type": "object",
+                      "$ref": "#/$defs/channel_info"
+                  },
+                  "chain-2": {
+                      "type": "object",
+                      "$ref": "#/$defs/channel_info"
+                  },
+                  "ordering": {
+                      "enum": [
+                          "ordered",
+                          "unordered"
+                      ],
+                      "description": "Determines if packets from a sending module must be 'ordered' or 'unordered'."
+                  },
+                  "version": {
+                      "type": "string",
+                      "description": "IBC Version"
+                  },
+                  "description": {
+                      "type": "string",
+                      "description": "Human readable description of the channel."
+                  },
+                  "tags": {
+                      "type": "object",
+                      "description": "Human readable key:value pairs that help describe and distinguish channels.",
+                      "properties": {
+                          "status": {
+                              "enum": [
+                                  "live",
+                                  "upcoming",
+                                  "killed"
+                              ]
+                          },
+                          "preferred": {
+                              "type": "boolean"
+                          },
+                          "dex": {
+                              "type": "string"
+                          },
+                          "properties": {
+                              "type": "string",
+                              "description": "String that helps describe non-dex use cases ex: interchain accounts(ICA)."
+                          }
+                      },
+                      "additionalProperties": true
+                  }
+              }
+          }
+      }
+  },
+  "$defs": {
+      "chain_info": {
+          "type": "object",
+          "description": "Top level IBC data pertaining to the chain. `chain-1` and `chain-2` should be in alphabetical order.",
           "required": [
-            "chain-1",
-            "chain-2",
-            "ordering",
-            "version"
+              "chain-name",
+              "client-id",
+              "connection-id"
           ],
           "properties": {
-            "chain-1": {
-              "type": "object",
-              "items": {
-                "$refs": "#/$defs/channel_info"
-              }
-            },
-            "chain-2": {
-              "type": "object",
-              "items": {
-                "$refs": "#/$defs/channel_info"
-              }
-            },
-            "ordering": {
-              "enum": [
-                "ordered",
-                "unordered"
-              ],
-              "description": "Determines if packets from a sending module must be 'ordered' or 'unordered'."
-            },
-            "version": {
-              "type": "string",
-              "description": "IBC Version"
-            },
-            "description": {
-              "type": "string",
-              "description": "Human readable description of the channel."
-            },
-            "tags": {
-              "type": "object",
-              "description": "Human readable key:value pairs that help describe and distinguish channels.",
-              "properties": {
-                "status": {
-                  "enum": [
-                    "live",
-                    "upcoming",
-                    "killed"
-                  ]
-                },
-                "preferred": {
-                  "type": "boolean"
-                },
-                "dex": {
+              "chain-name": {
                   "type": "string"
-                },
-                "properties": {
+              },
+              "client-id": {
                   "type": "string",
-                  "description": "String that helps describe non-dex use cases ex: interchain accounts(ICA)."
-                }
+                  "description": "The client ID on the corresponding chain representing the other chain's light client."
+              },
+              "connection-id": {
+                  "type": "string",
+                  "description": "The connection ID on the corresponding chain representing a connection to the other chain."
               }
-            }
           }
-        }
-      ]
-    },
-    "$defs": {
-      "chain_info": {
-        "type": "object",
-        "required": [
-          "chain-name",
-          "client-id",
-          "connection-id"
-        ],
-        "properties": {
-          "chain-name": {
-            "type": "string"
-          },
-          "client-id": {
-            "type": "string",
-            "description": "The client ID on the corresponding chain representing the other chain's light client."
-          },
-          "connection-id": {
-            "type": "string",
-            "description": "The connection ID on the corresponding chain representing a connection to the other chain."
-          }
-        }
       },
       "channel_info": {
-        "type": "object",
-        "required": [
-          "channel-id",
-          "port-id"
-        ],
-        "properties": {
-          "channel-id": {
-            "type": "string",
-            "description": "The channel ID on the corresponding chain's connection representing a channel on the other chain."
-          },
-          "port-id": {
-            "type": "string",
-            "description": "The IBC port ID which a relevant module binds to on the corresponding chain."
+          "type": "object",
+          "required": [
+              "channel-id",
+              "port-id"
+          ],
+          "properties": {
+              "channel-id": {
+                  "type": "string",
+                  "description": "The channel ID on the corresponding chain's connection representing a channel on the other chain."
+              },
+              "port-id": {
+                  "type": "string",
+                  "description": "The IBC port ID which a relevant module binds to on the corresponding chain."
+              }
           }
-        }
       }
-    }
   }
 }
