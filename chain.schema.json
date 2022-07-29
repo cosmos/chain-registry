@@ -77,6 +77,23 @@
                 }
             }
         },
+        "staking": {
+            "type": "object",
+            "properties": {
+                "staking_tokens": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/staking_token"
+                    }
+                },
+                "staking_systems": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/staking_system"
+                    }
+                }
+            }
+        },
         "codebase": {
             "type": "object",
             "properties": {
@@ -240,7 +257,42 @@
                 }
             }
         },
-         "logo_URIs": {
+        "staking_token": {
+            "type": "object",
+            "required": [
+                "denom"
+            ],
+            "properties": {
+                "denom": {
+                    "type": "string"
+                }
+            }
+        },
+        "staking_system": {
+            "oneOf": [
+                {
+                    "const": "superfluid",
+                    "description": "Enables liquidity providers on this network to utilize AMM-pooled staking tokens for governance and delegation. As seen on Osmosis."
+                },
+                {
+                    "const": "interfluid",
+                    "description": "Enables liquidity providers on a foreign network to utilize AMM-pooled staking tokens for governance and delegation. Soon provided by Osmosis."
+                },
+                {
+                    "const": "interchain",
+                    "description": "Enables this network to be secured by the validator set of another network. As to be seen on Neutron."
+                },
+                {
+                    "const": "whitelisted-liquid",
+                    "description": "Utilizes a protocol-permissioned whitelist to issue liquid staking derivatives. As seen on Crescent Network."
+                },
+                {
+                    "const": "iqlusion-liquid",
+                    "description": "Enables this network to permissionlessly issue validator-specific liquid staking derivatives without unbonding. Coming soon to Cosmos Hub."
+                }
+            ]
+        },
+        "logo_URIs": {
             "type": "object",
             "properties": {
                 "png": {
