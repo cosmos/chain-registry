@@ -1,0 +1,114 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "stride",
+    "status": "live",
+    "network_type": "mainnet",
+    "updatelink": "https://raw.githubusercontent.com/osmosis-labs/osmosis/main/chain.schema.json",
+    "pretty_name": "Stride",
+    "chain_id": "stride-1",
+    "bech32_prefix": "st",
+    "daemon_name": "strided",
+    "node_home": "$HOME/.strided",
+    "genesis": {
+        "genesis_url": "https://github.com/osmosis-labs/networks/raw/main/osmosis-1/genesis.json"
+    },
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "ust",
+                "fixed_min_gas_price": 0,
+                "low_gas_price": 0,
+                "average_gas_price": 0.025,
+                "high_gas_price": 0.04
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/Stride-Labs/stride",
+        "recommended_version": "v1.0.0",
+        "binaries": {
+            "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v10.0.0/osmosis-10.0.0-linux-amd64",
+            "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v10.0.0/osmosis-10.0.0-linux-arm64"
+        },
+        "cosmos_sdk_version": "0.45.4",
+        "tendermint_version": "0.34.19"
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "83adaa38d1c15450056050fd4c9763fcc7e02e2c",
+                "address": "ec2-44-234-84-104.us-west-2.compute.amazonaws.com:26656",
+                "provider": "notional"
+            },
+            {
+                "id": "7c66126b64cd66bafd9ccfc721f068df451d31a3",
+                "address": "osmosis-seed.sunshinevalidation.io:9393",
+                "provider": "sunshine-validation"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "b63e1e588e8feb7e4a4adf0f2542d755e606d3f1",
+                "address": "5.9.105.113:26656",
+                "provider": "WhisperNode 🤐"
+            },
+            {
+                "id": "8f67a2fcdd7ade970b1983bf1697111d35dfdd6f",
+                "address": "52.79.199.137:26656",
+                "provider": "cosmostation"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://rpc-osmosis.whispernode.com",
+                "provider": "WhisperNode 🤐"
+            },
+            {
+                "address": "https://rpc.osmosis.interbloc.org",
+                "provider": "Interbloc"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://lcd-osmosis.whispernode.com",
+                "provider": "WhisperNode 🤐"
+            },
+            {
+                "address": "https://api.osmosis.interbloc.org",
+                "provider": "Interbloc"
+            }
+        ],
+        "grpc": [
+            {
+                "address": "osmosis.strange.love:9090",
+                "provider": "strangelove"
+            },
+            {
+                "address": "grpc-osmosis-ia.notional.ventures:443",
+                "provider": "Notional"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/osmosis",
+            "tx_page": "https://www.mintscan.io/osmosis/txs/${txHash}",
+            "account_page": "https://www.mintscan.io/osmosis/account/${accountAddress}"
+        },
+        {
+            "kind": "ping.pub",
+            "url": "https://ping.pub/osmosis",
+            "tx_page": "https://ping.pub/osmosis/tx/${txHash}"
+        }
+    ],
+    "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stride-chain-logo.png"
+    }
+}
