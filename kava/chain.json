@@ -4,18 +4,19 @@
     "status": "live",
     "network_type": "mainnet",
     "pretty_name": "Kava",
-    "chain_id": "kava-7",
+    "chain_id": "kava_2222-10",
     "bech32_prefix": "kava",
-    "daemon_name": "kvd",
-    "node_home": "$HOME/.kvd",
+    "daemon_name": "kava",
+    "node_home": "$HOME/.kava",
     "genesis": {
-        "genesis_url": "https://raw.githubusercontent.com/Kava-Labs/launch/master/kava-7/genesis.json"
+        "genesis_url": "https://kava-genesis-files.s3.us-east-1.amazonaws.com/kava_2222-10/genesis.json"
     },
+    "slip44": 459,
     "codebase": {
         "git_repo": "https://github.com/kava-Labs/kava/",
-        "recommended_version": "v0.14.1",
+        "recommended_version": "v0.17.3",
         "compatible_versions": [
-            "v0.14.1"
+            "v0.17.3"
         ]
     },
     "peers": {
@@ -79,5 +80,59 @@
                 "address": "13.56.31.21:26656"
             }
         ]
-    }
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://rpc.data.kava.io",
+                "provider": "kava"
+            },
+            {
+                "address": "https://kava-rpc.polkachu.com",
+                "provider": "Polkachu"
+            },
+            {
+                "address": "https://rpc-kava-ia.notional.ventures/",
+                "provider": "Notional"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://api.data.kava.io/",
+                "provider": "kava"
+            },
+            {
+                "address": "https://api-kava-ia.notional.ventures/",
+                "provider": "Notional"
+            }
+        ],
+        "grpc": [
+            {
+                "address": "https://grpc.data.kava.io/",
+                "provider": "kava"
+            },
+            {
+                "address": "grpc-kava-ia.notional.ventures:443",
+                "provider": "Notional"
+            }
+        ],
+        "evm-http-jsonrpc": [
+            {
+                "address": "https://evm.kava.io/",
+                "provider": "kava"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/kava",
+            "tx_page": "https://www.mintscan.io/kava/txs/${txHash}"
+        },
+        {
+            "kind": "ping-pub",
+            "url": "https://ping.pub/kava",
+            "tx_page": "https://ping.pub/kava/tx/${txHash}"
+        }
+    ]
 }

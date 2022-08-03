@@ -3,7 +3,7 @@
     "chain_name": "terra",
     "status": "live",
     "network_type": "mainnet",
-    "pretty_name": "Terra",
+    "pretty_name": "Terra Classic",
     "chain_id": "columbus-5",
     "daemon_name": "terrad",
     "node_home": "$HOME/.terra",
@@ -11,14 +11,17 @@
     "genesis": {
         "genesis_url": "https://columbus-genesis.s3.ap-northeast-1.amazonaws.com/columbus-5-genesis.json"
     },
+    "slip44": 330,
     "codebase": {
         "git_repo": "https://github.com/terra-money/core/",
-        "recommended_version": "v0.5.9",
+        "recommended_version": "v0.5.17",
         "compatible_versions": [
-            "v0.5.9"
+            "v0.5.17",
+            "v0.5.16"
         ],
         "binaries": {
-            "linux/amd64": "https://github.com/terra-money/core/releases/download/v0.5.9/terra_0.5.9_Linux_x86_64.tar.gz"
+            "linux/amd64": "https://github.com/terra-money/core/releases/download/v0.5.17/terra_0.5.17_Linux_x86_64.tar.gz",
+            "darwin/amd64": "https://github.com/terra-money/core/releases/download/v0.5.17/terra_0.5.17_Darwin_x86_64.tar.gz"
         }
     },
     "peers": {
@@ -46,15 +49,44 @@
     "apis": {
         "rpc": [
             {
-                "address": "http://64.227.72.101:26657",
-                "provider": "cryptocrew"
+                "address": "https://terra-rpc.easy2stake.com:443",
+                "provider": "Easy2stake"
+            },
+            {
+                "address": "http://public-node.terra.dev:26657",
+                "provider": "Terra"
+            },
+            {
+                "address": "https://rpc-terra-ia.notional.ventures/",
+                "provider": "Notional"
             }
         ],
         "rest": [
             {
-                "address": "http://64.227.72.101:1317",
-                "provider": "cryptocrew"
+                "address": "https://blockdaemon-terra-lcd.api.bdnodes.net:1317",
+                "provider": "Blockdaemon"
+            },
+            {
+                "address": "https://terra.mainnet.lcd.blockngine.io:443",
+                "provider": "BlockNgine Validators"
+            },
+            {
+                "address": "https://api-terra-ia.notional.ventures/",
+                "provider": "Notional"
+            }
+        ],
+        "grpc": [
+            {
+                "address": "grpc-terra-ia.notional.ventures:443",
+                "provider": "Notional"
             }
         ]
-    }
+    },
+    "explorers": [
+        {
+            "kind": "ping-pub",
+            "url": "https://ping.pub/terra-luna",
+            "tx_page": "https://ping.pub/terra-luna/tx/${txHash}"
+        }
+    ]
 }

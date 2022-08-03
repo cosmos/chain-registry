@@ -1,0 +1,114 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "fetchhub",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Fetch Hub",
+    "chain_id": "fetchhub-4",
+    "bech32_prefix": "fetch",
+    "daemon_name": "fetchd",
+    "node_home": "$HOME/.fetchd",
+    "genesis": {
+        "genesis_url": "https://storage.googleapis.com/fetch-ai-mainnet-v2-genesis/genesis-fetchhub4.json"
+    },
+    "slip44": 118,
+    "codebase": {
+        "git_repo": "https://github.com/fetchai/fetchd",
+        "recommended_version": "v0.10.3",
+        "compatible_versions": [
+            "v0.10.3",
+            "v0.10.2",
+            "v0.10.1",
+            "v0.10.0"
+        ]
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "5f3fa6404a67b664be07d0e133a00c1600967396",
+                "address": "connect-fetchhub.fetch.ai:36756",
+                "provider": "fetch.ai"
+            },
+            {
+                "id": "8272b70e1986e2080ca328309a5aad3bb932fcab",
+                "address": "connect-fetchhub.fetch.ai:36757",
+                "provider": "fetch.ai"
+            },
+            {
+                "id": "81f479ad9b4b1d25bceedb2a13139187792442bf",
+                "address": "connect-fetchhub.fetch.ai:36758",
+                "provider": "fetch.ai"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "714b84c1798759505a8095c1f96e920bd23ab09f",
+                "address": "sentries-fetchhub.fetch.ai:36700",
+                "provider": "fetch.ai"
+            },
+            {
+                "id": "802224aa31eb34185b081b1fd791ab568055dc78",
+                "address": "sentries-fetchhub.fetch.ai:36701",
+                "provider": "fetch.ai"
+            },
+            {
+                "id": "65bab5f02a2ab3cb1e6db3b345654594e2390db9",
+                "address": "sentries-fetchhub.fetch.ai:36702",
+                "provider": "fetch.ai"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://rpc-fetchhub.fetch.ai:443",
+                "provider": "fetch.ai"
+            },
+            {
+                "address": "https://fetchapi.terminet.io",
+                "provider": "Terminet"
+            },                   
+            {
+                "address": "https://rpc-fetchhub-ia.notional.ventures/",
+                "provider": "Notional"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://rest-fetchhub.fetch.ai",
+                "provider": "fetch.ai"
+            },
+            {
+                "address": "https://api-fetchhub-ia.notional.ventures/",
+                "provider": "Notional"
+            }
+        ],
+        "grpc": [
+            {
+                "address": "https://grpc-fetchhub.fetch.ai:443",
+                "provider": "fetch.ai"
+            },
+            {
+                "address": "grpc-fetchhub-ia.notional.ventures:443",
+                "provider": "Notional"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/fetchai",
+            "tx_page": "https://www.mintscan.io/fetchai/txs/${txHash}"
+        },
+        {
+            "kind": "bigdipper",
+            "url": "https://explore-fetchhub.fetch.ai",
+            "tx_page": "https://explore-fetchhub.fetch.ai/transactions/${txHash}"
+        },
+        {
+            "kind": "ping.pub",
+            "url": "https://ping.pub/fetchhub",
+            "tx_page": "https://ping.pub/fetchhub/tx/${txHash}"
+        }
+    ]
+}

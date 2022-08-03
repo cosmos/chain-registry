@@ -1,27 +1,41 @@
 {
     "$schema": "../chain.schema.json",
     "chain_name": "cosmoshub",
+    "chain_id": "cosmoshub-4",
+    "pretty_name": "Cosmos Hub",
     "status": "live",
     "network_type": "mainnet",
-    "pretty_name": "Cosmos Hub",
-    "chain_id": "cosmoshub-4",
     "bech32_prefix": "cosmos",
+    "genesis": {
+        "genesis_url": "https://github.com/cosmos/mainnet/raw/master/genesis.cosmoshub-4.json.gz"
+    },
     "daemon_name": "gaiad",
     "node_home": "$HOME/.gaia",
-    "genesis": {
-        "genesis_url": "https://transfer.sh/get/jERP1k/genesis.cosmoshub-4.json"
-    },
+    "key_algos": [
+        "secp256k1"
+    ],
     "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "uatom",
+                "fixed_min_gas_price": 0
+            }
+        ]
+    },
     "codebase": {
         "git_repo": "https://github.com/cosmos/gaia",
-        "recommended_version": "v5.0.5",
+        "recommended_version": "v7.0.1",
         "compatible_versions": [
-            "v5.0.0",
-            "v5.0.1",
-            "v5.0.4",
-            "v5.0.5",
-            "v5.0.7"
-        ]
+            "v7.0.0",
+            "v7.0.1"
+        ],
+        "binaries": {
+            "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v7.0.1/gaiad-v7.0.1-linux-amd64",
+            "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v7.0.1/gaiad-v7.0.1-linux-arm64",
+            "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v7.0.1/gaiad-v7.0.1-darwin-amd64",
+            "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v7.0.1/gaiad-v7.0.1-windows-amd64.exe"
+        }
     },
     "peers": {
         "seeds": [
@@ -50,6 +64,16 @@
             {
                 "id": "366ac852255c3ac8de17e11ae9ec814b8c68bddb",
                 "address": "51.15.94.196:26656"
+            },
+            {
+                "id": "bcef90de8a83673c336bf3b3a352445b3a3a1f08",
+                "address": "cosmos-seed.sunshinevalidation.io:31038",
+                "provider": "sunshine-validation"
+            },
+            {
+                "id": "3b67739570f921cc5e0db4b3efe488ce184155a9",
+                "address": "seeds.pupmos.network:2000",
+                "provider": "PUPMØS"
             }
         ],
         "persistent_peers": [
@@ -140,25 +164,113 @@
             {
                 "id": "f1b16c603f3a0e59f0ce5179dc80f549a7ecd0e2",
                 "address": "sentries.us-east1.iqext.net:26656"
+            },
+            {
+                "id": "64bd8eaf08b05f17ccd88425f80b59ab48934004",
+                "address": "157.90.18.35:26656",
+                "provider": "in3s.com"
             }
         ]
     },
     "apis": {
         "rpc": [
             {
-                "address": "https://rpc-cosmoshub.keplr.app",
+                "address": "https://rpc-cosmoshub.whispernode.com",
+                "provider": " WhisperNode🤐"
+            },
+            {
+                "address": "https://rpc-cosmoshub.blockapsis.com",
                 "provider": "chainapsis"
             },
             {
                 "address": "https://cosmoshub.validator.network/",
                 "provider": "validatornetwork"
+            },
+            {
+                "address": "https://rpc.cosmoshub.strange.love",
+                "provider": "strangelove-ventures"
+            },
+            {
+                "address": "https://rpc.cosmos.network:443",
+                "provider": "tendermint-inc"
+            },
+            {
+                "address": "https://rpc-cosmoshub.ecostake.com",
+                "provider": "ecostake"
+            },
+            {
+                "address": "https://rpc.cosmoshub.pupmos.network",
+                "provider": "PUPMØS"
+            },
+            {
+                "address": "https://cosmos-rpc.polkachu.com",
+                "provider": "Polkachu"
+            },
+            {
+                "address": "https://rpc.cosmos.ezstaking.io",
+                "provider": "EZStaking.io"
+            },
+            {
+                "address": "https://rpc-cosmoshub-ia.notional.ventures/",
+                "provider": "Notional"
             }
         ],
         "rest": [
             {
-                "address": "https://lcd-cosmoshub.keplr.app",
+                "address": "https://lcd-cosmoshub.whispernode.com",
+                "provider": " WhisperNode🤐"
+            },
+            {
+                "address": "https://lcd-cosmoshub.blockapsis.com",
                 "provider": "chainapsis"
+            },
+            {
+                "address": "https://rest-cosmoshub.ecostake.com",
+                "provider": "ecostake"
+            },
+            {
+                "address": "https://api.cosmoshub.pupmos.network",
+                "provider": "PUPMØS"
+            },
+            {
+                "address": "https://lcd.cosmos.ezstaking.io",
+                "provider": "EZStaking.io"
+            },
+            {
+                "address": "https://api-cosmoshub-ia.notional.ventures/",
+                "provider": "Notional"
+            }
+        ],
+        "grpc": [
+            {
+                "address": "grpc-cosmoshub.blockapsis.com:429",
+                "provider": "chainapsis"
+            },
+            {
+                "address": "cosmoshub.strange.love:9090",
+                "provider": "strangelove"
+            },
+            {
+                "address": "grpc-cosmoshub-ia.notional.ventures:443",
+                "provider": "Notional"
             }
         ]
-    }
+    },
+    "explorers": [
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/cosmos",
+            "tx_page": "https://www.mintscan.io/cosmos/txs/${txHash}"
+        },
+        {
+            "kind": "ping-pub",
+            "url": "https://ping.pub/cosmos",
+            "tx_page": "https://ping.pub/cosmos/tx/${txHash}"
+        },
+        {
+            "kind": "bigdipper",
+            "url": "https://cosmos.bigdipper.live/",
+            "tx_page": "https://cosmos.bigdipper.live/transactions/${txHash}"
+        }
+    ]
 }

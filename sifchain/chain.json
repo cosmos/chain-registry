@@ -60,21 +60,54 @@
     "apis": {
         "rpc": [
             {
-                "address": "https://rpc.sifchain.finance:80"
+                "address": "https://rpc.sifchain.finance:443"
             },
             {
-                "address": "https://rpc-archive.sifchain.finance:80"
+                "address": "https://rpc-archive.sifchain.finance:443"
+            },
+            {
+                "address": "https://sifchain-rpc.polkachu.com",
+                "provider": "Polkachu"
+            },
+            {
+                "address": "https://rpc-sifchain-ia.notional.ventures/",
+                "provider": "Notional"
             }
         ],
         "grpc": [
             {
-                "address": "https://grpc.sifchain.finance:80"
+                "address": "https://grpc.sifchain.finance:443"
+            },
+            {
+                "address": "grpc-sifchain-ia.notional.ventures:443",
+                "provider": "Notional"
             }
         ],
         "rest": [
             {
-                "address": "https://api.sifchain.finance:80"
+                "address": "https://api.sifchain.finance:443"
+            },
+            {
+                "address": "https://api-sifchain-ia.notional.ventures/",
+                "provider": "Notional"
             }
         ]
-    }
+    },
+    "explorers": [
+        {
+            "kind": "ping-pub",
+            "url": "https://ping.pub/sifchain",
+            "tx_page": "https://ping.pub/sifchain/tx/${txHash}"
+        },
+        {
+            "kind": "explorers.guru",
+            "url": "https://sifchain.explorers.guru",
+            "tx_page": "https://sifchain.explorers.guru/transaction/${txHash}"
+        },
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/sifchain",
+            "tx_page": "https://www.mintscan.io/sifchain/txs/{txHash}"
+        }
+    ]
 }

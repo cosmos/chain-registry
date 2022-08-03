@@ -25,14 +25,16 @@
     },
     "codebase": {
         "git_repo": "https://github.com/provenance-io/provenance",
-        "recommended_version": "v1.7.5",
+        "recommended_version": "v1.8.2",
         "compatible_versions": [
-            "v1.7.4",
-            "v1.7.5"
+            "v1.7.5",
+            "v1.7.6",
+            "v1.8.0",
+            "v1.8.2"
         ],
         "binaries": {
-            "linux/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.7.5/provenance-darwin-amd64-v1.7.5.zip",
-            "darwin/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.7.5/provenance-linux-amd64-v1.7.5.zip"
+            "linux/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.8.2/provenance-linux-amd64-v1.8.2.zip",
+            "darwin/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.8.2/provenance-darwin-amd64-v1.8.2.zip"
         }
     },
     "peers": {
@@ -55,12 +57,26 @@
             {
                 "address": "https://rpc.provenance.io/",
                 "provider": "figure"
+            },
+            {
+                "address": "https://api-provenance-ia.notional.ventures/",
+                "provider": "Notional"
             }
         ],
         "rest": [
             {
                 "address": "https://api.provenance.io",
                 "provider": "figure"
+            },
+           {
+                "address": "https://api-provenance-ia.notional.ventures/",
+                "provider": "Notional"
+            }
+        ],
+        "grpc": [
+           {
+                "address": "grpc-provenance-ia.notional.ventures:443",
+                "provider": "Notional"
             }
         ]
     },
@@ -79,6 +95,16 @@
             "kind": "hubble",
             "url": "https://hubble.figment.io/provenance/chains/pio-mainnet-1",
             "tx_page": "https://hubble.figment.io/provenance/chains/pio-mainnet-1/${block}/transactions/${txHash}"
-        }           
+        }, 
+        {
+            "kind": "ping-pub",
+            "url": "https://ping.pub/provenance",
+            "tx_page": "https://ping.pub/provenance/tx/${txHash}"
+        },
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/provenance",
+            "tx_page": "https://www.mintscan.io/provenance/txs/${txHash}"
+        }      
     ]
 }

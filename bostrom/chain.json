@@ -14,9 +14,9 @@
     "slip44": 118,
     "codebase": {
         "git_repo": "https://github.com/cybercongress/go-cyber",
-        "recommended_version": "v0.2.0",
+        "recommended_version": "v0.3.0",
         "compatible_versions": [
-            "v0.2.0"
+            "v0.3.0"
         ],
         "binaries": {
             "linux/amd64": "https://github.com/cybercongress/go-cyber/releases/download/v0.2.0/cyber_v0.2.0_linux-amd64.tar.gz",
@@ -75,12 +75,34 @@
             {
                 "address": "https://rpc.bostrom.cybernode.ai",
                 "provider": "cybercongress"
+            },
+            {
+                "address": "https://rpc.cyber.posthuman.digital",
+                "provider": "posthuman"
+            },
+            {
+                "address": "https://rpc-cyber-ia.notional.ventures/",
+                "provider": "Notional"
             }
         ],
         "rest": [
             {
                 "address": "https://lcd.bostrom.cybernode.ai",
                 "provider": "cybercongress"
+            },
+            {
+                "address": "https://lcd.cyber.posthuman.digital",
+                "provider": "posthuman"
+            },
+            {
+                "address": "https://api-cyber-ia.notional.ventures/",
+                "provider": "Notional"
+            }
+        ],
+        "grpc": [
+            {
+                "address": "grpc-cyber-ia.notional.ventures:443",
+                "provider": "Notional"
             }
         ]
     },
@@ -89,6 +111,11 @@
             "kind": "cyb",
             "url": "https://cyb.ai/",
             "tx_page": "https://cyb.ai/network/bostrom/tx/${txHash}"
+        },
+        {
+            "kind": "ping-pub",
+            "url": "https://ping.pub/bostrom",
+            "tx_page": "https://ping.pub/bostrom/tx/${txHash}"
         }
     ]
 }

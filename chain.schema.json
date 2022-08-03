@@ -1,7 +1,8 @@
 {
     "$id": "https://sikka.tech/chain.schema.json",
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schema": "https://json-schema.org/draft-07/schema",
     "title": "Cosmos Chain",
+    "updatelink": "string",
     "description": "Cosmos Chain.json is a metadata file that contains information about a cosmos sdk based chain.",
     "type": "object",
     "required": [
@@ -78,11 +79,6 @@
         },
         "codebase": {
             "type": "object",
-            "required": [
-                "git_repo",
-                "recommended_version",
-                "compatible_versions"
-            ],
             "properties": {
                 "git_repo": {
                     "type": "string",
@@ -105,6 +101,18 @@
                             "format": "uri"
                         }
                     }
+                },
+                "cosmos_sdk_version": {
+                    "type": "string"
+                },
+                "tendermint_version": {
+                    "type": "string"
+                },
+                "cosmwasm_version": {
+                    "type": "string"
+                },
+                "cosmwasm_enabled": {
+                    "type": "boolean"
                 }
             }
         },
@@ -185,6 +193,10 @@
                 },
                 "provider": {
                     "type": "string"
+                },
+                "archive": {
+                    "type": "boolean",
+                    "default": false
                 }
             }
         },
@@ -198,6 +210,9 @@
                     "type": "string"
                 },
                 "tx_page": {
+                    "type": "string"
+                },
+                "account_page": {
                     "type": "string"
                 }
             }
@@ -213,6 +228,30 @@
                 },
                 "fixed_min_gas_price": {
                     "type": "number"
+                },
+                "low_gas_price": {
+                    "type": "number"
+                },
+                "average_gas_price": {
+                    "type": "number"
+                },
+                "high_gas_price": {
+                    "type": "number"
+                }
+            }
+        },
+         "logo_URIs": {
+            "type": "object",
+            "properties": {
+                "png": {
+                    "type": "string",
+                    "format": "uri-reference",
+                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master(/|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/([a-z]|[0-9]){1,}\\.png$"
+                },
+                "svg": {
+                    "type": "string",
+                    "format": "uri-reference",
+                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/([a-z]|[0-9]){1,}\\.svg$"
                 }
             }
         }

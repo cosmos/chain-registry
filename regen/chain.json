@@ -13,9 +13,9 @@
     },
     "codebase": {
         "git_repo": "https://github.com/regen-network/regen-ledger",
-        "recommended_version": "1d7351d3fdad2e15ab16892d8961f9a23a6d3014",
+        "recommended_version": "v3.0.0",
         "compatible_versions": [
-            "1d7351d3fdad2e15ab16892d8961f9a23a6d3014"
+            "v3.0.0"
         ]
     },
     "peers": {
@@ -23,6 +23,11 @@
             {
                 "id": "aebb8431609cb126a977592446f5de252d8b7fa1",
                 "address": "104.236.201.138:26656"
+            },
+            {
+                "id": "d309774e794b111a0fa2056f40aed9d488b6195e",
+                "address": "regen-seed.sunshinevalidation.io:32064",
+                "provider": "sunshine-validation"
             }
         ],
         "persistent_peers": [
@@ -53,12 +58,24 @@
             {
                 "address": "http://rpc.regen.forbole.com:80",
                 "provider": "forbole"
+            },
+            {
+                "address": "https://rpc-regen-ia.notional.ventures/",
+                "provider": "Notional"
+            },
+            {
+                "address": "https://rpc-regen.ecostake.com",
+                "provider": "ecostake"
             }
         ],
         "grpc": [
             {
                 "address": "regen.stakesystems.io:2083",
                 "provider": "stakesystems"
+            },
+            {
+                "address": "grpc-regen-ia.notional.ventures:443",
+                "provider": "Notional"
             }
         ],
         "rest": [
@@ -69,7 +86,22 @@
             {
                 "address": "https://regen.stakesystems.io",
                 "provider": "stakesystems"
+            },
+            {
+                "address": "https://api-regen-ia.notional.ventures/",
+                "provider": "Notional"
+            },
+            {
+                "address": "https://rest-regen.ecostake.com",
+                "provider": "ecostake"
             }
         ]
-    }
+    },
+    "explorers": [
+        {
+            "kind": "ping-pub",
+            "url": "https://ping.pub/regen",
+            "tx_page": "https://ping.pub/regen/tx/${txHash}"
+        }
+    ]
 }
