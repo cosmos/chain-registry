@@ -91,7 +91,7 @@
                         "index": {
                             "type": "object",
                             "$ref": "#/$defs/asset_key",
-                            "description": "The index this asset represents, and is meant to follow the price of. E.g., for stablecoins, one might specify '_non-cosmos/forex'::'USD'."
+                            "description": "The index this asset represents, and is meant to follow the price of. E.g., for stablecoins, one might specify platform: 'forex', non-comsos: 'true', and denom: 'USD'."
                         }
                     }
                 },
@@ -181,8 +181,13 @@
             "properties": {
                 "platform": {
                     "type": "string",
-                    "description": "The platform from which the asset originates. E.g., 'cosmoshub', '_non-cosmos/ethereum', '_non-cosmos/forex', or '_non-cosmos/nasdaq'"
+                    "description": "The platform from which the asset originates. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'"
                 },
+                "non-cosmos": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Used to show whether the platform exists within the /_non-cosmos/ folder of the Chain Registry. Preperty may be excluded for Cosmos chains (because it defaults to false), but should be included and set to true for platforms beyond the cosmos."
+                }
                 "denom": {
                     "type": "string",
                     "description": "The base unit of the asset on its source platform. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
