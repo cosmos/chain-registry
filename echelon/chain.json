@@ -20,16 +20,17 @@
   },
   "codebase": {
     "git_repo": "https://github.com/echelonfoundation/echelon",
-    "recommended_version": "v1.0.3",
+    "recommended_version": "v1.1.4",
     "compatible_versions": [
+      "v1.1.4",
       "v1.0.3"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/echelonfoundation/echelon/releases/download/v1.0.3/echelon_1.0.3_Linux_x86_64.tar.gz",
-      "linux/arm64": "https://github.com/echelonfoundation/echelon/releases/download/v1.0.3/echelon_1.0.3_Linux_arm64.tar.gz",
-      "darwin/amd64": "",
-      "darwin/arm64": "",
-      "windows/amd64": "https://github.com/echelonfoundation/echelon/releases/download/v1.0.3/echelon_1.0.3_Windows_x86_64.zip"
+      "linux/amd64": "https://github.com/echelonfoundation/echelon/releases/download/v1.1.4/echelon_1.1.4_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/echelonfoundation/echelon/releases/download/v1.1.4/echelon_1.1.4_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/echelonfoundation/echelon/releases/download/v1.1.4/echelon_1.1.4_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/echelonfoundation/echelon/releases/download/v1.1.4/echelon_1.1.4_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/echelonfoundation/echelon/releases/download/v1.1.4/echelon_1.1.4_Windows_x86_64.zip"
     }
   },
   "peers": {
@@ -99,6 +100,10 @@
         "provider": " WhisperNode 🤐"
       },
       {
+        "address": "https://echelon-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
         "address": "https://rpc.echelon.nodestake.top",
         "provider": "NodeStake"
       }
@@ -111,6 +116,10 @@
       {
         "address": "https://lcd-echelon.whispernode.com",
         "provider": " WhisperNode 🤐"
+      },
+      {
+        "address": "https://echelon-api.polkachu.com",
+        "provider": "Polkachu"
       },
       {
         "address": "https://api.echelon.nodestake.top",
@@ -133,6 +142,14 @@
         "provider": "ech.network"
       },
       {
+        "address": "https://evm.ech.network",
+        "provider": "ech.network"
+      },
+      {
+        "address": "https://draco.ech.network",
+        "provider": "ech.network"
+      },
+      {
         "address": "https://jsonrpc.echelon.nodestake.top",
         "provider": "NodeStake"
       }
@@ -140,14 +157,24 @@
   },
   "explorers": [
     {
+      "kind": "echelon",
+      "url": "https://app.ech.network/explorer",
+      "tx_page": "https://app.ech.network/explorer/tx/${txHash}"
+    },
+    {
       "kind": "blockscout",
       "url": "https://scout.ech.network",
       "tx_page": "https://scout.ech.network/tx/${txHash}"
     },
     {
         "kind": "ping-pub",
-        "url": "https://ping.ech.network/echelon",
-        "tx_page": "https://ping.ech.network/echelon/tx/${txHash}"
+        "url": "https://ping.pub/echelon",
+        "tx_page": "https://ping.pub/echelon/tx/${txHash}"
+    },
+    {
+        "kind": "atomscan",
+        "url": "https://atomscan.com/echelon",
+        "tx_page": "https://atomscan.com/echelon/tx/${txHash}"
     }
   ]
 }
