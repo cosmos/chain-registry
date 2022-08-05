@@ -77,6 +77,17 @@
                 }
             }
         },
+        "staking": {
+            "type": "object",
+            "properties": {
+                "staking_tokens": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/staking_token"
+                    }
+                }
+            }
+        },
         "codebase": {
             "type": "object",
             "properties": {
@@ -240,18 +251,29 @@
                 }
             }
         },
-         "logo_URIs": {
+        "staking_token": {
+            "type": "object",
+            "required": [
+                "denom"
+            ],
+            "properties": {
+                "denom": {
+                    "type": "string"
+                }
+            }
+        },
+        "logo_URIs": {
             "type": "object",
             "properties": {
                 "png": {
                     "type": "string",
                     "format": "uri-reference",
-                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master(/|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/([a-z]|[0-9]){1,}\\.png$"
+                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master(/|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/([a-zA-Z0-9-_]){1,}\\.png$"
                 },
                 "svg": {
                     "type": "string",
                     "format": "uri-reference",
-                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/([a-z]|[0-9]){1,}\\.svg$"
+                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/([a-zA-Z0-9-_]){1,}\\.svg$"
                 }
             }
         }
