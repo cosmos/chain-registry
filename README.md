@@ -160,7 +160,10 @@ A sample `chain.json` includes the following information.
     "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg"
-    }
+    },
+    "keywords" [
+        "foo", "bar", "foobar", "fubar", "beyond", "repair", "example"
+    ]
 }
 ```
 
@@ -227,7 +230,10 @@ An example assetlist json contains the following structure:
             "logo_URIs": {
                 "png": "ipfs://QmXfzKRvjZz3u5JRgC4v5mGVbm9ahrUiB4DgzHBsnWbTMM",
                 "svg": ""
-            }
+            },
+            "keywords" [
+                "foo", "coin", "foocoin", "gas", "fee", "staking", "stake", "foobar", "fubar", "example"
+            ]
         }
     ]
 }
