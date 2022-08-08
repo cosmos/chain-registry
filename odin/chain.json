@@ -9,7 +9,7 @@
     "daemon_name": "odind",
     "node_home": "$HOME/.odin",
     "genesis": {
-      "genesis_url": "https://github.com/ODIN-PROTOCOL/networks/blob/master/mainnets/odin-mainnet-freya/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/ODIN-PROTOCOL/networks/master/mainnets/odin-mainnet-freya/genesis.json"
     },
     "key_algos": [
       "secp256k1"
@@ -24,13 +24,10 @@
       ]
     },
     "codebase": {
-      "git_repo": "https://github.com/ODIN-PROTOCOL/networks/blob/master/mainnets/odin-mainnet-freya",
-      "recommended_version": "v0.3.0",
-      "binaries": {
-        "linux/amd64": "https://github.com/GeoDB-Limited/odin-core/releases/download/v0.3.0/odinprotocol_v0.3.0_amd64.deb"
-      },
+      "git_repo": "https://github.com/ODIN-PROTOCOL/odin-core",
+      "recommended_version": "v0.5.5",
       "compatible_versions": [
-        "v0.3.0"
+        "v0.5.5"
       ]
     },
     "peers": {
@@ -76,6 +73,11 @@
         "kind": "odin web",
         "url": "https://mainnet.odinprotocol.io/",
         "tx_page": "https://mainnet.odinprotocol.io/transactions/${txHash}"
+      },
+      {
+        "kind": "ping.pub",
+        "url": "https://ping.pub/odin",
+        "tx_page": "https://ping.pub/odin/tx/${txHash}"
       }
     ]
   }
