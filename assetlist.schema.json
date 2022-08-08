@@ -92,18 +92,25 @@
                         "png": {
                             "type": "string",
                             "format": "uri-reference",
-                            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master(/|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/([a-z]|[0-9]){1,}\\.png$"
+                            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master(/|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/([a-zA-Z0-9-_]){1,}\\.png$"
                         },
                         "svg": {
                             "type": "string",
                             "format": "uri-reference",
-                            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master(/|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/([a-z]|[0-9]){1,}\\.svg$"
+                            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master(/|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/([a-zA-Z0-9-_]){1,}\\.svg$"
                         }
                     }
                 },
                 "coingecko_id": {
                     "type": "string",
                     "description": "[OPTIONAL] The coingecko id to fetch asset data from coingecko v3 api. See https://api.coingecko.com/api/v3/coins/list"
+                },
+                "keywords": {
+                    "type": "array",
+                    "maxContains": 20,
+                    "items": {
+                        "type": "string"
+                    }
                 }
             },
             "if": {

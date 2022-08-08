@@ -1,0 +1,92 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "lumenx",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Lumen Network",
+    "chain_id": "LumenX",
+    "bech32_prefix": "lumen",
+    "daemon_name": "lumenxd",
+    "node_home": "$HOME/.lumenx",
+    "genesis": {
+        "genesis_url": "https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/genesis.json"
+    },
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "ulumen",
+                "fixed_min_gas_price": 0.0025
+            }
+        ]
+    },   
+    "codebase": {
+        "git_repo": "https://github.com/metaprotocol-ai/lumenx",
+        "recommended_version": "v0.1.0",
+        "compatible_versions": [
+            "v0.1.0"
+        ]
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "bc22063df30a0644df742cdb2764b1004df6e3e3",
+                "address": "node1.lumenex.io:26656"
+            },
+            {
+                "id": "9cd5f77ac27254891f64801470b0c3432188c62c",
+                "address": "node2.lumenex.io:26656"
+            },
+            {
+                "id": "78669849476c8b728abe178475c6f016edf175cf",
+                "address": "node3.lumenex.io:26656"
+            },
+            {
+                "id": "48444a4bacc0cafa049d777152473769ab17c0c3",
+                "address": "node4.lumenex.io:26656"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "bc22063df30a0644df742cdb2764b1004df6e3e3",
+                "address": "node1.lumenex.io:26656"
+            },
+            {
+                "id": "9cd5f77ac27254891f64801470b0c3432188c62c",
+                "address": "node2.lumenex.io:26656"
+            },
+            {
+                "id": "78669849476c8b728abe178475c6f016edf175cf",
+                "address": "node3.lumenex.io:26656"
+            },
+            {
+                "id": "48444a4bacc0cafa049d777152473769ab17c0c3",
+                "address": "node4.lumenex.io:26656"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://rpc.helios-1.lumenex.io",
+                "provider": "metaprotocol"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://api.helios-1.lumenex.io/",
+                "provider": "metaprotocol"
+            }
+        ]
+    },
+    "explorers": [
+		{
+		    "kind": "ping-pub",
+		    "url": "https://scope.helios-1.lumenex.io/lumenx",
+		    "tx_page": "https://scope.helios-1.lumenex.io/lumenx/tx/${txHash}"
+		}
+    ]
+}
