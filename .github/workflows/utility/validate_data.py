@@ -134,7 +134,7 @@ def checkChains():
         #f = open("chain.json", "r")
         #chainSchemaText = f.read()
         #f.close()
-        
+        print(chainjson)
         chainjson = os.path.join(chainfolder, "chain.json")
         chainSchema = json.load(open(os.path.join(rootdir, chainjson)))
         
@@ -229,9 +229,9 @@ def checkChains():
             raise Exception("network type unknown (not Mainnet nor Testnet)")
         else:
           raise Exception("chain schema doesn't contain 'network_type'")
-
-        if checkSlip173:
-          if "pretty_name" in chainSchema:
+        
+        if "pretty_name" in chainSchema:
+          if checkSlip173:
             prettyName = chainSchema["pretty_name"]
             if "bech32_prefix" in chainSchema:
               if prettyName in slipWebsites:
