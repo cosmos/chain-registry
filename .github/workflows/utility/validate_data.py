@@ -6,7 +6,7 @@ rootdir = getcwd()
 
 
 
-
+checkSlip173 = 0
 slipWebsites = {}
 slipMainnetPrefixes = {}
 slipTestnetPrefixes = {}
@@ -66,6 +66,7 @@ def readSLIP173():
             testnetPrefix = testnetArea[firstQuote + 1:testnetArea.find("`", firstQuote + 1)]
             # print(testnetPrefix)
             slipTestnetPrefixes[pretty] = testnetPrefix
+            checkSlip173 = 1
           else:
             print("Mainnet Bech32 Prefix undefined - missing second quote")
 
@@ -77,7 +78,7 @@ def readSLIP173():
     else:
       raise Exception("no SLIP-0173 entries recorded")
 
-
+checkSlip44 = 0
 slipCoinTypesByNum = {}
 slipCoinTypesByName = {}
 slip44Websites = {}
@@ -111,6 +112,7 @@ def readSLIP44():
           website = line[line.find("(")+1:line.find(")")]
           # print(website)
           slip44Websites[pretty] = website
+          checkSlip44 = 0
         else:
           firstPipe = line.find("|")
           secondPipe = line.find("|", firstPipe + 1)
@@ -228,32 +230,34 @@ def checkChains():
         else:
           raise Exception("chain schema doesn't contain 'network_type'")
 
-        if "pretty_name" in chainSchema:
-          prettyName = chainSchema["pretty_name"]
-          if "bech32_prefix" in chainSchema:
-            if prettyName in slipWebsites:
-              if prettyName in slipPrefixes:
-                if chainSchema["bech32_prefix"] != slipPrefixes[prettyName]:
-                  raise Exception("chain.json bech32 prefix " + chainSchema["bech32_prefix"] + " does not match SLIP-0173 prefix " + slipPrefixes[prettyName])
+        if checkSlip173:
+          if "pretty_name" in chainSchema:
+            prettyName = chainSchema["pretty_name"]
+            if "bech32_prefix" in chainSchema:
+              if prettyName in slipWebsites:
+                if prettyName in slipPrefixes:
+                  if chainSchema["bech32_prefix"] != slipPrefixes[prettyName]:
+                    raise Exception("chain.json bech32 prefix " + chainSchema["bech32_prefix"] + " does not match SLIP-0173 prefix " + slipPrefixes[prettyName])
+                else:
+                  raise Exception(prettyName + " SLIP-0173 registeration does not have prefix")
               else:
-                raise Exception(prettyName + " SLIP-0173 registeration does not have prefix")
+                raise Exception(prettyName + "  not registered to SLIP-0173")
             else:
-              raise Exception(prettyName + "  not registered to SLIP-0173")
-          else:
-            raise Exception(prettyName + " missing 'bech32_prefix'")
-          if "slip44" in chainSchema:
-            coinType = chainSchema["slip44"]
-            if prettyName in slipCoinTypesByName:
-              if coinType != slipCoinTypesByName[prettyName]:
-                raise Exception("Chain schema Coin Type " + str(coinType) + " does not equal slip44 registration " + slipCoinTypesByName[prettyName])
-            else:
-              if coinType in slipCoinTypesByNum:
-                if slipCoinTypesByNum[coinType] == "":
-                  raise Exception("Coin Type " + str(coinType) + " is unregistered in SLIP44")
+              raise Exception(prettyName + " missing 'bech32_prefix'")
+          if checkSlip44:
+            if "slip44" in chainSchema:
+              coinType = chainSchema["slip44"]
+              if prettyName in slipCoinTypesByName:
+                if coinType != slipCoinTypesByName[prettyName]:
+                  raise Exception("Chain schema Coin Type " + str(coinType) + " does not equal slip44 registration " + slipCoinTypesByName[prettyName])
               else:
-                raise Exception("Coin Type " + str(coinType) + " is unreserved in SLIP44")
-          else:
-            print("[OPTIONAL - Keplr Compliance] chain schema doesn't contain 'slip44' string")
+                if coinType in slipCoinTypesByNum:
+                  if slipCoinTypesByNum[coinType] == "":
+                    raise Exception("Coin Type " + str(coinType) + " is unregistered in SLIP44")
+                else:
+                  raise Exception("Coin Type " + str(coinType) + " is unreserved in SLIP44")
+            else:
+              print("[OPTIONAL - Keplr Compliance] chain schema doesn't contain 'slip44' string")
         else:
           raise Exception("chainSchema does not contain 'pretty_name'")
 
@@ -261,6 +265,8 @@ def checkChains():
     
     
 def runAll():
+  if checkSlip173:
     readSLIP173()
+  if checkSlip44:
     readSLIP44()
-    checkChains()
+  checkChains()
