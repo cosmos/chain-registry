@@ -137,7 +137,7 @@ def checkChains():
         
         chainjson = os.path.join(chainfolder, "chain.json")
         print(chainjson + "  - " + str(os.path.exists(chainjson)))
-        if os.path.exists(chainjson):
+        if !os.path.exists(chainjson):
             continue
         chainSchema = json.load(open(os.path.join(rootdir, chainjson)))
         
