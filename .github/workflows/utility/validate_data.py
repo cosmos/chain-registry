@@ -134,10 +134,10 @@ def checkChains():
         #f = open("chain.json", "r")
         #chainSchemaText = f.read()
         #f.close()
-        print(chainjson)
+        
         chainjson = os.path.join(chainfolder, "chain.json")
         chainSchema = json.load(open(os.path.join(rootdir, chainjson)))
-        
+        print(chainjson)
 
         # turn json object into python object
         #chainSchema = json.loads(chainSchemaText)
@@ -165,7 +165,7 @@ def checkChains():
                     if "denom" in unit:
                       assetDenoms.append(unit["denom"])
                     else:
-                      raise Exception("unti doesn't contain 'denom' string")
+                      raise Exception("unit doesn't contain 'denom' string")
                 else:
                   raise Exception("'denon_units' array doesn't contain any units")
               else:
