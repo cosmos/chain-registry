@@ -136,8 +136,11 @@ def checkChains():
         #f.close()
         
         chainjson = os.path.join(chainfolder, "chain.json")
+        print(chainjson + "  - " + os.path.exists(chainjson))
+        if os.path.exists(chainjson):
+            raise Exception(chainjson + " exists")
         chainSchema = json.load(open(os.path.join(rootdir, chainjson)))
-        print(chainjson)
+        
 
         # turn json object into python object
         #chainSchema = json.loads(chainSchemaText)
@@ -151,6 +154,7 @@ def checkChains():
         #assetlistSchema = json.loads(assetlistSchemaText)
         
         assetlistjson = os.path.join(chainfolder, "assetlist.json")
+        print(assetlistjson + "  - " + os.path.exists(assetlistjson))
         assetlistSchema = json.load(open(os.path.join(rootdir, assetlistjson)))
 
         bases = []
