@@ -172,6 +172,9 @@ def checkChains():
                       assetDenoms.append(unit["denom"])
                     else:
                       raise Exception("unit doesn't contain 'denom' string")
+                    if "aliases" in unit:
+                      for alias in unit["aliases"]:
+                        assetDenoms.append(alias)
                 else:
                   raise Exception("'denon_units' array doesn't contain any units")
               else:
@@ -185,7 +188,7 @@ def checkChains():
                 raise Exception("asset doesn't contain 'base' string")
               if "display" in asset:
                 if asset["display"] not in assetDenoms:
-                  raise Exception("display not in denom_units")
+                  raise Exception("display " + asset["display"] + " not in denom_units")
               else:
                 raise Exception("asset doesn't contain 'display' string")
           else:
@@ -237,8 +240,8 @@ def checkChains():
           raise Exception("chain schema doesn't contain 'network_type'")
         
         if "pretty_name" in chainSchema:
+          prettyName = chainSchema["pretty_name"]
           if checkSlip173:
-            prettyName = chainSchema["pretty_name"]
             if "bech32_prefix" in chainSchema:
               if prettyName in slipWebsites:
                 if prettyName in slipPrefixes:
@@ -255,7 +258,7 @@ def checkChains():
               coinType = chainSchema["slip44"]
               if prettyName in slipCoinTypesByName:
                 if coinType != slipCoinTypesByName[prettyName]:
-                  raise Exception("Chain schema Coin Type " + str(coinType) + " does not equal slip44 registration " + slipCoinTypesByName[prettyName])
+                  raise Exception("Chain schema Coin Type " + str(coinType) + " does not equal slip44 registration " + str(slipCoinTypesByName[prettyName]))
               else:
                 if coinType in slipCoinTypesByNum:
                   if slipCoinTypesByNum[coinType] == "":
