@@ -9,6 +9,9 @@ Once schemas have matured and client needs are better understood Chain Registry 
 ## Npm Modules
 - https://www.npmjs.com/package/chain-registry
 
+## Rust Crates
+- https://crates.io/crates/chain-registry
+
 ## Web Endpoints
 - https://registry.ping.pub (Update every 24H)
 - https://proxy.atomscan.com/directory/ (Update every 24H)
