@@ -172,7 +172,7 @@ def checkChains():
           if checkSlip173:
             if "bech32_prefix" in chainSchema:
               if prettyName is "Terra Classic" or prettyName is "Terra 2.0":
-                  prettyName is "Terra"
+                  prettyName = "Terra"
               if prettyName in slipWebsites:
                 if prettyName in slipPrefixes:
                   if chainSchema["bech32_prefix"] != slipPrefixes[prettyName]:
