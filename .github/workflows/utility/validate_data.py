@@ -99,7 +99,7 @@ def readSLIP44():
         if(line[0] != "-" and line[0] != "C" and (line[5] == "|" or line[6] == "|" or line[7] == "|" or line[8] == "|" or line[9] == "|" or line[10] == "|" or line[11] == "|")):
           # print(line)
           lines.append(line)
-    f.close()
+    #f.close()
 
 
 
