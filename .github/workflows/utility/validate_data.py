@@ -6,7 +6,7 @@ rootdir = getcwd()
 
 
 
-checkSlip173 = 0
+checkSlip173 = 1
 slipWebsites = {}
 slipMainnetPrefixes = {}
 slipTestnetPrefixes = {}
@@ -15,7 +15,7 @@ slipTestnetPrefixes = {}
 def readSLIP173():
 
     # read slip1703 from file
-    f = open("slip-0173.md", "r")
+    f = open("https://raw.githubusercontent.com/satoshilabs/slips/master/slip-0173.md", "r")
     # print(f.read())
     lines = []
     for line in f:
@@ -78,7 +78,7 @@ def readSLIP173():
     else:
       raise Exception("no SLIP-0173 entries recorded")
 
-checkSlip44 = 0
+checkSlip44 = 1
 slipCoinTypesByNum = {}
 slipCoinTypesByName = {}
 slip44Websites = {}
@@ -86,7 +86,7 @@ slip44Websites = {}
 def readSLIP44():
 
     # read slip44 from file
-    f = open("slip-0044.md", "r")
+    f = open("https://raw.githubusercontent.com/satoshilabs/slips/master/slip-0044.md", "r")
     # print(f.read())
     lines = []
     for line in f:
