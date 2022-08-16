@@ -1,4 +1,5 @@
 import json
+import urllib.request
 import os
 from os import getcwd
 
@@ -15,16 +16,18 @@ slipTestnetPrefixes = {}
 def readSLIP173():
 
     # read slip1703 from file
-    f = open("https://raw.githubusercontent.com/satoshilabs/slips/master/slip-0173.md", "r")
+    #f = open("https://raw.githubusercontent.com/satoshilabs/slips/master/slip-0173.md", "r")
+    slip173URL = "https://raw.githubusercontent.com/satoshilabs/slips/master/slip-0173.md"
     # print(f.read())
     lines = []
-    for line in f:
+    for line in urllib.request.urlopen(slip173URL):
+      line = line.decode('utf-8')
       if (len(line) > 2):
         # if (line[0:2] == "| ["):
         if (line[0] == "|" and line[2] == "["):
           # print(line)
           lines.append(line)
-    f.close()
+    #f.close()
 
 
     if lines:
@@ -86,10 +89,12 @@ slip44Websites = {}
 def readSLIP44():
 
     # read slip44 from file
-    f = open("https://raw.githubusercontent.com/satoshilabs/slips/master/slip-0044.md", "r")
+    #f = open("https://raw.githubusercontent.com/satoshilabs/slips/master/slip-0044.md", "r")
+    slip44URL = "https://raw.githubusercontent.com/satoshilabs/slips/master/slip-0044.md"
     # print(f.read())
     lines = []
-    for line in f:
+    for line in urllib.request.urlopen(slip44URL):
+      line = line.decode('utf-8')
       if(len(line) > 6):
         if(line[0] != "-" and line[0] != "C" and (line[5] == "|" or line[6] == "|" or line[7] == "|" or line[8] == "|" or line[9] == "|" or line[10] == "|" or line[11] == "|")):
           # print(line)
