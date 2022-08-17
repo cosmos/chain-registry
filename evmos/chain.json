@@ -10,6 +10,7 @@
   "genesis": {
     "genesis_url": "https://archive.evmos.org/mainnet/genesis.json"
   },
+  "daemon_name": "evmosd",
   "slip44": 60,
   "fees": {
     "fee_tokens": [
@@ -20,17 +21,16 @@
   },
   "codebase": {
     "git_repo": "https://github.com/evmos/evmos",
-    "recommended_version": "v6.0.1",
+    "recommended_version": "v7.0.0",
     "compatible_versions": [
-      "v6.0.1",
-      "v6.0.0"
+      "v7.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v6.0.1/evmos_6.0.1_Linux_x86_64.tar.gz",
-      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v6.0.1/evmos_6.0.1_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v6.0.1/evmos_6.0.1_Darwin_x86_64.tar.gz",
-      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v6.0.1/evmos_6.0.1_Darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v6.0.1/evmos_6.0.1_Windows_x86_64.zip"
+      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v7.0.0/evmos_7.0.0_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v7.0.0/evmos_7.0.0_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v7.0.0/evmos_7.0.0_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v7.0.0/evmos_7.0.0_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v7.0.0/evmos_7.0.0_Windows_x86_64.zip"
     }
   },
   "peers": {
@@ -86,6 +86,11 @@
         "id": "588cedb70fa1d98c14a2f2c1456bfa41e1a156a8",
         "address": "evmos-sentry.mercury-nodes.net:29539",
         "provider": "Mercury"
+      },
+      {
+        "id": "a7779498a15dfd5adc678f0f6672935413413f42",
+        "address": "alice.peers.evmos.bh.rocks:26656",
+        "provider": "BlockHunters"
       }
     ]
   },
@@ -126,6 +131,10 @@
       {
         "address": "https://rpc-evmos.ecostake.com",
         "provider": "ecostake"
+      },
+      {
+        "address": "https://rpc.evmos.bh.rocks",
+        "provider": "BlockHunters"
       }
     ],
     "rest": [
@@ -160,6 +169,10 @@
       {
         "address": "https://rest-evmos.ecostake.com",
         "provider": "ecostake"
+      },
+      {
+        "address": "https://lcd.evmos.bh.rocks",
+        "provider": "BlockHunters"
       }
     ],
     "grpc": [
@@ -182,6 +195,10 @@
       {
         "address": "https://grpc.evmos.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://grpc.evmos.bh.rocks",
+        "provider": "BlockHunters"
       }
     ],
     "evm-http-jsonrpc": [
@@ -200,6 +217,10 @@
       {
         "address": "https://jsonrpc.evmos.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://json-rpc.evmos.bh.rocks",
+        "provider": "BlockHunters"
       }
     ]
   },
@@ -228,6 +249,11 @@
         "kind": "explorers.guru",
 		    "url": "https://evmos.explorers.guru",
 		    "tx_page": "https://evmos.explorers.guru/transaction/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/evmos",
+      "tx_page": "https://atomscan.com/evmos/transactions/${txHash}"
     }
   ]
 }
