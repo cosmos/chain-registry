@@ -67,32 +67,10 @@
                     "description": "The symbol of an asset. For example BTC."
                 },
                 "origin": {
-                    "type": "object",
-                    "description": "The origin of the asset, where it last came from, as well as what the index represents.",
-                    "properties": {
-                        "source": {
-                            "type": "object",
-                            "$ref": "#/$defs/asset_key",
-                            "description": "The latest source of this asset. E.g., if this asset on chain C were bridged from chain A to chain B, and then bridged again from chain B to chain C, then this key should represent the asset as it is on chain B."
-                        },
-                        "method": {
-                            "type": "string",
-                            "description": "The method used to transform the source asset into this asset. E.g., 'bridge', 'synthetic', or 'ibc'.",
-                            "enum": [
-                                "bridge",
-                                "ibc",
-                                "wrapping",
-                                "liquid-stake",
-                                "synthetic_fiat-reserve",
-                                "synthetic_CDP",
-                                "synthetic_hybrid"
-                            ]
-                        },
-                        "index": {
-                            "type": "object",
-                            "$ref": "#/$defs/asset_key",
-                            "description": "The index this asset represents, and is meant to follow the price of. E.g., for stablecoins, one might specify platform: 'forex', non-comsos: 'true', and denom: 'USD'."
-                        }
+                    "type": "array",
+                    "description": "The origin of the asset, starting with the index, and capturing all transitions in form and location.",
+                    "items": {
+                        "$ref": "#/$defs/asset_transition"
                     }
                 },
                 "ibc": {
@@ -146,8 +124,8 @@
                 "properties": {
                     "type_asset": {
                         "enum": [
-                        "cw20",
-                        "snip20"
+                            "cw20",
+                            "snip20"
                         ]
                     }
                 },
@@ -182,9 +160,14 @@
                 "exponent"
             ]
         },
-        "asset_key": {
+        "asset_transition": {
             "type": "object",
             "description": "The (primary) key used to identify an asset defined within the Chain Registry.",
+            "required": [
+                "platform",
+                "denom",
+                "method"
+            ],
             "properties": {
                 "platform": {
                     "type": "string",
@@ -198,6 +181,61 @@
                 "denom": {
                     "type": "string",
                     "description": "The base unit of the asset on its source platform. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
+                },
+                "method": {
+                    "type": "string",
+                    "description": "The method used to transform the source asset into this asset. E.g., 'bridge', 'synthetic', or 'ibc'.",
+                    "enum": [
+                        "bridge",
+                        "ibc",
+                        "wrapping",
+                        "liquid-stake",
+                        "synthetic_fiat-reserve",
+                        "synthetic_CDP",
+                        "synthetic_hybrid"
+                    ]
+                },
+                "provider": {
+                    "type": "string",
+                    "description": "The entity offering the service. E.g., 'Gravity Bridge' [Network] or 'Tether' [Company]."
+                },
+                "contract": {
+                    "type": "string",
+                    "description": "The contract address where the transition takes place, where applicable. E.g., The Ethereum contract that locks up the asset while it's minted on another chain."
+                },
+                "ibc_hash_input": {
+                    "type": "string",
+                    "description": "The port/channel/denom input string that generates the 'ibc/...' denom." 
+                },
+                "if": {
+                    "properties": {
+                        "method": {
+                            "ibc"
+                        }
+                    }
+                  },
+                "then": {
+                    "required": [
+                        "ibc_hash_input"
+                    ]
+                },
+                "if": {
+                    "properties": {
+                        "method": {
+                            "enum": [
+                                "bridge",
+                                "liquid-stake",
+                                "synthetic_fiat-reserve",
+                                "synthetic_CDP",
+                                "synthetic_hybrid"
+                            ]
+                        }
+                    }
+                  },
+                "then": {
+                    "required": [
+                        "provider"
+                    ]
                 }
             }
         }
