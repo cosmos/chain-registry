@@ -6,9 +6,31 @@
     "pretty_name": "Juno",
     "chain_id": "juno-1",
     "bech32_prefix": "juno",
-    "slip44": 118,
+    "daemon_name": "junod",
+    "node_home": "$HOME/.juno",
     "genesis": {
         "genesis_url": "https://raw.githubusercontent.com/CosmosContracts/mainnet/main/juno-1/genesis.json"
+    },
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "ujuno",
+                "low_gas_price": 0.03,
+                "average_gas_price": 0.04,
+                "high_gas_price": 0.05
+            }
+        ]
+    },
+    "staking": {
+        "staking_tokens": [
+            {
+                "denom": "ujuno"
+            }
+        ]
     },
     "codebase": {
         "git_repo": "https://github.com/CosmosContracts/juno",
@@ -17,11 +39,6 @@
             "v9.0.0"
         ]
     },
-    "daemon_name": "junod",
-    "node_home": "$HOME/.juno",
-    "key_algos": [
-        "secp256k1"
-    ],
     "peers": {
         "seeds": [
             {
