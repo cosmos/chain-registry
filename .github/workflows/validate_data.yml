@@ -1,0 +1,27 @@
+on: [pull_request, workflow_dispatch]
+name: PR Workflow
+jobs:
+  jobname:
+    name: Validate Data
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the repo
+        uses: actions/checkout@v2 #Checks out the registry; sets up python
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install Python dependencies
+        run:  |
+          python -m pip install --upgrade pip
+          cd .github/workflows/utility
+      
+      - name: Run Data Validation python script
+        shell: python
+        run: |
+          import sys
+          sys.path.insert(1, '.github/workflows/utility')
+          import validate_data
+          validate_data.runAll()

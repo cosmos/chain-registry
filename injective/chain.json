@@ -12,6 +12,23 @@
     "genesis": {
         "genesis_url": "https://raw.githubusercontent.com/InjectiveLabs/mainnet-config/master/10001/genesis.json"
     },
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "uinj",
+                "low_gas_price": 0.0005,
+                "average_gas_price": 0.0007,
+                "high_gas_price": 0.0009
+            }
+        ]
+    },
+    "staking": {
+        "staking_tokens": [
+            {
+                "denom": "uinj"
+            }
+        ]
+    },
     "codebase": {
         "git_repo": "https://github.com/InjectiveLabs/injective-chain-releases",
         "recommended_version": "v1.1.1-1637059884",
@@ -64,8 +81,8 @@
     "apis": {
         "rpc": [
             {
-                "address": "https://injective-rpc.api.chainlayer.network/",
-                "provider": "chainlayer"
+                "address": "https://injective-rpc.quickapi.com:443",
+                "provider": "Chainlayer"
             },
             {
                 "address": "https://injective-rpc.polkachu.com",
@@ -78,8 +95,8 @@
                 "provider": "injectiveprotocol"
             },
             {
-                "address": "https://injective-lcd.api.chainlayer.network/",
-                "provider": "chainlayer"
+                "address": "https://injective-lcd.quickapi.com:443",
+                "provider": "Chainlayer"
             }
         ],
         "grpc": []
@@ -94,6 +111,11 @@
             "kind": "ping-pub",
             "url": "https://ping.pub/injective",
             "tx_page": "https://ping.pub/injective/tx/${txHash}"
+        },
+        {
+          "kind": "atomscan",
+          "url": "https://atomscan.com/injective",
+          "tx_page": "https://atomscan.com/injective/transactions/${txHash}"
         }
     ]
 }
