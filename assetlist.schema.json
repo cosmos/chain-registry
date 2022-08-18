@@ -206,37 +206,37 @@
                 "ibc_hash_input": {
                     "type": "string",
                     "description": "The port/channel/denom input string that generates the 'ibc/...' denom." 
-                },
-                "if": {
-                    "properties": {
-                        "method": {
-                            "ibc"
-                        }
-                    }
-                  },
-                "then": {
-                    "required": [
-                        "ibc_hash_input"
-                    ]
-                },
-                "if": {
-                    "properties": {
-                        "method": {
-                            "enum": [
-                                "bridge",
-                                "liquid-stake",
-                                "synthetic_fiat-reserve",
-                                "synthetic_CDP",
-                                "synthetic_hybrid"
-                            ]
-                        }
-                    }
-                  },
-                "then": {
-                    "required": [
-                        "provider"
-                    ]
                 }
+            },
+            "if": {
+                "properties": {
+                    "method": {
+                        "ibc"
+                    }
+                }
+              },
+            "then": {
+                "required": [
+                    "ibc_hash_input"
+                ]
+            },
+            "if": {
+                "properties": {
+                    "method": {
+                        "enum": [
+                            "bridge",
+                            "liquid-stake",
+                            "synthetic_fiat-reserve",
+                            "synthetic_CDP",
+                            "synthetic_hybrid"
+                        ]
+                    }
+                }
+              },
+            "then": {
+                "required": [
+                    "provider"
+                ]
             }
         }
     }
