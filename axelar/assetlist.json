@@ -40,19 +40,22 @@
       "name": "USD Coin",
       "display": "usdc",
       "symbol": "USDC",
-      "origin": {
-        "source": {
-          "platform": "ethereum",
+      "origin": [
+        {
+          "platform": "forex",
           "non-cosmos": true,
-          "denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          "denom": "USD"
+          "method": "synthetic_fiat-reserve",
+          "provider": "Circle"
         },
-        "method": "bridge",
-        "index": {
+        {
           "platform": "ethereum",
           "non-cosmos": true,
           "denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/usdc.svg",
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/usdc.png"
@@ -75,19 +78,22 @@
       "name": "Frax",
       "display": "frax",
       "symbol": "FRAX",
-      "origin": {
-        "source": {
-          "platform": "ethereum",
+      "origin": [
+        {
+          "platform": "forex",
           "non-cosmos": true,
-          "denom": "0x853d955acef822db058eb8505911ed77f175b99e"
+          "denom": "USD"
+          "method": "synthetic_hybrid",
+          "provider": "Frax"
         },
-        "method": "bridge",
-        "index": {
+        {
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x853d955acef822db058eb8505911ed77f175b99e"
+          "denom": "0x853d955acef822db058eb8505911ed77f175b99e",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/frax.svg",
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/frax.png"
@@ -110,19 +116,22 @@
       "name": "Dai Stablecoin",
       "display": "dai",
       "symbol": "DAI",
-      "origin": {
-        "source": {
-          "platform": "ethereum",
+      "origin": [
+        {
+          "platform": "forex",
           "non-cosmos": true,
-          "denom": "0x6b175474e89094c44da98b954eedeac495271d0f"
+          "denom": "USD"
+          "method": "synthetic_CDP",
+          "provider": "DAI"
         },
-        "method": "bridge",
-        "index": {
+        {
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x6b175474e89094c44da98b954eedeac495271d0f"
+          "denom": "0x6b175474e89094c44da98b954eedeac495271d0f",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/dai.svg",
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/dai.png"
@@ -145,19 +154,22 @@
       "name": "Tether USD",
       "display": "usdt",
       "symbol": "USDT",
-      "origin": {
-        "source": {
-          "platform": "ethereum",
+      "origin": [
+        {
+          "platform": "forex",
           "non-cosmos": true,
-          "denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+          "denom": "USD"
+          "method": "synthetic_fiat-reserve",
+          "provider": "Tether"
         },
-        "method": "bridge",
-        "index": {
+        {
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+          "denom": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/usdt.svg",
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/usdt.png"
@@ -180,19 +192,21 @@
       "name": "Wrapped Ether",
       "display": "weth",
       "symbol": "WETH",
-      "origin": {
-        "source": {
-          "platform": "ethereum",
-          "non-cosmos": true,
-          "denom": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-        },
-        "method": "bridge",
-        "index": {
+      "origin": [
+        {
           "platform": "ethereum",
           "non-cosmos": true,
           "denom": "wei"
+          "method": "wrapping"
+        },
+        {
+          "platform": "ethereum",
+          "non-cosmos": true,
+          "denom": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/weth.png"
       },
@@ -214,19 +228,22 @@
       "name": "Wrapped Bitcoin",
       "display": "wbtc",
       "symbol": "WBTC",
-      "origin": {
-        "source": {
-          "platform": "ethereum",
-          "non-cosmos": true,
-          "denom": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
-        },
-        "method": "bridge",
-        "index": {
+      "origin": [
+        {
           "platform": "bitcoin",
           "non-cosmos": true,
           "denom": "sat"
+          "method": "bridge",
+          "provider": "BitGo, Kyber, and Ren"
+        },
+        {
+          "platform": "ethereum",
+          "non-cosmos": true,
+          "denom": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/wbtc.png"
       },
@@ -248,19 +265,15 @@
       "name": "Aave",
       "display": "aave",
       "symbol": "AAVE",
-      "origin": {
-        "source": {
+      "origin": [
+        {
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9"
-        },
-        "method": "bridge",
-        "index": {
-          "platform": "ethereum",
-          "non-cosmos": true,
-          "denom": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9"
+          "denom": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/aave.svg"
       },
@@ -282,19 +295,15 @@
       "name": "ApeCoin",
       "display": "ape",
       "symbol": "APE",
-      "origin": {
-        "source": {
+      "origin": [
+        {
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x4d224452801aced8b2f0aebe155379bb5d594381"
-        },
-        "method": "bridge",
-        "index": {
-          "platform": "ethereum",
-          "non-cosmos": true,
-          "denom": "0x4d224452801aced8b2f0aebe155379bb5d594381"
+          "denom": "0x4d224452801aced8b2f0aebe155379bb5d594381",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/ape.svg"
       },
@@ -316,19 +325,15 @@
       "name": "Axie Infinity Shard",
       "display": "axs",
       "symbol": "AXS",
-      "origin": {
-        "source": {
+      "origin": [
+        {
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0xbb0e17ef65f82ab018d8edd776e8dd940327b28b"
-        },
-        "method": "bridge",
-        "index": {
-          "platform": "ethereum",
-          "non-cosmos": true,
-          "denom": "0xbb0e17ef65f82ab018d8edd776e8dd940327b28b"
+          "denom": "0xbb0e17ef65f82ab018d8edd776e8dd940327b28b",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/axs.svg"
       },
@@ -350,19 +355,15 @@
       "name": "Chainlink",
       "display": "link",
       "symbol": "LINK",
-      "origin": {
-        "source": {
+      "origin": [
+        {
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x514910771af9ca656af840dff83e8264ecf986ca"
-        },
-        "method": "bridge",
-        "index": {
-          "platform": "ethereum",
-          "non-cosmos": true,
-          "denom": "0x514910771af9ca656af840dff83e8264ecf986ca"
+          "denom": "0x514910771af9ca656af840dff83e8264ecf986ca",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
 	      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/link.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/link.svg"
@@ -385,19 +386,15 @@
       "name": "Maker",
       "display": "mkr",
       "symbol": "MKR",
-      "origin": {
-        "source": {
+      "origin": [
+        {
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2"
-        },
-        "method": "bridge",
-        "index": {
-          "platform": "ethereum",
-          "non-cosmos": true,
-          "denom": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2"
+          "denom": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/mkr.svg"
       },
@@ -419,19 +416,22 @@
       "name": "Rai Reflex Index",
       "display": "rai",
       "symbol": "RAI",
-      "origin": {
-        "source": {
-          "platform": "ethereum",
+      "origin": [
+        {
+          "platform": "forex",
           "non-cosmos": true,
-          "denom": "0x03ab458634910aad20ef5f1c8ee96f1d6ac54919"
+          "denom": "USD"
+          "method": "synthetic_CDP",
+          "provider": "DAI"
         },
-        "method": "bridge",
-        "index": {
+        {
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x03ab458634910aad20ef5f1c8ee96f1d6ac54919"
+          "denom": "0x03ab458634910aad20ef5f1c8ee96f1d6ac54919",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/rai.svg"
       },
@@ -453,19 +453,15 @@
       "name": "Shiba Inu",
       "display": "shib",
       "symbol": "SHIB",
-      "origin": {
-        "source": {
+      "origin": [
+        {
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce"
-        },
-        "method": "bridge",
-        "index": {
-          "platform": "ethereum",
-          "non-cosmos": true,
-          "denom": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce"
+          "denom": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/shib.svg"
       },
@@ -487,19 +483,22 @@
       "name": "Lido Staked Ether",
       "display": "steth",
       "symbol": "stETH",
-      "origin": {
-        "source": {
+      "origin": [
+        {
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84"
+          "denom": "wei",
+          "method": "liquid-stake",
+          "provider": "Lido"
         },
-        "method": "bridge",
-        "index": {
+        {
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "wei"
+          "denom": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/steth.svg"
       },
@@ -521,19 +520,15 @@
       "name": "Uniswap",
       "display": "uni",
       "symbol": "UNI",
-      "origin": {
-        "source": {
+      "origin": [
+        {
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
-        },
-        "method": "bridge",
-        "index": {
-          "platform": "ethereum",
-          "non-cosmos": true,
-          "denom": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
+          "denom": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/uni.svg"
       },
@@ -555,19 +550,15 @@
       "name": "Chain",
       "display": "xcn",
       "symbol": "XCN",
-      "origin": {
-        "source": {
+      "origin": [
+        {
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0xa2cd3d43c775978a96bdbf12d733d5a1ed94fb18"
-        },
-        "method": "bridge",
-        "index": {
-          "platform": "ethereum",
-          "non-cosmos": true,
-          "denom": "0xa2cd3d43c775978a96bdbf12d733d5a1ed94fb18"
+          "denom": "0xa2cd3d43c775978a96bdbf12d733d5a1ed94fb18",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/xcn.svg"
       },
@@ -589,19 +580,22 @@
       "name": "Wrapped Polkadot",
       "display": "dot",
       "symbol": "DOT",
-      "origin": {
-        "source": {
-          "platform": "moonbeam",
-          "non-cosmos": true,
-          "denom": "0xffffffff1fcacbd218edc0eba20fc2308c778080"
-        },
-        "method": "bridge",
-        "index": {
+      "origin": [
+        {
           "platform": "polkadot",
           "non-cosmos": true,
           "denom": "Planck"
+          "method": "bridge",
+          "provider": "Polkadot Parachain"
+        },
+        {
+          "platform": "moonbeam",
+          "non-cosmos": true,
+          "denom": "0xffffffff1fcacbd218edc0eba20fc2308c778080",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polkadot/images/dot.svg",
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polkadot/images/dot.png"
@@ -624,19 +618,21 @@
       "name": "Wrapped Moonbeam",
       "display": "wglmr",
       "symbol": "WGLMR",
-      "origin": {
-        "source": {
+      "origin": [
+        {
           "platform": "moonbeam",
           "non-cosmos": true,
-          "denom": "0xacc15dc74880c9944775448304b263d191c6077f"
+          "denom": "Wei",
+          "method": "wrapping"
         },
-        "method": "bridge",
-        "index": {
+        {
           "platform": "moonbeam",
           "non-cosmos": true,
-          "denom": "Wei"
+          "denom": "0xacc15dc74880c9944775448304b263d191c6077f",
+          "method": "bridge",
+          "provider": "Axelar"
         }
-      },
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/moonbeam/images/glmr.svg",
 	      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/moonbeam/images/glmr.png"
