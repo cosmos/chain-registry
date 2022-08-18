@@ -11,6 +11,7 @@ Once schemas have matured and client needs are better understood Chain Registry 
 
 ## Web Endpoints
 - https://registry.ping.pub (Update every 24H)
+- https://proxy.atomscan.com/directory/ (Update every 24H)
 
 ## APIs
 - https://github.com/cmwaters/skychart
@@ -56,6 +57,13 @@ A sample `chain.json` includes the following information.
                 "low_gas_price": 0,
                 "average_gas_price": 0.025,
                 "high_gas_price": 0.04
+            }
+        ]
+    },
+    "staking": {
+        "staking_tokens": [
+            {
+                "denom": "uosmo"
             }
         ]
     },
@@ -152,7 +160,10 @@ A sample `chain.json` includes the following information.
     "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg"
-    }
+    },
+    "keywords" [
+        "foo", "bar", "foobar", "fubar", "beyond", "repair", "example"
+    ]
 }
 ```
 
@@ -219,7 +230,10 @@ An example assetlist json contains the following structure:
             "logo_URIs": {
                 "png": "ipfs://QmXfzKRvjZz3u5JRgC4v5mGVbm9ahrUiB4DgzHBsnWbTMM",
                 "svg": ""
-            }
+            },
+            "keywords" [
+                "foo", "coin", "foocoin", "gas", "fee", "staking", "stake", "foobar", "fubar", "example"
+            ]
         }
     ]
 }
