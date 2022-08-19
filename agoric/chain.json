@@ -14,20 +14,28 @@
   "slip44": 564,
   "explorers": [
     {
-      "name": "agoric-big-dipper",
-      "url": "https://main.explorer.agoric.net/"
+      "name": "bigdipper",
+      "url": "https://agoric.bigdipper.live/",
+      "tx_page": "https://agoric.bigdipper.live/transactions/${txHash}",
+      "account_page": "https://agoric.bigdipper.live/accounts/${accountAddress}"
     },
     {
       "name": "explorers.guru",
-      "url": "https://agoric.explorers.guru"
+      "url": "https://agoric.explorers.guru",
+      "tx_page": "https://agoric.explorers.guru/transaction/${txHash}",
+      "account_page": "https://agoric.explorers.guru/account/${accountAddress}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/agoric/",
+      "tx_page": "https://atomscan.com/agoric/transactions/${txHash}",
+      "account_page": "https://atomscan.com/agoric/accounts/${accountAddress}"
     }
   ],
   "codebase": {
     "git_repo": "https://github.com/Agoric/ag0/",
     "recommended_version": "agoric-3.1",
-    "compatible_versions": [
-      "agoric-3.1"
-    ]
+    "compatible_versions": ["agoric-3.1"]
   },
   "peers": {
     "seeds": [],
@@ -71,12 +79,5 @@
         "provider": "NodeStake"
       }
     ]
-  },
-  "explorers": [
-      {
-        "kind": "explorers.guru",
-        "url": "https://agoric.explorers.guru/",
-        "tx_page": "https://agoric.explorers.guru/transaction/${txHash}"
-      }
-   ]
+  }
 }
