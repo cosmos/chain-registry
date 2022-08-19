@@ -20,6 +20,7 @@ Once schemas have matured and client needs are better understood Chain Registry 
 ## Web Interfaces
 - https://cosmos.directory
 - https://chain-registry.netlify.com
+- https://atomscan.com/directory
 
 ## Contributing
 
