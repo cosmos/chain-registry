@@ -36,6 +36,7 @@ A sample `chain.json` includes the following information.
     "$schema": "../chain.schema.json",
     "chain_name": "osmosis",
     "status": "live",
+    "website": "https://osmosis.zone/",
     "network_type": "mainnet",
     "pretty_name": "Osmosis",
     "chain_id": "osmosis-1",
