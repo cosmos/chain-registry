@@ -40,19 +40,19 @@
       "name": "USD Coin",
       "display": "usdc",
       "symbol": "USDC",
-      "origin": [
+      "traces": [
         {
+          "type": "synthetic_fiat-reserve",
           "platform": "forex",
           "non-cosmos": true,
-          "denom": "USD",
-          "method": "synthetic_fiat-reserve",
+          "base_denom": "USD",
           "provider": "Circle"
         },
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "method": "bridge",
+          "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
           "provider": "Axelar"
         }
       ],
@@ -78,19 +78,19 @@
       "name": "Frax",
       "display": "frax",
       "symbol": "FRAX",
-      "origin": [
+      "traces": [
         {
+          "type": "synthetic_hybrid",
           "platform": "forex",
           "non-cosmos": true,
-          "denom": "USD",
-          "method": "synthetic_hybrid",
+          "base_denom": "USD",
           "provider": "Frax"
         },
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x853d955acef822db058eb8505911ed77f175b99e",
-          "method": "bridge",
+          "base_denom": "0x853d955acef822db058eb8505911ed77f175b99e",
           "provider": "Axelar"
         }
       ],
@@ -116,19 +116,19 @@
       "name": "Dai Stablecoin",
       "display": "dai",
       "symbol": "DAI",
-      "origin": [
+      "traces": [
         {
+          "type": "synthetic_CDP",
           "platform": "forex",
           "non-cosmos": true,
-          "denom": "USD",
-          "method": "synthetic_CDP",
+          "base_denom": "USD",
           "provider": "DAI"
         },
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x6b175474e89094c44da98b954eedeac495271d0f",
-          "method": "bridge",
+          "base_denom": "0x6b175474e89094c44da98b954eedeac495271d0f",
           "provider": "Axelar"
         }
       ],
@@ -154,19 +154,19 @@
       "name": "Tether USD",
       "display": "usdt",
       "symbol": "USDT",
-      "origin": [
+      "traces": [
         {
+          "type": "synthetic_fiat-reserve",
           "platform": "forex",
           "non-cosmos": true,
-          "denom": "USD",
-          "method": "synthetic_fiat-reserve",
+          "base_denom": "USD",
           "provider": "Tether"
         },
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-          "method": "bridge",
+          "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7",
           "provider": "Axelar"
         }
       ],
@@ -180,11 +180,11 @@
       "description": "Wrapped Ether on Axelar",
       "denom_units": [
         {
-          "denom": "weth-wei",
+          "base_denom": "weth-wei",
           "exponent": 0
         },
         {
-          "denom": "weth",
+          "base_denom": "weth",
           "exponent": 18
         }
       ],
@@ -192,18 +192,18 @@
       "name": "Wrapped Ether",
       "display": "weth",
       "symbol": "WETH",
-      "origin": [
+      "traces": [
         {
+          "type": "wrapping"
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "wei",
-          "method": "wrapping"
+          "base_denom": "wei"
         },
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-          "method": "bridge",
+          "base_denom": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
           "provider": "Axelar"
         }
       ],
@@ -228,19 +228,19 @@
       "name": "Wrapped Bitcoin",
       "display": "wbtc",
       "symbol": "WBTC",
-      "origin": [
+      "traces": [
         {
+          "type": "bridge",
           "platform": "bitcoin",
           "non-cosmos": true,
-          "denom": "sat",
-          "method": "bridge",
+          "base_denom": "sat",
           "provider": "BitGo, Kyber, and Ren"
         },
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
-          "method": "bridge",
+          "base_denom": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
           "provider": "Axelar"
         }
       ],
@@ -265,12 +265,12 @@
       "name": "Aave",
       "display": "aave",
       "symbol": "AAVE",
-      "origin": [
+      "traces": [
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
-          "method": "bridge",
+          "base_denom": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
           "provider": "Axelar"
         }
       ],
@@ -295,12 +295,12 @@
       "name": "ApeCoin",
       "display": "ape",
       "symbol": "APE",
-      "origin": [
+      "traces": [
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x4d224452801aced8b2f0aebe155379bb5d594381",
-          "method": "bridge",
+          "base_denom": "0x4d224452801aced8b2f0aebe155379bb5d594381",
           "provider": "Axelar"
         }
       ],
@@ -325,12 +325,12 @@
       "name": "Axie Infinity Shard",
       "display": "axs",
       "symbol": "AXS",
-      "origin": [
+      "traces": [
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0xbb0e17ef65f82ab018d8edd776e8dd940327b28b",
-          "method": "bridge",
+          "base_denom": "0xbb0e17ef65f82ab018d8edd776e8dd940327b28b",
           "provider": "Axelar"
         }
       ],
@@ -355,12 +355,12 @@
       "name": "Chainlink",
       "display": "link",
       "symbol": "LINK",
-      "origin": [
+      "traces": [
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x514910771af9ca656af840dff83e8264ecf986ca",
-          "method": "bridge",
+          "base_denom": "0x514910771af9ca656af840dff83e8264ecf986ca",
           "provider": "Axelar"
         }
       ],
@@ -386,12 +386,12 @@
       "name": "Maker",
       "display": "mkr",
       "symbol": "MKR",
-      "origin": [
+      "traces": [
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
-          "method": "bridge",
+          "base_denom": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
           "provider": "Axelar"
         }
       ],
@@ -416,19 +416,19 @@
       "name": "Rai Reflex Index",
       "display": "rai",
       "symbol": "RAI",
-      "origin": [
+      "traces": [
         {
+          "type": "synthetic_CDP",
           "platform": "forex",
           "non-cosmos": true,
-          "denom": "USD",
-          "method": "synthetic_CDP",
+          "base_denom": "USD",
           "provider": "DAI"
         },
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x03ab458634910aad20ef5f1c8ee96f1d6ac54919",
-          "method": "bridge",
+          "base_denom": "0x03ab458634910aad20ef5f1c8ee96f1d6ac54919",
           "provider": "Axelar"
         }
       ],
@@ -453,12 +453,12 @@
       "name": "Shiba Inu",
       "display": "shib",
       "symbol": "SHIB",
-      "origin": [
+      "traces": [
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce",
-          "method": "bridge",
+          "base_denom": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce",
           "provider": "Axelar"
         }
       ],
@@ -483,19 +483,19 @@
       "name": "Lido Staked Ether",
       "display": "steth",
       "symbol": "stETH",
-      "origin": [
+      "traces": [
         {
+          "type": "liquid-stake",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "wei",
-          "method": "liquid-stake",
+          "base_denom": "wei",
           "provider": "Lido"
         },
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
-          "method": "bridge",
+          "base_denom": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
           "provider": "Axelar"
         }
       ],
@@ -520,12 +520,12 @@
       "name": "Uniswap",
       "display": "uni",
       "symbol": "UNI",
-      "origin": [
+      "traces": [
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
-          "method": "bridge",
+          "base_denom": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
           "provider": "Axelar"
         }
       ],
@@ -550,12 +550,12 @@
       "name": "Chain",
       "display": "xcn",
       "symbol": "XCN",
-      "origin": [
+      "traces": [
         {
+          "type": "bridge",
           "platform": "ethereum",
           "non-cosmos": true,
-          "denom": "0xa2cd3d43c775978a96bdbf12d733d5a1ed94fb18",
-          "method": "bridge",
+          "base_denom": "0xa2cd3d43c775978a96bdbf12d733d5a1ed94fb18",
           "provider": "Axelar"
         }
       ],
@@ -580,19 +580,19 @@
       "name": "Wrapped Polkadot",
       "display": "dot",
       "symbol": "DOT",
-      "origin": [
+      "traces": [
         {
+          "type": "bridge",
           "platform": "polkadot",
           "non-cosmos": true,
-          "denom": "Planck",
-          "method": "bridge",
+          "base_denom": "Planck",
           "provider": "Polkadot Parachain"
         },
         {
+          "type": "bridge",
           "platform": "moonbeam",
           "non-cosmos": true,
-          "denom": "0xffffffff1fcacbd218edc0eba20fc2308c778080",
-          "method": "bridge",
+          "base_denom": "0xffffffff1fcacbd218edc0eba20fc2308c778080",
           "provider": "Axelar"
         }
       ],
@@ -618,18 +618,18 @@
       "name": "Wrapped Moonbeam",
       "display": "wglmr",
       "symbol": "WGLMR",
-      "origin": [
+      "traces": [
         {
+          "type": "wrapping",
           "platform": "moonbeam",
           "non-cosmos": true,
-          "denom": "Wei",
-          "method": "wrapping"
+          "base_denom": "Wei"
         },
         {
+          "type": "bridge",
           "platform": "moonbeam",
           "non-cosmos": true,
-          "denom": "0xacc15dc74880c9944775448304b263d191c6077f",
-          "method": "bridge",
+          "base_denom": "0xacc15dc74880c9944775448304b263d191c6077f",
           "provider": "Axelar"
         }
       ],
