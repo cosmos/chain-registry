@@ -1,0 +1,117 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "canto",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Canto",
+  "chain_id": "canto_7700-2",
+  "bech32_prefix": "canto",
+  "node_home": "$HOME/.cantod",
+  "genesis": {
+    "genesis_url": "https://raw.githubusercontent.com/Canto-Network/Canto/genesis/Networks/Mainnet/genesis.json"
+  },
+  "daemon_name": "cantod",
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "acanto",
+        "low_gas_price": 10000000000,
+        "average_gas_price": 25000000000,
+        "high_gas_price": 40000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+        {
+            "denom": "aevmos"
+        }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Canto-Network/Canto",
+    "recommended_version": "v2.0.0",
+    "compatible_versions": [
+      "v2.0.0"
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "9361d2cfb283da656b14eaf27e64d96cb86706f0",
+        "address": "167.71.170.71:26656",
+        "provider": "Plex"
+      },
+      {
+        "id": "0830aa240e139fba099d1c2e831be84ecb29b73f",
+        "address": "43.205.108.200:26656",
+        "provider": "Unknown"
+      },
+      {
+        "id": "beb82dcef7adcc3f8bc4173fa57bd310f6a6a55a",
+        "address": "138.197.134.149:26656",
+        "provider": "Unknown"
+      },
+      {
+        "id": "baee0ce941a956e61c1e06574b75f390ac14881d",
+        "address": "143.110.236.188:26656",
+        "provider": "Unknown"
+      },
+      {
+        "id": "706e81c8c99e5d0cf37432df5f972818339f19b5",
+        "address": "34.122.124.28:26656",
+        "provider": "Unknown"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "9361d2cfb283da656b14eaf27e64d96cb86706f0",
+        "address": "167.71.170.71:26656",
+        "provider": "Plex"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "http://164.90.154.41:26657",
+        "provider": "Canto"
+      }
+    ],
+    "rest": [
+      {
+        "address": "http://164.90.154.41:1317",
+        "provider": "Canto"
+      }
+    ],
+    "grpc": [
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://canto.evm.chandrastation.com",
+        "provider": "Chandra Station"
+      },
+      {
+        "address": "https://canto.slingshot.finance",
+        "provider": "Slingshot"
+      },
+      {
+        "address": "https://jsonrpc.canto.nodestake.top",
+        "provider": "Nodestake"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "bigdipper",
+      "url": "https://cosmos.explorer.canto.io",
+      "tx_page": "https://cosmos.explorer.canto.io/transactions/${txHash}"
+    },
+    {
+      "kind": "blockscout",
+      "url": "https://https://evm.explorer.canto.io/",
+      "tx_page": "https://evm.explorer.canto.io/tx/${txHash}"
+    }
+  ]
+}
