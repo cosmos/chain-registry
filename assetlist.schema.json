@@ -164,24 +164,11 @@
             "type": "object",
             "description": "The (primary) key used to identify an asset defined within the Chain Registry.",
             "required": [
+                "type",
                 "platform",
-                "denom",
-                "method"
+                "base_denom"
             ],
             "properties": {
-                "platform": {
-                    "type": "string",
-                    "description": "The platform from which the asset originates. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'"
-                },
-                "non-cosmos": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Used to show whether the platform exists within the /_non-cosmos/ folder of the Chain Registry. The Property may be excluded for Cosmos chains (because it defaults to false), but should be included and set to true for platforms beyond the cosmos."
-                },
-                "denom": {
-                    "type": "string",
-                    "description": "The base unit of the asset on its source platform. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
-                },
                 "type": {
                     "type": "string",
                     "description": "The method used to transform the source asset into this asset. E.g., 'bridge', 'synthetic', or 'ibc'.",
@@ -195,6 +182,19 @@
                         "synthetic_hybrid"
                     ]
                 },
+                "platform": {
+                    "type": "string",
+                    "description": "The platform from which the asset originates. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'"
+                },
+                "non-cosmos": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Used to show whether the platform exists within the /_non-cosmos/ folder of the Chain Registry. The Property may be excluded for Cosmos chains (because it defaults to false), but should be included and set to true for platforms beyond the cosmos."
+                },
+                "base_denom": {
+                    "type": "string",
+                    "description": "The base unit of the asset on its source platform. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
+                },
                 "provider": {
                     "type": "string",
                     "description": "The entity offering the service. E.g., 'Gravity Bridge' [Network] or 'Tether' [Company]."
@@ -203,7 +203,7 @@
                     "type": "string",
                     "description": "The contract address where the transition takes place, where applicable. E.g., The Ethereum contract that locks up the asset while it's minted on another chain."
                 },
-                "ibc_hash_input": {
+                "path": {
                     "type": "string",
                     "description": "The port/channel/denom input string that generates the 'ibc/...' denom." 
                 }
@@ -219,7 +219,7 @@
               },
             "then": {
                 "required": [
-                    "ibc_hash_input"
+                    "path"
                 ]
             },
             "if": {
