@@ -3,12 +3,34 @@
     "chain_name": "rizon",
     "status": "live",
     "network_type": "mainnet",
-    "pretty_name": "RIZON",
+    "pretty_name": "Rizon",
     "chain_id": "titan-1",
     "bech32_prefix": "rizon",
-    "slip44": 118,
+    "daemon_name": "rizond",
+    "node_home": "$HOME/.rizon",
+    "key_algos": [
+        "secp256k1"
+    ],
     "genesis": {
         "genesis_url": "https://raw.githubusercontent.com/rizon-world/mainnet/master/genesis.json"
+    },
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "uatolo",
+                "low_gas_price": 0.025,
+                "average_gas_price": 0.025,
+                "high_gas_price": 0.035
+            }
+        ]
+    },
+    "staking": {
+        "staking_tokens": [
+            {
+                "denom": "uatolo"
+            }
+        ]
     },
     "codebase": {
         "git_repo": "https://github.com/rizon-world/rizon",
@@ -17,11 +39,6 @@
             "v0.3.0"
         ]
     },
-    "daemon_name": "rizond",
-    "node_home": "$HOME/.rizon",
-    "key_algos": [
-        "secp256k1"
-    ],
     "peers": {
         "seeds": [
             {
