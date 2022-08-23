@@ -107,6 +107,12 @@
                         "type": "string"
                     }
                 },
+                "versions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/version"   
+                    }
+                },
                 "binaries": {
                     "type": "object",
                     "properties": {
@@ -178,6 +184,33 @@
         }
     },
     "$defs": {
+        "version": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Upgrade Tag"
+                },
+                "names": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "height": {
+                    "type": "number"
+                },
+                "compatible_versions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+            }
+        },
         "peer": {
             "type": "object",
             "required": [
