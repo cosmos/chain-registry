@@ -187,10 +187,10 @@
         "version": {
             "type": "object",
             "required": [
-                "id"
+                "tag"
             ],
             "properties": {
-                "id": {
+                "tag": {
                     "type": "string",
                     "description": "Upgrade Tag"
                 },
@@ -203,12 +203,17 @@
                 "height": {
                     "type": "number"
                 },
-                "compatible_versions": {
+                "urls": {
                     "type": "array",
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "format": "uri"
                     }
                 },
+                "next_version_tag": {
+                    "type": "string",
+                    "description": "[Optional] Upgrade Tag of the following version"
+                }
             }
         },
         "peer": {
