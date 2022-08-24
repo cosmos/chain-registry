@@ -107,10 +107,70 @@
                         "type": "string"
                     }
                 },
+                "genesis": {
+                    "type": "object",
+                    "properties": {
+                        "tag": {
+                            "type": "string"
+                        },
+                        "genesis_url": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    }
+                },
                 "versions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/$defs/version"   
+                        "type": "object",
+                        "required": [
+                            "tag"
+                        ],
+                        "properties": {
+                            "tag": {
+                                "type": "string",
+                                "description": "Upgrade Tag"
+                            },
+                            "names": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "height": {
+                                "type": "number"
+                            },
+                            "binaries": {
+                                "type": "object",
+                                "properties": {
+                                    "linux/amd64": {
+                                        "type": "string",
+                                        "format": "uri"
+                                    },
+                                    "linux/arm64": {
+                                        "type": "string",
+                                        "format": "uri"
+                                    },
+                                    "darwin/amd64": {
+                                        "type": "string",
+                                        "format": "uri"
+                                    },
+                                    "darwin/arm64": {
+                                        "type": "string",
+                                        "format": "uri"
+                                    },
+                                    "windows/amd64": {
+                                        "type": "string",
+                                        "format": "uri"
+                                    }
+                                }
+                            },
+                            "next_version_tag": {
+                                "type": "string",
+                                "description": "[Optional] Upgrade Tag of the following version"
+                            }
+                        }
+                    },
                     }
                 },
                 "binaries": {
@@ -184,38 +244,6 @@
         }
     },
     "$defs": {
-        "version": {
-            "type": "object",
-            "required": [
-                "tag"
-            ],
-            "properties": {
-                "tag": {
-                    "type": "string",
-                    "description": "Upgrade Tag"
-                },
-                "names": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "height": {
-                    "type": "number"
-                },
-                "urls": {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "format": "uri"
-                    }
-                },
-                "next_version_tag": {
-                    "type": "string",
-                    "description": "[Optional] Upgrade Tag of the following version"
-                }
-            }
-        },
         "peer": {
             "type": "object",
             "required": [
