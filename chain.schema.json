@@ -110,7 +110,23 @@
                 "binaries": {
                     "type": "object",
                     "properties": {
-                        "linux/amd": {
+                        "linux/amd64": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "linux/arm64": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "darwin/amd64": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "darwin/arm64": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "windows/amd64": {
                             "type": "string",
                             "format": "uri"
                         }
@@ -127,6 +143,46 @@
                 },
                 "cosmwasm_enabled": {
                     "type": "boolean"
+                },
+                "genesis": {
+                    "type": "object",
+                    "properties": {
+                        "tag": {
+                            "type": "string"
+                        },
+                        "genesis_url": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    }
+                },
+                "versions": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "tag"
+                        ],
+                        "properties": {
+                            "tag": {
+                                "type": "string",
+                                "description": "Upgrade Tag"
+                            },
+                            "names": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "height": {
+                                "type": "number"
+                            },
+                            "next_version_tag": {
+                                "type": "string",
+                                "description": "[Optional] Upgrade Tag of the following version"
+                            }
+                        }
+                    }
                 }
             }
         },
