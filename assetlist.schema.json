@@ -160,13 +160,30 @@
                 "exponent"
             ]
         },
-        "asset_transition": {
+        "asset_pointer": {
             "type": "object",
             "description": "The (primary) key used to identify an asset defined within the Chain Registry.",
             "required": [
-                "type",
                 "platform",
                 "base_denom"
+            ],
+            "properties": {
+                "platform": {
+                    "type": "string",
+                    "description": "The platform from which the asset originates. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'"
+                },
+                "base_denom": {
+                    "type": "string",
+                    "description": "The base unit of the asset on its source platform. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
+                }
+            }
+        },
+        "asset_transition": {
+            "type": "object",
+            "description": "The transition from origin assset to the current asset.",
+            "required": [
+                "type",
+                "asset"
             ],
             "properties": {
                 "type": {
@@ -177,23 +194,11 @@
                         "ibc",
                         "wrapping",
                         "liquid-stake",
-                        "synthetic_fiat-reserve",
-                        "synthetic_CDP",
-                        "synthetic_hybrid"
+                        "synthetic"
                     ]
                 },
-                "platform": {
-                    "type": "string",
-                    "description": "The platform from which the asset originates. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'"
-                },
-                "non-cosmos": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Used to show whether the platform exists within the /_non-cosmos/ folder of the Chain Registry. The Property may be excluded for Cosmos chains (because it defaults to false), but should be included and set to true for platforms beyond the cosmos."
-                },
-                "base_denom": {
-                    "type": "string",
-                    "description": "The base unit of the asset on its source platform. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
+                "asset": {
+                    "$ref": "#/$defs/asset_pointer"
                 },
                 "provider": {
                     "type": "string",
@@ -228,9 +233,7 @@
                         "enum": [
                             "bridge",
                             "liquid-stake",
-                            "synthetic_fiat-reserve",
-                            "synthetic_CDP",
-                            "synthetic_hybrid"
+                            "synthetic"
                         ]
                     }
                 }
