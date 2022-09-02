@@ -33,8 +33,8 @@ def test_chainNameMatchFileName(input):
     fileName_chain2 = m.group(2).lower()
     with open(join(mypath,input), "r") as read_file:
         json_file = json.load(read_file)
-        chain_1 = str(json_file["chain-1"]["chain-name"]).lower()
-        chain_2 = str(json_file["chain-2"]["chain-name"]).lower()
+        chain_1 = str(json_file["chain_1"]["chain_name"]).lower()
+        chain_2 = str(json_file["chain_2"]["chain_name"]).lower()
     assert fileName_chain1 == chain_1 and fileName_chain2 == chain_2
 
 @pytest.mark.parametrize("input", ibcData_files)
