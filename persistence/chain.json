@@ -13,11 +13,18 @@
   "node_home" : "$HOME/.persistenceCore",
   "key_algos" : ["secp256k1"],
   "slip44" : 750,
-  "fees" : {
-    "fee_tokens" : [
+  "fees": {
+    "fee_tokens": [
       {
-        "denom" : "uxprt",
-        "fixed_min_gas_price" : 0
+        "denom": "uxprt",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uxprt"
       }
     ]
   },
@@ -104,7 +111,7 @@
         "provider" : "Persistence"
       },
       {
-        "address" : "https://rpc-persistent-ia.notional.ventures/",
+        "address" : "https://rpc-persistent-ia.cosmosia.notional.ventures/",
         "provider" : "Notional"
       }
     ],
@@ -114,7 +121,7 @@
         "provider" : "Persistence"
       },
       {
-        "address" : "https://api-persistent-ia.notional.ventures/",
+        "address" : "https://api-persistent-ia.cosmosia.notional.ventures/",
         "provider" : "Notional"
       }
     ],
@@ -124,7 +131,7 @@
         "provider" : "Persistence"
       },
       {
-        "address" : "grpc-persistent-ia.notional.ventures:443",
+        "address" : "grpc-persistent-ia.cosmosia.notional.ventures:443",
         "provider" : "Notional"
       }
     ]
@@ -133,7 +140,7 @@
     {
       "kind": "proprietary",
       "url": "https://explorer.persistence.one",
-      "tx_page": "https://explorer.persistence.one/transactions/{txHash}"
+      "tx_page": "https://explorer.persistence.one/transactions/${txHash}"
     },
     {
       "kind": "mintscan",

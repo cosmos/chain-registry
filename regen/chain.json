@@ -3,7 +3,7 @@
     "chain_name": "regen",
     "status": "live",
     "network_type": "mainnet",
-    "pretty_name": "Regen Network",
+    "pretty_name": "Regen",
     "chain_id": "regen-1",
     "bech32_prefix": "regen",
     "daemon_name": "regen",
@@ -15,6 +15,13 @@
         "secp256k1"
     ],
     "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "uregen"
+            }
+        ]
+    },
     "staking": {
         "staking_tokens": [
             {
@@ -68,6 +75,10 @@
     "apis": {
         "rpc": [
             {
+                "address": "https://rpc-regen.ecostake.com",
+                "provider": "ecostake"
+            },
+            {
                 "address": "http://public-rpc.regen.vitwit.com:26657",
                 "provider": "vitwit"
             },
@@ -80,12 +91,8 @@
                 "provider": "forbole"
             },
             {
-                "address": "https://rpc-regen-ia.notional.ventures/",
+                "address": "https://rpc-regen-ia.cosmosia.notional.ventures/",
                 "provider": "Notional"
-            },
-            {
-                "address": "https://rpc-regen.ecostake.com",
-                "provider": "ecostake"
             }
         ],
         "grpc": [
@@ -94,11 +101,15 @@
                 "provider": "stakesystems"
             },
             {
-                "address": "grpc-regen-ia.notional.ventures:443",
+                "address": "grpc-regen-ia.cosmosia.notional.ventures:443",
                 "provider": "Notional"
             }
         ],
         "rest": [
+            {
+                "address": "https://rest-regen.ecostake.com",
+                "provider": "ecostake"
+            },
             {
                 "address": "http://public-rpc.regen.vitwit.com:1317",
                 "provider": "vitwit"
@@ -108,12 +119,8 @@
                 "provider": "stakesystems"
             },
             {
-                "address": "https://api-regen-ia.notional.ventures/",
+                "address": "https://api-regen-ia.cosmosia.notional.ventures/",
                 "provider": "Notional"
-            },
-            {
-                "address": "https://rest-regen.ecostake.com",
-                "provider": "ecostake"
             }
         ]
     },

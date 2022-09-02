@@ -9,6 +9,9 @@ Once schemas have matured and client needs are better understood Chain Registry 
 ## Npm Modules
 - https://www.npmjs.com/package/chain-registry
 
+## Rust Crates
+- https://crates.io/crates/chain-registry
+
 ## Web Endpoints
 - https://registry.ping.pub (Update every 24H)
 - https://proxy.atomscan.com/directory/ (Update every 24H)
@@ -20,6 +23,7 @@ Once schemas have matured and client needs are better understood Chain Registry 
 ## Web Interfaces
 - https://cosmos.directory
 - https://chain-registry.netlify.com
+- https://atomscan.com/directory
 
 ## Contributing
 
@@ -36,6 +40,7 @@ A sample `chain.json` includes the following information.
     "$schema": "../chain.schema.json",
     "chain_name": "osmosis",
     "status": "live",
+    "website": "https://osmosis.zone/",
     "network_type": "mainnet",
     "pretty_name": "Osmosis",
     "chain_id": "osmosis-1",
