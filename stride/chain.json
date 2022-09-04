@@ -30,14 +30,26 @@
         "git_repo": "https://github.com/Stride-Labs/stride",
         "recommended_version": "v1.0.0",
         "binaries": {
-            "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v10.0.0/osmosis-10.0.0-linux-amd64",
-            "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v10.0.0/osmosis-10.0.0-linux-arm64"
+            "linux/amd64": "https://github.com/Stride-Labs/stride/releases/download/v1.0.0/strided-1.0.0-amd64",
+            "linux/arm64": "https://github.com/Stride-Labs/stride/releases/download/v1.0.0/strided-1.0.0-arm64"
         },
         "cosmos_sdk_version": "0.45.4",
         "tendermint_version": "0.34.19"
     },
     "peers": {
         "seeds": [
+            {
+                "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+                "address": "seeds.polkachu.com:12256",
+                "provider": "Polkachu"
+            },
+            {
+                "id": "cb91a11588d66cfd9c01f99541df4978a08e0e39",
+                "address": "seedv1.main.stridenet.co:26656",
+                "provider": "Stride"
+            }
+        ],
+        "persistent_peers": [
             {
                 "id": "1387946c04bceb472113f657f55f670f71709230",
                 "address": "65.108.4.188:12256",
@@ -73,18 +85,6 @@
                 "address": "185.248.24.29:26656",
                 "provider": "Whi𝕊perNode"
             }
-        ],
-        "persistent_peers": [
-            {
-                "id": "b63e1e588e8feb7e4a4adf0f2542d755e606d3f1",
-                "address": "5.9.105.113:26656",
-                "provider": "WhisperNode 🤐"
-            },
-            {
-                "id": "8f67a2fcdd7ade970b1983bf1697111d35dfdd6f",
-                "address": "52.79.199.137:26656",
-                "provider": "cosmostation"
-            }
         ]
     },
     "apis": {
@@ -92,27 +92,41 @@
             {
                 "address": "https://stride-rpc.polkachu.com/",
                 "provider": "Polkachu"
+            },
+            {
+                "address": "https://stride.rpc.chandrastation.com",
+                "provider": "Chandra Station"
             }
         ],
         "rest": [
             {
-                "address": "https://stride-rpc.polkachu.com/",
+                "address": "https://stride-api.polkachu.com/",
                 "provider": "Polkachu"
+            },
+            {
+                "address": "https://stride.api.chandrastation.com",
+                "provider": "Chandra Station"
             }
         ],
         "grpc": [
             {
-                "address": "https://stride-rpc.polkachu.com/",
+                "address": "http://stride-grpc.polkachu.com:22090",
                 "provider": "Polkachu"
             }
         ]
     },
     "explorers": [
         {
-            "kind": "mintscan",
-            "url": "https://testnet.mintscan.io/stride-testnet",
-            "tx_page": "https://www.mintscan.io/stride-testnet/txs/${txHash}",
-            "account_page": "https://www.mintscan.io/stride-testnet/account/${accountAddress}"
+            "kind": "Apollo",
+            "url": "https://apollo.chandrastation.com/stride",
+            "tx_page": "https://apollo.chandrastation.com/stride/tx/${txHash}",
+            "account_page": "https://apollo.chandrastation.com/stride/account/${accountAddress}"
+        },
+        {
+            "kind": "Stride Ping Pub",
+            "url": "https://explorer.stride.zone/stride",
+            "tx_page": "https://explorer.stride.zone/stride/tx/${txHash}",
+            "account_page": "https://explorer.stride.zone/stride/account/${accountAddress}"
         }
     ],
     "logo_URIs": {
