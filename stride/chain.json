@@ -3,14 +3,13 @@
     "chain_name": "stride",
     "status": "live",
     "network_type": "mainnet",
-    "updatelink": "https://raw.githubusercontent.com/osmosis-labs/osmosis/main/chain.schema.json",
     "pretty_name": "Stride",
     "chain_id": "stride-1",
     "bech32_prefix": "stride",
     "daemon_name": "strided",
     "node_home": "$HOME/.strided",
     "genesis": {
-        "genesis_url": "https://github.com/osmosis-labs/networks/raw/main/osmosis-1/genesis.json"
+        "genesis_url": "https://raw.githubusercontent.com/Stride-Labs/testnet/infra-test/poolparty/infra/genesis.json"
     },
     "key_algos": [
         "secp256k1"
@@ -19,7 +18,7 @@
     "fees": {
         "fee_tokens": [
             {
-                "denom": "ust",
+                "denom": "ustrd",
                 "fixed_min_gas_price": 0,
                 "low_gas_price": 0,
                 "average_gas_price": 0.025,
@@ -40,14 +39,39 @@
     "peers": {
         "seeds": [
             {
-                "id": "83adaa38d1c15450056050fd4c9763fcc7e02e2c",
-                "address": "ec2-44-234-84-104.us-west-2.compute.amazonaws.com:26656",
-                "provider": "notional"
+                "id": "1387946c04bceb472113f657f55f670f71709230",
+                "address": "65.108.4.188:12256",
+                "provider": "Polkachu-1"
             },
             {
-                "id": "7c66126b64cd66bafd9ccfc721f068df451d31a3",
-                "address": "osmosis-seed.sunshinevalidation.io:9393",
-                "provider": "sunshine-validation"
+                "id": "df3f533e6b9776c11f08da804edcb810cbdd2080",
+                "address": "65.108.234.23:12256",
+                "provider": "Polkachu-2"
+            },
+            {
+                "id": "1387946c04bceb472113f657f55f670f71709230",
+                "address": "65.108.4.188:12256",
+                "provider": "Polkachu-3"
+            },
+            {
+                "id": "076e97f47762a477f2ae3dd3e798a7970b6bb20d",
+                "address": "52.52.110.228:26656",
+                "provider": "Cosmostation-1"
+            },
+            {
+                "id": "e821acdaf0c7a3c60ea3cd4eb4a98a62dad06f58",
+                "address": "43.201.12.41:26656",
+                "provider": "Cosmostation-2"
+            },
+            {
+                "id": "b5f9fa874781f975687018ae559f0d952d3a2e24",
+                "address": "52.52.208.179:26656",
+                "provider": "Cosmostation-3"
+            },
+            {
+                "id": "04ea9eceee16db90872fee3fbef9ac50a87702c5",
+                "address": "185.248.24.29:26656",
+                "provider": "Whi𝕊perNode"
             }
         ],
         "persistent_peers": [
@@ -66,24 +90,20 @@
     "apis": {
         "rpc": [
             {
-                "address": "https://stride-testnet-rpc.polkachu.com/",
+                "address": "https://stride-rpc.polkachu.com/",
                 "provider": "Polkachu"
             }
         ],
         "rest": [
             {
-                "address": "https://stride-testnet-api.polkachu.com/ ",
+                "address": "https://stride-rpc.polkachu.com/",
                 "provider": "Polkachu"
             }
         ],
         "grpc": [
             {
-                "address": "osmosis.strange.love:9090",
-                "provider": "strangelove"
-            },
-            {
-                "address": "grpc-osmosis-ia.notional.ventures:443",
-                "provider": "Notional"
+                "address": "https://stride-rpc.polkachu.com/",
+                "provider": "Polkachu"
             }
         ]
     },
