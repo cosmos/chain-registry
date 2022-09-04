@@ -147,7 +147,7 @@
                 "genesis": {
                     "type": "object",
                     "properties": {
-                        "tag": {
+                        "name": {
                             "type": "string"
                         },
                         "genesis_url": {
@@ -161,25 +161,24 @@
                     "items": {
                         "type": "object",
                         "required": [
-                            "tag"
+                            "name"
                         ],
                         "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "Official Upgrade Name"
+                            },
                             "tag": {
                                 "type": "string",
-                                "description": "Upgrade Tag"
-                            },
-                            "names": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
+                                "description": "Git Upgrade Tag"
                             },
                             "height": {
-                                "type": "number"
+                                "type": "number",
+                                "description": "Block Height"
                             },
-                            "next_version_tag": {
+                            "next_version_name": {
                                 "type": "string",
-                                "description": "[Optional] Upgrade Tag of the following version"
+                                "description": "[Optional] Name of the following version"
                             }
                         }
                     }
