@@ -12,6 +12,20 @@
         "genesis_url": "https://raw.githubusercontent.com/ovrclk/net/master/mainnet/genesis.json"
     },
     "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "uakt"
+            }
+        ]
+    },
+    "staking": {
+        "staking_tokens": [
+            {
+                "denom": "uakt"
+            }
+        ]
+    },
     "codebase": {
         "git_repo": "https://github.com/ovrclk/akash/",
         "recommended_version": "v0.16.3",
@@ -159,7 +173,7 @@
                 "provider": "Polkachu"
             },
             {
-                "address": "https://rpc-akash-ia.notional.ventures:443",
+                "address": "https://rpc-akash-ia.cosmosia.notional.ventures:443",
                 "provider": "Notional"
             },
             {
@@ -181,7 +195,7 @@
                 "provider": "Polkachu"
             },
             {
-                "address": "https://api-akash-ia.notional.ventures",
+                "address": "https://api-akash-ia.cosmosia.notional.ventures",
                 "provider": "Notional"
             },
             {
@@ -191,8 +205,12 @@
         ],
         "grpc": [
             {
-                "address": "grpc-akash-ia.notional.ventures:443",
+                "address": "grpc-akash-ia.cosmosia.notional.ventures:443",
                 "provider": "Notional"
+            },
+            {
+                "address": "akash-grpc.polkachu.com:28090",
+                "provider": "Polkachu"
             }
         ]
     },
@@ -216,6 +234,11 @@
           "kind": "atomscan",
           "url": "https://atomscan.com/akash",
           "tx_page": "https://atomscan.com/akash/transactions/${txHash}"
+        },
+        {
+          "kind": "cloudmos",
+          "url": "https://cloudmos.io/blocks",
+          "tx_page": "https://cloudmos.io/transactions/${txHash}"
         }
       ]
 }

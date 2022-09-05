@@ -20,6 +20,9 @@
         "pretty_name": {
             "type": "string"
         },
+        "website": {
+            "type": "string"
+        },
         "status": {
             "enum": [
                 "live",
@@ -107,7 +110,23 @@
                 "binaries": {
                     "type": "object",
                     "properties": {
-                        "linux/amd": {
+                        "linux/amd64": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "linux/arm64": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "darwin/amd64": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "darwin/arm64": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "windows/amd64": {
                             "type": "string",
                             "format": "uri"
                         }
@@ -124,6 +143,45 @@
                 },
                 "cosmwasm_enabled": {
                     "type": "boolean"
+                },
+                "genesis": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "genesis_url": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    }
+                },
+                "versions": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "name"
+                        ],
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "Official Upgrade Name"
+                            },
+                            "tag": {
+                                "type": "string",
+                                "description": "Git Upgrade Tag"
+                            },
+                            "height": {
+                                "type": "number",
+                                "description": "Block Height"
+                            },
+                            "next_version_name": {
+                                "type": "string",
+                                "description": "[Optional] Name of the following version"
+                            }
+                        }
+                    }
                 }
             }
         },
