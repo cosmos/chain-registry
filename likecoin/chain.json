@@ -2,6 +2,7 @@
     "$schema": "../chain.schema.json",
     "chain_name": "likecoin",
     "status": "live",
+    "website": "https://like.co/",
     "network_type": "mainnet",
     "pretty_name": "LikeCoin",
     "chain_id": "likecoin-mainnet-2",
@@ -17,6 +18,16 @@
     "slip44": 118,
     "fees": {
         "fee_tokens": [
+            {
+                "denom": "nanolike",
+                "low_gas_price": 1,
+                "average_gas_price": 10,
+                "high_gas_price": 1000
+            }
+        ]
+    },
+    "staking": {
+        "staking_tokens": [
             {
                 "denom": "nanolike"
             }
@@ -34,7 +45,9 @@
             "darwin/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.0.0/likecoin-chain_3.0.0_Darwin_x86_64.tar.gz",
             "darwin/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.0.0/likecoin-chain_3.0.0_Darwin_arm64.tar.gz",
             "windows/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.0.0/likecoin-chain_3.0.0_Windows_x86_64.zip"
-        }
+        },
+        "cosmos_sdk_version": "0.45",
+        "tendermint_version": "0.34"
     },
     "peers": {
         "seeds": [
@@ -107,6 +120,12 @@
     },
     "explorers": [
         {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/likecoin",
+            "tx_page": "https://www.mintscan.io/likecoin/txs/${txHash}",
+            "account_page": "https://www.mintscan.io/likecoin/account/${accountAddress}"
+        },
+        {
             "kind": "bigdipper",
             "url": "https://likecoin.bigdipper.live/",
             "tx_page": "https://likecoin.bigdipper.live/transactions/${txHash}"
@@ -125,5 +144,12 @@
           "url": "https://atomscan.com/likecoin",
           "tx_page": "https://atomscan.com/likecoin/transactions/${txHash}"
         }
+    ],
+    "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/likecoin/images/likecoin-chain-logo.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/likecoin/images/likecoin-chain-logo.svg"
+    },
+    "keywords": [
+        "depub", "like"
     ]
 }
