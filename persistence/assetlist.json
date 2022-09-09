@@ -44,6 +44,32 @@
         "name": "pSTAKE Finance",
         "display": "pstake",
         "symbol": "PSTAKE",
+        "traces": [
+          {
+            "type": "liquid-stake",
+            "asset": {
+              "platform": "persistence",
+              "base_denom": "XPRT"
+            },
+            "provider": "Persistence"
+          },
+          {
+            "type": "bridge",
+            "asset": {
+              "platform": "ethereum",
+              "base_denom": "0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006"
+            },
+            "provider": "Gravity Bridge"
+          },
+          {
+            "type": "ibc",
+            "asset": {
+              "platform": "gravitybridge",
+              "base_denom": "gravity0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006"
+            },
+            "path": "transfer/channel-38/gravity0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006"
+          }
+        ],
         "ibc": {
           "source_channel": "channel-24",
           "dst_channel": "channel-38",

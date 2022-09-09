@@ -66,6 +66,13 @@
                     "type": "string",
                     "description": "The symbol of an asset. For example BTC."
                 },
+                "traces": {
+                    "type": "array",
+                    "description": "The origin of the asset, starting with the index, and capturing all transitions in form and location.",
+                    "items": {
+                        "$ref": "#/$defs/asset_transition"
+                    }
+                },
                 "ibc": {
                     "type": "object",
                     "description": "[OPTIONAL] IBC Channel between src and dst between chain",
@@ -117,8 +124,8 @@
                 "properties": {
                     "type_asset": {
                         "enum": [
-                        "cw20",
-                        "snip20"
+                            "cw20",
+                            "snip20"
                         ]
                     }
                 },
@@ -152,6 +159,90 @@
                 "denom",
                 "exponent"
             ]
+        },
+        "asset_pointer": {
+            "type": "object",
+            "description": "The (primary) key used to identify an asset defined within the Chain Registry.",
+            "required": [
+                "platform",
+                "base_denom"
+            ],
+            "properties": {
+                "platform": {
+                    "type": "string",
+                    "description": "The platform from which the asset originates. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'"
+                },
+                "base_denom": {
+                    "type": "string",
+                    "description": "The base unit of the asset on its source platform. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
+                }
+            }
+        },
+        "asset_transition": {
+            "type": "object",
+            "description": "The transition from origin assset to the current asset.",
+            "required": [
+                "type",
+                "asset"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "The method used to transform the source asset into this asset. E.g., 'bridge', 'synthetic', or 'ibc'.",
+                    "enum": [
+                        "bridge",
+                        "ibc",
+                        "wrapping",
+                        "liquid-stake",
+                        "synthetic"
+                    ]
+                },
+                "asset": {
+                    "$ref": "#/$defs/asset_pointer"
+                },
+                "provider": {
+                    "type": "string",
+                    "description": "The entity offering the service. E.g., 'Gravity Bridge' [Network] or 'Tether' [Company]."
+                },
+                "contract": {
+                    "type": "string",
+                    "description": "The contract address where the transition takes place, where applicable. E.g., The Ethereum contract that locks up the asset while it's minted on another chain."
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The port/channel/denom input string that generates the 'ibc/...' denom." 
+                }
+            },
+            "if": {
+                "properties": {
+                    "type": {
+                        "enum": [
+                            "ibc"
+                        ]
+                    }
+                }
+              },
+            "then": {
+                "required": [
+                    "path"
+                ]
+            },
+            "if": {
+                "properties": {
+                    "type": {
+                        "enum": [
+                            "bridge",
+                            "liquid-stake",
+                            "synthetic"
+                        ]
+                    }
+                }
+              },
+            "then": {
+                "required": [
+                    "provider"
+                ]
+            }
         }
     }
 }
