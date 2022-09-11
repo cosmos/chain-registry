@@ -2,7 +2,6 @@
     "$id": "https://sikka.tech/chain.schema.json",
     "$schema": "https://json-schema.org/draft-07/schema",
     "title": "Cosmos Chain",
-    "updatelink": "string",
     "description": "Cosmos Chain.json is a metadata file that contains information about a cosmos sdk based chain.",
     "type": "object",
     "required": [
@@ -12,7 +11,8 @@
     ],
     "properties": {
         "chain_name": {
-            "type": "string"
+            "type": "string",
+            "pattern": "[a-z0-9]+"
         },
         "chain_id": {
             "type": "string"
@@ -21,7 +21,12 @@
             "type": "string"
         },
         "website": {
-            "type": "string"
+            "type": "string",
+            "format": "uri"
+        },
+        "update_link": {
+            "type": "string",
+            "format": "uri"
         },
         "status": {
             "enum": [
@@ -146,6 +151,9 @@
                 },
                 "genesis": {
                     "type": "object",
+                    "required": [
+                        "genesis_url"
+                    ],
                     "properties": {
                         "name": {
                             "type": "string"
@@ -326,12 +334,12 @@
                 "png": {
                     "type": "string",
                     "format": "uri-reference",
-                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master(/|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/([a-zA-Z0-9-_]){1,}\\.png$"
+                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/[a-zA-Z0-9-_\\.]+\\.png$"
                 },
                 "svg": {
                     "type": "string",
                     "format": "uri-reference",
-                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/([a-zA-Z0-9-_]){1,}\\.svg$"
+                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/[a-zA-Z0-9-_\\.]+\\.svg$"
                 }
             }
         },
