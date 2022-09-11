@@ -13,10 +13,10 @@ def checkUpdate():
             current = json.load(open(os.path.join(rootdir, chainjson)))
         
         #Safeguard for updatelink being 0
-            if current['updatelink'] == None:
+            if current['update_link'] == None:
                 continue
         
-            URL = current["updatelink"]
+            URL = current["update_link"]
             chain_data_holder = requests.get("" + URL + "")
             response = json.loads(chain_data_holder.text)
             chaindata = response["codebase"]
