@@ -19,6 +19,7 @@
             }
         }
     },
+    "additionalProperties": false,
     "$defs": {
         "asset": {
             "type": "object",
@@ -242,7 +243,7 @@
                         "channel_id": {
                             "type": "string",
                             "pattern": "^channel-\\d+$",
-                            "description": "The counterparty IBC transfer channel(, e.g., 'channel-1')."
+                            "description": "The chain's IBC transfer channel(, e.g., 'channel-1')."
                         }
                     },
                     "additionalProperties": false
@@ -305,11 +306,13 @@
                     ],
                     "properties": {
                         "port": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "The port used to transfer IBC assets; often 'transfer', but sometimes varies, e.g., for outgoing cw20 transfers."
                         },
                         "channel_id": {
                             "type": "string",
-                            "pattern": "^channel-\\d+$"
+                            "pattern": "^channel-\\d+$",
+                            "description": "The chain's IBC transfer channel(, e.g., 'channel-1')."
                         }
                     },
                     "additionalProperties": false
