@@ -73,15 +73,12 @@
                     "items": {
                         "anyOf": [
                             {
-                                "type": "object",
                                 "$ref": "#/$defs/ibc_transition"
                             },
                             {
-                                "type": "object",
                                 "$ref": "#/$defs/ibc_cw20_transition"
                             },
                             {
-                                "type": "object",
                                 "$ref": "#/$defs/non_ibc_transition"
                             }
                         ]
@@ -226,10 +223,6 @@
                             "type": "string",
                             "pattern": "^channel-\\d+$",
                             "description": "The counterparty IBC transfer channel(, e.g., 'channel-1')."
-                        },
-                        "path": {
-                            "type": "string",
-                            "description": "The port/channel/denom input string that generates the 'ibc/...' denom." 
                         }
                     },
                     "additionalProperties": false
@@ -244,6 +237,10 @@
                             "type": "string",
                             "pattern": "^channel-\\d+$",
                             "description": "The chain's IBC transfer channel(, e.g., 'channel-1')."
+                        },
+                        "path": {
+                            "type": "string",
+                            "description": "The port/channel/denom input string that generates the 'ibc/...' denom." 
                         }
                     },
                     "additionalProperties": false
@@ -290,10 +287,6 @@
                             "type": "string",
                             "pattern": "^channel-\\d+$",
                             "description": "The counterparty IBC transfer channel(, e.g., 'channel-1')."
-                        },
-                        "path": {
-                            "type": "string",
-                            "description": "The port/channel/denom input string that generates the 'ibc/...' denom." 
                         }
                     },
                     "additionalProperties": false
@@ -313,6 +306,10 @@
                             "type": "string",
                             "pattern": "^channel-\\d+$",
                             "description": "The chain's IBC transfer channel(, e.g., 'channel-1')."
+                        },
+                        "path": {
+                            "type": "string",
+                            "description": "The port/channel/denom input string that generates the 'ibc/...' denom." 
                         }
                     },
                     "additionalProperties": false
