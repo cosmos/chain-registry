@@ -1,0 +1,99 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "point",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Point Network",
+  "chain_id": "point_10687-1",
+  "bech32_prefix": "point",
+  "node_home": "$HOME/.pointd",
+  "genesis": {
+    "genesis_url": "https://raw.githubusercontent.com/pointnetwork/point-chain-config/main/mainnet-1/genesis.json"
+  },
+  "daemon_name": "pointd",
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "apoint",
+        "low_gas_price": 5000000000,
+        "average_gas_price": 25000000000,
+        "high_gas_price": 40000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+        {
+            "denom": "apoint"
+        }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/pointnetwork/point-chain",
+    "recommended_version": "v8.0.0",
+    "compatible_versions": [
+      "v8.0.0"
+    ],
+    "binaries": {
+      "linux/amd64": "",
+      "linux/arm64": "",
+      "darwin/amd64": "",
+      "darwin/arm64": "",
+      "windows/amd64": ""
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "8673c1f04c29c464189e8bf29e51fb0b38da2f19",
+        "address": "rpc-mainnet-1.point.space:26656",
+        "provider": "Point Network"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "8673c1f04c29c464189e8bf29e51fb0b38da2f19",
+        "address": "rpc-mainnet-1.point.space:26656",
+        "provider": "Point Network"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-mainnet-1.point.space:26657",
+        "provider": "Point Network"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rpc-mainnet-1.point.space:1317",
+        "provider": "Point Network"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://rpc-mainnet-1.point.space:9090",
+        "provider": "Point Network"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://rpc-mainnet-1.point.space",
+        "provider": "Point Network"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "blockscout",
+      "url": "https://explorer.pointnetwork.io/",
+      "tx_page": "https://explorer.pointnetwork.io/tx/${txHash}"
+    },
+    {
+        "kind": "ping-pub",
+        "url": "https://cosmos.pointnetwork.io/",
+        "tx_page": "https://cosmos.pointnetwork.io/point/tx/${txHash}"
+    }
+  ]
+}
