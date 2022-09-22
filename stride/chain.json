@@ -1,167 +1,167 @@
 {
-    "$schema": "../chain.schema.json",
-    "chain_name": "stride",
-    "status": "live",
-    "network_type": "mainnet",
-    "website": "https://stride.zone/",
-    "pretty_name": "Stride",
-    "chain_id": "stride-1",
-    "bech32_prefix": "stride",
-    "daemon_name": "strided",
-    "node_home": "$HOME/.strided",
-    "genesis": {
-        "genesis_url": "https://raw.githubusercontent.com/Stride-Labs/testnet/main/mainnet/genesis.json"
+  "$schema": "../chain.schema.json",
+  "chain_name": "stride",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://stride.zone/",
+  "pretty_name": "Stride",
+  "chain_id": "stride-1",
+  "bech32_prefix": "stride",
+  "daemon_name": "strided",
+  "node_home": "$HOME/.strided",
+  "genesis": {
+    "genesis_url": "https://raw.githubusercontent.com/Stride-Labs/testnet/main/mainnet/genesis.json"
+  },
+  "key_algos": [
+    "ed25519"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ustrd",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Stride-Labs/stride",
+    "recommended_version": "v1.0.0",
+    "binaries": {
+      "linux/amd64": "https://github.com/Stride-Labs/stride/releases/download/v1.0.0/strided-1.0.0-amd64",
+      "linux/arm64": "https://github.com/Stride-Labs/stride/releases/download/v1.0.0/strided-1.0.0-arm64"
     },
-    "key_algos": [
-        "ed25519"
+    "cosmos_sdk_version": "0.45.4",
+    "tendermint_version": "0.34.19"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:12256",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "cb91a11588d66cfd9c01f99541df4978a08e0e39",
+        "address": "seedv1.main.stridenet.co:26656",
+        "provider": "Stride"
+      }
     ],
-    "slip44": 118,
-    "fees": {
-        "fee_tokens": [
-            {
-                "denom": "ustrd",
-                "fixed_min_gas_price": 0,
-                "low_gas_price": 0,
-                "average_gas_price": 0,
-                "high_gas_price": 0.04
-            }
-        ]
-    },
-    "codebase": {
-        "git_repo": "https://github.com/Stride-Labs/stride",
-        "recommended_version": "v1.0.0",
-        "binaries": {
-            "linux/amd64": "https://github.com/Stride-Labs/stride/releases/download/v1.0.0/strided-1.0.0-amd64",
-            "linux/arm64": "https://github.com/Stride-Labs/stride/releases/download/v1.0.0/strided-1.0.0-arm64"
-        },
-        "cosmos_sdk_version": "0.45.4",
-        "tendermint_version": "0.34.19"
-    },
-    "peers": {
-        "seeds": [
-            {
-                "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
-                "address": "seeds.polkachu.com:12256",
-                "provider": "Polkachu"
-            },
-            {
-                "id": "cb91a11588d66cfd9c01f99541df4978a08e0e39",
-                "address": "seedv1.main.stridenet.co:26656",
-                "provider": "Stride"
-            }
-        ],
-        "persistent_peers": [
-            {
-                "id": "1387946c04bceb472113f657f55f670f71709230",
-                "address": "65.108.4.188:12256",
-                "provider": "Polkachu-1"
-            },
-            {
-                "id": "df3f533e6b9776c11f08da804edcb810cbdd2080",
-                "address": "65.108.234.23:12256",
-                "provider": "Polkachu-2"
-            },
-            {
-                "id": "1387946c04bceb472113f657f55f670f71709230",
-                "address": "65.108.4.188:12256",
-                "provider": "Polkachu-3"
-            },
-            {
-                "id": "076e97f47762a477f2ae3dd3e798a7970b6bb20d",
-                "address": "52.52.110.228:26656",
-                "provider": "Cosmostation-1"
-            },
-            {
-                "id": "e821acdaf0c7a3c60ea3cd4eb4a98a62dad06f58",
-                "address": "43.201.12.41:26656",
-                "provider": "Cosmostation-2"
-            },
-            {
-                "id": "b5f9fa874781f975687018ae559f0d952d3a2e24",
-                "address": "52.52.208.179:26656",
-                "provider": "Cosmostation-3"
-            },
-            {
-                "id": "04ea9eceee16db90872fee3fbef9ac50a87702c5",
-                "address": "185.248.24.29:26656",
-                "provider": "Whi𝕊perNode"
-            },
-            {
-                "id": "9a65aeddaebe1d391058eae5b82e34907547ded1",
-                "address": "alice.peers.stride.bh.rocks:46656",
-                "provider": "BlockHunters"
-            }
-        ]
-    },
-    "apis": {
-        "rpc": [
-            {
-                "address": "https://stride-rpc.polkachu.com/",
-                "provider": "Polkachu"
-            },
-            {
-                "address": "https://stride.rpc.chandrastation.com",
-                "provider": "Chandra Station"
-            },
-            {
-                "address": "https://rpc.stride.bh.rocks",
-                "provider": "BlockHunters"
-            },
-            {
-                "address": "http://rpc-stride.nodeist.net",
-                "provider": "Nodeist"
-            }
-        ],
-        "rest": [
-            {
-                "address": "https://stride-api.polkachu.com/",
-                "provider": "Polkachu"
-            },
-            {
-                "address": "https://stride.api.chandrastation.com",
-                "provider": "Chandra Station"
-            },
-            {
-                "address": "https://api.stride.bh.rocks",
-                "provider": "BlockHunters"
-            },
-            {
-                "address": "http://api-stride.nodeist.net",
-                "provider": "Nodeist"
-            }
-        ],
-        "grpc": [
-            {
-                "address": "stride-grpc.polkachu.com:12290",
-                "provider": "Polkachu"
-            },
-            {
-                "address": "https://grpc.stride.bh.rocks",
-                "provider": "BlockHunters"
-            }
-        ]
-    },
-    "explorers": [
-        {
-            "kind": "Apollo",
-            "url": "https://apollo.chandrastation.com/stride",
-            "tx_page": "https://apollo.chandrastation.com/stride/tx/${txHash}",
-            "account_page": "https://apollo.chandrastation.com/stride/account/${accountAddress}"
-        },
-        {
-            "kind": "Stride Ping Pub",
-            "url": "https://explorer.stride.zone/stride",
-            "tx_page": "https://explorer.stride.zone/stride/tx/${txHash}",
-            "account_page": "https://explorer.stride.zone/stride/account/${accountAddress}"
-        },
-        {
-            "kind": "Nodeist Explorer",
-            "url": "https://exp.nodeist.net/Stride",
-            "tx_page": "https://exp.nodeist.net/Stride/tx/${txHash}",
-            "account_page": "https://exp.nodeist.net/Stride/account/${accountAddress}"
-        }
+    "persistent_peers": [
+      {
+        "id": "1387946c04bceb472113f657f55f670f71709230",
+        "address": "65.108.4.188:12256",
+        "provider": "Polkachu-1"
+      },
+      {
+        "id": "df3f533e6b9776c11f08da804edcb810cbdd2080",
+        "address": "65.108.234.23:12256",
+        "provider": "Polkachu-2"
+      },
+      {
+        "id": "1387946c04bceb472113f657f55f670f71709230",
+        "address": "65.108.4.188:12256",
+        "provider": "Polkachu-3"
+      },
+      {
+        "id": "076e97f47762a477f2ae3dd3e798a7970b6bb20d",
+        "address": "52.52.110.228:26656",
+        "provider": "Cosmostation-1"
+      },
+      {
+        "id": "e821acdaf0c7a3c60ea3cd4eb4a98a62dad06f58",
+        "address": "43.201.12.41:26656",
+        "provider": "Cosmostation-2"
+      },
+      {
+        "id": "b5f9fa874781f975687018ae559f0d952d3a2e24",
+        "address": "52.52.208.179:26656",
+        "provider": "Cosmostation-3"
+      },
+      {
+        "id": "04ea9eceee16db90872fee3fbef9ac50a87702c5",
+        "address": "185.248.24.29:26656",
+        "provider": "Whi𝕊perNode"
+      },
+      {
+        "id": "9a65aeddaebe1d391058eae5b82e34907547ded1",
+        "address": "alice.peers.stride.bh.rocks:46656",
+        "provider": "BlockHunters"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://stride-rpc.polkachu.com/",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://stride.rpc.chandrastation.com",
+        "provider": "Chandra Station"
+      },
+      {
+        "address": "https://rpc.stride.bh.rocks",
+        "provider": "BlockHunters"
+      },
+      {
+        "address": "http://rpc-stride.nodeist.net",
+        "provider": "Nodeist"
+      }
     ],
-    "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stride-chain-logo.png"
+    "rest": [
+      {
+        "address": "https://stride-api.polkachu.com/",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://stride.api.chandrastation.com",
+        "provider": "Chandra Station"
+      },
+      {
+        "address": "https://api.stride.bh.rocks",
+        "provider": "BlockHunters"
+      },
+      {
+        "address": "http://api-stride.nodeist.net",
+        "provider": "Nodeist"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "stride-grpc.polkachu.com:12290",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://grpc.stride.bh.rocks",
+        "provider": "BlockHunters"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Apollo",
+      "url": "https://apollo.chandrastation.com/stride",
+      "tx_page": "https://apollo.chandrastation.com/stride/tx/${txHash}",
+      "account_page": "https://apollo.chandrastation.com/stride/account/${accountAddress}"
+    },
+    {
+      "kind": "Stride Ping Pub",
+      "url": "https://explorer.stride.zone/stride",
+      "tx_page": "https://explorer.stride.zone/stride/tx/${txHash}",
+      "account_page": "https://explorer.stride.zone/stride/account/${accountAddress}"
+    },
+    {
+      "kind": "Nodeist Explorer",
+      "url": "https://exp.nodeist.net/Stride",
+      "tx_page": "https://exp.nodeist.net/Stride/tx/${txHash}",
+      "account_page": "https://exp.nodeist.net/Stride/account/${accountAddress}"
     }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stride-chain-logo.png"
+  }
 }
