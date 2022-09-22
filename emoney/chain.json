@@ -1,182 +1,182 @@
 {
-    "$schema": "../chain.schema.json",
-    "chain_name": "emoney",
-    "status": "live",
-    "network_type": "mainnet",
-    "pretty_name": "e-Money",
-    "chain_id": "emoney-3",
-    "bech32_prefix": "emoney",
-    "daemon_name": "emd",
-    "node_home": "$HOME/.emd",
-    "genesis": {
-        "genesis_url": "https://raw.githubusercontent.com/e-money/networks/master/emoney-3/genesis.json"
-    },
-    "key_algos": [
-        "secp256k1"
-    ],
-    "slip44": 118,
-    "fees": {
-        "fee_tokens": [
-            {
-                "denom": "ungm"
-            },
-            {
-                "denom": "eeur"
-            }
-        ]
-    },
-    "codebase": {
-        "git_repo": "https://github.com/e-money/em-ledger",
-        "recommended_version": "v1.1.3",
-        "compatible_versions": [
-            "v1.1.3"
-        ]
-    },
-    "peers": {
-        "seeds": [
-            {
-                "id": "708e559271d4d75d7ea2c3842e87d2e71a465684",
-                "address": "seed-1.emoney.validator.network:28656",
-                "provider": "validator.network"
-            },
-            {
-                "id": "336cdb655ea16413a8337e730683ddc0a24af9de",
-                "address": "seed-2.emoney.validator.network:28656",
-                "provider": "validator.network"
-            },
-            {
-                "id": "ecec8933d80da5fccda6bdd72befe7e064279fc1",
-                "address": "207.180.213.123:26676",
-                "provider": "easy2stake"
-            },
-            {
-                "id": "0ad7bc7687112e212bac404670aa24cd6116d097",
-                "address": "50.18.83.75:26656",
-                "provider": "B-Harvest"
-            },
-            {
-                "id": "1723e34f45f54584f44d193ce9fd9c65271ca0b3",
-                "address": "13.124.62.83:26656",
-                "provider": "B-Harvest"
-            },
-            {
-                "id": "34eca4a9142bf9c087a987b572c114dad67a8cc5",
-                "address": "172.105.148.191:26656",
-                "provider": "Cat Boss"
-            },
-            {
-                "id": "0b186517e4d82eb4c000a567e486b7b96bf19752",
-                "address": "44.195.95.22:26656",
-                "provider": "Cat Boss"
-            },
-            {
-                "id": "0b186517e4d82eb4c000a567e486b7b96bf19752",
-                "address": "44.195.95.22:26656",
-                "provider": "Mr K"
-            },
-            {
-                "id": "eed66085c975189e3d498fe61af2fcfb3da34924",
-                "address": "217.79.184.40:26656",
-                "provider": "MissionControl"
-            },
-            {
-                "id": "226d713acb10a1cd09b3b890406b886d7b071cf2",
-                "address": "10.105.2.101:26656",
-                "provider": "ATEAM"
-            },
-            {
-                "id": "552cb87c40f879c8c41005eeb36030502671e7a4",
-                "address": "18.156.91.213:26656",
-                "provider": "ATEAM"
-            },
-            {
-                "id": "170255a4a9b120786d2d6c3931ebf0125087cca0",
-                "address": "62.171.171.139:26656",
-                "provider": "KalpaTech"
-            },
-            {
-                "id": "d12ac664ff9766e0535c836173111e3eed462e79",
-                "address": "185.144.83.157:26656",
-                "provider": "Inotel"
-            }
-        ]
-    },
-    "apis": {
-        "rpc": [
-            {
-                "address": "https://rpc-emoney.keplr.app",
-                "provider": "chainapsis"
-            },
-            {
-                "address": "https://emoney.validator.network",
-                "provider": "e-Money"
-            },
-	    {
-		"address": "https://rpc.emoney.badgerbite.xyz:443",
-                "provider": "BadgerBite"
-	    },
-            {
-                "address": "https://rpc.emoney.ezstaking.io",
-                "provider": "EZStaking.io"
-            },
-            {
-                "address": "https://rpc-emoney-ia.cosmosia.notional.ventures/",
-                "provider": "Notional"
-            },
-            {
-              "address": "https://rpc.emoney.freak12techno.io/",
-              "provider": "freak12techno"
-            }
-        ],
-        "rest": [
-            {
-                "address": "https://lcd-emoney.keplr.app",
-                "provider": "chainapsis"
-            },
-            {
-                "address": "https://emoney.validator.network/api/",
-                "provider": "e-Money"
-            },
-            {
-                "address": "https://lcd.emoney.ezstaking.io",
-                "provider": "EZStaking.io"
-            },
-            {
-                "address": "https://api-emoney-ia.cosmosia.notional.ventures/",
-                "provider": "Notional"
-            },
-            {
-              "address": "https://api.emoney.freak12techno.io/",
-              "provider": "freak12techno"
-            }
-        ],
-        "grpc": [
-            {
-                "address": "grpc-emoney-ia.cosmosia.notional.ventures:443",
-                "provider": "Notional"
-            }
-        ]
-    },
-    "explorers": [
-        {
-            "kind": "bigdipper",
-            "url": "https://emoney.bigdipper.live/",
-            "tx_page": "https://emoney.bigdipper.live/transactions/${txHash}"
-        },
-        {
-            "kind": "mintscan",
-            "url": "https://www.mintscan.io/emoney",
-            "tx_page": "https://www.mintscan.io/emoney/txs/${txHash}"
-        },
-        {
-            "kind": "ping-pub",
-            "url": "https://ping.pub/e-money",
-            "tx_page": "https://ping.pub/e-money/tx/${txHash}"
-        },
-        {
-          "kind": "atomscan",
-          "url": "https://atomscan.com/emoney",
-          "tx_page": "https://atomscan.com/emoney/transactions/${txHash}"
-        }
+  "$schema": "../chain.schema.json",
+  "chain_name": "emoney",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "e-Money",
+  "chain_id": "emoney-3",
+  "bech32_prefix": "emoney",
+  "daemon_name": "emd",
+  "node_home": "$HOME/.emd",
+  "genesis": {
+    "genesis_url": "https://raw.githubusercontent.com/e-money/networks/master/emoney-3/genesis.json"
+  },
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ungm"
+      },
+      {
+        "denom": "eeur"
+      }
     ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/e-money/em-ledger",
+    "recommended_version": "v1.1.3",
+    "compatible_versions": [
+      "v1.1.3"
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "708e559271d4d75d7ea2c3842e87d2e71a465684",
+        "address": "seed-1.emoney.validator.network:28656",
+        "provider": "validator.network"
+      },
+      {
+        "id": "336cdb655ea16413a8337e730683ddc0a24af9de",
+        "address": "seed-2.emoney.validator.network:28656",
+        "provider": "validator.network"
+      },
+      {
+        "id": "ecec8933d80da5fccda6bdd72befe7e064279fc1",
+        "address": "207.180.213.123:26676",
+        "provider": "easy2stake"
+      },
+      {
+        "id": "0ad7bc7687112e212bac404670aa24cd6116d097",
+        "address": "50.18.83.75:26656",
+        "provider": "B-Harvest"
+      },
+      {
+        "id": "1723e34f45f54584f44d193ce9fd9c65271ca0b3",
+        "address": "13.124.62.83:26656",
+        "provider": "B-Harvest"
+      },
+      {
+        "id": "34eca4a9142bf9c087a987b572c114dad67a8cc5",
+        "address": "172.105.148.191:26656",
+        "provider": "Cat Boss"
+      },
+      {
+        "id": "0b186517e4d82eb4c000a567e486b7b96bf19752",
+        "address": "44.195.95.22:26656",
+        "provider": "Cat Boss"
+      },
+      {
+        "id": "0b186517e4d82eb4c000a567e486b7b96bf19752",
+        "address": "44.195.95.22:26656",
+        "provider": "Mr K"
+      },
+      {
+        "id": "eed66085c975189e3d498fe61af2fcfb3da34924",
+        "address": "217.79.184.40:26656",
+        "provider": "MissionControl"
+      },
+      {
+        "id": "226d713acb10a1cd09b3b890406b886d7b071cf2",
+        "address": "10.105.2.101:26656",
+        "provider": "ATEAM"
+      },
+      {
+        "id": "552cb87c40f879c8c41005eeb36030502671e7a4",
+        "address": "18.156.91.213:26656",
+        "provider": "ATEAM"
+      },
+      {
+        "id": "170255a4a9b120786d2d6c3931ebf0125087cca0",
+        "address": "62.171.171.139:26656",
+        "provider": "KalpaTech"
+      },
+      {
+        "id": "d12ac664ff9766e0535c836173111e3eed462e79",
+        "address": "185.144.83.157:26656",
+        "provider": "Inotel"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-emoney.keplr.app",
+        "provider": "chainapsis"
+      },
+      {
+        "address": "https://emoney.validator.network",
+        "provider": "e-Money"
+      },
+      {
+        "address": "https://rpc.emoney.badgerbite.xyz:443",
+        "provider": "BadgerBite"
+      },
+      {
+        "address": "https://rpc.emoney.ezstaking.io",
+        "provider": "EZStaking.io"
+      },
+      {
+        "address": "https://rpc-emoney-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
+      },
+      {
+        "address": "https://rpc.emoney.freak12techno.io/",
+        "provider": "freak12techno"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lcd-emoney.keplr.app",
+        "provider": "chainapsis"
+      },
+      {
+        "address": "https://emoney.validator.network/api/",
+        "provider": "e-Money"
+      },
+      {
+        "address": "https://lcd.emoney.ezstaking.io",
+        "provider": "EZStaking.io"
+      },
+      {
+        "address": "https://api-emoney-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
+      },
+      {
+        "address": "https://api.emoney.freak12techno.io/",
+        "provider": "freak12techno"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc-emoney-ia.cosmosia.notional.ventures:443",
+        "provider": "Notional"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "bigdipper",
+      "url": "https://emoney.bigdipper.live/",
+      "tx_page": "https://emoney.bigdipper.live/transactions/${txHash}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/emoney",
+      "tx_page": "https://www.mintscan.io/emoney/txs/${txHash}"
+    },
+    {
+      "kind": "ping-pub",
+      "url": "https://ping.pub/e-money",
+      "tx_page": "https://ping.pub/e-money/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/emoney",
+      "tx_page": "https://atomscan.com/emoney/transactions/${txHash}"
+    }
+  ]
 }
