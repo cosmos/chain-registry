@@ -1,0 +1,86 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "lambda",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Lambda",
+  "chain_id": "lambda_92000-1",
+  "bech32_prefix": "lamb",
+  "node_home": "$HOME/.lambdavm",
+  "genesis": {
+    "genesis_url": "https://raw.githubusercontent.com/LambdaIM/mainnet/main/lambda_92000-1/genesis.json"
+  },
+  "daemon_name": "lambdavm",
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ulamb",
+        "low_gas_price": 10000000000,
+        "average_gas_price": 25000000000,
+        "high_gas_price": 40000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ulamb"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/LambdaIM/lambdavm",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": ["v1.0.0"]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "2c4f8e193fd10ab3a2bc919b484fd1c78eceffb3",
+        "address": "13.213.214.88:26656",
+        "provider": "Lambda"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "2c4f8e193fd10ab3a2bc919b484fd1c78eceffb3",
+        "address": "13.213.214.88:26656",
+        "provider": "Lambda"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.lambda.im",
+        "provider": "Lambda"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.lambda.im",
+        "provider": "Lambda"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.lambda.im",
+        "provider": "Lambda"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://eth.lambda.im",
+        "provider": "Lambda"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "blockscout",
+      "url": "https://explorer.lambda.im/",
+      "tx_page": "https://explorer.lambda.im/tx/${txHash}"
+    }
+  ]
+}
