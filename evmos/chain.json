@@ -12,12 +12,15 @@
     "genesis_url": "https://archive.evmos.org/mainnet/genesis.json"
   },
   "daemon_name": "evmosd",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
   "slip44": 60,
   "fees": {
     "fee_tokens": [
       {
         "denom": "aevmos",
-        "low_gas_price": 10000000000,
+        "low_gas_price": 20000000000,
         "average_gas_price": 25000000000,
         "high_gas_price": 40000000000
       }
@@ -32,9 +35,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/evmos/evmos",
-    "recommended_version": "v8.1.0",
+    "recommended_version": "v8.2.0",
     "compatible_versions": [
-      "v8.1.0"
+      "v8.2.0"
     ],
     "binaries": {
       "linux/amd64": "https://github.com/evmos/evmos/releases/download/v8.1.0/evmos_8.1.0_Linux_x86_64.tar.gz",
@@ -70,6 +73,11 @@
         "id": "588cedb70fa1d98c14a2f2c1456bfa41e1a156a8",
         "address": "evmos-sentry.mercury-nodes.net:29539",
         "provider": "Mercury"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:34656",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
@@ -107,6 +115,11 @@
         "id": "d4a5fcc56f369665c232788c22844dc3a018fe08",
         "address": "peer.evmos.silknodes.io:26602",
         "provider": "Silk Nodes"
+      },
+            {
+        "id": "2d588e1bc71431f6c677a9ed7f5ff8f7caa82573",
+        "address": "evmos-rpc.agoranodes.com:26656",
+        "provider": "AgoraNodes"
       }
     ]
   },
@@ -171,6 +184,10 @@
       {
         "address": "https://rpc.evmos.silknodes.io/",
         "provider": "Silk Nodes"
+      },
+            {
+        "address": "https://evmos-rpc.agoranodes.com/",
+        "provider": "AgoraNodes"
       }
     ],
     "rest": [
@@ -229,6 +246,10 @@
       {
         "address": "https://api.evmos.silknodes.io/",
         "provider": "Silk Nodes"
+      },
+      {
+        "address": "https://evmos-rest.agoranodes.com",
+        "provider": "AgoraNodes"
       }
     ],
     "grpc": [
@@ -271,6 +292,10 @@
       {
         "address": "https://grpc.evmos.silknodes.io/",
         "provider": "Silk Nodes"
+      },
+            {
+        "address": "https://evmos-grpc.agoranodes.com",
+        "provider": "AgoraNodes"
       }
     ],
     "evm-http-jsonrpc": [
@@ -293,6 +318,10 @@
       {
         "address": "https://json-rpc.evmos.bh.rocks",
         "provider": "BlockHunters"
+      },
+            {
+        "address": "https://evmos-json-rpc.agoranodes.com",
+        "provider": "AgoraNodes"
       }
     ]
   },
