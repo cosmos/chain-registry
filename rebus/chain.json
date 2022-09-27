@@ -1,0 +1,125 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "rebus",
+    "website": "https://www.rebuschain.com/",
+    "status": "live",
+    "network_type": "mainnet",
+    "pretty_name": "Rebus",
+    "chain_id": "reb_1111-1",
+    "bech32_prefix": "rebus",
+    "daemon_name": "rebusd",
+    "node_home": "$HOME/.rebusd",
+    "key_algos": [
+        "secp256k1"
+    ],
+    "genesis": {
+        "genesis_url": "https://github.com/rebuschain/rebus.mainnet/raw/master/reb_1111-1/genesis.zip"
+    },
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "arebus"
+            }
+        ]
+    },
+    "staking": {
+        "staking_tokens": [
+            {
+                "denom": "arebus"
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/rebuschain/rebus.core",
+        "recommended_version": "v0.2.0",
+        "compatible_versions": [
+            "v0.2.0"
+        ],
+        "versions": [
+            {
+                "name": "v0.1.2",
+                "tag": "v0.1.2",
+                "height": 0,
+                "next_version_name": "v0.2.0"
+            },
+            {
+                "name": "v0.2.0",
+                "tag": "v0.2.0",
+                "height": 473400
+            }
+        ]
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "f339d2999792b360797d4e22dfd40c0ea4b7402e",
+                "address": "51.68.173.153:26656"
+            },
+            {
+                "id": "718706d1a1e93c2fe9a3059588236cf96c457ff4",
+                "address": "seed.rebus.cros-nest.com:26656"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://api.rebuschain.com:26657/",
+                "provider": "Rebuschain"
+            },
+            {
+                "address": "https://rebus.rpc.manticore.team:443/",
+                "provider": "MantiCore"
+            },
+            {
+                "address": "https://rpc.rebus.nodestake.top/",
+                "provider": "NodeStake"
+            },
+            {
+                "address": "https://rpc-1.rebus.nodes.guru",
+                "provider": "Nodes.Guru"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://api.rebuschain.com:1317/",
+                "provider": "Rebuschain"
+            },
+            {
+                "address": "https://rebus.api.manticore.team:443/",
+                "provider": "MantiCore"
+            },
+            {
+                "address": "https://api.rebus.nodestake.top/",
+                "provider": "NodeStake"
+            },
+            {
+                "address": "https://api-1.rebus.nodes.guru",
+                "provider": "Nodes.Guru"
+            }
+        ],
+        "grpc": [
+            {
+                "address": "https://rebus.grpc.manticore.team:443/",
+                "provider": "MantiCore"
+            },
+            {
+                "address": "https://grpc.rebus.nodestake.top/",
+                "provider": "NodeStake"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "explorers.guru",
+            "url": "https://rebus.explorers.guru",
+            "tx_page": "https://rebus.explorers.guru/transaction/${txHash}"
+        },
+        {
+            "kind": "nodestake",
+            "url": "https://explorer.nodestake.top/rebus",
+            "tx_page": "https://explorer.nodestake.top/rebus/txs/${txHash}"
+        }
+    ]
+}
