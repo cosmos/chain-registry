@@ -20,19 +20,19 @@
     "fee_tokens": [
       {
         "denom": "uaxl",
-        "fixed_min_gas_price": 5e-05
+        "fixed_min_gas_price": 7e-03
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/axelarnetwork/axelar-core",
-    "recommended_version": "v0.17.3",
+    "recommended_version": "v0.26.0",
     "compatible_versions": [
-      "v0.17.3"
+      "v0.26.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.17.3/axelard-linux-amd64-v0.17.3",
-      "darwin/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.17.3/axelard-darwin-amd64-v0.17.3"
+      "linux/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.26.0/axelard-linux-amd64-v0.26.0",
+      "darwin/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.26.0/axelard-darwin-amd64-v0.26.0"
     }
   },
   "peers": {
@@ -63,16 +63,24 @@
   "apis": {
     "rpc": [
       {
+        "address": "https://rpc-axelar.imperator.co:443",
+        "provider": "Imperator.co"
+      },
+      {
         "address": "https://axelar-rpc.quickapi.com:443",
         "provider": "chainlayer"
       },
       {
         "address": "https://axelar-rpc.chainode.tech:443",
-        "provider": "chainode"
+        "provider": "Chainode"
       },
       {
         "address": "https://axelar-rpc.pops.one:443",
         "provider": "p-ops"
+      },
+      {
+        "address": "https://axelar-rpc.qubelabs.io:443",
+        "provider": "Qubelabs"
       },
       {
         "address": "https://rpc-1.axelar.nodes.guru:443",
@@ -89,8 +97,20 @@
     ],
     "rest": [
       {
+        "address": "https://lcd-axelar.imperator.co:443",
+        "provider": "Imperator.co"
+      },
+      {
         "address": "https://axelar-lcd.quickapi.com:443",
         "provider": "chainlayer"
+      },
+      {
+        "address": "https://axelar-rest.chainode.tech:443",
+        "provider": "Chainode"
+      },
+      {
+        "address": "https://axelar-lcd.qubelabs.io:443",
+        "provider": "Qubelabs"
       },
       {
         "address": "https://api-1.axelar.nodes.guru:443",
@@ -107,12 +127,38 @@
     ],
     "grpc": [
       {
+        "address": "axelar-grpc.chainode.tech",
+        "provider": "Chainode"
+      },
+      {
+        "address": "axelar-grpc.qubelabs.io:9092",
+        "provider": "Qubelabs"
+      },
+      {
+        "address": "axelar-grpc.quantnode.tech:9090",
+        "provider": "Quantnode"
+      },
+      {
+        "address": "services.staketab.com:9080",
+        "provider": "Staketab"
+      },
+      {
         "address": "grpc-axelar-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
       },
       {
         "address": "axelar-grpc.polkachu.com:15190",
         "provider": "Polkachu"
+      }
+    ],
+    "grpc-web": [
+      {
+        "address": "axelar-grpcweb.chainode.tech",
+        "provider": "Chainode"
+      },
+      {
+        "address": "axelar-grpcweb.quantnode.tech:9091",
+        "provider": "Quantnode"
       }
     ]
   },
