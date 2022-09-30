@@ -20,11 +20,52 @@
         "name": "Graviton",
         "display": "graviton",
         "symbol": "GRAV",
-	"coingecko_id": "graviton",
+  	    "coingecko_id": "graviton",
         "logo_URIs": {
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gravitybridge/images/grav.svg",
-	  "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gravitybridge/images/grav.png"
+	        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gravitybridge/images/grav.png"
         }
+      },
+      {
+        "description":
+          "pSTAKE is a liquid staking protocol unlocking the liquidity of staked assets.",
+        "denom_units": [
+          {
+            "denom": "gravity0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006",
+            "exponent": 0
+          },
+          {
+            "denom": "pstake",
+            "exponent": 6
+          }
+        ],
+        "base": "gravity0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006",
+        "name": "pSTAKE Finance",
+        "display": "pstake",
+        "symbol": "PSTAKE",
+        "traces": [
+          {
+            "type": "liquid-stake",
+            "counterparty": {
+              "chain_name": "persistence",
+              "base_denom": "uxprt"
+            },
+            "provider": "Persistence"
+          },
+          {
+            "type": "bridge",
+            "counterparty": {
+              "chain_name": "ethereum",
+              "base_denom": "0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006"
+            },
+            "provider": "Gravity Bridge"
+          }
+        ],
+        "logo_URIs": {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/pstake.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/pstake.svg"
+        },
+        "coingecko_id": "pstake-finance"
       }
     ]
   }
