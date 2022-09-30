@@ -47,34 +47,33 @@
         "traces": [
           {
             "type": "liquid-stake",
-            "asset": {
-              "platform": "persistence",
+            "counterparty": {
+              "chain_name": "persistence",
               "base_denom": "XPRT"
             },
             "provider": "Persistence"
           },
           {
             "type": "bridge",
-            "asset": {
-              "platform": "ethereum",
+            "counterparty": {
+              "chain_name": "ethereum",
               "base_denom": "0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006"
             },
             "provider": "Gravity Bridge"
           },
           {
             "type": "ibc",
-            "asset": {
-              "platform": "gravitybridge",
-              "base_denom": "gravity0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006"
+            "counterparty": {
+              "chain_name": "gravitybridge",
+              "base_denom": "gravity0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006",
+              "channel_id": "channel-24"
             },
-            "path": "transfer/channel-38/gravity0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006"
+            "chain": {
+              "channel_id": "channel-38",
+              "path": "transfer/channel-38/gravity0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006"
+            }
           }
         ],
-        "ibc": {
-          "source_channel": "channel-24",
-          "dst_channel": "channel-38",
-          "source_denom": "gravity0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006"
-        },
         "logo_URIs": {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/pstake.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/pstake.svg"
@@ -82,4 +81,4 @@
         "coingecko_id": "pstake-finance"
       }
     ]
-  }
+ }

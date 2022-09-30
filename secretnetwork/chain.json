@@ -3,6 +3,7 @@
   "chain_name": "secretnetwork",
   "status": "live",
   "network_type": "mainnet",
+  "website": "https://scrt.network/",
   "pretty_name": "Secret Network",
   "chain_id": "secret-4",
   "bech32_prefix": "secret",
@@ -11,7 +12,9 @@
   "genesis": {
     "genesis_url": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/genesis.json"
   },
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 529,
   "fees": {
     "fee_tokens": [
@@ -30,11 +33,11 @@
   },
   "codebase": {
     "git_repo": "https://github.com/scrtlabs/SecretNetwork",
-    "recommended_version": "v1.3.1",
+    "recommended_version": "v1.4.0",
     "binaries": {
-      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretnetwork_1.3.1_mainnet_goleveldb_amd64.deb"
+      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.4.0/secretnetwork_1.4.0_mainnet_goleveldb_amd64.deb"
     },
-    "compatible_versions": ["v1.3.0", "v1.3.1"]
+    "compatible_versions": ["v1.4.0"]
   },
   "peers": {
     "seeds": [
@@ -52,6 +55,11 @@
         "id": "9cdaa5856e0245ecd73bd464308fb990fbc53b57",
         "address": "scrt-seed-03.scrtlabs.com:26656",
         "provider": "SCRT Labs"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:17156",
+        "provider": "Lavender.Five Nodes 🐝"
       }
     ]
   },
@@ -68,6 +76,10 @@
       {
         "address": "https://scrt-rpc.blockpane.com",
         "provider": "[ block pane ]"
+      },
+      {
+        "address": "https://secret-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://secret.rpc.consensus.one",
@@ -90,6 +102,10 @@
       {
         "address": "https://secret-4.api.trivium.network:1317",
         "provider": "Trivium | Trivium.Network"
+      },
+      {
+        "address": "https://secret-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://scrt-lcd.blockpane.com",
@@ -117,6 +133,12 @@
         "address": "http://scrt-rpc.blockpane.com:9091",
         "provider": "[ block pane ]"
       }
+    ],
+    "grpc": [
+      {
+        "address": "https://secret-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      }
     ]
   },
   "explorers": [
@@ -126,14 +148,14 @@
       "tx_page": "https://secretnodes.com/secret/chains/secret-4/transactions/${txHash}"
     },
     {
-        "kind": "ping-pub",
-        "url": "https://ping.pub/secret",
-        "tx_page": "https://ping.pub/secret/tx/${txHash}"
+      "kind": "ping-pub",
+      "url": "https://ping.pub/secret",
+      "tx_page": "https://ping.pub/secret/tx/${txHash}"
     },
     {
-        "kind": "mintscan",
-        "url": "https://www.mintscan.io/secret",
-        "tx_page": "https://www.mintscan.io/secret/txs/${txHash}"
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/secret",
+      "tx_page": "https://www.mintscan.io/secret/txs/${txHash}"
     },
     {
       "kind": "atomscan",

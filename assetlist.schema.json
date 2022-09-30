@@ -9,6 +9,9 @@
         "assets"
     ],
     "properties": {
+        "$schema": {
+            "type": "string"
+        },
         "chain_name": {
             "type": "string"
         },
@@ -19,6 +22,7 @@
             }
         }
     },
+    "additionalProperties": false,
     "$defs": {
         "asset": {
             "type": "object",
@@ -70,7 +74,17 @@
                     "type": "array",
                     "description": "The origin of the asset, starting with the index, and capturing all transitions in form and location.",
                     "items": {
-                        "$ref": "#/$defs/asset_transition"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/ibc_transition"
+                            },
+                            {
+                                "$ref": "#/$defs/ibc_cw20_transition"
+                            },
+                            {
+                                "$ref": "#/$defs/non_ibc_transition"
+                            }
+                        ]
                     }
                 },
                 "ibc": {
@@ -178,71 +192,191 @@
                 }
             }
         },
-        "asset_transition": {
+        "ibc_transition": {
             "type": "object",
-            "description": "The transition from origin assset to the current asset.",
             "required": [
                 "type",
-                "asset"
+                "counterparty",
+                "chain"
             ],
             "properties": {
                 "type": {
                     "type": "string",
-                    "description": "The method used to transform the source asset into this asset. E.g., 'bridge', 'synthetic', or 'ibc'.",
                     "enum": [
-                        "bridge",
-                        "ibc",
-                        "wrapping",
-                        "liquid-stake",
-                        "synthetic"
+                        "ibc"
                     ]
                 },
-                "asset": {
-                    "$ref": "#/$defs/asset_pointer"
+                "counterparty": {
+                    "type": "object",
+                    "required": [
+                        "chain_name",
+                        "base_denom",
+                        "channel_id"
+                    ],
+                    "properties": {
+                        "chain_name": {
+                            "type": "string",
+                            "description": "The name of the counterparty chain. (must match exactly the chain name used in the Chain Registry)"
+                        },
+                        "base_denom": {
+                            "type": "string",
+                            "description": "The base unit of the asset on its source platform. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
+                        },
+                        "channel_id": {
+                            "type": "string",
+                            "pattern": "^channel-\\d+$",
+                            "description": "The counterparty IBC transfer channel(, e.g., 'channel-1')."
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "chain": {
+                    "type": "object",
+                    "required": [
+                        "channel_id"
+                    ],
+                    "properties": {
+                        "channel_id": {
+                            "type": "string",
+                            "pattern": "^channel-\\d+$",
+                            "description": "The chain's IBC transfer channel(, e.g., 'channel-1')."
+                        },
+                        "path": {
+                            "type": "string",
+                            "description": "The port/channel/denom input string that generates the 'ibc/...' denom." 
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "ibc_cw20_transition": {
+            "type": "object",
+            "required": [
+                "type",
+                "counterparty",
+                "chain"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                      "ibc-cw20"
+                    ]
+                },
+                "counterparty": {
+                    "type": "object",
+                    "required": [
+                        "chain_name",
+                        "base_denom",
+                        "port",
+                        "channel_id"
+                    ],
+                    "properties": {
+                        "chain_name": {
+                            "type": "string",
+                            "description": "The name of the counterparty chain. (must match exactly the chain name used in the Chain Registry)"
+                        },
+                        "base_denom": {
+                            "type": "string",
+                            "description": "The base unit of the asset on its source platform. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
+                        },
+                        "port": {
+                            "type": "string",
+                            "description": "The port used to transfer IBC assets; often 'transfer', but sometimes varies, e.g., for outgoing cw20 transfers."
+                        },
+                        "channel_id": {
+                            "type": "string",
+                            "pattern": "^channel-\\d+$",
+                            "description": "The counterparty IBC transfer channel(, e.g., 'channel-1')."
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "chain": {
+                    "type": "object",
+                    "required": [
+                        "port",
+                        "channel_id"
+                    ],
+                    "properties": {
+                        "port": {
+                            "type": "string",
+                            "description": "The port used to transfer IBC assets; often 'transfer', but sometimes varies, e.g., for outgoing cw20 transfers."
+                        },
+                        "channel_id": {
+                            "type": "string",
+                            "pattern": "^channel-\\d+$",
+                            "description": "The chain's IBC transfer channel(, e.g., 'channel-1')."
+                        },
+                        "path": {
+                            "type": "string",
+                            "description": "The port/channel/denom input string that generates the 'ibc/...' denom." 
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "non_ibc_transition": {
+            "type": "object",
+            "required": [
+                "type",
+                "counterparty",
+                "provider"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "bridge",
+                        "liquid-stake",
+                        "synthetic",
+                        "wrapped"
+                    ]
+                },
+                "counterparty": {
+                    "type": "object",
+                    "required": [
+                        "chain_name",
+                        "base_denom"
+                    ],
+                    "properties": {
+                        "chain_name": {
+                            "type": "string",
+                            "description": "The chain or platform from which the asset originates. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'"
+                        },
+                        "base_denom": {
+                            "type": "string"
+                        },
+                        "contract": {
+                            "type": "string",
+                            "description": "The contract address where the transition takes place, where applicable. E.g., The Ethereum contract that locks up the asset while it's minted on another chain."
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "chain": {
+                    "type": "object",
+                    "required": [
+                        "contract"
+                    ],
+                    "properties": {
+                        "contract": {
+                            "type": "string",
+                            "description": "The contract address where the transition takes place, where applicable. E.g., The Ethereum contract that locks up the asset while it's minted on another chain."
+                        }
+                    },
+                    "additionalProperties": false
                 },
                 "provider": {
                     "type": "string",
                     "description": "The entity offering the service. E.g., 'Gravity Bridge' [Network] or 'Tether' [Company]."
-                },
-                "contract": {
-                    "type": "string",
-                    "description": "The contract address where the transition takes place, where applicable. E.g., The Ethereum contract that locks up the asset while it's minted on another chain."
-                },
-                "path": {
-                    "type": "string",
-                    "description": "The port/channel/denom input string that generates the 'ibc/...' denom." 
                 }
             },
-            "if": {
-                "properties": {
-                    "type": {
-                        "enum": [
-                            "ibc"
-                        ]
-                    }
-                }
-              },
-            "then": {
-                "required": [
-                    "path"
-                ]
-            },
-            "if": {
-                "properties": {
-                    "type": {
-                        "enum": [
-                            "bridge",
-                            "liquid-stake",
-                            "synthetic"
-                        ]
-                    }
-                }
-              },
-            "then": {
-                "required": [
-                    "provider"
-                ]
-            }
+            "additionalProperties": false
         }
     }
 }

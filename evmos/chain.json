@@ -3,6 +3,7 @@
   "chain_name": "evmos",
   "status": "live",
   "network_type": "mainnet",
+  "website": "https://evmos.org/",
   "pretty_name": "Evmos",
   "chain_id": "evmos_9001-2",
   "bech32_prefix": "evmos",
@@ -11,12 +12,15 @@
     "genesis_url": "https://archive.evmos.org/mainnet/genesis.json"
   },
   "daemon_name": "evmosd",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
   "slip44": 60,
   "fees": {
     "fee_tokens": [
       {
         "denom": "aevmos",
-        "low_gas_price": 10000000000,
+        "low_gas_price": 20000000000,
         "average_gas_price": 25000000000,
         "high_gas_price": 40000000000
       }
@@ -24,23 +28,23 @@
   },
   "staking": {
     "staking_tokens": [
-        {
-            "denom": "aevmos"
-        }
+      {
+        "denom": "aevmos"
+      }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/evmos/evmos",
-    "recommended_version": "v7.0.0",
+    "recommended_version": "v8.2.0",
     "compatible_versions": [
-      "v7.0.0"
+      "v8.2.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v7.0.0/evmos_7.0.0_Linux_x86_64.tar.gz",
-      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v7.0.0/evmos_7.0.0_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v7.0.0/evmos_7.0.0_Darwin_x86_64.tar.gz",
-      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v7.0.0/evmos_7.0.0_Darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v7.0.0/evmos_7.0.0_Windows_x86_64.zip"
+      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v8.1.0/evmos_8.1.0_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v8.1.0/evmos_8.1.0_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v8.1.0/evmos_8.1.0_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v8.1.0/evmos_8.1.0_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v8.1.0/evmos_8.1.0_Windows_x86_64.zip"
     }
   },
   "peers": {
@@ -69,6 +73,16 @@
         "id": "588cedb70fa1d98c14a2f2c1456bfa41e1a156a8",
         "address": "evmos-sentry.mercury-nodes.net:29539",
         "provider": "Mercury"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:13456",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:13456",
+        "provider": "Lavender.Five Nodes 🐝"
       }
     ],
     "persistent_peers": [
@@ -101,6 +115,16 @@
         "id": "a7779498a15dfd5adc678f0f6672935413413f42",
         "address": "alice.peers.evmos.bh.rocks:26656",
         "provider": "BlockHunters"
+      },
+      {
+        "id": "d4a5fcc56f369665c232788c22844dc3a018fe08",
+        "address": "peer.evmos.silknodes.io:26602",
+        "provider": "Silk Nodes"
+      },
+            {
+        "id": "2d588e1bc71431f6c677a9ed7f5ff8f7caa82573",
+        "address": "evmos-rpc.agoranodes.com:26656",
+        "provider": "AgoraNodes"
       }
     ]
   },
@@ -113,6 +137,10 @@
       {
         "address": "https://rpc-evmos.whispernode.com",
         "provider": " WhisperNode 🤐"
+      },
+      {
+        "address": "https://evmos-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://tendermint.bd.evmos.org:26657",
@@ -147,8 +175,24 @@
         "provider": "BlockHunters"
       },
       {
+        "address": "https://rpc-evmos.goldenratiostaking.net",
+        "provider": "Golden Ratio Staking"
+      },
+      {
         "address": "https://rpc.evmos.chaintools.tech/",
         "provider": "ChainTools"
+      },
+      {
+        "address": "https://evmos-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://rpc.evmos.silknodes.io/",
+        "provider": "Silk Nodes"
+      },
+            {
+        "address": "https://evmos-rpc.agoranodes.com/",
+        "provider": "AgoraNodes"
       }
     ],
     "rest": [
@@ -167,6 +211,10 @@
       {
         "address": "https://lcd.evmos.ezstaking.io",
         "provider": "EZStaking.io"
+      },
+      {
+        "address": "https://evmos-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://api-evmos-ia.cosmosia.notional.ventures/",
@@ -195,6 +243,18 @@
       {
         "address": "https://api.evmos.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://evmos-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://api.evmos.silknodes.io/",
+        "provider": "Silk Nodes"
+      },
+      {
+        "address": "https://evmos-rest.agoranodes.com",
+        "provider": "AgoraNodes"
       }
     ],
     "grpc": [
@@ -209,6 +269,10 @@
       {
         "address": "grpc.evmos.posthuman.digital:443",
         "provider": "POSTHUMAN ꝏ DVS"
+      },
+      {
+        "address": "https://evmos-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "grpc.evmos.testnet.run:8091",
@@ -227,8 +291,16 @@
         "provider": "ChainTools"
       },
       {
-        "address": "evmos-grpc.polkachu.com:34090",
+        "address": "evmos-grpc.polkachu.com:13490",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://grpc.evmos.silknodes.io/",
+        "provider": "Silk Nodes"
+      },
+            {
+        "address": "https://evmos-grpc.agoranodes.com",
+        "provider": "AgoraNodes"
       }
     ],
     "evm-http-jsonrpc": [
@@ -251,6 +323,10 @@
       {
         "address": "https://json-rpc.evmos.bh.rocks",
         "provider": "BlockHunters"
+      },
+            {
+        "address": "https://evmos-json-rpc.agoranodes.com",
+        "provider": "AgoraNodes"
       }
     ]
   },
@@ -271,14 +347,14 @@
       "tx_page": "https://evm.evmos.org/tx/${txHash}"
     },
     {
-        "kind": "ping-pub",
-        "url": "https://ping.pub/evmos",
-        "tx_page": "https://ping.pub/evmos/tx/${txHash}"
+      "kind": "ping-pub",
+      "url": "https://ping.pub/evmos",
+      "tx_page": "https://ping.pub/evmos/tx/${txHash}"
     },
     {
-        "kind": "explorers.guru",
-		    "url": "https://evmos.explorers.guru",
-		    "tx_page": "https://evmos.explorers.guru/transaction/${txHash}"
+      "kind": "explorers.guru",
+      "url": "https://evmos.explorers.guru",
+      "tx_page": "https://evmos.explorers.guru/transaction/${txHash}"
     },
     {
       "kind": "atomscan",
