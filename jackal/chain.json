@@ -1,0 +1,75 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "jackal",
+  "chain_id": "canine-1",
+  "website": "https://jackalprotocol.com",
+  "pretty_name": "Jackal",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "jkl",
+  "genesis": {
+    "genesis_url": "https://github.com/cosmos/mainnet/raw/master/genesis/genesis.cosmoshub-4.json.gz"
+  },
+  "daemon_name": "canined",
+  "node_home": "$HOME/.canine",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ujkl",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/JackalLabs/canine-chain",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.0.0/canined-v1.0.0-linux-amd64",
+      "linux/arm64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.0.0/canined-v1.0.0-linux-arm64",
+      "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.0.0/canined-v1.0.0-darwin-amd64",
+      "windows/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.0.0/canined-v1.0.0-windows-amd64.exe"
+    }
+  },
+  "peers": {
+    "seeds": [
+      
+    ],
+    "persistent_peers": [
+      
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.jackalprotocol.com",
+        "provider": "Jackal Labs"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.jackalprotocol.com",
+        "provider": "Jackal Labs"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.jackalprotocol.com",
+        "provider": "Jackal Labs"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping-pub",
+      "url": "https://ping.pub/jackal",
+      "tx_page": "https://ping.pub/jackal/tx/${txHash}"
+    }
+  ]
+}
