@@ -259,25 +259,25 @@ An example ibc metadata file contains the following structure:
 ```json
 {
     "$schema": "../ibc_data.schema.json",
-    "chain-1": {
-      "chain-name": "juno",
-      "client-id": "07-tendermint-0",
-      "connection-id": "connection-0"
+    "chain_1": {
+      "chain_name": "juno",
+      "client_id": "07-tendermint-0",
+      "connection_id": "connection-0"
     },
-    "chain-2": {
-      "chain-name": "osmosis",
-      "client-id": "07-tendermint-1457",
-      "connection-id": "connection-1142"
+    "chain_2": {
+      "chain_name": "osmosis",
+      "client_id": "07-tendermint-1457",
+      "connection_id": "connection-1142"
     },
     "channels": [
       {
-        "chain-1": {
-          "channel-id": "channel-0",
-          "port-id": "transfer"
+        "chain_1": {
+          "channel_id": "channel-0",
+          "port_id": "transfer"
         },
-        "chain-2": {
-          "channel-id": "channel-42",
-          "port-id": "transfer"
+        "chain_2": {
+          "channel_id": "channel-42",
+          "port_id": "transfer"
         },
         "ordering": "unordered",
         "version": "ics20-1",
