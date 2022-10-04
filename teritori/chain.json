@@ -1,0 +1,100 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "teritori",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Teritori",
+  "chain_id": "teritori-1",
+  "daemon_name": "teritorid",
+  "node_home": "$HOME/.teritorid",
+  "bech32_prefix": "tori",
+  "genesis": {
+    "genesis_url": "https://github.com/TERITORI/teritori-mainnet-genesis/raw/main/genesis.json"
+  },
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "utori",
+        "low_gas_price": 0,
+        "average_gas_price": 0.25,
+        "high_gas_price": 0.5
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "utori"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/TERITORI/teritori-chain",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:15956",
+        "provider": "Lavender.Five Nodes 🐝"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "8f28518afd31a42ea81bb3232a50ab0cec4dcdf7",
+        "address": "10.201.190.1:26656",
+        "provider": "teritori-core-1 ⛩"
+      },
+      {
+        "id": "6046cec27c36f0a7596cb9fa9f2c5decbd4e87cb",
+        "address": "10.193.255.1:26656",
+        "provider": "teritori-core-2 ⛩⛩"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://teritori-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://teritori-rpc.polkachu.com",
+        "provider": "Polkachu"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://teritori-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://teritori-api.polkachu.com",
+        "provider": "Polkachu"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://teritori-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer.teritori.com/teritori",
+      "tx_page": "https://explorer.teritori.com/teritori/tx/${txHash}"
+    },
+    {
+      "kind": "guru",
+      "url": "https://teritori.explorers.guru/",
+      "tx_page": "https://teritori.explorers.guru/transaction/${txHash}"
+    }
+  ]
+}
