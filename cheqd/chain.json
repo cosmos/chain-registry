@@ -1,127 +1,172 @@
 {
-    "$schema": "../chain.schema.json",
-    "chain_name": "cheqd",
-    "status": "live",
-    "network_type": "mainnet",
-    "pretty_name": "cheqd",
-    "chain_id": "cheqd-mainnet-1",
-    "bech32_prefix": "cheqd",
-    "daemon_name": "cheqd-noded",
-    "node_home": "$HOME/.cheqdnode",
-    "genesis": {
-        "genesis_url": "https://raw.githubusercontent.com/cheqd/cheqd-node/main/networks/mainnet/genesis.json"
-    },
-    "slip44": 118,
-    "fees": {
-        "fee_tokens": [
-            {
-                "denom": "ncheq",
-                "fixed_min_gas_price": 25
-            }
-        ]
-    },
-    "codebase": {
-        "git_repo": "https://github.com/cheqd/cheqd-node",
-        "recommended_version": "v0.5.0",
-        "compatible_versions": [
-            "v0.5.0"
-        ],
-        "binaries": {
-            "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v0.5.0/cheqd-node_0.5.0_amd64.deb"
-        }
-    },
-    "peers": {
-        "seeds": [
-            {
-                "id": "258a9bfb822637bfca87daaab6181c10e7fd0910",
-                "address": "seed1.eu.cheqd.net:26656",
-                "provider": "cheqd"
-            },
-            {
-                "id": "f565ff792b20977face9817df6acb268d41d4092",
-                "address": "seed2.eu.cheqd.net:26656",
-                "provider": "cheqd"
-            },
-            {
-                "id": "388947cc7d901c5c06fedc4c26751634564d68e6",
-                "address": "seed3.eu.cheqd.net:26656",
-                "provider": "cheqd"
-            },
-            {
-                "id": "9b30307a2a2819790d68c04bb62f5cf4028f447e",
-                "address": "seed1.ap.cheqd.net:26656",
-                "provider": "cheqd"
-            },
-            {
-                "id": "debcb3fa7d40e681d98bcc7d22278fd58a34b73a",
-                "address": "144.76.183.180:1234",
-                "provider": "notional"
-            }
-        ],
-        "persistent_peers": [
-            {
-                "id": "d1ebb60825e2c29181b499f93493dd440fb87997",
-                "address": "sentry1.eu.cheqd.net:26656",
-                "provider": "cheqd"
-            },
-            {
-                "id": "513d334bb044296796939e57b522fef7fd4b9c6c",
-                "address": "sentry2.eu.cheqd.net:26656",
-                "provider": "cheqd"
-            }
-        ]
-    },
-    "apis": {
-        "rpc": [
-            {
-                "address": "https://rpc.cheqd.net",
-                "provider": "cheqd"
-            },
-            {
-                "address": "https://rpc.cheqd.ezstaking.io",
-                "provider": "EZStaking.io"
-            },
-            {
-                "address": "https://rpc-cheqd-ia.notional.ventures/",
-                "provider": "Notional"
-            }
-        ],
-        "rest": [
-            {
-                "address": "https://api.cheqd.net",
-                "provider": "cheqd"
-            },
-            {
-                "address": "https://lcd.cheqd.ezstaking.io",
-                "provider": "EZStaking.io"
-            },
-            {
-                "address": "https://api-cheqd-ia.notional.ventures/",
-                "provider": "Notional"
-            }
-        ],
-        "grpc": [
-            {
-                "address": "grpc-cheqd-ia.notional.ventures:443",
-                "provider": "Notional"
-            }
-        ]
-    },
-    "explorers": [
-        {
-            "kind": "bigdipper",
-            "url": "https://explorer.cheqd.io/",
-            "tx_page": "https://explorer.cheqd.io/transactions/${txHash}"
-        },
-        {
-            "kind": "ping-pub",
-            "url": "https://ping.pub/cheqd",
-            "tx_page": "https://ping.pub/cheqd/tx/${txHash}"
-        },
-        {
-            "kind": "aneka",
-            "url": "https://cheqd.aneka.io/",
-            "tx_page": "https://cheqd.aneka.io/txs/${txHash}"
-        }
+  "$schema": "../chain.schema.json",
+  "chain_name": "cheqd",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://www.cheqd.io/",
+  "pretty_name": "cheqd",
+  "chain_id": "cheqd-mainnet-1",
+  "bech32_prefix": "cheqd",
+  "daemon_name": "cheqd-noded",
+  "node_home": "$HOME/.cheqdnode",
+  "genesis": {
+    "genesis_url": "https://raw.githubusercontent.com/cheqd/cheqd-node/main/networks/mainnet/genesis.json"
+  },
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ncheq",
+        "fixed_min_gas_price": 25,
+        "low_gas_price": 25,
+        "average_gas_price": 50,
+        "high_gas_price": 100
+      }
     ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ncheq"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/cheqd/cheqd-node",
+    "recommended_version": "v0.6.0",
+    "compatible_versions": [
+      "v0.6.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v0.6.0/cheqd-noded"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "258a9bfb822637bfca87daaab6181c10e7fd0910",
+        "address": "seed1.eu.cheqd.net:26656",
+        "provider": "cheqd"
+      },
+      {
+        "id": "f565ff792b20977face9817df6acb268d41d4092",
+        "address": "seed2.eu.cheqd.net:26656",
+        "provider": "cheqd"
+      },
+      {
+        "id": "388947cc7d901c5c06fedc4c26751634564d68e6",
+        "address": "seed3.eu.cheqd.net:26656",
+        "provider": "cheqd"
+      },
+      {
+        "id": "9b30307a2a2819790d68c04bb62f5cf4028f447e",
+        "address": "seed1.ap.cheqd.net:26656",
+        "provider": "cheqd"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:16156",
+        "provider": "Lavender.Five Nodes 🐝"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "d1ebb60825e2c29181b499f93493dd440fb87997",
+        "address": "sentry1.eu.cheqd.net:26656",
+        "provider": "cheqd"
+      },
+      {
+        "id": "513d334bb044296796939e57b522fef7fd4b9c6c",
+        "address": "sentry2.eu.cheqd.net:26656",
+        "provider": "cheqd"
+      },
+      {
+        "id": "9201b408d24941fd342e739f0814aa3eb8ab7577",
+        "address": "sentry1.ap.cheqd.net:26656",
+        "provider": "cheqd"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.cheqd.net",
+        "provider": "cheqd"
+      },
+      {
+        "address": "https://rpc.cheqd.ezstaking.io",
+        "provider": "EZStaking.io"
+      },
+      {
+        "address": "https://cheqd-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes"
+      },
+      {
+        "address": "https://rpc-cheqd-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
+      },
+      {
+        "address": "https://rpc.cheqd.nodestake.top",
+        "provider": "NodeStake"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.cheqd.net",
+        "provider": "cheqd"
+      },
+      {
+        "address": "https://cheqd-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes"
+      },
+      {
+        "address": "https://lcd.cheqd.ezstaking.io",
+        "provider": "EZStaking.io"
+      },
+      {
+        "address": "https://api-cheqd-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
+      },
+      {
+        "address": "https://api.cheqd.nodestake.top",
+        "provider": "NodeStake"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.cheqd.net:443",
+        "provider": "cheqd"
+      },
+      {
+        "address": "https://cheqd-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "grpc-cheqd-ia.cosmosia.notional.ventures:443",
+        "provider": "Notional"
+      },
+      {
+        "address": "https://grpc.cheqd.nodestake.top",
+        "provider": "NodeStake"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "bigdipper",
+      "url": "https://explorer.cheqd.io/",
+      "tx_page": "https://explorer.cheqd.io/transactions/${txHash}"
+    },
+    {
+      "kind": "ping-pub",
+      "url": "https://ping.pub/cheqd",
+      "tx_page": "https://ping.pub/cheqd/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan.com",
+      "url": "https://atomscan.com/cheqd",
+      "tx_page": "https://atomscan.com/cheqd/transactions/${txHash}",
+      "account_page": "https://atomscan.com/cheqd/accounts/${accountAddress}"
+    }
+  ]
 }

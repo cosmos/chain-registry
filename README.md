@@ -4,10 +4,19 @@ This repo contains a `chain.json` and `assetlist.json` for a number of cosmos-sd
 
 Schema files containing the recommended metadata structure can be found in the `*.schema.json` files located in the root directory. Schemas are still undergoing revision as user needs are surfaced. Optional fields may be added beyond what is contained in the schema files.
 
+We invite stakeholders to join the [Cosmos Chain Registry Working Group](https://t.me/+OkM0SDZ-M0liNDdh) on Telegram to discuss major structure changes, ask questions, and develop tooling.
+
 Once schemas have matured and client needs are better understood Chain Registry data is intended to migrate to an on-chain representation hosted on the Cosmos Hub, i.e. the Cosmos Chain Name Service. If you are interested in this effort please join the discussion [here](https://github.com/cosmos/chain-registry/issues/291)!
+
+## Npm Modules
+- https://www.npmjs.com/package/chain-registry
+
+## Rust Crates
+- https://crates.io/crates/chain-registry
 
 ## Web Endpoints
 - https://registry.ping.pub (Update every 24H)
+- https://proxy.atomscan.com/directory/ (Update every 24H)
 
 ## APIs
 - https://github.com/cmwaters/skychart
@@ -16,6 +25,7 @@ Once schemas have matured and client needs are better understood Chain Registry 
 ## Web Interfaces
 - https://cosmos.directory
 - https://chain-registry.netlify.com
+- https://atomscan.com/directory
 
 ## Contributing
 
@@ -32,6 +42,7 @@ A sample `chain.json` includes the following information.
     "$schema": "../chain.schema.json",
     "chain_name": "osmosis",
     "status": "live",
+    "website": "https://osmosis.zone/",
     "network_type": "mainnet",
     "pretty_name": "Osmosis",
     "chain_id": "osmosis-1",
@@ -56,6 +67,13 @@ A sample `chain.json` includes the following information.
             }
         ]
     },
+    "staking": {
+        "staking_tokens": [
+            {
+                "denom": "uosmo"
+            }
+        ]
+    },
     "codebase": {
         "git_repo": "https://github.com/osmosis-labs/osmosis",
         "recommended_version": "v4.1.0",
@@ -68,7 +86,11 @@ A sample `chain.json` includes the following information.
             "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-linux-arm64",
             "darwin/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-darwin-amd64",
             "windows/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-windows-amd64.exe"
-        }
+        },
+        "cosmos_sdk_version": "0.45",
+        "tendermint_version": "0.34",
+        "cosmwasm_version": "0.24",
+        "cosmwasm_enabled": true
     },
     "peers": {
         "seeds": [
@@ -145,7 +167,10 @@ A sample `chain.json` includes the following information.
     "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg"
-    }
+    },
+    "keywords" [
+        "foo", "bar", "foobar", "fubar", "beyond", "repair", "example"
+    ]
 }
 ```
 
@@ -212,7 +237,10 @@ An example assetlist json contains the following structure:
             "logo_URIs": {
                 "png": "ipfs://QmXfzKRvjZz3u5JRgC4v5mGVbm9ahrUiB4DgzHBsnWbTMM",
                 "svg": ""
-            }
+            },
+            "keywords" [
+                "foo", "coin", "foocoin", "gas", "fee", "staking", "stake", "foobar", "fubar", "example"
+            ]
         }
     ]
 }
@@ -231,25 +259,25 @@ An example ibc metadata file contains the following structure:
 ```json
 {
     "$schema": "../ibc_data.schema.json",
-    "chain-1": {
-      "chain-name": "juno",
-      "client-id": "07-tendermint-0",
-      "connection-id": "connection-0"
+    "chain_1": {
+      "chain_name": "juno",
+      "client_id": "07-tendermint-0",
+      "connection_id": "connection-0"
     },
-    "chain-2": {
-      "chain-name": "osmosis",
-      "client-id": "07-tendermint-1457",
-      "connection-id": "connection-1142"
+    "chain_2": {
+      "chain_name": "osmosis",
+      "client_id": "07-tendermint-1457",
+      "connection_id": "connection-1142"
     },
     "channels": [
       {
-        "chain-1": {
-          "channel-id": "channel-0",
-          "port-id": "transfer"
+        "chain_1": {
+          "channel_id": "channel-0",
+          "port_id": "transfer"
         },
-        "chain-2": {
-          "channel-id": "channel-42",
-          "port-id": "transfer"
+        "chain_2": {
+          "channel_id": "channel-42",
+          "port_id": "transfer"
         },
         "ordering": "unordered",
         "version": "ics20-1",

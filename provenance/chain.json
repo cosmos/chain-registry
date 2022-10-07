@@ -1,110 +1,125 @@
 {
-    "$schema": "../chain.schema.json",
-    "chain_name": "provenance",
-    "status": "live",
-    "network_type": "mainnet",
-    "pretty_name": "Provenance Blockchain",
-    "chain_id": "pio-mainnet-1",
-    "bech32_prefix": "pb",
-    "daemon_name": "provenanced",
-    "node_home": "$HOME/Provenance",
-    "genesis": {
-        "genesis_url": "https://raw.githubusercontent.com/provenance-io/mainnet/main/pio-mainnet-1/genesis.json"
-    },
-    "key_algos": [
-        "secp256k1"
-    ],
-    "slip44": 505,
-    "fees": {
-        "fee_tokens": [
-            {
-                "denom": "nhash",
-                "fixed_min_gas_price": 1905
-            }
-        ]
-    },
-    "codebase": {
-        "git_repo": "https://github.com/provenance-io/provenance",
-        "recommended_version": "v1.8.2",
-        "compatible_versions": [
-            "v1.7.5",
-            "v1.7.6",
-            "v1.8.0",
-            "v1.8.2"
-        ],
-        "binaries": {
-            "linux/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.8.2/provenance-linux-amd64-v1.8.2.zip",
-            "darwin/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.8.2/provenance-darwin-amd64-v1.8.2.zip"
-        }
-    },
-    "peers": {
-        "seeds": [
-
-        {
-            "id": "4bd2fb0ae5a123f1db325960836004f980ee09b4",
-            "address": "seed-0.provenance.io:26656",
-            "provider": "figure"
-        },
-        {
-            "id": "048b991204d7aac7209229cbe457f622eed96e5d",
-            "address": "seed-1.provenance.io:26656",
-            "provider": "figure"
-        }
-        ]
-    },
-    "apis": {
-        "rpc": [
-            {
-                "address": "https://rpc.provenance.io/",
-                "provider": "figure"
-            },
-            {
-                "address": "https://api-provenance-ia.notional.ventures/",
-                "provider": "Notional"
-            }
-        ],
-        "rest": [
-            {
-                "address": "https://api.provenance.io",
-                "provider": "figure"
-            },
-           {
-                "address": "https://api-provenance-ia.notional.ventures/",
-                "provider": "Notional"
-            }
-        ],
-        "grpc": [
-           {
-                "address": "grpc-provenance-ia.notional.ventures:443",
-                "provider": "Notional"
-            }
-        ]
-    },
-    "explorers": [
-        {
-            "kind": "provenance",
-            "url": "https://explorer.provenance.io",
-            "tx_page": "https://explorer.provenance.io/tx/${txHash}"
-        },
-        {
-            "kind": "bigdipper",
-            "url": "https://bigdipper.provenance.io",
-            "tx_page": "https://bigdipper.provenance.io/transactions/${txHash}"
-        },
-        {
-            "kind": "hubble",
-            "url": "https://hubble.figment.io/provenance/chains/pio-mainnet-1",
-            "tx_page": "https://hubble.figment.io/provenance/chains/pio-mainnet-1/${block}/transactions/${txHash}"
-        }, 
-        {
-            "kind": "ping-pub",
-            "url": "https://ping.pub/provenance",
-            "tx_page": "https://ping.pub/provenance/tx/${txHash}"
-        },
-        {
-            "kind": "mintscan",
-            "url": "https://www.mintscan.io/provenance",
-            "tx_page": "https://www.mintscan.io/provenance/txs/${txHash}"
-        }      
+  "$schema": "../chain.schema.json",
+  "chain_name": "provenance",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://provenance.io/",
+  "pretty_name": "Provenance",
+  "chain_id": "pio-mainnet-1",
+  "bech32_prefix": "pb",
+  "daemon_name": "provenanced",
+  "node_home": "$HOME/Provenance",
+  "genesis": {
+    "genesis_url": "https://raw.githubusercontent.com/provenance-io/mainnet/main/pio-mainnet-1/genesis.json"
+  },
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 505,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "nhash",
+        "fixed_min_gas_price": 1905,
+        "low_gas_price": 1905,
+        "average_gas_price": 2100,
+        "high_gas_price": 2500
+      }
     ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "nhash"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/provenance-io/provenance",
+    "recommended_version": "v1.8.2",
+    "compatible_versions": [
+      "v1.7.5",
+      "v1.7.6",
+      "v1.8.0",
+      "v1.8.2"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.8.2/provenance-linux-amd64-v1.8.2.zip",
+      "darwin/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.8.2/provenance-darwin-amd64-v1.8.2.zip"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "4bd2fb0ae5a123f1db325960836004f980ee09b4",
+        "address": "seed-0.provenance.io:26656",
+        "provider": "figure"
+      },
+      {
+        "id": "048b991204d7aac7209229cbe457f622eed96e5d",
+        "address": "seed-1.provenance.io:26656",
+        "provider": "figure"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.provenance.io/",
+        "provider": "figure"
+      },
+      {
+        "address": "https://rpc-provenance-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.provenance.io",
+        "provider": "figure"
+      },
+      {
+        "address": "https://api-provenance-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc-provenance-ia.cosmosia.notional.ventures:443",
+        "provider": "Notional"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "provenance",
+      "url": "https://explorer.provenance.io",
+      "tx_page": "https://explorer.provenance.io/tx/${txHash}"
+    },
+    {
+      "kind": "bigdipper",
+      "url": "https://bigdipper.provenance.io",
+      "tx_page": "https://bigdipper.provenance.io/transactions/${txHash}"
+    },
+    {
+      "kind": "hubble",
+      "url": "https://hubble.figment.io/provenance/chains/pio-mainnet-1",
+      "tx_page": "https://hubble.figment.io/provenance/chains/pio-mainnet-1/${block}/transactions/${txHash}"
+    },
+    {
+      "kind": "ping-pub",
+      "url": "https://ping.pub/provenance",
+      "tx_page": "https://ping.pub/provenance/tx/${txHash}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/provenance",
+      "tx_page": "https://www.mintscan.io/provenance/txs/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/provenance",
+      "tx_page": "https://atomscan.com/provenance/transactions/${txHash}"
+    }
+  ]
 }

@@ -2,7 +2,6 @@
     "$id": "https://sikka.tech/chain.schema.json",
     "$schema": "https://json-schema.org/draft-07/schema",
     "title": "Cosmos Chain",
-    "updatelink": "string",
     "description": "Cosmos Chain.json is a metadata file that contains information about a cosmos sdk based chain.",
     "type": "object",
     "required": [
@@ -12,13 +11,22 @@
     ],
     "properties": {
         "chain_name": {
-            "type": "string"
+            "type": "string",
+            "pattern": "[a-z0-9]+"
         },
         "chain_id": {
             "type": "string"
         },
         "pretty_name": {
             "type": "string"
+        },
+        "website": {
+            "type": "string",
+            "format": "uri"
+        },
+        "update_link": {
+            "type": "string",
+            "format": "uri"
         },
         "status": {
             "enum": [
@@ -77,13 +85,19 @@
                 }
             }
         },
+        "staking": {
+            "type": "object",
+            "properties": {
+                "staking_tokens": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/staking_token"
+                    }
+                }
+            }
+        },
         "codebase": {
             "type": "object",
-            "required": [
-                "git_repo",
-                "recommended_version",
-                "compatible_versions"
-            ],
             "properties": {
                 "git_repo": {
                     "type": "string",
@@ -101,9 +115,79 @@
                 "binaries": {
                     "type": "object",
                     "properties": {
-                        "linux/amd": {
+                        "linux/amd64": {
                             "type": "string",
                             "format": "uri"
+                        },
+                        "linux/arm64": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "darwin/amd64": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "darwin/arm64": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "windows/amd64": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    }
+                },
+                "cosmos_sdk_version": {
+                    "type": "string"
+                },
+                "tendermint_version": {
+                    "type": "string"
+                },
+                "cosmwasm_version": {
+                    "type": "string"
+                },
+                "cosmwasm_enabled": {
+                    "type": "boolean"
+                },
+                "genesis": {
+                    "type": "object",
+                    "required": [
+                        "genesis_url"
+                    ],
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "genesis_url": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    }
+                },
+                "versions": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "name"
+                        ],
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "Official Upgrade Name"
+                            },
+                            "tag": {
+                                "type": "string",
+                                "description": "Git Upgrade Tag"
+                            },
+                            "height": {
+                                "type": "number",
+                                "description": "Block Height"
+                            },
+                            "next_version_name": {
+                                "type": "string",
+                                "description": "[Optional] Name of the following version"
+                            }
                         }
                     }
                 }
@@ -186,6 +270,10 @@
                 },
                 "provider": {
                     "type": "string"
+                },
+                "archive": {
+                    "type": "boolean",
+                    "default": false
                 }
             }
         },
@@ -229,17 +317,37 @@
                 }
             }
         },
-         "logo_URIs": {
+        "staking_token": {
+            "type": "object",
+            "required": [
+                "denom"
+            ],
+            "properties": {
+                "denom": {
+                    "type": "string"
+                }
+            }
+        },
+        "logo_URIs": {
             "type": "object",
             "properties": {
                 "png": {
                     "type": "string",
-                    "format": "uri-reference"
+                    "format": "uri-reference",
+                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/[a-zA-Z0-9-_\\.]+\\.png$"
                 },
                 "svg": {
                     "type": "string",
-                    "format": "uri-reference"
+                    "format": "uri-reference",
+                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/[a-zA-Z0-9-_\\.]+\\.svg$"
                 }
+            }
+        },
+        "keywords": {
+            "type": "array",
+            "maxContains": 20,
+            "items": {
+                "type": "string"
             }
         }
     }

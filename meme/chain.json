@@ -19,7 +19,17 @@
     "fee_tokens": [
       {
         "denom": "umeme",
-        "fixed_min_gas_price": 0.025
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.035
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "umeme"
       }
     ]
   },
@@ -31,6 +41,18 @@
     ]
   },
   "peers": {
+    "seeds": [
+      {
+        "id": "dbe97ebeb4d07999a1fe2de2f92a56cc07385259",
+        "address": "seeds.pupmos.network:2005",
+        "provider": "PUPMØS"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:14756",
+        "provider": "Polkachu"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "a9959fef554ee407f23dffbcd4c0711e02a07d18",
@@ -56,6 +78,11 @@
         "id": "c1e05690adfbc970817e0debb5d7770ee9f2f3ac",
         "address": "65.108.131.174:47656",
         "provider": "Polkachu"
+      },
+      {
+        "id": "fc21b0c26b6840915f6fe2daf56565e1c30e0956",
+        "address": "162.55.245.104:26656",
+        "provider": "PUPMØS"
       }
     ]
   },
@@ -72,6 +99,14 @@
       {
         "address": "https://meme-rpc.polkachu.com/",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://rpc.meme.pupmos.network/",
+        "provider": "PUPMØS"
+      },
+      {
+        "address": "https://meme-rpc.kleomed.es",
+        "provider": "Kleomedes"
       }
     ],
     "rest": [
@@ -85,6 +120,20 @@
       },
       {
         "address": "https://meme-api.polkachu.com/",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://api.meme.pupmos.network/",
+        "provider": "PUPMØS"
+      },
+      {
+        "address": "https://meme-api.kleomed.es",
+        "provider": "Kleomedes"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "meme-grpc.polkachu.com:14790",
         "provider": "Polkachu"
       }
     ]
@@ -105,6 +154,11 @@
       "kind": "MEME Explorer",
       "url": "https://explorer.meme.sx/meme",
       "tx_page": "https://explorer.meme.sx/meme/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/meme",
+      "tx_page": "https://atomscan.com/meme/transactions/${txHash}"
     }
   ]
 }

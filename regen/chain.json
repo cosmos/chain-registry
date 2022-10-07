@@ -1,107 +1,153 @@
 {
-    "$schema": "../chain.schema.json",
-    "chain_name": "regen",
-    "status": "live",
-    "network_type": "mainnet",
-    "pretty_name": "Regen Network",
-    "chain_id": "regen-1",
-    "bech32_prefix": "regen",
-    "daemon_name": "regen",
-    "node_home": "$HOME/.regen",
-    "genesis": {
-        "genesis_url": "https://raw.githubusercontent.com/regen-network/mainnet/main/regen-1/genesis.json"
-    },
-    "codebase": {
-        "git_repo": "https://github.com/regen-network/regen-ledger",
-        "recommended_version": "v3.0.0",
-        "compatible_versions": [
-            "v3.0.0"
-        ]
-    },
-    "peers": {
-        "seeds": [
-            {
-                "id": "aebb8431609cb126a977592446f5de252d8b7fa1",
-                "address": "104.236.201.138:26656"
-            },
-            {
-                "id": "d309774e794b111a0fa2056f40aed9d488b6195e",
-                "address": "regen-seed.sunshinevalidation.io:32064",
-                "provider": "sunshine-validation"
-            }
-        ],
-        "persistent_peers": [
-            {
-                "id": "69975e7afdf731a165e40449fcffc75167a084fc",
-                "address": "104.131.169.70:26656"
-            },
-            {
-                "id": "d35d652b6cb3bf7d6cb8d4bd7c036ea03e7be2ab",
-                "address": "116.203.182.185:26656"
-            },
-            {
-                "id": "ffacd3202ded6945fed12fa4fd715b1874985b8c",
-                "address": "3.98.38.91:26656"
-            }
-        ]
-    },
-    "apis": {
-        "rpc": [
-            {
-                "address": "http://public-rpc.regen.vitwit.com:26657",
-                "provider": "vitwit"
-            },
-            {
-                "address": "https://regen.stakesystems.io:2053",
-                "provider": "stakesystems"
-            },
-            {
-                "address": "http://rpc.regen.forbole.com:80",
-                "provider": "forbole"
-            },
-            {
-                "address": "https://rpc-regen-ia.notional.ventures/",
-                "provider": "Notional"
-            },
-            {
-                "address": "https://rpc-regen.ecostake.com",
-                "provider": "ecostake"
-            }
-        ],
-        "grpc": [
-            {
-                "address": "regen.stakesystems.io:2083",
-                "provider": "stakesystems"
-            },
-            {
-                "address": "grpc-regen-ia.notional.ventures:443",
-                "provider": "Notional"
-            }
-        ],
-        "rest": [
-            {
-                "address": "http://public-rpc.regen.vitwit.com:1317",
-                "provider": "vitwit"
-            },
-            {
-                "address": "https://regen.stakesystems.io",
-                "provider": "stakesystems"
-            },
-            {
-                "address": "https://api-regen-ia.notional.ventures/",
-                "provider": "Notional"
-            },
-            {
-                "address": "https://rest-regen.ecostake.com",
-                "provider": "ecostake"
-            }
-        ]
-    },
-    "explorers": [
-        {
-            "kind": "ping-pub",
-            "url": "https://ping.pub/regen",
-            "tx_page": "https://ping.pub/regen/tx/${txHash}"
-        }
+  "$schema": "../chain.schema.json",
+  "chain_name": "regen",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://www.regen.network/",
+  "pretty_name": "Regen",
+  "chain_id": "regen-1",
+  "bech32_prefix": "regen",
+  "daemon_name": "regen",
+  "node_home": "$HOME/.regen",
+  "genesis": {
+    "genesis_url": "https://raw.githubusercontent.com/regen-network/mainnet/main/regen-1/genesis.json"
+  },
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uregen"
+      }
     ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uregen"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/regen-network/regen-ledger",
+    "recommended_version": "v4.0.0",
+    "compatible_versions": [
+      "v4.0.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/regen-network/regen-ledger/releases/download/v4.0.0/regen-ledger_4.0.0_linux_amd64.zip",
+      "linux/arm64": "https://github.com/regen-network/regen-ledger/releases/download/v4.0.0/regen-ledger_4.0.0_linux_arm64.zip",
+      "darwin/amd64": "https://github.com/regen-network/regen-ledger/releases/download/v4.0.0/regen-ledger_4.0.0_darwin_amd64.zip",
+      "darwin/arm64": "https://github.com/regen-network/regen-ledger/releases/download/v4.0.0/regen-ledger_4.0.0_darwin_arm64.zip",
+      "windows/amd64": "https://github.com/regen-network/regen-ledger/releases/download/v4.0.0/regen-ledger_4.0.0_windows_amd64.zip"
+    },
+    "cosmos_sdk_version": "0.45",
+    "tendermint_version": "0.34"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "aebb8431609cb126a977592446f5de252d8b7fa1",
+        "address": "104.236.201.138:26656"
+      },
+      {
+        "id": "d309774e794b111a0fa2056f40aed9d488b6195e",
+        "address": "regen-seed.sunshinevalidation.io:32064",
+        "provider": "sunshine-validation"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "69975e7afdf731a165e40449fcffc75167a084fc",
+        "address": "104.131.169.70:26656"
+      },
+      {
+        "id": "d35d652b6cb3bf7d6cb8d4bd7c036ea03e7be2ab",
+        "address": "116.203.182.185:26656"
+      },
+      {
+        "id": "ffacd3202ded6945fed12fa4fd715b1874985b8c",
+        "address": "3.98.38.91:26656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-regen.ecostake.com",
+        "provider": "ecostake"
+      },
+      {
+        "address": "http://public-rpc.regen.vitwit.com:26657",
+        "provider": "vitwit"
+      },
+      {
+        "address": "https://regen.stakesystems.io:2053",
+        "provider": "stakesystems"
+      },
+      {
+        "address": "http://rpc.regen.forbole.com:80",
+        "provider": "forbole"
+      },
+      {
+        "address": "https://rpc-regen-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "regen.stakesystems.io:2083",
+        "provider": "stakesystems"
+      },
+      {
+        "address": "grpc-regen-ia.cosmosia.notional.ventures:443",
+        "provider": "Notional"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest-regen.ecostake.com",
+        "provider": "ecostake"
+      },
+      {
+        "address": "http://public-rpc.regen.vitwit.com:1317",
+        "provider": "vitwit"
+      },
+      {
+        "address": "https://regen.stakesystems.io",
+        "provider": "stakesystems"
+      },
+      {
+        "address": "https://api-regen-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/regen",
+      "tx_page": "https://www.mintscan.io/regen/txs/${txHash}"
+    },
+    {
+      "kind": "ping-pub",
+      "url": "https://ping.pub/regen",
+      "tx_page": "https://ping.pub/regen/tx/${txHash}"
+    },
+    {
+      "kind": "bigdipper",
+      "url": "https://regen.bigdipper.live/",
+      "tx_page": "https://regen.bigdipper.live/transactions/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/regen-network",
+      "tx_page": "https://atomscan.com/regen-network/transactions/${txHash}"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/regen/images/regen.png"
+  }
 }
