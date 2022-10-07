@@ -12,7 +12,7 @@
   "key_algos": ["secp256k1"],
   "slip44": 118,
   "codebase": {
-    "git_repo": "https://github.com/CudoVentures/cudos-builders",
+    "git_repo": "https://github.com/CudoVentures/cudos-node",
     "recommended_version": "v1.0.0",
     "compatible_versions": ["v1.0.0"]
   },
@@ -65,27 +65,31 @@
   "apis": {
     "rpc": [
       {
-<<<<<<< HEAD
-        "address": "mainnet-full-node-01.hosts.cudos.org:26657",
-=======
         "address": "http://mainnet-full-node-01.hosts.cudos.org:26657",
->>>>>>> upstream/master
+        "provider": "cudo"
+      },
+      {
+        "address": "https://mainnet-full-node-02.hosts.cudos.org:36657",
         "provider": "cudo"
       }
     ],
     "rest": [
       {
-<<<<<<< HEAD
-        "address": "mainnet-full-node-01.hosts.cudos.org:1317",
-=======
         "address": "http://mainnet-full-node-01.hosts.cudos.org:1317",
->>>>>>> upstream/master
+        "provider": "cudo"
+      },
+      {
+        "address": "https://mainnet-full-node-02.hosts.cudos.org:31317",
         "provider": "cudo"
       }
     ],
     "grpc": [
       {
-        "address": "mainnet-full-node-01.hosts.cudos.org:9090",
+        "address": "http://mainnet-full-node-01.hosts.cudos.org:9090",
+        "provider": "cudo"
+      },
+      {
+        "address": "https://mainnet-full-node-02.hosts.cudos.org:39090",
         "provider": "cudo"
       }
     ]
@@ -98,24 +102,21 @@
       "account_page": "https://explorer.cudos.org/accounts/${accountAddress}"
     },
     {
-      "kind": "big-dipper-v1",
-      "url": "https://explorer-v1.cudos.org/",
-      "tx_page": "https://explorer-v1.cudos.org/transactions/${txHash}",
-      "account_page": "https://explorer-v1.cudos.org/account/${accountAddress}"
+      "kind": "cudos-dashboard",
+      "url": "https://dashboard.cudos.org/",
+      "tx_page": "https://explorer.cudos.org/transactions/${txHash}",
+      "account_page": "https://explorer.cudos.org/accounts/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/cudos",
       "tx_page": "https://www.mintscan.io/cudos/txs/${txHash}",
       "account_page": "https://www.mintscan.io/cudos/account/${accountAddress}"
-<<<<<<< HEAD
-=======
     },
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/cudos",
       "tx_page": "https://atomscan.com/cudos/transactions/${txHash}"
->>>>>>> upstream/master
     }
   ]
 }
