@@ -39,138 +39,138 @@ A sample `chain.json` includes the following information.
 
 ```json
 {
-    "$schema": "../chain.schema.json",
-    "chain_name": "osmosis",
-    "status": "live",
-    "website": "https://osmosis.zone/",
-    "network_type": "mainnet",
-    "pretty_name": "Osmosis",
-    "chain_id": "osmosis-1",
-    "bech32_prefix": "osmo",
-    "daemon_name": "osmosisd",
-    "node_home": "$HOME/.osmosisd",
-    "genesis": {
-        "genesis_url": "https://github.com/osmosis-labs/networks/raw/main/osmosis-1/genesis.json"
-    },
-    "key_algos": [
-        "secp256k1"
-    ],
-    "slip44": 118,
-    "fees": {
-        "fee_tokens": [
-            {
-                "denom": "uosmo",
-                "fixed_min_gas_price": 0,
-                "low_gas_price": 0,
-                "average_gas_price": 0.025,
-                "high_gas_price": 0.04
-            }
-        ]
-    },
-    "staking": {
-        "staking_tokens": [
-            {
-                "denom": "uosmo"
-            }
-        ]
-    },
-    "codebase": {
-        "git_repo": "https://github.com/osmosis-labs/osmosis",
-        "recommended_version": "v4.1.0",
-        "compatible_versions": [
-            "v4.0.0",
-            "v4.1.0"
-        ],
-        "binaries": {
-            "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-linux-amd64",
-            "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-linux-arm64",
-            "darwin/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-darwin-amd64",
-            "windows/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-windows-amd64.exe"
-        },
-        "cosmos_sdk_version": "0.45",
-        "tendermint_version": "0.34",
-        "cosmwasm_version": "0.24",
-        "cosmwasm_enabled": true
-    },
-    "peers": {
-        "seeds": [
-            {
-                "id": "83adaa38d1c15450056050fd4c9763fcc7e02e2c",
-                "address": "ec2-44-234-84-104.us-west-2.compute.amazonaws.com:26656",
-                "provider": "notional"
-            },
-            {
-                "id": "f515a8599b40f0e84dfad935ba414674ab11a668",
-                "address": "osmosis.blockpane.com:26656",
-                "provider": "blockpane"
-            }
-        ],
-        "persistent_peers": [
-            {
-                "id": "8f67a2fcdd7ade970b1983bf1697111d35dfdd6f",
-                "address": "52.79.199.137:26656",
-                "provider": "cosmostation"
-            },
-            {
-                "id": "8d9967d5f865c68f6fe2630c0f725b0363554e77",
-                "address": "134.255.252.173:26656",
-                "provider": "divecrypto"
-            },
-            {
-                "id": "785bc83577e3980545bac051de8f57a9fd82695f",
-                "address": "194.233.164.146:26656",
-                "provider": "forbole"
-            },
-            {
-                "id": "778fdedf6effe996f039f22901a3360bc838b52e",
-                "address": "161.97.187.189:36657",
-                "provider": "kalpatech"
-            },
-            {
-                "id": "64d36f3a186a113c02db0cf7c588c7c85d946b5b",
-                "address": "209.97.132.170:26656",
-                "provider": "solidstake"
-            },
-            {
-                "id": "4d9ac3510d9f5cfc975a28eb2a7b8da866f7bc47",
-                "address": "37.187.38.191:26656",
-                "provider": "stakelab"
-            }
-        ]
-    },
-    "apis": {
-        "rpc": [
-            {
-                "address": "https://osmosis.validator.network/",
-                "provider": "validatornetwork"
-            },
-            {
-                "address": "https://rpc-osmosis.blockapsis.com",
-                "provider": "chainapsis"
-            }
-        ],
-        "rest": [
-            {
-                "address": "https://lcd-osmosis.blockapsis.com",
-                "provider": "chainapsis"
-            }
-        ]
-    },
-    "explorers": [
-        {
-            "kind": "mintscan",
-            "url": "https://www.mintscan.io/osmosis",
-            "tx_page": "https://www.mintscan.io/osmosis/txs/${txHash}",
-            "account_page": "https://www.mintscan.io/osmosis/account/${accountAddress}"
-        }
-    ],
-    "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg"
-    },
-    "keywords" [
-        "foo", "bar", "foobar", "fubar", "beyond", "repair", "example"
+  "$schema": "../chain.schema.json",
+  "chain_name": "osmosis",
+  "status": "live",
+  "website": "https://osmosis.zone/",
+  "network_type": "mainnet",
+  "pretty_name": "Osmosis",
+  "chain_id": "osmosis-1",
+  "bech32_prefix": "osmo",
+  "daemon_name": "osmosisd",
+  "node_home": "$HOME/.osmosisd",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uosmo",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
     ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uosmo"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/osmosis-labs/osmosis",
+    "recommended_version": "v4.1.0",
+    "compatible_versions": [
+      "v4.0.0",
+      "v4.1.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-linux-amd64",
+      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-linux-arm64",
+      "darwin/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-darwin-amd64",
+      "windows/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-windows-amd64.exe"
+    },
+    "cosmos_sdk_version": "0.45",
+    "tendermint_version": "0.34",
+    "cosmwasm_version": "0.24",
+    "cosmwasm_enabled": true,
+    "genesis": {
+      "genesis_url": "https://github.com/osmosis-labs/networks/raw/main/osmosis-1/genesis.json"
+    },
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "83adaa38d1c15450056050fd4c9763fcc7e02e2c",
+        "address": "ec2-44-234-84-104.us-west-2.compute.amazonaws.com:26656",
+        "provider": "notional"
+      },
+      {
+        "id": "f515a8599b40f0e84dfad935ba414674ab11a668",
+        "address": "osmosis.blockpane.com:26656",
+        "provider": "blockpane"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "8f67a2fcdd7ade970b1983bf1697111d35dfdd6f",
+        "address": "52.79.199.137:26656",
+        "provider": "cosmostation"
+      },
+      {
+        "id": "8d9967d5f865c68f6fe2630c0f725b0363554e77",
+        "address": "134.255.252.173:26656",
+        "provider": "divecrypto"
+      },
+      {
+        "id": "785bc83577e3980545bac051de8f57a9fd82695f",
+        "address": "194.233.164.146:26656",
+        "provider": "forbole"
+      },
+      {
+        "id": "778fdedf6effe996f039f22901a3360bc838b52e",
+        "address": "161.97.187.189:36657",
+        "provider": "kalpatech"
+      },
+      {
+        "id": "64d36f3a186a113c02db0cf7c588c7c85d946b5b",
+        "address": "209.97.132.170:26656",
+        "provider": "solidstake"
+      },
+      {
+        "id": "4d9ac3510d9f5cfc975a28eb2a7b8da866f7bc47",
+        "address": "37.187.38.191:26656",
+        "provider": "stakelab"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://osmosis.validator.network/",
+        "provider": "validatornetwork"
+      },
+      {
+        "address": "https://rpc-osmosis.blockapsis.com",
+        "provider": "chainapsis"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lcd-osmosis.blockapsis.com",
+        "provider": "chainapsis"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/osmosis",
+      "tx_page": "https://www.mintscan.io/osmosis/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/osmosis/account/${accountAddress}"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg"
+  },
+  "keywords" [
+    "foo", "bar", "foobar", "fubar", "beyond", "repair", "example"
+  ]
 }
 ```
 
@@ -188,61 +188,61 @@ An example assetlist json contains the following structure:
 
 ```
 {
-    "chain_name": "steak-chain-1",
-    "assets": [
+  "chain_name": "steak-chain-1",
+  "assets": [
+    {
+      "description": "The native token of Steak Chain",
+      "denom_units": [
         {
-            "description": "The native token of Steak Chain",
-            "denom_units": [
-                {
-                    "denom": "usteak",
-                    "exponent": 0,
-                    "aliases": []
-                },
-                {
-                    "denom": "steak",
-                    "exponent": 6,
-                    "aliases": []
-                }
-            ],
-            "base": "usteak",
-            "display": "steak",
-            "symbol": "STK",
-            "logo_URIs": {
-                "png": "https://github.com/linkto/image.png",
-                "svg": "https://stake.com/linkto/steak.svg"
-            }
+          "denom": "usteak",
+          "exponent": 0,
+          "aliases": []
         },
         {
-            "description": "Foocoin is the native token of the Foochain",
-            "denom_units": [
-                {
-                    "denom": "ibc/6ED71011FFBD0D137AFDB6AC574E9E100F61BA3DD44A8C05ECCE7E59D40A7B3E",
-                    "exponent": 0,
-                    "aliases": ["ufoocoin"]
-                },
-                {
-                    "denom": "foocoin",
-                    "exponent": 6,
-                    "aliases": []
-                }
-            ],
-            "base": "ibc/6ED71011FFBD0D137AFDB6AC574E9E100F61BA3DD44A8C05ECCE7E59D40A7B3E",
-            "display": "foocoin",
-            "symbol": "FOO",
-            "ibc": {
-                "source_channel": "channel-35",
-                "dst_channel": "channel-1",
-                "source_denom": "ufoocoin"
-            },
-            "logo_URIs": {
-                "png": "ipfs://QmXfzKRvjZz3u5JRgC4v5mGVbm9ahrUiB4DgzHBsnWbTMM",
-                "svg": ""
-            },
-            "keywords" [
-                "foo", "coin", "foocoin", "gas", "fee", "staking", "stake", "foobar", "fubar", "example"
-            ]
+          "denom": "steak",
+          "exponent": 6,
+          "aliases": []
         }
-    ]
+      ],
+      "base": "usteak",
+      "display": "steak",
+      "symbol": "STK",
+      "logo_URIs": {
+        "png": "https://github.com/linkto/image.png",
+        "svg": "https://stake.com/linkto/steak.svg"
+      }
+    },
+    {
+      "description": "Foocoin is the native token of the Foochain",
+      "denom_units": [
+        {
+          "denom": "ibc/6ED71011FFBD0D137AFDB6AC574E9E100F61BA3DD44A8C05ECCE7E59D40A7B3E",
+          "exponent": 0,
+          "aliases": ["ufoocoin"]
+        },
+        {
+          "denom": "foocoin",
+          "exponent": 6,
+          "aliases": []
+        }
+      ],
+      "base": "ibc/6ED71011FFBD0D137AFDB6AC574E9E100F61BA3DD44A8C05ECCE7E59D40A7B3E",
+      "display": "foocoin",
+      "symbol": "FOO",
+      "ibc": {
+        "source_channel": "channel-35",
+        "dst_channel": "channel-1",
+        "source_denom": "ufoocoin"
+      },
+      "logo_URIs": {
+        "png": "ipfs://QmXfzKRvjZz3u5JRgC4v5mGVbm9ahrUiB4DgzHBsnWbTMM",
+        "svg": ""
+      },
+      "keywords" [
+        "foo", "coin", "foocoin", "gas", "fee", "staking", "stake", "foobar", "fubar", "example"
+      ]
+    }
+  ]
 }
 ```
 
@@ -258,35 +258,35 @@ An example ibc metadata file contains the following structure:
 
 ```json
 {
-    "$schema": "../ibc_data.schema.json",
-    "chain_1": {
-      "chain_name": "juno",
-      "client_id": "07-tendermint-0",
-      "connection_id": "connection-0"
-    },
-    "chain_2": {
-      "chain_name": "osmosis",
-      "client_id": "07-tendermint-1457",
-      "connection_id": "connection-1142"
-    },
-    "channels": [
-      {
-        "chain_1": {
-          "channel_id": "channel-0",
-          "port_id": "transfer"
-        },
-        "chain_2": {
-          "channel_id": "channel-42",
-          "port_id": "transfer"
-        },
-        "ordering": "unordered",
-        "version": "ics20-1",
-        "tags": {
-          "status": "live",
-          "preferred": true,
-          "dex": "osmosis"
-        }
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "juno",
+    "client_id": "07-tendermint-0",
+    "connection_id": "connection-0"
+  },
+  "chain_2": {
+    "chain_name": "osmosis",
+    "client_id": "07-tendermint-1457",
+    "connection_id": "connection-1142"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-0",
+        "port_id": "transfer"
+      },
+      "chain_2": {
+        "channel_id": "channel-42",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "status": "live",
+        "preferred": true,
+        "dex": "osmosis"
       }
-    ]
-  }
-  ```
+    }
+  ]
+}
+```
