@@ -8,9 +8,6 @@
   "bech32_prefix": "cre",
   "daemon_name": "crescentd",
   "node_home": "$HOME/.crescent",
-  "genesis": {
-    "genesis_url": "https://github.com/crescent-network/launch/raw/main/mainnet/crescent-1/genesis.json.tar.gz"
-  },
   "key_algos": [
     "secp256k1"
   ],
@@ -25,14 +22,18 @@
   },
   "codebase": {
     "git_repo": "https://github.com/crescent-network/crescent",
-    "recommended_version": "v1.1.0",
+    "recommended_version": "v2.1.1",
     "compatible_versions": [
-      "v1.1.0"
+      "v2.1.0",
+      "v2.1.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/crescent-network/crescent/releases/download/v1.1.0/crescentd-v1.1.0-linux-amd64",
-      "darwin/amd64": "https://github.com/crescent-network/crescent/releases/download/v1.1.0/crescentd-v1.1.0-darwin-amd64"
-        }
+      "linux/amd64": "https://github.com/crescent-network/crescent/releases/download/v2.1.0/crescentd-v2.1.0-linux-amd64",
+      "darwin/amd64": "https://github.com/crescent-network/crescent/releases/download/v2.1.0/crescentd-v2.1.0-darwin-amd64"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/crescent-network/launch/raw/main/mainnet/crescent-1/genesis.json.tar.gz"
+    }
   },
   "peers": {
     "seeds": [
@@ -40,6 +41,16 @@
         "id": "929f22a7b04ff438da9edcfebd8089908239de44",
         "address": "18.180.232.184:26656",
         "provider": "crescent"
+      },
+      {
+        "id": "c312d41ef52b7c890674e808ef28c57a7746057c",
+        "address": "seeds.pupmos.network:2003",
+        "provider": "PUPMØS"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "crescent.mainnet.seed.autostake.net:26816",
+        "provider": "AutoStake.net"
       }
     ],
     "persistent_peers": [
@@ -97,6 +108,21 @@
         "id": "0ed5ed53ec3542202d02d0d47ac04a2823188fc2",
         "address": "52.194.172.170:26656",
         "provider": "Provalidator"
+      },
+      {
+        "id": "c64f03deb3127d41401ef57d9762c64673f225f3",
+        "address": "172.105.221.43:46656",
+        "provider": "in3s.com"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:14556",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "crescent.mainnet.peer.autostake.net:26816",
+        "provider": "AutoStake.net"
       }
     ]
   },
@@ -112,7 +138,7 @@
       },
       {
         "address": "https://rpc.crescent.pupmos.network",
-        "provider": "pupmos"
+        "provider": "PUPMØS"
       }
     ],
     "rest": [
@@ -122,13 +148,21 @@
       },
       {
         "address": "https://api.crescent.pupmos.network",
-        "provider": "pupmos"
+        "provider": "PUPMØS"
+      },
+      {
+        "address": "https://crescent-api.polkachu.com",
+        "provider": "Polkachu"
       }
     ],
     "grpc": [
       {
         "address": "mainnet.crescent.network:9090",
         "provider": "crescent"
+      },
+      {
+        "address": "crescent-grpc.polkachu.com:14590",
+        "provider": "Polkachu"
       }
     ]
   },
@@ -139,9 +173,19 @@
       "tx_page": "https://www.mintscan.io/crescent/txs/${txHash}"
     },
     {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/crescent",
+      "tx_page": "https://ping.pub/crescent/tx/${txHash}"
+    },
+    {
       "kind": "explorers.guru",
       "url": "https://crescent.explorers.guru",
       "tx_page": "https://crescent.explorers.guru/transaction/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/crescent",
+      "tx_page": "https://atomscan.com/crescent/transactions/${txHash}"
     }
   ]
 }

@@ -3,19 +3,22 @@
   "chain_name": "bandchain",
   "status": "live",
   "network_type": "mainnet",
-  "pretty_name": "BandChain",
+  "website": "hhttps://bandprotocol.com/",
+  "pretty_name": "Band Protocol",
   "chain_id": "laozi-mainnet",
   "daemon_name": "bandd",
   "node_home": "$HOME/.band",
   "bech32_prefix": "band",
   "slip44": 494,
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/bandprotocol/launch/master/laozi-mainnet/genesis.json"
-  },
   "codebase": {
     "git_repo": "https://github.com/bandprotocol/chain",
-    "recommended_version": "v2.3.2",
-    "compatible_versions": ["v2.3.2"]
+    "recommended_version": "v2.3.5",
+    "compatible_versions": [
+      "v2.3.5"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/bandprotocol/launch/master/laozi-mainnet/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
@@ -26,6 +29,11 @@
       {
         "id": "543e0cab9c3016a0e99775443a17bcf163038912",
         "address": "34.150.156.78:26656"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "bandchain.mainnet.seed.autostake.net:26666",
+        "provider": "AutoStake.net"
       }
     ],
     "persistent_peers": [
@@ -36,6 +44,11 @@
       {
         "id": "3ea84babead3d6bc488810a0f2cf0744cf5c68fe",
         "address": "34.86.22.251:26656"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "bandchain.mainnet.peer.autostake.net:26666",
+        "provider": "AutoStake.net"
       }
     ]
   },
@@ -46,8 +59,12 @@
         "provider": "bandprotocol"
       },
       {
-        "address": "https://rpc-bandchain-ia.notional.ventures/",
+        "address": "https://rpc-bandchain-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://band-rpc.ibs.team/",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "rest": [
@@ -56,13 +73,17 @@
         "provider": "bandprotocol"
       },
       {
-        "address": "https://api-bandchain-ia.notional.ventures/",
+        "address": "https://api-bandchain-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://band-api.ibs.team/",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "grpc": [
       {
-        "address": "grpc-bandchain-ia.notional.ventures:443",
+        "address": "grpc-bandchain-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
       }
     ]
@@ -71,7 +92,22 @@
     {
       "kind": "cosmoscan",
       "url": "https://cosmoscan.io",
-      "tx_page": "https://cosmoscan.io/tx/{txHash}"
+      "tx_page": "https://cosmoscan.io/tx/${txHash}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/band",
+      "tx_page": "https://www.mintscan.io/band/txs${txHash}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/band-protocol",
+      "tx_page": "https://ping.pub/band-protocol/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/band-protocol",
+      "tx_page": "https://atomscan.com/band-protocol/transactions/${txHash}"
     }
   ]
 }
