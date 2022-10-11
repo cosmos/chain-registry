@@ -1,354 +1,354 @@
 {
-    "$id": "https://sikka.tech/chain.schema.json",
-    "$schema": "https://json-schema.org/draft-07/schema",
-    "title": "Cosmos Chain",
-    "description": "Cosmos Chain.json is a metadata file that contains information about a cosmos sdk based chain.",
-    "type": "object",
-    "required": [
-        "chain_name",
-        "chain_id",
-        "bech32_prefix"
-    ],
-    "properties": {
-        "chain_name": {
-            "type": "string",
-            "pattern": "[a-z0-9]+"
+  "$id": "https://sikka.tech/chain.schema.json",
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "Cosmos Chain",
+  "description": "Cosmos Chain.json is a metadata file that contains information about a cosmos sdk based chain.",
+  "type": "object",
+  "required": [
+    "chain_name",
+    "chain_id",
+    "bech32_prefix"
+  ],
+  "properties": {
+    "chain_name": {
+      "type": "string",
+      "pattern": "[a-z0-9]+"
+    },
+    "chain_id": {
+      "type": "string"
+    },
+    "pretty_name": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string",
+      "format": "uri"
+    },
+    "update_link": {
+      "type": "string",
+      "format": "uri"
+    },
+    "status": {
+      "enum": [
+        "live",
+        "upcoming",
+        "killed"
+      ]
+    },
+    "network_type": {
+      "enum": [
+        "mainnet",
+        "testnet"
+      ]
+    },
+    "bech32_prefix": {
+      "type": "string"
+    },
+    "daemon_name": {
+      "type": "string"
+    },
+    "node_home": {
+      "type": "string"
+    },
+    "key_algos": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "secp256k1",
+          "ethsecp256k1",
+          "ed25519",
+          "sr25519"
+        ],
+        "uniqueItems": true
+      }
+    },
+    "slip44": {
+      "type": "number"
+    },
+    "fees": {
+      "type": "object",
+      "properties": {
+        "fee_tokens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fee_token"
+          }
+        }
+      }
+    },
+    "staking": {
+      "type": "object",
+      "properties": {
+        "staking_tokens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/staking_token"
+          }
+        }
+      }
+    },
+    "codebase": {
+      "type": "object",
+      "properties": {
+        "git_repo": {
+          "type": "string",
+          "format": "uri"
         },
-        "chain_id": {
+        "recommended_version": {
+          "type": "string"
+        },
+        "compatible_versions": {
+          "type": "array",
+          "items": {
             "type": "string"
+          }
         },
-        "pretty_name": {
-            "type": "string"
-        },
-        "website": {
-            "type": "string",
-            "format": "uri"
-        },
-        "update_link": {
-            "type": "string",
-            "format": "uri"
-        },
-        "status": {
-            "enum": [
-                "live",
-                "upcoming",
-                "killed"
-            ]
-        },
-        "network_type": {
-            "enum": [
-                "mainnet",
-                "testnet"
-            ]
-        },
-        "bech32_prefix": {
-            "type": "string"
+        "binaries": {
+          "type": "object",
+          "properties": {
+            "linux/amd64": {
+              "type": "string",
+              "format": "uri"
+            },
+            "linux/arm64": {
+              "type": "string",
+              "format": "uri"
+            },
+            "darwin/amd64": {
+              "type": "string",
+              "format": "uri"
+            },
+            "darwin/arm64": {
+              "type": "string",
+              "format": "uri"
+            },
+            "windows/amd64": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
         },
         "genesis": {
-            "type": "object",
-            "properties": {
-                "genesis_url": {
-                    "type": "string"
-                }
+          "type": "object",
+          "properties": {
+            "genesis_url": {
+              "type": "string"
             }
+          }
         },
-        "daemon_name": {
-            "type": "string"
+        "cosmos_sdk_version": {
+          "type": "string"
         },
-        "node_home": {
-            "type": "string"
+        "tendermint_version": {
+          "type": "string"
         },
-        "key_algos": {
-            "type": "array",
-            "items": {
+        "cosmwasm_version": {
+          "type": "string"
+        },
+        "cosmwasm_enabled": {
+          "type": "boolean"
+        },
+        "genesis": {
+          "type": "object",
+          "required": [
+            "genesis_url"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "genesis_url": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        },
+        "versions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
                 "type": "string",
-                "enum": [
-                    "secp256k1",
-                    "ethsecp256k1",
-                    "ed25519",
-                    "sr25519"
-                ],
-                "uniqueItems": true
+                "description": "Official Upgrade Name"
+              },
+              "tag": {
+                "type": "string",
+                "description": "Git Upgrade Tag"
+              },
+              "height": {
+                "type": "number",
+                "description": "Block Height"
+              },
+              "next_version_name": {
+                "type": "string",
+                "description": "[Optional] Name of the following version"
+              }
             }
-        },
-        "slip44": {
-            "type": "number"
-        },
-        "fees": {
-            "type": "object",
-            "properties": {
-                "fee_tokens": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/$defs/fee_token"
-                    }
-                }
-            }
-        },
-        "staking": {
-            "type": "object",
-            "properties": {
-                "staking_tokens": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/$defs/staking_token"
-                    }
-                }
-            }
-        },
-        "codebase": {
-            "type": "object",
-            "properties": {
-                "git_repo": {
-                    "type": "string",
-                    "format": "uri"
-                },
-                "recommended_version": {
-                    "type": "string"
-                },
-                "compatible_versions": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "binaries": {
-                    "type": "object",
-                    "properties": {
-                        "linux/amd64": {
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "linux/arm64": {
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "darwin/amd64": {
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "darwin/arm64": {
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "windows/amd64": {
-                            "type": "string",
-                            "format": "uri"
-                        }
-                    }
-                },
-                "cosmos_sdk_version": {
-                    "type": "string"
-                },
-                "tendermint_version": {
-                    "type": "string"
-                },
-                "cosmwasm_version": {
-                    "type": "string"
-                },
-                "cosmwasm_enabled": {
-                    "type": "boolean"
-                },
-                "genesis": {
-                    "type": "object",
-                    "required": [
-                        "genesis_url"
-                    ],
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "genesis_url": {
-                            "type": "string",
-                            "format": "uri"
-                        }
-                    }
-                },
-                "versions": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "required": [
-                            "name"
-                        ],
-                        "properties": {
-                            "name": {
-                                "type": "string",
-                                "description": "Official Upgrade Name"
-                            },
-                            "tag": {
-                                "type": "string",
-                                "description": "Git Upgrade Tag"
-                            },
-                            "height": {
-                                "type": "number",
-                                "description": "Block Height"
-                            },
-                            "next_version_name": {
-                                "type": "string",
-                                "description": "[Optional] Name of the following version"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "peers": {
-            "type": "object",
-            "properties": {
-                "seeds": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/$defs/peer"
-                    }
-                },
-                "persistent_peers": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/$defs/peer"
-                    }
-                }
-            }
-        },
-        "apis": {
-            "type": "object",
-            "properties": {
-                "rpc": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/$defs/endpoint"
-                    }
-                },
-                "rest": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/$defs/endpoint"
-                    }
-                },
-                "grpc": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/$defs/endpoint"
-                    }
-                }
-            }
-        },
-        "explorers": {
-            "type": "array",
-            "items": {
-                "$ref": "#/$defs/explorer"
-            }
+          }
         }
+      }
     },
-    "$defs": {
-        "peer": {
-            "type": "object",
-            "required": [
-                "id",
-                "address"
-            ],
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "address": {
-                    "type": "string"
-                },
-                "provider": {
-                    "type": "string"
-                }
-            }
+    "peers": {
+      "type": "object",
+      "properties": {
+        "seeds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/peer"
+          }
         },
-        "endpoint": {
-            "type": "object",
-            "required": [
-                "address"
-            ],
-            "properties": {
-                "address": {
-                    "type": "string"
-                },
-                "provider": {
-                    "type": "string"
-                },
-                "archive": {
-                    "type": "boolean",
-                    "default": false
-                }
-            }
-        },
-        "explorer": {
-            "type": "object",
-            "properties": {
-                "kind": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                },
-                "tx_page": {
-                    "type": "string"
-                },
-                "account_page": {
-                    "type": "string"
-                }
-            }
-        },
-        "fee_token": {
-            "type": "object",
-            "required": [
-                "denom"
-            ],
-            "properties": {
-                "denom": {
-                    "type": "string"
-                },
-                "fixed_min_gas_price": {
-                    "type": "number"
-                },
-                "low_gas_price": {
-                    "type": "number"
-                },
-                "average_gas_price": {
-                    "type": "number"
-                },
-                "high_gas_price": {
-                    "type": "number"
-                }
-            }
-        },
-        "staking_token": {
-            "type": "object",
-            "required": [
-                "denom"
-            ],
-            "properties": {
-                "denom": {
-                    "type": "string"
-                }
-            }
-        },
-        "logo_URIs": {
-            "type": "object",
-            "properties": {
-                "png": {
-                    "type": "string",
-                    "format": "uri-reference",
-                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/[a-zA-Z0-9-_\\.]+\\.png$"
-                },
-                "svg": {
-                    "type": "string",
-                    "format": "uri-reference",
-                    "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/[a-zA-Z0-9-_\\.]+\\.svg$"
-                }
-            }
-        },
-        "keywords": {
-            "type": "array",
-            "maxContains": 20,
-            "items": {
-                "type": "string"
-            }
+        "persistent_peers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/peer"
+          }
         }
+      }
+    },
+    "apis": {
+      "type": "object",
+      "properties": {
+        "rpc": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/endpoint"
+          }
+        },
+        "rest": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/endpoint"
+          }
+        },
+        "grpc": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/endpoint"
+          }
+        }
+      }
+    },
+    "explorers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/explorer"
+      }
     }
+  },
+  "$defs": {
+    "peer": {
+      "type": "object",
+      "required": [
+        "id",
+        "address"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        }
+      }
+    },
+    "endpoint": {
+      "type": "object",
+      "required": [
+        "address"
+      ],
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "archive": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "explorer": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "tx_page": {
+          "type": "string"
+        },
+        "account_page": {
+          "type": "string"
+        }
+      }
+    },
+    "fee_token": {
+      "type": "object",
+      "required": [
+        "denom"
+      ],
+      "properties": {
+        "denom": {
+          "type": "string"
+        },
+        "fixed_min_gas_price": {
+          "type": "number"
+        },
+        "low_gas_price": {
+          "type": "number"
+        },
+        "average_gas_price": {
+          "type": "number"
+        },
+        "high_gas_price": {
+          "type": "number"
+        }
+      }
+    },
+    "staking_token": {
+      "type": "object",
+      "required": [
+        "denom"
+      ],
+      "properties": {
+        "denom": {
+          "type": "string"
+        }
+      }
+    },
+    "logo_URIs": {
+      "type": "object",
+      "properties": {
+        "png": {
+          "type": "string",
+          "format": "uri-reference",
+          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/[a-zA-Z0-9-_\\.]+\\.png$"
+        },
+        "svg": {
+          "type": "string",
+          "format": "uri-reference",
+          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/[a-zA-Z0-9-_\\.]+\\.svg$"
+        }
+      }
+    },
+    "keywords": {
+      "type": "array",
+      "maxContains": 20,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
 }
