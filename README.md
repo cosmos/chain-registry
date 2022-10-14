@@ -78,16 +78,14 @@ A sample `chain.json` includes the following information.
       "v4.0.0",
       "v4.1.0"
     ],
-    "binaries": {
-      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-linux-amd64",
-      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-linux-arm64",
-      "darwin/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-darwin-amd64",
-      "windows/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v4.0.0/osmosisd-4.0.0-windows-amd64.exe"
-    },
     "cosmos_sdk_version": "0.45",
     "tendermint_version": "0.34",
     "cosmwasm_version": "0.24",
     "cosmwasm_enabled": true,
+    "ibc_go_version": "3.0.0",
+    "ics_enabled": [
+      "ics20-1"
+    ],
     "genesis": {
       "genesis_url": "https://github.com/osmosis-labs/networks/raw/main/osmosis-1/genesis.json"
     },

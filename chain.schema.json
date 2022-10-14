@@ -149,6 +149,20 @@
         "cosmwasm_enabled": {
           "type": "boolean"
         },
+        "ibc_go_version": {
+          "type": "string"
+        },
+        "ics_enabled": {
+          "type": "array",
+          "description": "List of IBC apps (usually corresponding to a ICS standard) which have been enabled on the network.",
+          "items": {
+            "type": "string",
+            "description": "IBC app or ICS standard.",
+            "enum": [
+              "ics20-1", "ics27-1", "mauth"
+            ]
+          }
+        },
         "genesis": {
           "type": "object",
           "required": [
