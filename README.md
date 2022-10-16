@@ -73,22 +73,65 @@ A sample `chain.json` includes the following information.
   },
   "codebase": {
     "git_repo": "https://github.com/osmosis-labs/osmosis",
-    "recommended_version": "v4.1.0",
+    "recommended_version": "v12.2.0",
     "compatible_versions": [
-      "v4.0.0",
-      "v4.1.0"
+      "v12.2.0"
     ],
-    "cosmos_sdk_version": "0.45",
+    "cosmos_sdk_version": "0.46",
     "tendermint_version": "0.34",
-    "cosmwasm_version": "0.24",
+    "cosmwasm_version": "0.28",
     "cosmwasm_enabled": true,
     "ibc_go_version": "3.0.0",
     "ics_enabled": [
       "ics20-1"
     ],
     "genesis": {
+      "name": "v3",
       "genesis_url": "https://github.com/osmosis-labs/networks/raw/main/osmosis-1/genesis.json"
     },
+    "versions": [
+      {
+        "name": "v3",
+        "tag": "v3.1.0",
+        "height": 0,
+        "next_version_name": "v4"
+      },
+      {
+        "name": "v4",
+        "tag": "v4.2.0",
+        "height": 1314500,
+        "next_version_name": "v5"
+      },
+      {
+        "name": "v5",
+        "tag": "v6.4.1",
+        "height": 2383300,
+        "next_version_name": "v7"
+      },
+      {
+        "name": "v7",
+        "tag": "v8.0.0",
+        "height": 3401000,
+        "next_version_name": "v9"
+      },
+      {
+        "name": "v9",
+        "tag": "v10.0.1",
+        "height": 4707300,
+        "next_version_name": "v11"
+      },
+      {
+        "name": "v11",
+        "tag": "v11.0.0",
+        "height": 5432450,
+        "next_version_name": "v12"
+      },
+      {
+        "name": "v12",
+        "tag": "v12.1.0",
+        "height": 6246000
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -152,6 +195,12 @@ A sample `chain.json` includes the following information.
         "address": "https://lcd-osmosis.blockapsis.com",
         "provider": "chainapsis"
       }
+    ],
+    "grpc": [
+      {
+        "address": "osmosis.strange.love:9090",
+        "provider": "strangelove"
+      }
     ]
   },
   "explorers": [
@@ -167,7 +216,7 @@ A sample `chain.json` includes the following information.
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg"
   },
   "keywords" [
-    "foo", "bar", "foobar", "fubar", "beyond", "repair", "example"
+    "dex"
   ]
 }
 ```
@@ -186,58 +235,58 @@ An example assetlist json contains the following structure:
 
 ```
 {
-  "chain_name": "steak-chain-1",
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "osmosis",
   "assets": [
     {
-      "description": "The native token of Steak Chain",
+      "description": "The native token of Osmosis",
       "denom_units": [
         {
-          "denom": "usteak",
+          "denom": "uosmo",
           "exponent": 0,
           "aliases": []
         },
         {
-          "denom": "steak",
+          "denom": "osmo",
           "exponent": 6,
           "aliases": []
         }
       ],
-      "base": "usteak",
-      "display": "steak",
-      "symbol": "STK",
+      "base": "uosmo",
+      "name": "Osmosis",
+      "display": "osmo",
+      "symbol": "OSMO",
       "logo_URIs": {
-        "png": "https://github.com/linkto/image.png",
-        "svg": "https://stake.com/linkto/steak.svg"
-      }
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
+      },
+      "coingecko_id": "osmosis",
+      "keywords": [
+          "dex", "staking"
+      ]
     },
     {
-      "description": "Foocoin is the native token of the Foochain",
       "denom_units": [
         {
-          "denom": "ibc/6ED71011FFBD0D137AFDB6AC574E9E100F61BA3DD44A8C05ECCE7E59D40A7B3E",
-          "exponent": 0,
-          "aliases": ["ufoocoin"]
+          "denom": "uion",
+          "exponent": 0
         },
         {
-          "denom": "foocoin",
-          "exponent": 6,
-          "aliases": []
+          "denom": "ion",
+          "exponent": 6
         }
       ],
-      "base": "ibc/6ED71011FFBD0D137AFDB6AC574E9E100F61BA3DD44A8C05ECCE7E59D40A7B3E",
-      "display": "foocoin",
-      "symbol": "FOO",
-      "ibc": {
-        "source_channel": "channel-35",
-        "dst_channel": "channel-1",
-        "source_denom": "ufoocoin"
-      },
+      "base": "uion",
+      "name": "Ion",
+      "display": "ion",
+      "symbol": "ION",
       "logo_URIs": {
-        "png": "ipfs://QmXfzKRvjZz3u5JRgC4v5mGVbm9ahrUiB4DgzHBsnWbTMM",
-        "svg": ""
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.svg"
       },
-      "keywords" [
-        "foo", "coin", "foocoin", "gas", "fee", "staking", "stake", "foobar", "fubar", "example"
+      "coingecko_id": "ion",
+      "keywords": [
+          "memecoin"
       ]
     }
   ]
