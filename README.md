@@ -217,6 +217,9 @@ A sample `chain.json` includes the following information.
   },
   "keywords" [
     "dex"
+  ],
+  "wallets": [
+    "keplr"
   ]
 }
 ```

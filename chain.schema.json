@@ -252,7 +252,92 @@
       "items": {
         "$ref": "#/$defs/explorer"
       }
+    },
+    "wallets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
+  },
+  "if": {
+    "properties": {
+      "wallets": {
+        "type": "array",
+        "contains": {
+          "type": "string",
+          "enum": [
+            "keplr"
+          ]
+        },
+        "minContains": 1
+      }
+    },
+    "required": [
+      "wallets"
+    ]
+  },
+  "then": {
+    "properties": {
+      "fees": {
+        "type": "object",
+        "properties": {
+          "fee_tokens": {
+            "type": "array",
+            "contains": {
+              "type": "object",
+              "required": [
+                "denom",
+                "low_gas_price",
+                "average_gas_price",
+                "high_gas_price"
+              ]
+            },
+            "minContains": 1
+          }
+        },
+        "required": [
+          "fee_tokens" 
+        ]
+      },
+      "staking": {
+        "type": "object",
+        "properties": {
+          "staking_tokens": {
+            "minContains": 1,
+            "maxContains": 1
+          }
+        },
+        "required": [
+          "staking_tokens" 
+        ]
+      },
+      "apis": {
+        "type": "object",
+        "properties": {
+          "rpc": {
+            "minContains": 1
+          },
+          "rest": {
+            "minContains": 1
+          }
+        }
+      },
+      "codebase": {
+        "required": [
+          "cosmos_sdk_version"
+        ]
+      }
+    },
+    "required": [
+      "chain_id",
+      "bech32_prefix",
+      "slip44",
+      "fees",
+      "staking",
+      "apis",
+      "codebase"
+    ]
   },
   "$defs": {
     "peer": {
