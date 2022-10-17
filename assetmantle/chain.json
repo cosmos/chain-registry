@@ -9,17 +9,24 @@
   "bech32_prefix": "mantle",
   "daemon_name": "mantleNode",
   "node_home": "$HOME/.mantleNode",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/AssetMantle/genesisTransactions/main/mantle-1/final_genesis.json"
-  },
   "codebase": {
     "git_repo": "https://github.com/AssetMantle/node.git",
     "recommended_version": "v0.3.0",
     "compatible_versions": [
       "v0.3.0"
-    ]
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/AssetMantle/genesisTransactions/main/mantle-1/final_genesis.json"
+    }
   },
   "peers": {
+    "seeds": [
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:14656",
+        "provider": "Polkachu"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "95a7b7eed1f5cd2894574bf0da4b884243e7d0f3",
@@ -338,6 +345,10 @@
       {
         "address": "https://rpc-assetmantle-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://rpc-assetmanle.d-stake.xyz",
+        "provider": "D-stake"
       }
     ],
     "rest": [
@@ -364,6 +375,10 @@
       {
         "address": "https://assetmantle-api.polkachu.com",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://api-assetmanle.d-stake.xyz",
+        "provider": "D-stake"
       }
     ],
     "grpc": [
@@ -378,6 +393,10 @@
       {
         "address": "assetmantle-grpc.polkachu.com:14690",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://grpc-assetmanle.d-stake.xyz",
+        "provider": "D-stake"
       }
     ]
   },

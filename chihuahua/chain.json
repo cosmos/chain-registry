@@ -9,13 +9,11 @@
   "bech32_prefix": "chihuahua",
   "daemon_name": "chihuahuad",
   "node_home": "$HOME/.chihuahua",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/ChihuahuaChain/chihuahua/main/mainnet/genesis.json"
-  },
   "fees": {
     "fee_tokens": [
       {
         "denom": "uhuahua",
+        "fixed_min_gas_price": 0,
         "low_gas_price": 1.0,
         "average_gas_price": 5.0,
         "high_gas_price": 10.0
@@ -31,10 +29,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/ChihuahuaChain/chihuahua/",
-    "recommended_version": "v2.0.2",
+    "recommended_version": "v2.2.2",
     "compatible_versions": [
-      "v2.0.1"
-    ]
+      "v2.2.2"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/ChihuahuaChain/chihuahua/main/mainnet/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
@@ -46,6 +47,11 @@
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:12956",
         "provider": "Polkachu"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:12956",
+        "provider": "Lavender.Five Nodes 🐝"
       }
     ],
     "persistent_peers": [
@@ -88,11 +94,6 @@
         "id": "a9640eb569620d1f7be018a9e1919b0357a18b8c",
         "address": "38.146.3.160:26656",
         "provider": "RHINO"
-      },
-      {
-        "id": "7e2239a0d4a0176fe4daf7a3fecd15ac663a8eb6",
-        "address": "144.91.126.23:26656",
-        "provider": "LavenderFive"
       }
     ]
   },
@@ -113,6 +114,10 @@
       {
         "address": "https://rpc-chihuahua-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://chihuahua-rpc.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
       }
     ],
     "rest": [
@@ -131,6 +136,10 @@
       {
         "address": "https://chihuahua-api.polkachu.com",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://chihuahua-api.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
       }
     ],
     "grpc": [
@@ -141,6 +150,10 @@
       {
         "address": "chihuahua-grpc.polkachu.com:12990",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://chihuahua-grpc.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
       }
     ]
   },

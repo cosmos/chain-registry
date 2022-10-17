@@ -9,9 +9,6 @@
   "bech32_prefix": "sif",
   "daemon_name": "sifnoded",
   "node_home": "$HOME/.sifnoded",
-  "genesis": {
-    "genesis_url": "https://github.com/Sifchain/networks/blob/master/betanet/sifchain-1/genesis.json.gz?raw=true"
-  },
   "codebase": {
     "git_repo": "https://github.com/Sifchain/sifnode.git",
     "recommended_version": "v0.16.0",
@@ -20,9 +17,24 @@
     ],
     "binaries": {
       "linux/amd64": "https://github.com/Sifchain/sifnode/releases/download/v0.16.0/sifnoded-v0.16.0-linux-amd64.zip"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/Sifchain/networks/blob/master/betanet/sifchain-1/genesis.json.gz?raw=true"
     }
   },
   "peers": {
+    "seeds": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "sifchain.mainnet.seed.autostake.net:26686",
+        "provider": "AutoStake.net"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:13256",
+        "provider": "Polkachu"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "0d4981bdaf4d5d73bad00af3b1fa9d699e4d3bc0",
@@ -55,6 +67,11 @@
       {
         "id": "9fbcb6bd5a7f20a716564157c4f6296d2faf5f64",
         "address": "18.138.208.95:26656"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "sifchain.mainnet.peer.autostake.net:26686",
+        "provider": "AutoStake.net"
       }
     ]
   },
@@ -85,6 +102,18 @@
       {
         "address": "https://rpc.sifchain.chaintools.tech/",
         "provider": "ChainTools"
+      },
+      {
+        "address": "https://sif-rpc.kleomed.es",
+        "provider": "Kleomedes"
+      },
+      {
+        "address": "https://sifchain-rpc.ibs.team/",
+        "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://rpc.sifchain.posthuman.digital",
+        "provider": "POSTHUMAN ꝏ DVS"
       }
     ],
     "grpc": [
@@ -98,6 +127,10 @@
       {
         "address": "sifchain-grpc.polkachu.com:13290",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://grpc.sifchain.posthuman.digital:443",
+        "provider": "POSTHUMAN ꝏ DVS"
       }
     ],
     "rest": [
@@ -123,6 +156,18 @@
       {
         "address": "https://sifchain-api.polkachu.com",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://sif-api.kleomed.es",
+        "provider": "Kleomedes"
+      },
+      {
+        "address": "https://sifchain-api.ibs.team/",
+        "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://lcd.sifchain.posthuman.digital",
+        "provider": "POSTHUMAN ꝏ DVS"
       }
     ]
   },

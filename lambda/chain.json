@@ -7,9 +7,6 @@
   "chain_id": "lambda_92000-1",
   "bech32_prefix": "lamb",
   "node_home": "$HOME/.lambdavm",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/LambdaIM/mainnet/main/lambda_92000-1/genesis.json"
-  },
   "daemon_name": "lambdavm",
   "slip44": 118,
   "fees": {
@@ -32,7 +29,12 @@
   "codebase": {
     "git_repo": "https://github.com/LambdaIM/lambdavm",
     "recommended_version": "v1.0.0",
-    "compatible_versions": ["v1.0.0"]
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/LambdaIM/mainnet/main/lambda_92000-1/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
@@ -55,24 +57,56 @@
       {
         "address": "https://rpc.lambda.im",
         "provider": "Lambda"
+      },
+      {
+        "address": "https://rpc.lambda.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://rpc-lambda.d-stake.xyz",
+        "provider": "D-stake"
       }
     ],
     "rest": [
       {
         "address": "https://rest.lambda.im",
         "provider": "Lambda"
+      },
+      {
+        "address": "https://api.lambda.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://api-lambda.d-stake.xyz",
+        "provider": "D-stake"
       }
     ],
     "grpc": [
       {
         "address": "https://grpc.lambda.im",
         "provider": "Lambda"
+      },
+      {
+        "address": "https://grpc.lambda.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://grpc-lambda.d-stake.xyz",
+        "provider": "D-stake"
       }
     ],
     "evm-http-jsonrpc": [
       {
         "address": "https://eth.lambda.im",
         "provider": "Lambda"
+      },
+      {
+        "address": "https://jsonrpc.lambda.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://jsonrpc-lambda.d-stake.xyz",
+        "provider": "D-stake"
       }
     ]
   },
@@ -81,6 +115,11 @@
       "kind": "blockscout",
       "url": "https://explorer.lambda.im/",
       "tx_page": "https://explorer.lambda.im/tx/${txHash}"
+    },
+    {
+      "kind": "NodeStake",
+      "url": "https://explorer.nodestake.top/lambda",
+      "tx_page": "https://explorer.nodestake.top/lambda/txs/${txHash}"
     }
   ]
 }

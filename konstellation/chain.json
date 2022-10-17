@@ -9,14 +9,22 @@
   "bech32_prefix": "darc",
   "daemon_name": "knstld",
   "node_home": "$HOME/.knstld",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/Konstellation/konstellation/master/config/genesis.json"
-  },
   "codebase": {
     "git_repo": "https://github.com/konstellation/konstellation",
     "recommended_version": "v0.5.0",
     "compatible_versions": [
       "v0.5.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/Konstellation/konstellation/master/config/genesis.json"
+    }
+  },
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "udarc",
+        "fixed_min_gas_price": 0
+      }
     ]
   },
   "peers": {
@@ -65,6 +73,21 @@
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:13356",
         "provider": "Polkachu"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:13356",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "099ea7cefa6ab8709b78f2491b147361ca2bf6a0",
+        "address": "seed-konstellation.starsquid.io:15612",
+        "provider": "Starsquid"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "konstellation.mainnet.seed.autostake.net:26826",
+        "provider": "AutoStake.net"
       }
     ],
     "persistent_peers": [
@@ -107,6 +130,11 @@
       {
         "id": "00f7f4506d84f9d1458201946e1194564b444ce0",
         "address": "node14.konstellation.tech:26656"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "konstellation.mainnet.peer.autostake.net:26826",
+        "provider": "AutoStake.net"
       }
     ]
   },
@@ -131,6 +159,10 @@
       {
         "address": "https://konstellation-rpc.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc-konstellation.starsquid.io",
+        "provider": "Starsquid"
       }
     ],
     "rest": [
@@ -149,6 +181,10 @@
       {
         "address": "https://konstellation-api.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://api-konstellation.starsquid.io",
+        "provider": "Starsquid"
       }
     ],
     "grpc": [
