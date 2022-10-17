@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "Cosmos Wallet",
+  "description": "Cosmos Wallet.json is a metadata file that contains information about a wallet of a specific platform and which chains it supports, either natively or via custom client-side addition.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "wallet_name": {
+      "type": "string",
+      "pattern": "[a-z]+"
+    },
+    "pretty_name": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string",
+      "format": "url"
+    },
+    "git_repo": {
+      "type": "string",
+      "format": "url"
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "desktop_browser_chrome",
+          "desktop_app",
+          "mobile_app"
+        ],
+        "minContains": 1
+      }
+    },
+    "supported_chains": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "chain": {
+            "type": "string",
+            "pattern": "[a-z]+"
+          },
+          "native": {
+            "type": "boolean"
+          },
+          "suggestible": {
+            "type": "boolean"
+          },
+        },
+        "additionalProperties": false,
+        "required": [
+          "chain",
+          "native"
+        ]
+      },
+      "minContains": 1
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "wallet_name",
+    "pretty_name",
+    "platforms",
+    "supported_chains"
+  ]
+}

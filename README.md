@@ -337,3 +337,30 @@ An example ibc metadata file contains the following structure:
   ]
 }
 ```
+
+## Wallet Data
+
+Wallet data contains information needed to allow dApps to associate wallets with chains.
+
+```
+{
+  "$schema": "../wallet.schema.json",
+  "wallet_name": "keplrbrowser",
+  "pretty_name": "Keplr Wallet (Desktop Browser)",
+  "website": "https://www.keplr.app/",
+  "platforms": [
+    "desktop_browser_chrome"
+  ],
+  "supported_chains": [
+    {
+      "chain": "cosmoshub",
+      "native": true
+    },
+    {
+      "chain": "osmosis",
+      "native": true,
+      "suggestible": true
+    }
+  ]
+}
+```
