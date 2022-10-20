@@ -9,14 +9,22 @@
   "bech32_prefix": "cerberus",
   "daemon_name": "cerberusd",
   "node_home": "$HOME/.cerberus",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/cerberus-zone/cerberus_genesis/main/genesis.json"
-  },
   "codebase": {
     "git_repo": "https://github.com/cerberus-zone/cerberus",
     "recommended_version": "v2.0.0",
     "compatible_versions": [
       "v2.0.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/cerberus-zone/cerberus_genesis/main/genesis.json"
+    }
+  },
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ucrbrus",
+        "fixed_min_gas_price": 0
+      }
     ]
   },
   "peers": {
@@ -25,6 +33,16 @@
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:13856",
         "provider": "Polkachu"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:13856",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "d94df4d4a17fa10834bb97853d91b501aa4abc4b",
+        "address": "cerberus-seed.panthea.eu:38656",
+        "provider": "Panthea EU"
       }
     ],
     "persistent_peers": [
@@ -88,6 +106,11 @@
       {
         "id": "f03e64d46713068da60b096d528053a57e0e5fec",
         "address": "157.90.36.33:29563"
+      },
+      {
+        "id": "ab4fe77e992354fb1c384e4eadbc05427446ada7",
+        "address": "cerberus-peer.panthea.eu:28656",
+        "provider": "Panthea EU"
       }
     ]
   },
@@ -110,12 +133,16 @@
         "provider": "Notional"
       },
       {
-        "address": "https://cerberus-rpc.panthea.eu",
-        "provider": "Panthea EU"
-      },
-      {
         "address": "https://cerberus-rpc.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://cerberus-rpc.kleomed.es",
+        "provider": "Kleomedes"
+      },
+      {
+        "address": "https://cerberus-rpc.panthea.eu",
+        "provider": "Panthea EU"
       }
     ],
     "rest": [
@@ -132,16 +159,20 @@
         "provider": "Notional"
       },
       {
-        "address": "https://cerberus-api.panthea.eu",
-        "provider": "Panthea EU"
-      },
-      {
         "address": "https://cerberus-api.polkachu.com",
         "provider": "Polkachu"
       },
       {
         "address": "https://cerberus-api.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://cerberus-api.kleomed.es",
+        "provider": "Kleomedes"
+      },
+      {
+        "address": "https://cerberus-api.panthea.eu",
+        "provider": "Panthea EU"
       }
     ],
     "grpc": [

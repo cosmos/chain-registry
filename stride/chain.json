@@ -8,10 +8,7 @@
   "chain_id": "stride-1",
   "bech32_prefix": "stride",
   "daemon_name": "strided",
-  "node_home": "$HOME/.strided",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/Stride-Labs/testnet/main/mainnet/genesis.json"
-  },
+  "node_home": "$HOME/.stride",
   "key_algos": [
     "ed25519"
   ],
@@ -29,13 +26,16 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Stride-Labs/stride",
-    "recommended_version": "v1.0.0",
+    "recommended_version": "v1.0.4",
     "binaries": {
-      "linux/amd64": "https://github.com/Stride-Labs/stride/releases/download/v1.0.0/strided-1.0.0-amd64",
-      "linux/arm64": "https://github.com/Stride-Labs/stride/releases/download/v1.0.0/strided-1.0.0-arm64"
+      "linux/amd64": "https://github.com/Stride-Labs/stride/releases/download/v1.0.4/strided-1.0.4-amd64",
+      "linux/arm64": "https://github.com/Stride-Labs/stride/releases/download/v1.0.4/strided-1.0.4-arm64"
     },
     "cosmos_sdk_version": "0.45.4",
-    "tendermint_version": "0.34.19"
+    "tendermint_version": "0.34.19",
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/Stride-Labs/testnet/main/mainnet/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
@@ -48,6 +48,16 @@
         "id": "cb91a11588d66cfd9c01f99541df4978a08e0e39",
         "address": "seedv1.main.stridenet.co:26656",
         "provider": "Stride"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:12256",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "stride.mainnet.seed.autostake.net:26886",
+        "provider": "AutoStake.net"
       }
     ],
     "persistent_peers": [
@@ -90,6 +100,11 @@
         "id": "9a65aeddaebe1d391058eae5b82e34907547ded1",
         "address": "alice.peers.stride.bh.rocks:46656",
         "provider": "BlockHunters"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "stride.mainnet.peer.autostake.net:26886",
+        "provider": "AutoStake.net"
       }
     ]
   },
@@ -118,6 +133,14 @@
       {
         "address": "https://rpc.stride.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://rpc-stride.d-stake.xyz",
+        "provider": "D-stake"
+      },
+      {
+        "address": "https://rpc.stride.silentvalidator.com/",
+        "provider": "silent"
       }
     ],
     "rest": [
@@ -144,6 +167,14 @@
       {
         "address": "https://api.stride.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://api-stride.d-stake.xyz",
+        "provider": "D-stake"
+      },
+      {
+        "address": "https://api.stride.silentvalidator.com/",
+        "provider": "silent"
       }
     ],
     "grpc": [
@@ -162,6 +193,18 @@
       {
         "address": "https://grpc.stride.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "http://grpc-stride.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://grpc-stride.d-stake.xyz",
+        "provider": "D-stake"
+      },
+      {
+        "address": "https://grpc.stride.silentvalidator.com/",
+        "provider": "silent"
       }
     ]
   },
