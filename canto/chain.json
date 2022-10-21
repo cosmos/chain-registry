@@ -7,15 +7,13 @@
   "chain_id": "canto_7700-1",
   "bech32_prefix": "canto",
   "node_home": "$HOME/.cantod",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/Canto-Network/Canto/genesis/Networks/Mainnet/genesis.json"
-  },
   "daemon_name": "cantod",
   "slip44": 60,
   "fees": {
     "fee_tokens": [
       {
         "denom": "acanto",
+        "fixed_min_gas_price": 0,
         "low_gas_price": 10000000000,
         "average_gas_price": 25000000000,
         "high_gas_price": 40000000000
@@ -34,7 +32,10 @@
     "recommended_version": "v2.0.0",
     "compatible_versions": [
       "v2.0.0"
-    ]
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/Canto-Network/Canto/genesis/Networks/Mainnet/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
@@ -99,6 +100,10 @@
       {
         "address": "https://canto-rpc.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc.canto.silentvalidator.com/",
+        "provider": "silent"
       }
     ],
     "rest": [
@@ -117,6 +122,10 @@
       {
         "address": "https://canto-api.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://api.canto.silentvalidator.com/",
+        "provider": "silent"
       }
     ],
     "grpc": [
@@ -131,6 +140,10 @@
       {
         "address": "https://canto-grpc.lavenderfive.com:443/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://grpc.canto.silentvalidator.com/",
+        "provider": "silent"
       }
     ],
     "evm-http-jsonrpc": [
@@ -145,6 +158,10 @@
       {
         "address": "https://jsonrpc.canto.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://evm-rpc.canto.silentvalidator.com/",
+        "provider": "silent"
       }
     ]
   },

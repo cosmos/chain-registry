@@ -9,15 +9,23 @@
   "daemon_name": "omniflixhubd",
   "node_home": "$HOME/.omniflixhub",
   "bech32_prefix": "omniflix",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/OmniFlix/mainnet/main/omniflixhub-1/genesis.json"
-  },
   "slip44": 118,
   "codebase": {
     "git_repo": "https://github.com/OmniFlix/omniflixhub",
-    "recommended_version": "v0.4.1",
+    "recommended_version": "v0.4.2",
     "compatible_versions": [
-      "v0.4.1"
+      "v0.4.2"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/OmniFlix/mainnet/main/omniflixhub-1/genesis.json"
+    }
+  },
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uflix",
+        "fixed_min_gas_price": 0
+      }
     ]
   },
   "peers": {
@@ -76,7 +84,19 @@
       {
         "address": "https://omniflix-rpc.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
-      }
+      },
+      {
+        "address": "https://rpc-omniflix.huginn.tech:443",
+        "provider": "Huginn"
+      },
+      {
+        "address": "https://rpc.omniflix.silentvalidator.com/",
+        "provider": "silent"
+      },
+      {
+        "address": "https://omniflix.nodejumper.io",
+        "provider": "Nodejumper 🚀"
+      }      
     ],
     "rest": [
       {
@@ -98,7 +118,19 @@
       {
         "address": "https://omniflix-api.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
-      }
+      },
+      {
+        "address": "https://api.omniflix.huginn.tech:443",
+        "provider": "Huginn"
+      },
+      {
+        "address": "https://api.omniflix.silentvalidator.com/",
+        "provider": "silent"
+      },
+      {
+        "address": "https://omniflix.nodejumper.io:1317",
+        "provider": "Nodejumper 🚀"
+      }        
     ],
     "grpc": [
       {
@@ -112,7 +144,15 @@
       {
         "address": "https://omniflix-grpc.lavenderfive.com:443/",
         "provider": "Lavender.Five Nodes 🐝"
-      }
+      },
+      {
+        "address": "https://grpc.omniflix.silentvalidator.com/",
+        "provider": "silent"
+      },
+      {
+        "address": "https://omniflix.nodejumper.io:9090",
+        "provider": "Nodejumper 🚀"
+      }         
     ]
   },
   "explorers": [
