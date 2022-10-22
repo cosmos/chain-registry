@@ -27,34 +27,21 @@
       "items": {
         "type": "string",
         "enum": [
-          "desktop_browser_chrome",
+          "browser_extension",
           "desktop_app",
           "mobile_app"
         ],
         "minContains": 1
       }
     },
+    "has_suggest_feature": {
+      "type": "boolean"
+    },
     "supported_chains": {
       "type": "array",
       "items": {
-        "type": "object",
-        "properties": {
-          "chain": {
-            "type": "string",
-            "pattern": "[a-z]+"
-          },
-          "native": {
-            "type": "boolean"
-          },
-          "suggestible": {
-            "type": "boolean"
-          },
-        },
-        "additionalProperties": false,
-        "required": [
-          "chain",
-          "native"
-        ]
+        "type": "string",
+        "pattern": "[a-z]+"
       },
       "minContains": 1
     }

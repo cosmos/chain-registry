@@ -344,23 +344,17 @@ Wallet data contains information needed to allow dApps to associate wallets with
 
 ```
 {
-  "$schema": "../wallet.schema.json",
-  "wallet_name": "keplrbrowser",
-  "pretty_name": "Keplr Wallet (Desktop Browser)",
+  "$schema": "./wallet.schema.json",
+  "wallet_name": "keplrextension",
+  "pretty_name": "Keplr Wallet (Browser Extension)",
   "website": "https://www.keplr.app/",
   "platforms": [
-    "desktop_browser_chrome"
+    "browser_extension"
   ],
+  "has_suggest_feature": true,
   "supported_chains": [
-    {
-      "chain": "cosmoshub",
-      "native": true
-    },
-    {
-      "chain": "osmosis",
-      "native": true,
-      "suggestible": true
-    }
+    "cosmoshub",
+    "osmosis"
   ]
 }
 ```
