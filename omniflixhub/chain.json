@@ -12,13 +12,21 @@
   "slip44": 118,
   "codebase": {
     "git_repo": "https://github.com/OmniFlix/omniflixhub",
-    "recommended_version": "v0.4.1",
+    "recommended_version": "v0.4.2",
     "compatible_versions": [
-      "v0.4.1"
+      "v0.4.2"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/OmniFlix/mainnet/main/omniflixhub-1/genesis.json"
     }
+  },
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uflix",
+        "fixed_min_gas_price": 0
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -84,7 +92,11 @@
       {
         "address": "https://rpc.omniflix.silentvalidator.com/",
         "provider": "silent"
-      }
+      },
+      {
+        "address": "https://omniflix.nodejumper.io",
+        "provider": "Nodejumper 🚀"
+      }      
     ],
     "rest": [
       {
@@ -114,7 +126,11 @@
       {
         "address": "https://api.omniflix.silentvalidator.com/",
         "provider": "silent"
-      }
+      },
+      {
+        "address": "https://omniflix.nodejumper.io:1317",
+        "provider": "Nodejumper 🚀"
+      }        
     ],
     "grpc": [
       {
@@ -132,10 +148,19 @@
       {
         "address": "https://grpc.omniflix.silentvalidator.com/",
         "provider": "silent"
-      }
+      },
+      {
+        "address": "https://omniflix.nodejumper.io:9090",
+        "provider": "Nodejumper 🚀"
+      }         
     ]
   },
   "explorers": [
+    {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/omniflixhub",
+      "tx_page": "https://ezstaking.tools/omniflixhub/txs/${txHash}"
+    },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/omniflix",

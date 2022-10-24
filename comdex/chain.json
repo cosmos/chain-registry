@@ -8,11 +8,19 @@
   "chain_id": "comdex-1",
   "bech32_prefix": "comdex",
   "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ucmdx",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
   "codebase": {
     "git_repo": "https://github.com/comdex-official/comdex",
-    "recommended_version": "v0.1.1",
+    "recommended_version": "v0.1.3",
     "compatible_versions": [
-      "v0.1.1"
+      "v0.1.3"
     ],
     "genesis": {
       "genesis_url": "https://comdex-mainnet-genesis.s3.ap-southeast-1.amazonaws.com/genesis.json"
@@ -116,10 +124,6 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://rpc.comdex.ezstaking.io",
-        "provider": "EZStaking.io"
-      },
-      {
         "address": "https://rpc-comdex-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
       },
@@ -148,10 +152,6 @@
       {
         "address": "https://api-comdex.zenchainlabs.io/",
         "provider": "zenchainlabs"
-      },
-      {
-        "address": "https://lcd.comdex.ezstaking.io",
-        "provider": "EZStaking.io"
       },
       {
         "address": "https://api-comdex-ia.cosmosia.notional.ventures/",
@@ -190,6 +190,11 @@
     ]
   },
   "explorers": [
+    {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/comdex",
+      "tx_page": "https://ezstaking.tools/comdex/txs/${txHash}"
+    },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/comdex",

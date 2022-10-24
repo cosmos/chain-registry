@@ -28,9 +28,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/TERITORI/teritori-chain",
-    "recommended_version": "v1.1.2",
+    "recommended_version": "v1.2.0",
     "compatible_versions": [
-      "v1.1.2"
+      "v1.2.0"
     ],
     "genesis": {
       "genesis_url": "https://github.com/TERITORI/teritori-chain/raw/mainnet/mainnet/teritori-1/genesis.json"
@@ -42,6 +42,11 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:15956",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "f97a75fb69d3a5fe893dca7c8d238ccc0bd66a8f",
+        "address": "teritori-seed.p2p.brocha.in:30551",
+        "provider": "Brochain"
       }
     ],
     "persistent_peers": [
@@ -78,7 +83,15 @@
       {
         "address": "https://rpc.teritori.silentvalidator.com/",
         "provider": "silent"
-      }
+      },
+      {
+        "address": "https://teritori-rpc.brocha.in",
+        "provider": "Brochain"
+      },
+      {
+        "address": "https://teritori.nodejumper.io",
+        "provider": "Nodejumper 🚀"
+      }      
     ],
     "rest": [
       {
@@ -100,7 +113,15 @@
       {
         "address": "https://api.teritori.silentvalidator.com/",
         "provider": "silent"
-      }
+      },
+      {
+        "address": "https://teritori-rest.brocha.in",
+        "provider": "Brochain"
+      },
+      {
+        "address": "https://teritori.nodejumper.io:1317",
+        "provider": "Nodejumper 🚀"
+      }         
     ],
     "grpc": [
       {
@@ -118,10 +139,19 @@
       {
         "address": "https://grpc.teritori.silentvalidator.com/",
         "provider": "silent"
-      }
+      },
+      {
+        "address": "https://teritori.nodejumper.io:9090",
+        "provider": "Nodejumper 🚀"
+      }      
     ]
   },
   "explorers": [
+    {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/teritori",
+      "tx_page": "https://ezstaking.tools/teritori/txs/${txHash}"
+    },
     {
       "kind": "ping.pub",
       "url": "https://explorer.teritori.com/teritori",
@@ -136,6 +166,11 @@
       "kind": "Nodeist",
       "url": "https://exp.nodeist.net",
       "tx_page": "https://exp.nodeist.net/M-Teritori/tx/${txHash}"
+    },
+    {
+      "kind": "Brochain",
+      "url": "https://explorer.brocha.in/teritori",
+      "tx_page": "https://explorer.brocha.in/teritori/tx/${txHash}"
     }
   ]
 }
