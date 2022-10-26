@@ -7,15 +7,13 @@
   "chain_id": "canto_7700-1",
   "bech32_prefix": "canto",
   "node_home": "$HOME/.cantod",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/Canto-Network/Canto/genesis/Networks/Mainnet/genesis.json"
-  },
   "daemon_name": "cantod",
   "slip44": 60,
   "fees": {
     "fee_tokens": [
       {
         "denom": "acanto",
+        "fixed_min_gas_price": 0,
         "low_gas_price": 10000000000,
         "average_gas_price": 25000000000,
         "high_gas_price": 40000000000
@@ -24,9 +22,9 @@
   },
   "staking": {
     "staking_tokens": [
-        {
-            "denom": "acanto"
-        }
+      {
+        "denom": "acanto"
+      }
     ]
   },
   "codebase": {
@@ -34,7 +32,10 @@
     "recommended_version": "v2.0.0",
     "compatible_versions": [
       "v2.0.0"
-    ]
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/Canto-Network/Canto/genesis/Networks/Mainnet/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
@@ -59,9 +60,19 @@
         "provider": "Unknown"
       },
       {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:15556",
+        "provider": "Polkachu"
+      },
+      {
         "id": "706e81c8c99e5d0cf37432df5f972818339f19b5",
         "address": "34.122.124.28:26656",
         "provider": "Unknown"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:15556",
+        "provider": "Lavender.Five Nodes 🐝"
       }
     ],
     "persistent_peers": [
@@ -81,6 +92,18 @@
       {
         "address": "https://rpc.canto.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://canto-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://canto-rpc.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc.canto.silentvalidator.com/",
+        "provider": "silent"
       }
     ],
     "rest": [
@@ -91,16 +114,36 @@
       {
         "address": "https://api.canto.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://canto-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://canto-api.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://api.canto.silentvalidator.com/",
+        "provider": "silent"
       }
     ],
     "grpc": [
       {
-        "address": "canto-grpc.polkachu.com:55090",
+        "address": "canto-grpc.polkachu.com:15590",
         "provider": "Polkachu"
       },
       {
         "address": "https://grpc.canto.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://canto-grpc.lavenderfive.com:443/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://grpc.canto.silentvalidator.com/",
+        "provider": "silent"
       }
     ],
     "evm-http-jsonrpc": [
@@ -115,6 +158,10 @@
       {
         "address": "https://jsonrpc.canto.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://evm-rpc.canto.silentvalidator.com/",
+        "provider": "silent"
       }
     ]
   },

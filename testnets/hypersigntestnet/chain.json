@@ -1,0 +1,74 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "hypersigntestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "hypersign",
+  "chain_id": "jagrat",
+  "bech32_prefix": "hid",
+  "daemon_name": "hid-noded",
+  "node_home": "$HOME/.hid-node",
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uhid",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0.02,
+        "high_gas_price": 0.05
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/hypersign-protocol/hid-node",
+    "recommended_version": "v0.1.2",
+    "compatible_versions": [
+      "v0.1.2"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/hypersign-protocol/hid-node/releases/download/v0.1.2/hid-noded-0.1.2-linux-amd64.tar.gz",
+      "linux/arm64": "https://github.com/hypersign-protocol/hid-node/releases/download/v0.1.2/hid-noded-0.1.2-linux-arm64.tar.gz",
+      "darwin/arm64": "https://github.com/hypersign-protocol/hid-node/releases/download/v0.1.2/hid-noded-0.1.2-darwin-arm64.tar.gz"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/hypersign-protocol/networks/master/testnet/jagrat/final_genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "7991e99ee8c05906a2161d8b47d826240da5c5d2",
+        "address": "network.jagart.hypersign.id:26656",
+        "provider": "hypersign"
+      },
+      {
+        "id": "4625d4f9aa5034579134bdd551b6b54ee2b48c6a",
+        "address": "network.jagart.hypersign.id:26656",
+        "provider": "hypersign"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://jagrat.hypersign.id/rpc",
+        "provider": "hypersign"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://jagrat.hypersign.id/rest",
+        "provider": "hypersign"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Ping Pub",
+      "url": "https://explorer.hypersign.id/hypersign-testnet",
+      "tx_page": "https://explorer.hypersign.id/hypersign-testnet/tx/${txHash}"
+    }
+  ]
+}

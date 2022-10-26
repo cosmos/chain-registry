@@ -13,10 +13,10 @@ def checkUpdate():
             current = json.load(open(os.path.join(rootdir, chainjson)))
         
         #Safeguard for updatelink being 0
-            if current['updatelink'] == None:
+            if current['update_link'] == None:
                 continue
         
-            URL = current["updatelink"]
+            URL = current["update_link"]
             chain_data_holder = requests.get("" + URL + "")
             response = json.loads(chain_data_holder.text)
             chaindata = response["codebase"]
@@ -26,7 +26,7 @@ def checkUpdate():
                 #Add conditional checkers for if various fields that are non-modifiable have been modified.
                 current["codebase"] = chaindata
                 with open(os.path.join(rootdir, chainjson), 'w', encoding='utf-8') as f:
-                    json.dump(current, f, ensure_ascii=False, indent=4)
+                    json.dump(current, f, ensure_ascii=False, indent=2)
                 return True
             else:
                 print("No update needed for " + chainjson)

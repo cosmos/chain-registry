@@ -3,24 +3,29 @@
   "chain_name": "shentu",
   "status": "live",
   "network_type": "mainnet",
+  "website": "https://www.shentu.technology/",
   "pretty_name": "Shentu",
   "chain_id": "shentu-2.2",
   "bech32_prefix": "certik",
   "daemon_name": "certik",
   "node_home": "$HOME/.certik",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/ShentuChain/mainnet/main/shentu-2.2/genesis.json"
-  },
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "codebase": {
     "git_repo": "https://github.com/ShentuChain/shentu",
     "recommended_version": "v2.4.0",
-    "compatible_versions": ["v2.4.0"],
+    "compatible_versions": [
+      "v2.4.0"
+    ],
     "binaries": {
       "linux/amd64": "https://github.com/ShentuChain/shentu/releases/download/v2.4.0/certik_2.4.0.linux_amd64",
       "darwin/amd64": "https://github.com/ShentuChain/shentu/releases/download/v2.4.0/certik_2.4.0_arm64_macos",
       "windows/amd64": "https://github.com/ShentuChain/shentu/releases/download/v2.4.0/certik_2.4.0_win_x86_64.exe"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/ShentuChain/mainnet/main/shentu-2.2/genesis.json"
     }
   },
   "peers": {
@@ -39,6 +44,21 @@
         "id": "f42be55f76b7d3425f493e54d043e65bfc6f43cb",
         "address": "54.227.66.150:26656",
         "provider": "Shentu"
+      },
+      {
+        "id": "6efbe63017c90cb3e52ae78ba1014ec66516d08c",
+        "address": "seed-shentu.starsquid.io:15604",
+        "provider": "Starsquid"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:14056",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "3edd4e16b791218b623f883d04f8aa5c3ff2cca6",
+        "address": "shentu-seed.panthea.eu:36656",
+        "provider": "Panthea EU"
       }
     ],
     "persistent_peers": [
@@ -56,6 +76,11 @@
         "id": "f42be55f76b7d3425f493e54d043e65bfc6f43cb",
         "address": "54.227.66.150:26656",
         "provider": "Shentu"
+      },
+      {
+        "id": "207c47bed435e4174844064ef3f51ca35b059de2",
+        "address": "shentu-peer.panthea.eu:26656",
+        "provider": "Panthea EU"
       }
     ]
   },
@@ -68,6 +93,14 @@
       {
         "address": "https://shentu-rpc.panthea.eu",
         "provider": "Panthea EU"
+      },
+      {
+        "address": "https://certik-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://rpc-shentu.starsquid.io",
+        "provider": "Starsquid"
       }
     ],
     "rest": [
@@ -78,10 +111,29 @@
       {
         "address": "https://shentu-api.panthea.eu",
         "provider": "Panthea EU"
+      },
+      {
+        "address": "https://certik-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://api-shentu.starsquid.io",
+        "provider": "Starsquid"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "certik-grpc.polkachu.com:14090",
+        "provider": "Polkachu"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/shentu",
+      "tx_page": "https://ezstaking.tools/shentu/txs/${txHash}"
+    },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/certik",

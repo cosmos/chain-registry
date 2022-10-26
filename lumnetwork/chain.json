@@ -1,116 +1,158 @@
 {
-    "$schema": "../chain.schema.json",
-    "chain_name": "lumnetwork",
-    "status": "live",
-    "network_type": "mainnet",
-    "pretty_name": "Lum Network",
-    "chain_id": "lum-network-1",
-    "bech32_prefix": "lum",
-    "daemon_name": "lumd",
-    "node_home": "$HOME/.lumd",
-    "genesis": {
-        "genesis_url": "https://raw.githubusercontent.com/lum-network/mainnet/master/genesis.json"
-    },
-    "key_algos": ["secp256k1"],
-    "slip44": 880,
-    "fees": {
-        "fee_tokens": [
-            {
-                "denom": "ulum",
-                "fixed_min_gas_price": 0.001
-            }
-        ]
-    },
-    "codebase": {
-        "git_repo": "https://github.com/lum-network/chain",
-        "recommended_version": "v1.0.5",
-        "compatible_versions": ["v1.0.5"]
-    },
-    "peers": {
-        "seeds": [
-            {
-                "id": "19ad16527c98b782ee35df56b65a3a251bd99971",
-                "address": "peer-1.mainnet.lum.network:26656",
-                "provider": "lum foundation"
-            }
-        ],
-        "persistent_peers": [
-            {
-                "id": "b47626b9d78ed7ed3c413304387026f907c70cbe",
-                "address": "peer-0.mainnet.lum.network:26656",
-                "provider": "lum foundation"
-            },
-            {
-                "id": "e12fcc7d9fc9b8b2901aec950f161418794cccf0",
-                "address": "65.108.77.38:26656",
-                "provider": "everstake"
-            },
-            {
-                "id": "4166de0e7721b6eec9c776abf2c38c40e7f820c5",
-                "address": "202.61.239.130:26656",
-                "provider": "stakecito"
-            },
-            {
-                "id": "fbaeeff89ec94a4f6c4a2a61e24af7d06b3be0c8",
-                "address": "46.166.140.180:26656",
-                "provider": "simply staking"
-            },
-            {
-                "id": "5a29947212a2615e43dac54deb55356a162e173a",
-                "address": "35.181.76.160:26656",
-                "provider": "imperator"
-            },
-            {
-                "id": "5ea36d78ae774c9086c2d3fc8b91f12aa4bf3029",
-                "address": "46.101.251.76:26656",
-                "provider": "cryptocrew"
-            },
-            {
-                "id": "433c60a5bc0a693484b7af26208922b84773117e",
-                "address": "34.209.132.0:26656",
-                "provider": "cosmostation"
-            },
-            {
-                "id": "9afac13ba62fbfaf8d06867c30007162511093c0",
-                "address": "54.214.134.223:26656",
-                "provider": "cosmostation"
-            }
-        ]
-    },
-    "apis": {
-        "rpc": [
-            {
-                "address": "https://node0.mainnet.lum.network/rpc",
-                "provider": "Lum Foundation"
-            }
-        ],
-        "rest": [
-            {
-                "address": "https://node0.mainnet.lum.network/rest",
-                "provider": "Lum Foundation"
-            }
-        ]
-    },
-    "explorers": [
-        {
-            "kind": "mintscan",
-            "url": "https://www.mintscan.io/lum",
-            "tx_page": "https://www.mintscan.io/lum/txs/${txHash}"
-        },
-        {
-            "kind": "lum-network",
-            "url": "https://explorer.lum.network",
-            "tx_page": "https://explorer.lum.network/txs/${txHash}"
-        },
-        {
-            "kind": "ping-pub",
-            "url": "https://ping.pub/lum-network",
-            "tx_page": "https://ping.pub/lum-network/tx/${txHash}"
-        },
-        {
-          "kind": "atomscan",
-          "url": "https://atomscan.com/lum-network",
-          "tx_page": "https://atomscan.com/lum-network/transactions/${txHash}"
-        }
+  "$schema": "../chain.schema.json",
+  "chain_name": "lumnetwork",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://lum.network/",
+  "pretty_name": "Lum Network",
+  "chain_id": "lum-network-1",
+  "bech32_prefix": "lum",
+  "daemon_name": "lumd",
+  "node_home": "$HOME/.lumd",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 880,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ulum",
+        "fixed_min_gas_price": 0.001
+      }
     ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/lum-network/chain",
+    "recommended_version": "v1.2.1",
+    "compatible_versions": [
+      "v1.2.1"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/lum-network/mainnet/master/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "19ad16527c98b782ee35df56b65a3a251bd99971",
+        "address": "peer-1.mainnet.lum.network:26656",
+        "provider": "lum foundation"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:16756",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "6e73250b636b55e8c1033ba96c14b9cc6d45958c",
+        "address": "seed-lum.starsquid.io:15608",
+        "provider": "Starsquid"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "b47626b9d78ed7ed3c413304387026f907c70cbe",
+        "address": "peer-0.mainnet.lum.network:26656",
+        "provider": "lum foundation"
+      },
+      {
+        "id": "e12fcc7d9fc9b8b2901aec950f161418794cccf0",
+        "address": "65.108.77.38:26656",
+        "provider": "everstake"
+      },
+      {
+        "id": "4166de0e7721b6eec9c776abf2c38c40e7f820c5",
+        "address": "202.61.239.130:26656",
+        "provider": "stakecito"
+      },
+      {
+        "id": "fbaeeff89ec94a4f6c4a2a61e24af7d06b3be0c8",
+        "address": "46.166.140.180:26656",
+        "provider": "simply staking"
+      },
+      {
+        "id": "5a29947212a2615e43dac54deb55356a162e173a",
+        "address": "35.181.76.160:26656",
+        "provider": "imperator"
+      },
+      {
+        "id": "5ea36d78ae774c9086c2d3fc8b91f12aa4bf3029",
+        "address": "46.101.251.76:26656",
+        "provider": "cryptocrew"
+      },
+      {
+        "id": "433c60a5bc0a693484b7af26208922b84773117e",
+        "address": "34.209.132.0:26656",
+        "provider": "cosmostation"
+      },
+      {
+        "id": "9afac13ba62fbfaf8d06867c30007162511093c0",
+        "address": "54.214.134.223:26656",
+        "provider": "cosmostation"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://node0.mainnet.lum.network/rpc",
+        "provider": "Lum Foundation"
+      },
+      {
+        "address": "https://lum-rpc.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc-lum.starsquid.io",
+        "provider": "Starsquid"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://node0.mainnet.lum.network/rest",
+        "provider": "Lum Foundation"
+      },
+      {
+        "address": "https://lum-api.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://api-lum.starsquid.io",
+        "provider": "Starsquid"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://lum-grpc.lavenderfive.com:443/",
+        "provider": "Lavender.Five Nodes 🐝"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/lumnetwork",
+      "tx_page": "https://ezstaking.tools/lumnetwork/txs/${txHash}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/lum",
+      "tx_page": "https://www.mintscan.io/lum/txs/${txHash}"
+    },
+    {
+      "kind": "lum-network",
+      "url": "https://explorer.lum.network",
+      "tx_page": "https://explorer.lum.network/txs/${txHash}"
+    },
+    {
+      "kind": "ping-pub",
+      "url": "https://ping.pub/lum-network",
+      "tx_page": "https://ping.pub/lum-network/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/lum-network",
+      "tx_page": "https://atomscan.com/lum-network/transactions/${txHash}"
+    }
+  ]
 }
