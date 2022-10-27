@@ -1,0 +1,99 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "jackal",
+  "chain_id": "jackal-1",
+  "website": "https://jackalprotocol.com",
+  "pretty_name": "Jackal",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "jkl",
+  "daemon_name": "canined",
+  "node_home": "$HOME/.canine",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ujkl",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/JackalLabs/canine-chain",
+    "recommended_version": "v1.1.0",
+    "compatible_versions": [
+      "v1.1.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.1.0/canined-Linux",
+      "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.1.0/canined-macOS"
+    },
+    "genesis": {
+      "genesis_url": "https://jackaldao.com/wp-content/uploads/2022/10/genesis-final.txt"
+    }
+  },
+  "peers": {
+    "seeds": [
+      { 
+        "id": "fda1f87472c9c2ee89a0ba36a9a9cc38f96e283a",
+        "address": "198.244.212.27:26656"
+      }
+    ],
+    "persistent_peers": [
+      { 
+        "id": "fda1f87472c9c2ee89a0ba36a9a9cc38f96e283a",
+        "address": "198.244.212.27:26656"
+      },
+      { 
+        "id": "d8203bad2c26883c7fb8be1d259a098a273f0840",
+        "address": "135.181.20.44:2506"
+      },
+      { 
+        "id": "53300f221a72ba385f86ca42709a46413d47f5b0",
+        "address": "pve7.badgerbite.io:36657"
+      },
+      { 
+        "id": "fa0d8085abaf34d9a2349bef0b19dff6f89013b5",
+        "address": "209.34.206.38:26656"
+      },
+      { 
+        "id": "0ab9ec918cd36a28be1fcf538f7f76ede2b81659",
+        "address": "89.58.38.59:26656"
+      },
+      { 
+        "id": "2af06d39d68345d41cd16182e3472d96c5a0150b",
+        "address": "136.244.29.116:27656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.jackalprotocol.com",
+        "provider": "Jackal Labs"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.jackalprotocol.com",
+        "provider": "Jackal Labs"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.jackalprotocol.com",
+        "provider": "Jackal Labs"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping-pub",
+      "url": "https://ping.pub/jackal",
+      "tx_page": "https://ping.pub/jackal/tx/${txHash}"
+    }
+  ]
+}
