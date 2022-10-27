@@ -1,0 +1,73 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "unification",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://unification.com/",
+  "pretty_name": "Unification",
+  "chain_id": "FUND-MainNet-2",
+  "bech32_prefix": "und",
+  "daemon_name": "und",
+  "node_home": "$HOME/.und_mainchain",
+  "slip44": 5555,
+  "codebase": {
+    "git_repo": "https://github.com/unification-com/mainchain",
+    "recommended_version": "v1.6.3",
+    "compatible_versions": [
+      "v1.6.3"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/unification-com/mainchain/releases/download/v1.6.3/und_v1.6.3_linux_x86_64.tar.gz"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/unification-com/mainnet/master/latest/genesis.json > $HOME/.und_mainchain/config/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "0c2b65bc604a18a490f5f55bb7b4140cfb512ced",
+        "address": "seed1.unification.io:26656"
+      },
+      {
+        "id": "e66e0f89af19da09f676c85b262d591b8c2bb9d8",
+        "address": "seed2.unification.io:26656"
+      }
+    ],
+    "persistent_peers": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc1.unification.io:443",
+        "provider": "Unification"
+      },
+      {
+        "address": "https://rpc.unification.chainmasters.ninja/",
+        "provider": "Chainmasters"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.unification.io",
+        "provider": "Unification"
+      },
+      {
+        "address": "https://rest.unification.chainmasters.ninja/",
+        "provider": "Chainmasters"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "bigdipper",
+      "url": "https://explorer.unification.io/",
+      "tx_page": "https://explorer.unification.io/transactions/${txHash}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer.unification.chainmasters.ninja/unification",
+      "tx_page": "https://explorer.unification.chainmasters.ninja/unification/tx/${txHash}"
+    }
+  ]
+}
