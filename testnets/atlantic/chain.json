@@ -30,17 +30,34 @@
       "genesis_url": "https://raw.githubusercontent.com/sei-protocol/testnet/main/sei-incentivized-testnet/genesis.json"
     }
   },
+  "peers": {
+    "seeds": [
+      {
+        "id": "f97a75fb69d3a5fe893dca7c8d238ccc0bd66a8f",
+        "address": "sei-testnet-seed.p2p.brocha.in:30514",
+        "provider": "Brochain"
+      }
+    ]
+  },
   "apis": {
     "rpc": [
       {
         "address": "https://rpc-sei-test.ecostake.com",
         "provider": "ecostake"
+      },
+      {
+        "address": "https://sei-testnet-rpc.brocha.in",
+        "provider": "Brochain"
       }
     ],
     "rest": [
       {
         "address": "https://rest-sei-test.ecostake.com",
         "provider": "ecostake"
+      },
+      {
+        "address": "https://sei-testnet-rest.brocha.in",
+        "provider": "Brochain"
       }
     ]
   },
@@ -49,6 +66,11 @@
       "kind": "explorers.guru",
       "url": "https://sei.explorers.guru",
       "tx_page": "https://sei.explorers.guru/transaction/${txHash}"
+    },
+    {
+      "kind": "Brochain",
+      "url": "https://testnet-explorer.brocha.in/sei",
+      "tx_page": "https://testnet-explorer.brocha.in/sei/tx/${txHash}"
     }
   ]
 }
