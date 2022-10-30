@@ -3,34 +3,51 @@
   "chain_name": "agoric",
   "status": "live",
   "network_type": "mainnet",
+  "website": "https://agoric.com/",
   "pretty_name": "Agoric",
   "chain_id": "agoric-3",
   "bech32_prefix": "agoric",
   "daemon_name": "ag0",
   "node_home": "$HOME/.agoric",
-  "genesis": {
-    "genesis_url": "https://main.agoric.net/genesis.json"
-  },
   "slip44": 564,
   "explorers": [
     {
-      "name": "agoric-big-dipper",
-      "url": "https://main.explorer.agoric.net/"
+      "name": "bigdipper",
+      "url": "https://agoric.bigdipper.live/",
+      "tx_page": "https://agoric.bigdipper.live/transactions/${txHash}",
+      "account_page": "https://agoric.bigdipper.live/accounts/${accountAddress}"
     },
     {
       "name": "explorers.guru",
-      "url": "https://agoric.explorers.guru"
+      "url": "https://agoric.explorers.guru",
+      "tx_page": "https://agoric.explorers.guru/transaction/${txHash}",
+      "account_page": "https://agoric.explorers.guru/account/${accountAddress}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/agoric/",
+      "tx_page": "https://atomscan.com/agoric/transactions/${txHash}",
+      "account_page": "https://atomscan.com/agoric/accounts/${accountAddress}"
     }
   ],
   "codebase": {
     "git_repo": "https://github.com/Agoric/ag0/",
-    "recommended_version": "agoric-3.1",
+    "recommended_version": "agoric-upgrade-7",
     "compatible_versions": [
-      "agoric-3.1"
-    ]
+      "agoric-upgrade-7"
+    ],
+    "genesis": {
+      "genesis_url": "https://main.agoric.net/genesis.json"
+    }
   },
   "peers": {
-    "seeds": [],
+    "seeds": [
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:14456",
+        "provider": "Polkachu"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "a26158a5cbb1df581dd6843ac427191af76d6d5d",
@@ -63,20 +80,21 @@
       {
         "address": "https://api.agoric.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://agoric-api.polkachu.com",
+        "provider": "Polkachu"
       }
     ],
     "grpc": [
       {
         "address": "https://grpc.agoric.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "agoric-grpc.polkachu.com:14490",
+        "provider": "Polkachu"
       }
     ]
-  },
-  "explorers": [
-      {
-        "kind": "explorers.guru",
-        "url": "https://agoric.explorers.guru/",
-        "tx_page": "https://agoric.explorers.guru/transaction/{txHash}"
-      }
-   ]
+  }
 }

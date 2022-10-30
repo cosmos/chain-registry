@@ -8,9 +8,6 @@
   "bech32_prefix": "meme",
   "daemon_name": "memed",
   "node_home": "$HOME/.memed",
-  "genesis": {
-    "genesis_url": "https://github.com/memecosmos/mainnet/raw/main/meme-1/genesis.json"
-  },
   "key_algos": [
     "secp256k1"
   ],
@@ -19,7 +16,17 @@
     "fee_tokens": [
       {
         "denom": "umeme",
-        "fixed_min_gas_price": 0.025
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.035
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "umeme"
       }
     ]
   },
@@ -28,7 +35,10 @@
     "recommended_version": "v1.0.0",
     "compatible_versions": [
       "v1.0.0"
-    ]
+    ],
+    "genesis": {
+      "genesis_url": "https://github.com/memecosmos/mainnet/raw/main/meme-1/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
@@ -36,6 +46,11 @@
         "id": "dbe97ebeb4d07999a1fe2de2f92a56cc07385259",
         "address": "seeds.pupmos.network:2005",
         "provider": "PUPMØS"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:14756",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
@@ -88,6 +103,10 @@
       {
         "address": "https://rpc.meme.pupmos.network/",
         "provider": "PUPMØS"
+      },
+      {
+        "address": "https://meme-rpc.kleomed.es",
+        "provider": "Kleomedes"
       }
     ],
     "rest": [
@@ -106,6 +125,16 @@
       {
         "address": "https://api.meme.pupmos.network/",
         "provider": "PUPMØS"
+      },
+      {
+        "address": "https://meme-api.kleomed.es",
+        "provider": "Kleomedes"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "meme-grpc.polkachu.com:14790",
+        "provider": "Polkachu"
       }
     ]
   },
@@ -125,6 +154,16 @@
       "kind": "MEME Explorer",
       "url": "https://explorer.meme.sx/meme",
       "tx_page": "https://explorer.meme.sx/meme/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/meme",
+      "tx_page": "https://atomscan.com/meme/transactions/${txHash}"
+    },
+    {
+      "kind": "Brochain Explorer",
+      "url": "https://explorer.brocha.in/meme",
+      "tx_page": "https://explorer.brocha.in/meme/tx/${txHash}"
     }
   ]
 }

@@ -3,31 +3,43 @@
   "chain_name": "secretnetwork",
   "status": "live",
   "network_type": "mainnet",
+  "website": "https://scrt.network/",
   "pretty_name": "Secret Network",
   "chain_id": "secret-4",
   "bech32_prefix": "secret",
   "daemon_name": "secretd",
   "node_home": "$HOME/.secretd",
-  "genesis": {
-    "genesis_url": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/genesis.json"
-  },
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 529,
   "fees": {
     "fee_tokens": [
       {
         "denom": "uscrt",
-        "fixed_min_gas_price": 0.1
+        "fixed_min_gas_price": 0.00125
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uscrt"
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/scrtlabs/SecretNetwork",
-    "recommended_version": "v1.3.1",
+    "recommended_version": "v1.4.1-patch.2",
     "binaries": {
-      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretnetwork_1.3.1_mainnet_goleveldb_amd64.deb"
+      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.4.1-patch.2/secretnetwork_1.4.1-patch.2_mainnet_goleveldb_amd64.deb"
     },
-    "compatible_versions": ["v1.3.0", "v1.3.1"]
+    "compatible_versions": [
+      "v1.4.1-patch.2"
+    ],
+    "genesis": {
+      "genesis_url": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
@@ -45,11 +57,25 @@
         "id": "9cdaa5856e0245ecd73bd464308fb990fbc53b57",
         "address": "scrt-seed-03.scrtlabs.com:26656",
         "provider": "SCRT Labs"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:17156",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "secret.mainnet.seed.autostake.net:26656",
+        "provider": "AutoStake"
       }
     ]
   },
   "apis": {
     "rpc": [
+      {
+        "address": "https://rpc.scrt.network",
+        "provider": "SCRT Network"
+      },
       {
         "address": "https://secret-4.api.trivium.network:26657",
         "provider": "Trivium | Trivium.Network"
@@ -59,8 +85,8 @@
         "provider": "[ block pane ]"
       },
       {
-        "address": "https://rpc.scrt.network",
-        "provider": "SCRT Network"
+        "address": "https://secret-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://secret.rpc.consensus.one",
@@ -77,16 +103,20 @@
     ],
     "rest": [
       {
+        "address": "https://api.scrt.network",
+        "provider": "SCRT Network"
+      },
+      {
         "address": "https://secret-4.api.trivium.network:1317",
         "provider": "Trivium | Trivium.Network"
       },
       {
-        "address": "https://scrt-lcd.blockpane.com",
-        "provider": "[ block pane ]"
+        "address": "https://secret-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://api.scrt.network",
-        "provider": "SCRT Network"
+        "address": "https://scrt-lcd.blockpane.com",
+        "provider": "[ block pane ]"
       },
       {
         "address": "https://secret.api.consensus.one",
@@ -110,23 +140,39 @@
         "address": "http://scrt-rpc.blockpane.com:9091",
         "provider": "[ block pane ]"
       }
+    ],
+    "grpc": [
+      {
+        "address": "https://secret-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      }
     ]
   },
   "explorers": [
+    {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/secretnetwork",
+      "tx_page": "https://ezstaking.tools/secretnetwork/txs/${txHash}"
+    },
     {
       "kind": "secret nodes",
       "url": "https://secretnodes.com/secret/chains/secret-4",
       "tx_page": "https://secretnodes.com/secret/chains/secret-4/transactions/${txHash}"
     },
     {
-        "kind": "ping-pub",
-        "url": "https://ping.pub/secret",
-        "tx_page": "https://ping.pub/secret/tx/${txHash}"
+      "kind": "ping-pub",
+      "url": "https://ping.pub/secret",
+      "tx_page": "https://ping.pub/secret/tx/${txHash}"
     },
     {
-        "kind": "mintscan",
-        "url": "https://www.mintscan.io/secret",
-        "tx_page": "https://www.mintscan.io/secret/txs/${txHash}"
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/secret",
+      "tx_page": "https://www.mintscan.io/secret/txs/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/secret-network",
+      "tx_page": "https://atomscan.com/secret-network/transactions/${txHash}"
     }
   ]
 }

@@ -3,19 +3,30 @@
   "chain_name": "bitsong",
   "status": "live",
   "network_type": "mainnet",
+  "website": "https://bitsong.io/",
   "pretty_name": "BitSong",
   "chain_id": "bitsong-2b",
   "bech32_prefix": "bitsong",
   "slip44": 639,
   "daemon_name": "bitsongd",
   "node_home": "$HOME/.bitsongd",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/bitsongofficial/networks/master/bitsong-2b/genesis.json"
-  },
   "codebase": {
     "git_repo": "https://github.com/bitsongofficial/go-bitsong",
-    "recommended_version": "v0.11.0",
-    "compatible_versions": ["v0.11.0"]
+    "recommended_version": "v0.12.0",
+    "compatible_versions": [
+      "v0.12.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/bitsongofficial/networks/master/bitsong-2b/genesis.json"
+    }
+  },
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ubtsg",
+        "fixed_min_gas_price": 0
+      }
+    ]
   },
   "peers": {
     "persistent_peers": [
@@ -58,6 +69,11 @@
       {
         "id": "9c6e52e78f112a55146b09110d1d1be47702df27",
         "address": "135.181.211.184:36656"
+      },
+      {
+        "id": "2cd6bb75fc9279c62c0ef3af82fbe08632743472",
+        "address": "bitsong-peer.panthea.eu:31656",
+        "provider": "Panthea EU"
       }
     ],
     "seeds": [
@@ -68,6 +84,21 @@
       {
         "id": "efd52c1e56b460b1f37d73c8d2bd5f860b41d2ba",
         "address": "65.21.62.83:26656"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:16056",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "10de6c207e60b876bdd88571db44d29c18d0cb5d",
+        "address": "seed-bitsong.starsquid.io:15605",
+        "provider": "Starsquid"
+      },
+      {
+        "id": "8defec7d0eec97f507411e02fd2634e3efc997a2",
+        "address": "bitsong-seed.panthea.eu:41656",
+        "provider": "Panthea EU"
       }
     ]
   },
@@ -82,12 +113,45 @@
         "provider": "interbloc"
       },
       {
-        "address": "https://rpc-bitsong-ia.notional.ventures/",
+        "address": "https://rpc-bitsong-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
       },
       {
         "address": "https://rpc.explorebitsong.com",
         "provider": "stake.systems"
+      },
+      {
+        "address": "https://bitsong-rpc.validatrium.club",
+        "provider": "Validatrium"
+      },
+      {
+        "address": "https://bitsong-archive.validatrium.club",
+        "provider": "Validatrium",
+        "archive": true
+      },
+      {
+        "address": "https://rpc.bitsong.chaintools.tech/",
+        "provider": "ChainTools"
+      },
+      {
+        "address": "https://rpc.bitsong.freak12techno.io/",
+        "provider": "freak12techno"
+      },
+      {
+        "address": "https://bitsong-rpc.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc-bitsong.starsquid.io",
+        "provider": "Starsquid"
+      },
+      {
+        "address": "https://bitsong-rpc.panthea.eu",
+        "provider": "Panthea EU"
+      },
+      {
+        "address": "https://rpc-bitsong.architectnodes.com",
+        "provider": "Architect Nodes"
       }
     ],
     "rest": [
@@ -95,45 +159,87 @@
         "address": "https://lcd-bitsong.itastakers.com",
         "provider": "itastakers"
       },
-      {  
+      {
         "address": "https://api.bitsong.interbloc.org",
         "provider": "interbloc"
       },
       {
-        "address": "https://api-bitsong-ia.notional.ventures/",
+        "address": "https://api-bitsong-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
       },
       {
         "address": "https://lcd.explorebitsong.com/",
         "provider": "stake.systems"
+      },
+      {
+        "address": "https://bitsong-api.validatrium.club",
+        "provider": "Validatrium"
+      },
+      {
+        "address": "https://api.bitsong.chaintools.tech/",
+        "provider": "ChainTools"
+      },
+      {
+        "address": "https://api.bitsong.freak12techno.io/",
+        "provider": "freak12techno"
+      },
+      {
+        "address": "https://bitsong-api.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://api-bitsong.starsquid.io",
+        "provider": "Starsquid"
+      },
+      {
+        "address": "https://bitsong-api.panthea.eu",
+        "provider": "Panthea EU"
+      },
+      {
+        "address": "https://rest-bitsong.architectnodes.com",
+        "provider": "Architect Nodes"
       }
     ],
     "grpc": [
       {
-        "address": "grpc-bitsong-ia.notional.ventures:443",
+        "address": "grpc-bitsong-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
       },
       {
         "address": "bitsong.stakesystems.io:2083",
         "provider": "stake.systems"
+      },
+      {
+        "address": "https://bitsong-grpc.lavenderfive.com:443/",
+        "provider": "Lavender.Five Nodes 🐝"
       }
     ]
   },
-  "explorers": [ 
+  "explorers": [
     {
-        "kind": "ping-pub",
-        "url": "https://ping.pub/bitsong",
-        "tx_page": "https://ping.pub/bitsong/tx/${txHash}"
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/bitsong",
+      "tx_page": "https://ezstaking.tools/bitsong/txs/${txHash}"
     },
     {
-        "kind": "mintscan",
-        "url": "https://www.mintscan.io/bitsong",
-        "tx_page": "https://www.mintscan.io/bitsong/txs/${txHash}"
+      "kind": "ping-pub",
+      "url": "https://ping.pub/bitsong",
+      "tx_page": "https://ping.pub/bitsong/tx/${txHash}"
     },
     {
-        "kind": "big-dipper",
-        "url": "https://explorebitsong.com",
-        "tx_page": "https://explorebitsong.com/transactions/${txHash}"
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/bitsong",
+      "tx_page": "https://www.mintscan.io/bitsong/txs/${txHash}"
+    },
+    {
+      "kind": "big-dipper",
+      "url": "https://explorebitsong.com",
+      "tx_page": "https://explorebitsong.com/transactions/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/bitsong",
+      "tx_page": "https://atomscan.com/bitsong/transactions/${txHash}"
     }
   ]
 }
