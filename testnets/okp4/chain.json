@@ -1,0 +1,78 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "okp4",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "okp4",
+  "chain_id": "okp4-nemeton",
+  "bech32_prefix": "okp4",
+  "daemon_name": "okp4d",
+  "node_home": "$HOME/.okp4d",
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uknow",
+        "fixed_min_gas_price": 0.0025
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/okp4/okp4d.git",
+    "recommended_version": "v2.2.0",
+    "binaries": {
+      "linux/amd64": "https://github.com/okp4/okp4d/releases/download/v2.2.0/okp4d-2.2.0-linux-arm64"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/okp4/networks/main/chains/nemeton/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "57f831d49e3f82516c603b9682b7664be9dc8e32",
+        "address": "135.181.237.87:26656",
+        "provider": "Community"
+      },
+      {
+        "id": "a6c9b843247be825acc300458a0d9e667224bb41",
+        "address": "116.203.21.205:26656",
+        "provider": "Community"
+      },
+      {
+        "id": "2bfd405e8f0f176428e2127f98b5ec53164ae1f0",
+        "address": "142.132.149.118:26656",
+        "provider": "Community"
+      },
+      {
+        "id": "9917f412470344841e913415a5ea5da9da96a8fa",
+        "address": "65.108.238.217:11014",
+        "provider": "Community"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "http://okp4-testnet.nodejumper.io:29657",
+        "provider": "Nodejumper"
+      },
+      {
+        "address": "https://okp4-testnet.rpc.kjnodes.com:443",
+        "provider": "Kjnodes"
+      }
+    ],
+    
+  "explorers": [
+    {
+      "kind": "explore",
+      "url": "https://explore.okp4.network/okp4%20testnet",
+      "tx_page": "https://explore.okp4.network/okp4%20testnet/tx/${txHash}"
+    },
+    {
+      "kind": "Nodes guru",
+      "url": "https://okp4.explorers.guru/",
+      "tx_page": "https://okp4.explorers.guru/transaction/${txHash}"
+    }
+  ]
+}
