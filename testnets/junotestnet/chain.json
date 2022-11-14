@@ -28,16 +28,16 @@
         "denom": "ujunox"
       }
     ]
-  },
+  },  
   "codebase": {
     "git_repo": "https://github.com/CosmosContracts/juno",
-    "recommended_version": "v9.0.0",
+    "recommended_version": "v11.0.0-alpha",
     "compatible_versions": [
-      "v9.0.0"
+      "v11.0.0-alpha"
     ],
     "cosmos_sdk_version": "0.45",
     "tendermint_version": "0.34",
-    "cosmwasm_version": "0.27",
+    "cosmwasm_version": "0.29",
     "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/CosmosContracts/testnets/main/uni-5/genesis.json"
@@ -56,10 +56,6 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.uni.junomint.com",
-        "provider": "EZStaking.io"
-      },
-      {
         "address": "https://rpc.uni.junonetwork.io",
         "provider": "Juno"
       },
@@ -69,10 +65,6 @@
       }
     ],
     "rest": [
-      {
-        "address": "https://lcd.uni.junomint.com",
-        "provider": "EZStaking.io"
-      },
       {
         "address": "https://api.uni.junonetwork.io",
         "provider": "Juno"
@@ -90,6 +82,11 @@
     ]
   },
   "explorers": [
+    {
+      "kind": "EZStaking Tools",
+      "url": "https://testnet.ezstaking.tools/juno-testnet",
+      "tx_page": "https://testnet.ezstaking.tools/juno-testnet/txs/${txHash}"
+    },
     {
       "kind": "Mintscan",
       "url": "https://testnet.mintscan.io/juno-testnet",

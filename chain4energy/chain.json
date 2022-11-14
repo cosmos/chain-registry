@@ -1,0 +1,92 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "chain4energy",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://c4e.io/",
+  "pretty_name": "Chain4Energy",
+  "chain_id": "perun-1",
+  "bech32_prefix": "c4e",
+  "daemon_name": "c4ed",
+  "node_home": "$HOME/.c4e-chain",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 4444,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uc4e",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/chain4energy/c4e-chain",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/chain4energy/c4e-chains/main/perun-1/genesis.json"
+    }
+  },
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "084a5c788c9c61541152192d7dfe055c153af642",
+        "address": "node1.c4e.io:26656",
+        "provider": "C4E"
+      },
+      {
+        "id": "81a3c179ee820d291adebc215d5d1af95b887ec8",
+        "address": "node2.c4e.io:26656",
+        "provider": "C4E"
+      },
+      {
+        "id": "3c6553a3c45477c2a9902e54069bee7109318b9d",
+        "address": "node3.c4e.io:26656",
+        "provider": "C4E"
+      },
+      {
+        "id": "68a611fc1d17612e4de6b1232d04568ea3c20a19",
+        "address": "node4.c4e.io:26656",
+        "provider": "C4E"
+      }
+    ],
+    "seeds": [
+      {
+        "id": "30e98bbcf5bb29ed4e4ff685fa8fa84fa0ddff51",
+        "address": "tenderseed.ccvalidators.com:26008",
+        "provider": "CryptoCrew"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.c4e.io/",
+        "provider": "C4E"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lcd.c4e.io/",
+        "provider": "C4E"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.c4e.io/",
+        "provider": "C4E"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "explorer",
+      "url": "https://explorer.c4e.io/",
+      "tx_page": "https://explorer.c4e.io/transactions/${txHash}"
+    }
+  ]
+}
