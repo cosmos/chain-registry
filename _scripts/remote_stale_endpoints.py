@@ -14,7 +14,7 @@ TIMEOUT_SECONDS = 10
 def remove_endpoint(folder: str, endpoint_url, _type: str):
     # _type == 'rpc' or 'rest'
     # remove a stale endpoint from the files.
-    print(f"[-] {endpoint_url} ,, {folder} (>30 days inactive) [{_type}]")
+    print(f"[-] {folder} {_type} {endpoint_url}")
     chain_dir = os.path.join(parent_dir, folder, f"chain.json")
     with open(chain_dir, "r") as f:
         chain_data = json.load(f)
