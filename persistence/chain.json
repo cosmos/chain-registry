@@ -1,23 +1,30 @@
 {
-  "$schema" : "../chain.schema.json",
-  "chain_name" : "persistence",
-  "chain_id" : "core-1",
-  "pretty_name" : "Persistence",
-  "status" : "live",
-  "network_type" : "mainnet",
-  "bech32_prefix" : "persistence",
-  "genesis" : {
-    "genesis_url" : "https://raw.githubusercontent.com/persistenceOne/genesisTransactions/master/core-1/final_genesis.json"
-  },
-  "daemon_name" : "persistenceCore",
-  "node_home" : "$HOME/.persistenceCore",
-  "key_algos" : ["secp256k1"],
-  "slip44" : 750,
-  "fees" : {
-    "fee_tokens" : [
+  "$schema": "../chain.schema.json",
+  "chain_name": "persistence",
+  "chain_id": "core-1",
+  "pretty_name": "Persistence",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://persistence.one/",
+  "bech32_prefix": "persistence",
+  "daemon_name": "persistenceCore",
+  "node_home": "$HOME/.persistenceCore",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 750,
+  "fees": {
+    "fee_tokens": [
       {
-        "denom" : "uxprt",
-        "fixed_min_gas_price" : 0
+        "denom": "uxprt",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uxprt"
       }
     ]
   },
@@ -29,21 +36,35 @@
     ],
     "binaries": {
       "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v0.2.3/persistenceCore-linux-amd64.tar.gz"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/persistenceOne/genesisTransactions/master/core-1/final_genesis.json"
     }
   },
   "peers": {
     "seeds": [
       {
-        "id": "27eb432ccd5e895c5c659659120d68b393dd8c60",
-        "address": "35.247.65.183:26656"
+        "id": "449a0f1b7dafc142cf23a1f6166bbbf035edfb10",
+        "address": "13.232.85.66:26656"
       },
       {
-        "id": "8e2f56098f182ffe2f6fb09280bafe13c63eb42f",
-        "address": "46.101.176.149:26656"
+        "id": "eaa76966cad27a9807b7d8b9a62c9b2ca4924581",
+        "address": "tenderseed.ccvalidators.com:26003"
       },
       {
-        "id": "fff99a2e8f3c9473e4e5ee9a99611a2e599529fd",
-        "address": "46.166.138.218:26656"
+        "id": "c16799ee5a236e08b1e49df62a545cf55d976dab",
+        "address": "seed-persistence.starsquid.io:15607",
+        "provider": "Starsquid"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "persistence.mainnet.seed.autostake.net:26896",
+        "provider": "AutoStake.net"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:15456",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
@@ -98,34 +119,71 @@
       {
         "id": "01102f3c84e6602e30e1e39498e242cbb60a0b73",
         "address": "178.62.103.7:26656"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "persistence.mainnet.peer.autostake.net:26896",
+        "provider": "AutoStake.net"
       }
     ]
   },
-  "apis" : {
-    "rpc" : [
+  "apis": {
+    "rpc": [
       {
-        "address" : "https://rpc.core.persistence.one",
-        "provider" : "persistence"
+        "address": "https://rpc.core.persistence.one",
+        "provider": "Persistence"
       },
       {
-        "address" : "https://rpc-persistent-ia.notional.ventures/",
-        "provider" : "Notional"
-      }
-    ],
-    "rest" : [
-      {
-        "address" : "https://rest.core.persistence.one",
-        "provider" : "persistence"
+        "address": "https://rpc-persistent-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
       },
       {
-        "address" : "https://api-persistent-ia.notional.ventures/",
-        "provider" : "Notional"
+        "address": "https://rpc-persistence.starsquid.io",
+        "provider": "Starsquid"
+      },
+      {
+        "address": "https://persistence-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://persistence-rpc.kleomedes.network",
+        "provider": "Kleomedes"
       }
     ],
-    "grpc" : [
+    "rest": [
       {
-        "address" : "grpc-persistent-ia.notional.ventures:443",
-        "provider" : "Notional"
+        "address": "https://rest.core.persistence.one",
+        "provider": "Persistence"
+      },
+      {
+        "address": "https://api-persistent-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
+      },
+      {
+        "address": "https://api-persistence.starsquid.io",
+        "provider": "Starsquid"
+      },
+      {
+        "address": "https://persistence-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://persistence-api.kleomedes.network",
+        "provider": "Kleomedes"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.core.persistence.one:443",
+        "provider": "Persistence"
+      },
+      {
+        "address": "grpc-persistent-ia.cosmosia.notional.ventures:443",
+        "provider": "Notional"
+      },
+      {
+        "address": "persistence-grpc.polkachu.com:15490",
+        "provider": "Polkachu"
       }
     ]
   },
@@ -133,17 +191,22 @@
     {
       "kind": "proprietary",
       "url": "https://explorer.persistence.one",
-      "tx_page": "https://explorer.persistence.one/transactions/{txHash}"
+      "tx_page": "https://explorer.persistence.one/transactions/${txHash}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/persistence",
       "tx_page": "https://www.mintscan.io/persistence/txs/${txHash}"
-    }, 
+    },
     {
       "kind": "ping-pub",
       "url": "https://ping.pub/persistence",
       "tx_page": "https://ping.pub/persistence/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/persistence",
+      "tx_page": "https://atomscan.com/persistence/transactions/${txHash}"
     }
   ]
 }

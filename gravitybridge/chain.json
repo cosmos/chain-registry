@@ -3,33 +3,49 @@
   "chain_name": "gravitybridge",
   "status": "live",
   "network_type": "mainnet",
+  "website": "https://www.gravitybridge.net/",
   "pretty_name": "Gravity Bridge",
   "chain_id": "gravity-bridge-3",
   "bech32_prefix": "gravity",
   "daemon_name": "gravity",
   "node_home": "$HOME/.gravity",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json"
-  },
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
         "denom": "ugraviton",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0.035
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ugraviton"
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/Gravity-Bridge/Gravity-Bridge",
-    "recommended_version": "v1.3.3",
-    "compatible_versions": ["v1.3.0", "v1.3.1", "v1.3.2", "v1.3.3"],
+    "recommended_version": "v1.7.1",
+    "compatible_versions": [
+      "v1.7.0",
+      "v1.7.1"
+    ],
     "binaries": {
-      "linux/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gravity-linux-amd64",
-      "linux/arm64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gravity-linux-arm64",
-      "darwin/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gravity-darwin-amd64",
-      "windows/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gravity-windows-amd64.exe"
+      "linux/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.1/gravity-linux-amd64",
+      "linux/arm64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.1/gravity-linux-arm64",
+      "darwin/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.1/gravity-darwin-amd64",
+      "windows/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.1/gravity-windows-amd64.exe"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json"
     }
   },
   "peers": {
@@ -43,6 +59,16 @@
         "id": "63e662f5e048d4902c7c7126291cf1fc17687e3c",
         "address": "95.211.103.175:26656",
         "provider": "amhost"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:14256",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:14256",
+        "provider": "Lavender.Five Nodes 🐝"
       }
     ],
     "persistent_peers": [
@@ -73,12 +99,20 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://rpc.gravity-bridge.ezstaking.io",
-        "provider": "EZStaking.io"
+        "address": "https://rpc-gravitybridge-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
       },
       {
-        "address": "https://rpc-gravitybridge-ia.notional.ventures/",
-        "provider": "Notional"
+        "address": "https://rpc.gravity-bridge.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://gravitybridge-rpc.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc.gravity.bh.rocks/",
+        "provider": "BlockHunters \uD83C\uDFAF"
       }
     ],
     "rest": [
@@ -87,12 +121,24 @@
         "provider": "althea"
       },
       {
-        "address": "https://lcd.gravity-bridge.ezstaking.io",
-        "provider": "EZStaking.io"
+        "address": "https://api-gravitybridge-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
       },
       {
-        "address": "https://api-gravitybridge-ia.notional.ventures/",
-        "provider": "Notional"
+        "address": "https://api.gravity-bridge.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://gravity-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://gravitybridge-api.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://api.gravity.bh.rocks/",
+        "provider": "BlockHunters \uD83C\uDFAF"
       }
     ],
     "grpc": [
@@ -105,12 +151,33 @@
         "provider": "amhost"
       },
       {
-        "address": "grpc-gravitybridge-ia.notional.ventures:443",
+        "address": "grpc-gravitybridge-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
+      },
+      {
+        "address": "https://grpc.gravity-bridge.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "gravity-grpc.polkachu.com:14290",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://gravitybridge-grpc.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://grpc.gravity.bh.rocks:443/",
+        "provider": "BlockHunters \uD83C\uDFAF"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/gravitybridge",
+      "tx_page": "https://ezstaking.tools/gravitybridge/txs/${txHash}"
+    },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/gravity-bridge",
@@ -125,6 +192,11 @@
       "kind": "explorers.guru",
       "url": "https://gravity.explorers.guru",
       "tx_page": "https://gravity.explorers.guru/transaction/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/gravity-bridge",
+      "tx_page": "https://atomscan.com/gravity-bridge/transactions/${txHash}"
     }
   ]
 }

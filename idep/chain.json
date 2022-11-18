@@ -1,0 +1,117 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "idep",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://www.idep.network/",
+  "pretty_name": "IDEP",
+  "chain_id": "Antora",
+  "bech32_prefix": "idep",
+  "daemon_name": "idep",
+  "node_home": "$HOME/.ion",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "idep",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/IDEP-network/ion",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/IDEP-network/Antora/raw/main/iond"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/IDEP-network/Antora/raw/main/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "6e52997400aaa1b3d2155e45cf2559bf7a4c5e76",
+        "address": "164.92.161.91:26656",
+        "provider": "IDEP"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:16556",
+        "provider": "Lavender.Five Nodes 🐝"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "8ffc74dbcd5ab32bc89e058ec53060d5762f88b5",
+        "address": "178.63.100.102:26656",
+        "provider": "IDEP"
+      },
+      {
+        "id": "3a8cfcbaac7d102e9cfad31f856e1852be2125f3",
+        "address": "sentry-1.idep.ezstaking.xyz:26756",
+        "provider": "EZStaking.io"
+      },
+      {
+        "id": "32a1a93033968e391266484cd4896dfc9b326e4c",
+        "address": "sentry-2.idep.ezstaking.xyz:26789",
+        "provider": "EZStaking.io"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.idep.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://idep-rpc.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.idep.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://idep-api.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.idep.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://idep-grpc.lavenderfive.com:443/",
+        "provider": "Lavender.Five Nodes 🐝"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/idep",
+      "tx_page": "https://ezstaking.tools/idep/txs/${txHash}"
+    },
+    {
+      "kind": "chadscan",
+      "url": "https://chadscan.com",
+      "tx_page": "https://chadscan.com/transactions/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/idep",
+      "tx_page": "https://atomscan.com/idep/transactions/${txHash}"
+    }
+  ]
+}
