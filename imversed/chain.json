@@ -1,0 +1,87 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "imversed",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://imversed.network/",
+  "pretty_name": "Imversed",
+  "chain_id": "5555558",
+  "bech32_prefix": "imv",
+  "daemon_name": "imversed",
+  "node_home": "$HOME/.imversed",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "aimv",
+        "fixed_min_gas_price": 250000000,
+        "low_gas_price": 20000000000,
+        "average_gas_price": 25000000000,
+        "high_gas_price": 40000000000
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/imversed/imversed",
+    "recommended_version": "v3.11",
+    "compatible_versions": [
+      "v3.11"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/imversed/imversed/releases/download/v3.11/imversed_3.11_Linux_amd64.tar.gz"
+    },
+    "genesis": {
+      "genesis_url": "https://static.imversed.com/testnet/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "492fb38809503273c6441528dca642e46ff630a3",
+        "address": "35.208.46.50:26656"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "5aae4b3006f46f7eb8c6f88eed83003a8e61c633",
+        "address": "35.208.176.209:26656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-test.imversed.network:443",
+        "provider": "imversed"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc-test.imversed.network:443",
+        "provider": "imversed"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest-test.imversed.network:443",
+        "provider": "imversed"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://jsonrpc-test.imversed.network:443",
+        "provider": "imversed"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "blockscout",
+      "url": "https://txe-test.imversed.network/",
+      "tx_page": "https://txe-test.imversed.network/tx/${txHash}"
+    }
+  ]
+}
