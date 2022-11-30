@@ -12,6 +12,9 @@
   "key_algos": [
     "ethsecp256k1"
   ],
+  "extra_codecs": [
+    "ethermint"
+  ],
   "slip44": 60,
   "fees": {
     "fee_tokens": [
@@ -33,16 +36,16 @@
   },
   "codebase": {
     "git_repo": "https://github.com/evmos/evmos",
-    "recommended_version": "v8.2.3",
+    "recommended_version": "v9.1.0",
     "compatible_versions": [
-      "v8.2.3"
+      "v9.1.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v8.2.3/evmos_8.2.3_Linux_x86_64.tar.gz",
-      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v8.2.3/evmos_8.2.3_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v8.2.3/evmos_8.2.3_Darwin_x86_64.tar.gz",
-      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v8.2.3/evmos_8.2.3_Darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v8.2.3/evmos_8.2.3_Windows_x86_64.zip"
+      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v9.1.0/evmos_9.1.0_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v9.1.0/evmos_9.1.0_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v9.1.0/evmos_9.1.0_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v9.1.0/evmos_9.1.0_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v9.1.0/evmos_9.1.0_Windows_x86_64.zip"
     },
     "genesis": {
       "genesis_url": "https://archive.evmos.org/mainnet/genesis.json"
@@ -225,6 +228,10 @@
       {
         "address": "https://rpc-evmos.architectnodes.com",
         "provider": "Architect Nodes"
+      },
+      {
+        "address": "https://evmos-rpc.validatrium.club",
+        "provider": "Validatrium"
       }
     ],
     "rest": [
@@ -303,6 +310,10 @@
       {
         "address": "https://rest-evmos.architectnodes.com",
         "provider": "Architect Nodes"
+      },
+      {
+        "address": "https://evmos-api.validatrium.club",
+        "provider": "Validatrium"
       }
     ],
     "grpc": [
@@ -415,7 +426,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/evmos",
-      "tx_page": "https://www.mintscan.io/evmos/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/evmos/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/evmos/account/${accountAddress}"
     },
     {
       "kind": "bigdipper",
@@ -428,7 +440,7 @@
       "tx_page": "https://evm.evmos.org/tx/${txHash}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://ping.pub/evmos",
       "tx_page": "https://ping.pub/evmos/tx/${txHash}"
     },
