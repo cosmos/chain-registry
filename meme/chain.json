@@ -1,0 +1,173 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "meme",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "MEME",
+  "chain_id": "meme-1",
+  "bech32_prefix": "meme",
+  "daemon_name": "memed",
+  "node_home": "$HOME/.memed",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "umeme",
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.035,
+        "high_gas_price": 0.045
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "umeme"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/memecosmos/meme/",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://github.com/memecosmos/mainnet/raw/main/meme-1/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "dbe97ebeb4d07999a1fe2de2f92a56cc07385259",
+        "address": "seeds.pupmos.network:2005",
+        "provider": "PUPMØS"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:14756",
+        "provider": "Polkachu"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "a9959fef554ee407f23dffbcd4c0711e02a07d18",
+        "address": "207.246.107.204:26656",
+        "provider": "MEME Foundation"
+      },
+      {
+        "id": "f6e846ee01e14bc06e9b1b8be9237d8c365614e7",
+        "address": "45.76.154.44:26656",
+        "provider": "MEME Foundation"
+      },
+      {
+        "id": "1e2a4e7c513d1ba267fe2e689d4dfe6d6105f644",
+        "address": "139.180.140.142:26656",
+        "provider": "MEME Foundation"
+      },
+      {
+        "id": "c57fce65a0e6be87763ae38d607b817b3acde620",
+        "address": "173.212.215.104:26656",
+        "provider": "Theamsolutions"
+      },
+      {
+        "id": "c1e05690adfbc970817e0debb5d7770ee9f2f3ac",
+        "address": "65.108.131.174:47656",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "fc21b0c26b6840915f6fe2daf56565e1c30e0956",
+        "address": "162.55.245.104:26656",
+        "provider": "PUPMØS"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-meme-1.meme.sx/",
+        "provider": "MEME Foundation"
+      },
+      {
+        "address": "https://meme-rpc.polkachu.com/",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://rpc-meme.pupmos.network/",
+        "provider": "PUPMØS"
+      },
+      {
+        "address": "https://meme-rpc.kleomedes.network",
+        "provider": "Kleomedes"
+      },
+      {
+        "address": "http://meme.statesync.nodersteam.com:26657",
+        "provider": "Nodersteam"
+      },
+      {
+        "address": "https://rpc.meme.interbloc.org/",
+        "provider": "Interbloc"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-meme-1.meme.sx/",
+        "provider": "MEME Foundation"
+      },
+      {
+        "address": "https://api.meme.interbloc.org/",
+        "provider": "Interbloc"
+      },
+      {
+        "address": "https://meme-api.polkachu.com/",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://api-meme.pupmos.network/",
+        "provider": "PUPMØS"
+      },
+      {
+        "address": "https://meme-api.kleomedes.network",
+        "provider": "Kleomedes"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "meme-grpc.polkachu.com:14790",
+        "provider": "Polkachu"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/meme",
+      "tx_page": "https://ping.pub/meme/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/meme",
+      "tx_page": "https://atomscan.com/meme/transactions/${txHash}",
+      "account_page": "https://atomscan.com/meme/accounts/${accountAddress}"
+    },
+    {
+      "kind": "MEME Explorer",
+      "url": "https://explorer.meme.sx/meme",
+      "tx_page": "https://explorer.meme.sx/meme/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/meme",
+      "tx_page": "https://atomscan.com/meme/transactions/${txHash}"
+    },
+    {
+      "kind": "Brochain",
+      "url": "https://explorer.brocha.in/meme",
+      "tx_page": "https://explorer.brocha.in/meme/tx/${txHash}"
+    }
+  ]
+}

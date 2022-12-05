@@ -1,118 +1,214 @@
 {
-    "$schema": "../chain.schema.json",
-    "chain_name": "bitcanna",
-    "status": "live",
-    "network_type": "mainnet",
-    "pretty_name": "BitCanna",
-    "chain_id": "bitcanna-1",
-    "bech32_prefix": "bcna",
-    "daemon_name": "bcnad",
-    "node_home": "$HOME/.bcna",
-    "genesis": {
-        "genesis_url": "https://raw.githubusercontent.com/BitCannaGlobal/bcna/main/genesis.json"
-    },
-    "key_algos": [
-        "secp256k1"
-    ],
-    "slip44": 118,
-    "fees": {
-        "fee_tokens": [
-            {
-                "denom": "ubcna",
-                "fixed_min_gas_price": 0.001
-            }
-        ]
-    },
-    "codebase": {
-        "git_repo": "https://github.com/BitCannaGlobal/bcna",
-        "recommended_version": "v1.2",
-        "compatible_versions": [
-            "v1.2"
-        ],
-        "binaries": {
-            "linux/amd64": "https://github.com/BitCannaGlobal/bcna/releases/download/v1.2/bcnad"
-        }
-    },
-    "peers": {
-        "seeds": [
-            {
-                "id": "d6aa4c9f3ccecb0cc52109a95962b4618d69dd3f",
-                "address": "seed1.bitcanna.io:26656",
-                "provider": "bitcanna"
-            },
-            {
-                "id": "23671067d0fd40aec523290585c7d8e91034a771",
-                "address": "seed2.bitcanna.io:26656",
-                "provider": "bitcanna"
-            }
-        ],
-        "persistent_peers": [
-            {
-                "id": "7b2d10d188926ea25eb209f037fe4e67e16e06b6",
-                "address": "92.222.25.18:26656",
-                "provider": "StakeLab"
-            },
-            {
-                "id": "5eb75c20a77ccf960df396b187b86d6324b40123",
-                "address": "51.68.226.61:26656",
-                "provider": "StakeLab"
-            },
-            {
-                "id": "6bd989f063b89be680fb3c55c4cf1720a892b12c",
-                "address": "161.97.96.253:26656",
-                "provider": "StakeLab"
-            },
-            {
-                "id": "3cdfe02efd4432280707d2949e064a9d8db412b3",
-                "address": "178.62.98.158:26656",
-                "provider": "Stakely"
-            },
-            {
-                "id": "d806bb39349751c142627a547c23c586a787ef26",
-                "address": "138.68.78.210:26656",
-                "provider": "Stakely"
-            },
-            {
-                "id": "ddb620e7c7a6b5a8a53352037cde927681012ab4",
-                "address": "65.21.229.209:37656",
-                "provider": "Blockscope"
-            }
-        ]
-    },
-    "apis": {
-        "rpc": [
-            {
-                "address": "https://rpc.bitcanna.io/",
-                "provider": "bitcanna"
-            },
-            {
-                "address": "https://rpc-bitcanna.itastakers.com/",
-                "provider": "itastaker"
-            }
-        ],
-        "grpc": [
-            {
-                "address": "https://grpc.bitcanna.io",
-                "provider": "bitcanna"
-            }
-        ],      
-        "rest": [
-            {
-                "address": "https://lcd.bitcanna.io",
-                "provider": "bitcanna"
-            }
-        ]
-    },
-    "explorers": [ 
-        {
-            "kind": "forbole",
-            "url": "https://cosmos-explorer.bitcanna.io",
-            "tx_page": "https://cosmos-explorer.bitcanna.io/transactions/${txHash}"
-        },
-        {
-            "kind": "mintscan",
-            "url": "https://www.mintscan.io/bitcanna/",
-            "tx_page": "https://www.mintscan.io/bitcanna/txs/${txHash}"
-        }
+  "$schema": "../chain.schema.json",
+  "chain_name": "bitcanna",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://www.bitcanna.io/",
+  "pretty_name": "BitCanna",
+  "chain_id": "bitcanna-1",
+  "bech32_prefix": "bcna",
+  "daemon_name": "bcnad",
+  "node_home": "$HOME/.bcna",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ubcna",
+        "fixed_min_gas_price": 0.001
+      }
     ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/BitCannaGlobal/bcna",
+    "recommended_version": "v1.5.3",
+    "compatible_versions": [
+      "v1.5.3"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/BitCannaGlobal/bcna/releases/download/v1.5.3/bcnad"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/BitCannaGlobal/bcna/main/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "d6aa4c9f3ccecb0cc52109a95962b4618d69dd3f",
+        "address": "seed1.bitcanna.io:26656",
+        "provider": "bitcanna"
+      },
+      {
+        "id": "23671067d0fd40aec523290585c7d8e91034a771",
+        "address": "seed2.bitcanna.io:26656",
+        "provider": "bitcanna"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:13056",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:13056",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "f0e6c86d769bf5c52f78e01864091690e731643f",
+        "address": "bitcanna-seed.panthea.eu:37656",
+        "provider": "Panthea EU"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "21484408a7bcf0134689ddf52a7d9c8299cb65b5",
+        "address": "176.9.139.74:36656",
+        "provider": "BitCanna"
+      },
+      {
+        "id": "3cdfe02efd4432280707d2949e064a9d8db412b3",
+        "address": "178.62.98.158:26656",
+        "provider": "Stakely"
+      },
+      {
+        "id": "d806bb39349751c142627a547c23c586a787ef26",
+        "address": "138.68.78.210:26656",
+        "provider": "Stakely"
+      },
+      {
+        "id": "ddb620e7c7a6b5a8a53352037cde927681012ab4",
+        "address": "65.21.229.209:37656",
+        "provider": "Blockscope"
+      },
+      {
+        "id": "df99de6cec9152c517990317b340b8b9a307493c",
+        "address": "193.34.144.156:26656",
+        "provider": "ParanormalBrothers"
+      },
+      {
+        "id": "0a658df9d9fab096983a12e6f878e87281a15ce6",
+        "address": "bitcanna-peer.panthea.eu:27656",
+        "provider": "Panthea EU"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.bitcanna.io/",
+        "provider": "bitcanna"
+      },
+      {
+        "address": "http://bcna.paranorm.pro/",
+        "provider": "ParanormalBrothers"
+      },
+      {
+        "address": "https://bitcanna-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://rpc-bitcanna-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
+      },
+      {
+        "address": "https://bitcanna-rpc.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://bcna-rpc.ibs.team/",
+        "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://bitcanna-rpc.panthea.eu",
+        "provider": "Panthea EU"
+      },
+      {
+        "address": "https://bitcanna.nodejumper.io",
+        "provider": "Nodejumper 🚀"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.bitcanna.io",
+        "provider": "bitcanna"
+      },
+      {
+        "address": "grpc-bitcanna-ia.cosmosia.notional.ventures:443",
+        "provider": "Notional"
+      },
+      {
+        "address": "bitcanna-grpc.polkachu.com:13090",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://bitcanna-grpc.lavenderfive.com:443/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://bitcanna.nodejumper.io:9090",
+        "provider": "Nodejumper 🚀"
+      }      
+    ],
+    "rest": [
+      {
+        "address": "https://lcd.bitcanna.io",
+        "provider": "bitcanna"
+      },
+      {
+        "address": "https://api-bitcanna-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
+      },
+      {
+        "address": "https://bitcanna-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://bitcanna-api.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://bcna-api.ibs.team/",
+        "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://bitcanna-api.panthea.eu",
+        "provider": "Panthea EU"
+      },
+      {
+        "address": "https://bitcanna.nodejumper.io:1317",
+        "provider": "Nodejumper 🚀"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/bitcanna",
+      "tx_page": "https://ezstaking.tools/bitcanna/txs/${txHash}"
+    },
+    {
+      "kind": "forbole",
+      "url": "https://cosmos-explorer.bitcanna.io",
+      "tx_page": "https://cosmos-explorer.bitcanna.io/transactions/${txHash}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/bitcanna",
+      "tx_page": "https://ping.pub/bitcanna/tx/${txHash}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/bitcanna/",
+      "tx_page": "https://www.mintscan.io/bitcanna/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/bitcanna/account/${accountAddress}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/bitcanna",
+      "tx_page": "https://atomscan.com/bitcanna/transactions/${txHash}"
+    }
+  ]
 }

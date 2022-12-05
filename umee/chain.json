@@ -1,0 +1,123 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "umee",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://www.umee.cc/",
+  "pretty_name": "Umee",
+  "chain_id": "umee-1",
+  "bech32_prefix": "umee",
+  "daemon_name": "umeed",
+  "node_home": "$HOME/.umee",
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uumee",
+        "fixed_min_gas_price": 0.001
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/umee-network/umee",
+    "recommended_version": "v3.2.0",
+    "compatible_versions": [
+      "v3.2.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/umee-network/umee/releases/download/v3.2.0/umeed-v3.2.0-linux-amd64"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/umee-network/mainnet/main/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "umee.mainnet.seed.autostake.net:26756",
+        "provider": "AutoStake.net"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:13656",
+        "provider": "Polkachu"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:13656",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "umee.mainnet.peer.autostake.net:26756",
+        "provider": "AutoStake.net"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.barnacle.mainnet.network.umee.cc",
+        "provider": "umee Foundation"
+      },
+      {
+        "address": "https://umee-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://rpc-umee-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.barnacle.mainnet.network.umee.cc",
+        "provider": "umee Foundation"
+      },
+      {
+        "address": "https://api-umee-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
+      },
+      {
+        "address": "https://umee-api.polkachu.com",
+        "provider": "Polkachu"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc-umee-ia.cosmosia.notional.ventures:443",
+        "provider": "Notional"
+      },
+      {
+        "address": "umee-grpc.polkachu.com:13690",
+        "provider": "Polkachu"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/umee/",
+      "tx_page": "https://www.mintscan.io/umee/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/umee/account/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/umee",
+      "tx_page": "https://ping.pub/umee/tx/${txHash}"
+    },
+    {
+      "kind": "explorers.guru",
+      "url": "https://umee.explorers.guru",
+      "tx_page": "https://umee.explorers.guru/transaction/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/umee",
+      "tx_page": "https://atomscan.com/umee/transactions/${txHash}"
+    }
+  ]
+}

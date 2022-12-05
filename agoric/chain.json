@@ -3,30 +3,56 @@
   "chain_name": "agoric",
   "status": "live",
   "network_type": "mainnet",
+  "website": "https://agoric.com/",
   "pretty_name": "Agoric",
   "chain_id": "agoric-3",
   "bech32_prefix": "agoric",
-  "daemon_name": "ag0",
+  "daemon_name": "agd",
   "node_home": "$HOME/.agoric",
-  "genesis": {
-    "genesis_url": "https://main.agoric.net/genesis.json"
-  },
   "slip44": 564,
   "explorers": [
     {
-      "name": "agoric-big-dipper",
-      "url": "https://main.explorer.agoric.net/"
+      "name": "bigdipper",
+      "url": "https://agoric.bigdipper.live/",
+      "tx_page": "https://agoric.bigdipper.live/transactions/${txHash}",
+      "account_page": "https://agoric.bigdipper.live/accounts/${accountAddress}"
+    },
+    {
+      "name": "explorers.guru",
+      "url": "https://agoric.explorers.guru",
+      "tx_page": "https://agoric.explorers.guru/transaction/${txHash}",
+      "account_page": "https://agoric.explorers.guru/account/${accountAddress}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/agoric/",
+      "tx_page": "https://atomscan.com/agoric/transactions/${txHash}",
+      "account_page": "https://atomscan.com/agoric/accounts/${accountAddress}"
     }
   ],
   "codebase": {
-    "git_repo": "https://github.com/Agoric/ag0/",
-    "recommended_version": "agoric-3.1",
+    "git_repo": "https://github.com/Agoric/agoric-sdk/",
+    "recommended_version": "agoric-upgrade-8",
     "compatible_versions": [
-      "agoric-3.1"
-    ]
+      "agoric-upgrade-8"
+    ],
+    "genesis": {
+      "genesis_url": "https://main.agoric.net/genesis.json"
+    }
   },
   "peers": {
-    "seeds": [],
+    "seeds": [
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:14456",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "agoric.rpc.kjnodes.com:27659",
+        "provider": "kjnodes"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "a26158a5cbb1df581dd6843ac427191af76d6d5d",
@@ -42,16 +68,45 @@
     "rpc": [
       {
         "address": "https://main.rpc.agoric.net:443"
+      },
+      {
+        "address": "https://agoric-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://rpc.agoric.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://agoric.rpc.kjnodes.com",
+        "provider": "kjnodes"
       }
     ],
     "rest": [
       {
         "address": "https://main.api.agoric.net:443"
+      },
+      {
+        "address": "https://api.agoric.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://agoric-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://agoric.api.kjnodes.com",
+        "provider": "kjnodes"
       }
     ],
     "grpc": [
       {
-        "address": "https://main.grpc.agoric.net:443"
+        "address": "https://grpc.agoric.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "agoric-grpc.polkachu.com:14490",
+        "provider": "Polkachu"
       }
     ]
   }
