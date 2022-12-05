@@ -7,6 +7,9 @@
   "pretty_name": "Injective",
   "chain_id": "injective-1",
   "bech32_prefix": "inj",
+  "extra_codecs": [
+    "injective"
+  ],
   "slip44": 60,
   "daemon_name": "injectived",
   "node_home": "$HOME/.injectived",
@@ -143,7 +146,7 @@
       "tx_page": "https://explorer.injective.network/transaction/${txHash}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://ping.pub/injective",
       "tx_page": "https://ping.pub/injective/tx/${txHash}"
     },
@@ -151,6 +154,12 @@
       "kind": "atomscan",
       "url": "https://atomscan.com/injective",
       "tx_page": "https://atomscan.com/injective/transactions/${txHash}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/injective",
+      "tx_page": "https://www.mintscan.io/injective/${txHash}",
+      "account_page": "https://www.mintscan.io/injective/account/${accountAddress}"
     }
   ]
 }

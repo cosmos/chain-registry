@@ -1,0 +1,80 @@
+{
+  "chain_name": "terpnettestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Terp-Net",
+  "chain_id": "athena-1",
+  "bech32_prefix": "terp",
+  "daemon_name": "terp",
+  "node_home": "$HOME/.terp",
+  
+  "codebase": {
+    "git_repo": "github.com/terpnetwork/terp-core.git",
+    "recommended_version": "v0.1.2",
+    "tendermint_version": "0.34.22",
+
+    "compatible_versions": [
+      "v0.1.2"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/terpnetwork/test-net/master/athena-2/genesis.json"
+    },
+    "binaries": {
+      "linux/amd64": "https://github.com/terpnetwork/terp-core/archive/refs/tags/v0.1.2.tar.gz"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "9b9ff10893b11aa5588170b289222d4bb6785d97",
+        "address": "23.81.114.228:26656"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "65f819851e9eb2484818cb7d12f4edd759a1223a",
+        "address": "65.21.143.79:25856"
+      },
+      {
+        "id": "15f5bc75be9746fd1f712ca046502cae8a0f6ce7",
+        "address": "terp-testnet.nodejumper.io:30656"
+      },
+      {
+        "id": "c583c0a09ba50fb2eef6cb665dbdea1e5b790ffd",
+        "address": "161.97.167.120:20656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "http://23.88.53.28:36657"
+      },
+      {
+        "address": "https://rpc-terp.zenchainlabs.io/"
+      },
+      {
+        "address": "https://terp-rpc.skynetvalidators.com/"
+      },
+      {
+        "address": "https://terp-rpc.skynetvalidators.com/"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-terp.zenchainlabs.io/",
+        "provider": "Zenchain Labs"
+      },
+      {
+        "address": "https://terp-api.skynetvalidators.com",
+        "provider": "skynet validators"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "23.88.53.28:36090",
+        "provider": "HighStakes"
+      }
+    ]
+  }
+}

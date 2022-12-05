@@ -12,6 +12,9 @@
   "key_algos": [
     "ethsecp256k1"
   ],
+  "extra_codecs": [
+    "ethermint"
+  ],
   "slip44": 60,
   "fees": {
     "fee_tokens": [
@@ -219,12 +222,16 @@
         "provider": "TC Network"
       },
       {
-        "address": "https://evmos.rpc.stakin.com",
+        "address": "https://evmos.rpc.stakin-nodes.com",
         "provider": "Stakin"
       },
       {
         "address": "https://rpc-evmos.architectnodes.com",
         "provider": "Architect Nodes"
+      },
+      {
+        "address": "https://evmos-rpc.validatrium.club",
+        "provider": "Validatrium"
       }
     ],
     "rest": [
@@ -297,12 +304,16 @@
         "provider": "TC Network"
       },
       {
-        "address": "https://evmos.rest.stakin.com",
+        "address": "https://evmos.rest.stakin-nodes.com",
         "provider": "Stakin"
       },
       {
         "address": "https://rest-evmos.architectnodes.com",
         "provider": "Architect Nodes"
+      },
+      {
+        "address": "https://evmos-api.validatrium.club",
+        "provider": "Validatrium"
       }
     ],
     "grpc": [
@@ -359,7 +370,7 @@
         "provider": "silent"
       },
       {
-        "address": "evmos.grpc.stakin.com:443",
+        "address": "evmos.grpc.stakin-nodes.com:443",
         "provider": "Stakin"
       }
     ],
@@ -401,7 +412,7 @@
         "provider": "Golden Ratio Staking"
       },
       {
-        "address": "https://evmosevm.rpc.stakin.com",
+        "address": "https://evmosevm.rpc.stakin-nodes.com",
         "provider": "Stakin"
       }
     ]
@@ -415,7 +426,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/evmos",
-      "tx_page": "https://www.mintscan.io/evmos/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/evmos/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/evmos/account/${accountAddress}"
     },
     {
       "kind": "bigdipper",
@@ -428,7 +440,7 @@
       "tx_page": "https://evm.evmos.org/tx/${txHash}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://ping.pub/evmos",
       "tx_page": "https://ping.pub/evmos/tx/${txHash}"
     },
