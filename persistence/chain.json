@@ -7,15 +7,12 @@
   "network_type": "mainnet",
   "website": "https://persistence.one/",
   "bech32_prefix": "persistence",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/persistenceOne/genesisTransactions/master/core-1/final_genesis.json"
-  },
   "daemon_name": "persistenceCore",
   "node_home": "$HOME/.persistenceCore",
   "key_algos": [
     "secp256k1"
   ],
-  "slip44": 750,
+  "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
@@ -33,12 +30,15 @@
   },
   "codebase": {
     "git_repo": "https://github.com/persistenceOne/persistenceCore",
-    "recommended_version": "v0.2.3",
+    "recommended_version": "v5.0.0",
     "compatible_versions": [
-      "v0.2.3"
+      "v5.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v0.2.3/persistenceCore-linux-amd64.tar.gz"
+      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v5.0.0/persistenceCore-linux-amd64.tar.gz"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/persistenceOne/genesisTransactions/master/core-1/final_genesis.json"
     }
   },
   "peers": {
@@ -50,6 +50,21 @@
       {
         "id": "eaa76966cad27a9807b7d8b9a62c9b2ca4924581",
         "address": "tenderseed.ccvalidators.com:26003"
+      },
+      {
+        "id": "c16799ee5a236e08b1e49df62a545cf55d976dab",
+        "address": "seed-persistence.starsquid.io:15607",
+        "provider": "Starsquid"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "persistence.mainnet.seed.autostake.net:26896",
+        "provider": "AutoStake.net"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:15456",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
@@ -104,6 +119,11 @@
       {
         "id": "01102f3c84e6602e30e1e39498e242cbb60a0b73",
         "address": "178.62.103.7:26656"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "persistence.mainnet.peer.autostake.net:26896",
+        "provider": "AutoStake.net"
       }
     ]
   },
@@ -116,6 +136,18 @@
       {
         "address": "https://rpc-persistent-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://rpc-persistence.starsquid.io",
+        "provider": "Starsquid"
+      },
+      {
+        "address": "https://persistence-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://persistence-rpc.kleomedes.network",
+        "provider": "Kleomedes"
       }
     ],
     "rest": [
@@ -126,6 +158,18 @@
       {
         "address": "https://api-persistent-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://api-persistence.starsquid.io",
+        "provider": "Starsquid"
+      },
+      {
+        "address": "https://persistence-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://persistence-api.kleomedes.network",
+        "provider": "Kleomedes"
       }
     ],
     "grpc": [
@@ -136,22 +180,22 @@
       {
         "address": "grpc-persistent-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
+      },
+      {
+        "address": "persistence-grpc.polkachu.com:15490",
+        "provider": "Polkachu"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "proprietary",
-      "url": "https://explorer.persistence.one",
-      "tx_page": "https://explorer.persistence.one/transactions/${txHash}"
-    },
-    {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/persistence",
-      "tx_page": "https://www.mintscan.io/persistence/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/persistence/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/persistence/account/${accountAddress}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://ping.pub/persistence",
       "tx_page": "https://ping.pub/persistence/tx/${txHash}"
     },

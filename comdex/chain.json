@@ -8,15 +8,23 @@
   "chain_id": "comdex-1",
   "bech32_prefix": "comdex",
   "slip44": 118,
-  "genesis": {
-    "genesis_url": "https://comdex-mainnet-genesis.s3.ap-southeast-1.amazonaws.com/genesis.json"
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ucmdx",
+        "fixed_min_gas_price": 0
+      }
+    ]
   },
   "codebase": {
     "git_repo": "https://github.com/comdex-official/comdex",
-    "recommended_version": "v0.1.1",
+    "recommended_version": "v5.0.0",
     "compatible_versions": [
-      "v0.1.1"
-    ]
+      "v5.0.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://comdex-mainnet-genesis.s3.ap-southeast-1.amazonaws.com/genesis.json"
+    }
   },
   "daemon_name": "comdex",
   "node_home": "$HOME/.comdex",
@@ -42,6 +50,16 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:13156",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "comdex.mainnet.seed.autostake.net:26776",
+        "provider": "AutoStake.net"
+      },
+      {
+        "id": "6596d143fd128b2394b27cd7846bda099ca5a193",
+        "address": "seeds.goldenratiostaking.net:1621",
+        "provider": "Golden Ratio Staking"
       }
     ],
     "persistent_peers": [
@@ -80,6 +98,11 @@
       {
         "id": "9a59b6dc59903d036dd476de26e8d2b9f1acf466",
         "address": "195.201.195.111:26656"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "comdex.mainnet.peer.autostake.net:26776",
+        "provider": "AutoStake.net"
       }
     ]
   },
@@ -106,10 +129,6 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://rpc.comdex.ezstaking.io",
-        "provider": "EZStaking.io"
-      },
-      {
         "address": "https://rpc-comdex-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
       },
@@ -120,6 +139,10 @@
       {
         "address": "https://comdex-rpc.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc-comdex.goldenratiostaking.net",
+        "provider": "Golden Ratio Staking"
       }
     ],
     "rest": [
@@ -138,10 +161,6 @@
       {
         "address": "https://api-comdex.zenchainlabs.io/",
         "provider": "zenchainlabs"
-      },
-      {
-        "address": "https://lcd.comdex.ezstaking.io",
-        "provider": "EZStaking.io"
       },
       {
         "address": "https://api-comdex-ia.cosmosia.notional.ventures/",
@@ -181,9 +200,15 @@
   },
   "explorers": [
     {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/comdex",
+      "tx_page": "https://ezstaking.tools/comdex/txs/${txHash}"
+    },
+    {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/comdex",
-      "tx_page": "https://www.mintscan.io/comdex/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/comdex/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/comdex/account/${accountAddress}"
     },
     {
       "kind": "aneka",
@@ -191,7 +216,7 @@
       "tx_page": "https://comdex.aneka.io/txs/${txHash}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://ping.pub/comdex",
       "tx_page": "https://ping.pub/comdex/tx/${txHash}"
     },

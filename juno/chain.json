@@ -9,9 +9,6 @@
   "bech32_prefix": "juno",
   "daemon_name": "junod",
   "node_home": "$HOME/.juno",
-  "genesis": {
-    "genesis_url": "https://download.dimi.sh/juno-phoenix2-genesis.tar.gz"
-  },
   "key_algos": [
     "secp256k1"
   ],
@@ -20,6 +17,7 @@
     "fee_tokens": [
       {
         "denom": "ujuno",
+        "fixed_min_gas_price": 0.0025,
         "low_gas_price": 0.03,
         "average_gas_price": 0.04,
         "high_gas_price": 0.05
@@ -35,14 +33,17 @@
   },
   "codebase": {
     "git_repo": "https://github.com/CosmosContracts/juno",
-    "recommended_version": "v9.0.0",
+    "recommended_version": "v11.0.0",
     "compatible_versions": [
-      "v9.0.0"
+      "v11.0.0"
     ],
     "cosmos_sdk_version": "0.45",
     "tendermint_version": "0.34",
-    "cosmwasm_version": "0.27",
-    "cosmwasm_enabled": true
+    "cosmwasm_version": "0.28",
+    "cosmwasm_enabled": true,
+    "genesis": {
+      "genesis_url": "https://download.dimi.sh/juno-phoenix2-genesis.tar.gz"
+    }
   },
   "peers": {
     "seeds": [
@@ -68,6 +69,11 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:12656",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ea67180befe4d9ca71142d21ada8ff58cc08f71c",
+        "address": "seeds.goldenratiostaking.net:1627",
+        "provider": "Golden Ratio Staking"
       }
     ],
     "persistent_peers": [
@@ -132,16 +138,16 @@
         "provider": "Polkachu"
       },
       {
+        "address": "https://juno.rpc.interchain.ivaldilabs.xyz",
+        "provider": "Ivaldi Labs"
+      },
+      {
         "address": "https://juno-rpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://rpc.juno.pupmos.network",
+        "address": "https://rpc-juno.pupmos.network",
         "provider": "PUPMØS"
-      },
-      {
-        "address": "https://rpc.junomint.com",
-        "provider": "EZStaking.io"
       },
       {
         "address": "https://rpc-juno-ia.cosmosia.notional.ventures/",
@@ -152,8 +158,40 @@
         "provider": "ChainTools"
       },
       {
-        "address": "https://juno-rpc.kleomed.es",
+        "address": "https://rpc.juno.silknodes.io/",
+        "provider": "Silk Nodes"
+      },
+      {
+        "address": "https://juno-rpc.kleomedes.network",
         "provider": "Kleomedes"
+      },
+      {
+        "address": "https://rpc.juno.interbloc.org",
+        "provider": "Interbloc"
+      },
+      {
+        "address": "https://juno.nodejumper.io",
+        "provider": "Nodejumper 🚀"
+      },
+      {
+        "address": "https://juno.rpc.stakin-nodes.com",
+        "provider": "Stakin"
+      },
+      {
+        "address": "https://juno-rpc.icycro.org",
+        "provider": "IcyCRO 🧊"
+      },
+      {
+        "address": "https://rpc-juno.goldenratiostaking.net",
+        "provider": "Golden Ratio Staking"
+      },
+      {
+        "address": "https://rpc.juno.bh.rocks",
+        "provider": "BlockHunters \uD83C\uDFAF"
+      },
+      {
+        "address": "https://rpc.juno.kingnodes.com",
+        "provider": "kingnodes 👑"
       }
     ],
     "rest": [
@@ -166,6 +204,10 @@
         "provider": "itastakers"
       },
       {
+        "address": "https://juno.rest.interchain.ivaldilabs.xyz",
+        "provider": "Ivaldi Labs"
+      },
+      {
         "address": "https://rest-juno.ecostake.com",
         "provider": "ecostake"
       },
@@ -174,12 +216,8 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://api.juno.pupmos.network",
+        "address": "https://api-juno.pupmos.network",
         "provider": "PUPMØS"
-      },
-      {
-        "address": "https://lcd.junomint.com",
-        "provider": "EZStaking.io"
       },
       {
         "address": "https://api-juno-ia.cosmosia.notional.ventures/",
@@ -194,8 +232,32 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://juno-api.kleomed.es",
+        "address": "https://api.juno.silknodes.io/",
+        "provider": "Silk Nodes"
+      },
+      {
+        "address": "https://juno-api.kleomedes.network",
         "provider": "Kleomedes"
+      },
+      {
+        "address": "https://api.juno.interbloc.org",
+        "provider": "Interbloc"
+      },
+      {
+        "address": "https://juno.nodejumper.io:1317",
+        "provider": "Nodejumper 🚀"
+      },
+      {
+        "address": "https://juno.rest.stakin-nodes.com",
+        "provider": "Stakin"
+      },
+      {
+        "address": "https://api.juno.bh.rocks",
+        "provider": "BlockHunters \uD83C\uDFAF"
+      },
+      {
+        "address": "https://api.juno.kingnodes.com",
+        "provider": "kingnodes 👑"
       }
     ],
     "grpc": [
@@ -218,10 +280,39 @@
       {
         "address": "juno-grpc.polkachu.com:12690",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://grpc.juno.silknodes.io/",
+        "provider": "Silk Nodes"
+      },
+      {
+        "address": "juno.grpc.interchain.ivaldilabs.xyz:443",
+        "provider": "Ivaldi Labs"
+      },
+      {
+        "address": "https://juno.nodejumper.io:9090",
+        "provider": "Nodejumper 🚀"
+      },
+      {
+        "address": "juno.grpc.stakin-nodes.com:443",
+        "provider": "Stakin"
+      },
+      {
+        "address": "https://grpc.juno.bh.rocks:443",
+        "provider": "BlockHunters \uD83C\uDFAF"
+      },
+      {
+        "address": "https://grpc.juno.kingnodes.com",
+        "provider": "kingnodes 👑"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/juno",
+      "tx_page": "https://ezstaking.tools/juno/txs/${txHash}"
+    },
     {
       "kind": "ping.pub",
       "url": "https://ping.pub/juno",
@@ -235,7 +326,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/juno",
-      "tx_page": "https://www.mintscan.io/juno/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/juno/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/juno/account/${accountAddress}"
     },
     {
       "kind": "atomscan",

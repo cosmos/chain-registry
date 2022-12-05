@@ -8,14 +8,12 @@
   "chain_id": "chihuahua-1",
   "bech32_prefix": "chihuahua",
   "daemon_name": "chihuahuad",
-  "node_home": "$HOME/.chihuahua",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/ChihuahuaChain/chihuahua/main/mainnet/genesis.json"
-  },
+  "node_home": "$HOME/.chihuahuad",
   "fees": {
     "fee_tokens": [
       {
         "denom": "uhuahua",
+        "fixed_min_gas_price": 0,
         "low_gas_price": 1.0,
         "average_gas_price": 5.0,
         "high_gas_price": 10.0
@@ -31,10 +29,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/ChihuahuaChain/chihuahua/",
-    "recommended_version": "v2.0.2",
+    "recommended_version": "v4.1.0",
     "compatible_versions": [
-      "v2.0.1"
-    ]
+      "v4.1.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/ChihuahuaChain/chihuahua/main/mainnet/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
@@ -51,6 +52,11 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:12956",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "77cbb35d1df17f48a42e9f157f12f55b691e9f5e",
+        "address": "seeds.goldenratiostaking.net:1620",
+        "provider": "Golden Ratio Staking"
       }
     ],
     "persistent_peers": [
@@ -117,6 +123,22 @@
       {
         "address": "https://chihuahua-rpc.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc.chihuahua.goldenratiostaking.net",
+        "provider": "Golden Ratio Staking"
+      },
+      {
+        "address": "https://rpc.huahua.bh.rocks",
+        "provider": "BlockHunters \uD83C\uDFAF"
+      },
+      {
+        "address": "https://chihuahua-rpc.kleomedes.network",
+        "provider": "Kleomedes"
+      },
+      {
+        "address": "https://rpc-chihuahua.pupmos.network/",
+        "provider": "PUPMØS"
       }
     ],
     "rest": [
@@ -139,6 +161,18 @@
       {
         "address": "https://chihuahua-api.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://api.huahua.bh.rocks/",
+        "provider": "BlockHunters \uD83C\uDFAF"
+      },
+      {
+        "address": "https://chihuahua-api.kleomedes.network",
+        "provider": "Kleomedes"
+      },
+      {
+        "address": "https://api-chihuahua.pupmos.network/",
+        "provider": "PUPMØS"
       }
     ],
     "grpc": [
@@ -153,6 +187,10 @@
       {
         "address": "https://chihuahua-grpc.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "grpc.huahua.bh.rocks:443",
+        "provider": "BlockHunters \uD83C\uDFAF"
       }
     ]
   },
@@ -165,7 +203,8 @@
     {
       "kind": "mintscan",
       "url": "https://mintscan.io/chihuahua",
-      "tx_page": "https://mintscan.io/chihuahua/txs/${txHash}"
+      "tx_page": "https://mintscan.io/chihuahua/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/chihuahua/account/${accountAddress}"
     },
     {
       "kind": "atomscan",

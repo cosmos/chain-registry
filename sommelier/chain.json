@@ -9,9 +9,6 @@
   "bech32_prefix": "somm",
   "daemon_name": "sommelier",
   "node_home": "$HOME/.sommelier",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/PeggyJV/sommelier/main/contrib/mainnet/sommelier-2/genesis.json"
-  },
   "key_algos": [
     "secp256k1"
   ],
@@ -25,16 +22,19 @@
   },
   "codebase": {
     "git_repo": "https://github.com/PeggyJV/sommelier",
-    "recommended_version": "v4.0.1",
+    "recommended_version": "v4.0.2",
     "compatible_versions": [
-      "v4.0.1"
+      "v4.0.2"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v4.0.1/sommelier_4.0.1_linux_amd64.tar.gz",
-      "linux/arm64": "https://github.com/PeggyJV/sommelier/releases/download/v4.0.1/sommelier_4.0.1_linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v4.0.1/sommelier_4.0.1_darwin_amd64.tar.gz",
-      "darwin/arm64": "https://github.com/PeggyJV/sommelier/releases/download/v4.0.1/sommelier_4.0.1_darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v4.0.1/sommelier_4.0.1_windows_amd64.tar.gz"
+      "linux/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v4.0.2/sommelier_4.0.2_linux_amd64.tar.gz",
+      "linux/arm64": "https://github.com/PeggyJV/sommelier/releases/download/v4.0.2/sommelier_4.0.2_linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v4.0.2/sommelier_4.0.2_darwin_amd64.tar.gz",
+      "darwin/arm64": "https://github.com/PeggyJV/sommelier/releases/download/v4.0.2/sommelier_4.0.2_darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v4.0.2/sommelier_4.0.2_windows_amd64.tar.gz"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/PeggyJV/sommelier/main/contrib/mainnet/sommelier-2/genesis.json"
     }
   },
   "peers": {
@@ -115,8 +115,16 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://rpc.sommelier.pupmos.network",
+        "address": "https://rpc-sommelier.pupmos.network",
         "provider": "PUPMØS"
+      },
+      {
+        "address": "https://sommelier-rpc.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc.somm.bh.rocks/",
+        "provider": "BlockHunters \uD83C\uDFAF"
       }
     ],
     "rest": [
@@ -125,12 +133,20 @@
         "provider": "chainapsis"
       },
       {
-        "address": "https://api.sommelier.pupmos.network",
+        "address": "https://api-sommelier.pupmos.network",
         "provider": "PUPMØS"
       },
       {
         "address": "https://sommelier-api.polkachu.com",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://sommelier-api.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://api.somm.bh.rocks/",
+        "provider": "BlockHunters \uD83C\uDFAF"
       }
     ],
     "grpc": [
@@ -141,6 +157,14 @@
       {
         "address": "sommelier-grpc.polkachu.com:14190",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://sommelier-grpc.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://grpc.somm.bh.rocks:443/",
+        "provider": "BlockHunters \uD83C\uDFAF"
       }
     ]
   },
@@ -149,6 +173,12 @@
       "kind": "sommscan",
       "url": "https://sommscan.io",
       "tx_page": "https://sommscan.io"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/sommelier",
+      "tx_page": "https://www.mintscan.io/sommelier/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/sommelier/account/${accountAddress}"
     }
   ]
 }

@@ -9,9 +9,6 @@
   "bech32_prefix": "ixo",
   "daemon_name": "ixod",
   "node_home": "$HOME/.ixod",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/ixofoundation/genesis/main/impacthub-3/genesis.json"
-  },
   "key_algos": [
     "secp256k1",
     "ed25519"
@@ -31,7 +28,10 @@
     "compatible_versions": [
       "v0.18.1",
       "v0.18.0"
-    ]
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/ixofoundation/genesis/main/impacthub-3/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
@@ -79,10 +79,6 @@
         "provider": "ixoworld"
       },
       {
-        "address": "https://rpc.ixo.ezstaking.io",
-        "provider": "EZStaking.io"
-      },
-      {
         "address": "https://rpc-ixo-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
       },
@@ -109,10 +105,6 @@
         "provider": "ixoworld"
       },
       {
-        "address": "https://lcd.ixo.ezstaking.io",
-        "provider": "EZStaking.io"
-      },
-      {
         "address": "https://api-ixo-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
       },
@@ -133,6 +125,11 @@
     ]
   },
   "explorers": [
+    {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/impacthub",
+      "tx_page": "https://ezstaking.tools/impacthub/txs/${txHash}"
+    },
     {
       "kind": "bigdipper",
       "url": "https://blockscan.ixo.world",

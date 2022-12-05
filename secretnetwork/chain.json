@@ -9,9 +9,6 @@
   "bech32_prefix": "secret",
   "daemon_name": "secretd",
   "node_home": "$HOME/.secretd",
-  "genesis": {
-    "genesis_url": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/genesis.json"
-  },
   "key_algos": [
     "secp256k1"
   ],
@@ -20,7 +17,7 @@
     "fee_tokens": [
       {
         "denom": "uscrt",
-        "fixed_min_gas_price": 0.1
+        "fixed_min_gas_price": 0.00125
       }
     ]
   },
@@ -33,11 +30,42 @@
   },
   "codebase": {
     "git_repo": "https://github.com/scrtlabs/SecretNetwork",
-    "recommended_version": "v1.4.0",
+    "recommended_version": "v1.5",
     "binaries": {
-      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.4.0/secretnetwork_1.4.0_mainnet_goleveldb_amd64.deb"
+      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.5/secretnetwork_1.5_mainnet_goleveldb_amd64.deb"
     },
-    "compatible_versions": ["v1.4.0"]
+    "compatible_versions": [
+      "v1.5"
+    ],
+    "genesis": {
+      "genesis_url": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.2",
+        "tag": "v1.2",
+        "height": 0,
+        "next_version_name": "v1.3"
+      },
+      {
+        "name": "v1.3",
+        "tag": "v1.3",
+        "height": 3343000,
+        "next_version_name": "v1.4"
+      },
+                {
+        "name": "v1.4",
+        "tag": "v1.4",
+        "height": 5309200,
+        "next_version_name": "v1.5"
+      },
+                {
+        "name": "v1.5",
+        "tag": "v1.5",
+        "height": 5941700,
+        "next_version_name": "v1.6"
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -60,6 +88,11 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:17156",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "secret.mainnet.seed.autostake.net:26656",
+        "provider": "AutoStake"
       }
     ]
   },
@@ -143,19 +176,25 @@
   },
   "explorers": [
     {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/secretnetwork",
+      "tx_page": "https://ezstaking.tools/secretnetwork/txs/${txHash}"
+    },
+    {
       "kind": "secret nodes",
       "url": "https://secretnodes.com/secret/chains/secret-4",
       "tx_page": "https://secretnodes.com/secret/chains/secret-4/transactions/${txHash}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://ping.pub/secret",
       "tx_page": "https://ping.pub/secret/tx/${txHash}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/secret",
-      "tx_page": "https://www.mintscan.io/secret/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/secret/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/secret/account/${accountAddress}"
     },
     {
       "kind": "atomscan",

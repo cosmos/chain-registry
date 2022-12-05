@@ -9,9 +9,6 @@
   "bech32_prefix": "cheqd",
   "daemon_name": "cheqd-noded",
   "node_home": "$HOME/.cheqdnode",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/cheqd/cheqd-node/main/networks/mainnet/genesis.json"
-  },
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -33,12 +30,22 @@
   },
   "codebase": {
     "git_repo": "https://github.com/cheqd/cheqd-node",
-    "recommended_version": "v0.6.0",
+    "recommended_version": "v0.6.9",
     "compatible_versions": [
+      "v0.6.9",
+      "v0.6.8",
+      "v0.6.7",
+      "v0.6.1",
       "v0.6.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v0.6.0/cheqd-noded"
+      "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/0.6.9/cheqd-noded-0.6.9-Linux-arm64.tar.gz",
+      "linux/arm64": "https://github.com/cheqd/cheqd-node/releases/download/0.6.9/cheqd-noded-0.6.9-Linux-x86_64.tar.gz"
+    },
+    "cosmos_sdk_version": "0.45",
+    "tendermint_version": "0.34",
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/cheqd/cheqd-node/main/networks/mainnet/genesis.json"
     }
   },
   "peers": {
@@ -94,10 +101,6 @@
         "provider": "cheqd"
       },
       {
-        "address": "https://rpc.cheqd.ezstaking.io",
-        "provider": "EZStaking.io"
-      },
-      {
         "address": "https://cheqd-rpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes"
       },
@@ -118,10 +121,6 @@
       {
         "address": "https://cheqd-api.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes"
-      },
-      {
-        "address": "https://lcd.cheqd.ezstaking.io",
-        "provider": "EZStaking.io"
       },
       {
         "address": "https://api-cheqd-ia.cosmosia.notional.ventures/",
@@ -158,15 +157,34 @@
       "tx_page": "https://explorer.cheqd.io/transactions/${txHash}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://ping.pub/cheqd",
       "tx_page": "https://ping.pub/cheqd/tx/${txHash}"
     },
     {
-      "kind": "atomscan.com",
+      "kind": "atomscan",
       "url": "https://atomscan.com/cheqd",
       "tx_page": "https://atomscan.com/cheqd/transactions/${txHash}",
       "account_page": "https://atomscan.com/cheqd/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.tools/cheqd",
+      "tx_page": "https://ezstaking.tools/cheqd/txs/${txHash}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://look.chillvalidation.com/cheqd",
+      "tx_page": "https://look.chillvalidation.com/cheqd/tx/${txHash}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.wildsage.io/cheqd",
+      "tx_page": "https://ping.wildsage.io/cheqd/tx/${txHash}"
     }
-  ]
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cheqd/images/cheq.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cheqd/images/cheq.svg"
+  }
 }

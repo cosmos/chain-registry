@@ -8,18 +8,19 @@
   "chain_id": "evmos_9001-2",
   "bech32_prefix": "evmos",
   "node_home": "$HOME/.evmosd",
-  "genesis": {
-    "genesis_url": "https://archive.evmos.org/mainnet/genesis.json"
-  },
   "daemon_name": "evmosd",
   "key_algos": [
     "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
   ],
   "slip44": 60,
   "fees": {
     "fee_tokens": [
       {
         "denom": "aevmos",
+        "fixed_min_gas_price": 250000000,
         "low_gas_price": 20000000000,
         "average_gas_price": 25000000000,
         "high_gas_price": 40000000000
@@ -35,16 +36,19 @@
   },
   "codebase": {
     "git_repo": "https://github.com/evmos/evmos",
-    "recommended_version": "v8.2.0",
+    "recommended_version": "v9.1.0",
     "compatible_versions": [
-      "v8.2.0"
+      "v9.1.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v8.1.0/evmos_8.1.0_Linux_x86_64.tar.gz",
-      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v8.1.0/evmos_8.1.0_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v8.1.0/evmos_8.1.0_Darwin_x86_64.tar.gz",
-      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v8.1.0/evmos_8.1.0_Darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v8.1.0/evmos_8.1.0_Windows_x86_64.zip"
+      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v9.1.0/evmos_9.1.0_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v9.1.0/evmos_9.1.0_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v9.1.0/evmos_9.1.0_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v9.1.0/evmos_9.1.0_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v9.1.0/evmos_9.1.0_Windows_x86_64.zip"
+    },
+    "genesis": {
+      "genesis_url": "https://archive.evmos.org/mainnet/genesis.json"
     }
   },
   "peers": {
@@ -83,6 +87,16 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:13456",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "evmos.mainnet.seed.autostake.net:26736",
+        "provider": "AutoStake.net"
+      },
+      {
+        "id": "40f4fac63da8b1ce8f850b0fa0f79b2699d2ce72",
+        "address": "seed.evmos.jerrychong.com:26656",
+        "provider": "Jerry's Pool"
       }
     ],
     "persistent_peers": [
@@ -121,10 +135,15 @@
         "address": "peer.evmos.silknodes.io:26602",
         "provider": "Silk Nodes"
       },
-            {
+      {
         "id": "2d588e1bc71431f6c677a9ed7f5ff8f7caa82573",
         "address": "evmos-rpc.agoranodes.com:26656",
         "provider": "AgoraNodes"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "evmos.mainnet.peer.autostake.net:26736",
+        "provider": "AutoStake.net"
       }
     ]
   },
@@ -139,16 +158,16 @@
         "provider": " WhisperNode 🤐"
       },
       {
+        "address": "https://evmos.rpc.interchain.ivaldilabs.xyz",
+        "provider": "Ivaldi Labs"
+      },
+      {
         "address": "https://evmos-rpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://tendermint.bd.evmos.org:26657",
         "provider": "Blockdaemon"
-      },
-      {
-        "address": "https://rpc.evmos.ezstaking.io",
-        "provider": "EZStaking.io"
       },
       {
         "address": "https://rpc-evmos-ia.cosmosia.notional.ventures:443",
@@ -190,9 +209,29 @@
         "address": "https://rpc.evmos.silknodes.io/",
         "provider": "Silk Nodes"
       },
-            {
+      {
         "address": "https://evmos-rpc.agoranodes.com/",
         "provider": "AgoraNodes"
+      },
+      {
+        "address": "https://rpc.evmos.silentvalidator.com/",
+        "provider": "silent"
+      },
+      {
+        "address": "https://rpc.evmos.tcnetwork.io",
+        "provider": "TC Network"
+      },
+      {
+        "address": "https://evmos.rpc.stakin-nodes.com",
+        "provider": "Stakin"
+      },
+      {
+        "address": "https://rpc-evmos.architectnodes.com",
+        "provider": "Architect Nodes"
+      },
+      {
+        "address": "https://evmos-rpc.validatrium.club",
+        "provider": "Validatrium"
       }
     ],
     "rest": [
@@ -205,12 +244,12 @@
         "provider": " WhisperNode 🤐"
       },
       {
-        "address": "https://rest.bd.evmos.org:1317",
-        "provider": "Blockdaemon"
+        "address": "https://evmos.rest.interchain.ivaldilabs.xyz",
+        "provider": "Ivaldi Labs"
       },
       {
-        "address": "https://lcd.evmos.ezstaking.io",
-        "provider": "EZStaking.io"
+        "address": "https://rest.bd.evmos.org:1317",
+        "provider": "Blockdaemon"
       },
       {
         "address": "https://evmos-api.lavenderfive.com:443",
@@ -255,6 +294,26 @@
       {
         "address": "https://evmos-rest.agoranodes.com",
         "provider": "AgoraNodes"
+      },
+      {
+        "address": "https://api.evmos.silentvalidator.com/",
+        "provider": "silent"
+      },
+      {
+        "address": "https://rest.evmos.tcnetwork.io",
+        "provider": "TC Network"
+      },
+      {
+        "address": "https://evmos.rest.stakin-nodes.com",
+        "provider": "Stakin"
+      },
+      {
+        "address": "https://rest-evmos.architectnodes.com",
+        "provider": "Architect Nodes"
+      },
+      {
+        "address": "https://evmos-api.validatrium.club",
+        "provider": "Validatrium"
       }
     ],
     "grpc": [
@@ -273,6 +332,10 @@
       {
         "address": "https://evmos-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "evmos.grpc.interchain.ivaldilabs.xyz:443",
+        "provider": "Ivaldi Labs"
       },
       {
         "address": "grpc.evmos.testnet.run:8091",
@@ -298,9 +361,17 @@
         "address": "https://grpc.evmos.silknodes.io/",
         "provider": "Silk Nodes"
       },
-            {
+      {
         "address": "https://evmos-grpc.agoranodes.com",
         "provider": "AgoraNodes"
+      },
+      {
+        "address": "https://grpc.evmos.silentvalidator.com/",
+        "provider": "silent"
+      },
+      {
+        "address": "evmos.grpc.stakin-nodes.com:443",
+        "provider": "Stakin"
       }
     ],
     "evm-http-jsonrpc": [
@@ -324,17 +395,39 @@
         "address": "https://json-rpc.evmos.bh.rocks",
         "provider": "BlockHunters"
       },
-            {
+      {
         "address": "https://evmos-json-rpc.agoranodes.com",
         "provider": "AgoraNodes"
+      },
+      {
+        "address": "https://evm-rpc.evmos.silentvalidator.com/",
+        "provider": "silent"
+      },
+      {
+        "address": "https://json-rpc.evmos.tcnetwork.io",
+        "provider": "TC Network"
+      },
+      {
+        "address": "https://jsonrpc-evmos.goldenratiostaking.net",
+        "provider": "Golden Ratio Staking"
+      },
+      {
+        "address": "https://evmosevm.rpc.stakin-nodes.com",
+        "provider": "Stakin"
       }
     ]
   },
   "explorers": [
     {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/evmos",
+      "tx_page": "https://ezstaking.tools/evmos/txs/${txHash}"
+    },
+    {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/evmos",
-      "tx_page": "https://www.mintscan.io/evmos/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/evmos/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/evmos/account/${accountAddress}"
     },
     {
       "kind": "bigdipper",
@@ -347,7 +440,7 @@
       "tx_page": "https://evm.evmos.org/tx/${txHash}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://ping.pub/evmos",
       "tx_page": "https://ping.pub/evmos/tx/${txHash}"
     },
@@ -360,6 +453,11 @@
       "kind": "atomscan",
       "url": "https://atomscan.com/evmos",
       "tx_page": "https://atomscan.com/evmos/transactions/${txHash}"
+    },
+    {
+      "kind": "tcnetwork",
+      "url": "https://evmos.tcnetwork.io",
+      "tx_page": "https://evmos.tcnetwork.io/transaction/${txHash}"
     }
   ]
 }

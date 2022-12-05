@@ -9,16 +9,16 @@
   "bech32_prefix": "kava",
   "daemon_name": "kava",
   "node_home": "$HOME/.kava",
-  "genesis": {
-    "genesis_url": "https://kava-genesis-files.s3.us-east-1.amazonaws.com/kava_2222-10/genesis.json"
-  },
   "slip44": 459,
   "codebase": {
     "git_repo": "https://github.com/kava-Labs/kava/",
     "recommended_version": "v0.18.0",
     "compatible_versions": [
       "v0.18.0"
-    ]
+    ],
+    "genesis": {
+      "genesis_url": "https://kava-genesis-files.s3.us-east-1.amazonaws.com/kava_2222-10/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
@@ -30,6 +30,11 @@
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:13956",
         "provider": "Polkachu"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "kava.mainnet.seed.autostake.net:26656",
+        "provider": "AutoStake.net"
       }
     ],
     "persistent_peers": [
@@ -84,6 +89,11 @@
       {
         "id": "1074a6f31d2c7df6e21ce0e574a5cb75f1763be1",
         "address": "13.56.31.21:26656"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "kava.mainnet.peer.autostake.net:26656",
+        "provider": "AutoStake.net"
       }
     ]
   },
@@ -141,10 +151,11 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/kava",
-      "tx_page": "https://www.mintscan.io/kava/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/kava/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/kava/account/${accountAddress}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://ping.pub/kava",
       "tx_page": "https://ping.pub/kava/tx/${txHash}"
     },

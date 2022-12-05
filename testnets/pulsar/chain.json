@@ -8,9 +8,6 @@
   "bech32_prefix": "secret",
   "daemon_name": "secretd",
   "node_home": "$HOME/.secretd",
-  "genesis": {
-    "genesis_url": "https://storage.googleapis.com/stakeordie-pulsar-2/genesis.json"
-  },
   "key_algos": [
     "secp256k1"
   ],
@@ -32,7 +29,10 @@
     "compatible_versions": [
       "v1.3.0",
       "v1.3.1"
-    ]
+    ],
+    "genesis": {
+      "genesis_url": "https://storage.googleapis.com/stakeordie-pulsar-2/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
@@ -96,7 +96,7 @@
       "tx_page": "https://secretnodes.com/secret/chains/pulsar-2/transactions/${txHash}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://testnet.ping.pub/secret",
       "tx_page": "https://testnet.ping.pub/secret/tx/${txHash}"
     }
