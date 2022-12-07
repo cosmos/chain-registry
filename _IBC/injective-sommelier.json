@@ -1,0 +1,102 @@
+{
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "injective",
+    "client_id": "07-tendermint-135",
+    "connection_id": "connection-108"
+  },
+  "chain_2": {
+    "chain_name": "sommelier",
+    "client_id": "07-tendermint-4",
+    "connection_id": "connection-1"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-93",
+        "port_id": "transfer"
+      },
+      "chain_2": {
+        "channel_id": "channel-1",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "status": "live",
+        "preferred": true,
+        "links": {
+          "client": "https://www.mintscan.io/injective/txs/3862C1DE5D18B2A02CE0BA8DB8A276B3797ED4F6B66DA891A8D7A8BEBBA546FE",
+          "connection": "https://www.mintscan.io/sommelier/txs/DBFE4484610F3FFFCA5F1E989152DA2BDF3B19909336A71F948E2A0F63061B8D",
+          "transfer": "https://www.mintscan.io/sommelier/txs/0FB62D0E9185F6D51EDEB8AED87E9A9A53AEA6CABC786BEAEDD5512E81F9F29B"
+        },
+        "rly-config": {
+          "global": {
+            "api-listen-addr": ":5183",
+            "timeout": "10s",
+            "memo": "strangelove",
+            "light-cache-size": 20
+          },
+          "chains": {
+            "injective": {
+              "type": "cosmos",
+              "value": {
+                "key": "default",
+                "chain-id": "injective-1",
+                "rpc-addr": "https://rpc.injective.strange.love:443",
+                "account-prefix": "inj",
+                "keyring-backend": "test",
+                "gas-adjustment": 1.2,
+                "gas-prices": "500000000inj",
+                "min-gas-amount": 1,
+                "debug": false,
+                "timeout": "20s",
+                "output-format": "json",
+                "sign-mode": "direct",
+                "extra-codecs": [
+                  "injective"
+                ]
+              }
+            },
+            "sommelier": {
+              "type": "cosmos",
+              "value": {
+                "key": "default",
+                "chain-id": "sommelier-3",
+                "rpc-addr": "https://rpc.sommelier.strange.love:443",
+                "account-prefix": "somm",
+                "keyring-backend": "test",
+                "gas-adjustment": 1.2,
+                "gas-prices": "0.01usomm",
+                "min-gas-amount": 0,
+                "debug": false,
+                "timeout": "20s",
+                "output-format": "json",
+                "sign-mode": "direct",
+                "extra-codecs": []
+              }
+            }
+          },
+          "paths": {
+            "mainnet-sommelier-injective": {
+              "src": {
+                "chain-id": "sommelier-3",
+                "client-id": "07-tendermint-4",
+                "connection-id": "connection-1"
+              },
+              "dst": {
+                "chain-id": "injective-1",
+                "client-id": "07-tendermint-135",
+                "connection-id": "connection-108"
+              },
+              "src-channel-filter": {
+                "rule": "",
+                "channel-list": []
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
