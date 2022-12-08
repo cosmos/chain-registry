@@ -10,15 +10,13 @@
   "daemon_name": "starsd",
   "node_home": "$HOME/.starsd",
   "slip44": 118,
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/public-awesome/mainnet/main/stargaze-1/genesis.tar.gz"
-  },
   "codebase": {
     "git_repo": "https://github.com/public-awesome/stargaze",
     "recommended_version": "v7.0.0",
-    "compatible_versions": [
-      "v7.0.0"
-    ]
+    "compatible_versions": ["v7.0.0"],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/public-awesome/mainnet/main/stargaze-1/genesis.tar.gz"
+    }
   },
   "peers": {
     "seeds": [
@@ -37,7 +35,7 @@
       },
       {
         "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
-        "address": "stargaze.seed.rhinostake.com:16656",
+        "address": "seed.rhinostake.com:13756",
         "provider": "RHINO"
       },
       {
@@ -159,11 +157,11 @@
         "provider": "Stargaze Foundation"
       },
       {
-        "address": "https://rpc.stargaze.pupmos.network/",
+        "address": "https://rpc-stargaze.pupmos.network",
         "provider": "PUPMØS"
       },
       {
-        "address": "https://rpc.stargaze.ezstaking.io/",
+        "address": "https://rpc-stargaze.ezstaking.dev",
         "provider": "EZStaking.io"
       },
       {
@@ -185,6 +183,18 @@
       {
         "address": "https://rpc.stargaze.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://stargaze-rpc.ibs.team",
+        "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://rpc-stargaze.d-stake.xyz",
+        "provider": "D-stake"
+      },
+      {
+        "address": "https://rpc.stargaze.silentvalidator.com/",
+        "provider": "silent"
       }
     ],
     "rest": [
@@ -193,11 +203,11 @@
         "provider": "Stargaze Foundation"
       },
       {
-        "address": "https://api.stargaze.pupmos.network/",
+        "address": "https://api-stargaze.pupmos.network",
         "provider": "PUPMØS"
       },
       {
-        "address": "https://api.stargaze.ezstaking.io/",
+        "address": "https://api-stargaze.ezstaking.dev",
         "provider": "EZStaking.io"
       },
       {
@@ -219,6 +229,18 @@
       {
         "address": "https://api.stargaze.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://stargaze-api.ibs.team",
+        "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://api-stargaze.d-stake.xyz",
+        "provider": "D-stake"
+      },
+      {
+        "address": "https://api.stargaze.silentvalidator.com/",
+        "provider": "silent"
       }
     ],
     "grpc": [
@@ -233,17 +255,31 @@
       {
         "address": "https://grpc.stargaze.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://grpc-stargaze.d-stake.xyz",
+        "provider": "D-stake"
+      },
+      {
+        "address": "https://grpc.stargaze.silentvalidator.com/",
+        "provider": "silent"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "mintscan",
-      "url": "https://www.mintscan.io/stargaze/",
-      "tx_page": "https://www.mintscan.io/stargaze/txs/${txHash}"
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/stargaze",
+      "tx_page": "https://ezstaking.tools/stargaze/txs/${txHash}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/stargaze/",
+      "tx_page": "https://www.mintscan.io/stargaze/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/stargaze/account/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
       "url": "https://ping.pub/stargaze",
       "tx_page": "https://ping.pub/stargaze/tx/${txHash}"
     },

@@ -8,9 +8,6 @@
   "bech32_prefix": "cheqd",
   "daemon_name": "cheqd-noded",
   "node_home": "$HOME/.cheqdnode",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/cheqd/cheqd-node/main/networks/mainnet/genesis.json"
-  },
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -25,12 +22,22 @@
   },
   "codebase": {
     "git_repo": "https://github.com/cheqd/cheqd-node",
-    "recommended_version": "v0.6.0",
+    "recommended_version": "v0.6.9",
     "compatible_versions": [
+      "v0.6.9",
+      "v0.6.8",
+      "v0.6.7",
+      "v0.6.1",
       "v0.6.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v0.6.0/cheqd-noded"
+      "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/0.6.9/cheqd-noded-0.6.9-Linux-arm64.tar.gz",
+      "linux/arm64": "https://github.com/cheqd/cheqd-node/releases/download/0.6.9/cheqd-noded-0.6.9-Linux-x86_64.tar.gz"
+    },
+    "cosmos_sdk_version": "0.45",
+    "tendermint_version": "0.34",
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/cheqd/cheqd-node/main/networks/mainnet/genesis.json"
     }
   },
   "peers": {
@@ -85,5 +92,9 @@
       "url": "https://testnet-explorer.cheqd.io/",
       "tx_page": "https://testnet-explorer.cheqd.io/transactions/${txHash}"
     }
-  ]
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cheqd/images/cheq.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cheqd/images/cheq.svg"
+  }
 }

@@ -8,11 +8,11 @@
   "bech32_prefix": "evmos",
   "daemon_name": "evmosd",
   "node_home": "$HOME/.evmosd",
-  "genesis": {
-    "genesis_url": "https://github.com/evmos/testnets/raw/main/evmos_9000-4/genesis.zip"
-  },
   "key_algos": [
     "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
   ],
   "slip44": 60,
   "fees": {
@@ -34,20 +34,23 @@
   },
   "codebase": {
     "git_repo": "https://github.com/evmos/evmos",
-    "recommended_version": "v8.1.0",
+    "recommended_version": "v10.0.0-rc1",
     "compatible_versions": [
-      "v8.1.0"
+      "v10.0.0-rc1"
     ],
-    "cosmos_sdk_version": "0.45",
-    "tendermint_version": "0.34"
+    "cosmos_sdk_version": "0.46",
+    "tendermint_version": "0.34",
+    "genesis": {
+      "genesis_url": "https://github.com/evmos/testnets/raw/main/evmos_9000-4/genesis.zip"
+    }
   },
   "peers": {
     "seeds": [],
     "persistent_peers": [
       {
         "id": "b7635a113a52d0d25c82267de0648e71e46dc584",
-	"address": "167.99.182.201:46656",
-	"provider": "coldy"
+        "address": "167.99.182.201:46656",
+        "provider": "coldy"
       },
       {
         "id": "005efaae1ae29f95edea5f3729ce7e75511e5d3d",

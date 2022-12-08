@@ -8,13 +8,8 @@
   "chain_id": "stride-1",
   "bech32_prefix": "stride",
   "daemon_name": "strided",
-  "node_home": "$HOME/.strided",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/Stride-Labs/testnet/main/mainnet/genesis.json"
-  },
-  "key_algos": [
-    "ed25519"
-  ],
+  "node_home": "$HOME/.stride",
+  "key_algos": ["ed25519"],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -29,16 +24,20 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Stride-Labs/stride",
-    "recommended_version": "v1.0.0",
-    "binaries": {
-      "linux/amd64": "https://github.com/Stride-Labs/stride/releases/download/v1.0.0/strided-1.0.0-amd64",
-      "linux/arm64": "https://github.com/Stride-Labs/stride/releases/download/v1.0.0/strided-1.0.0-arm64"
-    },
-    "cosmos_sdk_version": "0.45.4",
-    "tendermint_version": "0.34.19"
+    "recommended_version": "v4.0.0",
+    "cosmos_sdk_version": "0.45.49",
+    "tendermint_version": "0.34.21",
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/Stride-Labs/testnet/main/mainnet/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
+      {
+        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
+        "address": "seed.rhinostake.com:12256",
+        "provider": "RHINO"
+      },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:12256",
@@ -53,6 +52,16 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:12256",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "stride.mainnet.seed.autostake.net:26886",
+        "provider": "AutoStake.net"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "stride.rpc.kjnodes.com:16659",
+        "provider": "kjnodes"
       }
     ],
     "persistent_peers": [
@@ -95,6 +104,11 @@
         "id": "9a65aeddaebe1d391058eae5b82e34907547ded1",
         "address": "alice.peers.stride.bh.rocks:46656",
         "provider": "BlockHunters"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "stride.mainnet.peer.autostake.net:26886",
+        "provider": "AutoStake.net"
       }
     ]
   },
@@ -121,9 +135,33 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
+        "address": "https://stride.rpc.interchain.ivaldilabs.xyz",
+        "provider": "Ivaldi Labs"
+      },
+      {
         "address": "https://rpc.stride.nodestake.top",
         "provider": "NodeStake"
-      }
+      },
+      {
+        "address": "https://rpc-stride.d-stake.xyz",
+        "provider": "D-stake"
+      },
+      {
+        "address": "https://rpc.stride.silentvalidator.com/",
+        "provider": "silent"
+      },
+      {
+        "address": "https://stride.rpc.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://rpc-stride.pupmos.network",
+        "provider": "PUPMØS"
+      },
+      {
+        "address": "https://stride.nodejumper.io:443",
+        "provider": "Nodejumper 🚀"
+      }      
     ],
     "rest": [
       {
@@ -147,9 +185,33 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
+        "address": "https://stride.rest.interchain.ivaldilabs.xyz",
+        "provider": "Ivaldi Labs"
+      },
+      {
         "address": "https://api.stride.nodestake.top",
         "provider": "NodeStake"
-      }
+      },
+      {
+        "address": "https://api-stride.d-stake.xyz",
+        "provider": "D-stake"
+      },
+      {
+        "address": "https://api.stride.silentvalidator.com/",
+        "provider": "silent"
+      },
+      {
+        "address": "https://stride.api.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://api-stride.pupmos.network",
+        "provider": "PUPMØS"
+      },
+      {
+        "address": "https://stride.nodejumper.io:1317",
+        "provider": "Nodejumper 🚀"
+      }      
     ],
     "grpc": [
       {
@@ -165,9 +227,29 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
+        "address": "stride.grpc.interchain.ivaldilabs.xyz:443",
+        "provider": "Ivaldi Labs"
+      },
+      {
         "address": "https://grpc.stride.nodestake.top",
         "provider": "NodeStake"
-      }
+      },
+      {
+        "address": "http://grpc-stride.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://grpc-stride.d-stake.xyz",
+        "provider": "D-stake"
+      },
+      {
+        "address": "https://grpc.stride.silentvalidator.com/",
+        "provider": "silent"
+      },
+      {
+        "address": "https://stride.nodejumper.io:9090",
+        "provider": "Nodejumper 🚀"
+      }        
     ]
   },
   "explorers": [
@@ -188,6 +270,12 @@
       "url": "https://exp.nodeist.net/Stride",
       "tx_page": "https://exp.nodeist.net/Stride/tx/${txHash}",
       "account_page": "https://exp.nodeist.net/Stride/account/${accountAddress}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/stride",
+      "tx_page": "https://www.mintscan.io/stride/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/stride/account/${accountAddress}"
     }
   ],
   "logo_URIs": {

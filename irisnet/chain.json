@@ -12,9 +12,6 @@
     "secp256k1"
   ],
   "slip44": 118,
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/irisnet/mainnet/master/config/genesis.json"
-  },
   "fees": {
     "fee_tokens": [
       {
@@ -34,7 +31,10 @@
     "recommended_version": "v1.3.0",
     "compatible_versions": [
       "v1.3.0"
-    ]
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/irisnet/mainnet/master/config/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
@@ -130,12 +130,18 @@
   },
   "explorers": [
     {
-      "kind": "mintscan",
-      "url": "https://www.mintscan.io/iris",
-      "tx_page": "https://www.mintscan.io/iris/txs/${txHash}"
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/irisnet",
+      "tx_page": "https://ezstaking.tools/irisnet/txs/${txHash}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/iris",
+      "tx_page": "https://www.mintscan.io/iris/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/iris/account/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
       "url": "https://ping.pub/iris-network",
       "tx_page": "https://ping.pub/iris-network/tx/${txHash}"
     },

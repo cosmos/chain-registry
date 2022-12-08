@@ -8,9 +8,6 @@
   "bech32_prefix": "fetch",
   "daemon_name": "fetchd",
   "node_home": "$HOME/.fetchd",
-  "genesis": {
-    "genesis_url": "https://storage.googleapis.com/fetch-ai-mainnet-v2-genesis/genesis-fetchhub4.json"
-  },
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -34,7 +31,10 @@
     "recommended_version": "v0.10.5",
     "compatible_versions": [
       "v0.10.5"
-    ]
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/fetchai/genesis-fetchhub/fetchhub-4/fetchhub-4/data/genesis_migrated_5300200.json"
+    }
   },
   "peers": {
     "seeds": [
@@ -94,6 +94,18 @@
       {
         "address": "https://fetch-rpc.polkachu.com",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://fetchai-rpc.kleomedes.network",
+        "provider": "Kleomedes"
+      },
+      {
+        "address": "https://fetch-rpc.teasel.org",
+        "provider": "𝗧𝗲𝗮𝘀𝗲𝗹"
+      },
+      {
+        "address": "https://fetch-rpc.antrixy.org",
+        "provider": "Antrix"
       }
     ],
     "rest": [
@@ -108,6 +120,18 @@
       {
         "address": "https://fetch-api.polkachu.com",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://fetchai-api.kleomedes.network",
+        "provider": "Kleomedes"
+      },
+      {
+        "address": "https://fetch-rest.teasel.org",
+        "provider": "𝗧𝗲𝗮𝘀𝗲𝗹"
+      },
+      {
+        "address": "https://fetch-rest.antrixy.org",
+        "provider": "Antrix"
       }
     ],
     "grpc": [
@@ -122,6 +146,14 @@
       {
         "address": "fetch-grpc.polkachu.com:15290",
         "provider": "Polkachu"
+      },
+      {
+        "address": "fetch-grpc.teasel.org:443",
+        "provider": "𝗧𝗲𝗮𝘀𝗲𝗹"
+      },
+      {
+        "address": "fetch-grpc.antrixy.org:443",
+        "provider": "Antrix"
       }
     ]
   },
@@ -129,7 +161,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/fetchai",
-      "tx_page": "https://www.mintscan.io/fetchai/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/fetchai/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/fetchai/account/${accountAddress}"
     },
     {
       "kind": "bigdipper",
@@ -145,6 +178,11 @@
       "kind": "atomscan",
       "url": "https://atomscan.com/fetchai",
       "tx_page": "https://atomscan.com/fetchai/transactions/${txHash}"
+    },
+    {
+      "kind": "bigdipper",
+      "url": "https://fetch-explorer.teasel.org",
+      "tx_page": "https://fetch-explorer.teasel.org/transactions/${txHash}"
     }
   ]
 }

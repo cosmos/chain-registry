@@ -7,9 +7,6 @@
   "network_type": "mainnet",
   "website": "https://axelar.network/",
   "bech32_prefix": "axelar",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/axelarnetwork/axelarate-community/main/resources/mainnet/genesis.json"
-  },
   "daemon_name": "axelard",
   "node_home": "$HOME/.axelard",
   "key_algos": [
@@ -20,7 +17,7 @@
     "fee_tokens": [
       {
         "denom": "uaxl",
-        "fixed_min_gas_price": 7e-03
+        "fixed_min_gas_price": 0.007
       }
     ]
   },
@@ -33,6 +30,9 @@
     "binaries": {
       "linux/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.26.0/axelard-linux-amd64-v0.26.0",
       "darwin/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.26.0/axelard-darwin-amd64-v0.26.0"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/axelarnetwork/axelarate-community/main/resources/mainnet/genesis.json"
     }
   },
   "peers": {
@@ -51,6 +51,11 @@
         "id": "82846f20e20dc80191bc96aa4c72321dd338faa7",
         "address": "207.180.252.206:26656",
         "provider": "chainode"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:15156",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
@@ -87,12 +92,28 @@
         "provider": "nodes.guru"
       },
       {
+        "address": "https://axelar.rpc.interchain.ivaldilabs.xyz",
+        "provider": "Ivaldi Labs"
+      },
+      {
         "address": "https://rpc-axelar-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
       },
       {
         "address": "https://axelar-rpc.polkachu.com",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://axelar.rpc.stakin-nodes.com",
+        "provider": "Stakin"
+      },
+      {
+        "address": "https://rpc.axelar.bh.rocks",
+        "provider": "BlockHunters \uD83C\uDFAF"
+      },
+      {
+        "address": "https://axelar-rpc.validatrium.club",
+        "provider": "Validatrium"
       }
     ],
     "rest": [
@@ -117,12 +138,28 @@
         "provider": "nodes.guru"
       },
       {
+        "address": "https://axelar.rest.interchain.ivaldilabs.xyz",
+        "provider": "Ivaldi Labs"
+      },
+      {
         "address": "https://api-axelar-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
       },
       {
         "address": "https://axelar-api.polkachu.com",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://axelar.rest.stakin-nodes.com",
+        "provider": "Stakin"
+      },
+      {
+        "address": "https://api.axelar.bh.rocks",
+        "provider": "BlockHunters \uD83C\uDFAF"
+      },
+      {
+        "address": "https://axelar-api.validatrium.club",
+        "provider": "Validatrium"
       }
     ],
     "grpc": [
@@ -147,8 +184,20 @@
         "provider": "Notional"
       },
       {
+        "address": "axelar.grpc.interchain.ivaldilabs.xyz:443",
+        "provider": "Ivaldi Labs"
+      },
+      {
         "address": "axelar-grpc.polkachu.com:15190",
         "provider": "Polkachu"
+      },
+      {
+        "address": "axelar.grpc.stakin-nodes.com:443",
+        "provider": "Stakin"
+      },
+      {
+        "address": "grpc.axelar.bh.rocks:443",
+        "provider": "BlockHunters \uD83C\uDFAF"
       }
     ],
     "grpc-web": [
@@ -171,7 +220,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/axelar",
-      "tx_page": "https://www.mintscan.io/axelar/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/axelar/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/axelar/account/${accountAddress}"
     },
     {
       "kind": "explorers.guru",
