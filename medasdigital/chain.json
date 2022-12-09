@@ -1,0 +1,99 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "medasdigital-1",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://medas-digital.io/",
+  "pretty_name": "Medas Digital Network",
+  "chain_id": "medasdigital-1",
+  "bech32_prefix": "medas",
+  "daemon_name": "medasdigitald",
+  "node_home": "$HOME/.medasdigital",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "umedas",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0.1,
+        "high_gas_price": 1
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "umedas"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/oxygene76/medasdigital/",
+    "recommended_version": "v0.94",
+    "compatible_versions": [
+      "v0.94"
+    ],
+    "genesis": {
+      "genesis_url": "https://github.com/oxygene76/medasdigital/tree/main/networks/mainnet/genesis.json"
+    }
+  },
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "afa88136727d46b4c15fe6e041f53fdb25cc37c0",
+        "address": "212.6.177.10:26656",
+        "provider": "Neptun Validator"
+      },
+      {
+        "id": "a50887a49a5c908631a036013d38cc825b10f8fe",
+        "address": "212.6.177.11:26656",
+        "provider": "Uranus Validator"
+      },
+      {
+        "id": "e89a2ed10488de6d8134ff67101aa1a883a0c6bd",
+        "address": "212.6.177.12:26656",
+        "provider": "Saturn Validator"
+      },
+      {
+        "id": "95d55f5d4a61d18508441f3357fadf221abe43ca",
+        "address": "64.251.18.192:26656",
+        "provider": "Mars Validator"
+      },
+      {
+        "id": "15376dbf45a1cf907958e2a684c436a62cc0825d",
+        "address": "67.207.180.166:26656",
+        "provider": "Jupiter Validator"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.medas-digital.io:26657/",
+        "provider": "Neptun Validator"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.medas-digital.io:9090",
+        "provider": "Neptun Validator"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.medas-digital.io:1317/",
+        "provider": "Neptun Validator"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Mintscan",
+      "url": "https://www.mintscan.io/medasdigital",
+      "tx_page": "https://www.mintscan.io/medasdigital/txs/${txHash}"
+    }
+  ]
+}
