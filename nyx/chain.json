@@ -1,0 +1,119 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "nyx",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://nymtech.net/",
+  "pretty_name": "Nym",
+  "chain_id": "nyx",
+  "bech32_prefix": "n",
+  "daemon_name": "nyxd",
+  "node_home": "$HOME/.nyxd",
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "unym",
+        "fixed_min_gas_price": 0.25
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/nymtech/nym/",
+    "recommended_version": "v.1.1",
+    "compatible_versions": [
+      "v1.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/nymtech/nym/releases/"
+    },
+    "genesis": {
+      "genesis_url": "https://nymtech.net/genesis/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "4acf579e2744268f834c713e894850995bbf0ffa",
+        "address": "50.18.31.225:26656"
+      }, 
+      { 
+        
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address":"https://rpc.nyx.nodes.guru/",
+        "provider":"nodes guru"
+      }, 
+      {
+        "address":"https://nym.vladiatorlabs.io/", 
+        "provider":"vladiatorlabs"
+      }, 
+      {
+        "address":"https://rpc.nyx.ezstaking.io/", 
+        "provider":"ezstaking"
+      }, 
+      {
+        "address":"https://rpc.nym.forbole.com/", 
+        "provider":"forbole"
+      }, 
+      {
+        "address":"https://rpc-nyx.testnet.run/", 
+        "provider":"testnet-run"
+      },
+      {
+        "address":"https://nym-mainnet-rpc.commodum.io/", 
+        "provider":"commodum"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.akash.forbole.com:443",
+        "provider": "nodes guru"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc-akash-ia.cosmosia.notional.ventures:443",
+        "provider": "Notional"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/akash",
+      "tx_page": "https://ezstaking.tools/akash/txs/${txHash}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/akash",
+      "tx_page": "https://www.mintscan.io/akash/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/akash/account/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/akash-network",
+      "tx_page": "https://ping.pub/akash-network/tx/${txHash}"
+    },
+    {
+      "kind": "bigdipper",
+      "url": "https://akash.bigdipper.live/",
+      "tx_page": "https://akash.bigdipper.live/transactions/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/akash",
+      "tx_page": "https://atomscan.com/akash/transactions/${txHash}"
+    },
+    {
+      "kind": "cloudmos",
+      "url": "https://cloudmos.io/blocks",
+      "tx_page": "https://cloudmos.io/transactions/${txHash}"
+    }
+  ]
+}
