@@ -1,0 +1,98 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "quicksilver",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Quicksilver",
+  "chain_id": "quicksilver-1",
+  "daemon_name": "quicksilverd",
+  "node_home": "$HOME/.quicksilver",
+  "bech32_prefix": "quick",
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uqck",
+        "fixed_min_gas_price": 0.0001
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uqck"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/ingenuity-build/quicksilver",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://github.com/ingenuity-build/mainnet/raw/main/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "940c0dc153b0e344de6368d101a97fd4d9e69eff",
+        "address": "seeds.cros-nest.com:25656",
+        "provider": "Cros-Nest"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:11156",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:11156",
+        "provider": "Lavenderfive"
+      },
+      {
+        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
+        "address": "seed.rhinostake.com:11156",
+        "provider": "rhinostake"
+      }
+    ],
+    "persistent_peers": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.quicksilver.zone:443",
+        "provider": "Quicksilver"
+      },
+      {
+        "address": "https://rpc-quicksilver-ia.cosmosia.notional.ventures:443",
+        "provider": "Notional"
+      }
+    ],
+    "rest": [
+      {
+        "address": "http://lcd.quicksilver.zone:443/",
+        "provider": "Quicksilver"
+      },
+      {
+        "address": "https://api-quicksilver-ia.cosmosia.notional.ventures:443",
+        "provider": "Notional"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc-quicksilver-ia.cosmosia.notional.ventures:443",
+        "provider": "Notional"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/quicksilver",
+      "tx_page": "https://www.mintscan.io/quicksilver/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/quicksilver/account/${accountAddress}"
+    }
+  ]
+}
