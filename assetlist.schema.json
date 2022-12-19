@@ -90,6 +90,11 @@
                 "ibc": {
                     "type": "object",
                     "description": "[OPTIONAL] IBC Channel between src and dst between chain",
+                    "required": [
+                        "source_channel",
+                        "dst_channel",
+                        "source_denom"
+                    ],
                     "properties": {
                         "source_channel": {
                             "type": "string"
@@ -101,11 +106,7 @@
                             "type": "string"
                         }
                     },
-                    "required": [
-                        "source_channel",
-                        "dst_channel",
-                        "source_denom"
-                    ]
+                    "additionalProperties": false
                 },
                 "logo_URIs": {
                     "type": "object",
@@ -113,14 +114,15 @@
                         "png": {
                             "type": "string",
                             "format": "uri-reference",
-                            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master(/|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/(.){1,}\\.png$"
+                            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$"
                         },
                         "svg": {
                             "type": "string",
                             "format": "uri-reference",
-                            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master(/|/testnets/|/_non-cosmos/)([a-z]|[0-9]){1,}/images/(.){1,}\\.svg"
+                            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$"
                         }
-                    }
+                    },
+                    "additionalProperties": false
                 },
                 "coingecko_id": {
                     "type": "string",
@@ -134,18 +136,20 @@
                     }
                 }
             },
+            "additionalProperties": false,
             "if": {
+                "required": [
+                    "type_asset"
+                ],
                 "properties": {
                     "type_asset": {
                         "enum": [
+                            "erc20"
                             "cw20",
                             "snip20"
                         ]
                     }
-                },
-                "required": [
-                    "type_asset"
-                ]
+                }
               },
             "then": {
                 "required": [
@@ -155,6 +159,10 @@
         },
         "denom_unit": {
             "type": "object",
+            "required": [
+                "denom",
+                "exponent"
+            ],
             "properties": {
                 "denom": {
                     "type": "string"
@@ -169,10 +177,7 @@
                     }
                 }
             },
-            "required": [
-                "denom",
-                "exponent"
-            ]
+            "additionalProperties": false
         },
         "asset_pointer": {
             "type": "object",
@@ -190,7 +195,8 @@
                     "type": "string",
                     "description": "The base unit of the asset on its source platform. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
                 }
-            }
+            },
+            "additionalProperties": false
         },
         "ibc_transition": {
             "type": "object",
