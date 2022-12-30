@@ -73,6 +73,9 @@
     },
     "fees": {
       "type": "object",
+      "required": [
+        "fee_tokens"
+      ],
       "properties": {
         "fee_tokens": {
           "type": "array",
@@ -85,12 +88,30 @@
     },
     "staking": {
       "type": "object",
+      "required": [
+        "staking_tokens"
+      ],
       "properties": {
         "staking_tokens": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/staking_token"
+            "type": "string"
           }
+        },
+        "lock_duration": {
+          "type": "object",
+          "properties": {
+            "blocks": {
+              "type": "number",
+              "description": "The number of blocks for which the staked tokens are locked."
+            },
+            "time": {
+              "type": "string",
+              "description": "The approximate time for which the staked tokens are locked."
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
         }
       },
       "additionalProperties": false
@@ -363,18 +384,6 @@
         },
         "high_gas_price": {
           "type": "number"
-        }
-      },
-      "additionalProperties": false
-    },
-    "staking_token": {
-      "type": "object",
-      "required": [
-        "denom"
-      ],
-      "properties": {
-        "denom": {
-          "type": "string"
         }
       },
       "additionalProperties": false
