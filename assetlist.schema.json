@@ -11,7 +11,7 @@
   "properties": {
     "$schema": {
       "type": "string",
-      "pattern": "^\\.\\./\\.\\./assetlist\\.schema\\.json$"
+      "pattern": "^(\\.\\./)+assetlist\\.schema\\.json$"
     },
     "chain_name": {
       "type": "string"
@@ -147,7 +147,7 @@
         "properties": {
           "type_asset": {
             "enum": [
-              "erc20"
+              "erc20",
               "cw20",
               "snip20"
             ]
