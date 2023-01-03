@@ -9,9 +9,7 @@
   "bech32_prefix": "juno",
   "daemon_name": "junod",
   "node_home": "$HOME/.juno",
-  "key_algos": [
-    "secp256k1"
-  ],
+  "key_algos": ["secp256k1"],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -34,9 +32,7 @@
   "codebase": {
     "git_repo": "https://github.com/CosmosContracts/juno",
     "recommended_version": "v11.0.0",
-    "compatible_versions": [
-      "v11.0.0"
-    ],
+    "compatible_versions": ["v11.0.0"],
     "cosmos_sdk_version": "0.45",
     "tendermint_version": "0.34",
     "cosmwasm_version": "0.28",
@@ -47,6 +43,11 @@
   },
   "peers": {
     "seeds": [
+      {
+        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
+        "address": "seed.rhinostake.com:12656",
+        "provider": "RHINO"
+      },
       {
         "id": "2484353dab0b2c1275765b8ffa2c50b3b36158ca",
         "address": "seed-node.junochain.com:26656"
@@ -146,7 +147,7 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://rpc.juno.pupmos.network",
+        "address": "https://rpc-juno.pupmos.network",
         "provider": "PUPMØS"
       },
       {
@@ -174,7 +175,7 @@
         "provider": "Nodejumper 🚀"
       },
       {
-        "address": "https://juno.rpc.stakin.com",
+        "address": "https://juno.rpc.stakin-nodes.com",
         "provider": "Stakin"
       },
       {
@@ -188,6 +189,14 @@
       {
         "address": "https://rpc.juno.bh.rocks",
         "provider": "BlockHunters \uD83C\uDFAF"
+      },
+      {
+        "address": "https://rpc.juno.kingnodes.com",
+        "provider": "kingnodes 👑"
+      },
+      {
+        "address": "https://juno-rpc.reece.sh",
+        "provider": "Reecepbcups"
       }
     ],
     "rest": [
@@ -212,7 +221,7 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://api.juno.pupmos.network",
+        "address": "https://api-juno.pupmos.network",
         "provider": "PUPMØS"
       },
       {
@@ -244,12 +253,20 @@
         "provider": "Nodejumper 🚀"
       },
       {
-        "address": "https://juno.rest.stakin.com",
+        "address": "https://juno.rest.stakin-nodes.com",
         "provider": "Stakin"
       },
       {
         "address": "https://api.juno.bh.rocks",
         "provider": "BlockHunters \uD83C\uDFAF"
+      },
+      {
+        "address": "https://api.juno.kingnodes.com",
+        "provider": "kingnodes 👑"
+      },
+      {
+        "address": "https://juno-api.reece.sh",
+        "provider": "Reecepbcups"
       }
     ],
     "grpc": [
@@ -286,12 +303,16 @@
         "provider": "Nodejumper 🚀"
       },
       {
-        "address": "juno.grpc.stakin.com:443",
+        "address": "juno.grpc.stakin-nodes.com:443",
         "provider": "Stakin"
       },
       {
         "address": "https://grpc.juno.bh.rocks:443",
         "provider": "BlockHunters \uD83C\uDFAF"
+      },
+      {
+        "address": "https://grpc.juno.kingnodes.com",
+        "provider": "kingnodes 👑"
       }
     ]
   },
@@ -314,7 +335,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/juno",
-      "tx_page": "https://www.mintscan.io/juno/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/juno/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/juno/account/${accountAddress}"
     },
     {
       "kind": "atomscan",

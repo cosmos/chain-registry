@@ -20,15 +20,12 @@
   },
   "codebase": {
     "git_repo": "https://github.com/umee-network/umee",
-    "recommended_version": "v3.1.0",
+    "recommended_version": "v3.3.0",
     "compatible_versions": [
-      "v3.1.0"
+      "v3.3.0"
     ],
     "binaries": {
-      "darwin/amd64": "https://github.com/umee-network/umee/releases/download/v3.1.0/umeed-v3.1.0-darwin-amd64.tar.gz",
-      "darwin/arm64": "https://github.com/umee-network/umee/releases/download/v3.1.0/umeed-v3.1.0-darwin-arm64.tar.gz",
-      "linux/amd64": "https://github.com/umee-network/umee/releases/download/v3.1.0/umeed-v3.1.0-linux-amd64.tar.gz",
-      "linux/arm64": "https://github.com/umee-network/umee/releases/download/v3.1.0/umeed-v3.1.0-linux-arm64.tar.gz"
+      "linux/amd64": "https://github.com/umee-network/umee/releases/download/v3.3.0/umeed-v3.3.0-linux-amd64"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/umee-network/mainnet/main/genesis.json"
@@ -39,12 +36,17 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "umee.mainnet.seed.autostake.net:26756",
-        "provider": "AutoStake.net"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:13656",
         "provider": "Polkachu"
+      },
+      {
+        "id": "86bd5cb6e762f673f1706e5889e039d5406b4b90",
+        "address": "umee.seed.node75.org:10656",
+        "provider": "Pro-Nodes75"
       }
     ],
     "persistent_peers": [
@@ -56,7 +58,7 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "umee.mainnet.peer.autostake.net:26756",
-        "provider": "AutoStake.net"
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -73,6 +75,10 @@
       {
         "address": "https://rpc-umee-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "http://rpc-umee-0.node75.org:26657",
+        "provider": "Pro-Nodes75"
       }
     ],
     "rest": [
@@ -87,6 +93,10 @@
       {
         "address": "https://umee-api.polkachu.com",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://umee.mainnet.lcd.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "grpc": [
@@ -104,10 +114,11 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/umee/",
-      "tx_page": "https://www.mintscan.io/umee/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/umee/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/umee/account/${accountAddress}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://ping.pub/umee",
       "tx_page": "https://ping.pub/umee/tx/${txHash}"
     },

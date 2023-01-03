@@ -23,16 +23,16 @@
   },
   "codebase": {
     "git_repo": "https://github.com/JackalLabs/canine-chain",
-    "recommended_version": "v1.1.0",
+    "recommended_version": "v1.1.2-hotfix",
     "compatible_versions": [
-      "v1.1.0"
+      "v1.1.2-hotfix"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.1.0/canined-Linux",
-      "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.1.0/canined-macOS"
+      "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.1.2/canined-Linux",
+      "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.1.2/canined-macOS"
     },
     "genesis": {
-      "genesis_url": "https://jackaldao.com/wp-content/uploads/2022/10/genesis-final.txt"
+      "genesis_url": "https://cdn.discordapp.com/attachments/1002389406650466405/1034968352591986859/updated_genesis2.json"
     }
   },
   "peers": {
@@ -50,6 +50,11 @@
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:17556",
         "provider": "Polkachu"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "jackal.mainnet.peer.autostake.net:26906",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "persistent_peers": [
@@ -110,8 +115,24 @@
         "provider": "AgoraNodes"
       },
       {
+        "address": "https://m-jackal.rpc.utsa.tech",
+        "provider": "lesnik | UTSA"
+      },
+      {
         "address": "https://jackal-rpc.kleomedes.network",
         "provider": "Kleomedes"
+      },
+      {
+        "address": "https://rpc-jackal.huginn.tech",
+        "provider": "Huginn"
+      },
+      {
+        "address": "https://jackal.nodejumper.io:443",
+        "provider": "Nodejumper 🚀"
+      },
+      {
+        "address": "https://rpc-jkl.kjinc.io",
+        "provider": "KJINC.io"
       }
     ],
     "rest": [
@@ -144,8 +165,28 @@
         "provider": "AgoraNodes"
       },
       {
+        "address": "https://m-jackal.api.utsa.tech",
+        "provider": "lesnik | UTSA"
+      },
+      {
         "address": "https://jackal-api.kleomedes.network",
         "provider": "Kleomedes"
+      },
+      {
+        "address": "https://api.jackal.huginn.tech",
+        "provider": "Huginn"
+      },
+      {
+        "address": "https://jackal.nodejumper.io:1317",
+        "provider": "Nodejumper 🚀"
+      },
+      {
+        "address": "https://api-jkl.kjinc.io",
+        "provider": "KJINC.io"
+      },
+      {
+        "address": "https://jackal.mainnet.lcd.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "grpc": [
@@ -176,12 +217,22 @@
       {
         "address": "https://jackal-grpc.agoranodes.com",
         "provider": "AgoraNodes"
+      },
+      {
+        "address": "https://jackal.nodejumper.io:9090",
+        "provider": "Nodejumper 🚀"
       }
+    ],
+    "wss": [
+      {
+        "address": "wss://jackal-rpc.agoranodes.com",
+        "provider": "AgoraNodes"    
+      }        
     ]
   },
   "explorers": [
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://ping.pub/jackal",
       "tx_page": "https://ping.pub/jackal/tx/${txHash}"
     },
@@ -189,6 +240,11 @@
       "kind": "NodeStake",
       "url": "https://explorer.nodestake.top/jackal",
       "tx_page": "https://explorer.nodestake.top/jackal/tx/${txHash}"
+    },
+    {
+      "kind": "lesnik | UTSA",
+      "url": "https://exp.utsa.tech/jackal",
+      "tx_page": "https://exp.utsa.tech/jackal/tx/${txHash}"
     },
     {
       "kind": "Nodeist Explorer",
