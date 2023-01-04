@@ -12,7 +12,7 @@
   "properties": {
     "$schema": {
       "type": "string",
-      "pattern": "^\\.\\./chain\\.schema\\.json$"
+      "pattern": "^(\\.\\./)+chain\\.schema\\.json$"
     },
     "chain_name": {
       "type": "string",
@@ -70,6 +70,12 @@
     },
     "slip44": {
       "type": "number"
+    },
+    "alternative_slip44s": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
     },
     "fees": {
       "type": "object",
@@ -279,6 +285,18 @@
             "$ref": "#/$defs/endpoint"
           }
         },
+        "wss": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/endpoint"
+          }
+        },
+        "grpc-web": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/endpoint"
+          }
+        },
         "evm-http-jsonrpc": {
           "type": "array",
           "items": {
@@ -292,6 +310,29 @@
       "type": "array",
       "items": {
         "$ref": "#/$defs/explorer"
+      }
+    },
+    "logo_URIs": {
+      "type": "object",
+      "properties": {
+        "png": {
+          "type": "string",
+          "format": "uri-reference",
+          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$"
+        },
+        "svg": {
+          "type": "string",
+          "format": "uri-reference",
+          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "keywords": {
+      "type": "array",
+      "maxContains": 20,
+      "items": {
+        "type": "string"
       }
     },
     "extra_codecs": {
@@ -388,28 +429,17 @@
       },
       "additionalProperties": false
     },
-    "logo_URIs": {
+    "staking_token": {
       "type": "object",
+      "required": [
+        "denom"
+      ],
       "properties": {
-        "png": {
-          "type": "string",
-          "format": "uri-reference",
-          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$"
-        },
-        "svg": {
-          "type": "string",
-          "format": "uri-reference",
-          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$"
+        "denom": {
+          "type": "string"
         }
       },
       "additionalProperties": false
-    },
-    "keywords": {
-      "type": "array",
-      "maxContains": 20,
-      "items": {
-        "type": "string"
-      }
     }
   },
   "additionalProperties": false
