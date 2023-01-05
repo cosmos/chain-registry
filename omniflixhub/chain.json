@@ -12,23 +12,26 @@
   "slip44": 118,
   "codebase": {
     "git_repo": "https://github.com/OmniFlix/omniflixhub",
-    "recommended_version": "v0.4.1",
-    "compatible_versions": [
-      "v0.4.1"
-    ],
+    "recommended_version": "v0.8.0",
+    "compatible_versions": ["v0.8.0"],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/OmniFlix/mainnet/main/omniflixhub-1/genesis.json"
     }
   },
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uflix",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
   "peers": {
     "seeds": [
       {
-        "id": "9d75a06ebd3732a041df459849c21b87b2c55cde",
-        "address": "35.187.240.195:26656"
-      },
-      {
-        "id": "19feae28207474eb9f168fff9720fd4d418df1ed",
-        "address": "35.240.196.102:26656"
+        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
+        "address": "seed.rhinostake.com:16956",
+        "provider": "RHINO"
       },
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
@@ -84,6 +87,10 @@
       {
         "address": "https://rpc.omniflix.silentvalidator.com/",
         "provider": "silent"
+      },
+      {
+        "address": "https://omniflix.nodejumper.io",
+        "provider": "Nodejumper 🚀"
       }
     ],
     "rest": [
@@ -114,6 +121,10 @@
       {
         "address": "https://api.omniflix.silentvalidator.com/",
         "provider": "silent"
+      },
+      {
+        "address": "https://omniflix.nodejumper.io:1317",
+        "provider": "Nodejumper 🚀"
       }
     ],
     "grpc": [
@@ -132,10 +143,19 @@
       {
         "address": "https://grpc.omniflix.silentvalidator.com/",
         "provider": "silent"
+      },
+      {
+        "address": "https://omniflix.nodejumper.io:9090",
+        "provider": "Nodejumper 🚀"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/omniflixhub",
+      "tx_page": "https://ezstaking.tools/omniflixhub/txs/${txHash}"
+    },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/omniflix",

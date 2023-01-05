@@ -11,12 +11,12 @@
   "node_home": "$HOME/.sifnoded",
   "codebase": {
     "git_repo": "https://github.com/Sifchain/sifnode.git",
-    "recommended_version": "v0.16.0",
+    "recommended_version": "v1.0.14-beta",
     "compatible_versions": [
-      "v0.16.0"
+      "v1.0.14-beta"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/Sifchain/sifnode/releases/download/v0.16.0/sifnoded-v0.16.0-linux-amd64.zip"
+      "linux/amd64": "https://github.com/Sifchain/sifnode/releases/download/v1.0.14-beta/sifnoded-v1.0.14-beta-linux-amd64.zip"
     },
     "genesis": {
       "genesis_url": "https://github.com/Sifchain/networks/blob/master/betanet/sifchain-1/genesis.json.gz?raw=true"
@@ -27,7 +27,7 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "sifchain.mainnet.seed.autostake.net:26686",
-        "provider": "AutoStake.net"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
@@ -71,7 +71,7 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "sifchain.mainnet.peer.autostake.net:26686",
-        "provider": "AutoStake.net"
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -96,15 +96,11 @@
         "provider": "Notional"
       },
       {
-        "address": "https://rpc-sifchain.ecostake.com",
-        "provider": "ecostake"
-      },
-      {
         "address": "https://rpc.sifchain.chaintools.tech/",
         "provider": "ChainTools"
       },
       {
-        "address": "https://sif-rpc.kleomed.es",
+        "address": "https://sif-rpc.kleomedes.network",
         "provider": "Kleomedes"
       },
       {
@@ -114,6 +110,10 @@
       {
         "address": "https://rpc.sifchain.posthuman.digital",
         "provider": "POSTHUMAN ꝏ DVS"
+      },
+      {
+        "address": "https://sifchain.nodejumper.io",
+        "provider": "Nodejumper 🚀"
       }
     ],
     "grpc": [
@@ -131,7 +131,11 @@
       {
         "address": "https://grpc.sifchain.posthuman.digital:443",
         "provider": "POSTHUMAN ꝏ DVS"
-      }
+      },
+      {
+        "address": "https://sifchain.nodejumper.io:9090",
+        "provider": "Nodejumper 🚀"
+      }        
     ],
     "rest": [
       {
@@ -146,10 +150,6 @@
         "provider": "Notional"
       },
       {
-        "address": "https://rest-sifchain.ecostake.com",
-        "provider": "ecostake"
-      },
-      {
         "address": "https://api.sifchain.chaintools.tech/",
         "provider": "ChainTools"
       },
@@ -158,7 +158,7 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://sif-api.kleomed.es",
+        "address": "https://sif-api.kleomedes.network",
         "provider": "Kleomedes"
       },
       {
@@ -168,12 +168,25 @@
       {
         "address": "https://lcd.sifchain.posthuman.digital",
         "provider": "POSTHUMAN ꝏ DVS"
+      },
+      {
+        "address": "https://sifchain.nodejumper.io:1317",
+        "provider": "Nodejumper 🚀"
+      },
+      {
+        "address": "https://sifchain.mainnet.lcd.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "ping-pub",
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/sifchain",
+      "tx_page": "https://ezstaking.tools/sifchain/txs/${txHash}"
+    },
+    {
+      "kind": "ping.pub",
       "url": "https://ping.pub/sifchain",
       "tx_page": "https://ping.pub/sifchain/tx/${txHash}"
     },
@@ -185,7 +198,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/sifchain",
-      "tx_page": "https://www.mintscan.io/sifchain/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/sifchain/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/sifchain/account/${accountAddress}"
     },
     {
       "kind": "atomscan",

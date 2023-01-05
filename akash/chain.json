@@ -13,7 +13,8 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "uakt"
+        "denom": "uakt",
+        "fixed_min_gas_price": 0
       }
     ]
   },
@@ -26,12 +27,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/ovrclk/akash/",
-    "recommended_version": "v0.16.3",
+    "recommended_version": "v0.20.0",
     "compatible_versions": [
-      "v0.16.3"
+      "v0.20.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/ovrclk/akash/releases/download/v0.16.3/akash_0.16.3_linux_amd64.zip"
+      "linux/amd64": "https://github.com/ovrclk/akash/releases/download/v0.20.0/akash_0.20.0_linux_amd64.zip",
+      "linux/arm64": "https://github.com/ovrclk/akash/releases/download/v0.20.0/akash_0.20.0_linux_arm64.zip"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/ovrclk/net/master/mainnet/genesis.json"
@@ -64,7 +66,19 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "akash.mainnet.seed.autostake.net:26696",
-        "provider": "AutoStake.net"
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "5e37aefd2a0b9d036b1609a45d6487606da0204b",
+        "address": "rpc.ny.akash.farm:26656"
+      },
+      {
+        "id": "8d334fff41adeb68f186265d5f1f76614ef63d8d",
+        "address": "rpc.nl.akash.farm:26656"
+      },
+      {
+        "id": "47f7b7a021497ad7a338ea041f19a1a11ae06795",
+        "address": "rpc.la.akash.farm:26656"
       }
     ],
     "persistent_peers": [
@@ -175,7 +189,7 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "akash.mainnet.peer.autostake.net:26696",
-        "provider": "AutoStake.net"
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -204,6 +218,10 @@
       {
         "address": "http://akash.c29r3.xyz:80/rpc",
         "provider": "c29r3"
+      },
+      {
+        "address": "https://akash.rpc.interchain.ivaldilabs.xyz",
+        "provider": "Ivaldi Labs"
       }
     ],
     "rest": [
@@ -230,6 +248,14 @@
       {
         "address": "https://akash.c29r3.xyz:443/api",
         "provider": "c29r3"
+      },
+      {
+        "address": "https://akash.rest.interchain.ivaldilabs.xyz",
+        "provider": "Ivaldi Labs"
+      },
+      {
+        "address": "https://akash.mainnet.lcd.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "grpc": [
@@ -244,14 +270,24 @@
       {
         "address": "akash-grpc.polkachu.com:12890",
         "provider": "Polkachu"
+      },
+      {
+        "address": "akash.grpc.interchain.ivaldilabs.xyz:443",
+        "provider": "Ivaldi Labs"
       }
     ]
   },
   "explorers": [
     {
+      "kind": "EZStaking Tools",
+      "url": "https://ezstaking.tools/akash",
+      "tx_page": "https://ezstaking.tools/akash/txs/${txHash}"
+    },
+    {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/akash",
-      "tx_page": "https://www.mintscan.io/akash/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/akash/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/akash/account/${accountAddress}"
     },
     {
       "kind": "ping.pub",
