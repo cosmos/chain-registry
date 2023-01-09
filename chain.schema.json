@@ -47,13 +47,12 @@
       ]
     },
     "bech32_prefix": {
-      "type": "string"
+      "type": "string",
+      "description": "The default prefix for the human-readable part that identifies the coin type. Must be registered with SLIP-0173. E.g., 'cosmos'"
     },
     "bech32_config": {
       "type": "object",
-      "required": [
-        "bech32PrefixAccAddr"
-      ],
+      "description": "Used to override the bech32_prefix for specific uses.",
       "properties": {
         "bech32PrefixAccAddr": {
           "type": "string",
@@ -79,7 +78,8 @@
           "type": "string",
           "description": "e.g., 'cosmosvalconspub'"
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "minProperties": 1
       }
     },
     "daemon_name": {
