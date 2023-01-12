@@ -101,7 +101,7 @@
         "staking_tokens": {
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/staking_token"
           }
         },
         "lock_duration": {
@@ -195,7 +195,9 @@
             "type": "string",
             "description": "IBC app or ICS standard.",
             "enum": [
-              "ics20-1", "ics27-1", "mauth"
+              "ics20-1",
+              "ics27-1",
+              "mauth"
             ]
           }
         },
@@ -425,6 +427,18 @@
         },
         "high_gas_price": {
           "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "staking_token": {
+      "type": "object",
+      "required": [
+        "denom"
+      ],
+      "properties": {
+        "denom": {
+          "type": "string"
         }
       },
       "additionalProperties": false
