@@ -243,13 +243,11 @@ An example assetlist json contains the following structure:
       "denom_units": [
         {
           "denom": "uosmo",
-          "exponent": 0,
-          "aliases": []
+          "exponent": 0
         },
         {
           "denom": "osmo",
-          "exponent": 6,
-          "aliases": []
+          "exponent": 6
         }
       ],
       "base": "uosmo",
@@ -262,7 +260,8 @@ An example assetlist json contains the following structure:
       },
       "coingecko_id": "osmosis",
       "keywords": [
-          "dex", "staking"
+        "dex",
+        "staking"
       ]
     },
     {
@@ -286,7 +285,7 @@ An example assetlist json contains the following structure:
       },
       "coingecko_id": "ion",
       "keywords": [
-          "memecoin"
+        "memecoin"
       ]
     }
   ]
