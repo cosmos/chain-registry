@@ -8,8 +8,12 @@ We invite stakeholders to join the [Cosmos Chain Registry Working Group](https:/
 
 Once schemas have matured and client needs are better understood Chain Registry data is intended to migrate to an on-chain representation hosted on the Cosmos Hub, i.e. the Cosmos Chain Name Service. If you are interested in this effort please join the discussion [here](https://github.com/cosmos/chain-registry/issues/291)!
 
+> ACTION REQUIRED: <br>
+> Please add `logo_URIs` property in `chain.json`. which is helpful for client to show chain's logo correctly. see sample for more details
+
 ## Npm Modules
 - https://www.npmjs.com/package/chain-registry
+- https://www.npmjs.com/package/@ping-pub/chain-registry-client
 
 ## Rust Crates
 - https://crates.io/crates/chain-registry
