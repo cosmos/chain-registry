@@ -1,0 +1,83 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "chimba",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://chimba.ooo/",
+  "pretty_name": "Chimba",
+  "chain_id": "chimba",
+  "bech32_prefix": "chimba",
+  "daemon_name": "chimbad",
+  "node_home": "$HOME/.chimbad",
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "chimba",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 1.0,
+        "average_gas_price": 5.0,
+        "high_gas_price": 10.0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "chimba"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/ChihuahuaChain/chihuahua/",
+    "recommended_version": "v4.1.0",
+    "compatible_versions": ["v4.1.0"],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/ChihuahuaChain/chihuahua/main/mainnet/genesis.json"
+    }
+  },
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "e93f5df69cc1b9bda230b3efcf162d4672293ded",
+        "address": "3.35.82.40:26656",
+        "provider": "medibloc"
+      },
+      {
+        "id": "0e0db1c7ab1e37c76f2ceced0bb72e1c60ef17a6",
+        "address": "13.124.96.254:26656",
+        "provider": "medibloc"
+      },
+      {
+        "id": "a83232db3a40e486b54b1463a43431e8490b808b",
+        "address": "52.79.108.35:26656",
+        "provider": "medibloc"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.gopanacea.org",
+        "provider": "medibloc"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.gopanacea.org",
+        "provider": "medibloc"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/chimba",
+      "tx_page": "https://www.mintscan.io/chimba/txs/${txHash}"
+    },
+    {
+      "kind": "bigdipper",
+      "url": "https://explorer.gopanacea.org",
+      "tx_page": "https://explorer.gopanacea.org/transactions/${txHash}"
+    }
+  ]
+}
