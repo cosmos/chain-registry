@@ -3,79 +3,111 @@
   "chain_name": "terpnettestnet",
   "status": "live",
   "network_type": "testnet",
-  "pretty_name": "Terp-Net",
-  "chain_id": "athena-1",
+  "pretty_name": "Terp-Network",
+  "chain_id": "athena-3",
   "bech32_prefix": "terp",
   "daemon_name": "terp",
   "node_home": "$HOME/.terp",
   
   "codebase": {
     "git_repo": "github.com/terpnetwork/terp-core.git",
-    "recommended_version": "v0.1.2",
-    "tendermint_version": "0.34.22",
+    "recommended_version": "v0.2.0-3-g2b8926a",
+    "tendermint_version": "0.34.23",
 
     "compatible_versions": [
-      "v0.1.2"
+      "v0.2.0",
+      "v0.2.0-3-g2b8926a"
     ],
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/terpnetwork/test-net/master/athena-2/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/terpnetwork/test-net/master/athena-3/genesis.json"
     },
     "binaries": {
-      "linux/amd64": "https://github.com/terpnetwork/terp-core/archive/refs/tags/v0.1.2.tar.gz"
+      "linux/amd64": "https://github.com/terpnetwork/terp-core/archive/refs/tags/v0.2.0.tar.gz"
     }
   },
   "peers": {
-    "seeds": [
-      {
-        "id": "9b9ff10893b11aa5588170b289222d4bb6785d97",
-        "address": "23.81.114.228:26656"
-      }
-    ],
+    "seeds": [],
     "persistent_peers": [
-      {
-        "id": "65f819851e9eb2484818cb7d12f4edd759a1223a",
-        "address": "65.21.143.79:25856"
-      },
       {
         "id": "15f5bc75be9746fd1f712ca046502cae8a0f6ce7",
         "address": "terp-testnet.nodejumper.io:30656"
       },
       {
-        "id": "c583c0a09ba50fb2eef6cb665dbdea1e5b790ffd",
-        "address": "161.97.167.120:20656"
-      }
+        "id": "53053de2ae170c1dadf655a4a37a566f82823784",
+        "address": "154.12.228.149:26656"
+      },
+      {
+        "id": "012dbc19c31c99c8a6a074868d5b6e9f57f8e100",
+        "address": "67.205.150.113:26656"
+      },
+      {
+        "id": "13bdd13e5bac6feb41d6c1b14f64f87b79504f0c",
+        "address": "192.145.37.8:33656"
+      },
+      {
+        "id": "9448fd1948d37a7ab22da486f18ed34c942fbb5c",
+        "address": "209.126.81.240:11656"
+      },
+      {
+        "id": "61a00940fde08cc55824e48bdfb92ba938ba9c25",
+        "address": "198.244.228.17:11656"
+      },
+      {
+        "id": "f9d7b883594e651a45e91c49712151bf93322c08",
+        "address": "141.95.65.26:29456"
+      },
+      {
+        "id": "5d5bdd20b2bb2e4fc844b15ff8f5d640583b8ec8",
+        "address": "78.46.23.227:11656"
+      },
+      {
+        "id": "360c7c554ba16333b5901a2a341e466ad2c1db37",
+        "address": "146.19.24.52:33656"
+      } 
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "http://23.88.53.28:36657"
+        "address": "https://terp-testnet.nodejumper.io:443/"
       },
       {
-        "address": "https://rpc-terp.zenchainlabs.io/"
+        "address": "https://terp-testnet.rpc.kjnodes.com:443/"
       },
       {
-        "address": "https://terp-rpc.skynetvalidators.com/"
+        "address": "https://terp-testnet.rpc.kjnodes.com:443/"
       },
       {
-        "address": "https://terp-rpc.skynetvalidators.com/"
+        "address": "https://terp-test-rpc.theamsolutions.info:443/"
       }
     ],
     "rest": [
       {
-        "address": "https://api-terp.zenchainlabs.io/",
-        "provider": "Zenchain Labs"
+        "address": "https://terp-testnet.nodejumper.io:1317/",
+        "provider": "NodeJumper.io"
       },
       {
-        "address": "https://terp-api.skynetvalidators.com",
-        "provider": "skynet validators"
+        "address": "https://api-t.terp.nodestake.top/",
+        "provider": "NodeJumper.io"
       }
     ],
     "grpc": [
       {
-        "address": "23.88.53.28:36090",
-        "provider": "HighStakes"
+        "address": "grpc-t.terp.nodestake.top/",
+        "provider": "nodestake"
       }
     ]
-  }
+  },
+  "explorers": [
+    {
+      "kind": "Ping Pub",
+      "url": "https://explorer.kjnodes.com/terp-test",
+      "tx_page": "https://explorer.kjnodes.com/terp-test/tx/${txHash}"
+    },
+    {
+      "kind": "Ping Pub",
+      "url": "https://explorer.nodestake.top/terp-testnet",
+      "tx_page": "https://explorer.nodestake.top/terp-testnet/tx/${txHash}"
+    }
+  ]
 }
