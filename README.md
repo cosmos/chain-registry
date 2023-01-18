@@ -69,7 +69,10 @@ A sample `chain.json` includes the following information.
       {
         "denom": "uosmo"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1209600s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/osmosis-labs/osmosis",
