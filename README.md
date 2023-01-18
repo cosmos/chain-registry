@@ -70,7 +70,7 @@ A sample `chain.json` includes the following information.
         "denom": "uosmo"
       }
     ],
-    "staking_duration": {
+    "lock_duration": {
       "time": "1209600s"
     }
   },
