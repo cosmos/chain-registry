@@ -281,6 +281,22 @@
       },
       "additionalProperties": false
     },
+    "logo_URIs": {
+      "type": "object",
+      "properties": {
+        "png": {
+          "type": "string",
+          "format": "uri-reference",
+          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$"
+        },
+        "svg": {
+          "type": "string",
+          "format": "uri-reference",
+          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$"
+        }
+      },
+      "additionalProperties": false
+    },
     "peers": {
       "type": "object",
       "properties": {
@@ -346,22 +362,6 @@
       "items": {
         "$ref": "#/$defs/explorer"
       }
-    },
-    "logo_URIs": {
-      "type": "object",
-      "properties": {
-        "png": {
-          "type": "string",
-          "format": "uri-reference",
-          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$"
-        },
-        "svg": {
-          "type": "string",
-          "format": "uri-reference",
-          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$"
-        }
-      },
-      "additionalProperties": false
     },
     "keywords": {
       "type": "array",

@@ -136,6 +136,10 @@ A sample `chain.json` includes the following information.
       }
     ]
   },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg"
+  },
   "peers": {
     "seeds": [
       {
@@ -214,10 +218,6 @@ A sample `chain.json` includes the following information.
       "account_page": "https://www.mintscan.io/osmosis/account/${accountAddress}"
     }
   ],
-  "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg"
-  },
   "keywords": [
     "dex"
   ]
