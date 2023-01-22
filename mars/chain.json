@@ -1,0 +1,94 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "mars",
+  "status": "upcoming",
+  "network_type": "mainnet",
+  "website": "https://www.marsprotocol.io/",
+  "pretty_name": "Mars",
+  "chain_id": "mars-1",
+  "bech32_prefix": "mars",
+  "daemon_name": "marsd",
+  "node_home": "$HOME/.mars",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "umars",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "umars"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/mars-protocol/hub",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": ["v1.0.0"],
+    "cosmos_sdk_version": "0.46.7",
+    "tendermint_version": "0.34.24",
+    "cosmwasm_version": "0.30.0",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "6.1.0",
+    "ics_enabled": ["ics20-1"],
+    "genesis": {
+      "genesis_url": "https://github.com/mars-protocol/networks/blob/main/mars-1/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1",
+        "tag": "v1.0.0",
+        "height": 0
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "52de8a7e2ad3da459961f633e50f64bf597c7585",
+        "address": "seed.marsprotocol.io:443",
+        "provider": "Delphi Labs"
+      }
+    ],
+    "persistent_peers": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.marsprotocol.io:443",
+        "provider": "Delphi Labs"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "http://grpc.marsprotocol.io:443",
+        "provider": "Delphi Labs"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.marsprotocol.io:443",
+        "provider": "Delphi Labs"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "BigDipper",
+      "url": "https://explorer.marsprotocol.io",
+      "tx_page": "https://explorer.marsprotocol.io/transactions/${txHash}"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-protocol.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-protocol.svg"
+  }
+}
