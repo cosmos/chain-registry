@@ -40,7 +40,7 @@
     "ibc_go_version": "6.1.0",
     "ics_enabled": ["ics20-1"],
     "genesis": {
-      "genesis_url": "https://github.com/mars-protocol/networks/blob/main/mars-1/genesis.json"
+      "genesis_url": "https://github.com/mars-protocol/networks/raw/main/mars-1/genesis.json"
     },
     "versions": [
       {
@@ -61,9 +61,20 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:18556",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "mars-mainnet-seed-autostake.net:27056",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
-    "persistent_peers": []
+    "persistent_peers": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "mars-mainnet-peer-autostake.net:27056",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ]
   },
   "apis": {
     "rpc": [
@@ -74,6 +85,18 @@
       {
         "address": "https://mars-rpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc.mars.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "mars-mainnet-rpc-autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://rpc-mars.nodeist.net:443",
+        "provider": "Nodeist"
       }
     ],
     "grpc": [
@@ -84,6 +107,18 @@
       {
         "address": "https://mars-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://grpc.mars.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "mars-mainnet-grpc-autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://grpc-mars.nodeist.net:443",
+        "provider": "Nodeist"
       }
     ],
     "rest": [
@@ -94,6 +129,18 @@
       {
         "address": "https://mars-api.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://api.mars.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "mars-mainnet-lcd-autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://api-mars.nodeist.net:443",
+        "provider": "Nodeist"
       }
     ]
   },
@@ -102,6 +149,16 @@
       "kind": "BigDipper",
       "url": "https://explorer.marsprotocol.io",
       "tx_page": "https://explorer.marsprotocol.io/transactions/${txHash}"
+    },
+    {
+      "kind": "NodeStake Explorer",
+      "url": "https://explorer.nodestake.top/mars",
+      "tx_page": "https://explorer.nodestake.top/mars/transactions/${txHash}"
+    },
+    {
+      "kind": "Nodeist Explorer",
+      "url": "https://exp.nodeist.net/m-mars",
+      "tx_page": "https://exp.nodeist.net/m-mars/tx/${txHash}"
     }
   ],
   "logo_URIs": {
