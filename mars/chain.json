@@ -1,10 +1,10 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "mars",
-  "status": "upcoming",
+  "status": "live",
   "network_type": "mainnet",
   "website": "https://www.marsprotocol.io/",
-  "pretty_name": "Mars",
+  "pretty_name": "Mars Hub",
   "chain_id": "mars-1",
   "bech32_prefix": "mars",
   "daemon_name": "marsd",
@@ -64,14 +64,19 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "mars-mainnet-seed-autostake.net:27056",
+        "address": "mars-mainnet-seed.autostake.net:27056",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:18556",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "mars-mainnet-peer-autostake.net:27056",
+        "address": "mars-mainnet-peer.autostake.net:27056",
         "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
@@ -91,12 +96,20 @@
         "provider": "NodeStake"
       },
       {
-        "address": "mars-mainnet-rpc-autostake.net:443",
+        "address": "https://mars-mainnet-rpc.autostake.net:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://rpc-mars.nodeist.net:443",
         "provider": "Nodeist"
+      },
+      {
+        "address": "https://rpc-mars.goldenratiostaking.net",
+        "provider": "Golden Ratio Staking"
+      },
+      {
+        "address": "https://mars-rpc.polkachu.com",
+        "provider": "Polkachu"
       }
     ],
     "grpc": [
@@ -113,12 +126,16 @@
         "provider": "NodeStake"
       },
       {
-        "address": "mars-mainnet-grpc-autostake.net:443",
+        "address": "https://mars-mainnet-grpc.autostake.net:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://grpc-mars.nodeist.net:443",
         "provider": "Nodeist"
+      },
+      {
+        "address": "mars-grpc.polkachu.com:18590",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
@@ -135,12 +152,16 @@
         "provider": "NodeStake"
       },
       {
-        "address": "mars-mainnet-lcd-autostake.net:443",
+        "address": "https://mars-mainnet-lcd.autostake.net:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://api-mars.nodeist.net:443",
         "provider": "Nodeist"
+      },
+      {
+        "address": "https://mars-api.polkachu.com",
+        "provider": "Polkachu"
       }
     ]
   },
@@ -159,6 +180,11 @@
       "kind": "Nodeist Explorer",
       "url": "https://exp.nodeist.net/m-mars",
       "tx_page": "https://exp.nodeist.net/m-mars/tx/${txHash}"
+    },
+    {
+      "kind": "Nodes.Guru",
+      "url": "https://mars.explorers.guru/",
+      "tx_page": "https://mars.explorers.guru/transaction/${txHash}"
     }
   ],
   "logo_URIs": {
