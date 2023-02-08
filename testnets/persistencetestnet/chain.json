@@ -1,0 +1,96 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "persistencetestnet",
+  "chain_id": "test-core-1",
+  "pretty_name": "Persistence Testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://persistence.one/",
+  "bech32_prefix": "persistence",
+  "daemon_name": "persistenceCore",
+  "node_home": "$HOME/.persistenceCore",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uxprt",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uxprt"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/persistenceOne/persistenceCore",
+    "recommended_version": "v6.0.0-rc4",
+    "compatible_versions": [
+      "v5.0.0",
+      "v6.0.0-rc4",
+      "v6.0.0-rc5"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v5.0.0/persistenceCore-linux-amd64.tar.gz"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/persistenceOne/genesisTransactions/master/test-core-1/final_genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "5e2a636207ff7028474863f6b7c52bcb8b64810d",
+        "address": "89.117.63.227:26656",
+        "provider": "Cosmonaut Stakes"
+      },
+      {
+        "id": "14ecdc5126ea8d93c7d3a863d9d38e380e46fc06",
+        "address": "185.225.233.30:26656",
+        "provider": "Cosmonaut Stakes"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.testnet.persistence.one",
+        "provider": "Persistence"
+      },
+      {
+        "address": "https://persistence-testnet-rpc.cosmonautstakes.com",
+        "provider": "Cosmonaut Stakes"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.testnet.persistence.one",
+        "provider": "Persistence"
+      },
+      {
+        "address": "https://persistence-testnet-rest.cosmonautstakes.com",
+        "provider": "Cosmonaut Stakes"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.testnet.persistence.one:443",
+        "provider": "Persistence"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://testnet.ping.pub/test-core-1/",
+      "tx_page": "https://testnet.ping.pub/test-core-1/tx/${txHash}"
+    }
+  ]
+}
