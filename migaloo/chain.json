@@ -1,0 +1,95 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "migaloo",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://www.whitewhale.money/",
+  "pretty_name": "Migaloo",
+  "chain_id": "migaloo-1",
+  "bech32_prefix": "migaloo",
+  "daemon_name": "migalood",
+  "node_home": "$HOME/.migaloo",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uwhale",
+        "fixed_min_gas_price": 0.0,
+        "low_gas_price": 0.0,
+        "average_gas_price": 0.0,
+        "high_gas_price": 0.0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uwhale"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/White-Whale-Defi-Platform/migaloo-chain",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": ["v1.0.0"],
+    "cosmos_sdk_version": "0.45",
+    "tendermint_version": "0.34",
+    "cosmwasm_version": "0.28",
+    "cosmwasm_enabled": true,
+    "genesis": {
+      "genesis_url": "https://github.com/White-Whale-Defi-Platform/migaloo-chain"
+    }
+  },
+  "peers": {
+    "seeds": [
+     
+    ],
+    "persistent_peers": [
+    
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://whitewhale-rpc.polkachu.com",
+        "provider": "PolkaChu"
+      },
+      {
+        "address": "https://rpc.migaloo.silknodes.io",
+        "provider": "Silk Nodes"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://whitewhale-api.polkachu.com",
+        "provider": "PolkaChu"
+      },
+      {
+        "address": "https://api.migaloo.silknodes.io",
+        "provider": "Silk Nodes"
+      }
+    ],
+    "grpc": [
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Silk Nodes",
+      "url": "https://explorer.silknodes.io/whitewhale",
+      "tx_page": "https://explorer.silknodes.io/whitewhale/tx/${txhash}",
+      "account_page": "https://explorer.silknodes.io/whitewhale/account/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/migaloo",
+      "tx_page": "https://ping.pub/migaloo/tx/${txHash}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/migaloo",
+      "tx_page": "https://www.mintscan.io/migaloo/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/migaloo/account/${accountAddress}"
+    }
+  ]
+}
