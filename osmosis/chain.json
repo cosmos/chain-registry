@@ -30,23 +30,26 @@
       {
         "denom": "uosmo"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1209600s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/osmosis-labs/osmosis",
-    "recommended_version": "12.2.0",
+    "recommended_version": "v14.0.0",
     "compatible_versions": [
-      "12.2.0"
+      "v14.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v12.1.0/osmosisd-12.1.0-linux-amd64?checksum=sha256:44433f93946338b8cb167d9030ebbcfe924294d95d745026ada5dbe8f50d5010",
-      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v12.1.0/osmosisd-12.1.0-linux-arm64?checksum=sha256:ef2c3d60156be5481534ecb33f9d94d73afa38a1b016e7e1c6d3fe10e3e69b3a"
+      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v14.0.0/osmosisd-14.0.0-linux-amd64?checksum=sha256:441cac2f9094b63ec7a363f4d5442f16c28f65390cf286a589be62ee1ba66cc1",
+      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v14.0.0/osmosisd-14.0.0-linux-arm64?checksum=sha256:5c8bed57f2d58bb3d3834beb9ef38aedc9329c8bf3e95da28aa7b00b2174bfc1"
     },
     "cosmos_sdk_version": "0.45",
     "tendermint_version": "0.34",
-    "cosmwasm_version": "0.28",
+    "cosmwasm_version": "0.30",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "3.3.0",
+    "ibc_go_version": "4.2.0",
     "ics_enabled": [
       "ics20-1"
     ],
@@ -93,10 +96,25 @@
       },
       {
         "name": "v12",
-        "tag": "v12.1.0",
-        "height": 6246000
+        "tag": "v12.3.0",
+        "height": 6246000,
+        "next_version_name": "v13"
+      },
+      {
+        "name": "v13",
+        "tag": "v13.1.0",
+        "height": 7241500,
+        "next_version_name": "v14"
+      },
+      {
+        "name": "v14",
+        "tag": "v14.0.0",
+        "height": 7937500
       }
     ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png"
   },
   "peers": {
     "seeds": [
@@ -142,13 +160,28 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "osmosis.mainnet.seed.autostake.net:26716",
-        "provider": "AutoStake.net"
+        "address": "osmosis-mainnet-seed-autostake.net:26716",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "3cc024d1c760c9cd96e6413abaf3b36a8bdca58e",
         "address": "seeds.goldenratiostaking.net:1630",
         "provider": "Golden Ratio Staking"
+      },
+      {
+        "id": "bd7064a50f5843e2c84c71c4dc18ac07424bdcc1",
+        "address": "seeds.whispernode.com:12556",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
+        "address": "osmosis-seed-1.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "e726816f42831689eab9378d5d577f1d06d25716",
+        "address": "osmosis-seed-2.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -284,8 +317,8 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "osmosis.mainnet.peer.autostake.net:26716",
-        "provider": "AutoStake.net"
+        "address": "osmosis-mainnet-peer-autostake.net:26716",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -304,7 +337,7 @@
         "provider": "Chainlayer"
       },
       {
-        "address": "https://rpc-osmosis.whispernode.com",
+        "address": "https://rpc-osmosis.whispernode.com:443",
         "provider": "WhisperNode 🤐"
       },
       {
@@ -340,7 +373,7 @@
         "provider": "Nodejumper 🚀"
       },
       {
-        "address": "https://osmosis.rpc.stakin.com",
+        "address": "https://osmosis.rpc.stakin-nodes.com",
         "provider": "Stakin"
       },
       {
@@ -354,6 +387,10 @@
       {
         "address": "https://osmosis.rpc.interchain.ivaldilabs.xyz",
         "provider": "Ivaldi Labs"
+      },
+      {
+        "address": "https://rpc.osl.zone",
+        "provider": "Osmosis Support Lab"
       }
     ],
     "rest": [
@@ -366,7 +403,7 @@
         "provider": "Chainlayer"
       },
       {
-        "address": "https://lcd-osmosis.whispernode.com",
+        "address": "https://lcd-osmosis.whispernode.com:443",
         "provider": "WhisperNode 🤐"
       },
       {
@@ -402,7 +439,7 @@
         "provider": "Nodejumper 🚀"
       },
       {
-        "address": "https://osmosis.rest.stakin.com",
+        "address": "https://osmosis.rest.stakin-nodes.com",
         "provider": "Stakin"
       },
       {
@@ -412,6 +449,14 @@
       {
         "address": "https://osmosis.rest.interchain.ivaldilabs.xyz",
         "provider": "Ivaldi Labs"
+      },
+      {
+        "address": "https://api.osl.zone",
+        "provider": "Osmosis Support Lab"
+      },
+      {
+        "address": "https://osmosis-mainnet-lcd-autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "grpc": [
@@ -440,7 +485,7 @@
         "provider": "Nodejumper 🚀"
       },
       {
-        "address": "osmosis.grpc.stakin.com:443",
+        "address": "osmosis.grpc.stakin-nodes.com:443",
         "provider": "Stakin"
       },
       {
@@ -453,7 +498,8 @@
     {
       "kind": "EZStaking Tools",
       "url": "https://ezstaking.tools/osmosis",
-      "tx_page": "https://ezstaking.tools/osmosis/txs/${txHash}"
+      "tx_page": "https://ezstaking.tools/osmosis/txs/${txHash}",
+      "account_page": "https://ezstaking.tools/osmosis/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
@@ -470,7 +516,7 @@
       "kind": "explorers.guru",
       "url": "https://osmosis.explorers.guru",
       "tx_page": "https://osmosis.explorers.guru/transaction/${txHash}",
-      "account_page": "https://osmosis.explorers.guru/transaction/${accountAddress}"
+      "account_page": "https://osmosis.explorers.guru/account/${accountAddress}"
     },
     {
       "kind": "atomscan",
@@ -478,9 +524,6 @@
       "tx_page": "https://atomscan.com/osmosis/transactions/${txHash}"
     }
   ],
-  "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png"
-  },
   "keywords": [
     "dex"
   ]

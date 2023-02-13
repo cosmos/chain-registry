@@ -10,6 +10,10 @@
     "bech32_prefix"
   ],
   "properties": {
+    "$schema": {
+      "type": "string",
+      "pattern": "^(\\.\\./)+chain\\.schema\\.json$"
+    },
     "chain_name": {
       "type": "string",
       "pattern": "[a-z0-9]+"
@@ -43,7 +47,40 @@
       ]
     },
     "bech32_prefix": {
-      "type": "string"
+      "type": "string",
+      "description": "The default prefix for the human-readable part of addresses that identifies the coin type. Must be registered with SLIP-0173. E.g., 'cosmos'"
+    },
+    "bech32_config": {
+      "type": "object",
+      "description": "Used to override the bech32_prefix for specific uses.",
+      "properties": {
+        "bech32PrefixAccAddr": {
+          "type": "string",
+          "description": "e.g., 'cosmos'"
+        },
+        "bech32PrefixAccPub": {
+          "type": "string",
+          "description": "e.g., 'cosmospub'"
+        },
+        "bech32PrefixValAddr": {
+          "type": "string",
+          "description": "e.g., 'cosmosvaloper'"
+        },
+        "bech32PrefixValPub": {
+          "type": "string",
+          "description": "e.g., 'cosmosvaloperpub'"
+        },
+        "bech32PrefixConsAddr": {
+          "type": "string",
+          "description": "e.g., 'cosmosvalcons'"
+        },
+        "bech32PrefixConsPub": {
+          "type": "string",
+          "description": "e.g., 'cosmosvalconspub'"
+        },
+        "additionalProperties": false,
+        "minProperties": 1
+      }
     },
     "daemon_name": {
       "type": "string"
@@ -67,8 +104,17 @@
     "slip44": {
       "type": "number"
     },
+    "alternative_slip44s": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
     "fees": {
       "type": "object",
+      "required": [
+        "fee_tokens"
+      ],
       "properties": {
         "fee_tokens": {
           "type": "array",
@@ -76,18 +122,38 @@
             "$ref": "#/$defs/fee_token"
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "staking": {
       "type": "object",
+      "required": [
+        "staking_tokens"
+      ],
       "properties": {
         "staking_tokens": {
           "type": "array",
           "items": {
             "$ref": "#/$defs/staking_token"
           }
+        },
+        "lock_duration": {
+          "type": "object",
+          "properties": {
+            "blocks": {
+              "type": "number",
+              "description": "The number of blocks for which the staked tokens are locked."
+            },
+            "time": {
+              "type": "string",
+              "description": "The approximate time for which the staked tokens are locked."
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
         }
-      }
+      },
+      "additionalProperties": false
     },
     "codebase": {
       "type": "object",
@@ -128,7 +194,8 @@
               "type": "string",
               "format": "uri"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "genesis": {
           "type": "object",
@@ -136,7 +203,8 @@
             "genesis_url": {
               "type": "string"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "cosmos_sdk_version": {
           "type": "string"
@@ -160,7 +228,9 @@
             "type": "string",
             "description": "IBC app or ICS standard.",
             "enum": [
-              "ics20-1", "ics27-1", "mauth"
+              "ics20-1",
+              "ics27-1",
+              "mauth"
             ]
           }
         },
@@ -177,7 +247,8 @@
               "type": "string",
               "format": "uri"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "versions": {
           "type": "array",
@@ -203,10 +274,28 @@
                 "type": "string",
                 "description": "[Optional] Name of the following version"
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
+    },
+    "logo_URIs": {
+      "type": "object",
+      "properties": {
+        "png": {
+          "type": "string",
+          "format": "uri-reference",
+          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$"
+        },
+        "svg": {
+          "type": "string",
+          "format": "uri-reference",
+          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$"
+        }
+      },
+      "additionalProperties": false
     },
     "peers": {
       "type": "object",
@@ -223,7 +312,8 @@
             "$ref": "#/$defs/peer"
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "apis": {
       "type": "object",
@@ -245,16 +335,54 @@
           "items": {
             "$ref": "#/$defs/endpoint"
           }
+        },
+        "wss": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/endpoint"
+          }
+        },
+        "grpc-web": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/endpoint"
+          }
+        },
+        "evm-http-jsonrpc": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/endpoint"
+          }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "explorers": {
       "type": "array",
       "items": {
         "$ref": "#/$defs/explorer"
       }
+    },
+    "keywords": {
+      "type": "array",
+      "maxContains": 20,
+      "items": {
+        "type": "string"
+      }
+    },
+    "extra_codecs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "ethermint",
+          "injective"
+        ],
+        "uniqueItems": true
+      }
     }
   },
+  "additionalProperties": false,
   "$defs": {
     "peer": {
       "type": "object",
@@ -272,7 +400,8 @@
         "provider": {
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "endpoint": {
       "type": "object",
@@ -290,7 +419,8 @@
           "type": "boolean",
           "default": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "explorer": {
       "type": "object",
@@ -307,7 +437,8 @@
         "account_page": {
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "fee_token": {
       "type": "object",
@@ -329,8 +460,22 @@
         },
         "high_gas_price": {
           "type": "number"
+        },
+        "gas_costs": {
+          "type": "object",
+          "properties": {
+            "cosmos_send": {
+              "type": "number"
+            },
+            "ibc_transfer": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
         }
-      }
+      },
+      "additionalProperties": false
     },
     "staking_token": {
       "type": "object",
@@ -341,29 +486,9 @@
         "denom": {
           "type": "string"
         }
-      }
-    },
-    "logo_URIs": {
-      "type": "object",
-      "properties": {
-        "png": {
-          "type": "string",
-          "format": "uri-reference",
-          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/[a-zA-Z0-9-_\\.]+\\.png$"
-        },
-        "svg": {
-          "type": "string",
-          "format": "uri-reference",
-          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/[a-zA-Z0-9-_\\.]+\\.svg$"
-        }
-      }
-    },
-    "keywords": {
-      "type": "array",
-      "maxContains": 20,
-      "items": {
-        "type": "string"
-      }
+      },
+      "additionalProperties": false
     }
-  }
+  },
+  "additionalProperties": false
 }

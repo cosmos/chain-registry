@@ -4,8 +4,8 @@
   "status": "live",
   "network_type": "mainnet",
   "website": "https://www.ixo.world/",
-  "pretty_name": "Impact Hub",
-  "chain_id": "impacthub-3",
+  "pretty_name": "ixo",
+  "chain_id": "ixo-4",
   "bech32_prefix": "ixo",
   "daemon_name": "ixod",
   "node_home": "$HOME/.ixod",
@@ -24,13 +24,12 @@
   },
   "codebase": {
     "git_repo": "https://github.com/ixofoundation/ixo-blockchain",
-    "recommended_version": "v0.18.1",
+    "recommended_version": "v0.19.3",
     "compatible_versions": [
-      "v0.18.1",
-      "v0.18.0"
+      "v0.19.3"
     ],
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/ixofoundation/genesis/main/impacthub-3/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/ixofoundation/genesis/980961a8e344dd39bd092493e58b4421aa1c0014/ixo-4/genesis.json"
     }
   },
   "peers": {
@@ -48,19 +47,13 @@
     ],
     "persistent_peers": [
       {
-        "id": "cbe8c6a5a77f861db8edb1426b734f2cf1fa4020",
-        "address": "18.166.133.210:26656",
-        "provider": "shanzhaicity"
-      },
-      {
         "id": "36e4738c7efcf353d3048e5e6073406d045bae9d",
         "address": "80.64.208.43:26656",
         "provider": "simplyvc"
       },
       {
-        "id": "f0d4546fa5e0c2d84a4244def186b9da3c12ba1a",
-        "address": "46.166.138.214:26656",
-        "provider": "ixoworld"
+        "id": "c95af93f0386f8e19e65997262c9f874d1901dc5",
+        "address": "18.163.242.188:26656"
       }
     ]
   },
@@ -85,6 +78,10 @@
       {
         "address": "https://impacthub-rpc.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://ixo-rpc.ibs.team",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "rest": [
@@ -111,6 +108,10 @@
       {
         "address": "https://impacthub-api.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://ixo-api.ibs.team",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "grpc": [
@@ -127,8 +128,9 @@
   "explorers": [
     {
       "kind": "EZStaking Tools",
-      "url": "https://ezstaking.tools/impacthub",
-      "tx_page": "https://ezstaking.tools/impacthub/txs/${txHash}"
+      "url": "https://ezstaking.tools/ixo",
+      "tx_page": "https://ezstaking.tools/ixo/txs/${txHash}",
+      "account_page": "https://ezstaking.tools/ixo/account/${accountAddress}"
     },
     {
       "kind": "bigdipper",
@@ -144,6 +146,11 @@
       "kind": "atomscan",
       "url": "https://atomscan.com/ixo",
       "tx_page": "https://atomscan.com/ixo/transactions/${txHash}"
+    },
+    {
+      "kind": "Mintscan",
+      "url": "https://www.mintscan.io/ixo",
+      "tx_page": "https://www.mintscan.io/ixo/txs/${txHash}"
     }
   ]
 }

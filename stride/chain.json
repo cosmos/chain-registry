@@ -9,9 +9,7 @@
   "bech32_prefix": "stride",
   "daemon_name": "strided",
   "node_home": "$HOME/.stride",
-  "key_algos": [
-    "ed25519"
-  ],
+  "key_algos": ["ed25519"],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -26,15 +24,26 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Stride-Labs/stride",
-    "recommended_version": "v3.0.0",
-    "cosmos_sdk_version": "0.45.49",
-    "tendermint_version": "0.34.21",
+    "recommended_version": "v5.1.1",
+    "compatible_versions": [
+      "v5.1.1"
+    ],
+    "cosmos_sdk_version": "0.46",
+    "tendermint_version": "0.34",
+    "cosmwasm_version": "0.29",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "5.1.0",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/Stride-Labs/testnet/main/mainnet/genesis.json"
     }
   },
   "peers": {
     "seeds": [
+      {
+        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
+        "address": "seed.rhinostake.com:12256",
+        "provider": "RHINO"
+      },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:12256",
@@ -52,13 +61,33 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "stride.mainnet.seed.autostake.net:26886",
-        "provider": "AutoStake.net"
+        "address": "stride-mainnet-seed-autostake.net:26886",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
         "address": "stride.rpc.kjnodes.com:16659",
         "provider": "kjnodes"
+      },
+      {
+        "id": "86bd5cb6e762f673f1706e5889e039d5406b4b90",
+        "address": "stride.seed.node75.org:10456",
+        "provider": "Pro-Nodes75"
+      },
+      {
+        "id": "95d0377592a657d4c0816d9845e11d659db75d5b",
+        "address": "seeds.whispernode.com:12256",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
+        "address": "stride-seed-1.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "e726816f42831689eab9378d5d577f1d06d25716",
+        "address": "stride-seed-2.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -104,8 +133,8 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "stride.mainnet.peer.autostake.net:26886",
-        "provider": "AutoStake.net"
+        "address": "stride-mainnet-peer-autostake.net:26886",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -150,6 +179,26 @@
       {
         "address": "https://stride.rpc.kjnodes.com",
         "provider": "kjnodes"
+      },
+      {
+        "address": "https://rpc-stride.pupmos.network",
+        "provider": "PUPMØS"
+      },
+      {
+        "address": "https://rpc-stride.architectnodes.com",
+        "provider": "Architect Nodes"
+      },
+      {
+        "address": "https://stride.nodejumper.io:443",
+        "provider": "Nodejumper 🚀"
+      },
+      {
+        "address": "https://rpc-stride.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://rpc-stride.carbonZERO.zone:443",
+        "provider": "carbonZERO🌲"
       }
     ],
     "rest": [
@@ -192,6 +241,30 @@
       {
         "address": "https://stride.api.kjnodes.com",
         "provider": "kjnodes"
+      },
+      {
+        "address": "https://api-stride.pupmos.network",
+        "provider": "PUPMØS"
+      },
+      {
+        "address": "https://stride.nodejumper.io:1317",
+        "provider": "Nodejumper 🚀"
+      },
+      {
+        "address": "https://stride-mainnet-lcd-autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://rest-stride.architectnodes.com",
+        "provider": "Architect Nodes"
+      },
+      {
+        "address": "https://lcd-stride.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://rest-stride.carbonZERO.zone:443",
+        "provider": "carbonZERO🌲"
       }
     ],
     "grpc": [
@@ -226,6 +299,10 @@
       {
         "address": "https://grpc.stride.silentvalidator.com/",
         "provider": "silent"
+      },
+      {
+        "address": "https://stride.nodejumper.io:9090",
+        "provider": "Nodejumper 🚀"
       }
     ]
   },
@@ -247,6 +324,12 @@
       "url": "https://exp.nodeist.net/Stride",
       "tx_page": "https://exp.nodeist.net/Stride/tx/${txHash}",
       "account_page": "https://exp.nodeist.net/Stride/account/${accountAddress}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/stride",
+      "tx_page": "https://www.mintscan.io/stride/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/stride/account/${accountAddress}"
     }
   ],
   "logo_URIs": {

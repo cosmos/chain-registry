@@ -23,16 +23,15 @@
   },
   "codebase": {
     "git_repo": "https://github.com/desmos-labs/desmos",
-    "recommended_version": "v2.4.0",
+    "recommended_version": "v4.7.0",
     "compatible_versions": [
-      "v2.3.1",
-      "v2.4.0"      
+      "v4.7.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/desmos-labs/desmos/releases/download/v2.3.1/desmos-2.3.1-linux-amd64",
-      "linux/arm64": "https://github.com/desmos-labs/desmos/releases/download/v2.3.1/desmos-2.3.1-linux-arm64",
-      "darwin/amd64": "https://github.com/desmos-labs/desmos/releases/download/v2.3.1/desmos-2.3.1-darwin-amd64",
-      "windows/amd64": "https://github.com/desmos-labs/desmos/releases/download/v2.3.1/desmos-2.3.1-windows-amd64.exe"
+      "linux/amd64": "https://github.com/desmos-labs/desmos/releases/download/v4.7.0/desmos-4.7.0-linux-amd64",
+      "linux/arm64": "https://github.com/desmos-labs/desmos/releases/download/v4.7.0/desmos-4.7.0-linux-arm64",
+      "darwin/amd64": "https://github.com/desmos-labs/desmos/releases/download/v4.7.0/desmos-4.7.0-darwin-amd64",
+      "windows/amd64": "https://github.com/desmos-labs/desmos/releases/download/v4.7.0/desmos-4.7.0-windows-amd64.exe"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/desmos-labs/mainnet/main/genesis.json"
@@ -66,15 +65,13 @@
         "provider": "Starsquid"
       },
       {
-        "id": "4914d4b60123a625d41da7cad9950a4a12ce61ca",
-        "address": "desmos-seed.panthea.eu:39656",
-        "provider": "Panthea EU"
-      }
-    ],
-    "persistent_peers": [
+        "id": "6580d5123923ec1426c67658d2ae1e68cfd6a62f",
+        "address": "seeds.whispernode.com:16256",
+        "provider": "WhisperNode🤐"
+      },
       {
-        "id": "7c506d9e32cfc486ea714ee0c0307022398b8c20",
-        "address": "desmos-peer.panthea.eu:29656",
+        "id": "73fc6b8b41aada42306b2f149619cc0ff935a868",
+        "address": "desmos-seed.panthea.eu:39656",
         "provider": "Panthea EU"
       }
     ]
@@ -98,13 +95,13 @@
         "provider": "Starsquid"
       },
       {
-        "address": "https://desmos-rpc.panthea.eu",
-        "provider": "Panthea EU"
-      },
-      {
         "address": "https://desmos.nodejumper.io",
         "provider": "Nodejumper 🚀"
-      }      
+      },
+      {
+        "address": "https://rpc-desmos.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      }
     ],
     "rest": [
       {
@@ -120,13 +117,13 @@
         "provider": "Inter Blockchain Services"
       },
       {
-        "address": "https://desmos-api.panthea.eu",
-        "provider": "Panthea EU"
-      },
-      {
         "address": "https://desmos.nodejumper.io:1317",
         "provider": "Nodejumper 🚀"
-      }         
+      },
+      {
+        "address": "https://lcd-desmos.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      }
     ],
     "grpc": [
       {
@@ -136,14 +133,15 @@
       {
         "address": "https://desmos.nodejumper.io:9090",
         "provider": "Nodejumper 🚀"
-      }      
+      }
     ]
   },
   "explorers": [
     {
       "kind": "EZStaking Tools",
       "url": "https://ezstaking.tools/desmos",
-      "tx_page": "https://ezstaking.tools/desmos/txs/${txHash}"
+      "tx_page": "https://ezstaking.tools/desmos/txs/${txHash}",
+      "account_page": "https://ezstaking.tools/desmos/account/${accountAddress}"
     },
     {
       "kind": "bigdipper",
@@ -165,6 +163,11 @@
       "kind": "atomscan",
       "url": "https://atomscan.com/desmos",
       "tx_page": "https://atomscan.com/desmos/transactions/${txHash}"
+    },
+    {
+      "kind": "TC Network",
+      "url": "https://explorer.tcnetwork.io/desmos",
+      "tx_page": "https://explorer.tcnetwork.io/desmos/transaction/${txHash}"
     }
   ]
 }
