@@ -5,7 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.joinloyal.com/",
   "pretty_name": "Loyal",
-  "chain_id": "loyal-1",
+  "chain_id": "loyal-main-02",
   "bech32_prefix": "loyal",
   "daemon_name": "loyald",
   "node_home": "$HOME/.loyal",
@@ -30,9 +30,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/LoyalLabs/loyal",
-    "recommended_version": "v0.25.1",
+    "recommended_version": "v0.25.3",
     "compatible_versions": [
-      "v0.25.1"
+      "v0.25.3"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/LoyalLabs/net/main/mainnet/genesis.json"
@@ -76,11 +76,17 @@
     "rpc": [
       {
         "address": "https://main-rpc.joinloyal.io/"
+      },
+      {
+        "address": "https://rpc-loyal.nodeist.net/"
       }
     ],
     "rest": [
       {
         "address": "https://main-lcd.joinloyal.io/"
+      },
+      {
+        "address": "https://api-loyal.nodeist.net/"
       }
     ]
   },
@@ -89,6 +95,11 @@
       "kind": "Loyal explorer",
       "url": "https://ping-pub.joinloyal.io/loyal",
       "tx_page": "https://ping-pub.joinloyal.io/loyal/tx/${txHash}"
+    },
+     {
+      "kind": "Nodeist Explorer",
+      "url": "https://exp.nodeist.net/m-loyal",
+      "tx_page": "https://exp.nodeist.net/m-loyal/tx/${txHash}"
     }
   ]
 }
