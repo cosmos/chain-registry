@@ -1,0 +1,160 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "shareledger",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://www.sharering.network/",
+  "pretty_name": "Shareledger",
+  "chain_id": "ShareRing-VoyagerNet",
+  "bech32_prefix": "shareledger",
+  "daemon_name": "shareledger",
+  "node_home": "$HOME/.shareledger",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "nshr",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 2000,
+        "average_gas_price": 3000,
+        "high_gas_price": 4000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "nshr"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/ShareRing/Shareledger/",
+    "recommended_version": "1.4.1",
+    "compatible_versions": ["1.4.1"],
+    "binaries": {
+      "linux/amd64": "https://github.com/ShareRing/Shareledger/releases/download/v1.4.1/shareledger"
+    },
+    "cosmos_sdk_version": "0.45",
+    "tendermint_version": "0.34",
+    "cosmwasm_version": "0.27",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "3.0.0",
+    "ics_enabled": ["ics20-1"],
+    "genesis": {
+      "name": "v1",
+      "genesis_url": "https://github.com/ShareRing/Shareledger/releases/download/v1.2.0/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1",
+        "tag": "v1.2.0",
+        "height": 4382920,
+        "next_version_name": "v2"
+      },
+      {
+        "name": "v2",
+        "tag": "v1.3.0",
+        "height": 6905000,
+        "next_version_name": "v3"
+      },
+      {
+        "name": "v3",
+        "tag": "v1.4.0",
+        "height": 7325550,
+        "next_version_name": "v4"
+      },
+      {
+        "name": "v4",
+        "tag": "v1.4.1",
+        "height": 7507600,
+        "next_version_name": "v5"
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "1877cddbd4f1e5c6d1d33106667a69ec31eeb281",
+        "address": "192.168.194.50:26656"
+      },
+      {
+        "id": "f42ed8ada782a66d89d4f12784990b562f78376a",
+        "address": "192.168.194.75:26656"
+      },
+      {
+        "id": "6f9ac0fd8f3341fe2342c378d8d31b1291db1661",
+        "address": "192.168.194.22:26656"
+      },
+      {
+        "id": "02d3c76619687479d3d038d96fe36a472bd834f9",
+        "address": "192.168.194.64:26656"
+      },
+      {
+        "id": "b916ca079551cc638149123a1621f98b113090e7",
+        "address": "192.168.194.230:26656"
+      },
+      {
+        "id": "f3018717656d99d66d5a38b62fee2d5cb1663fbf",
+        "address": "192.168.194.232:26656"
+      },
+      {
+        "id": "183748b5ff4c2e8fa7a832ac5ffe2e662b7052f1",
+        "address": "192.168.194.231:26656"
+      },
+      {
+        "id": "d15a915ebe511516a7b3fe324b9efd12af0d5550",
+        "address": "192.168.194.185:26656"
+      },
+      {
+        "id": "45bece57c460890aac44ee6e70c3f745fe019dc6",
+        "address": "192.168.194.136:26656"
+      },
+      {
+        "id": "717741f841dd22370b772a05ab26362b07b4f16c",
+        "address": "192.168.194.101:26656"
+      },
+      {
+        "id": "1b0a92dc461a5c5a3e6294c22e17fc30da08c16a",
+        "address": "192.168.194.53:26656"
+      },
+      {
+        "id": "69fd2d16de0c0b07a4be36838d7678c6734ace8c",
+        "address": "192.168.194.109:26656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.explorer.shareri.ng",
+        "provider": "ShareRing"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lcd.explorer.shareri.ng/",
+        "provider": "ShareRing"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://rpc.explorer.shareri.ng",
+        "provider": "ShareRing"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "big dipper",
+      "url": "https://explorer.shareri.ng",
+      "tx_page": "https://explorer.shareri.ng/transactions/${txHash}",
+      "account_page": "https://explorer.shareri.ng/accounts/${accountAddress}"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/shareledger/images/chain-logo.png"
+  },
+  "keywords": ["id"]
+}

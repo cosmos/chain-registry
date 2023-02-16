@@ -88,7 +88,8 @@
                 "$ref": "#/$defs/non_ibc_transition"
               }
             ]
-          }
+          },
+          "minContains": 1
         },
         "ibc": {
           "type": "object",
@@ -133,10 +134,11 @@
         },
         "keywords": {
           "type": "array",
-          "maxContains": 20,
           "items": {
             "type": "string"
-          }
+          },
+          "minContains": 1,
+          "maxContains": 20
         }
       },
       "additionalProperties": false,
@@ -177,7 +179,8 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "minContains": 1
         }
       },
       "additionalProperties": false
@@ -242,7 +245,8 @@
         "chain": {
           "type": "object",
           "required": [
-            "channel_id"
+            "channel_id",
+            "path"
           ],
           "properties": {
             "channel_id": {
@@ -307,7 +311,8 @@
           "type": "object",
           "required": [
             "port",
-            "channel_id"
+            "channel_id",
+            "path"
           ],
           "properties": {
             "port": {
