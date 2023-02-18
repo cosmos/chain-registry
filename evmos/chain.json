@@ -32,18 +32,22 @@
   },
   "codebase": {
     "git_repo": "https://github.com/evmos/evmos",
-    "recommended_version": "v10.0.1",
+    "recommended_version": "v11.0.2",
     "compatible_versions": [
-      "v10.0.0",
-      "v10.0.1"
+      "v11.0.0",
+      "v11.0.1",
+      "v11.0.2"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v10.0.0/evmos_10.0.0_Linux_x86_64.tar.gz",
-      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v10.0.0/evmos_10.0.0_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v10.0.0/evmos_10.0.0_Darwin_x86_64.tar.gz",
-      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v10.0.0/evmos_10.0.0_Darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v10.0.0/evmos_10.0.0_Windows_x86_64.zip"
+      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v11.0.2/evmos_11.0.2_Linux_amd64.tar.gz",
+      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v11.0.2/evmos_11.0.2_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v11.0.2/evmos_11.0.2_Darwin_amd64.tar.gz",
+      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v11.0.2/evmos_11.0.2_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v11.0.2/evmos_11.0.2_Windows_amd64.zip"
     },
+    "cosmos_sdk_version": "0.46",
+    "tendermint_version": "0.34",
+    "ibc_go_version": "6.1.0",
     "genesis": {
       "genesis_url": "https://archive.evmos.org/mainnet/genesis.json"
     }
@@ -92,7 +96,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "evmos-mainnet-seed-autostake.net:26736",
+        "address": "evmos-mainnet-seed.autostake.net:26736",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -164,7 +168,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "evmos-mainnet-peer-autostake.net:26736",
+        "address": "evmos-mainnet-peer.autostake.net:26736",
         "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
@@ -180,8 +184,8 @@
         "provider": "ecostake"
       },
       {
-        "address": "https://rpc-evmos.whispernode.com",
-        "provider": " WhisperNode 🤐"
+        "address": "https://rpc-evmos.whispernode.com:443",
+        "provider": "WhisperNode🤐"
       },
       {
         "address": "https://evmos.rpc.interchain.ivaldilabs.xyz",
@@ -258,6 +262,14 @@
       {
         "address": "https://evmos-rpc.validatrium.club",
         "provider": "Validatrium"
+      },
+      {
+        "address": "https://evmos-mainnet-rpc.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://rpc-evmos.carbonZERO.zone:443",
+        "provider": "carbonZERO🌲"
       }
     ],
     "rest": [
@@ -270,8 +282,8 @@
         "provider": "ecostake"
       },
       {
-        "address": "https://lcd-evmos.whispernode.com",
-        "provider": " WhisperNode 🤐"
+        "address": "https://lcd-evmos.whispernode.com:443",
+        "provider": "WhisperNode🤐"
       },
       {
         "address": "https://evmos.rest.interchain.ivaldilabs.xyz",
@@ -346,8 +358,12 @@
         "provider": "Validatrium"
       },
       {
-        "address": "https://evmos-mainnet-lcd-autostake.net:443",
+        "address": "https://evmos-mainnet-lcd.autostake.net:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://rest-evmos.carbonZERO.zone:443",
+        "provider": "carbonZERO🌲"
       }
     ],
     "grpc": [
@@ -410,6 +426,10 @@
       {
         "address": "evmos.grpc.stakin-nodes.com:443",
         "provider": "Stakin"
+      },
+      {
+        "address": "sevmos-mainnet-grpc.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "evm-http-jsonrpc": [
@@ -470,8 +490,9 @@
     },
     {
       "kind": "bigdipper",
-      "url": "https://evmos.bigdipper.live",
-      "tx_page": "https://evmos.bigdipper.live/transactions/${txHash}"
+      "url": "https://bigdipper.live/evmos",
+      "tx_page": "https://bigdipper.live/evmos/transactions/${txHash}",
+      "account_page": "https://bigdipper.live/evmos/accounts/${accountAddress}"
     },
     {
       "kind": "blockscout",
