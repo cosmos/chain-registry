@@ -1,6 +1,6 @@
 {
   "$schema": "../../chain.schema.json",
-  "chain_name": "medasdigital-1",
+  "chain_name": "medasdigital",
   "status": "live",
   "network_type": "mainnet",
   "website": "https://medas-digital.io/",
@@ -91,9 +91,16 @@
   },
   "explorers": [
     {
-      "kind": "Mintscan",
-      "url": "https://www.mintscan.io/medasdigital",
-      "tx_page": "https://www.mintscan.io/medasdigital/txs/${txHash}"
+      "kind": "BigDipper",
+      "url": "https://explorer.medas-digital.io:3100/medasdigital",
+      "tx_page": "https://explorer.medas-digital.io:3100/medasdigital/transactions/${txHash}",
+      "account_page": "explorer.medas-digital.io:3100/medasdigital/accounts/${accountAddress}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/frontier/medasdigital-1",
+      "tx_page": "https://atomscan.com/frontier/medasdigital-1/transactions/${txHash}",
+      "account_page": "https://atomscan.com/frontier/medasdigital-1/accounts/${accountAddress}"
     }
   ]
 }
