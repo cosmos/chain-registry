@@ -112,6 +112,9 @@
     },
     "fees": {
       "type": "object",
+      "required": [
+        "fee_tokens"
+      ],
       "properties": {
         "fee_tokens": {
           "type": "array",
@@ -124,12 +127,30 @@
     },
     "staking": {
       "type": "object",
+      "required": [
+        "staking_tokens"
+      ],
       "properties": {
         "staking_tokens": {
           "type": "array",
           "items": {
             "$ref": "#/$defs/staking_token"
           }
+        },
+        "lock_duration": {
+          "type": "object",
+          "properties": {
+            "blocks": {
+              "type": "number",
+              "description": "The number of blocks for which the staked tokens are locked."
+            },
+            "time": {
+              "type": "string",
+              "description": "The approximate time for which the staked tokens are locked."
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
         }
       },
       "additionalProperties": false
@@ -207,7 +228,9 @@
             "type": "string",
             "description": "IBC app or ICS standard.",
             "enum": [
-              "ics20-1", "ics27-1", "mauth"
+              "ics20-1",
+              "ics27-1",
+              "mauth"
             ]
           }
         },
@@ -254,6 +277,22 @@
             },
             "additionalProperties": false
           }
+        }
+      },
+      "additionalProperties": false
+    },
+    "logo_URIs": {
+      "type": "object",
+      "properties": {
+        "png": {
+          "type": "string",
+          "format": "uri-reference",
+          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$"
+        },
+        "svg": {
+          "type": "string",
+          "format": "uri-reference",
+          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$"
         }
       },
       "additionalProperties": false
@@ -323,22 +362,6 @@
       "items": {
         "$ref": "#/$defs/explorer"
       }
-    },
-    "logo_URIs": {
-      "type": "object",
-      "properties": {
-        "png": {
-          "type": "string",
-          "format": "uri-reference",
-          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$"
-        },
-        "svg": {
-          "type": "string",
-          "format": "uri-reference",
-          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$"
-        }
-      },
-      "additionalProperties": false
     },
     "keywords": {
       "type": "array",
@@ -437,6 +460,19 @@
         },
         "high_gas_price": {
           "type": "number"
+        },
+        "gas_costs": {
+          "type": "object",
+          "properties": {
+            "cosmos_send": {
+              "type": "number"
+            },
+            "ibc_transfer": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
         }
       },
       "additionalProperties": false

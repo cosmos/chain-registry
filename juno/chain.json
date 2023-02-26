@@ -31,11 +31,11 @@
   },
   "codebase": {
     "git_repo": "https://github.com/CosmosContracts/juno",
-    "recommended_version": "v11.0.0",
-    "compatible_versions": ["v11.0.0"],
+    "recommended_version": "v12.0.0",
+    "compatible_versions": ["v12.0.0"],
     "cosmos_sdk_version": "0.45",
     "tendermint_version": "0.34",
-    "cosmwasm_version": "0.28",
+    "cosmwasm_version": "0.30",
     "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://download.dimi.sh/juno-phoenix2-genesis.tar.gz"
@@ -80,6 +80,21 @@
         "id": "47d942718533d36823e16b9502c035ca9f318ef4",
         "address": "seeds.whispernode.com:12656",
         "provider": "WhisperNode🤐"
+      },
+      {
+        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
+        "address": "juno-seed-1.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "e726816f42831689eab9378d5d577f1d06d25716",
+        "address": "juno-seed-2.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "juno-mainnet-seed.autostake.net:27136",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "persistent_peers": [
@@ -122,14 +137,19 @@
       {
         "id": "ea9c1ac0e91639b2c7957d9604655e2263abe4e1",
         "address": "185.181.103.136:26656"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "juno-mainnet-peer.autostake.net:27136",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-juno.whispernode.com",
-        "provider": " WhisperNode 🤐"
+        "address": "https://rpc-juno.whispernode.com:443",
+        "provider": "WhisperNode🤐"
       },
       {
         "address": "https://rpc-juno.itastakers.com",
@@ -176,10 +196,6 @@
         "provider": "Interbloc"
       },
       {
-        "address": "https://juno.nodejumper.io",
-        "provider": "Nodejumper 🚀"
-      },
-      {
         "address": "https://juno.rpc.stakin-nodes.com",
         "provider": "Stakin"
       },
@@ -206,12 +222,16 @@
       {
         "address": "http://juno.rpc.stakeandrelax.net:12657",
         "provider": "Stake&Relax Validator 🦥"
+      },
+      {
+        "address": "https://juno-mainnet-rpc.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "rest": [
       {
-        "address": "https://lcd-juno.whispernode.com",
-        "provider": " WhisperNode 🤐"
+        "address": "https://lcd-juno.whispernode.com:443",
+        "provider": "WhisperNode🤐"
       },
       {
         "address": "https://lcd-juno.itastakers.com",
@@ -258,10 +278,6 @@
         "provider": "Interbloc"
       },
       {
-        "address": "https://juno.nodejumper.io:1317",
-        "provider": "Nodejumper 🚀"
-      },
-      {
         "address": "https://juno.rest.stakin-nodes.com",
         "provider": "Stakin"
       },
@@ -276,6 +292,10 @@
       {
         "address": "https://juno-api.reece.sh",
         "provider": "Reecepbcups"
+      },
+      {
+        "address": "https://juno-mainnet-lcd.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "grpc": [
@@ -308,10 +328,6 @@
         "provider": "Ivaldi Labs"
       },
       {
-        "address": "https://juno.nodejumper.io:9090",
-        "provider": "Nodejumper 🚀"
-      },
-      {
         "address": "juno.grpc.stakin-nodes.com:443",
         "provider": "Stakin"
       },
@@ -326,6 +342,10 @@
       {
         "address": "http://juno.grpc.stakeandrelax.net:12690",
         "provider": "Stake&Relax Validator 🦥"
+      },
+      {
+        "address": "juno-mainnet-grpc.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -333,7 +353,8 @@
     {
       "kind": "EZStaking Tools",
       "url": "https://ezstaking.tools/juno",
-      "tx_page": "https://ezstaking.tools/juno/txs/${txHash}"
+      "tx_page": "https://ezstaking.tools/juno/txs/${txHash}",
+      "account_page": "https://ezstaking.tools/juno/account/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -355,6 +376,11 @@
       "kind": "atomscan",
       "url": "https://atomscan.com/juno",
       "tx_page": "https://atomscan.com/juno/transactions/${txHash}"
+    },
+    {
+      "kind": "TC Network",
+      "url": "https://explorer.tcnetwork.io/juno",
+      "tx_page": "https://explorer.tcnetwork.io/juno/transaction/${txHash}"
     }
   ]
 }
