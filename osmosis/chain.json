@@ -37,21 +37,19 @@
   },
   "codebase": {
     "git_repo": "https://github.com/osmosis-labs/osmosis",
-    "recommended_version": "v13.1.0",
+    "recommended_version": "v14.0.0",
     "compatible_versions": [
-      "v13.1.0",
-      "v13.1.1",
-      "v13.1.2"
+      "v14.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v13.1.0/osmosisd-13.1.0-linux-amd64?checksum=sha256:50e734ee44e15c00927e4ce6c721bd79f5580f2b70cf37df52329224ad8089f0",
-      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v13.1.0/osmosisd-13.1.0-linux-arm64?checksum=sha256:ddc45deb04e7f4b7bdaaf3263ff1cbc469f7bfc51d3c9dae5d6817cb9e3c0bd7"
+      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v14.0.0/osmosisd-14.0.0-linux-amd64?checksum=sha256:441cac2f9094b63ec7a363f4d5442f16c28f65390cf286a589be62ee1ba66cc1",
+      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v14.0.0/osmosisd-14.0.0-linux-arm64?checksum=sha256:5c8bed57f2d58bb3d3834beb9ef38aedc9329c8bf3e95da28aa7b00b2174bfc1"
     },
     "cosmos_sdk_version": "0.45",
     "tendermint_version": "0.34",
-    "cosmwasm_version": "0.29",
+    "cosmwasm_version": "0.30",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "3.4.0",
+    "ibc_go_version": "4.2.0",
     "ics_enabled": [
       "ics20-1"
     ],
@@ -105,7 +103,13 @@
       {
         "name": "v13",
         "tag": "v13.1.0",
-        "height": 7241500
+        "height": 7241500,
+        "next_version_name": "v14"
+      },
+      {
+        "name": "v14",
+        "tag": "v14.0.0",
+        "height": 7937500
       }
     ]
   },
@@ -156,7 +160,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "osmosis.mainnet.seed.autostake.net:26716",
+        "address": "osmosis-mainnet-seed.autostake.net:26716",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -178,6 +182,11 @@
         "id": "e726816f42831689eab9378d5d577f1d06d25716",
         "address": "osmosis-seed-2.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "3e874613919a6f8b3fc26071fef563c88f031b3c",
+        "address": "seed-osmosis.freshstaking.com:31656",
+        "provider": "FreshSTAKING"
       }
     ],
     "persistent_peers": [
@@ -313,8 +322,13 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "osmosis.mainnet.peer.autostake.net:26716",
+        "address": "osmosis-mainnet-peer.autostake.net:26716",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "3e874613919a6f8b3fc26071fef563c88f031b3c",
+        "address": "seed-osmosis.freshstaking.com:31656",
+        "provider": "FreshSTAKING"
       }
     ]
   },
@@ -333,7 +347,7 @@
         "provider": "Chainlayer"
       },
       {
-        "address": "https://rpc-osmosis.whispernode.com",
+        "address": "https://rpc-osmosis.whispernode.com:443",
         "provider": "WhisperNode 🤐"
       },
       {
@@ -365,10 +379,6 @@
         "provider": "Silk Nodes"
       },
       {
-        "address": "https://osmosis.nodejumper.io",
-        "provider": "Nodejumper 🚀"
-      },
-      {
         "address": "https://osmosis.rpc.stakin-nodes.com",
         "provider": "Stakin"
       },
@@ -387,6 +397,14 @@
       {
         "address": "https://rpc.osl.zone",
         "provider": "Osmosis Support Lab"
+      },
+      {
+        "address": "https://osmosis-mainnet-rpc.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "http://rpc-osmosis.freshstaking.com:31656",
+        "provider": "FreshSTAKING"
       }
     ],
     "rest": [
@@ -399,7 +417,7 @@
         "provider": "Chainlayer"
       },
       {
-        "address": "https://lcd-osmosis.whispernode.com",
+        "address": "https://lcd-osmosis.whispernode.com:443",
         "provider": "WhisperNode 🤐"
       },
       {
@@ -431,10 +449,6 @@
         "provider": "Silk Nodes"
       },
       {
-        "address": "https://osmosis.nodejumper.io:1317",
-        "provider": "Nodejumper 🚀"
-      },
-      {
         "address": "https://osmosis.rest.stakin-nodes.com",
         "provider": "Stakin"
       },
@@ -451,7 +465,7 @@
         "provider": "Osmosis Support Lab"
       },
       {
-        "address": "https://osmosis.mainnet.lcd.autostake.net:443",
+        "address": "https://osmosis-mainnet-lcd.autostake.net:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
@@ -477,16 +491,16 @@
         "provider": "Silk Nodes"
       },
       {
-        "address": "https://osmosis.nodejumper.io:9090",
-        "provider": "Nodejumper 🚀"
-      },
-      {
         "address": "osmosis.grpc.stakin-nodes.com:443",
         "provider": "Stakin"
       },
       {
         "address": "osmosis.grpc.interchain.ivaldilabs.xyz:433",
         "provider": "Ivaldi Labs"
+      },
+      {
+        "address": "osmosis-mainnet-grpc.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -512,12 +526,24 @@
       "kind": "explorers.guru",
       "url": "https://osmosis.explorers.guru",
       "tx_page": "https://osmosis.explorers.guru/transaction/${txHash}",
-      "account_page": "https://osmosis.explorers.guru/transaction/${accountAddress}"
+      "account_page": "https://osmosis.explorers.guru/account/${accountAddress}"
     },
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/osmosis",
       "tx_page": "https://atomscan.com/osmosis/transactions/${txHash}"
+    },
+    {
+      "kind": "bigdipper",
+      "url": "https://bigdipper.live/osmosis",
+      "tx_page": "https://bigdipper.live/osmosis/transactions/${txHash}",
+      "account_page": "https://bigdipper.live/osmosis/accounts/${accountAddress}"
+    },
+    {
+      "kind": "TC Network",
+      "url": "https://explorer.tcnetwork.io/osmosis",
+      "tx_page": "https://explorer.tcnetwork.io/osmosis/transaction/${txHash}",
+      "account_page": "https://explorer.tcnetwork.io/osmosis/account/${accountAddress}"
     }
   ],
   "keywords": [
