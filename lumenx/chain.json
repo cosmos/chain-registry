@@ -32,7 +32,12 @@
   },
   "peers": {
     "seeds": [],
-    "persistent_peers": []
+    "persistent_peers": [
+      {
+        "id": "cd6febf26168c82df99c8209ee82fecbb21ccfff",
+        "address": "5.9.61.78:56656"
+      }
+    ]
   },
   "apis": {
     "rpc": [
@@ -42,7 +47,11 @@
       },
       {
         "address": "https://rpc-lumenx.cryptonet.pl/",
-        "provider": "CryptoNet"
+        "provider": "CryptoNet"        
+      },
+      {
+        "address": "https://lumenx-rpc.enodex.lol/",
+        "provider": "Enodex"        
       }
     ],
     "rest": [
@@ -53,6 +62,16 @@
       {
         "address": "https://api-lumenx.cryptonet.pl/",
         "provider": "CryptoNet"
+      },
+      {
+        "address": "https://lumenx-api.enodex.lol",
+        "provider": "Enodex"
+      }        
+    ],
+    "grpc": [
+      {
+        "address": "https://lumenx-grpc.enodex.lol",
+        "provider": "Enodex"
       }
     ]
   },
@@ -61,6 +80,11 @@
       "kind": "ping.pub",
       "url": "https://explorer.chaintools.tech/lumenx",
       "tx_page": "https://explorer.chaintools.tech/lumenx/tx/${txHash}"
+    },
+    {
+      "kind": "Enodex",
+      "url": "https://explorer.enodex.lol/lumenx",
+      "tx_page": "https://explorer.enodex.lol/lumenx/tx/${txHash}"
     }
   ]
 }
