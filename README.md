@@ -138,7 +138,7 @@ A sample `chain.json` includes the following information.
   },
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
       "theme": {
         "primary_color_hex": "#231D4B"
       }
