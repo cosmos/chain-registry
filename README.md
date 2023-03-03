@@ -144,9 +144,6 @@ A sample `chain.json` includes the following information.
       }
     }
   ],
-  "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png"
-  },
   "peers": {
     "seeds": [
       {
@@ -264,10 +261,6 @@ An example assetlist json contains the following structure:
       "name": "Osmosis",
       "display": "osmo",
       "symbol": "OSMO",
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
-      },
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
@@ -298,10 +291,6 @@ An example assetlist json contains the following structure:
       "name": "Ion",
       "display": "ion",
       "symbol": "ION",
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.svg"
-      },
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.png",
