@@ -46,7 +46,7 @@
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bluzelle/images/bluzelle.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bluzelle/images/bluzelle.svg"
-  },  
+  },
   "peers": {
     "persistent_peers": [
       {
@@ -83,6 +83,10 @@
       {
         "address": "https://bluzelle-rpc.genznodes.dev",
         "provider": "genznodes"
+      },
+      {
+        "address": "https://rpc-bluzelle.nodeist.net",
+        "provider": "Nodeist"
       }
     ],
     "rest": [
@@ -101,23 +105,27 @@
       {
         "address": "https://bluzelle-api.genznodes.dev/",
         "provider": "genznodes"
+      },
+      {
+        "address": "https://api-bluzelle.nodeist.net",
+        "provider": "Nodeist"
       }
     ],
     "grpc": [
       {
-        "address": "http://a.client.sentry.net.bluzelle.com:9090",
+        "address": "a.client.sentry.net.bluzelle.com:9090",
         "provider": "Bluzelle"
       },
       {
-        "address": "http://b.client.sentry.net.bluzelle.com:9090",
+        "address": "b.client.sentry.net.bluzelle.com:9090",
         "provider": "Bluzelle"
       },
       {
-        "address": "http://c.client.sentry.net.bluzelle.com:9090",
+        "address": "c.client.sentry.net.bluzelle.com:9090",
         "provider": "Bluzelle"
       },
       {
-        "address": "http://bluzelle-grpc.genznodes.dev:29090",
+        "address": "bluzelle-grpc.genznodes.dev:29090",
         "provider": "genznodes"
       }
     ]
@@ -134,6 +142,17 @@
       "url": "https://bd.explorer.net.bluzelle.com",
       "tx_page": "https://bd.explorer.net.bluzelle.com/transactions/${txHash}",
       "account_page": "https://bd.explorer.net.bluzelle.com/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Nodeist",
+      "url": "https://exp.nodeist.net/m-bluzelle/",
+      "tx_page": "https://exp.nodeist.net/m-bluzelle/tx/${txHash}",
+      "account_page": "https://exp.nodeist.net/m-bluzelle/account/${accountAddress}"
+    },
+    {
+      "kind": "TC Network",
+      "url": "https://explorer.tcnetwork.io/bluzelle",
+      "tx_page": "https://explorer.tcnetwork.io/bluzelle/transaction/${txHash}"
     }
   ],
   "keywords": [
