@@ -17,7 +17,7 @@
     "fee_tokens": [
       {
         "denom": "uscrt",
-        "fixed_min_gas_price": 0.00125
+        "fixed_min_gas_price": 0.0125
       }
     ]
   },
@@ -30,13 +30,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/scrtlabs/SecretNetwork",
-    "recommended_version": "v1.6",
-    "binaries": {
-      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6/secretnetwork_1.6_mainnet_goleveldb_amd64.deb"
-    },
+    "recommended_version": "v1.8.0",
     "compatible_versions": [
-      "v1.5"
+      "v1.8.0"
     ],
+    "binaries": {
+      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.8.0/secretnetwork_1.8.0_mainnet_goleveldb_amd64.deb"
+    },
     "genesis": {
       "genesis_url": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/genesis.json"
     },
@@ -70,6 +70,18 @@
         "tag": "v1.6",
         "height": 6537300,
         "next_version_name": "v1.7"
+      },
+      {
+        "name": "v1.7",
+        "tag": "v1.7.1",
+        "height": 7719500,
+        "next_version_name": "v1.8"
+      },
+      {
+        "name": "v1.8",
+        "tag": "v1.8.0",
+        "height": 7760000,
+        "next_version_name": "v1.9"
       }
     ]
   },
@@ -94,107 +106,11 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:17156",
         "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "secret-mainnet-seed-autostake.net:26656",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "id": "d6a6edd7d3d04b59955e135e2d27b7dcc285ead7",
-        "address": "seeds.whispernode.com:17156",
-        "provider": "WhisperNode🤐"
       }
     ],
-    "persistent_peers": [
-      {
-        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "secret-mainnet-peer-autostake.net:26656",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      }
-    ]
+    "persistent_peers": []
   },
   "apis": {
-    "rpc": [
-      {
-        "address": "https://rpc.scrt.network",
-        "provider": "SCRT Network"
-      },
-      {
-        "address": "https://secret-4.api.trivium.network:26657",
-        "provider": "Trivium | Trivium.Network"
-      },
-      {
-        "address": "https://scrt-rpc.blockpane.com",
-        "provider": "[ block pane ]"
-      },
-      {
-        "address": "https://secret-rpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://secret.rpc.consensus.one",
-        "provider": "Consensus One"
-      },
-      {
-        "address": "https://rpc.secret.forbole.com/",
-        "provider": "Forbole"
-      },
-      {
-        "address": "https://secretnetwork-rpc.stakely.io",
-        "provider": "Stakely.io"
-      },
-      {
-        "address": "https://rpc-secret.whispernode.com",
-        "provider": "WhisperNode🤐"
-      },
-      {
-        "address": "https://scrt-rpc.agoranodes.com",
-        "provider": "AgoraNodes"
-      }
-    ],
-    "rest": [
-      {
-        "address": "https://api.scrt.network",
-        "provider": "SCRT Network"
-      },
-      {
-        "address": "https://secret-4.api.trivium.network:1317",
-        "provider": "Trivium | Trivium.Network"
-      },
-      {
-        "address": "https://secret-api.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://scrt-lcd.blockpane.com",
-        "provider": "[ block pane ]"
-      },
-      {
-        "address": "https://secret.api.consensus.one",
-        "provider": "Consensus One"
-      },
-      {
-        "address": "https://api.secret.forbole.com/",
-        "provider": "Forbole"
-      },
-      {
-        "address": "https://secretnetwork-lcd.stakely.io",
-        "provider": "Stakely.io"
-      },
-      {
-        "address": "https://secret-mainnet-lcd-autostake.net:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://lcd-secret.whispernode.com",
-        "provider": "WhisperNode🤐"
-      },
-      {
-        "address": "https://scrt-lcd.agoranodes.com",
-        "provider": "AgoraNodes"
-      }
-    ],
     "grpc-web": [
       {
         "address": "https://secret-4.api.trivium.network:9091",
@@ -205,20 +121,60 @@
         "provider": "[ block pane ]"
       }
     ],
-    "grpc": [
-      {
-        "address": "https://secret-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://scrt-grpc.agoranodes.com",
-        "provider": "AgoraNodes"
-      }
-    ],
     "wss": [
       {
         "address": "wss://scrt-rpc.agoranodes.com",
         "provider": "AgoraNodes"
+      }
+    ],
+    "rpc": [
+      {
+        "address": "https://secret-4.api.trivium.network:26657",
+        "provider": "Trivium | Trivium.Network"
+      },
+      {
+        "address": "https://secret-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc.secret.forbole.com/",
+        "provider": "Forbole"
+      },
+      {
+        "address": "https://secretnetwork-rpc.stakely.io",
+        "provider": "Stakely.io"
+      },
+      {
+        "address": "https://rpc-secret.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://secret-4.api.trivium.network:1317",
+        "provider": "Trivium | Trivium.Network"
+      },
+      {
+        "address": "https://secret-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://secretnetwork-lcd.stakely.io",
+        "provider": "Stakely.io"
+      },
+      {
+        "address": "https://lcd-secret.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "secret-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "secret-mainnet-grpc.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
