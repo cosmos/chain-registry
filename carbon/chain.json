@@ -70,6 +70,17 @@
         }
       },
       {
+        "denom": "cgt/1",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 100000000,
+        "average_gas_price": 100000000,
+        "high_gas_price": 100000000,
+        "gas_costs": {
+          "cosmos_send": 100000000,
+          "ibc_transfer": 100000000
+        }
+      },
+      {
         "denom": "eth.1.19.c3b805",
         "fixed_min_gas_price": 0,
         "low_gas_price": 100000,
@@ -223,13 +234,14 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Switcheo/carbon-bootstrap",
-    "recommended_version": "v2.19.0",
+    "recommended_version": "v2.22.1",
     "compatible_versions": [
-      "v2.19.0"
+      "v2.22.1",
+      "v2.22.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/Switcheo/carbon-bootstrap/releases/download/v2.19.0/carbond2.19.0-mainnet.linux-amd64.tar.gz",
-      "linux/arm64": "https://github.com/Switcheo/carbon-bootstrap/releases/download/v2.19.0/carbond2.19.0-mainnet.linux-arm64.tar.gz"
+      "linux/amd64": "https://github.com/Switcheo/carbon-bootstrap/releases/download/v2.22.1/carbond2.22.1-mainnet.linux-amd64.tar.gz",
+      "linux/arm64": "https://github.com/Switcheo/carbon-bootstrap/releases/download/v2.22.1/carbond2.22.1-mainnet.linux-arm64.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://github.com/Switcheo/carbon-bootstrap/raw/master/carbon-1/genesis.json"
@@ -262,7 +274,7 @@
         "provider": "switcheo-labs"
       },
       {
-        "address": "https://rpc.carbon.bh.rocks",
+        "address": "https://rpc.carbon.blockhunters.org",
         "provider": "BlockHunters"
       }
     ],
@@ -270,6 +282,10 @@
       {
         "address": "https://api.carbon.network",
         "provider": "switcheo-labs"
+      },
+      {
+        "address": "https://rest.carbon.blockhunters.org",
+        "provider": "BlockHunters"
       }
     ]
   },
