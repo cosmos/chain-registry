@@ -9,8 +9,21 @@
   "daemon_name": "chain-maind",
   "node_home": "$HOME/.chain-maind",
   "slip44": 394,
+  "alternative_slip44s": [
+    118
+  ],
   "fees": {
     "fee_tokens": [
+      {
+        "denom": "basecro",
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.03,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
       {
         "denom": "basecro"
       }
@@ -89,6 +102,11 @@
         "id": "e726816f42831689eab9378d5d577f1d06d25716",
         "address": "crypto-org-seed-2.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:20256",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
@@ -131,16 +149,16 @@
         "provider": "crypto.org"
       },
       {
-        "address": "https://rpc-crypto-org.keplr.app/",
-        "provider": "chainapsis"
-      },
-      {
         "address": "https://rpc-cryptoorgchain-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
       },
       {
         "address": "https://rpc-cryptoorgchain.ecostake.com",
         "provider": "ecostake"
+      },
+      {
+        "address": "https://cryptocom-rpc.polkachu.com",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
@@ -149,12 +167,12 @@
         "provider": "crypto.org"
       },
       {
-        "address": "https://lcd-crypto-org.keplr.app/",
-        "provider": "chainapsis"
-      },
-      {
         "address": "https://api-cryptoorgchain-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://cryptocom-api.polkachu.com",
+        "provider": "Polkachu"
       },
       {
         "address": "https://rest-cryptoorgchain.ecostake.com",
@@ -163,12 +181,16 @@
     ],
     "grpc": [
       {
-        "address": "https://grpc.mainnet.crypto.org/",
+        "address": "grpc.mainnet.crypto.org:443",
         "provider": "crypto.org"
       },
       {
         "address": "grpc-cryptoorgchain-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
+      },
+      {
+        "address": "cryptocom-grpc.polkachu.com:20290",
+        "provider": "Polkachu"
       }
     ]
   },
