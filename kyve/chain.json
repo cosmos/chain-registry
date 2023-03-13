@@ -1,0 +1,81 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "kyve",
+  "chain_id": "kyve-1",
+  "pretty_name": "KYVE",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "kyve",
+  "daemon_name": "kyved",
+  "node_home": "$HOME/.kyve",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ukyve",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/KYVENetwork/chain",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.0.0/kyved_linux_amd64.tar.gz",
+      "linux/arm64": "https://github.com/KYVENetwork/chain/releases/download/v1.0.0/kyved_linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.0.0/kyved_darwin_amd64.tar.gz",
+      "darwin/arm64": "https://github.com/KYVENetwork/chain/releases/download/v1.0.0/kyved_darwin_arm64.tar.gz"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/KYVENetwork/networks/main/kyve-1/genesis.json"
+    }
+  },
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "fae8cd5f04406e64484a7a8b6719eacbb861c094",
+        "address": "44.241.103.199:26656"
+      },
+      {
+        "id": "146d27829fd240e0e4672700514e9835cb6fdd98",
+        "address": "34.212.201.1:26656"
+      },
+      {
+        "id": "25da6253fc8740893277630461eb34c2e4daf545",
+        "address": "3.76.244.30:26656"
+      },
+      {
+        "id": "b950b6b08f7a6d5c3e068fcd263802b336ffe047",
+        "address": "18.198.182.214:26656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-kyve.ecostake.com",
+        "provider": "ecostake"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest-kyve.ecostake.com",
+        "provider": "ecostake"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/kyve",
+      "tx_page": "https://www.mintscan.io/kyve/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/kyve/account/${accountAddress}"
+    }
+  ]
+}
