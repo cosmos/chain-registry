@@ -17,15 +17,26 @@
     "fee_tokens": [
       {
         "denom": "ulum",
-        "fixed_min_gas_price": 0.001
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ulum"
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/lum-network/chain",
-    "recommended_version": "v1.2.1",
+    "recommended_version": "v1.3.1",
     "compatible_versions": [
-      "v1.2.1"
+      "v1.3.1"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/lum-network/mainnet/master/genesis.json"
@@ -44,11 +55,6 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "id": "6e73250b636b55e8c1033ba96c14b9cc6d45958c",
-        "address": "seed-lum.starsquid.io:15608",
-        "provider": "Starsquid"
-      },
-      {
         "id": "0df233b1eb62504f96a856ce358014b2fb8ce91b",
         "address": "lum-seed.panthea.eu:43656",
         "provider": "Panthea EU"
@@ -61,38 +67,13 @@
         "provider": "lum foundation"
       },
       {
-        "id": "e12fcc7d9fc9b8b2901aec950f161418794cccf0",
-        "address": "65.108.77.38:26656",
-        "provider": "everstake"
-      },
-      {
-        "id": "4166de0e7721b6eec9c776abf2c38c40e7f820c5",
-        "address": "202.61.239.130:26656",
-        "provider": "stakecito"
-      },
-      {
         "id": "fbaeeff89ec94a4f6c4a2a61e24af7d06b3be0c8",
         "address": "46.166.140.180:26656",
         "provider": "simply staking"
       },
       {
-        "id": "5a29947212a2615e43dac54deb55356a162e173a",
-        "address": "35.181.76.160:26656",
-        "provider": "imperator"
-      },
-      {
-        "id": "5ea36d78ae774c9086c2d3fc8b91f12aa4bf3029",
-        "address": "46.101.251.76:26656",
-        "provider": "cryptocrew"
-      },
-      {
         "id": "433c60a5bc0a693484b7af26208922b84773117e",
         "address": "34.209.132.0:26656",
-        "provider": "cosmostation"
-      },
-      {
-        "id": "9afac13ba62fbfaf8d06867c30007162511093c0",
-        "address": "54.214.134.223:26656",
         "provider": "cosmostation"
       },
       {
@@ -113,16 +94,16 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://rpc-lum.starsquid.io",
-        "provider": "Starsquid"
-      },
-      {
         "address": "https://lum-rpc.panthea.eu",
         "provider": "Panthea EU"
       },
       {
         "address": "https://rpc.lum.bh.rocks",
-        "provider": "BlockHunters \uD83C\uDFAF"
+        "provider": "BlockHunters 🎯"
+      },
+      {
+        "address": "https://lum-rpc.ibs.team",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "rest": [
@@ -144,17 +125,17 @@
       },
       {
         "address": "https://api.lum.bh.rocks",
-        "provider": "BlockHunters \uD83C\uDFAF"
+        "provider": "BlockHunters 🎯"
+      },
+      {
+        "address": "https://lum-api.ibs.team",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "grpc": [
       {
-        "address": "https://lum-grpc.lavenderfive.com:443/",
+        "address": "lum-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://grpc.lum.bh.rocks:443/",
-        "provider": "BlockHunters \uD83C\uDFAF"
       }
     ]
   },
@@ -162,7 +143,8 @@
     {
       "kind": "EZStaking Tools",
       "url": "https://ezstaking.tools/lumnetwork",
-      "tx_page": "https://ezstaking.tools/lumnetwork/txs/${txHash}"
+      "tx_page": "https://ezstaking.tools/lumnetwork/txs/${txHash}",
+      "account_page": "https://ezstaking.tools/lumnetwork/account/${accountAddress}"
     },
     {
       "kind": "mintscan",

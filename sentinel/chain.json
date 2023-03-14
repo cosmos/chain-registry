@@ -16,7 +16,10 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "udvpn"
+        "denom": "udvpn",
+        "low_gas_price": 0.1,
+        "average_gas_price": 0.25,
+        "high_gas_price": 0.4
       }
     ]
   },
@@ -29,9 +32,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/sentinel-official/hub",
-    "recommended_version": "v0.6.2",
+    "recommended_version": "v0.9.3",
     "compatible_versions": [
-      "v0.6.2"
+      "v0.9.3"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/sentinel-official/networks/main/sentinelhub-2/genesis.zip"
@@ -40,76 +43,39 @@
   "peers": {
     "seeds": [
       {
-        "id": "c3aa0ff9b3eb17be1b0a26d7c8a5683e8e528e1a",
-        "address": "159.89.192.105:26656"
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "sentinel-mainnet-seed.autostake.net:26706",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "sentinel.mainnet.seed.autostake.net:26706",
-        "provider": "AutoStake.net"
+        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
+        "address": "sentinel-seed-1.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "e726816f42831689eab9378d5d577f1d06d25716",
+        "address": "sentinel-seed-2.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "e8b2ebbd5e90bd89cb89160dd040fda7d04984a4",
+        "address": "seeds.badgerbite.io:26656",
+        "provider": "BadgerBite"
       }
     ],
     "persistent_peers": [
       {
-        "id": "05fe2a7847fd27345250915fd06752c424f40651",
-        "address": "85.222.234.135:26656"
-      },
-      {
-        "id": "387027e3b1180d3a619cbbf3462704a490785963",
-        "address": "54.176.90.228:26656"
-      },
-      {
-        "id": "63bd9cfce0f0d274aad5b166dd06d829021aec43",
-        "address": "121.78.247.243:56656"
-      },
-      {
-        "id": "855807cc6a919c22ec943050ebb5c80b23724ed0",
-        "address": "3.239.11.246:26656"
-      },
-      {
-        "id": "8caefbf8f4318ecc93f2c901cf11470e4a16c818",
-        "address": "161.97.135.122:26656"
-      },
-      {
         "id": "9174af5f16f74660cccf49f893d243949af45f7f",
         "address": "54.177.29.46:26656"
-      },
-      {
-        "id": "9fa528bd2b9e7c80724a1d8a4e1a2a8a83e7d123",
-        "address": "142.93.72.221:26656"
       },
       {
         "id": "a77f6a094578dad899e2f40e0626b4c6d4705311",
         "address": "3.36.165.232:26656"
       },
       {
-        "id": "bd45a11390d16d128a9eeea3935b53d7a1a3c120",
-        "address": "15.236.127.69:26656"
-      },
-      {
-        "id": "cdb8dd7628460a546ce1594ca0bc0c20366514cf",
-        "address": "34.72.64.178:26656"
-      },
-      {
-        "id": "d1efceccb04ded9a604e5235f76da86872157d68",
-        "address": "161.97.149.223:26656"
-      },
-      {
-        "id": "e00b23444cc8dbb353d5faa765ab36cfc0116b57",
-        "address": "83.60.98.134:28685"
-      },
-      {
-        "id": "e5ee89bd4fc371c6a0e66d2b8daefd891b6b87b5",
-        "address": "157.90.117.58:26656"
-      },
-      {
-        "id": "f7ceb735606f90df7eb6cd987641876955b6e325",
-        "address": "46.4.55.150:36656"
-      },
-      {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "sentinel.mainnet.peer.autostake.net:26706",
-        "provider": "AutoStake.net"
+        "address": "sentinel-mainnet-peer.autostake.net:26706",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -120,24 +86,24 @@
         "provider": "Notional"
       },
       {
-        "address": "https://rpc-sentinel.keplr.app",
-        "provider": "chainapsis"
-      },
-      {
-        "address": "https://rpc-sentinel.whispernode.com",
+        "address": "https://rpc-sentinel.whispernode.com:443",
         "provider": "WhisperNode🤐"
-      },
-      {
-        "address": "https://rpc.sentinel1.badgerbite.xyz",
-        "provider": "BadgerBite"
       },
       {
         "address": "https://rpc.sentinel.chaintools.tech/",
         "provider": "ChainTools"
       },
       {
-        "address": "https://rpc.sentinel.freak12techno.io/",
-        "provider": "freak12techno"
+        "address": "https://rpc.sentinel.quokkastake.io",
+        "provider": "🐹 Quokka Stake"
+      },
+      {
+        "address": "https://sentinel-rpc.badgerbite.io/",
+        "provider": "BadgerBite"
+      },
+      {
+        "address": "https://sentinel-rpc2.badgerbite.io",
+        "provider": "BadgerBite"
       }
     ],
     "rest": [
@@ -146,20 +112,12 @@
         "provider": "Notional"
       },
       {
-        "address": "https://lcd-sentinel.keplr.app",
-        "provider": "chainapsis"
-      },
-      {
-        "address": "https://lcd-sentinel.whispernode.com",
+        "address": "https://lcd-sentinel.whispernode.com:443",
         "provider": "WhisperNode🤐"
       },
       {
-        "address": "https://api.sentinel.chaintools.tech/",
-        "provider": "ChainTools"
-      },
-      {
-        "address": "https://api.sentinel.freak12techno.io/",
-        "provider": "freak12techno"
+        "address": "https://api.sentinel.quokkastake.io",
+        "provider": "🐹 Quokka Stake"
       }
     ],
     "grpc": [
@@ -168,8 +126,12 @@
         "provider": "Notional"
       },
       {
-        "address": "https://sentinel.grpcui.chaintools.host/",
+        "address": "sentinel.grpcui.chaintools.host:443",
         "provider": "ChainTools"
+      },
+      {
+        "address": "sentinel-mainnet-grpc.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },

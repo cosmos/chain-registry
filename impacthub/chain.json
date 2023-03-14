@@ -4,7 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "website": "https://www.ixo.world/",
-  "pretty_name": "Impact Hub",
+  "pretty_name": "ixo",
   "chain_id": "ixo-4",
   "bech32_prefix": "ixo",
   "daemon_name": "ixod",
@@ -18,15 +18,25 @@
     "fee_tokens": [
       {
         "denom": "uixo",
-        "fixed_min_gas_price": 0.025
+        "fixed_min_gas_price": 0.015,
+        "low_gas_price": 0.015,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uixo"
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/ixofoundation/ixo-blockchain",
-    "recommended_version": "v0.19.1",
+    "recommended_version": "v0.19.3",
     "compatible_versions": [
-      "v0.19.1"
+      "v0.19.3"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/ixofoundation/genesis/980961a8e344dd39bd092493e58b4421aa1c0014/ixo-4/genesis.json"
@@ -50,19 +60,11 @@
         "id": "36e4738c7efcf353d3048e5e6073406d045bae9d",
         "address": "80.64.208.43:26656",
         "provider": "simplyvc"
-      },
-      {
-        "id": "c95af93f0386f8e19e65997262c9f874d1901dc5",
-        "address": "18.163.242.188:26656"
       }
     ]
   },
   "apis": {
     "rpc": [
-      {
-        "address": "https://rpc-impacthub.keplr.app",
-        "provider": "chainapsis"
-      },
       {
         "address": "https://proxies.sifchain.finance/api/impacthub-3/rpc",
         "provider": "sifchain"
@@ -78,20 +80,16 @@
       {
         "address": "https://impacthub-rpc.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://ixo-rpc.ibs.team",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "rest": [
       {
-        "address": "https://lcd-impacthub.keplr.app",
-        "provider": "chainapsis"
-      },
-      {
         "address": "https://proxies.sifchain.finance/api/impacthub-3/rest",
         "provider": "sifchain"
-      },
-      {
-        "address": "http://18.220.101.192:1317/",
-        "provider": "regen"
       },
       {
         "address": "https://impacthub.ixo.world/rest/",
@@ -104,6 +102,10 @@
       {
         "address": "https://impacthub-api.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://ixo-api.ibs.team",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "grpc": [
@@ -112,7 +114,7 @@
         "provider": "Notional"
       },
       {
-        "address": "https://impacthub-grpc.lavenderfive.com:443/",
+        "address": "impacthub-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       }
     ]
@@ -120,8 +122,9 @@
   "explorers": [
     {
       "kind": "EZStaking Tools",
-      "url": "https://ezstaking.tools/impacthub",
-      "tx_page": "https://ezstaking.tools/impacthub/txs/${txHash}"
+      "url": "https://ezstaking.tools/ixo",
+      "tx_page": "https://ezstaking.tools/ixo/txs/${txHash}",
+      "account_page": "https://ezstaking.tools/ixo/account/${accountAddress}"
     },
     {
       "kind": "bigdipper",
@@ -137,6 +140,11 @@
       "kind": "atomscan",
       "url": "https://atomscan.com/ixo",
       "tx_page": "https://atomscan.com/ixo/transactions/${txHash}"
+    },
+    {
+      "kind": "Mintscan",
+      "url": "https://www.mintscan.io/ixo",
+      "tx_page": "https://www.mintscan.io/ixo/txs/${txHash}"
     }
   ]
 }

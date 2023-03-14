@@ -17,7 +17,17 @@
     "fee_tokens": [
       {
         "denom": "udsm",
-        "fixed_min_gas_price": 0.001
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.03,
+        "high_gas_price": 0.05
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "udsm"
       }
     ]
   },
@@ -25,7 +35,7 @@
     "git_repo": "https://github.com/desmos-labs/desmos",
     "recommended_version": "v4.7.0",
     "compatible_versions": [
-      "v4.7.0"      
+      "v4.7.0"
     ],
     "binaries": {
       "linux/amd64": "https://github.com/desmos-labs/desmos/releases/download/v4.7.0/desmos-4.7.0-linux-amd64",
@@ -39,11 +49,6 @@
   },
   "peers": {
     "seeds": [
-      {
-        "id": "9bde6ab4e0e00f721cc3f5b4b35f3a0e8979fab5",
-        "address": "seed-1.mainnet.desmos.network:26656",
-        "provider": "desmos"
-      },
       {
         "id": "5c86915026093f9a2f81e5910107cf14676b48fc",
         "address": "seed-2.mainnet.desmos.network:26656",
@@ -65,7 +70,12 @@
         "provider": "Starsquid"
       },
       {
-        "id": "4914d4b60123a625d41da7cad9950a4a12ce61ca",
+        "id": "c071562db4d2ed2d22100b0d34ec4788f1b058cf",
+        "address": "seed-desmos.explorer.co.id:17656",
+        "provider": "Nodine.ID"
+      },
+      {
+        "id": "73fc6b8b41aada42306b2f149619cc0ff935a868",
         "address": "desmos-seed.panthea.eu:39656",
         "provider": "Panthea EU"
       }
@@ -93,17 +103,21 @@
         "provider": "Inter Blockchain Services"
       },
       {
-        "address": "https://rpc-desmos.starsquid.io",
-        "provider": "Starsquid"
+        "address": "https://desmos.nodejumper.io",
+        "provider": "NODEJUMPER"
+      },
+      {
+        "address": "https://rpc-desmos.whispernode.com:443",
+        "provider": "WhisperNode🤐"
       },
       {
         "address": "https://desmos-rpc.panthea.eu",
         "provider": "Panthea EU"
       },
       {
-        "address": "https://desmos.nodejumper.io",
-        "provider": "Nodejumper 🚀"
-      }      
+        "address": "https://rpc-desmos.explorer.co.id",
+        "provider": "Nodine.ID"
+      }
     ],
     "rest": [
       {
@@ -119,35 +133,45 @@
         "provider": "Inter Blockchain Services"
       },
       {
+        "address": "https://desmos.nodejumper.io:1317",
+        "provider": "NODEJUMPER"
+      },
+      {
         "address": "https://desmos-api.panthea.eu",
         "provider": "Panthea EU"
       },
       {
-        "address": "https://desmos.nodejumper.io:1317",
-        "provider": "Nodejumper 🚀"
-      }         
+        "address": "https://api-desmos.explorer.co.id",
+        "provider": "Nodine.ID"
+      }
     ],
     "grpc": [
       {
-        "address": "https://desmos-grpc.lavenderfive.com:443/",
+        "address": "desmos-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://desmos.nodejumper.io:9090",
         "provider": "Nodejumper 🚀"
-      }      
+      },
+      {
+        "address": "https://grpc-desmos.explorer.co.id",
+        "provider": "Nodine.ID"
+      }
     ]
   },
   "explorers": [
     {
       "kind": "EZStaking Tools",
       "url": "https://ezstaking.tools/desmos",
-      "tx_page": "https://ezstaking.tools/desmos/txs/${txHash}"
+      "tx_page": "https://ezstaking.tools/desmos/txs/${txHash}",
+      "account_page": "https://ezstaking.tools/desmos/account/${accountAddress}"
     },
     {
       "kind": "bigdipper",
-      "url": "https://explorer.desmos.network",
-      "tx_page": "https://explorer.desmos.network/transactions/${txHash}"
+      "url": "https://bigdipper.live/desmos",
+      "tx_page": "https://bigdipper.live/desmos/transactions/${txHash}",
+      "account_page": "https://bigdipper.live/desmos/accounts/${accountAddress}"
     },
     {
       "kind": "mintscan",
@@ -164,6 +188,11 @@
       "kind": "atomscan",
       "url": "https://atomscan.com/desmos",
       "tx_page": "https://atomscan.com/desmos/transactions/${txHash}"
+    },
+    {
+      "kind": "TC Network",
+      "url": "https://explorer.tcnetwork.io/desmos",
+      "tx_page": "https://explorer.tcnetwork.io/desmos/transaction/${txHash}"
     }
   ]
 }

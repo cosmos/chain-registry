@@ -12,15 +12,25 @@
     "fee_tokens": [
       {
         "denom": "ucmdx",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ucmdx"
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/comdex-official/comdex",
-    "recommended_version": "v6.0.0",
+    "recommended_version": "v9.0.0",
     "compatible_versions": [
-      "v6.0.0"
+      "v9.0.0"
     ],
     "genesis": {
       "genesis_url": "https://comdex-mainnet-genesis.s3.ap-southeast-1.amazonaws.com/genesis.json"
@@ -33,10 +43,6 @@
   ],
   "peers": {
     "seeds": [
-      {
-        "id": "aef35f45db2d9f5590baa088c27883ac3d5e0b33",
-        "address": "3.108.102.92:26656"
-      },
       {
         "id": "7ca14a1d156299999eba9c394ca060368022d52f",
         "address": "54.194.178.110:26656"
@@ -53,8 +59,8 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "comdex.mainnet.seed.autostake.net:26776",
-        "provider": "AutoStake.net"
+        "address": "comdex-mainnet-seed.autostake.net:26776",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "6596d143fd128b2394b27cd7846bda099ca5a193",
@@ -64,73 +70,29 @@
     ],
     "persistent_peers": [
       {
-        "id": "f74518ad134630da8d2405570f6a3639954c985f",
-        "address": "65.0.173.217:26656"
-      },
-      {
         "id": "d478882a80674fa10a32da63cc20cae13e3a2a57",
         "address": "43.204.0.243:26656"
-      },
-      {
-        "id": "61d743ea796ad1e1ff838c9e84adb38dfffd1d9d",
-        "address": "15.235.9.222:26656"
-      },
-      {
-        "id": "b8468f64788a17dbf34a891d9cd29d54b2b6485d",
-        "address": "194.163.178.25:26656"
       },
       {
         "id": "d8b74791ee56f1b345d822f62bd9bc969668d8df",
         "address": "194.163.128.55:36656"
       },
       {
-        "id": "81444353d70bab79742b8da447a9564583ed3d6a",
-        "address": "164.68.105.248:26656"
-      },
-      {
-        "id": "5b1ceb8110da4e90c38c794d574eb9418a7574d6",
-        "address": "43.254.41.56:26656"
-      },
-      {
-        "id": "98b4522a541a69007d87141184f146a8f04be5b9",
-        "address": "40.112.90.170:26656"
-      },
-      {
-        "id": "9a59b6dc59903d036dd476de26e8d2b9f1acf466",
-        "address": "195.201.195.111:26656"
-      },
-      {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "comdex.mainnet.peer.autostake.net:26776",
-        "provider": "AutoStake.net"
+        "address": "comdex-mainnet-peer.autostake.net:26776",
+        "provider": "AutoStake 🛡️ Slash Protecteds"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://api.comdex.audit.one/rpc",
-        "provider": "audit"
-      },
-      {
         "address": "https://rpc.comdex.one",
         "provider": "comdex"
       },
       {
-        "address": "http://comdex.node.vitwit.com:26657/",
-        "provider": "vitwit"
-      },
-      {
-        "address": "https://rpc-comdex.zenchainlabs.io/",
-        "provider": "zenchainlabs"
-      },
-      {
         "address": "https://comdex-rpc.polkachu.com",
         "provider": "Polkachu"
-      },
-      {
-        "address": "https://rpc-comdex-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
       },
       {
         "address": "https://rpc.comdex.chaintools.tech/",
@@ -143,28 +105,24 @@
       {
         "address": "https://rpc-comdex.goldenratiostaking.net",
         "provider": "Golden Ratio Staking"
+      },
+      {
+        "address": "https://rpc-comdex.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://rpc-comdex.carbonZERO.zone:443",
+        "provider": "carbonZERO🌲"
+      },
+      {
+        "address": "https://comdex-mainnet-rpc.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "rest": [
       {
-        "address": "https://api.comdex.audit.one/rest",
-        "provider": "audit"
-      },
-      {
         "address": "https://rest.comdex.one",
         "provider": "comdex"
-      },
-      {
-        "address": "http://comdex.node.vitwit.com:1317/",
-        "provider": "vitwit"
-      },
-      {
-        "address": "https://api-comdex.zenchainlabs.io/",
-        "provider": "zenchainlabs"
-      },
-      {
-        "address": "https://api-comdex-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
       },
       {
         "address": "https://api.comdex.chaintools.tech/",
@@ -177,6 +135,18 @@
       {
         "address": "https://comdex-api.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://comdex-mainnet-lcd.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://lcd-comdex.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://rest-comdex.carbonZERO.zone:443",
+        "provider": "carbonZERO🌲"
       }
     ],
     "grpc": [
@@ -185,7 +155,7 @@
         "provider": "Notional"
       },
       {
-        "address": "https://comdex.grpcui.chaintools.host/",
+        "address": "comdex.grpcui.chaintools.host:443",
         "provider": "ChainTools"
       },
       {
@@ -193,8 +163,12 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://comdex-grpc.lavenderfive.com:443/",
+        "address": "comdex-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "comdex-mainnet-lcd.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -202,7 +176,8 @@
     {
       "kind": "EZStaking Tools",
       "url": "https://ezstaking.tools/comdex",
-      "tx_page": "https://ezstaking.tools/comdex/txs/${txHash}"
+      "tx_page": "https://ezstaking.tools/comdex/txs/${txHash}",
+      "account_page": "https://ezstaking.tools/comdex/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
@@ -224,6 +199,12 @@
       "kind": "atomscan",
       "url": "https://atomscan.com/comdex",
       "tx_page": "https://atomscan.com/comdex/transactions/${txHash}"
+    },
+    {
+      "kind": "bigdipper",
+      "url": "https://bigdipper.live/comdex",
+      "tx_page": "https://bigdipper.live/comdex/transactions/${txHash}",
+      "account_page": "https://bigdipper.live/comdex/accounts/${accountAddress}"
     }
   ]
 }

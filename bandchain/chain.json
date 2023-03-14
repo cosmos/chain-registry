@@ -3,18 +3,32 @@
   "chain_name": "bandchain",
   "status": "live",
   "network_type": "mainnet",
-  "website": "hhttps://bandprotocol.com/",
+  "website": "https://bandprotocol.com/",
   "pretty_name": "Band Protocol",
   "chain_id": "laozi-mainnet",
   "daemon_name": "bandd",
   "node_home": "$HOME/.band",
   "bech32_prefix": "band",
   "slip44": 494,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uband"
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uband"
+      }
+    ]
+  },
   "codebase": {
     "git_repo": "https://github.com/bandprotocol/chain",
-    "recommended_version": "v2.3.5",
+    "recommended_version": "v2.4.1",
     "compatible_versions": [
-      "v2.3.5"
+      "v2.4.1"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/bandprotocol/launch/master/laozi-mainnet/genesis.json"
@@ -32,8 +46,8 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "bandchain.mainnet.seed.autostake.net:26666",
-        "provider": "AutoStake.net"
+        "address": "bandchain-mainnet-seed.autostake.net:26666",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "persistent_peers": [
@@ -47,8 +61,8 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "bandchain.mainnet.peer.autostake.net:26666",
-        "provider": "AutoStake.net"
+        "address": "bandchain-mainnet-peer.autostake.net:26666",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -65,6 +79,10 @@
       {
         "address": "https://band-rpc.ibs.team/",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://bandchain-mainnet-rpc.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "rest": [
@@ -79,6 +97,10 @@
       {
         "address": "https://band-api.ibs.team/",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://bandchain-mainnet-lcd.autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "grpc": [
@@ -109,6 +131,12 @@
       "kind": "atomscan",
       "url": "https://atomscan.com/band-protocol",
       "tx_page": "https://atomscan.com/band-protocol/transactions/${txHash}"
+    },
+    {
+      "kind": "bigdipper",
+      "url": "https://bigdipper.live/band",
+      "tx_page": "https://bigdipper.live/band/transactions/${txHash}",
+      "account_page": "https://bigdipper.live/band/accounts/${accountAddress}"
     }
   ]
 }

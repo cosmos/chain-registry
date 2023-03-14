@@ -69,7 +69,10 @@ A sample `chain.json` includes the following information.
       {
         "denom": "uosmo"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1209600s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/osmosis-labs/osmosis",
@@ -133,6 +136,14 @@ A sample `chain.json` includes the following information.
       }
     ]
   },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
+      "theme": {
+        "primary_color_hex": "#231D4B"
+      }
+    }
+  ],
   "peers": {
     "seeds": [
       {
@@ -211,10 +222,6 @@ A sample `chain.json` includes the following information.
       "account_page": "https://www.mintscan.io/osmosis/account/${accountAddress}"
     }
   ],
-  "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg"
-  },
   "keywords": [
     "dex"
   ]
@@ -243,26 +250,30 @@ An example assetlist json contains the following structure:
       "denom_units": [
         {
           "denom": "uosmo",
-          "exponent": 0,
-          "aliases": []
+          "exponent": 0
         },
         {
           "denom": "osmo",
-          "exponent": 6,
-          "aliases": []
+          "exponent": 6
         }
       ],
       "base": "uosmo",
       "name": "Osmosis",
       "display": "osmo",
       "symbol": "OSMO",
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
-      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg",
+          "theme": {
+            "primary_color_hex": "#5c09a0"
+          }
+        }
+      ],
       "coingecko_id": "osmosis",
       "keywords": [
-          "dex", "staking"
+        "dex",
+        "staking"
       ]
     },
     {
@@ -280,13 +291,18 @@ An example assetlist json contains the following structure:
       "name": "Ion",
       "display": "ion",
       "symbol": "ION",
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.svg"
-      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.svg",
+          "theme": {
+            "primary_color_hex": "#3f97fc"
+          }
+        }
+      ],
       "coingecko_id": "ion",
       "keywords": [
-          "memecoin"
+        "memecoin"
       ]
     }
   ]
