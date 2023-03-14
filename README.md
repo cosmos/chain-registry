@@ -315,7 +315,7 @@ The metadata contained in these files represents a path abstraction between two 
 
 This schema also allows us to provide helpful info to describe open channels.
 
-Note: when creating these files, please ensure the the chains in both the file name and the references of `chain-1` and `chain-2` in the json file are in alphabetical order. Ex: `Achain-Zchain.json`. The chain names used must match name of the chain's directory here in the chain-registry.
+Note: when creating these files, please ensure the chains in both the file name and the references of `chain-1` and `chain-2` in the json file are in alphabetical order. Ex: `Achain-Zchain.json`. The chain names used must match name of the chain's directory here in the chain-registry.
 
 An example ibc metadata file contains the following structure:
 
@@ -340,6 +340,54 @@ An example ibc metadata file contains the following structure:
       },
       "chain_2": {
         "channel_id": "channel-42",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "status": "live",
+        "preferred": true,
+        "dex": "osmosis"
+      }
+    }
+  ]
+}
+```
+
+The following example alters the one above to go through an intermediate hop (cosmoshub). The intermediate hop needs to specify connection and client IDs for both chains it connects to:
+
+```json
+{
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "juno",
+    "client_id": "07-tendermint-3",
+    "connection_id": "connection-2"
+  },
+  "chain_2": {
+    "chain_name": "cosmoshub",
+    "clients": {
+      "chain_1": "07-tendermint-439",
+      "chain_3": "07-tendermint-259"
+    },
+    "connections": {
+      "chain_1": "connection-372",
+      "chain_3": "connection-257"
+    }
+  },
+  "chain_3" :{
+    "chain_name": "osmosis",
+    "client_id": "07-tendermint-1",
+    "connection_id": "connection-1"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-998",
+        "port_id": "transfer"
+      },
+      "chain_3": {
+        "channel_id": "channel-999",
         "port_id": "transfer"
       },
       "ordering": "unordered",
