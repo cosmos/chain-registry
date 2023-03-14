@@ -1,0 +1,111 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "planq",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://planq.network/",
+  "pretty_name": "Planq",
+  "chain_id": "planq_7070-2",
+  "bech32_prefix": "plq",
+  "node_home": "$HOME/.planqd",
+  "daemon_name": "planqd",
+  "key_algos": ["ethsecp256k1"],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "aplanq",
+        "fixed_min_gas_price": 20000000000,
+        "low_gas_price": 20000000000,
+        "average_gas_price": 25000000000,
+        "high_gas_price": 40000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "aplanq"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/planq-network/planq",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": ["v1.0.0"],
+    "binaries": {
+      "linux/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.0/planq_v1.0.0-next_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/planq-network/planq/releases/download/v1.0.0/planq_v1.0.0-next_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.0/planq_v1.0.0-next_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/planq-network/planq/releases/download/v1.0.0/planq_v1.0.0-next_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.0/planq_v1.0.0-next_Windows_x86_64.zip"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/planq-network/networks/main/mainnet/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "dd2f0ceaa0b21491ecae17413b242d69916550ae",
+        "address": "135.125.247.70:26656",
+        "provider": "Planq Foundation EU"
+      },
+      {
+        "id": "0525de7e7640008d2a2e01d1a7f6456f28f3324c",
+        "address": "51.79.142.6:26656",
+        "provider": "Planq Foundation SG"
+      },
+      {
+        "id": "21432722b67540f6b366806dff295849738d7865",
+        "address": "139.99.223.241:26656",
+        "provider": "Planq Foundation AU"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "dd2f0ceaa0b21491ecae17413b242d69916550ae",
+        "address": "135.125.247.70:26656",
+        "provider": "Planq Foundation EU"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.planq.network",
+        "provider": "planq.network"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.planq.network",
+        "provider": "planq.network"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.planq.network",
+        "provider": "planq.network"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://evm-rpc.planq.network",
+        "provider": "planq.network"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "bigdipper",
+      "url": "https://explorer.planq.network",
+      "tx_page": "https://explorer.planq.network/transactions/${txHash}"
+    },
+    {
+      "kind": "blockscout",
+      "url": "https://evm.planq.network",
+      "tx_page": "https://evm.planq.network/tx/${txHash}"
+    }
+  ]
+}

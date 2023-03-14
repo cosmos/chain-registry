@@ -27,12 +27,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/ovrclk/akash/",
-    "recommended_version": "v0.16.3",
+    "recommended_version": "v0.18.1",
     "compatible_versions": [
-      "v0.16.3"
+      "v0.18.0",
+      "v0.18.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/ovrclk/akash/releases/download/v0.16.3/akash_0.16.3_linux_amd64.zip"
+      "linux/amd64": "https://github.com/ovrclk/akash/releases/download/v0.18.1/akash_0.18.1_linux_amd64.zip"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/ovrclk/net/master/mainnet/genesis.json"
@@ -205,6 +206,10 @@
       {
         "address": "http://akash.c29r3.xyz:80/rpc",
         "provider": "c29r3"
+      },
+      {
+        "address": "https://akash.rpc.interchain.ivaldilabs.xyz",
+        "provider": "Ivaldi Labs"
       }
     ],
     "rest": [
@@ -231,6 +236,10 @@
       {
         "address": "https://akash.c29r3.xyz:443/api",
         "provider": "c29r3"
+      },
+      {
+        "address": "https://akash.rest.interchain.ivaldilabs.xyz",
+        "provider": "Ivaldi Labs"
       }
     ],
     "grpc": [
@@ -245,6 +254,10 @@
       {
         "address": "akash-grpc.polkachu.com:12890",
         "provider": "Polkachu"
+      },
+      {
+        "address": "akash.grpc.interchain.ivaldilabs.xyz:443",
+        "provider": "Ivaldi Labs"
       }
     ]
   },
@@ -257,7 +270,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/akash",
-      "tx_page": "https://www.mintscan.io/akash/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/akash/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/akash/account/${accountAddress}"
     },
     {
       "kind": "ping.pub",

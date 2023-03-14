@@ -215,7 +215,7 @@ A sample `chain.json` includes the following information.
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg"
   },
-  "keywords" [
+  "keywords": [
     "dex"
   ]
 }
@@ -233,7 +233,7 @@ The assetlist JSON Schema can be found [here](/assetlist.schema.json).
 
 An example assetlist json contains the following structure:
 
-```
+```json
 {
   "$schema": "../assetlist.schema.json",
   "chain_name": "osmosis",
