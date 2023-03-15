@@ -17,7 +17,17 @@
     "fee_tokens": [
       {
         "denom": "orai",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.003,
+        "average_gas_price": 0.005,
+        "high_gas_price": 0.007
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "orai"
       }
     ]
   },
@@ -99,6 +109,10 @@
       {
         "address": "https://rpc-oraichain.vchain.zone",
         "provider": "Vchain-team"
+      },
+      {
+        "address": "https://rpc-orai.nodine.id/",
+        "provider": "Nodine.ID"
       }
     ],
     "rest": [
@@ -113,6 +127,10 @@
       {
         "address": "https://rest-oraichain.vchain.zone",
         "provider": "Vchain-team"
+      },
+      {
+        "address": "https://api-orai.nodine.id/",
+        "provider": "Noidne.ID"
       }
     ]
   },
@@ -121,6 +139,11 @@
       "kind": "oraiscan",
       "url": "https://scan.orai.io",
       "tx_page": "https://scan.orai.io/txs/${txHash}"
+    },
+    {
+      "kind": "Nodine Explorer",
+      "url": "https://explorer.co.id/orai",
+      "tx_page": "https://explorer.co.id/orai/tx/${txHash}"
     }
   ]
 }

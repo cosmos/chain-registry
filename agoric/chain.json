@@ -10,26 +10,32 @@
   "daemon_name": "agd",
   "node_home": "$HOME/.agoric",
   "slip44": 564,
-  "explorers": [
-    {
-      "kind": "bigdipper",
-      "url": "https://agoric.bigdipper.live/",
-      "tx_page": "https://agoric.bigdipper.live/transactions/${txHash}",
-      "account_page": "https://agoric.bigdipper.live/accounts/${accountAddress}"
-    },
-    {
-      "kind": "explorers.guru",
-      "url": "https://agoric.explorers.guru",
-      "tx_page": "https://agoric.explorers.guru/transaction/${txHash}",
-      "account_page": "https://agoric.explorers.guru/account/${accountAddress}"
-    },
-    {
-      "kind": "atomscan",
-      "url": "https://atomscan.com/agoric/",
-      "tx_page": "https://atomscan.com/agoric/transactions/${txHash}",
-      "account_page": "https://atomscan.com/agoric/accounts/${accountAddress}"
-    }
+  "alternative_slip44s": [
+    118
   ],
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ubld",
+        "low_gas_price": 0.03,
+        "average_gas_price": 0.05,
+        "high_gas_price": 0.07
+      },
+      {
+        "denom": "uist",
+        "low_gas_price": 0.0034,
+        "average_gas_price": 0.007,
+        "high_gas_price": 0.02
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ubld"
+      }
+    ]
+  },
   "codebase": {
     "git_repo": "https://github.com/Agoric/agoric-sdk/",
     "recommended_version": "agoric-upgrade-8",
@@ -127,5 +133,25 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
-  }
+  },
+  "explorers": [
+    {
+      "kind": "bigdipper",
+      "url": "https://agoric.bigdipper.live/",
+      "tx_page": "https://agoric.bigdipper.live/transactions/${txHash}",
+      "account_page": "https://agoric.bigdipper.live/accounts/${accountAddress}"
+    },
+    {
+      "kind": "explorers.guru",
+      "url": "https://agoric.explorers.guru",
+      "tx_page": "https://agoric.explorers.guru/transaction/${txHash}",
+      "account_page": "https://agoric.explorers.guru/account/${accountAddress}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/agoric/",
+      "tx_page": "https://atomscan.com/agoric/transactions/${txHash}",
+      "account_page": "https://atomscan.com/agoric/accounts/${accountAddress}"
+    }
+  ]
 }
