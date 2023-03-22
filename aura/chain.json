@@ -1,0 +1,84 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "aura",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://aura.network/",
+  "pretty_name": "Aura Network",
+  "chain_id": "xstaxy-1",
+  "bech32_prefix": "aura",
+  "daemon_name": "aurad",
+  "node_home": "$HOME/.aurad",
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uaura"
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uaura"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/aura-nw/aura",
+    "recommended_version": "aura_v0.4.4",
+    "compatible_versions": [
+      "aura_v0.4.4"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/aura-nw/mainnet-artifacts/main/xstaxy-1/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "22a0ca5f64187bb477be1d82166b1e9e184afe50",
+        "address": "18.143.52.13:26656"
+      },
+      {
+        "id": "0b8bd8c1b956b441f036e71df3a4d96e85f843b8",
+        "address": "13.250.159.219:26656"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "auranetwork-mainnet-peer.autostake.net:26966",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.aura.network/",
+        "provider": "Aura Network Foundation"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lcd.aura.network/",
+        "provider": "Aura Network Foundation"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.aura.network",
+        "provider": "Aura Network Foundation"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "aurascan",
+      "url": "https://aurascan.io",
+      "tx_page": "https://aurascan.io/transaction/${txHash}",
+      "account_page": "https://aurascan.io/account/${accountAddress}"
+    }
+  ]
+}
