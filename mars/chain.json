@@ -9,8 +9,13 @@
   "bech32_prefix": "mars",
   "daemon_name": "marsd",
   "node_home": "$HOME/.mars",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
+  "alternative_slip44s": [
+    330
+  ],
   "fees": {
     "fee_tokens": [
       {
@@ -18,7 +23,7 @@
         "fixed_min_gas_price": 0,
         "low_gas_price": 0,
         "average_gas_price": 0,
-        "high_gas_price": 0
+        "high_gas_price": 0.01
       }
     ]
   },
@@ -32,13 +37,17 @@
   "codebase": {
     "git_repo": "https://github.com/mars-protocol/hub",
     "recommended_version": "v1.0.0",
-    "compatible_versions": ["v1.0.0"],
+    "compatible_versions": [
+      "v1.0.0"
+    ],
     "cosmos_sdk_version": "0.46.7",
     "tendermint_version": "0.34.24",
     "cosmwasm_version": "0.30.0",
     "cosmwasm_enabled": true,
     "ibc_go_version": "6.1.0",
-    "ics_enabled": ["ics20-1"],
+    "ics_enabled": [
+      "ics20-1"
+    ],
     "genesis": {
       "genesis_url": "https://github.com/mars-protocol/networks/raw/main/mars-1/genesis.json"
     },
@@ -53,18 +62,13 @@
   "peers": {
     "seeds": [
       {
-        "id": "52de8a7e2ad3da459961f633e50f64bf597c7585",
-        "address": "seed.marsprotocol.io:443",
-        "provider": "Delphi Labs"
-      },
-      {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:18556",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "mars-mainnet-seed.autostake.net:27056",
+        "address": "mars-mainnet-seed.autostake.com:27056",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -86,7 +90,7 @@
     "persistent_peers": [
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "mars-mainnet-peer.autostake.net:27056",
+        "address": "mars-mainnet-peer.autostake.com:27056",
         "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
@@ -102,11 +106,7 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://rpc.mars.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
-        "address": "https://mars-mainnet-rpc.autostake.net:443",
+        "address": "https://mars-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -130,38 +130,20 @@
         "provider": "Kingnodes"
       },
       {
-        "address": "https://rpc.expedition-mars.com/",
+        "address": "https://rpc.expedition-mars.com",
         "provider": "Expedition Mars"
-      }
-    ],
-    "grpc": [
-      {
-        "address": "http://grpc.marsprotocol.io:443",
-        "provider": "Delphi Labs"
       },
       {
-        "address": "https://mars-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://mars-rpc.genznodes.dev:443",
+        "provider": "genznodes"
       },
       {
-        "address": "https://grpc.mars.nodestake.top",
-        "provider": "NodeStake"
+        "address": "https://rpc-mars.carbonZERO.zone:443",
+        "provider": "carbonZERO🌲"
       },
       {
-        "address": "https://mars-mainnet-grpc.autostake.net:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://grpc-mars.nodeist.net:443",
-        "provider": "Nodeist"
-      },
-      {
-        "address": "mars-grpc.polkachu.com:18590",
-        "provider": "Polkachu"
-      },
-      {
-        "address": "https://grpc.mars.kingnodes.com:443",
-        "provider": "Kingnodes"
+        "address": "https://mars-rpc.stakeandrelax.net",
+        "provider": "Stake&Relax Validator 🦥"
       }
     ],
     "rest": [
@@ -174,11 +156,7 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://api.mars.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
-        "address": "https://mars-mainnet-lcd.autostake.net:443",
+        "address": "https://mars-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -198,8 +176,46 @@
         "provider": "Kingnodes"
       },
       {
-        "address": "https://lcd.expedition-mars.com/",
+        "address": "https://lcd.expedition-mars.com:443",
         "provider": "Expedition Mars"
+      },
+      {
+        "address": "https://mars-api.genznodes.dev:443",
+        "provider": "genznodes"
+      },
+      {
+        "address": "https://rest-mars.carbonZERO.zone:443",
+        "provider": "carbonZERO🌲"
+      },
+      {
+        "address": "https://mars-api.stakeandrelax.net",
+        "provider": "Stake&Relax Validator 🦥"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.marsprotocol.io:443",
+        "provider": "Delphi Labs"
+      },
+      {
+        "address": "mars-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "mars-grpc.polkachu.com:18590",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "mars-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "grpc.mars.kingnodes.com:443",
+        "provider": "Kingnodes"
+      },
+      {
+        "address": "mars-grpc.genznodes.dev:9090",
+        "provider": "genznodes"
       }
     ]
   },

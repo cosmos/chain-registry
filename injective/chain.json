@@ -33,13 +33,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/InjectiveLabs/injective-chain-releases",
-    "recommended_version": "v1.9.0-1673640888",
+    "recommended_version": "v1.10",
     "compatible_versions": [
-      "v1.9.0-1673640888"
+      "v1.10"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.9.0-1673640888/linux-amd64.zip",
-      "darwin/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.9.0-1673640888/darwin-amd64.zip"
+      "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.10.0-1679065799/linux-amd64.zip",
+      "darwin/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.10.0-1679065799/darwin-amd64.zip"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/InjectiveLabs/mainnet-config/master/10001/genesis.json"
@@ -84,7 +84,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "injective-mainnet-seed.autostake.net:26726",
+        "address": "injective-mainnet-seed.autostake.com:26726",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -96,6 +96,11 @@
         "id": "1846e76e14913124a07e231586d487a0636c0296",
         "address": "tenderseed.ccvalidators.com:26007",
         "provider": "ccvalidators.com"
+      },
+      {
+        "id": "5a1cd1a7da5aab3e3075fbae0a905c7256e48193",
+        "address": "seeds.goldenratiostaking.net:1635",
+        "provider": "Golden Ratio Staking"
       }
     ],
     "persistent_peers": [
@@ -131,7 +136,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "injective-mainnet-peer.autostake.net:26726",
+        "address": "injective-mainnet-peer.autostake.com:26726",
         "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
@@ -139,12 +144,12 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://k8s.global.mainnet.tm.injective.network:443",
-        "provider": "Injectivelabs"
-      },
-      {
         "address": "https://injective-rpc.quickapi.com:443",
         "provider": "Chainlayer"
+      },
+      {
+        "address": "https://rpc-injective.goldenratiostaking.net",
+        "provider": "Golden Ratio Staking"
       },
       {
         "address": "https://injective-rpc.polkachu.com",
@@ -159,19 +164,19 @@
         "provider": "Notional"
       },
       {
-        "address": "https://injective-rpc.api-stakewolle.com/",
-        "provider": "Stakewolle"
+        "address": "https://injective-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://injective-mainnet-rpc.autostake.net:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "address": "https://rpc.injective.posthuman.digital:443",
+        "provider": "POSTHUMAN ꝏ DVS"
+      },
+      {
+        "address": "https://rpc-injective.whispernode.com:443",
+        "provider": "WhisperNode🤐"
       }
     ],
     "rest": [
-      {
-        "address": "https://k8s.global.mainnet.lcd.injective.network:443",
-        "provider": "Injectivelabs"
-      },
       {
         "address": "https://injective-lcd.quickapi.com:443",
         "provider": "Chainlayer"
@@ -189,21 +194,25 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://injective-mainnet-lcd.autostake.net:443",
+        "address": "https://rest.injective.posthuman.digital:443",
+        "provider": "POSTHUMAN ꝏ DVS"
+      },
+      {
+        "address": "https://injective-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://lcd-injective.whispernode.com:443",
+        "provider": "WhisperNode🤐"
       }
     ],
     "grpc": [
-      {
-        "address": "k8s.global.mainnet.chain.grpc.injective.network:443",
-        "provider": "Injectivelabs"
-      },
       {
         "address": "grpc-injective-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
       },
       {
-        "address": "https://injective-grpc.lavenderfive.com:443",
+        "address": "injective-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -211,8 +220,12 @@
         "provider": "Polkachu"
       },
       {
-        "address": "injective-mainnet-grpc-autostake.net:443",
+        "address": "injective-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "grpc.injective.posthuman.digital:80",
+        "provider": "POSTHUMAN ꝏ DVS"
       }
     ]
   },
