@@ -1,13 +1,14 @@
 {
   "$schema": "../../chain.schema.json",
-  "chain_name": "quasartestnet",
+  "chain_name": "quasar",
   "status": "live",
-  "network_type": "testnet",
-  "pretty_name": "Quasar Testnet",
-  "chain_id": "qsr-questnet-04",
+  "network_type": "mainnet",
+  "website": "https://www.quasar.fi/",
+  "pretty_name": "Quasar",
+  "chain_id": "quasar-1",
   "bech32_prefix": "quasar",
   "daemon_name": "quasarnoded",
-  "node_home": "$HOME/.quasarnoded",
+  "node_home": "$HOME/.quasarnode",
   "key_algos": [
     "secp256k1"
   ],
@@ -19,100 +20,64 @@
       }
     ]
   },
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ibc/0471F1C4E7AFD3F07702BEF6DC365268D64570F7C1FDC98EA6098DD6DE59817B",
+        "fixed_min_gas_price": 0.01
+      },
+      {
+        "denom": "ibc/FA0006F056DB6719B8C16C551FC392B62F5729978FC0B125AC9A432DBB2AA1A5",
+        "fixed_min_gas_price": 0.01
+      },
+      {
+        "denom": "ibc/FA7775734CC73176B7425910DE001A1D2AD9B6D9E93129A5D0750EAD13E4E63A",
+        "fixed_min_gas_price": 0.01
+      }
+    ]
+  },
   "codebase": {
-    "recommended_version": "v0.0.2-alpha-11",
+    "git_repo": "https://github.com/quasar-finance/quasar-preview",
+    "recommended_version": "v0.1.0",
     "compatible_versions": [
-      "v0.0.2-alpha-11"
+      "v0.1.0"
     ],
     "cosmos_sdk_version": "0.46",
     "tendermint_version": "0.34",
     "cosmwasm_version": "0.27",
     "cosmwasm_enabled": true,
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/quasar-finance/questnet/main/v04/definitive-genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/quasar-finance/networks/main/quasar-1/definitive-genesis.json"
     }
   },
   "peers": {
     "seeds": [
       {
-        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
-        "address": "testnet-seeds.polkachu.com:18256",
-        "provider": "Polkachu"
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:18256",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
-        "address": "testnet-seed.rhinostake.com:18256",
-        "provider": "Rhino Stake"
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:18256",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
-      { "id": "8a19aa6e874ed5720aad2e7d02567ec932d92d22",
-        "address": "141.94.248.63:26656",
-        "provider": ""
-      },
-      { "id": "444b80ce750976df59b88ac2e08d720e1dbbf230",
-        "address": "68.183.75.239:26666",
-        "provider": ""
-      },
-      { "id": "20b4f9207cdc9d0310399f848f057621f7251846",
-        "address": "222.106.187.13:40606",
-        "provider": ""
-      },
-      { "id": "7ef67269c8ec37ff8a538a5ae83ca670fd2da686",
-        "address": "137.184.192.123:26656",
-        "provider": ""
-      },
-      { "id": "19afe579cc0a2b38ca87143f779f45e9a7f18a2f",
-        "address": "18.134.191.148:26656",
-        "provider": ""
-      },
-      { "id": "a23f002bda10cb90fa441a9f2435802b35164441",
-        "address": "38.146.3.203:18256",
-        "provider": ""
-      },
-      { "id": "bba6e85e3d1f1d9c127324e71a982ddd86af9a99",
-        "address": "88.99.3.158:18256",
-        "provider": ""
-      },
-      { "id": "966acc999443bae0857604a9fce426b5e09a7409",
-        "address": "65.108.105.48:18256 ",
-        "provider": ""
-      },
-      { "id": "177144bed1e280a6f2435d253441e3e4f1699c6d",
-        "address": "65.109.85.226:8090",
-        "provider": ""
-      },
-      { "id": "769ebaa9942375e70cebc21a75a2cfda41049d99",
-        "address": "135.181.210.186:26656",
-        "provider": ""
-      },
-      { "id": "8937bdacf1f0c8b2d1ffb4606554eaf08bd55df4",
-        "address": "5.75.255.107:26656",
-        "provider": ""
-      },
-      { "id": "99a0695a7358fa520e6fcd46f91492f7cf205d4d",
-        "address": "34.175.159.249:26656",
-        "provider": ""
-      },
-      { "id": "47401f4ac3f934afad079ddbe4733e66b58b67da",
-        "address": "34.175.244.202:26656",
-        "provider": ""
+      { "id": "298e0e1faf8a5da43514cc2908d2908658e732a0",
+        "address": "298e0e1faf8a5da43514cc2908d2908658e732a0@38.146.3.148:18256"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://quasar-testnet-rpc.polkachu.com/",
-        "provider": "Polkachu"
+        "address": "https://quasar-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://questnet.quasar-finance.rhinostake.com/",
-        "provider": "Rhino Stake"
-      },
-      {
-        "address": "https://quasar-testnet-rpc.swiss-staking.ch",
-        "provider": "Swiss Staking"
+        "address": "https://quasar-rpc.polkachu.com",
+        "provider": "polkachu"
       },
       {
         "address": "https://rpc-quasar.whispernode.com:443",
@@ -121,16 +86,12 @@
     ],
     "rest": [
       {
-        "address": "https://quasar-testnet-api.polkachu.com/",
-        "provider": "Polkachu"
+        "address": "https://quasar-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://questnet.quasar-finance.rhinostake.com/",
-        "provider": "Rhino Stake"
-      },
-      {
-        "address": "https://quasar-testnet-api.swiss-staking.ch/",
-        "provider": "Swiss Staking"
+        "address": "https://quasar-api.polkachu.com",
+        "provider": "polkachu"
       },
       {
         "address": "https://lcd-quasar.whispernode.com:443",
@@ -139,16 +100,16 @@
     ],
     "grpc": [
       {
-        "address": "quasar-testnet-grpc.polkachu.com:18290",
-        "provider": "Polkachu"
+        "address": "https://quasar-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "quasar-testnet-grpc.swiss-staking.ch:10090",
-        "provider": "Swiss Staking"
+        "address": "https://quasar-rpc.polkachu.com",
+        "provider": "polkachu"
       }
     ]
   },
   "keywords": [
-    "testnet"
+    "mainnet"
   ]
 }
