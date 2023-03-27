@@ -1,107 +1,111 @@
 {
-    "$schema": "../assetlist.schema.json",
-    "chain_name": "persistence",
-    "assets": [
-      {
-        "description": "The XPRT token is primarily a governance token for the Persistence chain.",
-        "denom_units": [
-          {
-            "denom": "uxprt",
-            "exponent": 0
-          },
-          {
-            "denom": "xprt",
-            "exponent": 6
-          }
-        ],
-        "base": "uxprt",
-        "name": "Persistence",
-        "display": "xprt",
-        "symbol": "XPRT",
-        "logo_URIs": {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.svg"
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "persistence",
+  "assets": [
+    {
+      "description": "The XPRT token is primarily a governance token for the Persistence chain.",
+      "denom_units": [
+        {
+          "denom": "uxprt",
+          "exponent": 0
         },
-        "coingecko_id": "persistence"
-      },
-      {
-        "description": "PSTAKE Liquid-Staked ATOM",
-        "denom_units": [
-          {
-            "denom": "stk/uatom",
-            "exponent": 0,
-            "aliases": []
-          },
-          {
-            "denom": "stkatom",
-            "exponent": 6,
-            "aliases": ["stk/atom"]
-          }
-        ],
-        "base": "stk/uatom",
-        "name": "PSTAKE staked ATOM",
-        "display": "stkatom",
-        "symbol": "stkATOM",
-        "logo_URIs": {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkatom.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkatom.svg"
-        },
-        "coingecko_id": "stkatom"
-      },
-      {
-        "description": "pSTAKE is a liquid staking protocol unlocking the liquidity of staked assets.",
-        "denom_units": [
-          {
-            "denom": "ibc/A6E3AF63B3C906416A9AF7A556C59EA4BD50E617EFFE6299B99700CCB780E444",
-            "exponent": 0,
-            "aliases": [
-              "gravity0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006",
-              "0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006"
-            ]
-          },
-          {
-            "denom": "pstake",
-            "exponent": 18
-          }
-        ],
-        "base": "ibc/A6E3AF63B3C906416A9AF7A556C59EA4BD50E617EFFE6299B99700CCB780E444",
-        "name": "pSTAKE Finance",
-        "display": "pstake",
-        "symbol": "PSTAKE",
-        "traces": [
-          {
-            "type": "liquid-stake",
-            "counterparty": {
-              "chain_name": "persistence",
-              "base_denom": "XPRT"
-            },
-            "provider": "Persistence"
-          },
-          {
-            "type": "bridge",
-            "counterparty": {
-              "chain_name": "ethereum",
-              "base_denom": "0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006"
-            },
-            "provider": "Gravity Bridge"
-          },
-          {
-            "type": "ibc",
-            "counterparty": {
-              "chain_name": "gravitybridge",
-              "base_denom": "gravity0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006",
-              "channel_id": "channel-24"
-            },
-            "chain": {
-              "channel_id": "channel-38",
-              "path": "transfer/channel-38/gravity0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006"
-            }
-          }
-        ],
-        "logo_URIs": {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/pstake.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/pstake.svg"
+        {
+          "denom": "xprt",
+          "exponent": 6
         }
-      }
-    ]
- }
+      ],
+      "base": "uxprt",
+      "name": "Persistence",
+      "display": "xprt",
+      "symbol": "XPRT",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.svg"
+      },
+      "coingecko_id": "persistence"
+    },
+    {
+      "description": "PSTAKE Liquid-Staked ATOM",
+      "denom_units": [
+        {
+          "denom": "stk/uatom",
+          "exponent": 0,
+          "aliases": []
+        },
+        {
+          "denom": "stkatom",
+          "exponent": 6,
+          "aliases": ["stk/atom"]
+        }
+      ],
+      "base": "stk/uatom",
+      "name": "PSTAKE staked ATOM",
+      "display": "stkatom",
+      "symbol": "stkATOM",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkatom.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkatom.svg"
+      },
+      "coingecko_id": "stkatom"
+    },
+    {
+      "description": "pSTAKE is a liquid staking protocol unlocking the liquidity of staked assets.",
+      "denom_units": [
+        {
+          "denom": "ibc/A6E3AF63B3C906416A9AF7A556C59EA4BD50E617EFFE6299B99700CCB780E444",
+          "exponent": 0,
+          "aliases": [
+            "gravity0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006",
+            "0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006"
+          ]
+        },
+        {
+          "denom": "pstake",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/A6E3AF63B3C906416A9AF7A556C59EA4BD50E617EFFE6299B99700CCB780E444",
+      "name": "pSTAKE Finance",
+      "display": "pstake",
+      "symbol": "PSTAKE",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "persistence",
+            "base_denom": "XPRT"
+          },
+          "provider": "Persistence"
+        },
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006"
+          },
+          "provider": "Gravity Bridge"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "gravitybridge",
+            "base_denom": "gravity0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006",
+            "channel_id": "channel-24"
+          },
+          "chain": {
+            "channel_id": "channel-38",
+            "path": "transfer/channel-38/gravity0xfB5c6815cA3AC72Ce9F5006869AE67f18bF77006"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/pstake.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/pstake.svg"
+      },
+      "keywords": [
+        "canon"
+      ]
+    }
+  ]
+}
