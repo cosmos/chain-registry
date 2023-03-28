@@ -281,6 +281,36 @@
       },
       "additionalProperties": false
     },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "png": {
+            "type": "string",
+            "format": "uri-reference",
+            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$"
+          },
+          "svg": {
+            "type": "string",
+            "format": "uri-reference",
+            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$"
+          },
+          "theme": {
+            "type": "object",
+            "properties": {
+              "primary_color_hex": {
+               "type": "string",
+               "pattern": "^#[0-9a-fA-F]{6}$"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
     "logo_URIs": {
       "type": "object",
       "properties": {

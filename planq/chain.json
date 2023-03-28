@@ -9,15 +9,17 @@
   "bech32_prefix": "plq",
   "node_home": "$HOME/.planqd",
   "daemon_name": "planqd",
-  "key_algos": ["ethsecp256k1"],
+  "key_algos": [
+    "ethsecp256k1"
+  ],
   "slip44": 60,
   "fees": {
     "fee_tokens": [
       {
         "denom": "aplanq",
         "fixed_min_gas_price": 20000000000,
-        "low_gas_price": 20000000000,
-        "average_gas_price": 25000000000,
+        "low_gas_price": 30000000000,
+        "average_gas_price": 35000000000,
         "high_gas_price": 40000000000
       }
     ]
@@ -31,14 +33,18 @@
   },
   "codebase": {
     "git_repo": "https://github.com/planq-network/planq",
-    "recommended_version": "v1.0.0",
-    "compatible_versions": ["v1.0.0"],
+    "recommended_version": "v1.0.3",
+    "compatible_versions": [
+      "v1.0.0",
+      "v1.0.1",
+      "v1.0.2"
+    ],
     "binaries": {
-      "linux/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.0/planq_v1.0.0-next_Linux_x86_64.tar.gz",
-      "linux/arm64": "https://github.com/planq-network/planq/releases/download/v1.0.0/planq_v1.0.0-next_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.0/planq_v1.0.0-next_Darwin_x86_64.tar.gz",
-      "darwin/arm64": "https://github.com/planq-network/planq/releases/download/v1.0.0/planq_v1.0.0-next_Darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.0/planq_v1.0.0-next_Windows_x86_64.zip"
+      "linux/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.3/planq_1.0.3_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/planq-network/planq/releases/download/v1.0.3/planq_1.0.3_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.3/planq_1.0.3_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/planq-network/planq/releases/download/v1.0.3/planq_1.0.3_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.3/planq_1.0.3_Windows_x86_64.zip"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/planq-network/networks/main/mainnet/genesis.json"
@@ -52,14 +58,9 @@
         "provider": "Planq Foundation EU"
       },
       {
-        "id": "0525de7e7640008d2a2e01d1a7f6456f28f3324c",
-        "address": "51.79.142.6:26656",
-        "provider": "Planq Foundation SG"
-      },
-      {
-        "id": "21432722b67540f6b366806dff295849738d7865",
-        "address": "139.99.223.241:26656",
-        "provider": "Planq Foundation AU"
+        "id": "5966b4ef17da12ee63ef30e50512ad41d541195c",
+        "address": "seeds-planq.sxlzptprjkt.xyz:18656",
+        "provider": "sxlzptprjkt | VALIDATOR"
       }
     ],
     "persistent_peers": [
@@ -67,6 +68,16 @@
         "id": "dd2f0ceaa0b21491ecae17413b242d69916550ae",
         "address": "135.125.247.70:26656",
         "provider": "Planq Foundation EU"
+      },
+      {
+        "id": "e6d553dffbbabbfe9602b43d87e5b0ac1a46348a",
+        "address": "135.125.247.70:26656",
+        "provider": "Nodine.ID"
+      },
+      {
+        "id": "b611a4058ac5caf8b56c1012c695afc75aea4217",
+        "address": "peers-planq.sxlzptprjkt.xyz:18656",
+        "provider": "sxlzptprjkt | VALIDATOR"
       }
     ]
   },
@@ -81,16 +92,20 @@
         "provider": "NodeStake"
       },
       {
+        "address": "https://rpc-planq.nodine.id",
+        "provider": "Nodine.id"
+      },
+      {
         "address": "https://rpc-planq.comunitynode.my.id",
         "provider": "ComunityNode"
       },
       {
-        "address": "https://rpc.planq.123stake.com",
-        "provider": "123stake.com"
+        "address": "https://planq-rpc.kynraze.com",
+        "provider": "Kynraze"
       },
       {
-        "address": "https://planq-rpc.enodex.lol",
-        "provider": "Enodex"
+        "address": "https://rpc-planq.sxlzptprjkt.xyz",
+        "provider": "sxlzptprjkt | VALIDATOR"
       }
     ],
     "rest": [
@@ -102,31 +117,39 @@
         "address": "https://api.planq.nodestake.top",
         "provider": "NodeStake"
       },
+       {
+        "address": "https://api-planq.nodine.id",
+        "provider": "Nodine.ID"
+      },
       {
         "address": "https://api-planq.comunitynode.my.id",
         "provider": "ComunityNode"
       },
       {
-        "address": "https://rest.planq.123stake.com",
-        "provider": "123stake.com"
+        "address": "https://planq-api.kynraze.com",
+        "provider": "Kynraze"
       },
       {
-        "address": "https://planq-api.enodex.lol",
-        "provider": "Enodex"
+        "address": "https://api-planq.sxlzptprjkt.xyz",
+        "provider": "sxlzptprjkt | VALIDATOR"
       }
     ],
     "grpc": [
       {
-        "address": "https://grpc.planq.network",
+        "address": "grpc.planq.network:443",
         "provider": "planq.network"
       },
       {
-        "address": "https://grpc.planq.123stake.com",
-        "provider": "123stake.com"
+        "address": "grpc.planq.nodestake.top:443",
+        "provider": "NodeStake"
+      },
+       {
+        "address": "https://grpc-planq.nodine.id",
+        "provider": "Nodine.id"
       },
       {
-        "address": "https://grpc.planq.nodestake.top",
-        "provider": "NodeStake"
+        "address": "https://grpc-planq.sxlzptprjkt.xyz:443",
+        "provider": "sxlzptprjkt | VALIDATOR"
       }
     ],
     "evm-http-jsonrpc": [
@@ -135,12 +158,12 @@
         "provider": "planq.network"
       },
       {
-        "address": "https://evm-rpc.planq.123stake.com",
-        "provider": "123stake.com"
-      },
-      {
         "address": "https://jsonrpc.planq.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://rpc-evm-planq.sxlzptprjkt.xyz",
+        "provider": "sxlzptprjkt | VALIDATOR"
       }
     ]
   },
@@ -166,9 +189,14 @@
       "tx_page": "https://explorer.tcnetwork.io/planq/transaction/${txHash}"
     },
     {
-      "kind": "Enodex",
-      "url": "https://explorer.enodex.lol/planq",
-      "tx_page": "https://explorer.enodex.lol/planq/tx/${txHash}"
+      "kind": "Kynraze",
+      "url": "https://explorer.kynraze.com/planq",
+      "tx_page": "https://explorer.kynraze.com/planq/tx/${txHash}"
+    },
+    {
+      "kind": "THE EXPLORER",
+      "url": "https://explorer.sxlzptprjkt.xyz/planq",
+      "tx_page": "https://explorer.sxlzptprjkt.xyz/planq/tx/${txHash}"
     }
   ]
 }
