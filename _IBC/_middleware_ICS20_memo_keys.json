@@ -1,0 +1,69 @@
+{
+  "memo_keys": [
+    {
+      "key": "wasm",
+      "description": "To call a cosmwasm contract",
+      "git_repo": "https://github.com/osmosis-labs/osmosis/tree/main/x/ibc-hooks#ibc-hooks",
+      "memo": {
+        "wasm": {
+          "contract": "osmo1contractAddr",
+          "msg": {
+            "raw_message_fields": "raw_message_data"
+          }
+        }
+      }
+    },
+    {
+      "key": "ibc_callback",
+      "description": "Passing the ibc acknowledgement back to a cosmwasm smart contract",
+      "git_repo": "https://github.com/osmosis-labs/osmosis/tree/main/x/ibc-hooks#ibc-hooks",
+      "memo": {
+        "ibc_callback": "osmo1contractAddr"
+      }
+    },
+    {
+      "key": "stakeibc/LiquidStake",
+      "description": "One click liquid staking",
+      "git_repo": "https://github.com/Stride-Labs/stride/tree/main/x/stakeibc",
+      "memo": "stakeibc/LiquidStake"
+    },
+    {
+      "key": "forward",
+      "description": "To send a packet from a source to destination chain when there is at least one chain in between, the intermediate chain uses the middleware, and next specifies the subsequent chain to route the packet to, after the chain specified in forward",
+      "git_repo": "https: //github.com/strangelove-ventures/packet-forward-middleware",
+      "memo": {
+        "forward": {
+          "receiver": "chain-c-bech32-address",
+          "port": "transfer",
+          "channel": "channel-123",
+          "timeout": "10m",
+          "retries": 2,
+          "next": {
+            "forward": {
+              "receiver": "chain-d-bech32-address",
+              "port": "transfer",
+              "channel": "channel-234",
+              "timeout": "10m",
+              "retries": 2
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "",
+      "description": "Axelar Cosmos to EVM general message passing with or without tokens",
+      "git_repo": "https://github.com/axelarnetwork/axelar-core/tree/main/x/nexus",
+      "memo": {
+        "destination_chain": "Ethereum",
+        "destination_address": "0x777d2D82dAb1BF06a4dcf5a3E07057C41100c22D",
+        "payload": "...",
+        "type": 1,
+        "fee": {
+          "amount": "1000000",
+          "recipient": "axelar1hyav29jdpmesg6mal7acmkpjdywjkvlsugtch3"
+        }
+      }
+    }
+  ]
+}
