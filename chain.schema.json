@@ -209,8 +209,24 @@
         "cosmos_sdk_version": {
           "type": "string"
         },
-        "tendermint_version": {
-          "type": "string"
+        "consensus": {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "tendermint",
+                "cometbft"
+              ]
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         },
         "cosmwasm_version": {
           "type": "string"
