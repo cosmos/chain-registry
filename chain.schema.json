@@ -209,8 +209,24 @@
         "cosmos_sdk_version": {
           "type": "string"
         },
-        "tendermint_version": {
-          "type": "string"
+        "consensus": {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "tendermint",
+                "cometbft"
+              ]
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         },
         "cosmwasm_version": {
           "type": "string"
@@ -273,6 +289,32 @@
               "next_version_name": {
                 "type": "string",
                 "description": "[Optional] Name of the following version"
+              },
+              "binaries": {
+                "type": "object",
+                "properties": {
+                  "linux/amd64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "linux/arm64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "darwin/amd64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "darwin/arm64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "windows/amd64": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "additionalProperties": false
               }
             },
             "additionalProperties": false
