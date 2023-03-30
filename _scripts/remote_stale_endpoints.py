@@ -3,10 +3,7 @@ import os, json, requests, time # pip install requests
 current_dir = os.path.dirname(os.path.realpath(__file__))
 parent_dir = os.path.dirname(current_dir)
 folders = [folder for folder in os.listdir(parent_dir) if os.path.isdir(os.path.join(parent_dir, folder))]
-
 IGNORE_FOLDERS = ["_IBC", "_non-cosmos", ".github", "testnets", '.git', "_scripts"]
-# dig-chain is currently down for v46 upgrade
-IGNORE_CHAINS = ['dig']
 
 epoch_time = int(time.time())*1000
 thirty_days_ago = epoch_time - (60 * 60 * 24 * 10 * 1_000)
@@ -51,7 +48,7 @@ def do_last_time(folder, _type, addr, last_time_endpoints):
 
 def main():
     for folder in folders:
-        if folder in IGNORE_FOLDERS + IGNORE_CHAINS: continue
+        if folder in IGNORE_FOLDERS: continue
 
         # if folder != "juno": continue # debugging
 
