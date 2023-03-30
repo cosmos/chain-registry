@@ -3,10 +3,15 @@
   "chain_name": "cronos",
   "status": "live",
   "network_type": "mainnet",
+  "website": "https://cronos.org",
   "pretty_name": "Cronos",
   "chain_id": "cronosmainnet_25-1",
   "bech32_prefix": "crc",
+  "daemon_name": "cronosd",
   "node_home": "$HOME/.cronos",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
   "slip44": 60,
   "fees": {
     "fee_tokens": [
@@ -17,16 +22,20 @@
   },
   "codebase": {
     "git_repo": "https://github.com/crypto-org-chain/cronos",
-    "recommended_version": "v0.7.0",
+    "recommended_version": "v0.8.3",
     "compatible_versions": [
-      "v0.7.0"
+      "v0.7.0",
+      "v0.7.1",
+      "v0.8.0",
+      "v0.8.1",
+      "v0.8.2"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/crypto-org-chain/cronos/releases/download/v0.7.0/cronos_0.7.0_Linux_x86_64.tar.gz",
-      "linux/arm64": "https://github.com/crypto-org-chain/cronos/releases/download/v0.7.0/cronos_0.7.0_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/crypto-org-chain/cronos/releases/download/v0.7.0/cronos_0.7.0_Darwin_x86_64.tar.gz",
-      "darwin/arm64": "https://github.com/crypto-org-chain/cronos/releases/download/v0.7.0/cronos_0.7.0_Darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/crypto-org-chain/cronos/releases/download/v0.7.0/cronos_0.7.0_Windows_x86_64.zip"
+      "linux/amd64": "https://github.com/crypto-org-chain/cronos/releases/download/v0.8.3/cronos_0.8.3_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/crypto-org-chain/cronos/releases/download/v0.8.3/cronos_0.8.3_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/crypto-org-chain/cronos/releases/download/v0.8.3/cronos_0.8.3_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/crypto-org-chain/cronos/releases/download/v0.8.3/cronos_0.8.3_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/crypto-org-chain/cronos/releases/download/v0.8.3/cronos_0.8.3_Windows_x86_64.zip"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/crypto-org-chain/cronos-mainnet/master/cronosmainnet_25-1/genesis.json"
@@ -58,6 +67,16 @@
         "id": "abedfe94dd5731e9750e045ca8d8e40aa6d3c60b",
         "address": "seed.cronos.jerrychong.com:26656",
         "provider": "Jerry's Pool"
+      },
+      {
+        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
+        "address": "cronos-seed-1.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "e726816f42831689eab9378d5d577f1d06d25716",
+        "address": "cronos-seed-2.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -116,7 +135,7 @@
       "tx_page": "https://cronoscan.com/tx/${txHash}"
     },
     {
-      "kind": "crypto-org",
+      "kind": "crypto.org",
       "url": "https://cronos.org/explorer",
       "tx_page": "https://cronos.org/explorer/tx/${txHash}"
     }

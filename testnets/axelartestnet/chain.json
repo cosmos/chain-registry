@@ -1,0 +1,60 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "axelartestnet",
+  "chain_id": "axelar-testnet-lisbon-3",
+  "pretty_name": "Axelar Testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://axelar.network/",
+  "bech32_prefix": "axelar",
+  "daemon_name": "axelard",
+  "node_home": "$HOME/.axelard",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uaxl"
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uaxl"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/axelarnetwork/axelar-core"
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://axelartest-rpc.quickapi.com/",
+        "provider": "Quickapi"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://axelartest-lcd.quickapi.com/",
+        "provider": "Quickapi"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "axelarscan",
+      "url": "https://testnet.axelarscan.io",
+      "tx_page": "https://testnet.axelarscan.io/tx/${txHash}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://testnet.mintscan.io/axelar-testnet",
+      "tx_page": "https://testnet.mintscan.io/axelar-testnet/txs/${txHash}",
+      "account_page": "https://testnet.mintscan.io/axelar-testnet/account/${accountAddress}"
+    }
+  ]
+}

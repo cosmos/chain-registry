@@ -69,7 +69,10 @@ A sample `chain.json` includes the following information.
       {
         "denom": "uosmo"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1209600s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/osmosis-labs/osmosis",
@@ -132,6 +135,10 @@ A sample `chain.json` includes the following information.
         "height": 6246000
       }
     ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg"
   },
   "peers": {
     "seeds": [
@@ -211,10 +218,6 @@ A sample `chain.json` includes the following information.
       "account_page": "https://www.mintscan.io/osmosis/account/${accountAddress}"
     }
   ],
-  "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg"
-  },
   "keywords": [
     "dex"
   ]
@@ -243,13 +246,11 @@ An example assetlist json contains the following structure:
       "denom_units": [
         {
           "denom": "uosmo",
-          "exponent": 0,
-          "aliases": []
+          "exponent": 0
         },
         {
           "denom": "osmo",
-          "exponent": 6,
-          "aliases": []
+          "exponent": 6
         }
       ],
       "base": "uosmo",
@@ -262,7 +263,8 @@ An example assetlist json contains the following structure:
       },
       "coingecko_id": "osmosis",
       "keywords": [
-          "dex", "staking"
+        "dex",
+        "staking"
       ]
     },
     {
@@ -286,7 +288,7 @@ An example assetlist json contains the following structure:
       },
       "coingecko_id": "ion",
       "keywords": [
-          "memecoin"
+        "memecoin"
       ]
     }
   ]

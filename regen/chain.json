@@ -29,19 +29,23 @@
   },
   "codebase": {
     "git_repo": "https://github.com/regen-network/regen-ledger",
-    "recommended_version": "v4.0.0",
+    "recommended_version": "v5.0.0",
     "compatible_versions": [
-      "v4.0.0"
+      "v5.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/regen-network/regen-ledger/releases/download/v4.0.0/regen-ledger_4.0.0_linux_amd64.zip",
-      "linux/arm64": "https://github.com/regen-network/regen-ledger/releases/download/v4.0.0/regen-ledger_4.0.0_linux_arm64.zip",
-      "darwin/amd64": "https://github.com/regen-network/regen-ledger/releases/download/v4.0.0/regen-ledger_4.0.0_darwin_amd64.zip",
-      "darwin/arm64": "https://github.com/regen-network/regen-ledger/releases/download/v4.0.0/regen-ledger_4.0.0_darwin_arm64.zip",
-      "windows/amd64": "https://github.com/regen-network/regen-ledger/releases/download/v4.0.0/regen-ledger_4.0.0_windows_amd64.zip"
+      "linux/amd64": "https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_linux_amd64.zip",
+      "linux/arm64": "https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_linux_arm64.zip",
+      "darwin/amd64": "https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_darwin_amd64.zip",
+      "darwin/arm64": "https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_darwin_arm64.zip"
     },
-    "cosmos_sdk_version": "0.45",
+    "cosmos_sdk_version": "0.46",
     "tendermint_version": "0.34",
+    "ibc_go_version": "5.2",
+    "ics_enabled": [
+      "ics20-1",
+      "ics27-1"
+    ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/regen-network/mainnet/main/regen-1/genesis.json"
     }
@@ -56,6 +60,16 @@
         "id": "d309774e794b111a0fa2056f40aed9d488b6195e",
         "address": "regen-seed.sunshinevalidation.io:32064",
         "provider": "sunshine-validation"
+      },
+      {
+        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
+        "address": "regen-seed-1.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "e726816f42831689eab9378d5d577f1d06d25716",
+        "address": "regen-seed-2.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -129,10 +143,11 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/regen",
-      "tx_page": "https://www.mintscan.io/regen/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/regen/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/regen/account/${accountAddress}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://ping.pub/regen",
       "tx_page": "https://ping.pub/regen/tx/${txHash}"
     },

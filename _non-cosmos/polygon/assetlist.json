@@ -12,9 +12,9 @@
         {
           "denom": "matic",
           "exponent": 18,
-	  "aliases": [
-	    "polygon"
-	  ]
+          "aliases": [
+            "polygon"
+          ]
         }
       ],
       "base": "wei",
@@ -22,7 +22,7 @@
       "display": "matic",
       "symbol": "MATIC",
       "logo_URIs": {
-	"png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polygon/images/matic.png",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polygon/images/matic.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polygon/images/matic.svg"
       },
       "coingecko_id": "matic-network"
@@ -35,26 +35,72 @@
         {
           "denom": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
           "exponent": 0,
-	  "aliases": [
-	    "wmatic-wei"
-	  ]
+          "aliases": [
+            "wmatic-wei"
+          ]
         },
         {
           "denom": "wmatic",
           "exponent": 18,
-	  "aliases": [
-	    "polygon"
-	  ]
+          "aliases": [
+            "polygon"
+          ]
         }
       ],
       "base": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
       "name": "Wrapped Matic",
       "display": "wmatic",
       "symbol": "WMATIC",
+      "traces": [
+        {
+          "type": "wrapped",
+          "counterparty": {
+            "chain_name": "polygon",
+            "base_denom": "wei"
+          },
+          "provider": "Polygon"
+        }
+      ], 
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polygon/images/wmatic.svg"
       },
       "coingecko_id": "wmatic"
+    },
+    {
+      "description": "USDC is a fully collateralized US Dollar stablecoin developed by CENTRE, the open source project with Circle being the first of several forthcoming issuers.",
+      "type_asset": "erc20",
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "denom_units": [
+        {
+          "denom": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "exponent": 0,
+          "aliases": [
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "base": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "name": "USD Coin",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "USD"
+          },
+          "provider": "Circle"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      },
+      "coingecko_id": "usd-coin"
     },
     {
       "description": "Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.",
@@ -65,8 +111,8 @@
           "denom": "0xddc9e2891fa11a4cc5c223145e8d14b44f3077c9",
           "exponent": 0,
           "aliases": [
-	    "dai-wei"
-	  ]
+            "dai-wei"
+          ]
         },
         {
           "denom": "axldai",
@@ -77,6 +123,16 @@
       "name": "Axelar Wrapped Dai Stablecoin",
       "display": "axldai",
       "symbol": "axlDAI",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "axelar",
+            "base_denom": "dai-wei"
+          },
+          "provider": "Axelar"
+        }
+      ], 
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/dai.svg"
       }
@@ -90,8 +146,8 @@
           "denom": "0x53adc464b488be8c5d7269b9abbce8ba74195c3a",
           "exponent": 0,
           "aliases": [
-	    "frax-wei"
-	  ]
+            "frax-wei"
+          ]
         },
         {
           "denom": "axlfrax",
@@ -102,6 +158,16 @@
       "name": "Axelar Wrapped Frax",
       "display": "axlfrax",
       "symbol": "axlFRAX",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "axelar",
+            "base_denom": "frax-wei"
+          },
+          "provider": "Axelar"
+        }
+      ], 
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/frax.svg"
       }
@@ -114,9 +180,9 @@
         {
           "denom": "0x750e4c4984a9e0f12978ea6742bc1c5d248f40ed",
           "exponent": 0,
-	  "aliases": [
-	    "uusdc"
-	  ]
+          "aliases": [
+            "uusdc"
+          ]
         },
         {
           "denom": "axlusdc",
@@ -127,6 +193,16 @@
       "name": "Axelar Wrapped USD Coin",
       "display": "axlusdc",
       "symbol": "axlUSDC",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "axelar",
+            "base_denom": "uusdc"
+          },
+          "provider": "Axelar"
+        }
+      ], 
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
       }
@@ -139,9 +215,9 @@
         {
           "denom": "0xceed2671d8634e3ee65000edbbee66139b132fbf",
           "exponent": 0,
-	  "aliases": [
-	    "uusdt"
-	  ]
+          "aliases": [
+            "uusdt"
+          ]
         },
         {
           "denom": "axlusdt",
@@ -152,6 +228,16 @@
       "name": "Axelar Wrapped Tether USD",
       "display": "axlusdt",
       "symbol": "axlUSDT",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "axelar",
+            "base_denom": "uusdt"
+          },
+          "provider": "Axelar"
+        }
+      ], 
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
       }

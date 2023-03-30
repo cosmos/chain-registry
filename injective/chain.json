@@ -7,6 +7,9 @@
   "pretty_name": "Injective",
   "chain_id": "injective-1",
   "bech32_prefix": "inj",
+  "extra_codecs": [
+    "injective"
+  ],
   "slip44": 60,
   "daemon_name": "injectived",
   "node_home": "$HOME/.injectived",
@@ -14,9 +17,10 @@
     "fee_tokens": [
       {
         "denom": "inj",
-        "low_gas_price": 0.0005,
-        "average_gas_price": 0.0007,
-        "high_gas_price": 0.0009
+        "fixed_min_gas_price": 500000000,
+        "low_gas_price": 500000000,
+        "average_gas_price": 700000000,
+        "high_gas_price": 900000000
       }
     ]
   },
@@ -29,13 +33,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/InjectiveLabs/injective-chain-releases",
-    "recommended_version": "v1.1.1-1637059884",
+    "recommended_version": "v1.9.0-1673640888",
     "compatible_versions": [
-      "v1.1.1-1637059884"
+      "v1.9.0-1673640888"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.1.1-1637059884/linux-amd64.zip",
-      "darwin/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.1.1-1637059884/darwin-amd64.zip"
+      "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.9.0-1673640888/linux-amd64.zip",
+      "darwin/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.9.0-1673640888/darwin-amd64.zip"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/InjectiveLabs/mainnet-config/master/10001/genesis.json"
@@ -44,56 +48,100 @@
   "peers": {
     "seeds": [
       {
-        "id": "2ee7586d8e5a4a2020dafddf68efdfdaa3606cc3",
-        "address": "145.40.67.249:26656",
-        "provider": "injectiveprotocol"
+        "id": "38c18461209694e1f667ff2c8636ba827cc01c86",
+        "address": "176.9.143.252:11751",
+        "provider": "injectivelabs.org"
       },
       {
-        "id": "7bb20f8e9fa73e34d0d21862528d5fba839eeb56",
-        "address": "145.40.73.39:26656",
-        "provider": "injectiveprotocol"
+        "id": "4f9025feca44211eddc26cd983372114947b2e85",
+        "address": "176.9.140.49:11751",
+        "provider": "injectivelabs.org"
       },
       {
-        "id": "de25916e19083d44d67e0c336199b215523f1578",
-        "address": "145.40.68.223:26656",
-        "provider": "injectiveprotocol"
+        "id": "c98bb1b889ddb58b46e4ad3726c1382d37cd5609",
+        "address": "65.109.51.80:11751",
+        "provider": "injectivelabs.org"
       },
       {
-        "id": "1a2ccd9c436eae54d6c767ad566c58dce78f8be2",
-        "address": "145.40.68.125:26656",
-        "provider": "injectiveprotocol"
+        "id": "23d0eea9bb42316ff5ea2f8b4cd8475ef3f35209",
+        "address": "65.109.36.70:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "f9ae40fb4a37b63bea573cc0509b4a63baa1a37a",
+        "address": "15.235.114.80:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "7f3473ddab10322b63789acb4ac58647929111ba",
+        "address": "15.235.13.116:11751",
+        "provider": "injectivelabs.org"
       },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:14356",
-        "provider": "Polkachu"
+        "provider": "polkachu.com"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "injective.mainnet.seed.autostake.net:26726",
-        "provider": "AutoStake.net"
+        "address": "injective-mainnet-seed-autostake.net:26726",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:14356",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "1846e76e14913124a07e231586d487a0636c0296",
+        "address": "tenderseed.ccvalidators.com:26007",
+        "provider": "ccvalidators.com"
       }
     ],
     "persistent_peers": [
       {
-        "id": "2ee7586d8e5a4a2020dafddf68efdfdaa3606cc3",
-        "address": "2ee7586d8e5a4a2020dafddf68efdfdaa3606cc3@145.40.67.249:26656",
-        "provider": "injectiveprotocol"
+        "id": "38c18461209694e1f667ff2c8636ba827cc01c86",
+        "address": "176.9.143.252:11751",
+        "provider": "injectivelabs.org"
       },
       {
-        "id": "30e81e1b785eaf82d2260e932251c02c95787740",
-        "address": "30e81e1b785eaf82d2260e932251c02c95787740@86.109.11.215:26656",
-        "provider": "injectiveprotocol"
+        "id": "4f9025feca44211eddc26cd983372114947b2e85",
+        "address": "176.9.140.49:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "c98bb1b889ddb58b46e4ad3726c1382d37cd5609",
+        "address": "65.109.51.80:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "23d0eea9bb42316ff5ea2f8b4cd8475ef3f35209",
+        "address": "65.109.36.70:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "f9ae40fb4a37b63bea573cc0509b4a63baa1a37a",
+        "address": "15.235.114.80:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "7f3473ddab10322b63789acb4ac58647929111ba",
+        "address": "15.235.13.116:11751",
+        "provider": "injectivelabs.org"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "injective.mainnet.peer.autostake.net:26726",
-        "provider": "AutoStake.net"
+        "address": "injective-mainnet-peer-autostake.net:26726",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
   "apis": {
     "rpc": [
+      {
+        "address": "https://k8s.global.mainnet.tm.injective.network:443",
+        "provider": "Injectivelabs"
+      },
       {
         "address": "https://injective-rpc.quickapi.com:443",
         "provider": "Chainlayer"
@@ -103,14 +151,22 @@
         "provider": "Polkachu"
       },
       {
+        "address": "https://injective-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
         "address": "https://rpc-injective-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://injective-rpc.api-stakewolle.com/",
+        "provider": "Stakewolle"
       }
     ],
     "rest": [
       {
-        "address": "https://public.lcd.injective.network",
-        "provider": "injectiveprotocol"
+        "address": "https://k8s.global.mainnet.lcd.injective.network:443",
+        "provider": "Injectivelabs"
       },
       {
         "address": "https://injective-lcd.quickapi.com:443",
@@ -123,12 +179,28 @@
       {
         "address": "https://injective-api.polkachu.com",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://injective-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://injective-mainnet-lcd-autostake.net:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "grpc": [
       {
+        "address": "k8s.global.mainnet.chain.grpc.injective.network:443",
+        "provider": "Injectivelabs"
+      },
+      {
         "address": "grpc-injective-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
+      },
+      {
+        "address": "https://injective-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "injective-grpc.polkachu.com:14390",
@@ -143,7 +215,7 @@
       "tx_page": "https://explorer.injective.network/transaction/${txHash}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://ping.pub/injective",
       "tx_page": "https://ping.pub/injective/tx/${txHash}"
     },
@@ -151,6 +223,12 @@
       "kind": "atomscan",
       "url": "https://atomscan.com/injective",
       "tx_page": "https://atomscan.com/injective/transactions/${txHash}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/injective",
+      "tx_page": "https://www.mintscan.io/injective/${txHash}",
+      "account_page": "https://www.mintscan.io/injective/account/${accountAddress}"
     }
   ]
 }
