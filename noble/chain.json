@@ -41,7 +41,10 @@
       "v1.0.0"
     ],
     "cosmos_sdk_version": "v0.45",
-    "tendermint_version": "v0.34",
+    "consensus": {
+      "type": "tendermint",
+      "version": "v0.34"
+    },
     "cosmwasm_enabled": false,
     "ibc_go_version": "v3.4.0",
     "ics_enabled": [
@@ -56,6 +59,26 @@
         "name": "v1.0.0",
         "tag": "v1.0.0",
         "height": 0
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://noble-rpc.polkachu.com",
+        "provider": "polkachu"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://noble-api.polkachu.com",
+        "provider": "polkachu"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "noble-grpc.polkachu.com:21590",
+        "provider": "polkachu"
       }
     ]
   }
