@@ -18,6 +18,7 @@ IGNORE_FOLDERS: list[str] = [
     ".github",
     "testnets",
     ".git",
+    ".mypy_cache",
     "_scripts",
 ]
 IGNORE_CHAINS: list[str] = []
