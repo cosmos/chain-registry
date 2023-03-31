@@ -30,17 +30,38 @@
   },
   "codebase": {
     "git_repo": "https://github.com/terra-money/core/",
-    "recommended_version": "v2.2.0",
+    "recommended_version": "v2.2.1",
     "compatible_versions": [
+      "v2.2.1",
       "v2.2.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/terra-money/core/releases/download/v2.2.0/terra_2.2.0_Linux_x86_64.tar.gz",
-      "darwin/amd64": "https://github.com/terra-money/core/releases/download/v2.2.0/terra_2.2.0_Darwin_x86_64.tar.gz"
+      "linux/amd64": "https://github.com/terra-money/core/releases/download/v2.2.1/terra_2.2.1_Linux_x86_64.tar.gz"
     },
     "genesis": {
-      "genesis_url": "https://phoenix-genesis.s3.us-west-1.amazonaws.com/genesis.json"
-    }
+      "name": "2.0.0",
+      "genesis_url": "https://tfl-phoenix-1.s3.amazonaws.com/genesis.json"
+    },
+    "cosmwasm_enabled": true,
+    "versions": [
+      {
+        "name": "2.0.0",
+        "tag": "v2.0.0",
+        "height": 0,
+        "next_version_name": "2.1.0"
+      },
+      {
+        "name": "2.1.0",
+        "tag": "v2.1.0",
+        "height": 890000,
+        "next_version_name": "2.2.0"
+      },
+      {
+        "name": "2.2.0",
+        "tag": "v2.2.0",
+        "height": 2979805
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -60,7 +81,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "terra-mainnet-seed.autostake.net:26676",
+        "address": "terra-mainnet-seed.autostake.com:26676",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -84,7 +105,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "terra-mainnet-peer.autostake.net:26676",
+        "address": "terra-mainnet-peer.autostake.com:26676",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -117,8 +138,12 @@
         "provider": "WhisperNode🤐"
       },
       {
-        "address": "https://terra-mainnet-rpc.autostake.net:443",
+        "address": "https://terra-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://phoenix-rpc.terra.dev:443",
+        "provider": "Terraform Labs"
       }
     ],
     "rest": [
@@ -131,12 +156,16 @@
         "provider": "WildSage Labs"
       },
       {
-        "address": "https://terra-mainnet-lcd.autostake.net:443",
+        "address": "https://terra-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://lcd-terra2.whispernode.com:443",
         "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://phoenix-lcd.terra.dev:443",
+        "provider": "Terraform Labs"
       }
     ],
     "grpc": [
@@ -149,12 +178,17 @@
         "provider": "Polkachu"
       },
       {
-        "address": "terra-mainnet-grpc.autostake.net:443",
+        "address": "terra-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/terra2",
+      "tx_page": "https://atomscan.com/terra/transactions/${txHash}"
+    },
     {
       "kind": "finder",
       "url": "http://finder.terra.money/",
