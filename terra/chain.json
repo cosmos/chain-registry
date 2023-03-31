@@ -164,6 +164,9 @@
     "compatible_versions": [
       "v1.1.0"
     ],
+    "binaries": {
+      "linux/amd64": "https://github.com/terra-money/classic-core/releases/download/v1.1.0/terra_1.1.0_Linux_x86_64.tar.gz?checksum=sha256:fd83c14bcfadea36ad444c219ab557b9d65d2f74be0684498a5c41e3df7cb535"
+    },
     "genesis": {
       "name": "1.0.5",
       "genesis_url": "https://tfl-columbus-5.s3.amazonaws.com/genesis.json"
@@ -173,12 +176,18 @@
         "name": "1.0.5",
         "tag": "v1.0.5-full-archive",
         "height": 0,
-        "next_version_name": "1.1.0"
+        "next_version_name": "1.1.0",
+        "binaries": {
+          "linux/amd64": "https://github.com/terra-money/classic-core/releases/download/v1.0.5-full-archive/terra_1.0.5_Linux_x86_64.tar.gz?checksum=sha256:af3ee3bd99bd719d6d9a93a40af9f0bc49bb3866c68e923e284876784126f38c"
+        }
       },
       {
         "name": "1.1.0",
         "tag": "v1.1.0",
-        "height": 11734000
+        "height": 11734000,
+        "binaries": {
+          "linux/amd64": "https://github.com/terra-money/classic-core/releases/download/v1.1.0/terra_1.1.0_Linux_x86_64.tar.gz?checksum=sha256:fd83c14bcfadea36ad444c219ab557b9d65d2f74be0684498a5c41e3df7cb535"
+        }
       }
     ]
   },
@@ -272,7 +281,8 @@
     {
       "kind": "finder",
       "url": "https://finder.terra.money/classic",
-      "tx_page": "https://finder.terra.money/classic/tx/${txHash}"
+      "tx_page": "https://finder.terra.money/classic/tx/${txHash}",
+      "account_page": "https://finder.terra.money/classic/address/${accountAddress}"
     }
   ]
 }
