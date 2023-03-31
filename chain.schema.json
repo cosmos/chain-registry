@@ -209,8 +209,24 @@
         "cosmos_sdk_version": {
           "type": "string"
         },
-        "tendermint_version": {
-          "type": "string"
+        "consensus": {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "tendermint",
+                "cometbft"
+              ]
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         },
         "cosmwasm_version": {
           "type": "string"
@@ -273,6 +289,32 @@
               "next_version_name": {
                 "type": "string",
                 "description": "[Optional] Name of the following version"
+              },
+              "binaries": {
+                "type": "object",
+                "properties": {
+                  "linux/amd64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "linux/arm64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "darwin/amd64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "darwin/arm64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "windows/amd64": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "additionalProperties": false
               }
             },
             "additionalProperties": false
@@ -280,6 +322,36 @@
         }
       },
       "additionalProperties": false
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "png": {
+            "type": "string",
+            "format": "uri-reference",
+            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$"
+          },
+          "svg": {
+            "type": "string",
+            "format": "uri-reference",
+            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$"
+          },
+          "theme": {
+            "type": "object",
+            "properties": {
+              "primary_color_hex": {
+               "type": "string",
+               "pattern": "^#[0-9a-fA-F]{6}$"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
     },
     "logo_URIs": {
       "type": "object",
@@ -460,6 +532,19 @@
         },
         "high_gas_price": {
           "type": "number"
+        },
+        "gas_costs": {
+          "type": "object",
+          "properties": {
+            "cosmos_send": {
+              "type": "number"
+            },
+            "ibc_transfer": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
         }
       },
       "additionalProperties": false

@@ -17,7 +17,7 @@
     "fee_tokens": [
       {
         "denom": "anom",
-	"low_gas_price": 0,
+        "low_gas_price": 0,
         "average_gas_price": 0.03,
         "high_gas_price": 0.06
       }
@@ -41,7 +41,10 @@
       "linux/arm64": "https://github.com/onomyprotocol/onomy/releases/download/v1.0.1/onomyd-arm"
     },
     "cosmos_sdk_version": "0.44",
-    "tendermint_version": "0.34",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
     "ibc_go_version": "2.0.4",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/onomyprotocol/onomy/main/genesis/mainnet/genesis-mainnet-1.json"
@@ -86,12 +89,7 @@
         "provider": "onomy"
       }
     ],
-    "grpc": [
-      {
-        "address": "https://grpc-mainnet.onomy.io:9090",
-        "provider": "onomy"
-      }
-    ]
+    "grpc": []
   },
   "explorers": [
     {
