@@ -36,21 +36,22 @@
   },
   "codebase": {
     "git_repo": "https://github.com/evmos/evmos",
-    "recommended_version": "v11.0.2",
+    "recommended_version": "v12.1.0",
     "compatible_versions": [
-      "v11.0.0",
-      "v11.0.1",
-      "v11.0.2"
+      "v12.1.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v11.0.2/evmos_11.0.2_Linux_amd64.tar.gz",
-      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v11.0.2/evmos_11.0.2_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v11.0.2/evmos_11.0.2_Darwin_amd64.tar.gz",
-      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v11.0.2/evmos_11.0.2_Darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v11.0.2/evmos_11.0.2_Windows_amd64.zip"
+      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v12.1.0/evmos_12.1.0_Linux_amd64.tar.gz",
+      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v12.1.0/evmos_12.1.0_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v12.1.0/evmos_12.1.0_Darwin_amd64.tar.gz",
+      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v12.1.0/evmos_12.1.0_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v12.1.0/evmos_12.1.0_Windows_amd64.zip"
     },
     "cosmos_sdk_version": "0.46",
-    "tendermint_version": "0.34",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
     "ibc_go_version": "6.1.0",
     "genesis": {
       "genesis_url": "https://archive.evmos.org/mainnet/genesis.json"
@@ -90,7 +91,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "evmos-mainnet-seed.autostake.net:26736",
+        "address": "evmos-mainnet-seed.autostake.com:26736",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -112,7 +113,7 @@
         "id": "e726816f42831689eab9378d5d577f1d06d25716",
         "address": "evmos-seed-2.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
-      }      
+      }
     ],
     "persistent_peers": [
       {
@@ -132,7 +133,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "evmos-mainnet-peer.autostake.net:26736",
+        "address": "evmos-mainnet-peer.autostake.com:26736",
         "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
@@ -140,7 +141,7 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.evmos.kingnodes.com",
+        "address": "https://evmos.kingnodes.com",
         "provider": "kingnodes"
       },
       {
@@ -212,7 +213,7 @@
         "provider": "Validatrium"
       },
       {
-        "address": "https://evmos-mainnet-rpc.autostake.net:443",
+        "address": "https://evmos-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -226,7 +227,7 @@
     ],
     "rest": [
       {
-        "address": "https://api.evmos.kingnodes.com",
+        "address": "https://evmos.kingnodes.com",
         "provider": "kingnodes"
       },
       {
@@ -282,7 +283,7 @@
         "provider": "Validatrium"
       },
       {
-        "address": "https://evmos-mainnet-lcd.autostake.net:443",
+        "address": "https://evmos-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -300,7 +301,7 @@
     ],
     "grpc": [
       {
-        "address": "grpc.evmos.kingnodes.com:443",
+        "address": "grpc-evmos.kingnodes.com:443",
         "provider": "kingnodes"
       },
       {
@@ -334,6 +335,10 @@
       {
         "address": "evmos.grpc.stakin-nodes.com:443",
         "provider": "Stakin"
+      },
+      {
+        "address": "evmos-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "evmos.grpc.interchain.ivaldilabs.xyz:443",

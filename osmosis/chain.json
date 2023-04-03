@@ -45,8 +45,11 @@
       "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v15.0.0/osmosisd-15.0.0-linux-amd64?checksum=sha256:6f5cead57c16c1e708df2a0f336e6e4494a026ba97b8d8afef95e5fc5b80b465",
       "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v15.0.0/osmosisd-15.0.0-linux-arm64?checksum=sha256:94aee34e288148b155a2b0fdfe268a0bdc0d4a90de6db8f8a9cee74c2e829294"
     },
-    "cosmos_sdk_version": "0.46",
-    "tendermint_version": "0.34",
+    "cosmos_sdk_version": "0.45",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
     "cosmwasm_version": "0.30",
     "cosmwasm_enabled": true,
     "ibc_go_version": "4.3.0",
@@ -109,7 +112,13 @@
       {
         "name": "v14",
         "tag": "v14.0.0",
-        "height": 7937500
+        "height": 7937500,
+        "next_version_name": "v15"
+      },
+      {
+        "name": "v15",
+        "tag": "v15.0.0",
+        "height": 8732500
       }
     ]
   },
@@ -143,7 +152,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "osmosis-mainnet-seed.autostake.net:26716",
+        "address": "osmosis-mainnet-seed.autostake.com:26716",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -170,7 +179,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "osmosis-mainnet-peer.autostake.net:26716",
+        "address": "osmosis-mainnet-peer.autostake.com:26716",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -231,7 +240,7 @@
         "provider": "Osmosis Support Lab"
       },
       {
-        "address": "https://osmosis-mainnet-rpc.autostake.net:443",
+        "address": "https://osmosis-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -281,7 +290,7 @@
         "provider": "Osmosis Support Lab"
       },
       {
-        "address": "https://osmosis-mainnet-lcd.autostake.net:443",
+        "address": "https://osmosis-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -301,6 +310,10 @@
       {
         "address": "osmosis.grpc.stakin-nodes.com:443",
         "provider": "Stakin"
+      },
+      {
+        "address": "osmosis-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "osmosis.grpc.interchain.ivaldilabs.xyz:433",
