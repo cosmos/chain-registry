@@ -81,7 +81,10 @@ A sample `chain.json` includes the following information.
       "v12.2.0"
     ],
     "cosmos_sdk_version": "0.46",
-    "tendermint_version": "0.34",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
     "cosmwasm_version": "0.28",
     "cosmwasm_enabled": true,
     "ibc_go_version": "3.0.0",
