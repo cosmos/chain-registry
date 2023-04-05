@@ -16,7 +16,10 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "uregen"
+        "denom": "uregen",
+        "low_gas_price": 0.015,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
       }
     ]
   },
@@ -40,7 +43,10 @@
       "darwin/arm64": "https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_darwin_arm64.zip"
     },
     "cosmos_sdk_version": "0.46",
-    "tendermint_version": "0.34",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
     "ibc_go_version": "5.2",
     "ics_enabled": [
       "ics20-1",
@@ -60,12 +66,22 @@
         "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
         "address": "regen-seed-1.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "regen-mainnet-seed.autostake.com:27216",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "persistent_peers": [
       {
         "id": "d35d652b6cb3bf7d6cb8d4bd7c036ea03e7be2ab",
         "address": "116.203.182.185:26656"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "regen-mainnet-peer.autostake.com:27216",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -90,6 +106,14 @@
       {
         "address": "https://rpc-regen-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://regen-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://regen-rpc.easy2stake.com",
+        "provider": "Easy 2 Stake"
       }
     ],
     "rest": [
@@ -104,12 +128,28 @@
       {
         "address": "https://api-regen-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://regen-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://rest-regen.ecostake.com",
+        "provider": "ecostake"
+      },
+      {
+        "address": "https://regen-lcd.easy2stake.com",
+        "provider": "Easy 2 Stake"
       }
     ],
     "grpc": [
       {
         "address": "grpc-regen-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
+      },
+      {
+        "address": "regen-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },

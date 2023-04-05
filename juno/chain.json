@@ -17,10 +17,10 @@
     "fee_tokens": [
       {
         "denom": "ujuno",
-        "fixed_min_gas_price": 0.0025,
-        "low_gas_price": 0.03,
-        "average_gas_price": 0.04,
-        "high_gas_price": 0.05
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.001,
+        "average_gas_price": 0.0025,
+        "high_gas_price": 0.004
       }
     ]
   },
@@ -33,12 +33,15 @@
   },
   "codebase": {
     "git_repo": "https://github.com/CosmosContracts/juno",
-    "recommended_version": "v12.0.0",
+    "recommended_version": "v13.0.0",
     "compatible_versions": [
-      "v12.0.0"
+      "v13.0.0"
     ],
     "cosmos_sdk_version": "0.45",
-    "tendermint_version": "0.34",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
     "cosmwasm_version": "0.30",
     "cosmwasm_enabled": true,
     "genesis": {
@@ -83,7 +86,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "juno-mainnet-seed.autostake.net:27136",
+        "address": "juno-mainnet-seed.autostake.com:27136",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -99,7 +102,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "juno-mainnet-peer.autostake.net:27136",
+        "address": "juno-mainnet-peer.autostake.com:27136",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -114,6 +117,10 @@
       {
         "address": "https://rpc-juno.whispernode.com:443",
         "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://rpc-juno.goldenratiostaking.net",
+        "provider": "Golden Ratio Staking"
       },
       {
         "address": "https://rpc-juno.itastakers.com",
@@ -164,7 +171,7 @@
         "provider": "BlockHunters 🎯"
       },
       {
-        "address": "https://rpc.juno.kingnodes.com",
+        "address": "https://juno.kingnodes.com",
         "provider": "kingnodes 👑"
       },
       {
@@ -176,12 +183,24 @@
         "provider": "Stake&Relax Validator 🦥"
       },
       {
-        "address": "https://juno-mainnet-rpc.autostake.net:443",
+        "address": "https://juno-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "http://rpc-juno.freshstaking.com:39657",
         "provider": "FreshSTAKING"
+      },
+      {
+        "address": "https://rpc-juno.architectnodes.com",
+        "provider": "Architect Nodes"
+      },
+      {
+        "address": "https://juno.rpc.interchain.ivaldilabs.xyz",
+        "provider": "ivaldilabs"
+      },
+      {
+        "address": "https://juno-rpc.cosmosrescue.com",
+        "provider": "cosmosrescue"
       }
     ],
     "rest": [
@@ -230,7 +249,7 @@
         "provider": "BlockHunters 🎯"
       },
       {
-        "address": "https://api.juno.kingnodes.com",
+        "address": "https://juno.kingnodes.com",
         "provider": "kingnodes 👑"
       },
       {
@@ -240,6 +259,22 @@
       {
         "address": "https://juno-api.stakeandrelax.net",
         "provider": "Stake&Relax Validator 🦥"
+      },
+      {
+        "address": "https://rest-juno.architectnodes.com",
+        "provider": "Architect Nodes"
+      },
+      {
+        "address": "https://juno-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://juno.rest.interchain.ivaldilabs.xyz",
+        "provider": "ivaldilabs"
+      },
+      {
+        "address": "https://juno-api.cosmosrescue.com",
+        "provider": "cosmosrescue"
       }
     ],
     "grpc": [
@@ -260,12 +295,28 @@
         "provider": "Stakin"
       },
       {
-        "address": "grpc.juno.kingnodes.com:443",
+        "address": "grpc-juno.kingnodes.com:443",
         "provider": "kingnodes 👑"
       },
       {
         "address": "http://juno-grpc.stakeandrelax.net:12690",
         "provider": "Stake&Relax Validator 🦥"
+      },
+      {
+        "address": "grpc-juno.architectnodes.com:1443",
+        "provider": "Architect Nodes"
+      },
+      {
+        "address": "juno-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "juno.grpc.interchain.ivaldilabs.xyz:443",
+        "provider": "ivaldilabs"
+      },
+      {
+        "address": "juno-grpc.cosmosrescue.com:9090",
+        "provider": "cosmosrescue"
       }
     ]
   },
