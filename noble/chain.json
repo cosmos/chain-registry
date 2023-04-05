@@ -1,0 +1,107 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "noble",
+  "chain_id": "noble-1",
+  "website": "https://nobleassets.xyz/",
+  "pretty_name": "Noble",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "noble",
+  "daemon_name": "nobled",
+  "node_home": "$HOME/.nobled",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uusdc",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.03
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ustake"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/strangelove-ventures/noble",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "cosmos_sdk_version": "v0.45",
+    "consensus": {
+      "type": "tendermint",
+      "version": "v0.34"
+    },
+    "cosmwasm_enabled": false,
+    "ibc_go_version": "v3.4.0",
+    "ics_enabled": [
+      "ics20-1"
+    ],
+    "genesis": {
+      "name": "v1.0.0",
+      "genesis_url": "https://github.com/strangelove-ventures/noble-networks/blob/main/mainnet/noble-1/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.0.0",
+        "tag": "v1.0.0",
+        "height": 0,
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ],
+        "cosmos_sdk_version": "v0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "v0.34"
+        },
+        "cosmwasm_enabled": false,
+        "ibc_go_version": "v3.4.0",
+        "ics_enabled": [
+          "ics20-1"
+        ]
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://noble-rpc.polkachu.com",
+        "provider": "polkachu"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://noble-api.polkachu.com",
+        "provider": "polkachu"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "noble-grpc.polkachu.com:21590",
+        "provider": "polkachu"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/noble",
+      "tx_page": "https://www.mintscan.io/noble/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/noble/account/${accountAddress}"
+    }
+  ]
+}

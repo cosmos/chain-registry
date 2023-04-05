@@ -1,0 +1,72 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "celestiatestnet2",
+  "chain_id": "arabica-5",
+  "pretty_name": "Celestia's Arabica Testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "bech32_prefix": "celestia",
+  "daemon_name": "celestia-appd",
+  "node_home": "$HOME/.celestia-app",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "utia",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/celestiaorg/celestia-app",
+    "recommended_version": "v0.12.0",
+    "compatible_versions": [
+      "v0.12.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/arabica-5/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v0.12.0",
+        "recommended_version": "v0.12.0",
+        "compatible_versions": [
+          "v0.12.0"
+        ]
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "12D3KooWDgG69kXfmSiHjUErN2ahpUC1SXpSfB2urrqMZ6aWC8NS",
+        "address": "limani.celestia-devops.dev",
+        "provider": "Celestia"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.limani.celestia-devops.dev",
+        "provider": "Celestia"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.limani.celestia-devops.dev",
+        "provider": "Celestia"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Ping.Pub",
+      "url": "https://explorer.celestia.observer/arabica",
+      "tx_page": "https://explorer.celestia.observer/arabica/tx/${txHash}"
+    }
+  ]
+}
