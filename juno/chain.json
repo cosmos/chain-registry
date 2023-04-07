@@ -46,7 +46,23 @@
     "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://download.dimi.sh/juno-phoenix2-genesis.tar.gz"
-    }
+    },
+    "versions": [
+      {
+        "name": "v13.0.0",
+        "recommended_version": "v13.0.0",
+        "compatible_versions": [
+          "v13.0.0"
+        ],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.30",
+        "cosmwasm_enabled": true
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -201,6 +217,10 @@
       {
         "address": "https://juno-rpc.cosmosrescue.com",
         "provider": "cosmosrescue"
+      },
+      {
+        "address": "http://167.235.211.168:26657",
+        "provider": "CommunityStaking"
       }
     ],
     "rest": [
@@ -275,6 +295,10 @@
       {
         "address": "https://juno-api.cosmosrescue.com",
         "provider": "cosmosrescue"
+      },
+      {
+        "address": "http://167.235.211.168:1317",
+        "provider": "CommunityStaking"
       }
     ],
     "grpc": [
@@ -317,6 +341,10 @@
       {
         "address": "juno-grpc.cosmosrescue.com:9090",
         "provider": "cosmosrescue"
+      },
+      {
+        "address": "http://167.235.211.168:9091",
+        "provider": "CommunityStaking"
       }
     ]
   },

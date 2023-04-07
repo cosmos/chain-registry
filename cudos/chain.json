@@ -7,6 +7,7 @@
   "chain_id": "cudos-1",
   "bech32_prefix": "cudos",
   "daemon_name": "cudos-noded",
+  "website": "https://www.cudos.org/",
   "node_home": "$HOME/cudos-data",
   "key_algos": [
     "secp256k1"
@@ -38,7 +39,17 @@
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/CudoVentures/cudos-builders/v1.0.0/docker/config/genesis.mainnet.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v1.1.0",
+        "recommended_version": "v1.1.0",
+        "compatible_versions": [
+          "v1.0.1",
+          "v1.1.0"
+        ]
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -56,6 +67,11 @@
         "id": "e0f3bcc574ef66ae4561fad0772a4fd1959969af",
         "address": "cluster-3-seed-1.hosts.cudos.org:26656",
         "provider": "cudo"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "cudos-mainnet-seed.autostake.com:27256",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "persistent_peers": [
@@ -83,6 +99,11 @@
         "id": "eb14f9142ad313297653f84754b1caf60efe75ac",
         "address": "mainnet-full-node-02.hosts.cudos.org:26656",
         "provider": "cudo"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "cudos-mainnet-peer.autostake.com:27256",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -99,6 +120,10 @@
       {
         "address": "https://cudos-rpc.kleomedes.network",
         "provider": "Kleomedes"
+      },
+      {
+        "address": "https://cudos-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "rest": [
@@ -113,12 +138,20 @@
       {
         "address": "https://cudos-api.kleomedes.network",
         "provider": "Kleomedes"
+      },
+      {
+        "address": "https://cudos-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "grpc": [
       {
         "address": "mainnet-full-node-01.hosts.cudos.org:9090",
         "provider": "cudo"
+      },
+      {
+        "address": "cudos-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
