@@ -1,0 +1,156 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "uptick",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://uptick.network/",
+  "pretty_name": "Uptick",
+  "chain_id": "uptick_117-1",
+  "bech32_prefix": "uptick",
+  "daemon_name": "uptickd",
+  "node_home": "$HOME/.uptickd",
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "auptick",
+        "fixed_min_gas_price": 0.0001,
+        "low_gas_price": 0.0001,
+        "average_gas_price": 0.00025,
+        "high_gas_price": 0.0004
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "auptick"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/UptickNetwork/uptick",
+    "recommended_version": "v0.2.4",
+    "compatible_versions": [
+      "v0.2.4"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/UptickNetwork/uptick/releases/download/v0.2.4/uptick-linux-amd64-v0.2.4.tar.gz"
+    },
+    "cosmos_sdk_version": "0.46",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "cosmwasm_version": "",
+    "cosmwasm_enabled": false,
+    "ibc_go_version": "5.0.1",
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/uptick-network/mainnet/main/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v0.2.4",
+        "recommended_version": "v0.2.4",
+        "compatible_versions": [
+          "v0.2.4"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "",
+        "cosmwasm_enabled": false,
+        "ibc_go_version": "5.0.1",
+        "binaries": {
+          "linux/amd64": "https://github.com/UptickNetwork/uptick/releases/download/v0.2.4/uptick-linux-amd64-v0.2.4.tar.gz"
+        }
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "f97a75fb69d3a5fe893dca7c8d238ccc0bd66a8f",
+        "address": "uptick.seed.brocha.in:30600",
+        "provider": "Brochain"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "uptick.rpc.kjnodes.com:15659",
+        "provider": "kjnodes"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "94b63fddfc78230f51aeb7ac34b9fb86bd042a77",
+        "address": "uptick-rpc.p2p.brocha.in:30601",
+        "provider": "Brochain"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://uptick-rpc.brocha.in:443",
+        "provider": "Brochain"
+      },
+      {
+        "address": "https://rpc.uptick.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://uptick.rpc.kjnodes.com",
+        "provider": "kjnodes"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://uptick-rest.brocha.in:443",
+        "provider": "Brochain"
+      },
+      {
+        "address": "https://api.uptick.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://uptick.api.kjnodes.com",
+        "provider": "kjnodes"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.uptick.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "uptick.grpc.kjnodes.com:15090",
+        "provider": "kjnodes"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://jsonrpc.uptick.nodestake.top",
+        "provider": "NodeStake"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://explorers.brocha.in/uptick",
+      "tx_page": "https://explorers.brocha.in/uptick/tx/${txHash}"
+    },
+    {
+      "kind": "NodeStake Explorer",
+      "url": "https://explorer.nodestake.top/uptick",
+      "tx_page": "https://explorer.nodestake.top/uptick/tx/${txHash}"
+    },
+    {
+      "kind": "cosmotracker",
+      "url": "https://cosmotracker.com/uptick",
+      "tx_page": "https://cosmotracker.com/uptick/tx/${txHash}"
+    }
+  ]
+}

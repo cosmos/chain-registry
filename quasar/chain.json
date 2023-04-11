@@ -1,0 +1,184 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "quasar",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://www.quasar.fi/",
+  "pretty_name": "Quasar",
+  "chain_id": "quasar-1",
+  "bech32_prefix": "quasar",
+  "daemon_name": "quasarnoded",
+  "node_home": "$HOME/.quasarnode",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uqsr"
+      }
+    ]
+  },
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ibc/0471F1C4E7AFD3F07702BEF6DC365268D64570F7C1FDC98EA6098DD6DE59817B",
+        "fixed_min_gas_price": 0.01
+      },
+      {
+        "denom": "ibc/FA0006F056DB6719B8C16C551FC392B62F5729978FC0B125AC9A432DBB2AA1A5",
+        "fixed_min_gas_price": 0.01
+      },
+      {
+        "denom": "ibc/FA7775734CC73176B7425910DE001A1D2AD9B6D9E93129A5D0750EAD13E4E63A",
+        "fixed_min_gas_price": 0.01
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/quasar-finance/quasar-preview",
+    "recommended_version": "v0.1.0",
+    "compatible_versions": [
+      "v0.1.0"
+    ],
+    "cosmos_sdk_version": "0.46",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "cosmwasm_version": "0.27",
+    "cosmwasm_enabled": true,
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/quasar-finance/networks/main/quasar-1/definitive-genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v0.1.0",
+        "recommended_version": "v0.1.0",
+        "compatible_versions": [
+          "v0.1.0"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.27",
+        "cosmwasm_enabled": true
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:18256",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:18256",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
+        "address": "quasar-seed-1.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "e726816f42831689eab9378d5d577f1d06d25716",
+        "address": "quasar-seed-2.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "quasar.rpc.kjnodes.com:48659",
+        "provider": "kjnodes"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "298e0e1faf8a5da43514cc2908d2908658e732a0",
+        "address": "298e0e1faf8a5da43514cc2908d2908658e732a0@38.146.3.148:18256"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://quasar-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://quasar-rpc.polkachu.com",
+        "provider": "polkachu"
+      },
+      {
+        "address": "https://rpc-quasar.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://quasar-rpc.enigma-validator.com",
+        "provider": "Enigma"
+      },
+      {
+        "address": "https://quasar.rpc.kjnodes.com",
+        "provider": "kjnodes"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://quasar-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://quasar-api.polkachu.com",
+        "provider": "polkachu"
+      },
+      {
+        "address": "https://lcd-quasar.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://quasar-lcd.enigma-validator.com",
+        "provider": "Enigma"
+      },
+      {
+        "address": "https://quasar.api.kjnodes.com",
+        "provider": "kjnodes"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://quasar-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "quasar-grpc.polkachu.com:18290",
+        "provider": "polkachu"
+      },
+      {
+        "address": "quasar.grpc.kjnodes.com:48090",
+        "provider": "kjnodes"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/quasar",
+      "tx_page": "https://www.mintscan.io/quasar/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/quasar/account/${accountAddress}"
+    },
+    {
+      "kind": "bigdipper",
+      "url": "https://bigdipper.live/quasar",
+      "tx_page": "https://bigdipper.live/quasar/transactions/${txHash}",
+      "account_page": "https://bigdipper.live/quasar/accounts/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "mainnet"
+  ]
+}
