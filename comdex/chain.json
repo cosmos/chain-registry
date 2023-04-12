@@ -28,14 +28,33 @@
   },
   "codebase": {
     "git_repo": "https://github.com/comdex-official/comdex",
-    "recommended_version": "v9.0.0",
+    "recommended_version": "v10.0.0",
     "compatible_versions": [
-      "v9.0.0"
+      "v10.0.0"
     ],
+    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://comdex-mainnet-genesis.s3.ap-southeast-1.amazonaws.com/genesis.json"
     },
-    "cosmwasm_enabled": true
+    "versions": [
+      {
+        "name": "v9.0.0",
+        "recommended_version": "v9.0.0",
+        "compatible_versions": [
+          "v9.0.0"
+        ],
+        "cosmwasm_enabled": true,
+        "next_version_name": "v10.0.0"
+      },
+      {
+        "name": "v10.0.0",
+        "recommended_version": "v10.0.0",
+        "compatible_versions": [
+          "v10.0.0"
+        ],
+        "cosmwasm_enabled": true
+      }
+    ]
   },
   "daemon_name": "comdex",
   "node_home": "$HOME/.comdex",
@@ -67,6 +86,16 @@
         "id": "6596d143fd128b2394b27cd7846bda099ca5a193",
         "address": "seeds.goldenratiostaking.net:1621",
         "provider": "Golden Ratio Staking"
+      },
+      {
+        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
+        "address": "comdex-seed-1.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "e726816f42831689eab9378d5d577f1d06d25716",
+        "address": "comdex-seed-2.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -175,7 +204,7 @@
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
+      "kind": "EZ Staking Tools",
       "url": "https://ezstaking.tools/comdex",
       "tx_page": "https://ezstaking.tools/comdex/txs/${txHash}",
       "account_page": "https://ezstaking.tools/comdex/account/${accountAddress}"

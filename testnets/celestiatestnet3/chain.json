@@ -1,0 +1,72 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "celestiatestnet3",
+  "chain_id": "mocha",
+  "pretty_name": "Celestia's Mocha Testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "bech32_prefix": "celestia",
+  "daemon_name": "celestia-appd",
+  "node_home": "$HOME/.celestia-app",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "utia",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/celestiaorg/celestia-app",
+    "recommended_version": "v0.11.1",
+    "compatible_versions": [
+      "v0.12.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/mocha/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v0.11.1",
+        "recommended_version": "v0.11.1",
+        "compatible_versions": [
+          "v0.12.0"
+        ]
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "9aa8a73ea9364aa3cf7806d4dd25b6aed88d8152",
+        "address": "celestia.seed.mzonder.com",
+        "provider": "Mzonder"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-mocha.pops.one",
+        "provider": "P-OPs"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-mocha.pops.one",
+        "provider": "P-OPs"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Mintscan",
+      "url": "https://testnet.mintscan.io/celestia-testnet",
+      "tx_page": "https://testnet.mintscan.io/celestia-testnet/txs/${txHash}"
+    }
+  ]
+}

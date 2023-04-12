@@ -43,7 +43,20 @@
     },
     "genesis": {
       "genesis_url": "https://github.com/vincadian/arkh-blockchain/blob/master/genesis/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v2.0.0",
+        "recommended_version": "v2.0.0",
+        "compatible_versions": [
+          "v2.0.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/vincadian/arkh-blockchain/releases/download/latest/arkh-blockchain_latest_linux_amd64.tar.gz",
+          "darwin/amd64": "https://github.com/vincadian/arkh-blockchain/releases/download/latest/arkh-blockchain_latest_darwin_amd64.tar.gz"
+        }
+      }
+    ]
   },
   "peers": {
     "seeds": []
@@ -65,6 +78,10 @@
       {
         "address": "https://arkh-rpc.kynraze.com",
         "provider": "Kynraze"
+      },
+      {
+        "address": "https://rpc.arkh.nodexcapital.com",
+        "provider": "NodeX Validator"
       }
     ],
     "rest": [
@@ -83,21 +100,24 @@
       {
         "address": "https://arkh-api.kynraze.com",
         "provider": "Kynraze"
+      },
+      {
+        "address": "https://rest.arkh.nodexcapital.com",
+        "provider": "NodeX Validator"
       }
     ],
     "grpc": [
       {
         "address": "grpc.arkh.nodestake.top:443",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://grpc.arkh.nodexcapital.com:443",
+        "provider": "NodeX Validator"
       }
     ]
   },
   "explorers": [
-    {
-      "kind": "ping.pub",
-      "url": "https://testnet.ping.pub/arkh",
-      "tx_page": "https://testnet.ping.pub/arkh/tx/${txHash}"
-    },
     {
       "kind": "NodeStake Explorer",
       "url": "https://explorer.nodestake.top/arkh",
@@ -107,6 +127,11 @@
       "kind": "Kynraze Explorer",
       "url": "https://explorer.kynraze.com/arkhadian",
       "tx_page": "https://explorer.kynraze.com/arkhadian/tx/${txHash}"
+    },
+    {
+      "kind": "NODEXPLORER",
+      "url": "https://explorer.nodexcapital.com/arkhadian",
+      "tx_page": "https://explorer.nodexcapital.com/arkhadian/tx/${txHash}"
     }
   ]
 }
