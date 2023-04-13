@@ -1,0 +1,47 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "archwaytestnet",
+  "chain_id": "constantine-2",
+  "pretty_name": "Archway testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://archway.io",
+  "bech32_prefix": "archway",
+  "daemon_name": "archwayd",
+  "node_home": "$HOME/.archway",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uconst"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/archway-network/archway"
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.constantine-2.archway.tech",
+        "provider": "Quickapi"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.constantine-2.archway.tech",
+        "provider": "Quickapi"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "archwayscan",
+      "url": "https://explorer.constantine-2.archway.tech",
+      "tx_page": "https://explorer.constantine-2.archway.tech/transactions/${txHash}"
+    }
+  ]
+}

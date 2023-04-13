@@ -1,0 +1,155 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "neutrontestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Neutron Testnet",
+  "chain_id": "baryon-1",
+  "bech32_prefix": "neutron",
+  "daemon_name": "neutrond",
+  "node_home": "$HOME/.neutrond",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "untrn",
+        "low_gas_price": 0,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.05
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/neutron-org/neutron",
+    "recommended_version": "v0.2.0",
+    "compatible_versions": [],
+    "cosmos_sdk_version": "0.45",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "cosmwasm_version": "0.30",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "4.2.0",
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/cosmos/testnets/master/replicated-security/baryon-1/baryon-1-genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v0.2.0",
+        "recommended_version": "v0.2.0",
+        "compatible_versions": [],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.30",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "4.2.0"
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/neutrontestnet/images/neutron-black-logo.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/neutrontestnet/images/neutron-black-logo.svg"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "e2c07e8e6e808fb36cca0fc580e31216772841df",
+        "address": "p2p.baryon.ntrn.info:26656",
+        "provider": "P2P.ORG"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "233598946a15427b9541376e7cfc30dab07c4327",
+        "address": "35.199.190.244:26656",
+        "provider": "Strangelove"
+      },
+      {
+        "id": "359d63178736911e3e4c716f2491cafaa687351a",
+        "address": "34.168.248.184:26656",
+        "provider": "Strangelove"
+      },
+      {
+        "id": "3d2516052fd8b134428971d1218a149bba6e44be",
+        "address": "34.105.100.18:26656",
+        "provider": "Strangelove"
+      },
+      {
+        "id": "b7d0bd260fca7a5a19c7631b15f6068891faa60e",
+        "address": "baryon-apple.rs-testnet.polypore.xyz:26656",
+        "provider": "Hypha"
+      },
+      {
+        "id": "49d75c6094c006b6f2758e45457c1f3d6002ce7a",
+        "address": "baryon-banana.rs-testnet.polypore.xyz:26656",
+        "provider": "Hypha"
+      },
+      {
+        "id": "f2520026fb9086f1b2f09e132d209cbe88064ec1",
+        "address": "baryon-cherry.rs-testnet.polypore.xyz:26656",
+        "provider": "Hypha"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.baryon.ntrn.info",
+        "provider": "P2P.ORG"
+      },
+      {
+        "address": "https://rpc.baryon.remedy.tm.p2p.org",
+        "provider": "P2P.ORG"
+      },
+      {
+        "address": "https://rpc.baryon-sentry-01.rs-testnet.polypore.xyz",
+        "provider": "Hypha"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.baryon.ntrn.info",
+        "provider": "P2P.ORG"
+      },
+      {
+        "address": "https://api.baryon.remedy.tm.p2p.org",
+        "provider": "P2P.ORG"
+      },
+      {
+        "address": "https://rest.baryon-sentry-01.rs-testnet.polypore.xyz",
+        "provider": "Hypha"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.baryon.ntrn.info:80",
+        "provider": "P2P.ORG"
+      },
+      {
+        "address": "grpc.baryon.remedy.tm.p2p.org:443",
+        "provider": "P2P.ORG"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Ping.pub Explorer from Hypha",
+      "url": "https://explorer.rs-testnet.polypore.xyz/baryon-1",
+      "tx_page": "https://explorer.rs-testnet.polypore.xyz/baryon-1/tx/${txHash}",
+      "account_page": "https://explorer.rs-testnet.polypore.xyz/baryon-1/account/${accountAddress}"
+    },
+    {
+      "kind": "Mintscan",
+      "url": "https://testnet.mintscan.io/neutron-testnet",
+      "tx_page": "https://testnet.mintscan.io/neutron-testnet/txs/${txHash}",
+      "account_page": "https://testnet.mintscan.io/neutron-testnet/account/${accountAddress}"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "injectivetestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://injective.com",
+  "pretty_name": "Injective",
+  "chain_id": "injective-888",
+  "bech32_prefix": "inj",
+  "extra_codecs": [
+    "injective"
+  ],
+  "slip44": 60,
+  "daemon_name": "injectived",
+  "node_home": "$HOME/.injectived",
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "inj",
+        "fixed_min_gas_price": 500000000,
+        "low_gas_price": 500000000,
+        "average_gas_price": 700000000,
+        "high_gas_price": 900000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "inj"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/InjectiveLabs/testnet",
+    "recommended_version": "v1.10.2",
+    "compatible_versions": [
+      "v1.10.2"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.10.2-1678712142/linux-amd64.zip",
+      "darwin/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.10.2-1678712142/darwin-amd64.zip"
+    },
+    "genesis": {
+      "genesis_url": "aws s3 cp s3://injective-snapshots/testnet/genesis.json . --no-sign-request"
+    },
+    "versions": [
+      {
+        "name": "v1.10.2",
+        "recommended_version": "v1.10.2",
+        "compatible_versions": [
+          "v1.10.2"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.10.2-1678712142/linux-amd64.zip",
+          "darwin/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.10.2-1678712142/darwin-amd64.zip"
+        }
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "e5cc63a9117e6f372169f15774ea4f7c5177da25",
+        "address": "34.23.245.175:26656",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "5bf72750f7e015ccfd65246c9f16185144867aff",
+        "address": "35.231.107.231:26656",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "588dd6d1e1a338d1524efcfbd1c2a9bfc5df33d2",
+        "address": "104.196.43.6:26656",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "8a05cc5bc466169a7332287ddce4cd8995684d1a",
+        "address": "34.73.247.128:26656",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "0a2af0f999b08ccaf8825198d9aafb8b947c003f",
+        "address": "34.73.57.164:26656",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "d0c2407f4b1cef137d9d3ada69478234ad2a28f4",
+        "address": "34.73.57.164:26656",
+        "provider": "injectivelabs.org"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://k8s.testnet.tm.injective.network:443",
+        "provider": "injectiveLabs"
+      },
+      {
+        "address": "https://testnet.tm.injective.network",
+        "provider": "injectiveLabs"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://k8s.testnet.lcd.injective.network",
+        "provider": "injectiveLabs"
+      },
+      {
+        "address": "https://testnet.grpc.injective.network",
+        "provider": "injectiveLabs"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "k8s.testnet.chain.grpc.injective.network:443",
+        "provider": "injectiveLabs"
+      },
+      {
+        "address": "https://testnet.grpc.injective.network",
+        "provider": "injectiveLabs"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "injectiveprotocol",
+      "url": "https://testnet.explorer.injective.network/",
+      "tx_page": "https://testnet.explorer.injective.network/transaction/${txHash}"
+    }
+  ]
+}

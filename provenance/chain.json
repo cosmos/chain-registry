@@ -33,20 +33,32 @@
   },
   "codebase": {
     "git_repo": "https://github.com/provenance-io/provenance",
-    "recommended_version": "v1.8.2",
+    "recommended_version": "v1.14.1",
     "compatible_versions": [
-      "v1.7.5",
-      "v1.7.6",
-      "v1.8.0",
-      "v1.8.2"
+      "v1.14.1",
+      "v1.14.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.8.2/provenance-linux-amd64-v1.8.2.zip",
-      "darwin/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.8.2/provenance-darwin-amd64-v1.8.2.zip"
+      "linux/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.14.1/provenance-linux-amd64-v1.14.1.zip"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/provenance-io/mainnet/main/pio-mainnet-1/genesis.json"
-    }
+    },
+    "cosmwasm_enabled": true,
+    "versions": [
+      {
+        "name": "v1.14.1",
+        "recommended_version": "v1.14.1",
+        "compatible_versions": [
+          "v1.14.1",
+          "v1.14.0"
+        ],
+        "cosmwasm_enabled": true,
+        "binaries": {
+          "linux/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.14.1/provenance-linux-amd64-v1.14.1.zip"
+        }
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -71,6 +83,10 @@
       {
         "address": "https://rpc-provenance-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://provenance-rpc.ibs.team",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "rest": [
@@ -81,6 +97,10 @@
       {
         "address": "https://api-provenance-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://provenance-api.ibs.team",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "grpc": [
@@ -121,6 +141,12 @@
       "kind": "atomscan",
       "url": "https://atomscan.com/provenance",
       "tx_page": "https://atomscan.com/provenance/transactions/${txHash}"
+    },
+    {
+      "kind": "bigdipper",
+      "url": "https://bigdipper.live/provenance",
+      "tx_page": "https://bigdipper.live/provenance/transactions/${txHash}",
+      "account_page": "https://bigdipper.live/provenance/accounts/${accountAddress}"
     }
   ]
 }
