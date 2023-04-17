@@ -28,14 +28,33 @@
   },
   "codebase": {
     "git_repo": "https://github.com/comdex-official/comdex",
-    "recommended_version": "v9.0.0",
+    "recommended_version": "v10.0.0",
     "compatible_versions": [
-      "v9.0.0"
+      "v10.0.0"
     ],
+    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://comdex-mainnet-genesis.s3.ap-southeast-1.amazonaws.com/genesis.json"
     },
-    "cosmwasm_enabled": true
+    "versions": [
+      {
+        "name": "v9.0.0",
+        "recommended_version": "v9.0.0",
+        "compatible_versions": [
+          "v9.0.0"
+        ],
+        "cosmwasm_enabled": true,
+        "next_version_name": "v10.0.0"
+      },
+      {
+        "name": "v10.0.0",
+        "recommended_version": "v10.0.0",
+        "compatible_versions": [
+          "v10.0.0"
+        ],
+        "cosmwasm_enabled": true
+      }
+    ]
   },
   "daemon_name": "comdex",
   "node_home": "$HOME/.comdex",
@@ -158,6 +177,10 @@
       {
         "address": "https://rest-comdex.carbonZERO.zone:443",
         "provider": "carbonZERO🌲"
+      },
+      {
+        "address": "http://comdex.api.staking-explorer.com",
+        "provider": "comdex.staking-explorer.com"
       }
     ],
     "grpc": [
@@ -185,7 +208,7 @@
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
+      "kind": "EZ Staking Tools",
       "url": "https://ezstaking.tools/comdex",
       "tx_page": "https://ezstaking.tools/comdex/txs/${txHash}",
       "account_page": "https://ezstaking.tools/comdex/account/${accountAddress}"

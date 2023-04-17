@@ -41,7 +41,10 @@
       "v1.0.0"
     ],
     "cosmos_sdk_version": "v0.45",
-    "tendermint_version": "v0.34",
+    "consensus": {
+      "type": "tendermint",
+      "version": "v0.34"
+    },
     "cosmwasm_enabled": false,
     "ibc_go_version": "v3.4.0",
     "ics_enabled": [
@@ -55,8 +58,76 @@
       {
         "name": "v1.0.0",
         "tag": "v1.0.0",
-        "height": 0
+        "height": 0,
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ],
+        "cosmos_sdk_version": "v0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "v0.34"
+        },
+        "cosmwasm_enabled": false,
+        "ibc_go_version": "v3.4.0",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "next_version_name": "neon"
+
+      },
+      {
+        "name": "neon",
+        "tag": "v2.0.0",
+        "height": 119000,
+        "recommended_version": "v2.0.0",
+        "compatible_versions": [
+          "v2.0.0"
+        ],
+        "cosmos_sdk_version": "v0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "v0.34"
+        },
+        "cosmwasm_enabled": false,
+        "ibc_go_version": "v3.4.0",
+        "ics_enabled": [
+          "ics20-1"
+        ]
       }
     ]
-  }
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://noble-rpc.polkachu.com",
+        "provider": "polkachu"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://noble-api.polkachu.com",
+        "provider": "polkachu"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "noble-grpc.polkachu.com:21590",
+        "provider": "polkachu"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/noble",
+      "tx_page": "https://www.mintscan.io/noble/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/noble/account/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://explore.strange.love/noble-1",
+      "tx_page": "https://explore.strange.love/noble-1/tx/${txHash}"
+    }
+  ]
 }
