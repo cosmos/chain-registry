@@ -1,5 +1,5 @@
 {
-  "$schema": "../../chain.schema.json",
+  "$schema": "../chain.schema.json",
   "chain_name": "quasar",
   "status": "live",
   "network_type": "mainnet",
@@ -51,7 +51,23 @@
     "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/quasar-finance/networks/main/quasar-1/definitive-genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v0.1.0",
+        "recommended_version": "v0.1.0",
+        "compatible_versions": [
+          "v0.1.0"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.27",
+        "cosmwasm_enabled": true
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -74,6 +90,11 @@
         "id": "e726816f42831689eab9378d5d577f1d06d25716",
         "address": "quasar-seed-2.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "quasar.rpc.kjnodes.com:48659",
+        "provider": "kjnodes"
       }
     ],
     "persistent_peers": [
@@ -100,6 +121,10 @@
       {
         "address": "https://quasar-rpc.enigma-validator.com",
         "provider": "Enigma"
+      },
+      {
+        "address": "https://quasar.rpc.kjnodes.com",
+        "provider": "kjnodes"
       }
     ],
     "rest": [
@@ -118,6 +143,10 @@
       {
         "address": "https://quasar-lcd.enigma-validator.com",
         "provider": "Enigma"
+      },
+      {
+        "address": "https://quasar.api.kjnodes.com",
+        "provider": "kjnodes"
       }
     ],
     "grpc": [
@@ -128,6 +157,10 @@
       {
         "address": "quasar-grpc.polkachu.com:18290",
         "provider": "polkachu"
+      },
+      {
+        "address": "quasar.grpc.kjnodes.com:48090",
+        "provider": "kjnodes"
       }
     ]
   },

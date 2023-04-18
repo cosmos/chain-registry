@@ -17,10 +17,10 @@
     "fee_tokens": [
       {
         "denom": "uwhale",
-        "fixed_min_gas_price": 0,
-        "low_gas_price": 0,
-        "average_gas_price": 0,
-        "high_gas_price": 0
+        "fixed_min_gas_price": 0.25,
+        "low_gas_price": 0.25,
+        "average_gas_price": 0.5,
+        "high_gas_price": 0.75
       }
     ]
   },
@@ -30,6 +30,10 @@
         "denom": "uwhale"
       }
     ]
+  },
+  "logo_URIs": {
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/migaloo-light.svg",
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/migaloo-light.png"
   },
   "codebase": {
     "git_repo": "https://github.com/White-Whale-Defi-Platform/migaloo-chain",
@@ -46,7 +50,23 @@
     "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/White-Whale-Defi-Platform/migaloo-chain/main/networks/mainnet/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v2.0.0",
+        "recommended_version": "v2.0.0",
+        "compatible_versions": [
+          "v2.0.0"
+        ],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.28",
+        "cosmwasm_enabled": true
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -69,6 +89,11 @@
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:20756",
         "provider": "Polkachu"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "migaloo.rpc.kjnodes.com:49659",
+        "provider": "kjnodes"
       }
     ],
     "persistent_peers": [
@@ -108,6 +133,10 @@
       {
         "address": "https://rpc.whitewhale.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://migaloo.rpc.kjnodes.com",
+        "provider": "kjnodes"
       }
     ],
     "rest": [
@@ -134,6 +163,10 @@
       {
         "address": "https://api.whitewhale.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://migaloo.api.kjnodes.com",
+        "provider": "kjnodes"
       }
     ],
     "grpc": [
@@ -152,6 +185,10 @@
       {
         "address": "https://grpc.whitewhale.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "migaloo.grpc.kjnodes.com:49090",
+        "provider": "kjnodes"
       }
     ]
   },

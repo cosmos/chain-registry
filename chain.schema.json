@@ -197,15 +197,6 @@
           },
           "additionalProperties": false
         },
-        "genesis": {
-          "type": "object",
-          "properties": {
-            "genesis_url": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        },
         "cosmos_sdk_version": {
           "type": "string"
         },
@@ -289,6 +280,59 @@
               "next_version_name": {
                 "type": "string",
                 "description": "[Optional] Name of the following version"
+              },
+              "recommended_version": {
+                "type": "string"
+              },
+              "compatible_versions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "cosmos_sdk_version": {
+                "type": "string"
+              },
+              "consensus": {
+                "type": "object",
+                "required": [
+                  "type"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "tendermint",
+                      "cometbft"
+                    ]
+                  },
+                  "version": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "cosmwasm_version": {
+                "type": "string"
+              },
+              "cosmwasm_enabled": {
+                "type": "boolean"
+              },
+              "ibc_go_version": {
+                "type": "string"
+              },
+              "ics_enabled": {
+                "type": "array",
+                "description": "List of IBC apps (usually corresponding to a ICS standard) which have been enabled on the network.",
+                "items": {
+                  "type": "string",
+                  "description": "IBC app or ICS standard.",
+                  "enum": [
+                    "ics20-1",
+                    "ics27-1",
+                    "mauth"
+                  ]
+                }
               },
               "binaries": {
                 "type": "object",
