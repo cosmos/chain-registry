@@ -33,7 +33,10 @@
     "fee_tokens": [
       {
         "denom": "uflix",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.001,
+        "average_gas_price": 0.0025,
+        "high_gas_price": 0.025
       }
     ]
   },
@@ -116,6 +119,10 @@
       {
         "address": "https://omniflix.kingnodes.com",
         "provider": "kingnodes"
+      },
+      {
+        "address": "http://omniflix.api.staking-explorer.com",
+        "provider": "omniflix.staking-explorer.com"
       }
     ],
     "grpc": [
@@ -143,7 +150,7 @@
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
+      "kind": "EZ Staking Tools",
       "url": "https://ezstaking.tools/omniflixhub",
       "tx_page": "https://ezstaking.tools/omniflixhub/txs/${txHash}",
       "account_page": "https://ezstaking.tools/omniflixhub/account/${accountAddress}"
