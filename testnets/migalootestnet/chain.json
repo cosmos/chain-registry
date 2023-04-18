@@ -1,0 +1,97 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "migalootestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://www.whitewhale.money/",
+  "pretty_name": "Migaloo Testnet",
+  "chain_id": "narwhal-1",
+  "bech32_prefix": "migaloo",
+  "daemon_name": "migalood",
+  "node_home": "$HOME/.migalood",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uwhale",
+        "fixed_min_gas_price": 0.25,
+        "low_gas_price": 0.25,
+        "average_gas_price": 0.5,
+        "high_gas_price": 0.75
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uwhale"
+      }
+    ]
+  },
+  "logo_URIs": {
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/migaloo-light.svg",
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/migaloo-light.png"
+  },
+  "codebase": {
+    "git_repo": "https://github.com/White-Whale-Defi-Platform/migaloo-chain",
+    "recommended_version": "v2.0.0",
+    "compatible_versions": [
+      "v2.0.0"
+    ],
+    "cosmos_sdk_version": "0.45",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "cosmwasm_version": "0.28",
+    "cosmwasm_enabled": true,
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/White-Whale-Defi-Platform/migaloo-chain/main/networks/mainnet/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v2.0.0",
+        "recommended_version": "v2.0.0",
+        "compatible_versions": [
+          "v2.0.0"
+        ],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.28",
+        "cosmwasm_enabled": true
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://migaloo-testnet-rpc.polkachu.com",
+        "provider": "Polkachu"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://migaloo-testnet-api.polkachu.com",
+        "provider": "Polkachu"
+      }
+    ],
+    "grpc": []
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://testnet.ping.pub/narwhal",
+      "tx_page": "https://testnet.ping.pub/narwhal/tx/${txHash}"
+    }
+  ]
+}
