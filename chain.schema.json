@@ -435,6 +435,32 @@
       },
       "additionalProperties": false
     },
+    "statesync": {
+      "type": "object",
+      "properties": {
+        "wasm_download_url": {
+          "type": "string"
+        },
+        "statesync_peers": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "snapshot_interval": {
+                "type": "number"
+              },
+              "provider": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
     "apis": {
       "type": "object",
       "properties": {
@@ -502,7 +528,6 @@
       }
     }
   },
-  "additionalProperties": false,
   "$defs": {
     "peer": {
       "type": "object",
