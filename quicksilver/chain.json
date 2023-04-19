@@ -14,7 +14,10 @@
     "fee_tokens": [
       {
         "denom": "uqck",
-        "fixed_min_gas_price": 0.0001
+        "fixed_min_gas_price": 0.0001,
+        "low_gas_price": 0.0001,
+        "average_gas_price": 0.0001,
+        "high_gas_price": 0.00025
       }
     ]
   },
@@ -27,18 +30,38 @@
   },
   "codebase": {
     "git_repo": "https://github.com/ingenuity-build/quicksilver",
-    "recommended_version": "v1.2.3",
+    "recommended_version": "v1.2.9-hotfix.0",
     "compatible_versions": [
-      "v1.2.3"
+      "v1.2.9-hotfix.0"
     ],
     "cosmos_sdk_version": "0.46",
-    "tendermint_version": "0.34",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
     "cosmwasm_version": "0.29",
     "cosmwasm_enabled": true,
     "ibc_go_version": "5.2.0",
     "genesis": {
       "genesis_url": "https://github.com/ingenuity-build/mainnet/raw/main/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v1.2.9-hotfix.0",
+        "recommended_version": "v1.2.9-hotfix.0",
+        "compatible_versions": [
+          "v1.2.9-hotfix.0"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.29",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "5.2.0"
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -64,7 +87,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "quicksilver-mainnet-seed.autostake.net:27026",
+        "address": "quicksilver-mainnet-seed.autostake.com:27026",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -76,12 +99,17 @@
         "id": "e726816f42831689eab9378d5d577f1d06d25716",
         "address": "quicksilver-seed-2.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "quicksilver.rpc.kjnodes.com:11659",
+        "provider": "kjnodes"
       }
     ],
     "persistent_peers": [
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "quicksilver-mainnet-peer.autostake.net:27026",
+        "address": "quicksilver-mainnet-peer.autostake.com:27026",
         "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
@@ -97,14 +125,6 @@
         "provider": "Notional"
       },
       {
-        "address": "https://quicksilver-rpc.jambulmerah.dev:443",
-        "provider": "JambulMerah"
-      },
-      {
-        "address": "https://rpc-quicksilver.d-stake.xyz",
-        "provider": "D-Stake"
-      },
-      {
         "address": "https://quicksilver-rpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
@@ -113,27 +133,27 @@
         "provider": "lesnik | UTSA"
       },
       {
-        "address": "https://rpc-quicksilver.nodeist.net",
-        "provider": "Nodeist"
+        "address": "https://quicksilver-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://quicksilver-rpc.ibs.team",
+        "address": "https://quicksilver-rpc.ibs.team:443",
         "provider": "Inter Blockchain Services"
       },
       {
-        "address": "wss://gql-testnet.quicksilver.forbole.com/websocket",
-        "provider": "Forbole"
+        "address": "https://quicksilver.rpc.kjnodes.com",
+        "provider": "kjnodes"
       },
       {
-        "address": "https://quicksilver-mainnet-rpc.autostake.net:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "address": "https://rpc-quicksilver.architectnodes.com",
+        "provider": "Architect Nodes"
+      },
+      {
+        "address": "https://quicksilver-rpc.punq.info",
+        "provider": "punq"
       }
     ],
     "rest": [
-      {
-        "address": "http://lcd.quicksilver.zone:443/",
-        "provider": "Quicksilver"
-      },
       {
         "address": "https://api-quicksilver-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
@@ -143,28 +163,24 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://quicksilver-api.jambulmerah.dev",
-        "provider": "JambulMerah"
-      },
-      {
-        "address": "https://api-quicksilver.d-stake.xyz",
-        "provider": "D-Stake"
+        "address": "https://quicksilver-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://m-quicksilver.api.utsa.tech",
         "provider": "lesnik | UTSA"
       },
       {
-        "address": "https://api-quicksilver.nodeist.net",
-        "provider": "Nodeist"
+        "address": "https://quicksilver.api.kjnodes.com",
+        "provider": "kjnodes"
       },
       {
-        "address": "https://quicksilver-mainnet-lcd.autostake.net:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "address": "https://rest-quicksilver.architectnodes.com",
+        "provider": "Architect Nodes"
       },
       {
-        "address": "https://quicksilver-api.ibs.team",
-        "provider": "Inter Blockchain Services"
+        "address": "https://quicksilver-api.punq.info",
+        "provider": "punq"
       }
     ],
     "grpc": [
@@ -173,24 +189,20 @@
         "provider": "Notional"
       },
       {
-        "address": "quicksilver-grpc.jambulmerah.dev:9090",
-        "provider": "JambulMerah"
-      },
-      {
-        "address": "https://quicksilver-grpc.lavenderfive.com:443",
+        "address": "quicksilver-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://grpc-quicksilver.d-stake.xyz",
-        "provider": "D-Stake"
-      },
-      {
-        "address": "https://grpc-quicksilver.nodeist.net",
-        "provider": "Nodeist"
-      },
-      {
-        "address": "quicksilver-mainnet-grpc.autostake.net:443",
+        "address": "quicksilver-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "quicksilver.grpc.kjnodes.com:11090",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "grpc-quicksilver.architectnodes.com:1443",
+        "provider": "Architect Nodes"
       }
     ]
   },
