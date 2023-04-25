@@ -14,38 +14,273 @@
     "fee_tokens": [
       {
         "denom": "uumee",
-        "fixed_min_gas_price": 0.001
+        "fixed_min_gas_price": 0.1,
+        "low_gas_price": 0.1,
+        "average_gas_price": 0.12,
+        "high_gas_price": 0.2
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uumee"
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/umee-network/umee",
-    "recommended_version": "v3.0.2",
+    "recommended_version": "v4.3.0",
     "compatible_versions": [
-      "v3.0.2"
+      "v4.3.0"
     ],
     "binaries": {
-      "darwin/amd64": "https://github.com/umee-network/umee/releases/download/v3.0.2/umeed-v3.0.2-darwin-amd64.tar.gz",
-      "darwin/arm64": "https://github.com/umee-network/umee/releases/download/v3.0.2/umeed-v3.0.2-darwin-arm64.tar.gz",
-      "linux/amd64": "https://github.com/umee-network/umee/releases/download/v3.0.2/umeed-v3.0.2-linux-amd64.tar.gz",
-      "linux/arm64": "https://github.com/umee-network/umee/releases/download/v3.0.2/umeed-v3.0.2-linux-arm64.tar.gz",
-      "linux/armv6": "https://github.com/umee-network/umee/releases/download/v3.0.2/umeed-v3.0.2-linux-armv6.tar.gz"
+      "linux/amd64": "https://github.com/umee-network/umee/releases/download/v4.2.0/umeed-v4.2.0-linux-amd64"
     },
+    "cosmos_sdk_version": "0.46",
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.34"
+    },
+    "cosmwasm_version": "0.30",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "6.1.0",
     "genesis": {
+      "name": "v1.0.1",
       "genesis_url": "https://raw.githubusercontent.com/umee-network/mainnet/main/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v1.0.1",
+        "tag": "v1.0.1",
+        "height": 0,
+        "next_version_name": "v1.1.0",
+        "recommended_version": "v1.0.1",
+        "compatible_versions": [
+          "v1.0.1"
+        ],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "ibc_go_version": "2.0.3",
+        "binaries": {
+          "linux/amd64": "https://github.com/umee-network/umee/releases/download/v1.0.1/umeed-v1.0.1-linux-amd64.tar.gz",
+          "linux/arm64": "https://github.com/umee-network/umee/releases/download/v1.0.1/umeed-v1.0.1-linux-arm64.tar.gz",
+          "darwin/amd64": "https://github.com/umee-network/umee/releases/download/v1.0.1/umeed-v1.0.1-darwin-amd64.tar.gz",
+          "darwin/arm64": "https://github.com/umee-network/umee/releases/download/v1.0.1/umeed-v1.0.1-darwin-arm64.tar.gz"
+        }
+      },
+      {
+        "name": "v1.1.0",
+        "tag": "v1.1.0",
+        "height": 3023282,
+        "next_version_name": "v1.1-v3.0",
+        "recommended_version": "v1.1.0",
+        "compatible_versions": [
+          "v1.1.0"
+        ],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "ibc_go_version": "2.0.3",
+        "binaries": {
+          "linux/amd64": "https://github.com/umee-network/umee/releases/download/v1.1.0/umeed-v1.1.0-linux-amd64.tar.gz",
+          "linux/arm64": "https://github.com/umee-network/umee/releases/download/v1.1.0/umeed-v1.1.0-linux-arm64.tar.gz",
+          "darwin/amd64": "https://github.com/umee-network/umee/releases/download/v1.1.0/umeed-v1.1.0-darwin-amd64.tar.gz",
+          "darwin/arm64": "https://github.com/umee-network/umee/releases/download/v1.1.0/umeed-v1.1.0-darwin-arm64.tar.gz"
+        }
+      },
+      {
+        "name": "v1.1-v3.0",
+        "tag": "v3.0.0",
+        "height": 3215778,
+        "next_version_name": "v3.1.0",
+        "recommended_version": "v3.0.0",
+        "compatible_versions": [
+          "v3.0.0"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "ibc_go_version": "5.0.0",
+        "binaries": {
+          "linux/amd64": "https://github.com/umee-network/umee/releases/download/v3.0.0/umeed-v3.0.0-linux-amd64.tar.gz",
+          "linux/arm64": "https://github.com/umee-network/umee/releases/download/v3.0.0/umeed-v3.0.0-linux-arm64.tar.gz",
+          "darwin/amd64": "https://github.com/umee-network/umee/releases/download/v3.0.0/umeed-v3.0.0-darwin-amd64.tar.gz",
+          "darwin/arm64": "https://github.com/umee-network/umee/releases/download/v3.0.0/umeed-v3.0.0-darwin-arm64.tar.gz"
+        }
+      },
+      {
+        "name": "v3.1.0",
+        "tag": "v3.1.0",
+        "height": 3623090,
+        "next_version_name": "v3.1-v3.3",
+        "recommended_version": "v3.1.0",
+        "compatible_versions": [
+          "v3.1.0"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "ibc_go_version": "5.0.0",
+        "binaries": {
+          "linux/amd64": "https://github.com/umee-network/umee/releases/download/v3.1.0/umeed-v3.1.0-linux-amd64",
+          "linux/arm64": "https://github.com/umee-network/umee/releases/download/v3.1.0/umeed-v3.1.0-linux-arm64",
+          "darwin/amd64": "https://github.com/umee-network/umee/releases/download/v3.1.0/umeed-v3.1.0-darwin-amd64",
+          "darwin/arm64": "https://github.com/umee-network/umee/releases/download/v3.1.0/umeed-v3.1.0-darwin-arm64"
+        }
+      },
+      {
+        "name": "v3.1-v3.3",
+        "tag": "v3.3.0",
+        "height": 4513362,
+        "next_version_name": "v4.0",
+        "recommended_version": "v3.3.0",
+        "compatible_versions": [
+          "v3.3.0"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.29",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "5.2.0",
+        "binaries": {
+          "linux/amd64": "https://github.com/umee-network/umee/releases/download/v3.3.0/umeed-v3.3.0-linux-amd64"
+        }
+      },
+      {
+        "name": "v4.0",
+        "tag": "v4.0.0",
+        "height": 4949483,
+        "next_version_name": "v4.0.1",
+        "recommended_version": "v4.0.0",
+        "compatible_versions": [
+          "v4.0.0"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.29",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "5.2.0",
+        "binaries": {
+          "linux/amd64": "https://github.com/umee-network/umee/releases/download/v4.0.0/umeed-v4.0.0-linux-amd64"
+        }
+      },
+      {
+        "name": "v4.0.1",
+        "tag": "v4.0.1",
+        "height": 5243631,
+        "next_version_name": "v4.1.0",
+        "recommended_version": "v4.0.1",
+        "compatible_versions": [
+          "v4.0.1"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.29",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "5.2.0",
+        "binaries": {
+          "linux/amd64": "https://github.com/umee-network/umee/releases/download/v4.0.1/umeed-v4.0.1-linux-amd64"
+        }
+      },
+      {
+        "name": "v4.1.0",
+        "tag": "v4.1.0",
+        "height": 5433933,
+        "next_version_name": "v4.2",
+        "recommended_version": "v4.1.0",
+        "compatible_versions": [
+          "v4.1.0"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.29",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "5.2.0",
+        "binaries": {
+          "linux/amd64": "https://github.com/umee-network/umee/releases/download/v4.1.0/umeed-v4.1.0-linux-amd64"
+        }
+      },
+      {
+        "name": "v4.2",
+        "tag": "v4.2.0",
+        "height": 5741480,
+        "next_version_name": "v4.3",
+        "recommended_version": "v4.2.0",
+        "compatible_versions": [
+          "v4.2.0"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.29",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "5.2.0",
+        "binaries": {
+          "linux/amd64": "https://github.com/umee-network/umee/releases/download/v4.2.0/umeed-v4.2.0-linux-amd64"
+        }
+      },
+      {
+        "name": "v4.3",
+        "tag": "v4.3.0",
+        "height": 6049552,
+        "recommended_version": "v4.3.0",
+        "compatible_versions": [
+          "v4.3.0"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.30",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "6.1.0",
+        "binaries": {
+          "linux/amd64": "https://github.com/umee-network/umee/releases/download/v4.3.0/umeed-v4.3.0-linux-amd64"
+        }
+      }
+    ]
   },
   "peers": {
     "seeds": [
       {
-        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "umee.mainnet.seed.autostake.net:26756",
-        "provider": "AutoStake.net"
-      },
-      {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:13656",
         "provider": "Polkachu"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "umee-mainnet-seed.autostake.com:26756",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "86bd5cb6e762f673f1706e5889e039d5406b4b90",
+        "address": "umee.seed.node75.org:10656",
+        "provider": "Pro-Nodes75"
       }
     ],
     "persistent_peers": [
@@ -56,17 +291,13 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "umee.mainnet.peer.autostake.net:26756",
-        "provider": "AutoStake.net"
+        "address": "umee-mainnet-peer.autostake.com:26756",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
   "apis": {
     "rpc": [
-      {
-        "address": "https://rpc.barnacle.mainnet.network.umee.cc",
-        "provider": "umee Foundation"
-      },
       {
         "address": "https://umee-rpc.polkachu.com",
         "provider": "Polkachu"
@@ -74,11 +305,23 @@
       {
         "address": "https://rpc-umee-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://umee-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "http://rpc-umee-0.node75.org:26657",
+        "provider": "Pro-Nodes75"
+      },
+      {
+        "address": "https://umee-rpc.quantnode.tech",
+        "provider": "QuantNode"
       }
     ],
     "rest": [
       {
-        "address": "https://api.barnacle.mainnet.network.umee.cc",
+        "address": "https://api.mainnet.network.umee.cc",
         "provider": "umee Foundation"
       },
       {
@@ -86,8 +329,16 @@
         "provider": "Notional"
       },
       {
+        "address": "https://umee-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "address": "https://umee-api.polkachu.com",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://umee-lcd.quantnode.tech",
+        "provider": "QuantNode"
       }
     ],
     "grpc": [
@@ -98,6 +349,18 @@
       {
         "address": "umee-grpc.polkachu.com:13690",
         "provider": "Polkachu"
+      },
+      {
+        "address": "umee-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "umee-grpc.quantnode.tech:9090",
+        "provider": "QuantNode gRPC"
+      },
+      {
+        "address": "umee-grpc.quantnode.tech:9091",
+        "provider": "QuantNode gRPCweb"
       }
     ]
   },
@@ -105,10 +368,11 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/umee/",
-      "tx_page": "https://www.mintscan.io/umee/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/umee/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/umee/account/${accountAddress}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://ping.pub/umee",
       "tx_page": "https://ping.pub/umee/tx/${txHash}"
     },

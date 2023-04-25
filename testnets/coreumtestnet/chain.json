@@ -1,0 +1,143 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "coreum",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://www.coreum.com",
+  "pretty_name": "Coreum",
+  "chain_id": "coreum-testnet-1",
+  "bech32_prefix": "testcore",
+  "daemon_name": "cored",
+  "node_home": "$HOME/.core/coreum-testnet-1",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 990,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "utestcore",
+        "fixed_min_gas_price": 0.03125,
+        "low_gas_price": 0.0625,
+        "average_gas_price": 0.0625,
+        "high_gas_price": 62.5
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "utestcore"
+      }
+    ],
+    "lock_duration": {
+      "time": "168h"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/CoreumFoundation/coreum",
+    "recommended_version": "v0.1.1",
+    "compatible_versions": [
+      "v0.1.1"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/CoreumFoundation/coreum/releases/download/v0.1.1/cored-linux-amd64?checksum=sha256:21db2ea1b31d9e8202e0d11f2bee0de78d2e677c07fd75a7db1f3958bf49146c",
+      "linux/arm64": "https://github.com/CoreumFoundation/coreum/releases/download/v0.1.1/cored-linux-arm64?checksum=sha256:7d383d1a1bc9185677b25c05ebbe01cf20dd6c779ca4301065359ea6e3bcefa3"
+    },
+    "cosmos_sdk_version": "0.45",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "cosmwasm_version": "0.30",
+    "cosmwasm_enabled": true,
+    "genesis": {
+      "name": "v0",
+      "genesis_url": "https://raw.githubusercontent.com/CoreumFoundation/coreum/master/genesis/coreum-testnet-1.json"
+    },
+    "versions": [
+      {
+        "name": "v0",
+        "tag": "v0.1.1",
+        "height": 0,
+        "recommended_version": "v0.1.1",
+        "compatible_versions": [
+          "v0.1.1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/CoreumFoundation/coreum/releases/download/v0.1.1/cored-linux-amd64?checksum=sha256:21db2ea1b31d9e8202e0d11f2bee0de78d2e677c07fd75a7db1f3958bf49146c",
+          "linux/arm64": "https://github.com/CoreumFoundation/coreum/releases/download/v0.1.1/cored-linux-arm64?checksum=sha256:7d383d1a1bc9185677b25c05ebbe01cf20dd6c779ca4301065359ea6e3bcefa3"
+        },
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.30",
+        "cosmwasm_enabled": true
+      }
+    ]
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/coreum/images/coreum.png",
+      "theme": {
+        "primary_color_hex": "#25d695"
+      }
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/coreum/images/coreum.png"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "64391878009b8804d90fda13805e45041f492155",
+        "address": "seed-sirius.testnet-1.coreum.dev:26656",
+        "provider": "Coreum Foundation"
+      },
+      {
+        "id": "53f2367d8f8291af8e3b6ca60efded0675ff6314",
+        "address": "seed-antares.mainnet-1.coreum.dev:26656",
+        "provider": "Coreum Foundation"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://full-node-pluto.testnet-1.coreum.dev:26657",
+        "provider": "Coreum Foundation"
+      },
+      {
+        "address": "https://full-node-eris.testnet-1.coreum.dev:26657",
+        "provider": "Coreum Foundation"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://full-node-pluto.testnet-1.coreum.dev:9090",
+        "provider": "Coreum Foundation"
+      },
+      {
+        "address": "https://full-node-eris.testnet-1.coreum.dev:9090",
+        "provider": "Coreum Foundation"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Coreum",
+      "url": "https://explorer.testnet-1.coreum.dev/coreum",
+      "tx_page": "https://explorer.testnet-1.coreum.dev/coreum/transactions/${txHash}",
+      "account_page": "https://explorer.testnet-1.coreum.dev/coreum/account/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "dex",
+    "staking",
+    "wasm",
+    "assets",
+    "nft"
+  ]
+}

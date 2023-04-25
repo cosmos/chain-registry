@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout registry
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Validate IBC data schemas
         uses: snapcart/json-schema-validator@v1.0.0
@@ -16,7 +16,7 @@ jobs:
           json_path_pattern: ^_IBC\/.*\.json$
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
           python-version: 3.9
 

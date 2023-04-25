@@ -24,17 +24,55 @@
       }
     ]
   },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ustrd"
+      }
+    ]
+  },
   "codebase": {
     "git_repo": "https://github.com/Stride-Labs/stride",
-    "recommended_version": "v2.0.3",
-    "cosmos_sdk_version": "0.45.49",
-    "tendermint_version": "0.34.21",
+    "recommended_version": "v8.0.0",
+    "compatible_versions": [
+      "v8.0.0"
+    ],
+    "cosmos_sdk_version": "0.46",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "cosmwasm_version": "0.29",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "5.1.0",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/Stride-Labs/testnet/main/mainnet/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v8.0.0",
+        "recommended_version": "v8.0.0",
+        "compatible_versions": [
+          "v8.0.0"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.29",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "5.1.0"
+      }
+    ]
   },
   "peers": {
     "seeds": [
+      {
+        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
+        "address": "seed.rhinostake.com:12256",
+        "provider": "RHINO"
+      },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:12256",
@@ -52,35 +90,40 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "stride.mainnet.seed.autostake.net:26886",
-        "provider": "AutoStake.net"
+        "address": "stride-mainnet-seed.autostake.com:26886",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
         "address": "stride.rpc.kjnodes.com:16659",
         "provider": "kjnodes"
+      },
+      {
+        "id": "86bd5cb6e762f673f1706e5889e039d5406b4b90",
+        "address": "stride.seed.node75.org:10456",
+        "provider": "Pro-Nodes75"
+      },
+      {
+        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
+        "address": "stride-seed-1.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "e726816f42831689eab9378d5d577f1d06d25716",
+        "address": "stride-seed-2.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "95d0377592a657d4c0816d9845e11d659db75d5b",
+        "address": "seeds.whispernode.com:12256",
+        "provider": "WhisperNode🤐"
       }
     ],
     "persistent_peers": [
       {
-        "id": "1387946c04bceb472113f657f55f670f71709230",
-        "address": "65.108.4.188:12256",
-        "provider": "Polkachu-1"
-      },
-      {
         "id": "df3f533e6b9776c11f08da804edcb810cbdd2080",
         "address": "65.108.234.23:12256",
         "provider": "Polkachu-2"
-      },
-      {
-        "id": "1387946c04bceb472113f657f55f670f71709230",
-        "address": "65.108.4.188:12256",
-        "provider": "Polkachu-3"
-      },
-      {
-        "id": "076e97f47762a477f2ae3dd3e798a7970b6bb20d",
-        "address": "52.52.110.228:26656",
-        "provider": "Cosmostation-1"
       },
       {
         "id": "e821acdaf0c7a3c60ea3cd4eb4a98a62dad06f58",
@@ -93,19 +136,9 @@
         "provider": "Cosmostation-3"
       },
       {
-        "id": "04ea9eceee16db90872fee3fbef9ac50a87702c5",
-        "address": "185.248.24.29:26656",
-        "provider": "Whi𝕊perNode"
-      },
-      {
-        "id": "9a65aeddaebe1d391058eae5b82e34907547ded1",
-        "address": "alice.peers.stride.bh.rocks:46656",
-        "provider": "BlockHunters"
-      },
-      {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "stride.mainnet.peer.autostake.net:26886",
-        "provider": "AutoStake.net"
+        "address": "stride-mainnet-peer.autostake.com:26886",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -120,10 +153,6 @@
         "provider": "Chandra Station"
       },
       {
-        "address": "https://rpc.stride.bh.rocks",
-        "provider": "BlockHunters"
-      },
-      {
         "address": "http://rpc-stride.nodeist.net",
         "provider": "Nodeist"
       },
@@ -132,24 +161,48 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://stride.rpc.interchain.ivaldilabs.xyz",
-        "provider": "Ivaldi Labs"
-      },
-      {
-        "address": "https://rpc.stride.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
-        "address": "https://rpc-stride.d-stake.xyz",
-        "provider": "D-stake"
-      },
-      {
         "address": "https://rpc.stride.silentvalidator.com/",
         "provider": "silent"
       },
       {
         "address": "https://stride.rpc.kjnodes.com",
         "provider": "kjnodes"
+      },
+      {
+        "address": "https://rpc-stride.pupmos.network",
+        "provider": "PUPMØS"
+      },
+      {
+        "address": "https://rpc-stride.architectnodes.com",
+        "provider": "Architect Nodes"
+      },
+      {
+        "address": "https://stride.nodejumper.io",
+        "provider": "NODEJUMPER"
+      },
+      {
+        "address": "https://rpc-stride.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://rpc-stride.carbonZERO.zone:443",
+        "provider": "carbonZERO🌲"
+      },
+      {
+        "address": "https://stride-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://stride-rpc.stakeandrelax.net",
+        "provider": "Stake&Relax Validator 🦥"
+      },
+      {
+        "address": "https://stride.rpc.interchain.ivaldilabs.xyz",
+        "provider": "ivaldilabs"
+      },
+      {
+        "address": "https://stride-rpc.cosmosrescue.com",
+        "provider": "cosmosrescue"
       }
     ],
     "rest": [
@@ -162,10 +215,6 @@
         "provider": "Chandra Station"
       },
       {
-        "address": "https://api.stride.bh.rocks",
-        "provider": "BlockHunters"
-      },
-      {
         "address": "http://api-stride.nodeist.net",
         "provider": "Nodeist"
       },
@@ -174,24 +223,48 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://stride.rest.interchain.ivaldilabs.xyz",
-        "provider": "Ivaldi Labs"
-      },
-      {
-        "address": "https://api.stride.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
-        "address": "https://api-stride.d-stake.xyz",
-        "provider": "D-stake"
-      },
-      {
         "address": "https://api.stride.silentvalidator.com/",
         "provider": "silent"
       },
       {
         "address": "https://stride.api.kjnodes.com",
         "provider": "kjnodes"
+      },
+      {
+        "address": "https://api-stride.pupmos.network",
+        "provider": "PUPMØS"
+      },
+      {
+        "address": "https://stride.nodejumper.io:1317",
+        "provider": "NODEJUMPER"
+      },
+      {
+        "address": "https://stride-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://rest-stride.architectnodes.com",
+        "provider": "Architect Nodes"
+      },
+      {
+        "address": "https://lcd-stride.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://rest-stride.carbonZERO.zone:443",
+        "provider": "carbonZERO🌲"
+      },
+      {
+        "address": "https://stride-api.stakeandrelax.net",
+        "provider": "Stake&Relax Validator 🦥"
+      },
+      {
+        "address": "https://stride.rest.interchain.ivaldilabs.xyz",
+        "provider": "ivaldilabs"
+      },
+      {
+        "address": "https://stride-api.cosmosrescue.com",
+        "provider": "cosmosrescue"
       }
     ],
     "grpc": [
@@ -200,36 +273,38 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://grpc.stride.bh.rocks",
-        "provider": "BlockHunters"
-      },
-      {
-        "address": "https://stride-grpc.lavenderfive.com:443/",
+        "address": "stride-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
+        "address": "stride.nodejumper.io:9090",
+        "provider": "NODEJUMPER"
+      },
+      {
+        "address": "stride-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "address": "stride.grpc.interchain.ivaldilabs.xyz:443",
-        "provider": "Ivaldi Labs"
+        "provider": "ivaldilabs"
       },
       {
-        "address": "https://grpc.stride.nodestake.top",
-        "provider": "NodeStake"
+        "address": "juno-grpc.cosmosrescue.com:9090",
+        "provider": "cosmosrescue"
       },
       {
-        "address": "http://grpc-stride.nodeist.net",
-        "provider": "Nodeist"
-      },
-      {
-        "address": "https://grpc-stride.d-stake.xyz",
-        "provider": "D-stake"
-      },
-      {
-        "address": "https://grpc.stride.silentvalidator.com/",
-        "provider": "silent"
+        "address": "stride.grpc.kjnodes.com:16090",
+        "provider": "kjnodes"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "EZ Staking Tools",
+      "url": "https://ezstaking.tools/stride",
+      "tx_page": "https://ezstaking.tools/stride/txs/${txHash}",
+      "account_page": "https://ezstaking.tools/stride/account/${accountAddress}"
+    },
     {
       "kind": "Apollo",
       "url": "https://apollo.chandrastation.com/stride",
@@ -247,6 +322,18 @@
       "url": "https://exp.nodeist.net/Stride",
       "tx_page": "https://exp.nodeist.net/Stride/tx/${txHash}",
       "account_page": "https://exp.nodeist.net/Stride/account/${accountAddress}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/stride",
+      "tx_page": "https://www.mintscan.io/stride/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/stride/account/${accountAddress}"
+    },
+    {
+      "kind": "bigdipper",
+      "url": "https://bigdipper.live/stride",
+      "tx_page": "https://bigdipper.live/stride/transactions/${txHash}",
+      "account_page": "https://bigdipper.live/stride/accounts/${accountAddress}"
     }
   ],
   "logo_URIs": {

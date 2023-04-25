@@ -41,7 +41,23 @@
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/pointnetwork/point-chain-config/main/mainnet-1/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v8.0.0",
+        "recommended_version": "v8.0.0",
+        "compatible_versions": [
+          "v8.0.0"
+        ],
+        "binaries": {
+          "linux/amd64": "",
+          "linux/arm64": "",
+          "darwin/amd64": "",
+          "darwin/arm64": "",
+          "windows/amd64": ""
+        }
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -82,11 +98,7 @@
     ],
     "grpc": [
       {
-        "address": "https://rpc-mainnet-1.point.space:9090",
-        "provider": "Point Network"
-      },
-      {
-        "address": "https://grpc.point.nodestake.top",
+        "address": "grpc.point.nodestake.top:443",
         "provider": "NodeStake"
       }
     ],
@@ -108,7 +120,7 @@
       "tx_page": "https://explorer.pointnetwork.io/tx/${txHash}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://cosmos.pointnetwork.io/",
       "tx_page": "https://cosmos.pointnetwork.io/point/tx/${txHash}"
     }

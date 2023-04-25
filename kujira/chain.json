@@ -17,19 +17,38 @@
     "fee_tokens": [
       {
         "denom": "ukuji",
-        "fixed_min_gas_price": 0.00119
+        "fixed_min_gas_price": 0.00119,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.03
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ukuji"
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/Team-Kujira/core",
-    "recommended_version": "v0.6.4",
+    "recommended_version": "v0.8.4-mainnet",
     "compatible_versions": [
-      "v0.6.4"
+      "v0.8.4-mainnet"
     ],
     "genesis": {
       "genesis_url": "https://github.com/Team-Kujira/networks/raw/master/mainnet/kaiyo-1.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v0.8.4-mainnet",
+        "recommended_version": "v0.8.4-mainnet",
+        "compatible_versions": [
+          "v0.8.4-mainnet"
+        ]
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -49,29 +68,44 @@
         "provider": "Starsquid"
       },
       {
+        "id": "824fa337b806bd48ce9505d74ba3e5adea80da93",
+        "address": "seeds.goldenratiostaking.net:1628",
+        "provider": "Golden Ratio Staking"
+      },
+      {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "kujira.mainnet.seed.autostake.net:26796",
-        "provider": "AutoStake.net"
+        "address": "kujira-mainnet-seed.autostake.com:26796",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
         "address": "kujira.rpc.kjnodes.com:13659",
         "provider": "kjnodes"
+      },
+      {
+        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
+        "address": "kujira-seed-1.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
+        "address": "seeds.whispernode.com:11856",
+        "provider": "WhisperNode🤐"
       }
     ],
     "persistent_peers": [
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "kujira.mainnet.peer.autostake.net:26796",
-        "provider": "AutoStake.net"
+        "address": "kujira-mainnet-peer.autostake.com:26796",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-kujira.whispernode.com",
-        "provider": "WhisperNode 🤐"
+        "address": "https://rpc-kujira.whispernode.com:443",
+        "provider": "WhisperNode🤐"
       },
       {
         "address": "https://rpc.kaiyo.kujira.setten.io",
@@ -118,36 +152,34 @@
         "provider": "kjnodes"
       },
       {
-        "address": "https://kuji-rpc.kleomed.es",
+        "address": "https://kuji-rpc.kleomedes.network",
         "provider": "Kleomedes"
-      }
-    ],
-    "grpc": [
-      {
-        "address": "https://kujira.grpcui.chaintools.host/",
-        "provider": "ChainTools"
       },
       {
-        "address": "https://grpc-kujira-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
+        "address": "https://rpc-kujira.goldenratiostaking.net",
+        "provider": "Golden Ratio Staking"
       },
       {
-        "address": "https://kujira-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rpc-kujira.huginn.tech",
+        "provider": "Huginn"
       },
       {
-        "address": "kujira-grpc.polkachu.com:11890",
-        "provider": "Polkachu"
+        "address": "https://kujira-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://grpc-kujira.nodeist.net",
-        "provider": "Nodeist"
+        "address": "https://rpc.kujira.rektdao.club",
+        "provider": "rektDAO"
       }
     ],
     "rest": [
       {
-        "address": "https://lcd-kujira.whispernode.com",
-        "provider": "WhisperNode 🤐"
+        "address": "https://lcd-kujira.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://rest-kujira.goldenratiostaking.net",
+        "provider": "Golden Ratio Staking"
       },
       {
         "address": "https://lcd.kaiyo.kujira.setten.io",
@@ -166,10 +198,6 @@
         "provider": "ecostake"
       },
       {
-        "address": "https://api.kujira.chaintools.tech/",
-        "provider": "ChainTools"
-      },
-      {
         "address": "https://api-kujira-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
       },
@@ -186,7 +214,7 @@
         "provider": "Inter Blockchain Services"
       },
       {
-        "address": "https://api-bitsong.starsquid.io",
+        "address": "https://api-kujira.starsquid.io",
         "provider": "Starsquid"
       },
       {
@@ -194,8 +222,42 @@
         "provider": "kjnodes"
       },
       {
-        "address": "https://kuji-api.kleomed.es",
+        "address": "https://kuji-api.kleomedes.network",
         "provider": "Kleomedes"
+      },
+      {
+        "address": "https://kujira-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://api.kujira.rektdao.club",
+        "provider": "rektDAO"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "kujira.grpcui.chaintools.host:443",
+        "provider": "ChainTools"
+      },
+      {
+        "address": "grpc-kujira-ia.cosmosia.notional.ventures:443",
+        "provider": "Notional"
+      },
+      {
+        "address": "kujira-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "kujira-grpc.polkachu.com:11890",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "kujira-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "kujira.grpc.kjnodes.com:13090",
+        "provider": "kjnodes"
       }
     ]
   },
@@ -217,8 +279,14 @@
     },
     {
       "kind": "Nodeist Explorer",
-      "url": "https://exp.nodeist.net/Kujira",
-      "tx_page": "https://exp.nodeist.net/Kujira/transactions/${txHash}"
+      "url": "https://exp.nodeist.net/M-Kujira",
+      "tx_page": "https://exp.nodeist.net/M-Kujira/transactions/${txHash}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/kujira",
+      "tx_page": "https://www.mintscan.io/kujira/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/kujira/account/${accountAddress}"
     }
   ],
   "logo_URIs": {

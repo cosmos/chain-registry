@@ -1,0 +1,81 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "impacthubtestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://www.ixo.world/",
+  "pretty_name": "ixo",
+  "chain_id": "pandora-8",
+  "bech32_prefix": "ixo",
+  "daemon_name": "ixod",
+  "node_home": "$HOME/.ixod",
+  "key_algos": [
+    "secp256k1",
+    "ed25519"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uixo",
+        "fixed_min_gas_price": 0.015,
+        "low_gas_price": 0.015,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uixo"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/ixofoundation/ixo-blockchain",
+    "recommended_version": "v0.20.0",
+    "compatible_versions": [
+      "v0.20.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://github.com/ixofoundation/genesis/tree/main/pandora-8"
+    },
+    "versions": [
+      {
+        "name": "v0.20.0",
+        "recommended_version": "v0.20.0",
+        "compatible_versions": [
+          "v0.20.0"
+        ]
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.testnet.ixo.earth/",
+        "provider": "ixoworld"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://testnet.ixo.earth/rest/",
+        "provider": "ixoworld"
+      }
+    ],
+    "grpc": []
+  },
+  "explorers": [
+    {
+      "kind": "ixoworld",
+      "url": "https://blockscan-pandora.ixo.earth/",
+      "tx_page": "https://blockscan-pandora.ixo.earth/transactions/${txHash}",
+      "account_page": "https://blockscan-pandora.ixo.earth/account/${accountAddress}"
+    }
+  ]
+}

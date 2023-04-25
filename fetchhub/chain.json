@@ -29,12 +29,19 @@
   "codebase": {
     "git_repo": "https://github.com/fetchai/fetchd",
     "recommended_version": "v0.10.5",
-    "compatible_versions": [
-      "v0.10.5"
-    ],
+    "compatible_versions": ["v0.10.5"],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/fetchai/genesis-fetchhub/fetchhub-4/fetchhub-4/data/genesis_migrated_5300200.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v0.10.5",
+        "recommended_version": "v0.10.5",
+        "compatible_versions": [
+          "v0.10.5"
+        ]
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -57,6 +64,21 @@
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:15256",
         "provider": "Polkachu"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "fetchhub-mainnet-seed.autostake.com:27266",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
+        "address": "fetch-seed-1.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "e726816f42831689eab9378d5d577f1d06d25716",
+        "address": "fetch-seed-2.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -74,6 +96,11 @@
         "id": "d6faadb9e785642b355136ed278d5b5d6b2f87dd",
         "address": "sentries-fetchhub.fetch.ai:36402",
         "provider": "fetch.ai"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "fetchhub-mainnet-peer.autostake.com:27266",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -84,10 +111,6 @@
         "provider": "fetch.ai"
       },
       {
-        "address": "https://fetchapi.terminet.io",
-        "provider": "Terminet"
-      },
-      {
         "address": "https://rpc-fetchhub-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
       },
@@ -96,8 +119,28 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://fetchai-rpc.kleomed.es",
+        "address": "https://fetchai-rpc.kleomedes.network",
         "provider": "Kleomedes"
+      },
+      {
+        "address": "https://fetch-rpc.teasel.org",
+        "provider": "𝗧𝗲𝗮𝘀𝗲𝗹"
+      },
+      {
+        "address": "https://fetch-rpc.antrixy.org",
+        "provider": "Antrix"
+      },
+      {
+        "address": "https://rpc-fetch.architectnodes.com",
+        "provider": "Architect Nodes"
+      },
+      {
+        "address": "https://fetchhub-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://fetch-rpc.ibs.team",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "rest": [
@@ -114,13 +157,33 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://fetchai-api.kleomed.es",
+        "address": "https://fetchai-api.kleomedes.network",
         "provider": "Kleomedes"
+      },
+      {
+        "address": "https://fetch-rest.teasel.org",
+        "provider": "𝗧𝗲𝗮𝘀𝗲𝗹"
+      },
+      {
+        "address": "https://fetch-rest.antrixy.org",
+        "provider": "Antrix"
+      },
+      {
+        "address": "https://fetchhub-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://rest-fetch.architectnodes.com",
+        "provider": "Architect Nodes"
+      },
+      {
+        "address": "https://fetch-api.ibs.team",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "grpc": [
       {
-        "address": "https://grpc-fetchhub.fetch.ai:443",
+        "address": "grpc-fetchhub.fetch.ai:443",
         "provider": "fetch.ai"
       },
       {
@@ -130,6 +193,18 @@
       {
         "address": "fetch-grpc.polkachu.com:15290",
         "provider": "Polkachu"
+      },
+      {
+        "address": "fetchhub-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "fetch-grpc.teasel.org:443",
+        "provider": "𝗧𝗲𝗮𝘀𝗲𝗹"
+      },
+      {
+        "address": "fetch-grpc.antrixy.org:443",
+        "provider": "Antrix"
       }
     ]
   },
@@ -137,7 +212,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/fetchai",
-      "tx_page": "https://www.mintscan.io/fetchai/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/fetchai/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/fetchai/account/${accountAddress}"
     },
     {
       "kind": "bigdipper",
@@ -153,6 +229,17 @@
       "kind": "atomscan",
       "url": "https://atomscan.com/fetchai",
       "tx_page": "https://atomscan.com/fetchai/transactions/${txHash}"
+    },
+    {
+      "kind": "bigdipper",
+      "url": "https://fetch-explorer.teasel.org",
+      "tx_page": "https://fetch-explorer.teasel.org/transactions/${txHash}"
+    },
+    {
+      "kind": "azoyalabs",
+      "url": "https://fetchstation.azoyalabs.com/mainnet",
+      "tx_page": "https://fetchstation.azoyalabs.com/mainnet/explorer/transactions/${txHash}",
+      "account_page": "https://fetchstation.azoyalabs.com/mainnet/explorer/address/${accountAddress}"
     }
   ]
 }

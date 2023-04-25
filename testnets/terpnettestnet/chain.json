@@ -1,0 +1,115 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "terpnettestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Terp-Network",
+  "chain_id": "athena-4",
+  "bech32_prefix": "terp",
+  "daemon_name": "terp",
+  "node_home": "$HOME/.terp",
+  "codebase": {
+    "git_repo": "github.com/terpnetwork/terp-core.git",
+    "recommended_version": "v0.4.0",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34.24"
+    },
+    "compatible_versions": [
+      "v0.4.0",
+      "v0.4.0-1-g8ef7c32"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/terpnetwork/test-net/master/athena-4/genesis.json"
+    },
+    "binaries": {
+      "linux/amd64": "https://github.com/terpnetwork/terp-core/archive/refs/tags/v0.4.0.tar.gz"
+    },
+    "versions": [
+      {
+        "name": "v0.4.0",
+        "recommended_version": "v0.4.0",
+        "compatible_versions": [
+          "v0.4.0",
+          "v0.4.0-1-g8ef7c32"
+        ],
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34.24"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/terpnetwork/terp-core/archive/refs/tags/v0.4.0.tar.gz"
+        }
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "15f5bc75be9746fd1f712ca046502cae8a0f6ce7",
+        "address": "terp-testnet.nodejumper.io:30656"
+      },
+      {
+        "id": "51d48be3809bb8907c1ef5f747e53cdd0c9ded1b",
+        "address": "terp-testnet-peer.itrocket.net:443"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-terp.zenchainlabs.io/"
+      },
+      {
+        "address": "https://terp-testnet.nodejumper.io:443/"
+      },
+      {
+        "address": "https://terp-testnet.rpc.kjnodes.com:443/"
+      },
+      {
+        "address": "https://rpc-t.terp.nodestake.top:443/"
+      },
+      {
+        "address": "https://rpc.terp.nodexcapital.com:443/"
+      },
+      {
+        "address": "https://terp.rpc.yeksin.net:443/"
+      },
+      {
+        "address": "https://terp-test-rpc.theamsolutions.info:443/"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-terp.zenchainlabs.io/",
+        "provider": "Zenchainlabs"
+      },
+      {
+        "address": "https://api-t.terp.nodestake.top/",
+        "provider": "NodeJumper.io"
+      },
+      {
+        "address": "https://api.terp-test.theamsolutions.info:443/"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc-t.terp.nodestake.top/",
+        "provider": "nodestake"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Ping Pub",
+      "url": "https://explorer.kjnodes.com/terp-test",
+      "tx_page": "https://explorer.kjnodes.com/terp-test/tx/${txHash}"
+    },
+    {
+      "kind": "Ping Pub",
+      "url": "https://explorer.nodestake.top/terp-testnet",
+      "tx_page": "https://explorer.nodestake.top/terp-testnet/tx/${txHash}"
+    }
+  ]
+}

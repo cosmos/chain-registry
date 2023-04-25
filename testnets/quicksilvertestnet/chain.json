@@ -1,0 +1,102 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "quicksilvertestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Quicksilver",
+  "chain_id": "innuendo-5",
+  "daemon_name": "quicksilverd",
+  "node_home": "$HOME/.quicksilverd",
+  "bech32_prefix": "quick",
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uqck"
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uqck"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/ingenuity-build/quicksilver",
+    "recommended_version": "v1.4.0-rc7",
+    "compatible_versions": [
+      "v1.4.0-rc7"
+    ],
+    "cosmos_sdk_version": "0.46",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "cosmwasm_version": "0.29",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "5.2.0",
+    "genesis": {
+      "genesis_url": "https://github.com/ingenuity-build/testnets/raw/main/innuendo/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.4.0-rc7",
+        "recommended_version": "v1.4.0-rc7",
+        "compatible_versions": [
+          "v1.4.0-rc7"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.29",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "5.2.0"
+      }
+    ]
+  },
+  "logo_URIs": {
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quicksilver/images/qck.svg"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "testnet-seeds.polkachu.com:11156",
+        "provider": "Polkachu"
+      }
+    ],
+    "persistent_peers": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://quicksilver-testnet-rpc.polkachu.com",
+        "provider": "Polkachu"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://quicksilver-testnet-api.polkachu.com",
+        "provider": "Polkachu"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "quicksilver-testnet-grpc.polkachu.com:11190",
+        "provider": "Polkachu"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "explorers.guru",
+      "url": "https://testnet.quicksilver.explorers.guru",
+      "tx_page": "https://testnet.quicksilver.explorers.guru/transaction/${txHash}",
+      "account_page": "https://testnet.quicksilver.explorers.guru/account/${accountAddress}"
+    }
+  ]
+}
