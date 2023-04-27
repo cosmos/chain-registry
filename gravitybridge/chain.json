@@ -57,7 +57,26 @@
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v1.8.0",
+        "recommended_version": "v1.8.0",
+        "compatible_versions": [
+          "v1.8.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/gravity-linux-amd64",
+          "linux/arm64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/gravity-linux-arm64",
+          "darwin/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/gravity-darwin-amd64",
+          "windows/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/gravity-windows-amd64.exe"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gravitybridge/images/grav.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gravitybridge/images/grav.svg"
   },
   "peers": {
     "seeds": [
@@ -87,7 +106,13 @@
         "provider": "Pro-Nodes"
       }
     ],
-    "persistent_peers": []
+    "persistent_peers": [
+     {
+        "id": "b9180ddd3329ddaea74fe6fbdc729506b90f313b",
+        "address": "gravity.ramuchi.tech:36656",
+        "provider": "ramuchi.tech"
+      }
+    ]
   },
   "apis": {
     "rpc": [
@@ -118,6 +143,10 @@
       {
         "address": "https://gravity-rpc.ibs.team",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://gravity-rpc.ramuchi.tech",
+        "provider": "ramuchi.tech"
       }
     ],
     "rest": [
@@ -144,6 +173,10 @@
       {
         "address": "https://gravity-api.ibs.team",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://gravity-api.ramuchi.tech",
+        "provider": "ramuchi.tech"
       }
     ],
     "grpc": [
@@ -162,12 +195,16 @@
       {
         "address": "gravitybridge-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://gravity-grpc.ramuchi.tech:10090",
+        "provider": "ramuchi.tech"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
+      "kind": "EZ Staking Tools",
       "url": "https://ezstaking.tools/gravitybridge",
       "tx_page": "https://ezstaking.tools/gravitybridge/txs/${txHash}",
       "account_page": "https://ezstaking.tools/gravitybridge/account/${accountAddress}"

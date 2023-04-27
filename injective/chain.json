@@ -33,17 +33,34 @@
   },
   "codebase": {
     "git_repo": "https://github.com/InjectiveLabs/injective-chain-releases",
-    "recommended_version": "v1.9.0-1673970775",
+    "recommended_version": "v1.10",
     "compatible_versions": [
-      "v1.9.0-1673970775"
+      "v1.10"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.9.0-1673970775/linux-amd64.zip",
-      "darwin/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.9.0-1673970775/darwin-amd64.zip"
+      "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.10.0-1679065799/linux-amd64.zip",
+      "darwin/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.10.0-1679065799/darwin-amd64.zip"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/InjectiveLabs/mainnet-config/master/10001/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v1.10",
+        "recommended_version": "v1.10",
+        "compatible_versions": [
+          "v1.10"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.10.0-1679065799/linux-amd64.zip",
+          "darwin/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.10.0-1679065799/darwin-amd64.zip"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg"
   },
   "peers": {
     "seeds": [
@@ -84,7 +101,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "injective-mainnet-seed.autostake.net:26726",
+        "address": "injective-mainnet-seed.autostake.com:26726",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -101,6 +118,21 @@
         "id": "5a1cd1a7da5aab3e3075fbae0a905c7256e48193",
         "address": "seeds.goldenratiostaking.net:1635",
         "provider": "Golden Ratio Staking"
+      },
+      {
+        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
+        "address": "injective-seed-1.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "e726816f42831689eab9378d5d577f1d06d25716",
+        "address": "injective-seed-2.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "62ae24dfc6841ff1ab513522255c94914861df7c",
+        "address": "seeds.whispernode.com:14356",
+        "provider": "WhisperNode🤐"
       }
     ],
     "persistent_peers": [
@@ -136,17 +168,13 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "injective-mainnet-peer.autostake.net:26726",
+        "address": "injective-mainnet-peer.autostake.com:26726",
         "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
   "apis": {
     "rpc": [
-      {
-        "address": "https://k8s.global.mainnet.tm.injective.network:443",
-        "provider": "Injectivelabs"
-      },
       {
         "address": "https://injective-rpc.quickapi.com:443",
         "provider": "Chainlayer"
@@ -168,7 +196,7 @@
         "provider": "Notional"
       },
       {
-        "address": "https://injective-mainnet-rpc.autostake.net:443",
+        "address": "https://injective-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -178,13 +206,13 @@
       {
         "address": "https://rpc-injective.whispernode.com:443",
         "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://rpc-injective.architectnodes.com",
+        "provider": "Architect Nodes"
       }
     ],
     "rest": [
-      {
-        "address": "https://k8s.global.mainnet.lcd.injective.network:443",
-        "provider": "Injectivelabs"
-      },
       {
         "address": "https://injective-lcd.quickapi.com:443",
         "provider": "Chainlayer"
@@ -206,15 +234,19 @@
         "provider": "POSTHUMAN ꝏ DVS"
       },
       {
+        "address": "https://injective-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "address": "https://lcd-injective.whispernode.com:443",
         "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://rest-injective.architectnodes.com",
+        "provider": "Architect Nodes"
       }
     ],
     "grpc": [
-      {
-        "address": "k8s.global.mainnet.chain.grpc.injective.network:443",
-        "provider": "Injectivelabs"
-      },
       {
         "address": "grpc-injective-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
@@ -228,8 +260,16 @@
         "provider": "Polkachu"
       },
       {
+        "address": "injective-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "address": "grpc.injective.posthuman.digital:80",
         "provider": "POSTHUMAN ꝏ DVS"
+      },
+      {
+        "address": "grpc-injective.architectnodes.com:1443",
+        "provider": "Architect Nodes"
       }
     ]
   },

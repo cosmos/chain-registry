@@ -45,7 +45,20 @@
     "genesis": {
       "genesis_url": "https://8ball.info/8ball-genesis.json"
     },
-    "versions": []
+    "versions": [
+      {
+        "name": "v1",
+        "recommended_version": "v1",
+        "compatible_versions": [
+          "v1"
+        ],
+        "cosmos_sdk_version": "0.46.7",
+        "cosmwasm_enabled": true,
+        "binaries": {
+          "linux/amd64": "https://8ball.info/8ball.tar.gz"
+        }
+      }
+    ]
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/8ball/images/8ball.png",
@@ -68,7 +81,13 @@
         "id": "ce168b8022e525650011352175fa020ce75edcfa",
         "address": "45.141.122.178:34656",
         "provider": "genznodes"
+      },
+      {
+        "id": "49778546e7511a1cd6dde65805cd70547c75ce2b",
+        "address": "rpc.8ball.nodexcapital.com:11056",
+        "provider": "NodeX Validator"
       }
+      
     ]
   },
   "apis": {
@@ -96,6 +115,10 @@
       {
         "address": "https://rpc-8ball.nodine.id",
         "provider": "Nodine.ID"
+      },
+      {
+        "address": "https://rpc.8ball.nodexcapital.com",
+        "provider": "NodeX Validator"
       }
     ],
     "rest": [
@@ -122,6 +145,10 @@
       {
         "address": "https://api-8ball.nodine.id/",
         "provider": "Nodine.ID"
+      },
+      {
+        "address": "https://rest.8ball.nodexcapital.com",
+        "provider": "NodeX Validator"
       }
     ],
     "grpc": [
@@ -132,6 +159,10 @@
       {
         "address": "8ball-grpc.genznodes.dev:31090",
         "provider": "genznodes"
+      },
+      {
+        "address": "https://grpc.8ball.nodexcapital.com:443",
+        "provider": "NodeX Validator"
       }
     ]
   },
@@ -164,6 +195,11 @@
       "kind": "TC Network",
       "url": "https://explorer.co.id/8ball",
       "tx_page": "https://explorer.co.id/8ball/tx/${txHash}"
+    },
+    {
+      "kind": "NODEXPLORER",
+      "url": "https://explorer.nodexcapital.com/8ball",
+      "tx_page": "https://explorer.nodexcapital.com/8ball/tx/${txHash}"
     }
   ]
 }

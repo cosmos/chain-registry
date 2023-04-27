@@ -26,13 +26,26 @@
   },
   "codebase": {
     "git_repo": "https://github.com/public-awesome/stargaze",
-    "recommended_version": "v8.0.0",
+    "recommended_version": "v9.0.0",
     "compatible_versions": [
-      "v8.0.0"
+      "v9.0.0"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/public-awesome/mainnet/main/stargaze-1/genesis.tar.gz"
-    }
+    },
+    "versions": [
+      {
+        "name": "v9.0.0",
+        "recommended_version": "v9.0.0",
+        "compatible_versions": [
+          "v9.0.0"
+        ]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg"
   },
   "peers": {
     "seeds": [
@@ -61,20 +74,35 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "stargaze-mainnet-seed.autostake.net:26986",
+        "address": "stargaze-mainnet-seed.autostake.com:26986",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
         "address": "stargaze-seed-1.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "604f4baaa30cd3f50d080bf45806d222c7fadc94",
+        "address": "seeds.whispernode.com:13756",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "stargaze.rpc.kjnodes.com:58659",
+        "provider": "kjnodes"
       }
     ],
     "persistent_peers": [
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "stargaze-mainnet-peer.autostake.net:26986",
+        "address": "stargaze-mainnet-peer.autostake.com:26986",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+       {
+        "id": "344c62c700a59de6137ccd6cade56721cb1e9777",
+        "address": "stargaze.ramuchi.tech:26656",
+        "provider": "ramuchi.tech"
       }
     ]
   },
@@ -121,8 +149,16 @@
         "provider": "WhisperNode🤐"
       },
       {
-        "address": "https://stargaze-mainnet-rpc.autostake.net:443",
+        "address": "https://stargaze-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://stargaze-rpc.ramuchi.tech",
+        "provider": "ramuchi.tech"
+      },
+      {
+        "address": "https://stargaze.rpc.kjnodes.com",
+        "provider": "kjnodes"
       }
     ],
     "rest": [
@@ -163,12 +199,20 @@
         "provider": "silent"
       },
       {
-        "address": "https://stargaze-mainnet-lcd.autostake.net:443",
+        "address": "https://stargaze-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://lcd-stargaze.whispernode.com:443",
         "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://stargaze-api.ramuchi.tech",
+        "provider": "ramuchi.tech"
+      },
+      {
+        "address": "https://stargaze.api.kjnodes.com",
+        "provider": "kjnodes"
       }
     ],
     "grpc": [
@@ -181,14 +225,22 @@
         "provider": "Polkachu"
       },
       {
-        "address": "stargaze-mainnet-grpc.autostake.net:443",
+        "address": "stargaze-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://stargaze-grpc.ramuchi.tech:9090",
+        "provider": "ramuchi.tech"
+      },
+      {
+        "address": "stargaze.grpc.kjnodes.com:58090",
+        "provider": "kjnodes"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
+      "kind": "EZ Staking Tools",
       "url": "https://ezstaking.tools/stargaze",
       "tx_page": "https://ezstaking.tools/stargaze/txs/${txHash}",
       "account_page": "https://ezstaking.tools/stargaze/account/${accountAddress}"

@@ -37,7 +37,24 @@
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/akash-network/net/master/mainnet/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v0.22.0",
+        "recommended_version": "v0.22.0",
+        "compatible_versions": [
+          "v0.20.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.22.0/akash_0.22.0_linux_amd64.zip",
+          "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.22.0/akash_0.22.0_linux_arm64.zip"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.svg"
   },
   "peers": {
     "seeds": [
@@ -61,7 +78,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "akash-mainnet-seed.autostake.net:26696",
+        "address": "akash-mainnet-seed.autostake.com:26696",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -97,7 +114,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "akash-mainnet-peer.autostake.net:26696",
+        "address": "akash-mainnet-peer.autostake.com:26696",
         "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
@@ -129,12 +146,16 @@
         "provider": "c29r3"
       },
       {
-        "address": "https://akash-mainnet-rpc.autostake.net:443",
+        "address": "https://akash-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://akash.rpc.interchain.ivaldilabs.xyz",
         "provider": "ivaldilabs"
+      },
+      {
+        "address": "https://akash-rpc.kleomedes.network",
+        "provider": "Kleomedes"
       }
     ],
     "rest": [
@@ -163,12 +184,16 @@
         "provider": "c29r3"
       },
       {
-        "address": "https://akash-mainnet-lcd.autostake.net:443",
+        "address": "https://akash-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://akash.rest.interchain.ivaldilabs.xyz",
         "provider": "ivaldilabs"
+      },
+      {
+        "address": "https://akash-api.kleomedes.network",
+        "provider": "Kleomedes"
       }
     ],
     "grpc": [
@@ -185,7 +210,7 @@
         "provider": "Polkachu"
       },
       {
-        "address": "akash-mainnet-grpc.autostake.net:443",
+        "address": "akash-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -196,7 +221,7 @@
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
+      "kind": "EZ Staking Tools",
       "url": "https://ezstaking.tools/akash",
       "tx_page": "https://ezstaking.tools/akash/txs/${txHash}",
       "account_page": "https://ezstaking.tools/akash/account/${accountAddress}"
