@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "required": [
+    "memo_keys"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "pattern": "^(\\.\\./)+memo_keys\\.schema\\.json$"
+    },
+    "memo_keys": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "description",
+          "git_repo",
+          "memo"
+        ],
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "git_repo": {
+            "type": "string",
+            "format": "uri"
+          },
+          "memo": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}
