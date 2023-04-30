@@ -1,0 +1,135 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "noistestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://www.cascadia.foundation/",
+  "pretty_name": "Cascadia",
+  "chain_id": "cascadia_6102-1",
+  "bech32_prefix": "cascadia",
+  "daemon_name": "cascadiad",
+  "node_home": "$HOME/.cascadiad",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "UTCC",
+        // need gas review
+
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.05,
+        "average_gas_price": 0.05,
+        "high_gas_price": 0.1
+        // ***
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "UTCC"
+      }
+    ],
+    "lock_duration": {
+      // ok !!
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/CascadiaFoundation/cascadia",
+    "recommended_version": "v0.1.1",
+    "compatible_versions": [
+      "v0.1.1"
+    ],
+    "cosmos_sdk_version": "0.46.1",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34" // check it
+    },
+    "cosmwasm_version": "0.30", // check it
+    "cosmwasm_enabled": true,
+    "genesis": {
+      "name": "v1",
+      "genesis_url": "https://github.com/CascadiaFoundation/chain-configuration/raw/master/testnet/genesis.json.gz"
+    },
+    "versions": []
+  },
+  "images": [
+    {
+      "png": "",
+      "theme": {
+        "primary_color_hex": "#0C0914"
+      }
+    }
+  ],
+  "logo_URIs": {
+    "png": ""
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "da81dd66bca4bba509163dbd06b4a6b2e05c2e12",
+        "address": "nois-testnet-seed.itrocket.net:21656",
+        "provider": "itrocket"
+      },
+      {
+        "id": "bf07906c7cf0f23606c83be15624be2c67b3929c",
+        "address": "139.59.154.47:17356",
+        "provider": ""
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://cscd-rpc.systemd.run:443",
+        "provider": "systemd"
+      },
+      {
+        "address": https://api.cascadia-t.indonode.net:443,
+        "provider": "Indonode"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://cscd-grpc.systemd.run:443",
+        "provider": "systemd"
+      },
+      {
+        "address": grpc.cascadia-t.indonode.net:43090,
+        "provider": "Indonode"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://cscd-api.systemd.run",
+        "provider": "systemd"
+      },
+      {
+        "address": "https://api.cascadia-t.indonode.net/",
+        "provider": "Indonode"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "explorers.guru",
+      "url": "https://testnet.cascadia.explorers.guru/",
+      "tx_page": "https://testnet.cascadia.explorers.guru/transaction/${txHash}",
+      "account_page": "https://testnet.cascadia.explorers.guru/account/${accountAddress}"
+    },
+    {
+      "kind": "bigdipper",
+      "url": "https://explorer.cascadia.foundation/",
+      "tx_page": "https://validator.cascadia.foundation/transactions/${txHash}",
+      "account_page": "https://validator.cascadia.foundation/accounts/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "cascadia",
+    "neocybernetic"
+  ]
+}
