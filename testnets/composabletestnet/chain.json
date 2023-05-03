@@ -1,0 +1,90 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "composabletestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Composable Testnet",
+  "chain_id": "banksy-testnet-1",
+  "bech32_prefix": "banksy",
+  "daemon_name": "banksyd",
+  "node_home": "$HOME/.banksy",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ubanksy",
+        "fixed_min_gas_price": 0.025
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/notional-labs/composable-testnet",
+    "recommended_version": "v2.2.0",
+    "compatible_versions": [
+      "v2.2.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/notional-labs/composable-testnet/main/networks/testnet-1/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v2.2.0",
+        "recommended_version": "v2.2.0",
+        "compatible_versions": [
+          "v2.2.0"
+        ]
+      }
+    ]
+  },
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "bf95ad80f82320b8fefea75eeede60f563d1f847",
+        "address": "168.119.91.22:26656"
+      },
+      {
+        "id": "7bff2e43489a7acd09a38ab47c1f25ec24e24947",
+        "address": "162.19.237.201:26656"
+      },
+      {
+        "id": "7ab89f884656a66ca90fd9d44489da3c6ca1fea4",
+        "address": "95.217.144.107:22256"
+      }
+    ],
+    "seeds": [
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "testnet-seeds.polkachu.com:22256"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+          "address": "https://composable-testnet-rpc.polkachu.com",
+          "provider": "polkachu"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://composable-testnet-api.polkachu.com",
+        "provider": "polkachu"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "composable-testnet-grpc.polkachu.com:22290",
+        "provider": "polkachu"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "url": "https://explorer.nodestake.top/composable-testnet",
+      "tx_page": "https://explorer.nodestake.top/composable-testnet/tx/${txHash}"
+    }
+  ]
+}
