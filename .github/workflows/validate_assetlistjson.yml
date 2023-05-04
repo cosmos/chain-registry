@@ -5,6 +5,10 @@ jobs:
     name: Validate edited assetlist.json
     runs-on: ubuntu-latest
     steps:
+      - name: Uninstall urllib3
+        run: pip uninstall -y urllib3
+      - name: Install specific version of urllib3
+        run: pip install urllib3==1.26.5
       - uses: actions/checkout@v3
       - name: Validate Assetlist.json schema
         uses: snapcart/json-schema-validator@v1.0.0
