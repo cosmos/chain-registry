@@ -1,5 +1,5 @@
 import json
-import urllib.request
+import urllib3
 import os
 from os import getcwd
 
