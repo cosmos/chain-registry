@@ -5,18 +5,11 @@ jobs:
     name: Validate edited assetlist.json
     runs-on: ubuntu-latest
     steps:
-      - name: Upgrade OpenSSL
-        run: sudo apt-get install -y --no-install-recommends openssl
-      - name: Set PATH variable
-        run: export PATH=/usr/local/ssl/bin:$PATH
-      - name: Uninstall urllib3
-        run: pip uninstall -y urllib3
-      - name: Install specific version of urllib3
-        run: pip install urllib3==1.26.5
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install ajv-cli
+        run: npm install -g ajv-cli
+
       - name: Validate Assetlist.json schema
-        uses: snapcart/json-schema-validator@v1.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          json_schema: ./assetlist.schema.json
-          json_path_pattern: .*assetlist.json$
+        run: ajv -s ./assetlist.schema.json -d .*assetlist.json$
