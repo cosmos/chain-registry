@@ -8,11 +8,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install ajv-cli
-        run: npm install -g ajv-cli@latest
-        
-      - name: Download JSON Schema meta-schema
-        run: wget https://json-schema.org/draft-07/schema -O ./draft-07-schema.json
-        
+      - name: Install JSON-Schema-Validator
+        run: npm install -g jsonschema
+
       - name: Validate Assetlist.json schema
-        run: ajv -s ./assetlist.schema.json -d .*assetlist.json$ --$schema=https://json-schema.org/draft-07/schema#
+        run: jsonschema -i .*assetlist.json$ -s ./assetlist.schema.json
