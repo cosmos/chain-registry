@@ -11,5 +11,8 @@ jobs:
       - name: Install ajv-cli
         run: npm install -g ajv-cli@latest
         
+      - name: Download JSON Schema meta-schema
+        run: wget https://json-schema.org/draft-07/schema -O ./draft-07-schema.json
+        
       - name: Validate Assetlist.json schema
         run: ajv -s ./assetlist.schema.json -d .*assetlist.json$
