@@ -15,4 +15,4 @@ jobs:
         run: curl https://json-schema.org/draft-07/schema -o ./draft-07-schema.json
         
       - name: Validate Assetlist.json schema
-        run: ajv -s ./assetlist.schema.json -d .*assetlist.json$ --meta=inline://./draft-07-schema.json
+        run: ajv -s ./assetlist.schema.json -d .*assetlist.json$ --meta-schema=inline://./draft-07-schema.json
