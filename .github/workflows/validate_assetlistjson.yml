@@ -5,6 +5,8 @@ jobs:
     name: Validate edited assetlist.json
     runs-on: ubuntu-latest
     steps:
+      - name: Upgrade OpenSSL
+        run: sudo apt-get install -y --no-install-recommends openssl
       - name: Uninstall urllib3
         run: pip uninstall -y urllib3
       - name: Install specific version of urllib3
