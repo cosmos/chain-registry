@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: Upgrade OpenSSL
         run: sudo apt-get install -y --no-install-recommends openssl
+      - name: Set PATH variable
+        run: export PATH=/usr/local/ssl/bin:$PATH
       - name: Uninstall urllib3
         run: pip uninstall -y urllib3
       - name: Install specific version of urllib3
