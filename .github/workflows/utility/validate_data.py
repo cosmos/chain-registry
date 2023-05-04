@@ -1,6 +1,5 @@
 import json
-import urllib3
-urllib3.__version__ = "1.26.5"
+import urllib.request
 import os
 from os import getcwd
 
