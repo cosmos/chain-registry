@@ -5,10 +5,11 @@ jobs:
     name: Validate edited assetlist.json
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install JSON-Schema-Validator
+        run: npm install -g jsonschema
+
       - name: Validate Assetlist.json schema
-        uses: snapcart/json-schema-validator@v1.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          json_schema: ./assetlist.schema.json
-          json_path_pattern: .*assetlist.json$
+        run: find . -name '*assetlist.json' -exec jsonschema -i {} -s ./assetlist.schema.json \;
