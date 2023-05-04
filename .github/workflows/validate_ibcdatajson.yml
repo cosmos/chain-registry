@@ -8,12 +8,11 @@ jobs:
       - name: checkout registry
         uses: actions/checkout@v3
 
+      - name: Install JSON-Schema-Validator
+        run: npm install -g jsonschema
+
       - name: Validate IBC data schemas
-        uses: snapcart/json-schema-validator@v1.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          json_schema: ./ibc_data.schema.json
-          json_path_pattern: ^_IBC\/.*\.json$
+        run: find . -name '*/_IBC/*.json' -exec jsonschema -i {} -s ./ibc-data.schema.json \;
 
       - name: Set up Python
         uses: actions/setup-python@v3
