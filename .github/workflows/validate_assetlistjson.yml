@@ -12,4 +12,9 @@ jobs:
         run: npm install -g jsonschema
 
       - name: Validate Assetlist.json schema
-        run: find . -name '*assetlist.json' -exec jsonschema -i {} -s ./assetlist.schema.json \;
+        run: |
+          for file in $(find . -name 'assetlist.json'); do
+            if ! jsonschema -i "$file" ./assetlist.schema.json; then
+              exit 1
+            fi
+          done
