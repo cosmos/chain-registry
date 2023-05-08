@@ -1,0 +1,108 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "sixtestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "SIX Fivenet",
+  "chain_id": "fivenet",
+  "bech32_prefix": "6x",
+  "daemon_name": "sixd",
+  "node_home": "$HOME/.sixd",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "usix",
+        "fixed_min_gas_price": 1.25,
+        "low_gas_price": 1.25,
+        "average_gas_price": 1.5,
+        "high_gas_price": 1.75
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "usix"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/thesixnetwork/six-protocol",
+    "recommended_version": "v3.1.1-fn",
+    "compatible_versions": [
+      "v3.1.1-fn"
+    ],
+    "cosmos_sdk_version": "0.45",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/six-labs/networks/raw/main/osmo-test-4/genesis.tar.bz2"
+    },
+    "versions": [
+      {
+        "name": "v3.1.1-fn",
+        "recommended_version": "v3.1.1-fn",
+        "compatible_versions": [
+          "v3.1.1-fn"
+        ],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "0f9a9c694c46bd28ad9ad6126e923993fc6c56b1",
+        "address": "137.184.181.105:26656",
+        "provider": ""
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "4ab030b7fd75ed895c48bcc899b99c17a396736b", // not yet
+        "address": "137.184.190.127:26656", //not yet
+        "provider": ""
+      },
+      {
+        "id": "3dbffa30baab16cc8597df02945dcee0aa0a4581", // not yet
+        "address": "143.198.139.33:26656", //not yet
+        "provider": ""
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc1.fivenet.sixprotocol.net:443",
+        "provider": ""
+      },
+    ],
+    "rest": [
+      {
+        "address": "https://api1.fivenet.sixprotocol.net:443",
+        "provider": ""
+      },
+    ],
+  },
+  "explorers": [
+    {
+      "kind": "sixscan",
+      "url": "https://sixscan.io/fivenet",
+      "tx_page": "https://sixscan.io/fivenet/tx/${txHash}"
+    },
+  ],
+  "keywords": [
+    "nftgen2",
+    "testnet"
+  ]
+}
