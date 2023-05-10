@@ -1,0 +1,98 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "akashtestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://akash.network/",
+  "pretty_name": "Sandbox",
+  "chain_id": "sandbox",
+  "bech32_prefix": "akash",
+  "daemon_name": "akash",
+  "node_home": "$HOME/.akash",
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uakt",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.015,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uakt"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "github.com/ovrclk/akash",
+    "recommended_version": "v0.22.0",
+    "compatible_versions": [
+      "v0.20.0",
+      "v0.22.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.22.0/akash_0.22.0_linux_amd64.zip",
+      "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.22.0/akash_0.22.0_linux_arm64.zip"
+    },
+    "versions": [
+      {
+        "name": "v0",
+        "recommended_version": "v0.22.0",
+        "compatible_versions": [
+          "v0.20.0",
+          "v0.22.0"
+        ]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.svg"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "96aacf1f907027e1f912ad41d1eba40ed38ebee2",
+        "address": "p2p.sandbox.ny.aksh.pw:26656"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "96aacf1f907027e1f912ad41d1eba40ed38ebee2",
+        "address": "p2p.sandbox.ny.aksh.pw:26656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "http://rpc.sandbox.ny.aksh.pw:26657",
+        "provider": "Akash"
+      }
+    ],
+    "rest": [
+      {
+        "address": "http://api.sandbox.ny.aksh.pw:1317",
+        "provider": "Akash"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.sandbox.ny.aksh.pw:9090",
+        "provider": "akash"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer.testnet-02.aksh.pw/akash",
+      "tx_page": "https://explorer.testnet-02.aksh.pw/akash/tx/${txHash}"
+    }
+  ]
+}
