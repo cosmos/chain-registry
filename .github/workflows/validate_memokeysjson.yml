@@ -12,4 +12,9 @@ jobs:
         run: npm install -g jsonschema
 
       - name: Validate Memo Keys schemas
-        run: find . -name '*/_memo_keys/*.json' -exec jsonschema -i {} -s ./memo_keys.schema.json \;
+        run: |
+          for file in $(find . -name '*/_memo_keys/*.json'); do
+            if ! jsonschema -i "$file" ./memo_keys.schema.json; then
+              exit 1
+            fi
+          done
