@@ -36,15 +36,15 @@ jobs:
           jobs="[$(cat .github/workflows/utility/upgrades/chainsUpgrade.json | jq -r 'keys | map(tostring) | join(", ")')]"
           echo '::set-output name=job-names::$jobs'
 
-    ahihi:
-      runs-on: ubuntu-latest
-      name: Watching Upgrades
-      strategy:
-        matrix:
-          job-name: ${{ fromJson(needs.get_upgrades.outputs.job-names) }}
-      
-      steps:
-        - name: Process Job
-          run: |
-            echo "Processing Job ${{ matrix.job-name }}"
-            # Perform actions specific to each job
+  ahihi:
+    runs-on: ubuntu-latest
+    name: Watching Upgrades
+    strategy:
+      matrix:
+        job-name: ${{ fromJson(needs.get_upgrades.outputs.job-names) }}
+    
+    steps:
+      - name: Process Job
+        run: |
+          echo "Processing Job ${{ matrix.job-name }}"
+          # Perform actions specific to each job
