@@ -10,7 +10,20 @@ headers = {
 }
 
 chainsData = {}
-chainsUpgrade = {}
+chainsUpgrade = {
+    "secretnetwork": {
+        "height": 8861800,
+        "version": "v1.9"
+    },
+    "asd": {
+        "height": 8861800,
+        "version": "v1.9"
+    },
+    "sdfg": {
+        "height": 8861800,
+        "version": "v1.9"
+    }
+}
 chainsList = ["a", "b", "c", "d", "e", "f"]
 
 def getUpgrades():
@@ -77,10 +90,7 @@ def getUpgrades():
     # with open(".github/workflows/utility/upgrades/chainsEndpoint.json", "w") as file:
     #     json.dump(chainsData, file, indent=4)
         
-    # with open(".github/workflows/utility/upgrades/chainsUpgrade.json", "w") as file:
-    #     json.dump(chainsUpgrade, file, indent=4)
-    
-    os.environ["UPGRADE_LIST"] = str(chainsList)
-    print(os.environ["UPGRADE_LIST"])
+    with open(".github/workflows/utility/upgrades/chainsUpgrade.json", "w") as file:
+        json.dump(chainsUpgrade, file, indent=4)
     
     return chainsUpgrade
