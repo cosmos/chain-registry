@@ -39,7 +39,6 @@ jobs:
           jobs=$(cat .github/workflows/utility/upgrades/chainsUpgrade.json)
           jobs="[\"$(echo "$jobs" | jq -r 'keys | map(tostring) | join("\", \"")')\"]"
           echo $jobs
-          echo $UPGRADE_LIST
           echo "jobs=$jobs" >> $GITHUB_OUTPUT
 
   ahihi:
@@ -48,7 +47,7 @@ jobs:
     name: Watching Upgrades
     strategy:
       matrix:
-        job-name: ${{ fromJson(needs.get_upgrades.outputs.job-names) }}
+        job-name: ${{ fromJson(needs.get_upgrades.outputs.jobs) }}
     
     steps:
       - name: Process Job
