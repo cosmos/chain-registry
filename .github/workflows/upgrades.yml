@@ -47,7 +47,7 @@ jobs:
     name: Watching Upgrades
     strategy:
       matrix:
-        job-name: ${{ fromJson(needs.get_upgrades.outputs.jobs) }}
+        job-name: ${{ needs.get_upgrades.outputs.chain-jobs && fromJson(needs.get_upgrades.outputs.chain-jobs) }}
     
     steps:
       - name: Process Job
