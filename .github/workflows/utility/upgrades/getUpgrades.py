@@ -72,13 +72,10 @@ def getUpgrades():
                 "rpc": rpcs,
                 "api": apis,
             }
-    with open(".github/workflows/utility/upgrades/chains-rpc.json", "w") as file:
+    with open(".github/workflows/utility/upgrades/chainsEndpoint.json", "w") as file:
         json.dump(chainsData, file, indent=4)
         
     with open(".github/workflows/utility/upgrades/chainsUpgrade.json", "w") as file:
         json.dump(chainsUpgrade, file, indent=4)
     
     return chainsUpgrade
-
-
-getUpgrades()
