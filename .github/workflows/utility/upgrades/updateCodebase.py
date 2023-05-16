@@ -10,6 +10,7 @@ headers = {
 }
 
 def getBlock(chain):
+    print(rootdir)
     with open("chainsUpgrade.json", "r") as file:
         data = json.load(file)
         chainData = data[chain]
@@ -61,5 +62,3 @@ def update_codebase():
             
             with open(os.path.join(rootdir, chainjson), "w") as file:
                 json.dump(current, file, indent=2, ensure_ascii=False)
-                
-update_codebase()
