@@ -71,10 +71,10 @@ jobs:
         run: |
           import sys
           import os
+          sys.path.insert(1, '.github/workflows/utility/upgrades')
           import updateCodebase
 
           chain = os.environ["UPGRADE_CHAIN"]
-          sys.path.insert(1, '.github/workflows/utility/upgrades')
           updateCodebase.getBlock(chain)
       
       - name: Add Commit Push
