@@ -11,6 +11,7 @@ headers = {
 
 chainsData = {}
 chainsUpgrade = {}
+chainsList = []
 
 def getUpgrades():
     chainsFolders = sorted(os.listdir(rootdir))
@@ -67,7 +68,8 @@ def getUpgrades():
                 except Exception as e:
                     print(f"Issue with request to {chainfolder}: {e}")
                     continue
-                
+            
+            chainsList.append(chainfolder)
             chainsData[chainfolder] = {
                 "rpc": rpcs,
                 "api": apis,
@@ -77,5 +79,7 @@ def getUpgrades():
         
     with open(".github/workflows/utility/upgrades/chainsUpgrade.json", "w") as file:
         json.dump(chainsUpgrade, file, indent=4)
+    
+    os.environ["UPGRADE_LIST"] = str(chainsList)
     
     return chainsUpgrade
