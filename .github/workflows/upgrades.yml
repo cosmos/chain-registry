@@ -71,6 +71,13 @@ jobs:
           cd .github/workflows/utility/upgrades
           python -m pip install requests
 
+      - name: Set up Cache
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: .github/workflows/utility/upgrades/chainsUpgrade.json
+          key: chain-upgrade-data-list
+
       - name: Check for Upgrades
         shell: python
         env:
