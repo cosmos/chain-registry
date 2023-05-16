@@ -18,7 +18,7 @@ def getUpgrades():
         chainjson = os.path.join(chainfolder, "chain.json")
         if os.path.isfile(chainjson):
             current = json.load(open(os.path.join(rootdir, chainjson)))
-            print(chainfolder)
+            print(chainfolder, flush=True)
             rpcs = [items["address"] for items in current["apis"]["rpc"]]
             apis = [items["address"] for items in current["apis"]["rest"]]
             for item in apis:
@@ -32,12 +32,12 @@ def getUpgrades():
                             "rpc": rpcs,
                             "api": apis
                         }
-                        print(f"Found upgrades for {chainfolder}!")
+                        print(f"Found upgrades for {chainfolder}!", flush=True)
                     else:
-                        print(f"No upgrades for {chainfolder}!")
+                        print(f"No upgrades for {chainfolder}!", flush=True)
                     break
                 except Exception as e:
-                    print(f"Issue with request to {chainfolder}: {e}")
+                    print(f"Issue with request to {chainfolder}: {e}", flush=True)
                     continue
             
     with open(".github/workflows/utility/upgrades/chainsUpgrade.json", "w") as file:

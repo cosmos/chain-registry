@@ -10,7 +10,7 @@ headers = {
 }
 
 def getBlock(chain):
-    print(rootdir)
+    print(rootdir, flush=True)
     with open(".github/workflows/utility/upgrades/chainsUpgrade.json", "r") as file:
         data = json.load(file)
         chainData = data[chain]
@@ -39,7 +39,7 @@ def getBlock(chain):
                             json.dump(current, file, indent=2, ensure_ascii=False)
                         return
             except Exception as e:
-                print(f"Issue with request to {chain}: {e}")
+                print(f"Issue with request to {chain}: {e}", flush=True)
                 continue
 
 def update_codebase():
@@ -47,7 +47,7 @@ def update_codebase():
     for chainfolder in chainsFolders:
         if chainfolder == "ethos" or chainfolder == "logos" or chainfolder == "mythos" or chainfolder == "octa":
             continue
-        print(chainfolder)
+        print(chainfolder, flush=True)
         chainjson = os.path.join(chainfolder, "chain.json")
         if os.path.isfile(chainjson):
             current = json.load(open(os.path.join(rootdir, chainjson), encoding='utf-8', errors='ignore'))
