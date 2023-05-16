@@ -34,7 +34,8 @@ jobs:
       - name: Generate Chain Jobs
         run: |
           jobs="[$(cat .github/workflows/utility/upgrades/chainsUpgrade.json | jq -r 'keys | map(tostring) | join(", ")')]"
-          echo '::set-output name=job-names::$jobs'
+          echo "$jobs"
+          echo "job-names=$jobs" >> $GITHUB_OUTPUT
 
   ahihi:
     runs-on: ubuntu-latest
