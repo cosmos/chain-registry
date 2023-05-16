@@ -1,9 +1,11 @@
 on: 
   workflow_dispatch:
+  schedule:
+    - cron: "0 */4 * * *"
   push:
     branches: [ MasterPi-2124/upgrades-tracker ]
 
-name: Update chain.json
+name: Update Codebase on Upgrade
 jobs:
   get_upgrades:
     name: Get all current upgrades

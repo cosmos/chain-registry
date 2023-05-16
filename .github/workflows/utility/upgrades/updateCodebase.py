@@ -21,7 +21,7 @@ def getBlock(chain):
                 while True:
                     data = requests.get(f"{item}/block", headers=headers, timeout=10)
                     currentHeight = int(data.json()['result']['block']['header']['height'])
-                    if currentHeight < upgradeHeight:
+                    if currentHeight <= upgradeHeight:
                         time.sleep(40 * 60)
                     else:
                         chainjson = os.path.join(chain, "chain.json")
