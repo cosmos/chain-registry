@@ -28,7 +28,7 @@ def getBlock(chain):
                         codebase = current["codebase"]
                         latestVersion = current["codebase"]["versions"][-1]
                         
-                        for key, value in latestVersion.iteritems():
+                        for key, value in latestVersion.items():
                             if key != "name" and key != "height" and key != "proposal" and key != "tag" and key != "next_version_name":
                                 codebase[key] = value
                                 
@@ -54,10 +54,12 @@ def update_codebase():
             latestVersion = current["codebase"]["versions"][-1]
             
             for key, value in latestVersion.items():
-                if key != "name" and key != "height" and key != "proposal" and key != "tag" and ke:
+                if key != "name" and key != "height" and key != "proposal" and key != "tag" and key != "next_version_name":
                     codebase[key] = value
                     
             current["codebase"] = codebase
             
             with open(os.path.join(rootdir, chainjson), "w") as file:
                 json.dump(current, file, indent=2, ensure_ascii=False)
+                
+update_codebase()

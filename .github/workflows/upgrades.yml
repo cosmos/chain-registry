@@ -63,4 +63,39 @@ jobs:
           python -m pip install --upgrade pip
           cd .github/workflows/utility/upgrades
           python -m pip install requests
+
+      - name: Check for Upgrades
+        shell: python
+        env:
+          UPGRADE_CHAIN: ${{ matrix.job-name }}
+        run: |
+          import sys
+          import os
+          import updateCodebase
+
+          chain = os.environ["UPGRADE_CHAIN"]
+          sys.path.insert(1, '.github/workflows/utility/upgrades')
+          updateCodebase.getBlock(chain)
       
+      - name: Add Commit Push
+        uses: devops-infra/action-commit-push@master
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          add_timestamp: false
+          commit_prefix: "[AUTO]"
+          commit_message: "Chain.json automatic update"
+          force: false
+          target_branch: update/chainjsonv2
+      
+      - name: Create A PR
+        uses: devops-infra/action-pull-request@v0.4.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_branch: update/chainjsonv2
+          target_branch: master
+          title: Chain.json automatic update
+          body: "**Automated pull request**"
+          old_string: "**THIS IS AN AUTOMATED UPDATE OF CHAIN.JSON**"
+          new_string: "** Automatic pull request**"
+          get_diff: true
+          ignore_users: "dependabot"
