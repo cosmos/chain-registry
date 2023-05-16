@@ -11,7 +11,7 @@ headers = {
 
 def getBlock(chain):
     print(rootdir)
-    with open("chainsUpgrade.json", "r") as file:
+    with open(".github/workflows/utility/upgrades/chainsUpgrade.json", "r") as file:
         data = json.load(file)
         chainData = data[chain]
         rpcs = chainData["rpc"]
