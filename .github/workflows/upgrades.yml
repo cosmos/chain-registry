@@ -36,8 +36,7 @@ jobs:
       - name: Generate Chain Jobs
         id: generate
         run: |
-          jobs=$(cat .github/workflows/utility/upgrades/chainsUpgrade.json)
-          jobs="[\"$(echo "$jobs" | jq -r 'keys | map(tostring) | join("\", \"")')\"]"
+          jobs="[\"$(echo "$(cat .github/workflows/utility/upgrades/chainsUpgrade.json)" | jq -r 'keys | map(tostring) | join("\", \"")')\"]"
           echo $jobs
           echo "jobs=$jobs" >> $GITHUB_OUTPUT
 
