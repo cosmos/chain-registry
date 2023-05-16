@@ -92,5 +92,3 @@ def getUpgrades():
         
     with open(".github/workflows/utility/upgrades/chainsUpgrade.json", "w") as file:
         json.dump(chainsUpgrade, file, indent=4)
-    
-    return chainsUpgrade
