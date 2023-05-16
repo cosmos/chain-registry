@@ -19,7 +19,7 @@ def getBlock(chain):
         for item in rpcs:
             try:
                 while True:
-                    data = requests.get(f"{item}/block", headers=headers)
+                    data = requests.get(f"{item}/block", headers=headers, timeout=10)
                     currentHeight = int(data.json()['result']['block']['header']['height'])
                     if currentHeight < upgradeHeight:
                         time.sleep(40 * 60)

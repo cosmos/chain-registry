@@ -23,7 +23,7 @@ def getUpgrades():
             apis = [items["address"] for items in current["apis"]["rest"]]
             for item in apis:
                 try:
-                    data = requests.get(f"{item}/cosmos/upgrade/v1beta1/current_plan", headers=headers)
+                    data = requests.get(f"{item}/cosmos/upgrade/v1beta1/current_plan", headers=headers, timeout=10)
                     data = data.json()['plan']
                     if data != None:
                         chainsUpgrade[chainfolder] = {
