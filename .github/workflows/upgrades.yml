@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: 3.11
-
+      
       - name: Install Python dependencies
         run:  |
           python -m pip install --upgrade pip
@@ -39,6 +39,13 @@ jobs:
           jobs="[\"$(echo "$(cat .github/workflows/utility/upgrades/chainsUpgrade.json)" | jq -r 'keys | map(tostring) | join("\", \"")')\"]"
           echo "Found these upgrades: $jobs"
           echo "jobs=$jobs" >> $GITHUB_OUTPUT
+
+      - name: Set up Cache
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: .github/workflows/utility/upgrades/chainsUpgrade.json
+          key: chain-upgrade-data-list
 
   upgrades:
     runs-on: ubuntu-latest
@@ -84,17 +91,17 @@ jobs:
           github_token: "${{ secrets.GITHUB_TOKEN }}"
           add_timestamp: false
           commit_prefix: "[AUTO]"
-          commit_message: "Chain.json automatic update"
+          commit_message: "${{ matrix.job-name }} codebase update"
           force: false
-          target_branch: update/chainjsonv2
+          target_branch: upgrade/${{ matrix.job-name }}
       
       - name: Create A PR
         uses: devops-infra/action-pull-request@v0.4.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          source_branch: update/chainjsonv2
+          source_branch: upgrade/${{ matrix.job-name }}
           target_branch: master
-          title: Chain.json automatic update
+          title: ${{ matrix.job-name }} codebase update
           body: "**Automated pull request**"
           old_string: "**THIS IS AN AUTOMATED UPDATE OF CHAIN.JSON**"
           new_string: "** Automatic pull request**"
