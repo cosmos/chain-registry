@@ -1,0 +1,67 @@
+{
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "filecoin",
+  "assets": [
+    {
+      "description": "Native token of Filecoin",
+      "denom_units": [
+        {
+          "denom": "attoFIL",
+          "exponent": 0,
+          "aliases": [
+            "fil-wei"
+          ]
+        },
+        {
+          "denom": "fil",
+          "exponent": 18
+        }
+      ],
+      "base": "attoFIL",
+      "name": "Filecoin",
+      "display": "fil",
+      "symbol": "FIL",
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/filecoin/images/fil.svg",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/filecoin/images/fil.png"
+      },
+      "coingecko_id": "filecoin"
+    },
+    {
+      "description": "Wrapped Filecoin, ERC20 Wrapper over Filecoin",
+      "address": "0x60E1773636CF5E4A227d9AC24F20fEca034ee25A",
+      "denom_units": [
+        {
+          "denom": "0x60E1773636CF5E4A227d9AC24F20fEca034ee25A",
+          "exponent": 0,
+          "aliases": [
+            "wfil-wei"
+          ]
+        },
+        {
+          "denom": "wfil",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "erc20",
+      "base": "0x60E1773636CF5E4A227d9AC24F20fEca034ee25A",
+      "name": "Wrapped FIL",
+      "display": "wfil",
+      "symbol": "WFIL",
+      "traces": [
+        {
+          "type": "wrapped",
+          "counterparty": {
+            "chain_name": "filecoin",
+            "base_denom": "attoFIL"
+          },
+          "provider": "Filecoin"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/filecoin/images/wfil.svg",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/filecoin/images/wfil.png"
+      }
+    }
+  ]
+}

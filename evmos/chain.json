@@ -36,8 +36,10 @@
   },
   "codebase": {
     "git_repo": "https://github.com/evmos/evmos",
-    "recommended_version": "v12.1.0",
+    "recommended_version": "v12.1.2",
     "compatible_versions": [
+      "v12.1.2",
+      "v12.1.1",
       "v12.1.0"
     ],
     "binaries": {
@@ -58,9 +60,11 @@
     },
     "versions": [
       {
-        "name": "v12.1.0",
-        "recommended_version": "v12.1.0",
+        "name": "v12",
+        "recommended_version": "v12.1.2",
         "compatible_versions": [
+          "v12.1.2",
+          "v12.1.1",
           "v12.1.0"
         ],
         "cosmos_sdk_version": "0.46",
@@ -78,6 +82,10 @@
         }
       }
     ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.svg"
   },
   "peers": {
     "seeds": [
@@ -135,6 +143,21 @@
         "id": "e726816f42831689eab9378d5d577f1d06d25716",
         "address": "evmos-seed-2.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "e4f7c3181d0028209c664bfd4c259f2c4d947491",
+        "address": "seeds.whispernode.com:13456",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "id": "27b6d74c8408e033e2e5a9e966a0d15782e33596",
+        "address": "seeds.nethernode.xyz:13456",
+        "provider": "carbonZERO🌲"
+      },
+      {
+        "id": "ac009a9564d3471852795b5d703095a1d4b6a3e1",
+        "address": "seed-evmos-01.stakeflow.io:1707",
+        "provider": "Genesis Lab"
       }
     ],
     "persistent_peers": [
@@ -157,6 +180,11 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "evmos-mainnet-peer.autostake.com:26736",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "ac009a9564d3471852795b5d703095a1d4b6a3e1",
+        "address": "peer-evmos-01.stakeflow.io:1707",
+        "provider": "Genesis Lab"
       }
     ]
   },
@@ -245,6 +273,18 @@
       {
         "address": "https://evmos.rpc.interchain.ivaldilabs.xyz",
         "provider": "ivaldilabs"
+      },
+      {
+        "address": "https://evmos.api.onfinality.io/public",
+        "provider": "OnFinality"
+      },
+      {
+        "address": "https://evmos-rpc.publicnode.com",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://rpc-evmos-01.stakeflow.io",
+        "provider": "Genesis Lab"
       }
     ],
     "rest": [
@@ -319,6 +359,14 @@
       {
         "address": "https://evmos.rest.interchain.ivaldilabs.xyz",
         "provider": "ivaldilabs"
+      },
+      {
+        "address": "https://evmos-rest.publicnode.com",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://api-evmos-01.stakeflow.io",
+        "provider": "Genesis Lab"
       }
     ],
     "grpc": [
@@ -365,6 +413,14 @@
       {
         "address": "evmos.grpc.interchain.ivaldilabs.xyz:443",
         "provider": "ivaldilabs"
+      },
+      {
+        "address": "https://evmos-grpc.publicnode.com",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "grpc-evmos-01.stakeflow.io:1702",
+        "provider": "Genesis Lab"
       }
     ],
     "evm-http-jsonrpc": [
@@ -407,12 +463,16 @@
       {
         "address": "https://evmosevm.rpc.stakin-nodes.com",
         "provider": "Stakin"
+      },
+      {
+        "address": "https://evmos-evm.publicnode.com",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
+      "kind": "EZ Staking Tools",
       "url": "https://ezstaking.tools/evmos",
       "tx_page": "https://ezstaking.tools/evmos/txs/${txHash}",
       "account_page": "https://ezstaking.tools/evmos/account/${accountAddress}"
@@ -447,12 +507,18 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/evmos",
-      "tx_page": "https://atomscan.com/evmos/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/evmos/transactions/${txHash}",
+      "account_page": "https://atomscan.com/evmos/accounts/${accountAddress}"
     },
     {
       "kind": "tcnetwork",
       "url": "https://evmos.tcnetwork.io",
       "tx_page": "https://evmos.tcnetwork.io/transaction/${txHash}"
+    },
+    {
+      "kind": "Stakeflow",
+      "url": "https://stakeflow.io/evmos",
+      "account_page": "https://stakeflow.io/evmos/accounts/${accountAddress}"
     }
   ]
 }

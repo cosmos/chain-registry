@@ -33,9 +33,10 @@
   },
   "codebase": {
     "git_repo": "https://github.com/CosmosContracts/juno",
-    "recommended_version": "v13.0.0",
+    "recommended_version": "v14.1.0",
     "compatible_versions": [
-      "v13.0.0"
+      "v14.0.0",
+      "v14.1.0"
     ],
     "cosmos_sdk_version": "0.45",
     "consensus": {
@@ -49,7 +50,7 @@
     },
     "versions": [
       {
-        "name": "v13.0.0",
+        "name": "v13",
         "recommended_version": "v13.0.0",
         "compatible_versions": [
           "v13.0.0"
@@ -60,9 +61,23 @@
           "version": "0.34"
         },
         "cosmwasm_version": "0.30",
-        "cosmwasm_enabled": true
+        "cosmwasm_enabled": true,
+        "next_version_name": "v14"
+      },
+      {
+        "name": "v14",
+        "height": 7875721,
+        "recommended_version": "v14.1.0",
+        "compatible_versions": [
+          "v14.0.0",
+          "v14.1.0"
+        ]
       }
     ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.svg"
   },
   "peers": {
     "seeds": [
@@ -109,6 +124,21 @@
         "id": "70fcee92283edc02340289b2a74e4ab1a0203848",
         "address": "seed-juno.freshstaking.com:39656",
         "provider": "FreshSTAKING"
+      },
+      {
+        "id": "47d942718533d36823e16b9502c035ca9f318ef4",
+        "address": "seeds.whispernode.com:12656",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "juno.rpc.kjnodes.com:15759",
+        "provider": "kjnodes"
+      },
+      {
+        "id": "509f6dbae3133a9df177edea051b31e1210b117e",
+        "address": "seed-juno-01.stakeflow.io:2307",
+        "provider": "Genesis Lab"
       }
     ],
     "persistent_peers": [
@@ -125,6 +155,11 @@
         "id": "70fcee92283edc02340289b2a74e4ab1a0203848",
         "address": "seed-juno.freshstaking.com:39656",
         "provider": "FreshSTAKING"
+      },
+      {
+        "id": "509f6dbae3133a9df177edea051b31e1210b117e",
+        "address": "peer-juno-01.stakeflow.io:2307",
+        "provider": "Genesis Lab"
       }
     ]
   },
@@ -221,6 +256,18 @@
       {
         "address": "http://167.235.211.168:26657",
         "provider": "CommunityStaking"
+      },
+      {
+        "address": "https://juno.rpc.silknodes.io",
+        "provider": "Silk Nodes"
+      },
+      {
+        "address": "https://juno.rpc.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://rpc-juno-01.stakeflow.io",
+        "provider": "Genesis Lab"
       }
     ],
     "rest": [
@@ -299,6 +346,18 @@
       {
         "address": "http://167.235.211.168:1317",
         "provider": "CommunityStaking"
+      },
+      {
+        "address": "https://juno.api.silknodes.io",
+        "provider": "Silk Nodes"
+      },
+      {
+        "address": "https://juno.api.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://api-juno-01.stakeflow.io",
+        "provider": "Genesis Lab"
       }
     ],
     "grpc": [
@@ -345,12 +404,20 @@
       {
         "address": "http://167.235.211.168:9091",
         "provider": "CommunityStaking"
+      },
+      {
+        "address": "juno.grpc.kjnodes.com:15790",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "grpc-juno-01.stakeflow.io:2302",
+        "provider": "Genesis Lab"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
+      "kind": "EZ Staking Tools",
       "url": "https://ezstaking.tools/juno",
       "tx_page": "https://ezstaking.tools/juno/txs/${txHash}",
       "account_page": "https://ezstaking.tools/juno/account/${accountAddress}"
@@ -374,12 +441,18 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/juno",
-      "tx_page": "https://atomscan.com/juno/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/juno/transactions/${txHash}",
+      "account_page": "https://atomscan.com/juno/accounts/${accountAddress}"
     },
     {
       "kind": "TC Network",
       "url": "https://explorer.tcnetwork.io/juno",
       "tx_page": "https://explorer.tcnetwork.io/juno/transaction/${txHash}"
+    },
+    {
+      "kind": "Stakeflow",
+      "url": "https://stakeflow.io/juno",
+      "account_page": "https://stakeflow.io/juno/accounts/${accountAddress}"
     }
   ]
 }

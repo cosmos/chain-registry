@@ -77,10 +77,10 @@
         "bech32PrefixConsPub": {
           "type": "string",
           "description": "e.g., 'cosmosvalconspub'"
-        },
-        "additionalProperties": false,
-        "minProperties": 1
-      }
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
     },
     "daemon_name": {
       "type": "string"
@@ -277,6 +277,10 @@
                 "type": "number",
                 "description": "Block Height"
               },
+              "proposal": {
+                "type": "number",
+                "description": "Proposal that will officially signal community acceptance of the upgrade."
+              },
               "next_version_name": {
                 "type": "string",
                 "description": "[Optional] Name of the following version"
@@ -386,8 +390,8 @@
             "type": "object",
             "properties": {
               "primary_color_hex": {
-               "type": "string",
-               "pattern": "^#[0-9a-fA-F]{6}$"
+                "type": "string",
+                "pattern": "^#[0-9a-fA-F]{6}$"
               }
             },
             "additionalProperties": false
@@ -605,6 +609,5 @@
       },
       "additionalProperties": false
     }
-  },
-  "additionalProperties": false
+  }
 }

@@ -36,12 +36,12 @@
   },
   "codebase": {
     "git_repo": "https://github.com/scrtlabs/SecretNetwork",
-    "recommended_version": "v1.8.0",
+    "recommended_version": "v1.9.0",
     "compatible_versions": [
-      "v1.8.0"
+      "v1.9.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.8.0/secretnetwork_1.8.0_mainnet_goleveldb_amd64.deb"
+      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.9.0/secretnetwork_1.9.0_mainnet_goleveldb_amd64.deb"
     },
     "genesis": {
       "genesis_url": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/genesis.json"
@@ -95,8 +95,24 @@
         "binaries": {
           "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.8.0/secretnetwork_1.8.0_mainnet_goleveldb_amd64.deb"
         }
+      },
+      {
+        "name": "v1.9",
+        "tag": "v1.9.0",
+        "height": 8861800,
+        "recommended_version": "v1.9.0",
+        "compatible_versions": [
+          "v1.9.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.9.0/secretnetwork_1.9.0_mainnet_goleveldb_amd64.deb"
+        }
       }
     ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/scrt.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/scrt.svg"
   },
   "peers": {
     "seeds": [
@@ -119,9 +135,25 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:17156",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "d6a6edd7d3d04b59955e135e2d27b7dcc285ead7",
+        "address": "seeds.whispernode.com:17156",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "id": "5b0d6ef879fe1326045fa18d5bf767c5968704e6",
+        "address": "secretnetwork-mainnet-seed.autostake.com:26656",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
-    "persistent_peers": []
+    "persistent_peers": [
+      {
+        "id": "5b0d6ef879fe1326045fa18d5bf767c5968704e6",
+        "address": "secretnetwork-mainnet-peer.autostake.com:26656",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ]
   },
   "apis": {
     "grpc-web": [
@@ -146,6 +178,14 @@
       {
         "address": "https://rpc-secret.whispernode.com:443",
         "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://secret-rpc.bharvest.io",
+        "provider": "B-Harvest"
+      },
+      {
+        "address": "https://1rpc.io/scrt-rpc",
+        "provider": "1RPC - Automata Network"
       }
     ],
     "rest": [
@@ -160,18 +200,34 @@
       {
         "address": "https://lcd-secret.whispernode.com:443",
         "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "http://secretnetwork-mainnet-lcd.autostake.com:1317",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://secret-api.bharvest.io",
+        "provider": "B-Harvest"
+      },
+      {
+        "address": "https://1rpc.io/scrt-lcd",
+        "provider": "1RPC - Automata Network"
       }
     ],
     "grpc": [
       {
         "address": "secret-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "secretnetwork-mainnet-grpc.autostake.com:9090",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
+      "kind": "EZ Staking Tools",
       "url": "https://ezstaking.tools/secretnetwork",
       "tx_page": "https://ezstaking.tools/secretnetwork/txs/${txHash}",
       "account_page": "https://ezstaking.tools/secretnetwork/account/${accountAddress}"
@@ -195,7 +251,8 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/secret-network",
-      "tx_page": "https://atomscan.com/secret-network/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/secret-network/transactions/${txHash}",
+      "account_page": "https://atomscan.com/secret-network/accounts/${accountAddress}"
     }
   ]
 }
