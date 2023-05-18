@@ -3,7 +3,7 @@
   "chain_name": "cascadiatestnet",
   "status": "live",
   "network_type": "testnet",
-  "website": "https://www.cascadia.foundation/",
+  "website": "https://cascadia.foundation/",
   "pretty_name": "Cascadia",
   "chain_id": "cascadia_6102-1",
   "bech32_prefix": "cascadia",
@@ -18,16 +18,16 @@
       {
         "denom": "aCC",
         "fixed_min_gas_price": 0,
-        "low_gas_price": 0.05,
-        "average_gas_price": 0.05,
-        "high_gas_price": 0.1
+        "low_gas_price": 7,
+        "average_gas_price": 10,
+        "high_gas_price": 15
       }
     ]
   },
   "staking": {
     "staking_tokens": [
       {
-        "denom": "tCC"
+        "denom": "aCC"
       }
     ],
     "lock_duration": {
@@ -40,7 +40,7 @@
     "compatible_versions": [
       "v0.1.1"
     ],
-    "cosmos_sdk_version": "0.46.1",
+    "cosmos_sdk_version": "0.46.10",
     "consensus": {
       "type": "tendermint",
       "version": "v0.34.26"
@@ -49,7 +49,7 @@
     "cosmwasm_enabled": true,
     "genesis": {
       "name": "v1",
-      "genesis_url": "https://github.com/CascadiaFoundation/chain-configuration/raw/master/testnet/genesis.json.gz"
+      "genesis_url": "https://raw.githubusercontent.com/CascadiaFoundation/chain-configuration/master/testnet/genesis.json"
     },
     "versions": []
   },
@@ -57,7 +57,7 @@
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/cascadiatestnet/images/cascadia.png",
       "theme": {
-      "primary_color_hex": "#0C0914"
+      "primary_color_hex": "#004A96"
       }
     }
   ],
@@ -100,6 +100,10 @@
   "apis": {
     "rpc": [
       {
+        "address": "https://rpc.cascadia.foundation:443",
+        "provider": "cascadia"
+      },
+      {
         "address": "https://cscd-rpc.systemd.run:443",
         "provider": "systemd"
       },
@@ -110,6 +114,10 @@
     ],
     "grpc": [
       {
+        "address": "grpc.cascadia.foundation:443",
+        "provider": "cascadia"
+      },
+      {
         "address": "cscd-grpc.systemd.run:443",
         "provider": "systemd"
       },
@@ -119,6 +127,10 @@
       }
     ],
     "rest": [
+      {
+        "address": "https://lcd.cascadia.foundation",
+        "provider": "cascadia"
+      },
       {
         "address": "https://cscd-api.systemd.run",
         "provider": "systemd"
@@ -131,20 +143,22 @@
   },
   "explorers": [
     {
-      "kind": "explorers.guru",
-      "url": "https://testnet.cascadia.explorers.guru/",
-      "tx_page": "https://testnet.cascadia.explorers.guru/transaction/${txHash}",
-      "account_page": "https://testnet.cascadia.explorers.guru/account/${accountAddress}"
-    },
-    {
-      "kind": "bigdipper",
-      "url": "https://explorer.cascadia.foundation/",
+      "kind": "validator_explorer",
+      "url": "https://validator.cascadia.foundation/",
       "tx_page": "https://validator.cascadia.foundation/transactions/${txHash}",
       "account_page": "https://validator.cascadia.foundation/accounts/${accountAddress}"
+    },   
+    {
+      "kind": "block_explorer",
+      "url": "https://explorer.cascadia.foundation/",
+      "tx_page": "https://explorer.cascadia.foundation/tx/${txHash}",
+      "account_page": "https://explorer.cascadia.foundation/address/${accountAddress}"
     }
   ],
   "keywords": [
     "cascadia",
-    "neocybernetic"
+    "cosmos",
+    "evm",
+    "cybernetic"
   ]
 }
