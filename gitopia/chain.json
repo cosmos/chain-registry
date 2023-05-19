@@ -1,0 +1,154 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "gitopia",
+    "status": "live",
+    "website": "https://gitopia.com/",
+    "network_type": "mainnet",
+    "pretty_name": "Gitopia",
+    "chain_id": "gitopia",
+    "bech32_prefix": "gitopia",
+    "daemon_name": "gitopiad",
+    "node_home": "$HOME/.gitopia",
+    "key_algos": [
+      "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+      "fee_tokens": [
+        {
+          "denom": "ulore",
+          "fixed_min_gas_price": 0.001,
+          "low_gas_price": 96,
+          "average_gas_price": 128,
+          "high_gas_price": 192
+        }
+      ]
+    },
+    "staking": {
+      "staking_tokens": [
+        {
+          "denom": "ulore"
+        }
+      ],
+      "lock_duration": {
+        "time": "1814400ss"
+      }
+    },
+    "codebase": {
+      "git_repo": "https://github.com/gitopia/gitopia",
+      "recommended_version": "v2.0.0",
+      "compatible_versions": [
+      ],
+      "cosmos_sdk_version": "0.46.12",
+      "consensus": {
+        "type": "tendermint",
+        "version": "0.34.27"
+      },
+      "ibc_go_version": "5.0.0",
+      "ics_enabled": [
+        "ics20-1"
+      ],
+      "genesis": {
+        "genesis_url": "https://github.com/gitopia/mainnet/raw/master/genesis.tar.gz"
+      }
+    },
+    "images": [
+      {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gitopia/images/gitopia.png"
+      }
+    ],
+    "peers": {
+      "seeds": [
+        {
+          "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+          "address": "seeds.polkachu.com:11356",
+          "provider": "polkachu"
+        },
+        {
+          "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+          "address": "gitopia-mainnet-seed.autostake.com",
+          "provider": "autostake"
+        }
+      ],
+      "persistent_peers": [
+        {
+          "id": "8f67a2fcdd7ade970b1983bf1697111d35dfdd6f",
+          "address": "52.79.199.137:26656",
+          "provider": "nodestake"
+        },
+        {
+          "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+          "address": "gitopia-mainnet-peer.autostake.com",
+          "provider": "autostake"
+        }
+      ]
+    },
+    "apis": {
+      "rpc": [
+        {
+          "address": "https://rpc.gitopia.indonode.net",
+          "provider": "indonode"
+        },
+        {
+          "address": "https://gitopia-rpc.polkachu.com",
+          "provider": "polkachu"
+        },
+        {
+          "address": "https://rpc.gitopia.nodestake.top",
+          "provider": "nodestake"
+        },
+        {
+          "address": "https://gitopia-mainnet-grpc.autostake.com:443",
+          "provider": "autostake"
+        },
+        {
+          "address": "https://gitopia-rpc.ibs.team:443",
+          "provider": "Inter Blockchain Services"
+        }
+      ],
+      "rest": [
+        {
+          "address": "https://api.gitopia.indonode.net",
+          "provider": "indonode"
+        },
+        {
+            "address": "https://gitopia-api.polkachu.com",
+            "provider": "polkachu"
+        },
+        {
+            "address": "https://api.gitopia.nodestake.top",
+            "provider": "nodestake"
+        },
+        {
+          "address": "https://gitopia-mainnet-lcd.autostake.com:443",
+          "provider": "autostake"
+        },
+        {
+          "address": "https://gitopia-api.ibs.team:443",
+          "provider": "Inter Blockchain Services"
+        }
+      ],
+      "grpc": [
+        {
+          "address": "grpc.gitopia.indonode.net:26090",
+          "provider": "indonode"
+        },
+        {
+            "address": "gitopia-grpc.polkachu.com:11390",
+            "provider": "polkachu"
+        },
+        {
+            "address": "https://grpc.gitopia.nodestake.top:443",
+            "provider": "nodestake"
+        }
+      ]
+    },
+    "explorers": [
+      {
+        "kind": "ping.pub",
+        "url": "https://ping.pub/gitopia",
+        "tx_page": "https://ping.pub/gitopia/tx/${txHash}",
+        "account_page": "https://ping.pub/gitopia/account/${accountAddress}"
+      }
+    ]
+  }
