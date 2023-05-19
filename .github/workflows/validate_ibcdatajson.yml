@@ -12,7 +12,12 @@ jobs:
         run: npm install -g jsonschema
 
       - name: Validate IBC data schemas
-        run: find . -name '*/_IBC/*.json' -exec jsonschema -i {} -s ./ibc-data.schema.json \;
+        run: |
+          for file in $(find . -name '*/_IBC/*.json'); do
+            if ! jsonschema -i "$file" ./ibc-data.schema.json; then
+              exit 1
+            fi
+          done
 
       - name: Set up Python
         uses: actions/setup-python@v3
