@@ -28,7 +28,8 @@ def getUpgrades():
                     if data != None:
                         chainsUpgrade[chainfolder] = {
                             "height": int(data["height"]),
-                            "version": data["name"],
+                            "name": data["name"],
+                            "info": data["info"],
                             "rpc": rpcs,
                             "api": apis
                         }

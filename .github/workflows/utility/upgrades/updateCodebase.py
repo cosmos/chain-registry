@@ -9,7 +9,16 @@ headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36'
 }
 
-def getBlock(chain):
+def checkHeight(api, rpc, versionHeight):
+    try:
+        data = requests.get(f"{rpc}/block", headers=headers, timeout=10)
+        currentHeight = int(data.json()['result']['block']['header']['height'])
+        if versionHeight <= currentHeight:
+            return True
+        else: return False
+    except Exception as e:
+
+def getUpgrade(chain):
     print(rootdir, flush=True)
     with open(".github/workflows/utility/upgrades/chainsUpgrade.json", "r") as file:
         data = json.load(file)
