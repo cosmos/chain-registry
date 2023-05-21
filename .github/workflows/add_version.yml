@@ -35,12 +35,7 @@ on:
       binaries:
         description: "Binaries list. Enter a list of binaries in JSON format"
         required: true
-        default: "{
-          'linux/amd64': 'https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_linux_amd64.zip',
-          'linux/arm64': 'https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_linux_arm64.zip',
-          'darwin/amd64': 'https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_darwin_amd64.zip',
-          'darwin/arm64': 'https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_darwin_arm64.zip'
-        }"
+        default: "{'linux/amd64': 'https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_linux_amd64.zip','linux/arm64': 'https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_linux_arm64.zip','darwin/amd64': 'https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_darwin_amd64.zip','darwin/arm64': 'https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_darwin_arm64.zip'}"
         type: string
       
       cosmos_sdk_version:
@@ -58,19 +53,13 @@ on:
       consensus:
         description: "Consensus. Not required"
         required: false
-        default: "{
-          'type': 'tendermint',
-          'version': '0.34'
-        }"
+        default: "{'type': 'tendermint','version': '0.34'}"
         type: string
 
       ics_enabled:
         description: "List of enabled ICS. Not required"
         required: false
-        default: "[
-          'ics29-1',
-          'ics23-1'
-        ]"
+        default: "['ics29-1','ics23-1']"
         type: string
 
       cosmwasm_version:
