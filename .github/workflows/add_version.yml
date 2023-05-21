@@ -58,7 +58,10 @@ on:
       consensus:
         description: "Consensus. Not required"
         required: false
-        default: "{'type': 'tendermint','version': '0.34'}"
+        default: "{
+          'type': 'tendermint',
+          'version': '0.34'
+        }"
         type: string
 
 jobs:
@@ -80,6 +83,3 @@ jobs:
           echo "CosmosSDK version: ${{ github.event.inputs.cosmos_sdk_version }}"
           echo "IBC-GO version: ${{ github.event.inputs.ibc_go_version }}"
           echo "Consensus: ${{ github.event.inputs.consensus }}"
-          echo "ICS: ${{ github.event.inputs.ics_enabled }}"
-          echo "CosmWasm version: ${{ github.event.inputs.cosmwasm_version }}"
-          echo "CosmWasm: ${{ github.event.inputs.cosmwasm_enabled }}"
