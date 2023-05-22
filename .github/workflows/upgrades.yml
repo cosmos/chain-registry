@@ -1,0 +1,118 @@
+on: 
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */4 * * *"
+  push:
+    branches: [ MasterPi-2124/upgrades-tracker ]
+
+name: Update Codebase on Upgrade
+jobs:
+  get_upgrades:
+    name: Get all current upgrades
+    runs-on: ubuntu-latest
+    outputs:
+      chain-jobs: ${{ steps.generate.outputs.jobs }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.11
+      
+      - name: Install Python dependencies
+        run:  |
+          python -m pip install --upgrade pip
+          cd .github/workflows/utility/upgrades
+          python -m pip install requests
+
+      - name: Check for Upgrades
+        shell: python
+        run: |
+          import sys
+          sys.path.insert(1, '.github/workflows/utility/upgrades')
+          import getUpgrades
+          getUpgrades.getUpgrades()
+      
+      - name: Generate Chain Jobs
+        id: generate
+        run: |
+          jobs="[\"$(echo "$(cat .github/workflows/utility/upgrades/chainsUpgrade.json)" | jq -r 'keys | map(tostring) | join("\", \"")')\"]"
+          echo "Found these upgrades: $jobs"
+          echo "jobs=$jobs" >> $GITHUB_OUTPUT
+
+      - name: Set up Cache
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: .github/workflows/utility/upgrades/chainsUpgrade.json
+          key: chain-upgrade-data-list
+
+  upgrades:
+    runs-on: ubuntu-latest
+    needs: get_upgrades
+    name: Watching Upgrades
+    if: needs.get_upgrades.outputs.chain-jobs != '[""]'
+    strategy:
+      matrix:
+        job-name: ${{ needs.get_upgrades.outputs.chain-jobs && fromJson(needs.get_upgrades.outputs.chain-jobs) }}
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.11
+
+      - name: Install Python dependencies
+        run:  |
+          python -m pip install --upgrade pip
+          cd .github/workflows/utility/upgrades
+          python -m pip install requests
+
+      - name: Set up Cache
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: .github/workflows/utility/upgrades/chainsUpgrade.json
+          key: chain-upgrade-data-list
+
+      - name: Check for Upgrades
+        shell: python
+        env:
+          UPGRADE_CHAIN: ${{ matrix.job-name }}
+        run: |
+          import sys
+          import os
+          sys.path.insert(1, '.github/workflows/utility/upgrades')
+          import updateCodebase
+
+          chain = os.environ["UPGRADE_CHAIN"]
+          print(chain)
+          updateCodebase.getBlock(chain)
+      
+      - name: Add Commit Push
+        uses: devops-infra/action-commit-push@master
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          add_timestamp: false
+          commit_prefix: "[AUTO]"
+          commit_message: "${{ matrix.job-name }} codebase update"
+          force: false
+          target_branch: upgrade/${{ matrix.job-name }}
+      
+      - name: Create A PR
+        uses: devops-infra/action-pull-request@v0.4.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_branch: upgrade/${{ matrix.job-name }}
+          target_branch: master
+          title: ${{ matrix.job-name }} codebase update
+          body: "**Automated pull request**"
+          old_string: "**THIS IS AN AUTOMATED UPDATE OF CHAIN.JSON**"
+          new_string: "** Automatic pull request**"
+          get_diff: true
+          ignore_users: "dependabot"
