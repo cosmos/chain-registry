@@ -1,0 +1,110 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "composabletestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Composable Testnet",
+  "chain_id": "banksy-testnet-2",
+  "bech32_prefix": "banksy",
+  "daemon_name": "banksyd",
+  "node_home": "$HOME/.banksy",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ubanksy",
+        "fixed_min_gas_price": 0.025
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/notional-labs/composable-testnet",
+    "recommended_version": "v2.3.3-testnet2fork",
+    "compatible_versions": [
+      "v2.3.3-testnet2fork"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/notional-labs/composable-networks/main/testnet-2/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v2.3.3-testnet2fork",
+        "recommended_version": "v2.3.3-testnet2fork",
+        "compatible_versions": [
+          "v2.3.3-testnet2fork"
+        ]
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "872c8a78a17a24d6f44e1126c46ef52069c7bb18",
+        "address": "65.109.80.150:2630"
+      },
+      {
+        "id": "5c2a752c9b1952dbed075c56c600c3a79b58c395",
+        "address": "composable-testnet-seed.autostake.com:26976"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:22256"
+      },
+      {
+        "id": "3f472746f46493309650e5a033076689996c8881",
+        "address": "composable-testnet.rpc.kjnodes.com:15959"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "testnet-seeds.polkachu.com:22256"
+      },
+      {
+        "id": "945e8384ea51c5c6f7b9a90df8d8da120516d897",
+        "address": "rpc.composable-t.indonode.net:47656"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "a8da45683cc35c4743e27eac5e2d33498b7a700d",
+        "address": "65.108.225.126:56656"
+      },
+      {
+        "id": "06206d0f5afb5b6d9d1c4efdd9b753da2553fa4f",
+        "address": "96.234.160.22:30456"
+      },
+      {
+        "id": "c4c51318e4d9a863c019fb277e5ed6748590e5c6",
+        "address": "66.45.233.110:26657"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+          "address": "https://composable-testnet-rpc.polkachu.com",
+          "provider": "polkachu"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://composable-testnet-api.polkachu.com",
+        "provider": "polkachu"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "composable-testnet-grpc.polkachu.com:22290",
+        "provider": "polkachu"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "url": "https://explorer.nodexcapital.com/composable",
+      "tx_page": "https://explorer.nodexcapital.com/composable/tx/${txHash}"
+    }
+  ]
+}
