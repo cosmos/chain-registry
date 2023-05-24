@@ -35,11 +35,30 @@ def getUpgrades():
                         }
                         print(f"Found upgrades for {chainfolder}!", flush=True)
                     else:
-                        print(f"No upgrades for {chainfolder}!", flush=True)
+                        print(f"No upgrades for {chainfolder}! Using the latest version ...", flush=True)
+                        if chainfolder != "ethos" and chainfolder != "gitopia" and chainfolder != "logos" and chainfolder != "mythos":
+                            latestVersion = current["codebase"]["versions"][-1]
+                            chainsUpgrade[chainfolder] = {
+                                "height": latestVersion.get("height"),
+                                "name": latestVersion["name"],
+                                "rpc": rpcs,
+                                "api": apis
+                            }
+                            if latestVersion["name"] != current["codebase"]["name"]
                     break
                 except Exception as e:
                     print(f"Issue with request to {chainfolder}: {e}", flush=True)
+                    if chainfolder != "ethos" and chainfolder != "gitopia" and chainfolder != "logos" and chainfolder != "mythos":
+                        latestVersion = current["codebase"]["versions"][-1]
+                        chainsUpgrade[chainfolder] = {
+                            "height": latestVersion.get("height"),
+                            "name": latestVersion["name"],
+                            "rpc": rpcs,
+                            "api": apis
+                        }
                     continue
             
     with open(".github/workflows/utility/upgrades/chainsUpgrade.json", "w") as file:
         json.dump(chainsUpgrade, file, indent=4)
+
+getUpgrades()
