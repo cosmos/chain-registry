@@ -2,12 +2,6 @@ name: version add
 on: 
   workflow_dispatch:
     inputs:
-      name: 
-        description: "Name of the new version"
-        required: true
-        default: "v1.0.0"
-        type: string
-      
       tag:
         description: "Version tag. Example: v1.0.0"
         required: true
@@ -15,21 +9,54 @@ on:
         type: string
       
       height:
-        description: "Height of the version upgrade"
+        description: "Height of the version upgrade. If the upgrade is not consensus-breake, leave this to default."
         required: true
-        default: "123456"
+        default: "-1"
         type: string
       
-      recommend_version:
-        description: "Recommend Version"
+      proposal:
+        description: "Upgrade Proposal. If the upgrade is not consensus-brake, leave this to default."
         required: true
-        default: "v1.0.0"
+        default: "-1"
+        type: string
+      
+      cosmwasm_version:
+        description: "CosmWasm version. Not required"
+        required: false
+        default: "0.46"
+        type: string
+      
+      cosmwasm_enabled:
+        description: "CosmWasm enabled. Not required"
+        required: false
+        default: false
+        type: boolean
+      
+      cosmos_sdk_version:
+        description: "CosmosSDK version. Not required"
+        required: false
+        default: "0.46"
+        type: string
+      
+      ibc_go_version:
+        description: "IBC-go version. Not required"
+        required: false
+        default: "4.3.0"
         type: string
 
-      compatible_versions:
-        description: "Compatible versions. Enter a list of compatible versions in JSON format, separated by commas"
-        required: true
-        default: "['v1.0.0', 'v1.0.1']"
+      ics_enabled:
+        description: "List of enabled ICS. Not required"
+        required: false
+        default: "['ics20-1']"
+        type: string
+
+      consensus:
+        description: "Consensus. Not required"
+        required: false
+        default: "{
+          'type': 'tendermint',
+          'version': '0.34'
+        }"
         type: string
 
       binaries:
@@ -40,27 +67,6 @@ on:
           'linux/arm64': 'https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_linux_arm64.zip',
           'darwin/amd64': 'https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_darwin_amd64.zip',
           'darwin/arm64': 'https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_darwin_arm64.zip'
-        }"
-        type: string
-      
-      cosmos_sdk_version:
-        description: "CosmosSDK version. Not required"
-        required: false
-        default: "0.46"
-        type: string
-
-      ibc_go_version:
-        description: "IBC-GO version. Not required"
-        required: false
-        default: "5.2"
-        type: string
-
-      consensus:
-        description: "Consensus. Not required"
-        required: false
-        default: "{
-          'type': 'tendermint',
-          'version': '0.34'
         }"
         type: string
 
