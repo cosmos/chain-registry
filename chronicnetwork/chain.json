@@ -31,7 +31,19 @@
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/ChronicNetwork/net/main/mainnet/v1.1/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v1.1.0",
+        "recommended_version": "v1.1.0",
+        "compatible_versions": [
+          "v1.1.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/ChronicNetwork/cht/releases/download/v.1.1.0/cht"
+        }
+      }
+    ]
   },
   "peers": {
     "seeds": [],
@@ -62,6 +74,12 @@
       "kind": "Zenscan.io",
       "url": "https://www.chronic.zenscan.io",
       "tx_page": ""
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/chronicnetwork",
+      "tx_page": "https://atomscan.com/chronicnetwork/transactions/${txHash}",
+      "account_page": "https://atomscan.com/chronicnetwork/accounts/${accountAddress}"
     }
   ]
 }

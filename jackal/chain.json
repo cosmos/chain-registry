@@ -18,9 +18,9 @@
       {
         "denom": "ujkl",
         "fixed_min_gas_price": 0,
-        "low_gas_price": 0.01,
-        "average_gas_price": 0.025,
-        "high_gas_price": 0.03
+        "low_gas_price": 0.002,
+        "average_gas_price": 0.002,
+        "high_gas_price": 0.02
       }
     ]
   },
@@ -33,18 +33,50 @@
   },
   "codebase": {
     "git_repo": "https://github.com/JackalLabs/canine-chain",
-    "recommended_version": "v1.2.1",
+    "recommended_version": "v2.0.0",
     "compatible_versions": [
-      "v1.2.1"
+      "v2.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.2.1/canined-Linux",
-      "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.2.1/canined-macOS"
+      "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v2.0.0/canined-Linux",
+      "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v2.0.0/canined-macOS"
     },
     "genesis": {
       "genesis_url": "https://cdn.discordapp.com/attachments/1002389406650466405/1034968352591986859/updated_genesis2.json"
     },
-    "cosmwasm_enabled": true
+    "cosmwasm_enabled": true,
+    "versions": [
+      {
+        "name": "v1.2.1",
+        "recommended_version": "v1.2.1",
+        "compatible_versions": [
+          "v1.2.1"
+        ],
+        "cosmwasm_enabled": true,
+        "binaries": {
+          "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.2.1/canined-Linux",
+          "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.2.1/canined-macOS"
+        }
+      },
+      {
+        "name": "v2.0.0",
+        "height": 2631260,
+        "proposal": 4,
+        "recommended_version": "v2.0.0",
+        "compatible_versions": [
+          "v2.0.0"
+        ],
+        "cosmwasm_enabled": true,
+        "binaries": {
+          "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v2.0.0/canined-Linux",
+          "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v2.0.0/canined-macOS"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/jackal/images/jkl.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/jackal/images/jkl.svg"
   },
   "peers": {
     "seeds": [
@@ -62,6 +94,21 @@
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:17556",
         "provider": "Polkachu"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "jackal.rpc.kjnodes.com:13759",
+        "provider": "kjnodes"
+      },
+      {
+        "id": "f6c5d2bf222699a35968e5f262baacd6c34e261c",
+        "address": "seeds.whispernode.com:17556",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "id": "27b6d74c8408e033e2e5a9e966a0d15782e33596",
+        "address": "seeds.nethernode.xyz:17556",
+        "provider": "carbonZERO🌲"
       }
     ],
     "persistent_peers": [
@@ -118,7 +165,7 @@
       },
       {
         "address": "https://m-jackal.rpc.utsa.tech",
-        "provider": "lesnik | UTSA"
+        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
       },
       {
         "address": "https://jackal-rpc.kleomedes.network",
@@ -147,6 +194,14 @@
       {
         "address": "https://rpc-jackal.carbonZERO.zone:443",
         "provider": "carbonZERO🌲"
+      },
+      {
+        "address": "https://jackal.rpc.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://jackal.rpc.silknodes.io",
+        "provider": "Silk Nodes"
       }
     ],
     "rest": [
@@ -180,7 +235,7 @@
       },
       {
         "address": "https://m-jackal.api.utsa.tech",
-        "provider": "lesnik | UTSA"
+        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
       },
       {
         "address": "https://jackal-api.kleomedes.network",
@@ -201,6 +256,18 @@
       {
         "address": "https://lcd-jackal.whispernode.com:443",
         "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://jackal.api.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://jackal.api.silknodes.io",
+        "provider": "Silk Nodes"
+      },
+      {
+        "address": "https://rest-jackal.carbonZERO.zone:443",
+        "provider": "carbonZERO🌲"
       }
     ],
     "grpc": [
@@ -227,6 +294,10 @@
       {
         "address": "jackal.nodejumper.io:9090",
         "provider": "NODEJUMPER"
+      },
+      {
+        "address": "jackal.grpc.kjnodes.com:13790",
+        "provider": "kjnodes"
       }
     ]
   },
@@ -242,7 +313,7 @@
       "tx_page": "https://explorer.nodestake.top/jackal/tx/${txHash}"
     },
     {
-      "kind": "lesnik | UTSA",
+      "kind": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀",
       "url": "https://exp.utsa.tech/jackal",
       "tx_page": "https://exp.utsa.tech/jackal/tx/${txHash}"
     },

@@ -37,7 +37,24 @@
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/akash-network/net/master/mainnet/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v0.22.0",
+        "recommended_version": "v0.22.0",
+        "compatible_versions": [
+          "v0.20.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.22.0/akash_0.22.0_linux_amd64.zip",
+          "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.22.0/akash_0.22.0_linux_arm64.zip"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.svg"
   },
   "peers": {
     "seeds": [
@@ -76,6 +93,11 @@
         "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
         "address": "akash-seed-1.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "9aa4c9097c818871e45aaca4118a9fe5e86c60e2",
+        "address": "seed-akash-01.stakeflow.io:1506",
+        "provider": "Genesis Lab"
       }
     ],
     "persistent_peers": [
@@ -99,6 +121,11 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "akash-mainnet-peer.autostake.com:26696",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "9aa4c9097c818871e45aaca4118a9fe5e86c60e2",
+        "address": "peer-akash-01.stakeflow.io:1506",
+        "provider": "Genesis Lab"
       }
     ]
   },
@@ -135,6 +162,14 @@
       {
         "address": "https://akash.rpc.interchain.ivaldilabs.xyz",
         "provider": "ivaldilabs"
+      },
+      {
+        "address": "https://akash-rpc.kleomedes.network",
+        "provider": "Kleomedes"
+      },
+      {
+        "address": "https://rpc-akash-01.stakeflow.io",
+        "provider": "Genesis Lab"
       }
     ],
     "rest": [
@@ -169,6 +204,14 @@
       {
         "address": "https://akash.rest.interchain.ivaldilabs.xyz",
         "provider": "ivaldilabs"
+      },
+      {
+        "address": "https://akash-api.kleomedes.network",
+        "provider": "Kleomedes"
+      },
+      {
+        "address": "https://api-akash-01.stakeflow.io",
+        "provider": "Genesis Lab"
       }
     ],
     "grpc": [
@@ -191,12 +234,16 @@
       {
         "address": "akash.grpc.interchain.ivaldilabs.xyz:443",
         "provider": "ivaldilabs"
+      },
+      {
+        "address": "grpc-akash-01.stakeflow.io:1502",
+        "provider": "Genesis Lab"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
+      "kind": "EZ Staking Tools",
       "url": "https://ezstaking.tools/akash",
       "tx_page": "https://ezstaking.tools/akash/txs/${txHash}",
       "account_page": "https://ezstaking.tools/akash/account/${accountAddress}"
@@ -220,12 +267,18 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/akash",
-      "tx_page": "https://atomscan.com/akash/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/akash/transactions/${txHash}",
+      "account_page": "https://atomscan.com/akash/accounts/${accountAddress}"
     },
     {
       "kind": "cloudmos",
       "url": "https://cloudmos.io/blocks",
       "tx_page": "https://cloudmos.io/transactions/${txHash}"
+    },
+    {
+      "kind": "Stakeflow",
+      "url": "https://stakeflow.io/akash",
+      "account_page": "https://stakeflow.io/akash/accounts/${accountAddress}"
     }
   ]
 }

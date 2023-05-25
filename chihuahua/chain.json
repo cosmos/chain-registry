@@ -14,9 +14,9 @@
       {
         "denom": "uhuahua",
         "fixed_min_gas_price": 0,
-        "low_gas_price": 1.0,
-        "average_gas_price": 5.0,
-        "high_gas_price": 10.0
+        "low_gas_price": 1,
+        "average_gas_price": 5,
+        "high_gas_price": 10
       }
     ]
   },
@@ -36,7 +36,21 @@
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/ChihuahuaChain/chihuahua/main/mainnet/genesis.json"
     },
-    "cosmwasm_enabled": true
+    "cosmwasm_enabled": true,
+    "versions": [
+      {
+        "name": "v4.2.1",
+        "recommended_version": "v4.2.1",
+        "compatible_versions": [
+          "v4.2.1"
+        ],
+        "cosmwasm_enabled": true
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/chihuahua/images/huahua.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/chihuahua/images/huahua.svg"
   },
   "peers": {
     "seeds": [
@@ -64,6 +78,26 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "chihuahua-mainnet-seed.autostake.com:27186",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
+        "address": "chihuahua-1.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "e726816f42831689eab9378d5d577f1d06d25716",
+        "address": "chihuahua-2.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "3c5b1a13f810507b9ef1240372b3cbc9bd90da26",
+        "address": "seeds.whispernode.com:12956",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "id": "27b6d74c8408e033e2e5a9e966a0d15782e33596",
+        "address": "seeds.nethernode.xyz:12956",
+        "provider": "carbonZERO🌲"
       }
     ],
     "persistent_peers": [
@@ -102,7 +136,7 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://rpc.chihuahua.goldenratiostaking.net",
+        "address": "https://rpc-chihuahua.goldenratiostaking.net",
         "provider": "Golden Ratio Staking"
       },
       {
@@ -164,8 +198,16 @@
         "provider": "WhisperNode🤐"
       },
       {
+        "address": "https://rest-chihuahua.goldenratiostaking.net",
+        "provider": "Golden Ratio Staking"
+      },
+      {
         "address": "https://chihuahua-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "http://chihuahua.api.staking-explorer.com",
+        "provider": "chihuahua.staking-explorer.com"
       }
     ],
     "grpc": [
@@ -202,7 +244,8 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/chihuahua",
-      "tx_page": "https://atomscan.com/chihuahua/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/chihuahua/transactions/${txHash}",
+      "account_page": "https://atomscan.com/chihuahua/accounts/${accountAddress}"
     }
   ]
 }

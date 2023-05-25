@@ -45,19 +45,48 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Gravity-Bridge/Gravity-Bridge",
-    "recommended_version": "v1.8.0",
+    "recommended_version": "v1.9.1",
     "compatible_versions": [
-      "v1.8.0"
+      "v1.9.0", "v1.9.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/gravity-linux-amd64",
-      "linux/arm64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/gravity-linux-arm64",
-      "darwin/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/gravity-darwin-amd64",
-      "windows/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/gravity-windows-amd64.exe"
+      "linux/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.9.1/gravity-linux-amd64"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "pleiades2",
+        "recommended_version": "v1.8.0",
+        "compatible_versions": [
+          "v1.8.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/gravity-linux-amd64",
+          "linux/arm64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/gravity-linux-arm64",
+          "darwin/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/gravity-darwin-amd64",
+          "windows/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/gravity-windows-amd64.exe"
+        },
+        "next_version_name": "orion"
+      },
+      {
+        "name": "orion",
+        "height": 6698820,
+        "recommended_version": "v1.9.1",
+        "proposal": 172,
+        "compatible_versions": [
+          "v1.9.0", "v1.9.1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.9.1/gravity-linux-amd64"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gravitybridge/images/grav.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gravitybridge/images/grav.svg"
   },
   "peers": {
     "seeds": [
@@ -85,9 +114,25 @@
         "id": "86bd5cb6e762f673f1706e5889e039d5406b4b90",
         "address": "gravity.seed.node75.org:10556",
         "provider": "Pro-Nodes"
+      },
+      {
+        "id": "4e595d6781b122b2aea91b08da0ad97f708bf52a",
+        "address": "seed-gravity-bridge-01.stakeflow.io:1306",
+        "provider": "Genesis Lab"
       }
     ],
-    "persistent_peers": []
+    "persistent_peers": [
+     {
+        "id": "b9180ddd3329ddaea74fe6fbdc729506b90f313b",
+        "address": "gravity.ramuchi.tech:36656",
+        "provider": "ramuchi.tech"
+      },
+      {
+        "id": "4e595d6781b122b2aea91b08da0ad97f708bf52a",
+        "address": "peer-gravity-bridge-01.stakeflow.io:1306",
+        "provider": "Genesis Lab"
+      }
+    ]
   },
   "apis": {
     "rpc": [
@@ -118,6 +163,14 @@
       {
         "address": "https://gravity-rpc.ibs.team",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://gravity-rpc.ramuchi.tech",
+        "provider": "ramuchi.tech"
+      },
+      {
+        "address": "https://rpc-gravity-bridge-01.stakeflow.io",
+        "provider": "Genesis Lab"
       }
     ],
     "rest": [
@@ -144,6 +197,14 @@
       {
         "address": "https://gravity-api.ibs.team",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://gravity-api.ramuchi.tech",
+        "provider": "ramuchi.tech"
+      },
+      {
+        "address": "https://api-gravity-bridge-01.stakeflow.io",
+        "provider": "Genesis Lab"
       }
     ],
     "grpc": [
@@ -162,12 +223,20 @@
       {
         "address": "gravitybridge-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://gravity-grpc.ramuchi.tech:10090",
+        "provider": "ramuchi.tech"
+      },
+      {
+        "address": "grpc-gravity-bridge-01.stakeflow.io:1302",
+        "provider": "Genesis Lab"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
+      "kind": "EZ Staking Tools",
       "url": "https://ezstaking.tools/gravitybridge",
       "tx_page": "https://ezstaking.tools/gravitybridge/txs/${txHash}",
       "account_page": "https://ezstaking.tools/gravitybridge/account/${accountAddress}"
@@ -191,12 +260,18 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/gravity-bridge",
-      "tx_page": "https://atomscan.com/gravity-bridge/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/gravity-bridge/transactions/${txHash}",
+      "account_page": "https://atomscan.com/gravity-bridge/accounts/${accountAddress}"
     },
     {
       "kind": "TC Network",
       "url": "https://explorer.tcnetwork.io/gravitybridge",
       "tx_page": "https://explorer.tcnetwork.io/gravitybridge/transaction/${txHash}"
+    },
+    {
+      "kind": "Stakeflow",
+      "url": "https://stakeflow.io/gravity-bridge",
+      "account_page": "https://stakeflow.io/gravity-bridge/accounts/${accountAddress}"
     }
   ]
 }

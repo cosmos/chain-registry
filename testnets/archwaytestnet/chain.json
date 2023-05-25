@@ -1,7 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "archwaytestnet",
-  "chain_id": "constantine-1",
+  "chain_id": "constantine-2",
   "pretty_name": "Archway testnet",
   "status": "live",
   "network_type": "testnet",
@@ -16,23 +16,30 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "uconst"
+        "denom": "uconst",
+        "low_gas_price": 0,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.05
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/archway-network/archway"
   },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/archwaytestnet/images/ArchwayBrandmark.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/archwaytestnet/images/ArchwayBrandmark.svg"
+  },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.constantine-1.archway.tech",
+        "address": "https://rpc.constantine-2.archway.tech",
         "provider": "Quickapi"
       }
     ],
     "rest": [
       {
-        "address": "https://api.constantine-1.archway.tech",
+        "address": "https://api.constantine-2.archway.tech",
         "provider": "Quickapi"
       }
     ]
@@ -40,8 +47,8 @@
   "explorers": [
     {
       "kind": "archwayscan",
-      "url": "https://explorer.constantine-1.archway.tech",
-      "tx_page": "https://explorer.constantine-1.archway.tech/transactions/${txHash}"
+      "url": "https://explorer.constantine-2.archway.tech",
+      "tx_page": "https://explorer.constantine-2.archway.tech/transactions/${txHash}"
     }
   ]
 }

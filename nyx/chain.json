@@ -19,18 +19,34 @@
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/nymtech/nym/",
-    "recommended_version": "v.1.1",
+    "git_repo": "https://github.com/nymtech/nyxd/",
+    "recommended_version": "v0.26.1",
     "compatible_versions": [
-      "v1.0"
+      "v0.26.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/nymtech/nym/releases/"
+      "linux/amd64": "https://github.com/nymtech/nymd/releases/"
     },
     "genesis": {
       "genesis_url": "https://nymtech.net/genesis/genesis.json"
     },
-    "cosmwasm_enabled": true
+    "cosmwasm_enabled": true,
+    "versions": [
+      {
+        "name": "v0.26.1",
+        "recommended_version": "v0.26.1",
+        "compatible_versions": [
+          "v0.26.1"
+        ],
+        "cosmwasm_enabled": true,
+        "binaries": {
+          "linux/amd64": "https://github.com/nymtech/nyxd/releases"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nyx.png"
   },
   "peers": {
     "seeds": [
@@ -147,8 +163,10 @@
       "account_page": "https://nym.explorers.guru/account/${accountAddress}"
     },
     {
-      "kind": "EZStaking Tools",
-      "url": "https://ezstaking.tools/nyx"
+      "kind": "EZ Staking Tools",
+      "url": "https://ezstaking.tools/nyx",
+      "tx_page": "https://ezstaking.tools/nyx/txs/${txHash}",
+      "account_page": "https://ezstaking.tools/nyx/account/${accountAddress}"
     },
     {
       "kind": "mintscan",

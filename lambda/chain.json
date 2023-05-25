@@ -34,7 +34,20 @@
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/LambdaIM/mainnet/main/lambda_92000-1/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v1.0.0",
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lambda/images/lambda.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lambda/images/lambda.svg"
   },
   "peers": {
     "seeds": [
@@ -55,6 +68,10 @@
       {
         "address": "https://rpc-lambda.d-stake.xyz",
         "provider": "D-stake"
+      },
+      {
+        "address": "https://rpc.lambda.nodestake.top",
+        "provider": "NodeStake"
       }
     ],
     "rest": [
@@ -65,6 +82,10 @@
       {
         "address": "https://api-lambda.d-stake.xyz",
         "provider": "D-stake"
+      },
+      {
+        "address": "https://api.lambda.nodestake.top",
+        "provider": "NodeStake"
       }
     ],
     "grpc": [
@@ -90,6 +111,12 @@
       "kind": "NodeStake",
       "url": "https://explorer.nodestake.top/lambda",
       "tx_page": "https://explorer.nodestake.top/lambda/txs/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/lambda",
+      "tx_page": "https://atomscan.com/lambda/transactions/${txHash}",
+      "account_page": "https://atomscan.com/lambda/accounts/${accountAddress}"
     }
   ]
 }
