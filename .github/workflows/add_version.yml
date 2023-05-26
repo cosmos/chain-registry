@@ -76,9 +76,9 @@ jobs:
       - name: Validate Chain
         run: |
           chain=${{ github.event.inputs.chain }}
-          tag=$(echo "${{ github.event.inputs.tag-height-proposal }}" | jq '.tag')
-          height=$(echo "${{ github.event.inputs.tag-height-proposal }}" | jq '.height')
-          proposal=$(echo "${{ github.event.inputs.tag-height-proposal }}" | jq '.proposal')
+          tag=$(echo '${{ github.event.inputs.tag-height-proposal }}' | jq '.tag')
+          height=$(echo '${{ github.event.inputs.tag-height-proposal }}' | jq '.height')
+          proposal=$(echo '${{ github.event.inputs.tag-height-proposal }}' | jq '.proposal')
           cosmos_sdk_version=${{ github.event.inputs.cosmos_sdk_version }}
           consensus=${{ github.event.inputs.consensus }}
           cosmwasm_version=${{ github.event.inputs.cosmwasm_version }}
