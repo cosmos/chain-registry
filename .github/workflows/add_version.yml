@@ -119,12 +119,21 @@ jobs:
         with:
           python-version: 3.11
 
+      - name: Export tag
+        id: export_tag
+        run: |
+          tag=$(echo '${{ github.event.inputs.tag-height-proposal }}' | jq '.tag')
+          tag=${tag//\"}
+          echo "tag=$tag" >> $GITHUB_OUTPUT
+
       - name: Gen version JSON object
         id: version_object
         shell: python
         run: |
           import json
+          import os
 
+          rootdir = os.getcwd()
           chain = "${{ github.event.inputs.chain }}"
           tag = json.loads('${{ github.event.inputs.tag-height-proposal }}')
           height = tag['height']
@@ -147,6 +156,7 @@ jobs:
           newVersion = {
             "tag": tag,
             "height": height,
+            "proposal": proposal,
             "recommended_version": recommended_version,
             "cosmos_sdk_version": cosmos_sdk_version,
             "consensus": consensus,
@@ -158,23 +168,33 @@ jobs:
             "binaries": binaries
           }
 
-          print(newVersion, flush=True)
+          chainjson = os.path.join(chain, "chain.json")
+          current = json.load(open(os.path.join(rootdir, chainjson), encoding='utf-8', errors='ignore'))
+          current["codebase"]["versions"].append(newVersion)
+          with open(os.path.join(rootdir, chainjson), "w") as file:
+            json.dump(current, file, indent=2, ensure_ascii=False)
 
-  print:
-    name: Print all input in JSON format
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Add Commit Push
+        uses: devops-infra/action-commit-push@master
+        id: add_commit
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          add_timestamp: false
+          commit_prefix: "[UPGRADE]"
+          commit_message: "New version update: ${{ github.event.inputs.chain }} ${{ steps.export_tag.outputs.tag }}"
+          force: false
+          target_branch: upgrade-${{ github.event.inputs.chain }}
       
-      - name: print
-        run: |
-          echo "Name: ${{ github.event.inputs.name }}"
-          echo "Tag: ${{ github.event.inputs.tag }}"
-          echo "Height: ${{ github.event.inputs.height }}"
-          echo "Recommend Version: ${{ github.event.inputs.recommend_version }}"
-          echo "Compatible versions: ${{ github.event.inputs.compatible_versions }}"
-          echo "Binaries: ${{ github.event.inputs.binaries }}"
-          echo "CosmosSDK version: ${{ github.event.inputs.cosmos_sdk_version }}"
-          echo "IBC-GO version: ${{ github.event.inputs.ibc_go_version }}"
-          echo "Consensus: ${{ github.event.inputs.consensus }}"
+      - name: Create A PR
+        uses: devops-infra/action-pull-request@v0.4.2
+        if: ${{ needs.add_commit }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_branch: upgrade-${{ github.event.inputs.chain }}
+          target_branch: master
+          title: "[UPGRADE] ${{ github.event.inputs.chain }} ${{ github.event.inputs.tag }}"
+          body: "Chains Updated: ${{ github.event.inputs.chain }}"
+          old_string: "**THIS IS AN AUTOMATED UPDATE OF CHAIN.JSON**"
+          new_string: "** Automatic pull request**"
+          get_diff: true
+          ignore_users: "dependabot"
