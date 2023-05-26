@@ -1,0 +1,176 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "nolus",
+  "status": "live",
+  "website": "https://nolus.io/",
+  "network_type": "mainnet",
+  "pretty_name": "Nolus",
+  "chain_id": "pirin-1",
+  "bech32_prefix": "nolus",
+  "daemon_name": "nolusd",
+  "node_home": "$HOME/.nolusd",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "unls",
+        "low_gas_price": 0,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.05
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "unls"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/nolus-protocol/nolus-core",
+    "recommended_version": "v0.3.0",
+    "compatible_versions": [],
+    "cosmos_sdk_version": "0.45",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "cosmwasm_version": "0.31",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "4.3.0",
+    "ics_enabled": [
+      "ics20-1",
+      "ics27-1"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/nolus-protocol/nolus-networks/main/mainnet/pirin-1/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v0.3.0",
+        "recommended_version": "v0.3.0",
+        "compatible_versions": [],
+        "cosmos_sdk_version": "0.45",
+        "cosmwasm_version": "0.31",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "4.3.0",
+        "ics_enabled": [
+          "ics20-1",
+          "ics27-1"
+        ]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.svg",
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.png"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:11956",
+        "provider": "Lavender.Five Nodes 🐝"
+      }
+    ],
+    "persistent_peers": [ ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://pirin-cl.nolus.network:26657",
+        "provider": "NolusProtocol"
+      },
+      {
+        "address": "https://nolus-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://nolus.rpc.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://rpc.nolus.nodexcapital.com",
+        "provider": "⚡NodeX Validator⚡"
+      },
+      {
+        "address": "https://rpc-nolus.nodeist.net",
+        "provider": "Nodeist"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://pirin-cl.nolus.network:1317",
+        "provider": "NolusProtocol"
+      },
+      {
+        "address": "https://nolus-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://nolus.api.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://rest.nolus.nodexcapital.com",
+        "provider": "⚡NodeX Validator⚡"
+      },
+      {
+        "address": "https://rpc-nolus.nodeist.net",
+        "provider": "Nodeist"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://pirin-cl.nolus.network:9090",
+        "provider": "NolusProtocol"
+      },
+      {
+        "address": "https://nolus-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://nolus.grpc.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://grpc.nolus.nodexcapital.com",
+        "provider": "⚡NodeX Validator⚡"
+      },
+      {
+        "address": "https://grpc-nolus.nodeist.net",
+        "provider": "Nodeist"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer.nolus.io/pirin-1",
+      "tx_page": "https://explorer.nolus.io/pirin-1/tx/${txHash}",
+      "account_page": "https://explorer.nolus.io/pirin-1/account/${accountAddress}"
+    },
+    {
+      "kind": "NODEXPLORER",
+      "url": "https://explorer.nodexcapital.com/nolus",
+      "tx_page": "https://explorer.nodexcapital.com/nolus/tx/${txHash}",
+      "account_page": "https://explorer.nodexcapital.com/nolus/account/${accountAddress}"
+    },
+    {
+      "kind": "Nodeist Explorer",
+      "url": "https://exp.nodeist.net/nolus",
+      "tx_page": "https://exp.nodeist.net/nolus/tx/${txHash}",
+      "account_page": "https://exp.nodeist.net/nolus/account/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "mainnet"
+  ]
+}
