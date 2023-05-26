@@ -13,6 +13,17 @@
     "secp256k1"
   ],
   "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uusdc",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.03
+      }
+    ]
+  },
   "staking": {
     "staking_tokens": [
       {
@@ -41,7 +52,7 @@
     ],
     "genesis": {
       "name": "v0.3.0",
-      "genesis_url": "https://github.com/strangelove-ventures/noble-networks/blob/main/testnet/grand-1/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/strangelove-ventures/noble-networks/main/testnet/grand-1/genesis.json"
     },
     "versions": [
       {
@@ -101,6 +112,11 @@
     ]
   },
   "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://testnet.mintscan.io/noble-testnet",
+      "tx_page": "https://testnet.mintscan.io/noble-testnet/txs/${txHash}"
+    },
     {
       "kind": "ping.pub",
       "url": "https://explore.strange.love/grand-1",
