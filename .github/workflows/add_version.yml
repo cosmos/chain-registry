@@ -176,21 +176,19 @@ jobs:
 
       - name: Add Commit Push
         uses: devops-infra/action-commit-push@master
-        id: add_commit
         with:
           github_token: "${{ secrets.GITHUB_TOKEN }}"
           add_timestamp: false
-          commit_prefix: "[UPGRADE]"
+          commit_prefix: "[UPGRADE] "
           commit_message: "New version update: ${{ github.event.inputs.chain }} ${{ steps.export_tag.outputs.tag }}"
           force: false
-          target_branch: upgrade-${{ github.event.inputs.chain }}
+          target_branch: new-version-${{ github.event.inputs.chain }}
       
       - name: Create A PR
         uses: devops-infra/action-pull-request@v0.4.2
-        if: ${{ needs.add_commit }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          source_branch: upgrade-${{ github.event.inputs.chain }}
+          source_branch: new-version-${{ github.event.inputs.chain }}
           target_branch: master
           title: "[UPGRADE] ${{ github.event.inputs.chain }} ${{ github.event.inputs.tag }}"
           body: "Chains Updated: ${{ github.event.inputs.chain }}"
