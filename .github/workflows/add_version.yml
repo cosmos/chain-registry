@@ -36,44 +36,48 @@ on:
       cosmwasm_version:
         description: "CosmWasm version. Not required"
         required: false
-        default: "0.46"
+        default: ""
         type: string
       
       cosmwasm_path:
         description: "Default path to wasm directory. Not required"
         required: false
-        default: "0.46"
+        default: ""
         type: string
       
       ibc_go_version:
         description: "IBC-go version. Not required"
         required: false
-        default: "4.3.0"
+        default: ""
         type: string
 
       ics_enabled:
         description: "List of enabled ICS. Not required"
         required: false
-        default: '["ics20-1"]'
+        default: '[]'
         type: string
 
       binaries:
         description: "Binaries list. Enter a list of binaries in JSON format"
         required: true
         default: '{
-          "linux/amd64": "https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_linux_amd64.zip",
-          "linux/arm64": "https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_linux_arm64.zip",
-          "darwin/amd64": "https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_darwin_amd64.zip",
-          "darwin/arm64": "https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_darwin_arm64.zip"
+          "linux/amd64": "",
+          "linux/arm64": "",
+          "darwin/amd64": "",
+          "darwin/arm64": ""
         }'
         type: string
 
 jobs:
   validate-data:
     name: Validate Data
+    id: validate-data
     runs-on: ubuntu-latest
+    outputs:
+        check: ${{ steps.validate-chain.outputs.check }}
     steps:
       - name: Validate Chain
+        id: validate-chain
         run: |
           chain=${{ github.event.inputs.chain }}
           tag=$(echo '${{ github.event.inputs.tag-height-proposal }}' | jq '.tag')
@@ -87,25 +91,75 @@ jobs:
           ics_enabled='${{ github.event.inputs.ics_enabled }}'
           binaries='${{ github.event.inputs.binaries }}'
 
-          echo $chain
-          echo $tag
-          echo $height
-          echo $proposal
-          echo $cosmos_sdk_version
-          echo $consensus
-          echo $cosmwasm_version
-          echo $cosmwasm_path
-          echo $ibc_go_version
-          echo $ics_enabled
-          echo $binaries
+          if [ $chain == 'None' ]; then
+            echo "Chain is invalid. Please specify a chain to update."
+            echo "check=FAILED" >> $GITHUB_OUTPUT
+          elif [ $tag == '-1' ]; then
+            echo "Tag is invalid."
+            echo "check=FAILED" >> $GITHUB_OUTPUT
+          elif [ $proposal != '-1' ] && [ $height == '-1' ]; then
+            echo "If the chain is consensus break, the height must be specified."
+            echo "check=FAILED" >> $GITHUB_OUTPUT
+          else
+            echo "All inputs look good!"
+            echo "check=PASSED" >> $GITHUB_OUTPUT
+          fi
 
-  # generate-other-data:
-  #   name: Generate other data
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Gen recommend_version
-  #       run: |
-  #         ech
+  update:
+    name: Create Version Object and Update
+    needs: validate-data
+    runs-on: ubuntu-latest
+    if: needs.validate-data.outputs.check == 'PASSED'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.11
+
+      - name: Gen version JSON object
+        id: needed-data
+        shell: python
+        run: |
+          import json
+
+          chain = "${{ github.event.inputs.chain }}"
+          tag = json.loads('${{ github.event.inputs.tag-height-proposal }}')
+          height = tag['height']
+          proposal = tag['proposal']
+          tag = tag['tag']
+          cosmos_sdk_version = "${{ github.event.inputs.cosmos_sdk_version }}"
+          consensus = json.loads('${{ github.event.inputs.consensus }}')
+          cosmwasm_version = "${{ github.event.inputs.cosmwasm_version }}"
+          cosmwasm_path = "${{ github.event.inputs.cosmwasm_path }}"
+          ibc_go_version = "${{ github.event.inputs.ibc_go_version }}"
+          ics_enabled = json.loads('${{ github.event.inputs.ics_enabled }}')
+          binaries = json.loads('${{ github.event.inputs.binaries }}')
+          recommend_version = tag
+
+          if cosmwasm_version != '':
+            cosmwasm_enabled = True
+          else:
+            cosmwasm_enabled = False
+          
+          newVersion = {
+            "tag": tag,
+            "height": height,
+            "recommended_version": recommended_version,
+            "cosmos_sdk_version": cosmos_sdk_version,
+            "consensus": consensus,
+            "cosmwasm_version": cosmwasm_version,
+            "cosmwasm_path": cosmwasm_path,
+            "cosmwasm_enabled": cosmwasm_enabled,
+            "ibc_go_version": ibc_go_version,
+            "ics_enabled": ics_enabled,
+            "binaries": binaries
+          }
+
+          print(newVersion, flush=True)
+
   print:
     name: Print all input in JSON format
     runs-on: ubuntu-latest
