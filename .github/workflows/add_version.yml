@@ -80,12 +80,12 @@ jobs:
           height=$(echo '${{ github.event.inputs.tag-height-proposal }}' | jq '.height')
           proposal=$(echo '${{ github.event.inputs.tag-height-proposal }}' | jq '.proposal')
           cosmos_sdk_version=${{ github.event.inputs.cosmos_sdk_version }}
-          consensus=${{ github.event.inputs.consensus }}
+          consensus='${{ github.event.inputs.consensus }}'
           cosmwasm_version=${{ github.event.inputs.cosmwasm_version }}
           cosmwasm_path=${{ github.event.inputs.cosmwasm_path }}
           ibc_go_version=${{ github.event.inputs.ibc_go_version }}
-          ics_enabled=${{ github.event.inputs.ics_enabled }}
-          binaries=${{ github.event.inputs.binaries }}
+          ics_enabled='${{ github.event.inputs.ics_enabled }}'
+          binaries='${{ github.event.inputs.binaries }}'
 
           echo $chain
           echo $tag
