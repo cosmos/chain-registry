@@ -5,7 +5,7 @@ on:
       chain:
         description: "Chain to update"
         required: true
-        default: "None"
+        default: ""
         type: string
 
       tag-height-proposal:
@@ -91,10 +91,10 @@ jobs:
           binaries='${{ github.event.inputs.binaries }}'
 
           echo "$tag $height $proposal"
-          if [ $chain == 'None' ]; then
+          if [ $chain == '' ]; then
             echo "Chain is invalid. Please specify a chain to update."
             echo "check=FAILED" >> $GITHUB_OUTPUT
-          elif [ $tag == '-1' ]; then
+          elif [ $tag == '"-1"' ]; then
             echo "Tag is invalid."
             echo "check=FAILED" >> $GITHUB_OUTPUT
           elif [ $proposal != '-1' ] && [ $height == '-1' ]; then
