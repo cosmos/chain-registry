@@ -90,6 +90,7 @@ jobs:
           ics_enabled='${{ github.event.inputs.ics_enabled }}'
           binaries='${{ github.event.inputs.binaries }}'
 
+          echo "$tag $height $proposal"
           if [ $chain == 'None' ]; then
             echo "Chain is invalid. Please specify a chain to update."
             echo "check=FAILED" >> $GITHUB_OUTPUT
