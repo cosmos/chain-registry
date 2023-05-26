@@ -190,7 +190,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           source_branch: new-version-${{ github.event.inputs.chain }}
           target_branch: master
-          title: "[UPGRADE] ${{ github.event.inputs.chain }} ${{ github.event.inputs.tag }}"
+          title: "[UPGRADE] ${{ github.event.inputs.chain }} ${{ steps.export_tag.outputs.tag }}"
           body: "Chains Updated: ${{ github.event.inputs.chain }}"
           old_string: "**THIS IS AN AUTOMATED UPDATE OF CHAIN.JSON**"
           new_string: "** Automatic pull request**"
