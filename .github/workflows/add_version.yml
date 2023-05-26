@@ -2,22 +2,35 @@ name: version add
 on: 
   workflow_dispatch:
     inputs:
-      tag:
-        description: "Version tag. Example: v1.0.0"
+      chain:
+        description: "Chain to update"
         required: true
-        default: "v1.0.0"
+        default: "None"
         type: string
-      
-      height:
-        description: "Height of the version upgrade. If the upgrade is not consensus-breake, leave this to default."
+
+      tag-height-proposal:
+        description: "Tag, Height and Proposal. If the upgrade is not consensus break, leave height and proposal to -1."
         required: true
-        default: "-1"
+        default: "{
+          'tag': '-1',
+          'height': '-1',
+          'proposal': '-1'
+        }"
         type: string
-      
-      proposal:
-        description: "Upgrade Proposal. If the upgrade is not consensus-brake, leave this to default."
-        required: true
-        default: "-1"
+
+      cosmos_sdk_version:
+        description: "CosmosSDK version. Not required"
+        required: false
+        default: "0.46"
+        type: string
+
+      consensus:
+        description: "Consensus. Not required"
+        required: false
+        default: "{
+          'type': 'tendermint',
+          'version': '0.34'
+        }"
         type: string
       
       cosmwasm_version:
@@ -26,14 +39,8 @@ on:
         default: "0.46"
         type: string
       
-      cosmwasm_enabled:
-        description: "CosmWasm enabled. Not required"
-        required: false
-        default: false
-        type: boolean
-      
-      cosmos_sdk_version:
-        description: "CosmosSDK version. Not required"
+      cosmwasm_path:
+        description: "Default path to wasm directory. Not required"
         required: false
         default: "0.46"
         type: string
@@ -50,15 +57,6 @@ on:
         default: "['ics20-1']"
         type: string
 
-      consensus:
-        description: "Consensus. Not required"
-        required: false
-        default: "{
-          'type': 'tendermint',
-          'version': '0.34'
-        }"
-        type: string
-
       binaries:
         description: "Binaries list. Enter a list of binaries in JSON format"
         required: true
@@ -71,6 +69,43 @@ on:
         type: string
 
 jobs:
+  validate-data:
+    name: Validate Data
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate Chain
+        run: |
+          chain=${{ github.event.inputs.chain }}
+          tag=$(echo ${{ github.event.inputs.tag-height-proposal }} | jq -r '.tag')
+          height=$(echo ${{ github.event.inputs.tag-height-proposal }} | jq -r '.height')
+          proposal=$(echo ${{ github.event.inputs.tag-height-proposal }} | jq -r '.proposal')
+          cosmos_sdk_version=${{ github.event.inputs.cosmos_sdk_version }}
+          consensus=${{ github.event.inputs.consensus }}
+          cosmwasm_version=${{ github.event.inputs.cosmwasm_version }}
+          cosmwasm_path=${{ github.event.inputs.cosmwasm_path }}
+          ibc_go_version=${{ github.event.inputs.ibc_go_version }}
+          ics_enabled=${{ github.event.inputs.ics_enabled }}
+          binaries=${{ github.event.inputs.binaries }}
+
+          echo $chain
+          echo $tag
+          echo $height
+          echo $proposal
+          echo $cosmos_sdk_version
+          echo $consensus
+          echo $cosmwasm_version
+          echo $cosmwasm_path
+          echo $ibc_go_version
+          echo $ics_enabled
+          echo $binaries
+
+  # generate-other-data:
+  #   name: Generate other data
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Gen recommend_version
+  #       run: |
+  #         ech
   print:
     name: Print all input in JSON format
     runs-on: ubuntu-latest
