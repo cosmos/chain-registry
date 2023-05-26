@@ -71,13 +71,13 @@ on:
 jobs:
   validate-data:
     name: Validate Data
-    id: validate-data
+    id: validate_data
     runs-on: ubuntu-latest
     outputs:
-        check: ${{ steps.validate-chain.outputs.check }}
+        check: ${{ steps.validate_chain.outputs.check }}
     steps:
       - name: Validate Chain
-        id: validate-chain
+        id: validate_chain
         run: |
           chain=${{ github.event.inputs.chain }}
           tag=$(echo '${{ github.event.inputs.tag-height-proposal }}' | jq '.tag')
@@ -107,9 +107,9 @@ jobs:
 
   update:
     name: Create Version Object and Update
-    needs: validate-data
+    needs: validate_data
     runs-on: ubuntu-latest
-    if: needs.validate-data.outputs.check == 'PASSED'
+    if: needs.validate_data.outputs.check == 'PASSED'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -120,7 +120,7 @@ jobs:
           python-version: 3.11
 
       - name: Gen version JSON object
-        id: needed-data
+        id: version_object
         shell: python
         run: |
           import json
