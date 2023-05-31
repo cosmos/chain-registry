@@ -9,7 +9,7 @@ on:
         type: string
 
       tag-height-proposal:
-        description: "Tag, Height and Proposal. If the upgrade is not consensus break, leave height and proposal to -1."
+        description: "Tag, Height and Proposal. If the upgrade is not consensus-breaking, leave height and proposal to -1."
         required: true
         default: '{
           "tag": "-1",
@@ -147,17 +147,25 @@ jobs:
           ics_enabled = json.loads('${{ github.event.inputs.ics_enabled }}')
           binaries = json.loads('${{ github.event.inputs.binaries }}')
           recommended_version = tag
+          compatible_versions = [recommended_version]
 
           if cosmwasm_version != '':
             cosmwasm_enabled = True
           else:
             cosmwasm_enabled = False
+
+          if proposal != -1: # Consensus-breaking upgrade
+            name = tag
+          else: # Non Consensus-breaking upgrade
+            name = ".".join(tag.split(".")[:2])
           
           newVersion = {
+            "name": name,
             "tag": tag,
             "height": height,
             "proposal": proposal,
             "recommended_version": recommended_version,
+            "compatible_versions": compatible_versions,
             "cosmos_sdk_version": cosmos_sdk_version,
             "consensus": consensus,
             "cosmwasm_version": cosmwasm_version,
