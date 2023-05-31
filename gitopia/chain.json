@@ -1,346 +1,404 @@
 {
-    "$schema": "../chain.schema.json",
-    "chain_name": "gitopia",
-    "status": "live",
-    "website": "https://gitopia.com/",
-    "network_type": "mainnet",
-    "pretty_name": "Gitopia",
-    "chain_id": "gitopia",
-    "bech32_prefix": "gitopia",
-    "daemon_name": "gitopiad",
-    "node_home": "$HOME/.gitopia",
-    "key_algos": [
-      "secp256k1"
-    ],
-    "slip44": 118,
-    "fees": {
-      "fee_tokens": [
-        {
-          "denom": "ulore",
-          "fixed_min_gas_price": 0.001,
-          "low_gas_price": 96,
-          "average_gas_price": 128,
-          "high_gas_price": 192
-        }
-      ]
-    },
-    "staking": {
-      "staking_tokens": [
-        {
-          "denom": "ulore"
-        }
-      ],
-      "lock_duration": {
-        "time": "1814400ss"
-      }
-    },
-    "codebase": {
-      "git_repo": "https://github.com/gitopia/gitopia",
-      "recommended_version": "v2.0.0",
-      "compatible_versions": [
-        "v2.0.0"
-      ],
-      "binaries": {
-        "linux/amd64": "https://github.com/gitopia/gitopia/releases/download/v2.0.0/gitopiad_2.0.0_linux_amd64.tar.gz",
-        "linux/arm64": "https://github.com/gitopia/gitopia/releases/download/v2.0.0/gitopiad_2.0.0_linux_arm64.tar.gz",
-        "darwin/amd64": "https://github.com/gitopia/gitopia/releases/download/v2.0.0/gitopiad_2.0.0_darwin_amd64.tar.gz",
-        "darwin/arm64": "https://github.com/gitopia/gitopia/releases/download/v2.0.0/gitopiad_2.0.0_darwin_arm64.tar.gz"
-      },
-      "cosmos_sdk_version": "0.46",
-      "consensus": {
-        "type": "tendermint",
-        "version": "0.34"
-      },
-      "ibc_go_version": "5.0.0",
-      "ics_enabled": [
-        "ics20-1"
-      ],
-      "genesis": {
-        "genesis_url": "https://github.com/gitopia/mainnet/raw/master/genesis.tar.gz"
-      }
-    },
-    "images": [
+  "$schema": "../chain.schema.json",
+  "chain_name": "gitopia",
+  "status": "live",
+  "website": "https://gitopia.com/",
+  "network_type": "mainnet",
+  "pretty_name": "Gitopia",
+  "chain_id": "gitopia",
+  "bech32_prefix": "gitopia",
+  "daemon_name": "gitopiad",
+  "node_home": "$HOME/.gitopia",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
       {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gitopia/images/gitopia.png"
-      }
-    ],
-    "peers": {
-      "seeds": [
-        {
-          "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
-          "address": "seeds.polkachu.com:11356",
-          "provider": "polkachu"
-        },
-        {
-          "id": "20e1000e88125698264454a884812746c2eb4807",
-          "address": "seeds.lavenderfive.com:11356",
-          "provider": "Lavender.Five Nodes 🐝"
-        },
-        {
-          "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-          "address": "gitopia-mainnet-seed.autostake.com",
-          "provider": "autostake"
-        }
-      ],
-      "persistent_peers": [
-        {
-          "id": "8f67a2fcdd7ade970b1983bf1697111d35dfdd6f",
-          "address": "52.79.199.137:26656",
-          "provider": "nodestake"
-        },
-        {
-          "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-          "address": "gitopia-mainnet-peer.autostake.com",
-          "provider": "autostake"
-        },
-        {
-          "id": "c6f7524b45ae2d9da2a272858c804fd67a29cf72",
-          "address": "95.214.53.218:33656",
-          "provider": "genznodes"
-        },
-        {
-          "id": "adc84ea4f4c2e758ec83b0487c52a5d2d1ed1d56",
-          "address": "seeds-gitopia.hexnodes.co:16656",
-          "provider": "Hexnodes"
-        },
-        {
-          "id": "c903e98ce3923865f521151d97f36510157c8bc1",
-          "address": "gitopia.peers.stavr.tech:51056",
-          "provider": "🔥STAVR🔥"
-        },
-        {
-          "id": "fdf51e3445ef8b3b28c313d98c65516b8faf3317",
-          "address": "rpc.gitopia.indonode.net:26656",
-          "provider": "Indonode"
-        },
-        {
-          "id": "9aade02f6edd362eee8731bc0a7e469ee7ea180a",
-          "address": "65.109.65.248:26656",
-          "provider": "StakeTown"
-        },
-        {
-          "id": "1c90a7d16090e69fca5d53b6558b2cef7b8f88a8",
-          "address": "116.203.35.46:36656",
-          "provider": "Stake-Take"
-        }
-      ]
-    },
-    "apis": {
-      "rpc": [
-        {
-          "address": "https://rpc.gitopia.indonode.net:443",
-          "provider": "indonode"
-        },
-        {
-          "address": "https://gitopia-rpc.polkachu.com:443",
-          "provider": "polkachu"
-        },
-        {
-          "address": "https://gitopia-rpc.lavenderfive.com",
-          "provider": "Lavender.Five Nodes 🐝"
-        },
-        {
-          "address": "https://rpc.gitopia.nodestake.top:443",
-          "provider": "nodestake"
-        },
-        {
-          "address": "https://gitopia-mainnet-grpc.autostake.com:443",
-          "provider": "autostake"
-        },
-        {
-          "address": "https://gitopia-rpc.ibs.team:443",
-          "provider": "Inter Blockchain Services"
-        },
-        {
-          "address": "https://m-gitopia.rpc.utsa.tech",
-          "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
-        },
-        {
-          "address": "http://gitopia.rpc.m.stavr.tech:51057",
-          "provider": "🔥STAVR🔥"
-        },
-        {
-          "address": "https://rpc-gitopia.nodeist.net",
-          "provider": "Nodeist"
-        },
-        {
-          "address": "https://gitopia-rpc.genznodes.dev",
-          "provider": "genznodes"
-        },
-        {
-          "address": "https://rpc.gitopia.hexnodes.co",
-          "provider": "Hexnodes"
-        },
-        {
-          "address": "https://gitopia.rpc.liveraven.net",
-          "provider": "LiveRaveN"
-        },
-        {
-          "address": "https://rpc.gitopia.indonode.net",
-          "provider": "Indonode"
-        },
-        {
-          "address": "https://gitopia-rpc.stake-town.com",
-          "provider": "StakeTown"
-        },
-        {
-          "address": "https://rpc.gitopia.stake-take.com",
-          "provider": "Stake-Take"
-        },
-        {
-          "address": "https://rpc.gitopia.nodexcapital.com",
-          "provider": "⚡NodeX Validator⚡"
-        }
-      ],
-      "rest": [
-        {
-          "address": "https://api.gitopia.indonode.net:443",
-          "provider": "indonode"
-        },
-        {
-            "address": "https://gitopia-api.polkachu.com:443",
-            "provider": "polkachu"
-        },
-        {
-          "address": "https://gitopia-api.lavenderfive.com",
-          "provider": "Lavender.Five Nodes 🐝"
-        },
-        {
-            "address": "https://api.gitopia.nodestake.top:443",
-            "provider": "nodestake"
-        },
-        {
-          "address": "https://gitopia-mainnet-lcd.autostake.com:443",
-          "provider": "autostake"
-        },
-        {
-          "address": "https://gitopia-api.ibs.team:443",
-          "provider": "Inter Blockchain Services"
-        },
-        {
-          "address": "https://m-gitopia.api.utsa.tech",
-          "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
-        },
-        {
-          "address": "https://gitopia.api.m.stavr.tech",
-          "provider": "🔥STAVR🔥"
-        },
-        {
-          "address": "https://api-gitopia.nodeist.net",
-          "provider": "Nodeist"
-        },
-        {
-          "address": "https://gitopia-api.genznodes.dev",
-          "provider": "genznodes"
-        },
-        {
-          "address": "https://lcd.gitopia.hexnodes.co",
-          "provider": "Hexnodes"
-        },
-        {
-          "address": "https://gitopia.api.liveraven.net",
-          "provider": "LiveRaveN"
-        },
-        {
-          "address": "https://api.gitopia.indonode.net",
-          "provider": "Indonode"
-        },
-        {
-          "address": "https://gitopia-api.stake-town.com",
-          "provider": "StakeTown"
-        },
-        {
-          "address": "https://api.gitopia.stake-take.com",
-          "provider": "Stake-Take"
-        },
-        {
-          "address": "https://rest.gitopia.nodexcapital.com",
-          "provider": "⚡NodeX Validator⚡"
-        }
-      ],
-      "grpc": [
-        {
-          "address": "grpc.gitopia.indonode.net:26090",
-          "provider": "indonode"
-        },
-        {
-            "address": "gitopia-grpc.polkachu.com:11390",
-            "provider": "polkachu"
-        },
-        {
-          "address": "https://gitopia-grpc.lavenderfive.com:443",
-          "provider": "Lavender.Five Nodes 🐝"
-        },
-        {
-            "address": "https://grpc.gitopia.nodestake.top:443",
-            "provider": "nodestake"
-        },
-        {
-          "address": "https://grpc-gitopia.nodeist.net",
-          "provider": "Nodeist"
-        },
-        {
-          "address": "http://gitopia.grpc.m.stavr.tech:5123",
-          "provider": "🔥STAVR🔥"
-        },
-        {
-          "address": "gitopia-grpc.genznodes.dev:33090",
-          "provider": "genznodes"
-        },
-        {
-          "address": "https://grpc.gitopia.hexnodes.co:16090",
-          "provider": "Hexnodes"
-        },
-        {
-          "address": "https://gitopia.grpc.liveraven.net:443",
-          "provider": "LiveRaveN"
-        },
-        {
-          "address": "https://grpc.gitopia.indonode.net:26090",
-          "provider": "Indonode"
-        },
-        {
-          "address": "gitopia-grpc.stake-town.com:9090",
-          "provider": "StakeTown"
-        }
-      ]
-    },
-    "explorers": [
-      {
-        "kind": "ping.pub",
-        "url": "https://ping.pub/gitopia",
-        "tx_page": "https://ping.pub/gitopia/tx/${txHash}",
-        "account_page": "https://ping.pub/gitopia/account/${accountAddress}"
-      },
-      {
-        "kind": "🔥STAVR🔥",
-        "url": "https://explorer.stavr.tech/gitopia-m",
-        "tx_page": "https://explorer.stavr.tech/gitopia-m/tx/${txHash}",
-        "account_page": "https://explorer.stavr.tech/gitopia-m/account/${accountAddress}"
-      },
-      {
-        "kind": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀",
-        "url": "https://exp.utsa.tech/gitopia",
-        "tx_page": "https://exp.utsa.tech/gitopia/tx/${txHash}",
-        "account_page": "https://exp.utsa.tech/gitopia/account/${accountAddress}"
-      },
-      {
-        "kind": "Nodeist",
-        "url": "https://exp.nodeist.net/gitopia",
-        "tx_page": "https://exp.nodeist.net/gitopia/tx/${txHash}",
-        "account_page": "https://exp.nodeist.net/gitopia/account/${accountAddress}"
-      },
-      {
-        "kind": "Stake-Take",
-        "url": "https://explorer.stake-take.com/gitopia",
-        "tx_page": "https://explorer.stake-take.com/gitopia/tx/${txHash}",
-        "account_page": "https://explorer.stake-take.com/gitopia/account/${accountAddress}"
-      },
-      {
-        "kind": "NODEXPLORER",
-        "url": "https://explorer.nodexcapital.com/gitopia",
-        "tx_page": "https://explorer.nodexcapital.com/gitopia/tx/${txHash}",
-        "account_page": "https://explorer.nodexcapital.com/gitopia/account/${accountAddress}"
+        "denom": "ulore",
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 96,
+        "average_gas_price": 128,
+        "high_gas_price": 192
       }
     ]
-  }
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ulore"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/gitopia/gitopia",
+    "genesis": {
+      "genesis_url": "https://github.com/gitopia/mainnet/raw/master/genesis.tar.gz"
+    },
+    "recommended_version": "v2.0.0",
+    "compatible_versions": [
+      "v2.0.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/gitopia/gitopia/releases/download/v2.0.0/gitopiad_2.0.0_linux_amd64.tar.gz",
+      "linux/arm64": "https://github.com/gitopia/gitopia/releases/download/v2.0.0/gitopiad_2.0.0_linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/gitopia/gitopia/releases/download/v2.0.0/gitopiad_2.0.0_darwin_amd64.tar.gz",
+      "darwin/arm64": "https://github.com/gitopia/gitopia/releases/download/v2.0.0/gitopiad_2.0.0_darwin_arm64.tar.gz"
+    },
+    "cosmos_sdk_version": "0.46",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "ibc_go_version": "5.0.0",
+    "ics_enabled": [
+      "ics20-1"
+    ],
+    "versions": [
+      {
+        "name": "v2.0",
+        "recommended_version": "v2.0.0",
+        "compatible_versions": [
+          "v2.0.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/gitopia/gitopia/releases/download/v2.0.0/gitopiad_2.0.0_linux_amd64.tar.gz",
+          "linux/arm64": "https://github.com/gitopia/gitopia/releases/download/v2.0.0/gitopiad_2.0.0_linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/gitopia/gitopia/releases/download/v2.0.0/gitopiad_2.0.0_darwin_amd64.tar.gz",
+          "darwin/arm64": "https://github.com/gitopia/gitopia/releases/download/v2.0.0/gitopiad_2.0.0_darwin_arm64.tar.gz"
+        },
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "ibc_go_version": "5.0.0",
+        "ics_enabled": [
+          "ics20-1"
+        ]
+      }
+    ]
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gitopia/images/gitopia.png"
+    }
+  ],
+  "peers": {
+    "seeds": [
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:11356",
+        "provider": "polkachu"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:11356",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "gitopia-mainnet-seed.autostake.com",
+        "provider": "autostake"
+      },
+      {
+        "id": "d2362ebcdd562500ac8c4cfa2214a89ad811033c",
+        "address": "seeds.whispernode.com:11356",
+        "provider": "WhisperNode🤐"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "8f67a2fcdd7ade970b1983bf1697111d35dfdd6f",
+        "address": "52.79.199.137:26656",
+        "provider": "nodestake"
+      },
+      {
+        "id": "be0c48bbcefb13702008d819ee4292f5afa4dc4c",
+        "address": "148.251.235.130:11656",
+        "provider": "Staketab"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "gitopia-mainnet-peer.autostake.com",
+        "provider": "autostake"
+      },
+      {
+        "id": "c6f7524b45ae2d9da2a272858c804fd67a29cf72",
+        "address": "95.214.53.218:33656",
+        "provider": "genznodes"
+      },
+      {
+        "id": "adc84ea4f4c2e758ec83b0487c52a5d2d1ed1d56",
+        "address": "seeds-gitopia.hexnodes.co:16656",
+        "provider": "Hexnodes"
+      },
+      {
+        "id": "c903e98ce3923865f521151d97f36510157c8bc1",
+        "address": "gitopia.peers.stavr.tech:51056",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "id": "fdf51e3445ef8b3b28c313d98c65516b8faf3317",
+        "address": "rpc.gitopia.indonode.net:26656",
+        "provider": "Indonode"
+      },
+      {
+        "id": "9aade02f6edd362eee8731bc0a7e469ee7ea180a",
+        "address": "65.109.65.248:26656",
+        "provider": "StakeTown"
+      },
+      {
+        "id": "1c90a7d16090e69fca5d53b6558b2cef7b8f88a8",
+        "address": "116.203.35.46:36656",
+        "provider": "Stake-Take"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.gitopia.indonode.net:443",
+        "provider": "indonode"
+      },
+      {
+        "address": "https://gitopia-rpc.polkachu.com:443",
+        "provider": "polkachu"
+      },
+      {
+        "address": "https://gitopia-rpc.lavenderfive.com",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc.gitopia.nodestake.top:443",
+        "provider": "nodestake"
+      },
+      {
+        "address": "https://gitopia-rpc.staketab.org:443",
+        "provider": "Staketab"
+      },
+      {
+        "address": "https://gitopia-mainnet-grpc.autostake.com:443",
+        "provider": "autostake"
+      },
+      {
+        "address": "https://gitopia-rpc.ibs.team:443",
+        "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://m-gitopia.rpc.utsa.tech",
+        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
+      },
+      {
+        "address": "http://gitopia.rpc.m.stavr.tech:51057",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://rpc-gitopia.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://gitopia-rpc.genznodes.dev",
+        "provider": "genznodes"
+      },
+      {
+        "address": "https://rpc-gitopia.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://rpc.gitopia.hexnodes.co",
+        "provider": "Hexnodes"
+      },
+      {
+        "address": "https://gitopia.rpc.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://rpc.gitopia.indonode.net",
+        "provider": "Indonode"
+      },
+      {
+        "address": "https://gitopia-rpc.stake-town.com",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "https://rpc.gitopia.stake-take.com",
+        "provider": "Stake-Take"
+      },
+      {
+        "address": "https://rpc.gitopia.nodexcapital.com",
+        "provider": "⚡NodeX Validator⚡"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.gitopia.indonode.net:443",
+        "provider": "indonode"
+      },
+      {
+        "address": "https://gitopia-api.polkachu.com:443",
+        "provider": "polkachu"
+      },
+      {
+        "address": "https://gitopia-api.lavenderfive.com",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://api.gitopia.nodestake.top:443",
+        "provider": "nodestake"
+      },
+      {
+        "address": "https://gitopia-rest.staketab.org",
+        "provider": "Staketab"
+      },
+      {
+        "address": "https://gitopia-mainnet-lcd.autostake.com:443",
+        "provider": "autostake"
+      },
+      {
+        "address": "https://gitopia-api.ibs.team:443",
+        "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://m-gitopia.api.utsa.tech",
+        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
+      },
+      {
+        "address": "https://gitopia.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://api-gitopia.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://gitopia-api.genznodes.dev",
+        "provider": "genznodes"
+      },
+      {
+        "address": "https://lcd-gitopia.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://lcd.gitopia.hexnodes.co",
+        "provider": "Hexnodes"
+      },
+      {
+        "address": "https://gitopia.api.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://api.gitopia.indonode.net",
+        "provider": "Indonode"
+      },
+      {
+        "address": "https://gitopia-api.stake-town.com",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "https://api.gitopia.stake-take.com",
+        "provider": "Stake-Take"
+      },
+      {
+        "address": "https://rest.gitopia.nodexcapital.com",
+        "provider": "⚡NodeX Validator⚡"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.gitopia.indonode.net:26090",
+        "provider": "indonode"
+      },
+      {
+        "address": "gitopia-grpc.polkachu.com:11390",
+        "provider": "polkachu"
+      },
+      {
+        "address": "services.staketab.com:9410",
+        "provider": "Staketab"
+      },
+      {
+        "address": "https://gitopia-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://grpc.gitopia.nodestake.top:443",
+        "provider": "nodestake"
+      },
+      {
+        "address": "https://grpc-gitopia.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "http://gitopia.grpc.m.stavr.tech:5123",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "gitopia-grpc.genznodes.dev:33090",
+        "provider": "genznodes"
+      },
+      {
+        "address": "grpc-gitopia.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://grpc.gitopia.hexnodes.co:16090",
+        "provider": "Hexnodes"
+      },
+      {
+        "address": "https://gitopia.grpc.liveraven.net:443",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://grpc.gitopia.indonode.net:26090",
+        "provider": "Indonode"
+      },
+      {
+        "address": "gitopia-grpc.stake-town.com:9090",
+        "provider": "StakeTown"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/gitopia",
+      "tx_page": "https://ping.pub/gitopia/tx/${txHash}",
+      "account_page": "https://ping.pub/gitopia/account/${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/gitopia-m",
+      "tx_page": "https://explorer.stavr.tech/gitopia-m/tx/${txHash}",
+      "account_page": "https://explorer.stavr.tech/gitopia-m/account/${accountAddress}"
+    },
+    {
+      "kind": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀",
+      "url": "https://exp.utsa.tech/gitopia",
+      "tx_page": "https://exp.utsa.tech/gitopia/tx/${txHash}",
+      "account_page": "https://exp.utsa.tech/gitopia/account/${accountAddress}"
+    },
+    {
+      "kind": "Nodeist",
+      "url": "https://exp.nodeist.net/gitopia",
+      "tx_page": "https://exp.nodeist.net/gitopia/tx/${txHash}",
+      "account_page": "https://exp.nodeist.net/gitopia/account/${accountAddress}"
+    },
+    {
+      "kind": "Stake-Take",
+      "url": "https://explorer.stake-take.com/gitopia",
+      "tx_page": "https://explorer.stake-take.com/gitopia/tx/${txHash}",
+      "account_page": "https://explorer.stake-take.com/gitopia/account/${accountAddress}"
+    },
+    {
+      "kind": "NODEXPLORER",
+      "url": "https://explorer.nodexcapital.com/gitopia",
+      "tx_page": "https://explorer.nodexcapital.com/gitopia/tx/${txHash}",
+      "account_page": "https://explorer.nodexcapital.com/gitopia/account/${accountAddress}"
+    }
+  ]
+}
