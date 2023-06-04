@@ -44,10 +44,34 @@
       "windows/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Windows_x86_64.zip"
     },
     "cosmos_sdk_version": "0.45",
-    "tendermint_version": "0.34",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/likecoin/mainnet/982c14399089950a59d3ebbedcbbc7ead6040457/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v3.1.0",
+        "recommended_version": "v3.1.0",
+        "compatible_versions": [
+          "v3.1.0"
+        ],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Linux_x86_64.tar.gz",
+          "linux/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Darwin_x86_64.tar.gz",
+          "darwin/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Windows_x86_64.zip"
+        }
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -60,6 +84,11 @@
         "id": "e44a2165ac573f84151671b092aa4936ac305e2a",
         "address": "nnkken.dev:26656",
         "provider": "nnkken"
+      },
+      {
+        "id": "d354a96014507ea480d04f8fe009dd5a4f7fe7fb",
+        "address": "likecoin-seed.oldcat.io.oldcat.io:26656",
+        "provider": "Oldcat"
       }
     ],
     "persistent_peers": [
@@ -67,26 +96,6 @@
         "id": "f087d600cf3d34d3bac04a9723a53180619e8445",
         "address": "35.247.83.138:26656",
         "provider": "like.co"
-      },
-      {
-        "id": "75822abfbcc23dcefd025e245b46e2dec5357f75",
-        "address": "207.246.101.4:26656",
-        "provider": "forbole"
-      },
-      {
-        "id": "9f62898076c35d78df21c1d2280be922221c23af",
-        "address": "139.59.8.62:2180",
-        "provider": "Notional"
-      },
-      {
-        "id": "20afcd5637b2278efc78c54fd523bd331d1820f2",
-        "address": "78.47.110.110:26656",
-        "provider": "moonbeam"
-      },
-      {
-        "id": "5940f55e0e7e2f1a2c9507bf62fbfd7c6d2f3874",
-        "address": "likechain.oursky.com:26656",
-        "provider": "Oursky"
       }
     ]
   },
@@ -97,8 +106,16 @@
         "provider": "like.co"
       },
       {
+        "address": "https://likecoin-node.oldcat.io:443/rpc/",
+        "provider": "Oldcat"
+      },
+      {
         "address": "https://rpc-likecoin-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://rpc-likecoin-mainnet.pikaser.net",
+        "provider": "PikaSer"
       }
     ],
     "rest": [
@@ -107,14 +124,30 @@
         "provider": "like.co"
       },
       {
+        "address": "https://likecoin-node.oldcat.io:443/api/",
+        "provider": "Oldcat"
+      },
+      {
         "address": "https://api-likecoin-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://rest-likecoin-mainnet.pikaser.net",
+        "provider": "PikaSer"
       }
     ],
     "grpc": [
       {
         "address": "grpc-likecoin-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
+      },
+      {
+        "address": "https://likecoin-node.oldcat.io:443/grpc/",
+        "provider": "Oldcat"
+      },
+      {
+        "address": "grpc-likecoin-mainnet.pikaser.net:443",
+        "provider": "PikaSer"
       }
     ]
   },
@@ -127,8 +160,9 @@
     },
     {
       "kind": "bigdipper",
-      "url": "https://likecoin.bigdipper.live/",
-      "tx_page": "https://likecoin.bigdipper.live/transactions/${txHash}"
+      "url": "https://bigdipper.live/likecoin",
+      "tx_page": "https://bigdipper.live/likecoin/transactions/${txHash}",
+      "account_page": "https://bigdipper.live/likecoin/accounts/${accountAddress}"
     },
     {
       "kind": "lunie-ng",
@@ -142,7 +176,8 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/likecoin",
-      "tx_page": "https://atomscan.com/likecoin/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/likecoin/transactions/${txHash}",
+      "account_page": "https://atomscan.com/likecoin/accounts/${accountAddress}"
     }
   ],
   "logo_URIs": {
