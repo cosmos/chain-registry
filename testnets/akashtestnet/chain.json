@@ -5,7 +5,7 @@
   "network_type": "testnet",
   "website": "https://akash.network/",
   "pretty_name": "Sandbox",
-  "chain_id": "sandbox",
+  "chain_id": "sandbox-01",
   "bech32_prefix": "akash",
   "daemon_name": "akash",
   "node_home": "$HOME/.akash",
@@ -32,7 +32,6 @@
     "git_repo": "github.com/ovrclk/akash",
     "recommended_version": "v0.22.0",
     "compatible_versions": [
-      "v0.20.0",
       "v0.22.0"
     ],
     "binaries": {
@@ -44,11 +43,13 @@
         "name": "v0",
         "recommended_version": "v0.22.0",
         "compatible_versions": [
-          "v0.20.0",
           "v0.22.0"
         ]
       }
-    ]
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/akash-network/net/master/sandbox/genesis.json"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.png",
@@ -57,33 +58,33 @@
   "peers": {
     "seeds": [
       {
-        "id": "96aacf1f907027e1f912ad41d1eba40ed38ebee2",
-        "address": "p2p.sandbox.ny.aksh.pw:26656"
+        "id": "865b21750f7fc5a2fa901192f7ccbe1212cd6d55",
+        "address": "p2p.sandbox-01.aksh.pw:26656"
       }
     ],
     "persistent_peers": [
       {
-        "id": "96aacf1f907027e1f912ad41d1eba40ed38ebee2",
-        "address": "p2p.sandbox.ny.aksh.pw:26656"
+        "id": "865b21750f7fc5a2fa901192f7ccbe1212cd6d55",
+        "address": "p2p.sandbox-01.aksh.pw:26656"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.sandbox.ny.aksh.pw",
-        "provider": "Akash"
+        "address": "https://rpc.sandbox-01.aksh.pw:443",
+        "provider": "akash"
       }
     ],
     "rest": [
       {
-        "address": "https://api.sandbox.ny.aksh.pw",
-        "provider": "Akash"
+        "address": "https://api.sandbox-01.aksh.pw:443",
+        "provider": "akash"
       }
     ],
     "grpc": [
       {
-        "address": "grpc.sandbox.ny.aksh.pw:9090",
+        "address": "grpc.sandbox-01.aksh.pw:9090",
         "provider": "akash"
       }
     ]
@@ -91,8 +92,8 @@
   "explorers": [
     {
       "kind": "ping.pub",
-      "url": "https://explorer.sandbox.aksh.pw/akash",
-      "tx_page": "https://explorer.sandbox.aksh.pw/akash/tx/${txHash}"
+      "url": "https://explorer.sandbox-01.aksh.pw/akash",
+      "tx_page": "https://explorer.sandbox-01.aksh.pw/akash/tx/${txHash}"
     }
   ]
 }
