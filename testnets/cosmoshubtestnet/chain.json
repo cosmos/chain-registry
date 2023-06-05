@@ -2,7 +2,7 @@
   "$schema": "../../chain.schema.json",
   "chain_name": "cosmoshubtestnet",
   "chain_id": "theta-testnet-001",
-  "pretty_name": "Theta Testnet",
+  "pretty_name": "Cosmos Hub Public Testnet",
   "status": "live",
   "network_type": "testnet",
   "bech32_prefix": "cosmos",
@@ -16,27 +16,42 @@
     "fee_tokens": [
       {
         "denom": "uatom",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0.0025
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/cosmos/gaia",
-    "recommended_version": "v7.0.2",
+    "recommended_version": "v9.0.1",
     "compatible_versions": [
-      "v7.0.0",
-      "v7.0.1",
-      "v7.0.2"
+      "v9.0.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v7.0.2/gaiad-v7.0.2-linux-amd64",
-      "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v7.0.2/gaiad-v7.0.2-linux-arm64",
-      "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v7.0.2/gaiad-v7.0.2-darwin-amd64",
-      "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v7.0.2/gaiad-v7.0.2-windows-amd64.exe"
+      "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v9.0.1/gaiad-v9.0.1-linux-amd64",
+      "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v9.0.1/gaiad-v9.0.1-linux-arm64",
+      "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v9.0.1/gaiad-v9.0.1-darwin-amd64",
+      "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v9.0.1/gaiad-v9.0.1-darwin-arm64",
+      "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v9.0.1/gaiad-v9.0.1-windows-amd64.exe"
     },
     "genesis": {
-      "genesis_url": "https://github.com/cosmos/testnets/raw/master/v7-theta/public-testnet/genesis.json.gz"
-    }
+      "genesis_url": "https://github.com/cosmos/testnets/raw/master/public/genesis.json.gz"
+    },
+    "versions": [
+      {
+        "name": "v9.0.1",
+        "recommended_version": "v9.0.1",
+        "compatible_versions": [
+          "v9.0.1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v9.0.1/gaiad-v9.0.1-linux-amd64",
+          "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v9.0.1/gaiad-v9.0.1-linux-arm64",
+          "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v9.0.1/gaiad-v9.0.1-darwin-amd64",
+          "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v9.0.1/gaiad-v9.0.1-darwin-arm64",
+          "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v9.0.1/gaiad-v9.0.1-windows-amd64.exe"
+        }
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -74,6 +89,10 @@
       {
         "address": "https://public-cosmos-theta.w3node.com",
         "provider": "Interchain.FM"
+      },
+      {
+        "address": "https://rpc-theta.osmotest5.osmosis.zone/",
+        "provider": "Osmosis"
       }
     ],
     "rest": [
@@ -96,6 +115,10 @@
       {
         "address": "https://public-cosmos-theta.w3node.com/rest/",
         "provider": "Interchain.FM"
+      },
+      {
+        "address": "https://lcd-theta.osmotest5.osmosis.zone/",
+        "provider": "Osmosis"
       }
     ],
     "grpc": [
@@ -118,6 +141,11 @@
     ]
   },
   "explorers": [
+    {
+      "kind": "Mintscan",
+      "url": "https://testnet.mintscan.io/cosmoshub-testnet",
+      "tx_page": "https://testnet.mintscan.io/cosmoshub-testnet/txs/${txHash}"
+    },
     {
       "kind": "Big Dipper",
       "url": "https://explorer.theta-testnet.polypore.xyz/",
