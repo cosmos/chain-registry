@@ -1,0 +1,200 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "ununifi",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://ununifi.io/",
+  "pretty_name": "UnUniFi",
+  "chain_id": "ununifi-beta-v1",
+  "bech32_prefix": "ununifi",
+  "daemon_name": "guu",
+  "node_home": "$HOME/.ununifid",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uguu",
+        "fixed_min_gas_price": 0.0025,
+        "low_gas_price": 0.0025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uguu"
+      }
+    ],
+    "lock_duration": {
+      "time": "1209600s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/UnUniFi/chain",
+    "recommended_version": "v2.1.0",
+    "compatible_versions": ["v2.1.0"],
+    "binaries": {
+      "linux/amd64": "https://github.com/UnUniFi/chain/releases/download/v2.1.0/ununifid"
+    },
+    "cosmos_sdk_version": "0.47",
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.34"
+    },
+    "cosmwasm_version": "0.40",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "7.0.1",
+    "ics_enabled": ["ics20-1"],
+    "genesis": {
+      "name": "beta-v1",
+      "genesis_url": "https://raw.githubusercontent.com/UnUniFi/network/main/launch/ununifi-beta-v1/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v2.0.0",
+        "recommended_version": "v2.0.0",
+        "compatible_versions": ["v2.0.0"],
+        "binaries": {
+          "linux/amd64": "https://github.com/UnUniFi/chain/releases/download/v2.0.0/ununifid"
+        },
+        "cosmos_sdk_version": "0.47",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.40",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "7.0.0",
+        "ics_enabled": ["ics20-1"]
+      },
+      {
+        "name": "v2.1.0",
+        "recommended_version": "v2.1.0",
+        "compatible_versions": ["v2.1.0"],
+        "binaries": {
+          "linux/amd64": "https://github.com/UnUniFi/chain/releases/download/v2.1.0/ununifid"
+        },
+        "cosmos_sdk_version": "0.47",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.40",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "7.0.1",
+        "ics_enabled": ["ics20-1"]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/ununifi/images/ununifi.svg",
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/ununifi/images/ununifi.png"
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "fa38d2a851de43d34d9602956cd907eb3942ae89",
+        "address": "a.ununifi.cauchye.net:26656",
+        "provider": "CauchyE"
+      },
+      {
+        "id": "404ea79bd31b1734caacced7a057d78ae5b60348",
+        "address": "b.ununifi.cauchye.net:26656",
+        "provider": "CauchyE"
+      },
+      {
+        "id": "1357ac5cd92b215b05253b25d78cf485dd899d55",
+        "address": "[2600:1f1c:534:8f02:7bf:6b31:3702:2265]:26656"
+      },
+      {
+        "id": "25006d6b85daeac2234bcb94dafaa73861b43ee3",
+        "address": "[2600:1f1c:534:8f02:a407:b1c6:e8f5:94b]:26656"
+      },
+      {
+        "id": "caf792ed396dd7e737574a030ae8eabe19ecdf5c",
+        "address": "[2600:1f1c:534:8f02:b0a4:dbf6:e50b:d64e]:26656"
+      },
+      {
+        "id": "796c62bb2af411c140cf24ddc409dff76d9d61cf",
+        "address": "[2600:1f1c:534:8f02:ca0e:14e9:8e60:989e]:26656"
+      },
+      {
+        "id": "cea8d05b6e01188cf6481c55b7d1bc2f31de0eed",
+        "address": "[2600:1f1c:534:8f02:ba43:1f69:e23a:df6b]:26656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://a.lcd.ununifi.cauchye.net:26658",
+        "provider": "CauchyE"
+      },
+      {
+        "address": "https://b.lcd.ununifi.cauchye.net:26658",
+        "provider": "CauchyE"
+      },
+      {
+        "address": "https://ununifi.mainnet.lcd-01.kabab.io:26658",
+        "provider": "Neukind"
+      },
+      {
+        "address": "https://ununifi.mainnet.lcd-02.kabab.io:26658",
+        "provider": "Neukind"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://a.lcd.ununifi.cauchye.net:1318",
+        "provider": "CauchyE"
+      },
+      {
+        "address": "https://b.lcd.ununifi.cauchye.net:1318",
+        "provider": "CauchyE"
+      },
+      {
+        "address": "https://ununifi.mainnet.lcd-01.kabab.io:1318",
+        "provider": "Neukind"
+      },
+      {
+        "address": "https://ununifi.mainnet.lcd-02.kabab.io:1318",
+        "provider": "Neukind"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "a.lcd.ununifi.cauchye.net:9090",
+        "provider": "CauchyE"
+      },
+      {
+        "address": "b.lcd.ununifi.cauchye.net:9090",
+        "provider": "CauchyE"
+      },
+      {
+        "address": "ununifi.mainnet.lcd-01.kabab.io:9090",
+        "provider": "Neukind"
+      },
+      {
+        "address": "ununifi.mainnet.lcd-02.kabab.io:9090",
+        "provider": "Neukind"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "UnUniFi Explorer",
+      "url": "https://ununifi.io/explorer",
+      "tx_page": "https://ununifi.io/explorer/txs/${txHash}"
+    },
+    {
+      "kind": "NodeStake Explorer",
+      "url": "https://explorer.nodestake.top/ununifi",
+      "tx_page": "https://explorer.nodestake.top/ununifi/tx/${txHash}"
+    }
+  ],
+  "keywords": ["staking", "wasm", "assets", "nft"]
+}
