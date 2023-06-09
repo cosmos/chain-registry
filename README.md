@@ -107,41 +107,47 @@ A sample `chain.json` includes the following information.
         "name": "v4",
         "tag": "v4.2.0",
         "height": 1314500,
+        "proposal": 38,
         "next_version_name": "v5"
       },
       {
         "name": "v5",
         "tag": "v6.4.1",
         "height": 2383300,
+        "proposal": 95,
         "next_version_name": "v7"
       },
       {
         "name": "v7",
         "tag": "v8.0.0",
         "height": 3401000,
+        "proposal": 157,
         "next_version_name": "v9"
       },
       {
         "name": "v9",
         "tag": "v10.0.1",
         "height": 4707300,
+        "proposal": 252,
         "next_version_name": "v11"
       },
       {
         "name": "v11",
         "tag": "v11.0.0",
         "height": 5432450,
+        "proposal": 296,
         "next_version_name": "v12"
       },
       {
         "name": "v12",
-        "tag": "v12.2.0",
+        "tag": "v12.1.0",
+        "height": 6246000,
+        "proposal": 335,
         "recommended_version": "v12.2.0",
         "compatible_versions": [
           "v12.1.0"
           "v12.2.0"
         ],
-        "height": 6246000,
         "cosmos_sdk_version": "0.46",
         "consensus": {
           "type": "tendermint",
@@ -152,7 +158,8 @@ A sample `chain.json` includes the following information.
         "ibc_go_version": "3.0.0",
         "ics_enabled": [
           "ics20-1"
-        ]
+        ],
+        "next_version_name": "v13"
       }
     ]
   },
