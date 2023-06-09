@@ -78,6 +78,7 @@ A sample `chain.json` includes the following information.
     "git_repo": "https://github.com/osmosis-labs/osmosis",
     "recommended_version": "v12.2.0",
     "compatible_versions": [
+      "v12.1.0"
       "v12.2.0"
     ],
     "cosmos_sdk_version": "0.46",
@@ -134,8 +135,24 @@ A sample `chain.json` includes the following information.
       },
       {
         "name": "v12",
-        "tag": "v12.1.0",
-        "height": 6246000
+        "tag": "v12.2.0",
+        "recommended_version": "v12.2.0",
+        "compatible_versions": [
+          "v12.1.0"
+          "v12.2.0"
+        ],
+        "height": 6246000,
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.28",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "3.0.0",
+        "ics_enabled": [
+          "ics20-1"
+        ]
       }
     ]
   },
@@ -171,16 +188,8 @@ A sample `chain.json` includes the following information.
         "address": "134.255.252.173:26656",
         "provider": "divecrypto"
       },
-      {
-        "id": "785bc83577e3980545bac051de8f57a9fd82695f",
-        "address": "194.233.164.146:26656",
-        "provider": "forbole"
-      },
-      {
-        "id": "778fdedf6effe996f039f22901a3360bc838b52e",
-        "address": "161.97.187.189:36657",
-        "provider": "kalpatech"
-      },
+      ...
+      ...
       {
         "id": "64d36f3a186a113c02db0cf7c588c7c85d946b5b",
         "address": "209.97.132.170:26656",
