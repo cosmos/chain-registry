@@ -1,0 +1,100 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "composable",
+  "chain_id": "centauri-1",
+  "website": "https://www.composable.finance/",
+  "pretty_name": "Composable",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "banksy",
+  "daemon_name": "banksyd",
+  "node_home": "$HOME/.banksy",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ppica",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ppica"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/notional-labs/composable-centauri",
+    "recommended_version": "v2.3.5",
+    "compatible_versions": [
+      "v2.3.5"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/notional-labs/composable-centauri/releases/download/v2.3.5/banksyd"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/notional-labs/composable-networks/main/mainnet/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v2.3.5",
+        "tag": "v2.3.5",
+        "recommended_version": "v2.3.5",
+        "compatible_versions": [
+          "v2.3.5"
+        ],
+        "cosmos_sdk_version": "v0.47.1",
+        "ibc_go_version": "v7.0.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.0"
+        },
+        "height": 0,
+        "binaries": {
+          "linux/amd64": "https://github.com/notional-labs/composable-centauri/releases/download/v2.3.5/banksyd"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/composable/images/composable.svg"
+  },
+  "peers": {
+    "seeds": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-composable-ia.cosmosia.notional.ventures",
+        "provider": "Notional"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-composable-ia.cosmosia.notional.ventures",
+        "provider": "Notional"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc-composable-ia.cosmosia.notional.ventures",
+        "provider": "Notional"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/composable",
+      "tx_page": "https://ping.pub/composable/tx/${txHash}"
+    }
+  ]
+}
