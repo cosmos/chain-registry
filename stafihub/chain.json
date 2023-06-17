@@ -30,13 +30,39 @@
   },
   "codebase": {
     "git_repo": "https://github.com/stafihub/stafihub",
-    "recommended_version": "v0.2.3",
+    "recommended_version": "v0.4.1",
     "compatible_versions": [
-      "v0.2.3"
+      "v0.4.1"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/stafihub/network/main/mainnets/stafihub-1(dragonberry)/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v0.2",
+        "height": 0,
+        "recommended_version": "v0.2.3",
+        "compatible_versions": [
+          "v0.2.0", "v0.2.1", "v0.2.2", "v0.2.3"
+        ]
+      },
+      {
+        "name": "v0.3",
+        "height": 2626590,
+        "recommended_version": "v0.3.0",
+        "compatible_versions": [
+          "v0.3.0"
+        ]
+      },
+      {
+        "name": "v0.4",
+        "height": 3766566,
+        "recommended_version": "v0.4.1",
+        "compatible_versions": [
+          "v0.4.0", "v0.4.1"
+        ]
+      }
+    ]
   },
   "peers": {
     "persistent_peers": [
@@ -47,10 +73,6 @@
       {
         "id": "045fe6e054a5abe35f5433bd333f0a1b18aa28cf",
         "address": "45.136.28.11:26656"
-      },
-      {
-        "id": "d35d55635093fddb6de22295c8fe31de98efe6ef",
-        "address": "5.161.120.176:26656"
       },
       {
         "id": "20c0b45c47426c51b3187aa5dca82d9900c2fb36",
@@ -81,12 +103,8 @@
         "provider": "NodeStake"
       },
       {
-        "address": "https://rpc.stafihub.mcbnode.online:443",
-        "provider": "MCBNode"
-      },
-      {
-        "address": "https://stafihub.nodejumper.io:443",
-        "provider": "Nodejumper 🚀"
+        "address": "https://stafihub.nodejumper.io",
+        "provider": "NODEJUMPER"
       }
     ],
     "rest": [
@@ -103,34 +121,26 @@
         "provider": "NodeStake"
       },
       {
-        "address": "https://api.stafihub.mcbnode.online",
-        "provider": "MCBNode"
-      },
-      {
         "address": "https://stafihub.nodejumper.io:1317",
-        "provider": "Nodejumper 🚀"
+        "provider": "NODEJUMPER"
       }
     ],
     "grpc": [
       {
-        "address": "https://public-grpc-rpc1.stafihub.io",
+        "address": "public-grpc-rpc1.stafihub.io:443",
         "provider": "StaFiHub"
       },
       {
-        "address": "https://public-grpc-rpc2.stafihub.io",
+        "address": "public-grpc-rpc2.stafihub.io:443",
         "provider": "StaFiHub"
       },
       {
-        "address": "https://grpc.stafihub.nodestake.top",
+        "address": "grpc.stafihub.nodestake.top:443",
         "provider": "NodeStake"
       },
       {
-        "address": "https://grpc.stafihub.mcbnode.online",
-        "provider": "MCBNode"
-      },
-      {
-        "address": "https://stafihub.nodejumper.io:9090",
-        "provider": "Nodejumper 🚀"
+        "address": "stafihub.nodejumper.io:9090",
+        "provider": "NODEJUMPER"
       }
     ]
   },
@@ -144,6 +154,12 @@
       "kind": "ping-pub",
       "url": "https://ping.pub/stafihub",
       "tx_page": "https://ping.pub/stafihub/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/stafihub",
+      "tx_page": "https://atomscan.com/stafihub/transactions/${txHash}",
+      "account_page": "https://atomscan.com/stafihub/accounts/${accountAddress}"
     }
   ],
   "logo_URIs": {

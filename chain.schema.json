@@ -77,10 +77,10 @@
         "bech32PrefixConsPub": {
           "type": "string",
           "description": "e.g., 'cosmosvalconspub'"
-        },
-        "additionalProperties": false,
-        "minProperties": 1
-      }
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
     },
     "daemon_name": {
       "type": "string"
@@ -197,26 +197,38 @@
           },
           "additionalProperties": false
         },
-        "genesis": {
+        "cosmos_sdk_version": {
+          "type": "string"
+        },
+        "consensus": {
           "type": "object",
+          "required": [
+            "type"
+          ],
           "properties": {
-            "genesis_url": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "tendermint",
+                "cometbft"
+              ]
+            },
+            "version": {
               "type": "string"
             }
           },
           "additionalProperties": false
-        },
-        "cosmos_sdk_version": {
-          "type": "string"
-        },
-        "tendermint_version": {
-          "type": "string"
         },
         "cosmwasm_version": {
           "type": "string"
         },
         "cosmwasm_enabled": {
           "type": "boolean"
+        },
+        "cosmwasm_path": {
+          "type": "string",
+          "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
+          "pattern": "^\\$HOME.*$"
         },
         "ibc_go_version": {
           "type": "string"
@@ -270,9 +282,97 @@
                 "type": "number",
                 "description": "Block Height"
               },
+              "proposal": {
+                "type": "number",
+                "description": "Proposal that will officially signal community acceptance of the upgrade."
+              },
               "next_version_name": {
                 "type": "string",
                 "description": "[Optional] Name of the following version"
+              },
+              "recommended_version": {
+                "type": "string"
+              },
+              "compatible_versions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "cosmos_sdk_version": {
+                "type": "string"
+              },
+              "consensus": {
+                "type": "object",
+                "required": [
+                  "type"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "tendermint",
+                      "cometbft"
+                    ]
+                  },
+                  "version": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "cosmwasm_version": {
+                "type": "string"
+              },
+              "cosmwasm_enabled": {
+                "type": "boolean"
+              },
+              "cosmwasm_path": {
+                "type": "string",
+                "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
+                "pattern": "^\\$HOME.*$"
+              },
+              "ibc_go_version": {
+                "type": "string"
+              },
+              "ics_enabled": {
+                "type": "array",
+                "description": "List of IBC apps (usually corresponding to a ICS standard) which have been enabled on the network.",
+                "items": {
+                  "type": "string",
+                  "description": "IBC app or ICS standard.",
+                  "enum": [
+                    "ics20-1",
+                    "ics27-1",
+                    "mauth"
+                  ]
+                }
+              },
+              "binaries": {
+                "type": "object",
+                "properties": {
+                  "linux/amd64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "linux/arm64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "darwin/amd64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "darwin/arm64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "windows/amd64": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "additionalProperties": false
               }
             },
             "additionalProperties": false
@@ -280,6 +380,35 @@
         }
       },
       "additionalProperties": false
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "png": {
+            "type": "string",
+            "format": "uri-reference",
+            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$"
+          },
+          "svg": {
+            "type": "string",
+            "format": "uri-reference",
+            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$"
+          },
+          "theme": {
+            "type": "object",
+            "properties": {
+              "primary_color_hex": {
+                "type": "string",
+                "pattern": "^#[0-9a-fA-F]{6}$"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
     },
     "logo_URIs": {
       "type": "object",
@@ -460,6 +589,19 @@
         },
         "high_gas_price": {
           "type": "number"
+        },
+        "gas_costs": {
+          "type": "object",
+          "properties": {
+            "cosmos_send": {
+              "type": "number"
+            },
+            "ibc_transfer": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
         }
       },
       "additionalProperties": false
@@ -476,6 +618,5 @@
       },
       "additionalProperties": false
     }
-  },
-  "additionalProperties": false
+  }
 }

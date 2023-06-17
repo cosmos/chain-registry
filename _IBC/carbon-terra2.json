@@ -1,0 +1,48 @@
+{
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "carbon",
+    "client_id": "07-tendermint-33",
+    "connection_id": "connection-16"
+  },
+  "chain_2": {
+    "chain_name": "terra2",
+    "client_id": "07-tendermint-66",
+    "connection_id": "connection-54"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-12",
+        "port_id": "transfer"
+      },
+      "chain_2": {
+        "channel_id": "channel-36",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "status": "live",
+        "preferred": true,
+        "dex": "demex"
+      }
+    },
+    {
+      "chain_1": {
+        "channel_id": "channel-16",
+        "port_id": "transfer"
+      },
+      "chain_2": {
+        "channel_id": "channel-41",
+        "port_id": "wasm.terra1e0mrzy8077druuu42vs0hu7ugguade0cj65dgtauyaw4gsl4kv0qtdf2au"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "status": "live",
+        "preferred": true
+      }
+    }
+  ]
+}
