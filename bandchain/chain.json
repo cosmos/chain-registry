@@ -26,13 +26,33 @@
   },
   "codebase": {
     "git_repo": "https://github.com/bandprotocol/chain",
-    "recommended_version": "v2.4.1",
+    "recommended_version": "v2.5.2",
     "compatible_versions": [
-      "v2.4.1"
+      "v2.5.2"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/bandprotocol/launch/master/laozi-mainnet/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v2.4.1",
+        "recommended_version": "v2.4.1",
+        "compatible_versions": [
+          "v2.4.1"
+        ]
+      },
+      {
+        "name": "v2.5.2",
+        "recommended_version": "v2.5.2",
+        "compatible_versions": [
+          "v2.5.2"
+        ]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.svg"
   },
   "peers": {
     "seeds": [
@@ -46,8 +66,13 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "bandchain-mainnet-seed.autostake.net:26666",
+        "address": "bandchain-mainnet-seed.autostake.com:26666",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "4ded49b3a718828eb64cf35da1ed791ecb201bc1",
+        "address": "seed-band-01.stakeflow.io:25017",
+        "provider": "Stakeflow"
       }
     ],
     "persistent_peers": [
@@ -61,8 +86,13 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "bandchain-mainnet-peer.autostake.net:26666",
+        "address": "bandchain-mainnet-peer.autostake.com:26666",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "4ded49b3a718828eb64cf35da1ed791ecb201bc1",
+        "address": "peer-band-01.stakeflow.io:25017",
+        "provider": "Stakeflow"
       }
     ]
   },
@@ -81,8 +111,12 @@
         "provider": "Inter Blockchain Services"
       },
       {
-        "address": "https://bandchain-mainnet-rpc.autostake.net:443",
+        "address": "https://bandchain-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://rpc-band-01.stakeflow.io",
+        "provider": "Stakeflow"
       }
     ],
     "rest": [
@@ -99,14 +133,26 @@
         "provider": "Inter Blockchain Services"
       },
       {
-        "address": "https://bandchain-mainnet-lcd.autostake.net:443",
+        "address": "https://bandchain-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://api-band-01.stakeflow.io",
+        "provider": "Stakeflow"
       }
     ],
     "grpc": [
       {
         "address": "grpc-bandchain-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
+      },
+      {
+        "address": "bandchain-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "grpc-band-01.stakeflow.io:2502",
+        "provider": "Stakeflow"
       }
     ]
   },
@@ -130,13 +176,19 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/band-protocol",
-      "tx_page": "https://atomscan.com/band-protocol/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/band-protocol/transactions/${txHash}",
+      "account_page": "https://atomscan.com/band-protocol/accounts/${accountAddress}"
     },
     {
       "kind": "bigdipper",
       "url": "https://bigdipper.live/band",
       "tx_page": "https://bigdipper.live/band/transactions/${txHash}",
       "account_page": "https://bigdipper.live/band/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Stakeflow",
+      "url": "https://stakeflow.io/band-protocol",
+      "account_page": "https://stakeflow.io/band-protocol/accounts/${accountAddress}"
     }
   ]
 }

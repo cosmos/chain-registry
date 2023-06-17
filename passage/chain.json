@@ -29,7 +29,16 @@
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/envadiv/mainnet/main/passage-1/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v1.1.0",
+        "recommended_version": "v1.1.0",
+        "compatible_versions": [
+          "v1.1.0"
+        ]
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -57,13 +66,18 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "passage-mainnet-seed.autostake.net:26916",
+        "address": "passage-mainnet-seed.autostake.com:26916",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
         "address": "passage-seed-1.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "2534bb8af72ab14e001a9f48b7cf9626221c6be5",
+        "address": "seeds.whispernode.com:15656",
+        "provider": "WhisperNode🤐"
       }
     ],
     "persistent_peers": [
@@ -77,8 +91,13 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "passage-mainnet-peer.autostake.net:26916",
+        "address": "passage-mainnet-peer.autostake.com:26916",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "621f75a74a95298fe16e0c2dd899c087bcba6594",
+        "address": "65.108.195.29:50656",
+        "provider": "Staketab"
       }
     ]
   },
@@ -89,8 +108,8 @@
         "provider": "vitwit"
       },
       {
-        "address": "https://services.staketab.com/passage-rpc",
-        "provider": "staketab"
+        "address": "https://passage-rpc.staketab.org:443",
+        "provider": "Staketab"
       },
       {
         "address": "https://rpc-passage.ecostake.com",
@@ -125,7 +144,7 @@
         "provider": "WhisperNode🤐"
       },
       {
-        "address": "https://passage-mainnet-rpc.autostake.net:443",
+        "address": "https://passage-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
@@ -135,8 +154,8 @@
         "provider": "vitwit"
       },
       {
-        "address": "https://services.staketab.com/passage-api",
-        "provider": "staketab"
+        "address": "https://passage-rest.staketab.org",
+        "provider": "Staketab"
       },
       {
         "address": "https://rest-passage.ecostake.com",
@@ -167,7 +186,7 @@
         "provider": "D-stake"
       },
       {
-        "address": "https://passage-mainnet-lcd.autostake.net:443",
+        "address": "https://passage-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -193,8 +212,12 @@
         "provider": "NodeStake"
       },
       {
-        "address": "passage-mainnet-grpc.autostake.net:443",
+        "address": "passage-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "services.staketab.com:9023",
+        "provider": "Staketab"
       }
     ]
   },
@@ -210,6 +233,12 @@
       "url": "https://www.mintscan.io/passage",
       "tx_page": "https://www.mintscan.io/passage/txs/${txHash}",
       "account_page": "https://www.mintscan.io/passage/account/${accountAddress}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/passage",
+      "tx_page": "https://atomscan.com/passage/transactions/${txHash}",
+      "account_page": "https://atomscan.com/passage/accounts/${accountAddress}"
     }
   ],
   "logo_URIs": {

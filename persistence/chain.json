@@ -45,7 +45,23 @@
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/persistenceOne/genesisTransactions/master/core-1/final_genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v7.0.0",
+        "recommended_version": "v7.0.0",
+        "compatible_versions": [
+          "v7.0.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v7.0.0/persistenceCore-v7.0.0-linux-amd64.tar.gz"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.svg"
   },
   "peers": {
     "seeds": [
@@ -55,7 +71,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "persistence-mainnet-seed.autostake.net:26896",
+        "address": "persistence-mainnet-seed.autostake.com:26896",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -72,12 +88,17 @@
         "id": "e726816f42831689eab9378d5d577f1d06d25716",
         "address": "persistence-seed-2.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "ce9dc9467af943bf35f17f04cfcdf3895914d867",
+        "address": "seed-persistence-01.stakeflow.io:33656",
+        "provider": "Stakeflow"
       }
     ],
     "persistent_peers": [
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "persistence-mainnet-peer.autostake.net:26896",
+        "address": "persistence-mainnet-peer.autostake.com:26896",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -89,7 +110,17 @@
         "id": "bb7c2cddd665303a0b4233e3d47f5bf2c3ac21ba",
         "address": "135.181.142.60:15601",
         "provider": "POSTHUMAN∞DVS"
-      }      
+      },
+      {
+        "id": "3a4aa732fc9ad4f971ce081a34d6fc06e08dd7c6",
+        "address": "141.95.33.97:26656",
+        "provider": "Stakewolle.com | Auto-compound"
+      },
+      {
+        "id": "ce9dc9467af943bf35f17f04cfcdf3895914d867",
+        "address": "peer-persistence-01.stakeflow.io:33656",
+        "provider": "Stakeflow"
+      }
     ]
   },
   "apis": {
@@ -127,7 +158,7 @@
         "provider": "Zenscape"
       },
       {
-        "address": "https://persistence-mainnet-rpc.autostake.net:443",
+        "address": "https://persistence-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -137,7 +168,15 @@
       {
         "address": "https://rpc.persistence.posthuman.digital:443",
         "provider": "POSTHUMAN∞DVS"
-      }   
+      },
+      {
+        "address": "http://141.95.33.97:21657/websocket",
+        "provider": "Stakewolle.com | Auto-compound"
+      },
+      {
+        "address": "https://rpc-persistence-01.stakeflow.io",
+        "provider": "Stakeflow"
+      }
     ],
     "rest": [
       {
@@ -165,7 +204,7 @@
         "provider": "Architect Nodes"
       },
       {
-        "address": "https://persistence-mainnet-lcd.autostake.net:443",
+        "address": "https://persistence-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -187,7 +226,15 @@
       {
         "address": "https://rest.persistence.posthuman.digital:443",
         "provider": "POSTHUMAN∞DVS"
-      }      
+      },
+      {
+        "address": "http://141.95.33.97:1317",
+        "provider": "Stakewolle.com | Auto-compound"
+      },
+      {
+        "address": "https://api-persistence-01.stakeflow.io",
+        "provider": "Stakeflow"
+      }
     ],
     "grpc": [
       {
@@ -203,13 +250,21 @@
         "provider": "Polkachu"
       },
       {
-        "address": "persistence-mainnet-grpc.autostake.net:443",
+        "address": "persistence-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "grpc.persistence.posthuman.digital:80",
         "provider": "POSTHUMAN∞DVS"
-      } 
+      },
+      {
+        "address": "141.95.33.97:9090",
+        "provider": "Stakewolle.com | Auto-compound"
+      },
+      {
+        "address": "grpc-persistence-01.stakeflow.io:49090",
+        "provider": "Stakeflow"
+      }
     ]
   },
   "explorers": [
@@ -227,13 +282,19 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/persistence",
-      "tx_page": "https://atomscan.com/persistence/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/persistence/transactions/${txHash}",
+      "account_page": "https://atomscan.com/persistence/accounts/${accountAddress}"
     },
     {
       "kind": "bigdipper",
       "url": "https://bigdipper.live/persistence",
       "tx_page": "https://bigdipper.live/persistence/transactions/${txHash}",
       "account_page": "https://bigdipper.live/persistence/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Stakeflow",
+      "url": "https://stakeflow.io/persistence",
+      "account_page": "https://stakeflow.io/persistence/accounts/${accountAddress}"
     }
   ]
 }

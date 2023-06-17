@@ -44,7 +44,20 @@
     ],
     "genesis": {
       "genesis_url": "https://main.agoric.net/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "agoric-upgrade-8",
+        "recommended_version": "agoric-upgrade-8",
+        "compatible_versions": [
+          "agoric-upgrade-8"
+        ]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/acrechain/images/Agoric-logo-color.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/acrechain/images/Agoric-logo-color.svg"
   },
   "peers": {
     "seeds": [
@@ -55,13 +68,18 @@
       },
       {
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
-        "address": "agoric.rpc.kjnodes.com:27659",
+        "address": "agoric.rpc.kjnodes.com:12759",
         "provider": "kjnodes"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "agoric-mainnet-seed.autostake.net:27106",
+        "address": "agoric-mainnet-seed.autostake.com:27106",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "6ab5521047ae8e7bb0273a90029a6d445eb1a0a1",
+        "address": "seed-agoric-01.stakeflow.io:2206",
+        "provider": "Stakeflow"
       }
     ],
     "persistent_peers": [
@@ -71,8 +89,18 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "agoric-mainnet-peer.autostake.net:27106",
+        "address": "agoric-mainnet-peer.autostake.com:27106",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "6ab5521047ae8e7bb0273a90029a6d445eb1a0a1",
+        "address": "peer-agoric-01.stakeflow.io:2206",
+        "provider": "Stakeflow"
+      },
+      {
+        "id": "bf1bffc8a4a78b64f23deedefa6b9bbd4ce11174",
+        "address": "agoric.mellifera.network:12756",
+        "provider": "MELLIFERA"
       }
     ]
   },
@@ -94,12 +122,29 @@
         "provider": "kjnodes"
       },
       {
-        "address": "https://agoric-mainnet-rpc.autostake.net:443",
+        "address": "https://agoric-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://agoric-rpc.easy2stake.com",
-        "provider": "Easy 2 Stake"
+        "address": "https://rpc-agoric-01.stakeflow.io",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://agoric-rpc.0base.dev",
+        "provider": "0base.vc"
+      },
+      {
+        "address": "https://agoric.mellifera.network:26657",
+        "provider": "MELLIFERA"
+
+      },
+      {
+        "address": "https://agoric-rpc.stakeangle.com",
+        "provider": "StakeAngle"
+      },
+      {
+        "address": "agoric-rpc.nodeasy.com:31531",
+        "provider": "Nodeasy"
       }
     ],
     "rest": [
@@ -119,12 +164,20 @@
         "provider": "kjnodes"
       },
       {
-        "address": "https://agoric-mainnet-lcd.autostake.net:443",
+        "address": "https://agoric-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://agoric-lcd.easy2stake.com",
-        "provider": "Easy 2 Stake"
+        "address": "https://api-agoric-01.stakeflow.io",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://agoric-rest.0base.dev",
+        "provider": "0base.vc"
+      },
+      {
+        "address": "https://agoric.mellifera.network:1317",
+        "provider": "MELLIFERA"
       }
     ],
     "grpc": [
@@ -137,8 +190,20 @@
         "provider": "Polkachu"
       },
       {
-        "address": "agoric-mainnet-grpc.autostake.net:443",
+        "address": "agoric-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "agoric.grpc.kjnodes.com:12790",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "grpc-agoric-01.stakeflow.io:2202",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "agoric.mellifera.network:9090",
+        "provider": "MELLIFERA"
       }
     ]
   },
@@ -160,6 +225,11 @@
       "url": "https://atomscan.com/agoric/",
       "tx_page": "https://atomscan.com/agoric/transactions/${txHash}",
       "account_page": "https://atomscan.com/agoric/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Stakeflow",
+      "url": "https://stakeflow.io/agoric",
+      "account_page": "https://stakeflow.io/agoric/accounts/${accountAddress}"
     }
   ]
 }

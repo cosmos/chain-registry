@@ -34,13 +34,34 @@
   },
   "codebase": {
     "git_repo": "https://github.com/irisnet/irishub",
-    "recommended_version": "v1.3.0",
+    "recommended_version": "v1.4.1",
     "compatible_versions": [
-      "v1.3.0"
+      "v1.4.1"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/irisnet/mainnet/master/config/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v1.3.0",
+        "next_version_name": "v1.4.1",
+        "recommended_version": "v1.3.0",
+        "compatible_versions": [
+          "v1.3.0"
+        ]
+      },
+      {
+        "name": "v1.4.1",
+        "recommended_version": "v1.4.1",
+        "compatible_versions": [
+          "v1.4.1"
+        ]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.svg"
   },
   "peers": {
     "seeds": [
@@ -56,6 +77,11 @@
         "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
         "address": "iris-seed-1.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "445b38a181d147c243185d94567412e5c5f1a22c",
+        "address": "seed-irisnet-01.stakeflow.io:1906",
+        "provider": "Stakeflow"
       }
     ],
     "persistent_peers": [
@@ -63,6 +89,11 @@
         "id": "83b3f989f3ce089afdf733f8aa06e792d7e00c08",
         "address": "3.34.6.30:26656",
         "provider": "cosmostation"
+      },
+      {
+        "id": "445b38a181d147c243185d94567412e5c5f1a22c",
+        "address": "peer-irisnet-01.stakeflow.io:1906",
+        "provider": "Stakeflow"
       }
     ]
   },
@@ -75,6 +106,10 @@
       {
         "address": "https://rpc-irisnet-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://rpc-irisnet-01.stakeflow.io",
+        "provider": "Stakeflow"
       }
     ],
     "rest": [
@@ -85,18 +120,26 @@
       {
         "address": "https://api-irisnet-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://api-irisnet-01.stakeflow.io",
+        "provider": "Stakeflow"
       }
     ],
     "grpc": [
       {
         "address": "grpc-irisnet-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
+      },
+      {
+        "address": "grpc-irisnet-01.stakeflow.io:1902",
+        "provider": "Stakeflow"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
+      "kind": "EZ Staking Tools",
       "url": "https://ezstaking.tools/irisnet",
       "tx_page": "https://ezstaking.tools/irisnet/txs/${txHash}",
       "account_page": "https://ezstaking.tools/irisnet/account/${accountAddress}"
@@ -115,7 +158,13 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/iris-network",
-      "tx_page": "https://atomscan.com/iris-network/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/iris-network/transactions/${txHash}",
+      "account_page": "https://atomscan.com/iris-network/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Stakeflow",
+      "url": "https://stakeflow.io/irisnet",
+      "account_page": "https://stakeflow.io/irisnet/accounts/${accountAddress}"
     }
   ]
 }

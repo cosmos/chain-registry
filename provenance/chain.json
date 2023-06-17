@@ -44,10 +44,33 @@
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/provenance-io/mainnet/main/pio-mainnet-1/genesis.json"
     },
-    "cosmwasm_enabled": true
+    "cosmwasm_enabled": true,
+    "versions": [
+      {
+        "name": "v1.14.1",
+        "recommended_version": "v1.14.1",
+        "compatible_versions": [
+          "v1.14.1",
+          "v1.14.0"
+        ],
+        "cosmwasm_enabled": true,
+        "binaries": {
+          "linux/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.14.1/provenance-linux-amd64-v1.14.1.zip"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/provenance/images/prov.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/provenance/images/prov.svg"
   },
   "peers": {
     "seeds": [
+      {
+        "id": "a85a651a3cf1746694560c5b6f76d566c04ca581",
+        "address": "provenance-seed.takeshi.team:10556",
+        "provider": "TAKESHI"
+      },
       {
         "id": "4bd2fb0ae5a123f1db325960836004f980ee09b4",
         "address": "seed-0.provenance.io:26656",
@@ -63,6 +86,10 @@
   "apis": {
     "rpc": [
       {
+        "address": "https://rpc-provenance.takeshi.team/",
+        "provider": "TAKESHI"
+      },
+      {
         "address": "https://rpc.provenance.io/",
         "provider": "figure"
       },
@@ -77,6 +104,10 @@
     ],
     "rest": [
       {
+        "address": "https://api-provenance.takeshi.team",
+        "provider": "TAKESHI"
+      },
+      {
         "address": "https://api.provenance.io",
         "provider": "figure"
       },
@@ -90,6 +121,10 @@
       }
     ],
     "grpc": [
+      {
+        "address": "grpc-provenance.takeshi.team:443",
+        "provider": "TAKESHI"
+      },
       {
         "address": "grpc-provenance-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
@@ -126,7 +161,8 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/provenance",
-      "tx_page": "https://atomscan.com/provenance/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/provenance/transactions/${txHash}",
+      "account_page": "https://atomscan.com/provenance/accounts/${accountAddress}"
     },
     {
       "kind": "bigdipper",

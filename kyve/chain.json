@@ -8,6 +8,7 @@
   "bech32_prefix": "kyve",
   "daemon_name": "kyved",
   "node_home": "$HOME/.kyve",
+  "website": "https://www.kyve.network/",
   "key_algos": [
     "secp256k1"
   ],
@@ -22,19 +23,52 @@
   },
   "codebase": {
     "git_repo": "https://github.com/KYVENetwork/chain",
-    "recommended_version": "v1.0.0",
+    "recommended_version": "v1.2.2",
     "compatible_versions": [
-      "v1.0.0"
+      "v1.2.1", "v1.2.2"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/KYVENetwork/networks/main/kyve-1/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v1.0.0",
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ],
+        "next_version_name": "v1.1.0"
+      },
+      {
+        "name": "v1.1.0",
+        "height": 826000,
+        "proposal": 3,
+        "recommended_version": "v1.1.0",
+        "compatible_versions": [
+          "v1.1.0"
+        ],
+        "next_version_name": "v1.2.0"
+      },
+      {
+        "name": "v1.2.0",
+        "height": 1135000,
+        "proposal": 4,
+        "recommended_version": "v1.2.2",
+        "compatible_versions": [
+          "v1.2.1", "1.2.2"
+        ]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kyve/images/kyve.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kyve/images/kyve.svg"
   },
   "peers": {
     "seeds": [
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
-        "address": "seeds.lavenderfive.com:11856",
+        "address": "seeds.lavenderfive.com:11056",
         "provider": "Lavender.Five Nodes 🐝"
       }
     ],
@@ -58,6 +92,11 @@
         "id": "b950b6b08f7a6d5c3e068fcd263802b336ffe047",
         "address": "18.198.182.214:26656",
         "provider": "kyve"
+      },
+      {
+        "id": "ae3f75549c0fe53bae94909fb7477eb308dfe989",
+        "address": "88.99.104.180:46656",
+        "provider": "Stake-Take"
       }
     ]
   },
@@ -88,12 +127,16 @@
         "provider": "NodeStake"
       },
       {
-        "address": "https://rpc-kyve.nodeist.net",
-        "provider": "Nodeist"
-      },
-      {
         "address": "https://kyve-rpc.enigma-validator.com",
         "provider": "Enigma"
+      },
+      {
+        "address": "https://kyve.rpc.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://rpc.kyve.stake-take.com",
+        "provider": "Stake-Take"
       }
     ],
     "rest": [
@@ -122,12 +165,16 @@
         "provider": "NodeStake"
       },
       {
-        "address": "https://api-kyve.nodeist.net",
-        "provider": "Nodeist"
-      },
-      {
         "address": "https://www.kyve-lcd.enigma-validator.com",
         "provider": "Enigma"
+      },
+      {
+        "address": "https://kyve.api.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://api.kyve.stake-take.com",
+        "provider": "Stake-Take"
       }
     ],
     "grpc": [
@@ -142,6 +189,10 @@
       {
         "address": "https://grpc-kyve.nodeist.net",
         "provider": "Nodeist"
+      },
+      {
+        "address": "https://kyve.grpc.liveraven.net",
+        "provider": "LiveRaveN"
       }
     ]
   },
@@ -159,10 +210,10 @@
       "account_page": "https://explorer.nodestake.top/kyve/account/${accountAddress}"
     },
     {
-      "kind": "Nodeist Explorer",
-      "url": "https://exp.nodeist.net/m-kyve",
-      "tx_page": "https://exp.nodeist.net/m-kyve/txs/${txHash}",
-      "account_page": "https://exp.nodeist.net/m-kyve/account/${accountAddress}"
+      "kind": "Stake-Take",
+      "url": "https://explorer.stake-take.com/kyve",
+      "tx_page": "https://explorer.stake-take.com/kyve/txs/${txHash}",
+      "account_page": "https://explorer.stake-take.com/kyve/account/${accountAddress}"
     }
   ]
 }

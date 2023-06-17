@@ -16,9 +16,9 @@
     "fee_tokens": [
       {
         "denom": "ujunox",
-        "low_gas_price": 0.03,
-        "average_gas_price": 0.04,
-        "high_gas_price": 0.05
+        "low_gas_price": 0.0025,
+        "average_gas_price": 0.0025,
+        "high_gas_price": 0.0024
       }
     ]
   },
@@ -31,18 +31,53 @@
   },
   "codebase": {
     "git_repo": "https://github.com/CosmosContracts/juno",
-    "recommended_version": "v13.0.0-beta.1",
+    "recommended_version": "v14.0.0-alpha.1",
     "compatible_versions": [
-       "v13.0.0-beta.1"
+      "v14.0.0-alpha.1"
     ],
     "cosmos_sdk_version": "0.45",
-    "tendermint_version": "0.34",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
     "cosmwasm_version": "0.30",
     "cosmwasm_enabled": true,
     "ibc_go_version": "4.3.0",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/CosmosContracts/testnets/main/uni-6/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v13.0.0-beta.1",
+        "recommended_version": "v13.0.0-beta.1",
+        "compatible_versions": [
+          "v13.0.0-beta.1"
+        ],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.30",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "4.3.0"
+      },
+      {
+        "name": "v14.0.0-alpha.1",
+        "recommended_version": "v14.0.0-alpha.1",
+        "compatible_versions": [
+          "v14.0.0-alpha.1"
+        ],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.30",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "4.3.0"
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -98,7 +133,7 @@
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
+      "kind": "EZ Staking Tools",
       "url": "https://testnet.ezstaking.tools/juno-testnet",
       "tx_page": "https://testnet.ezstaking.tools/juno-testnet/txs/${txHash}",
       "account_page": "https://testnet.ezstaking.tools/juno-testnet/account/${accountAddress}"

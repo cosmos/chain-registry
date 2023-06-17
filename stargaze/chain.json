@@ -13,7 +13,11 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "ustars"
+        "denom": "ustars",
+        "fixed_min_gas_price": 1,
+        "low_gas_price": 1,
+        "average_gas_price": 1.1,
+        "high_gas_price": 1.2
       }
     ]
   },
@@ -26,13 +30,36 @@
   },
   "codebase": {
     "git_repo": "https://github.com/public-awesome/stargaze",
-    "recommended_version": "v8.0.0",
+    "recommended_version": "v10.0.1",
     "compatible_versions": [
-      "v8.0.0"
+      "v10.0.1",
+      "v10.0.0"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/public-awesome/mainnet/main/stargaze-1/genesis.tar.gz"
-    }
+    },
+    "versions": [
+      {
+        "name": "v9",
+        "recommended_version": "v9.1.0",
+        "compatible_versions": [
+          "v9.1.0",
+          "v9.0.0"
+        ]
+      },
+      {
+        "name": "v10",
+        "recommended_version": "v10.0.1",
+        "compatible_versions": [
+          "v10.0.1",
+          "v10.0.0"
+        ]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg"
   },
   "peers": {
     "seeds": [
@@ -61,20 +88,35 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "stargaze-mainnet-seed.autostake.net:26986",
+        "address": "stargaze-mainnet-seed.autostake.com:26986",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
         "address": "stargaze-seed-1.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "604f4baaa30cd3f50d080bf45806d222c7fadc94",
+        "address": "seeds.whispernode.com:13756",
+        "provider": "WhisperNode🤐"
       }
     ],
     "persistent_peers": [
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "stargaze-mainnet-peer.autostake.net:26986",
+        "address": "stargaze-mainnet-peer.autostake.com:26986",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "344c62c700a59de6137ccd6cade56721cb1e9777",
+        "address": "stargaze.ramuchi.tech:26656",
+        "provider": "ramuchi.tech"
+      },
+      {
+        "id": "f132374f5e70088e855c81df98dd8bb28ea7491d",
+        "address": "65.21.91.99:46656",
+        "provider": "Staketab"
       }
     ]
   },
@@ -121,8 +163,16 @@
         "provider": "WhisperNode🤐"
       },
       {
-        "address": "https://stargaze-mainnet-rpc.autostake.net:443",
+        "address": "https://stargaze-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://stargaze-rpc.ramuchi.tech",
+        "provider": "ramuchi.tech"
+      },
+      {
+        "address": "https://stargaze-rpc.staketab.org:443",
+        "provider": "Staketab"
       }
     ],
     "rest": [
@@ -163,12 +213,20 @@
         "provider": "silent"
       },
       {
-        "address": "https://stargaze-mainnet-lcd.autostake.net:443",
+        "address": "https://stargaze-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://lcd-stargaze.whispernode.com:443",
         "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://stargaze-api.ramuchi.tech",
+        "provider": "ramuchi.tech"
+      },
+      {
+        "address": "https://stargaze-rest.staketab.org",
+        "provider": "Staketab"
       }
     ],
     "grpc": [
@@ -181,14 +239,22 @@
         "provider": "Polkachu"
       },
       {
-        "address": "stargaze-mainnet-grpc.autostake.net:443",
+        "address": "stargaze-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://stargaze-grpc.ramuchi.tech:9090",
+        "provider": "ramuchi.tech"
+      },
+      {
+        "address": "services.staketab.com:9092",
+        "provider": "Staketab"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
+      "kind": "EZ Staking Tools",
       "url": "https://ezstaking.tools/stargaze",
       "tx_page": "https://ezstaking.tools/stargaze/txs/${txHash}",
       "account_page": "https://ezstaking.tools/stargaze/account/${accountAddress}"
@@ -207,7 +273,14 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/stargaze",
-      "tx_page": "https://atomscan.com/stargaze/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/stargaze/transactions/${txHash}",
+      "account_page": "https://atomscan.com/stargaze/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Starscan",
+      "url": "https://starscan.net/",
+      "tx_page": "https://starscan.net/stargaze-1/tx/${txHash}",
+      "account_page": "https://starscan.net/stargaze-1/address/${accountAddress}"
     }
   ]
 }

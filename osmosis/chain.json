@@ -18,8 +18,8 @@
     "fee_tokens": [
       {
         "denom": "uosmo",
-        "fixed_min_gas_price": 0,
-        "low_gas_price": 0,
+        "fixed_min_gas_price": 0.0025,
+        "low_gas_price": 0.0025,
         "average_gas_price": 0.025,
         "high_gas_price": 0.04
       }
@@ -37,16 +37,20 @@
   },
   "codebase": {
     "git_repo": "https://github.com/osmosis-labs/osmosis",
-    "recommended_version": "v15.0.0",
+    "recommended_version": "v15.1.0",
     "compatible_versions": [
+      "v15.1.0",
       "v15.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v15.0.0/osmosisd-15.0.0-linux-amd64?checksum=sha256:6f5cead57c16c1e708df2a0f336e6e4494a026ba97b8d8afef95e5fc5b80b465",
-      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v15.0.0/osmosisd-15.0.0-linux-arm64?checksum=sha256:94aee34e288148b155a2b0fdfe268a0bdc0d4a90de6db8f8a9cee74c2e829294"
+      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v15.1.0/osmosisd-15.1.0-linux-amd64?checksum=sha256:f16f901dfd47426caced8436c507e2950a4e2452b6cc6efc7845ab3b43a5c5d5",
+      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v15.1.0/osmosisd-15.1.0-linux-arm64?checksum=sha256:08b20f0753b6b0bafa3a6ca7e4bb6807baf72754dfb69d6db7b1fb2b4b55ffc0"
     },
     "cosmos_sdk_version": "0.45",
-    "tendermint_version": "0.34",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
     "cosmwasm_version": "0.30",
     "cosmwasm_enabled": true,
     "ibc_go_version": "4.3.0",
@@ -114,8 +118,28 @@
       },
       {
         "name": "v15",
-        "tag": "v15.0.0",
-        "height": 8732500
+        "tag": "v15.1.0",
+        "height": 8732500,
+        "recommended_version": "v15.1.0",
+        "compatible_versions": [
+          "v15.1.0",
+          "v15.0.0"
+        ],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.30",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "4.3.0",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v15.1.0/osmosisd-15.1.0-linux-amd64?checksum=sha256:f16f901dfd47426caced8436c507e2950a4e2452b6cc6efc7845ab3b43a5c5d5",
+          "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v15.1.0/osmosisd-15.1.0-linux-arm64?checksum=sha256:08b20f0753b6b0bafa3a6ca7e4bb6807baf72754dfb69d6db7b1fb2b4b55ffc0"
+        }
       }
     ]
   },
@@ -128,7 +152,8 @@
     }
   ],
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
   },
   "peers": {
     "seeds": [
@@ -149,7 +174,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "osmosis-mainnet-seed.autostake.net:26716",
+        "address": "osmosis-mainnet-seed.autostake.com:26716",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -161,6 +186,26 @@
         "id": "3e874613919a6f8b3fc26071fef563c88f031b3c",
         "address": "seed-osmosis.freshstaking.com:31656",
         "provider": "FreshSTAKING"
+      },
+      {
+        "id": "bd7064a50f5843e2c84c71c4dc18ac07424bdcc1",
+        "address": "seeds.whispernode.com:12556",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "osmosis.rpc.kjnodes.com:11259",
+        "provider": "kjnodes"
+      },
+      {
+        "id": "38ab18cb2ea1dfeb6232b429e1508f56b6ae5031",
+        "address": "seed-osmosis-01.stakeflow.io:65535",
+        "provider": "Stakeflow"
+      },
+      {
+        "id": "e08582d8927a10c1b32555623812a1e9ee0a5e70",
+        "address": "osmosis-seed.panthea.eu:42656",
+        "provider": "Panthea EU"
       }
     ],
     "persistent_peers": [
@@ -176,13 +221,23 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "osmosis-mainnet-peer.autostake.net:26716",
+        "address": "osmosis-mainnet-peer.autostake.com:26716",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "3e874613919a6f8b3fc26071fef563c88f031b3c",
         "address": "seed-osmosis.freshstaking.com:31656",
         "provider": "FreshSTAKING"
+      },
+      {
+        "id": "38ab18cb2ea1dfeb6232b429e1508f56b6ae5031",
+        "address": "peer-osmosis-01.stakeflow.io:65535",
+        "provider": "Stakeflow"
+      },
+      {
+        "id": "6f1d92857e39a6f26a3a914f807064824c255939",
+        "address": "65.21.91.99:16956",
+        "provider": "Staketab"
       }
     ]
   },
@@ -229,20 +284,32 @@
         "provider": "Stakin"
       },
       {
-        "address": "https://rpc.osmosis.goldenratiostaking.net",
-        "provider": "Golden Ratio Staking"
-      },
-      {
         "address": "https://rpc.osl.zone",
         "provider": "Osmosis Support Lab"
       },
       {
-        "address": "https://osmosis-mainnet-rpc.autostake.net:443",
+        "address": "https://osmosis-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://osmosis.rpc.interchain.ivaldilabs.xyz",
         "provider": "ivaldilabs"
+      },
+      {
+        "address": "https://osmosis.api.onfinality.io/public",
+        "provider": "OnFinality"
+      },
+      {
+        "address": "https://osmosis.rpc.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://rpc-osmosis-01.stakeflow.io",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://osmosis-rpc.staketab.org:443",
+        "provider": "Staketab"
       }
     ],
     "rest": [
@@ -287,12 +354,24 @@
         "provider": "Osmosis Support Lab"
       },
       {
-        "address": "https://osmosis-mainnet-lcd.autostake.net:443",
+        "address": "https://osmosis-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://osmosis.rest.interchain.ivaldilabs.xyz",
         "provider": "ivaldilabs"
+      },
+      {
+        "address": "https://osmosis.api.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://api-osmosis-01.stakeflow.io",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://osmosis-rest.staketab.org",
+        "provider": "Staketab"
       }
     ],
     "grpc": [
@@ -309,14 +388,30 @@
         "provider": "Stakin"
       },
       {
+        "address": "osmosis-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "address": "osmosis.grpc.interchain.ivaldilabs.xyz:433",
         "provider": "ivaldilabs"
+      },
+      {
+        "address": "osmosis.grpc.kjnodes.com:11290",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "grpc-osmosis-01.stakeflow.io:6754",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "services.staketab.com:9010",
+        "provider": "Staketab"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
+      "kind": "EZ Staking Tools",
       "url": "https://ezstaking.tools/osmosis",
       "tx_page": "https://ezstaking.tools/osmosis/txs/${txHash}",
       "account_page": "https://ezstaking.tools/osmosis/account/${accountAddress}"
@@ -341,7 +436,8 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/osmosis",
-      "tx_page": "https://atomscan.com/osmosis/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/osmosis/transactions/${txHash}",
+      "account_page": "https://atomscan.com/osmosis/accounts/${accountAddress}"
     },
     {
       "kind": "bigdipper",
@@ -354,6 +450,11 @@
       "url": "https://explorer.tcnetwork.io/osmosis",
       "tx_page": "https://explorer.tcnetwork.io/osmosis/transaction/${txHash}",
       "account_page": "https://explorer.tcnetwork.io/osmosis/account/${accountAddress}"
+    },
+    {
+      "kind": "Stakeflow",
+      "url": "https://stakeflow.io/osmosis",
+      "account_page": "https://stakeflow.io/osmosis/accounts/${accountAddress}"
     }
   ],
   "keywords": [
