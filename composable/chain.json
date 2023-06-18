@@ -6,8 +6,8 @@
   "pretty_name": "Composable",
   "status": "live",
   "network_type": "mainnet",
-  "bech32_prefix": "banksy",
-  "daemon_name": "banksyd",
+  "bech32_prefix": "centauri",
+  "daemon_name": "centaurid",
   "node_home": "$HOME/.banksy",
   "key_algos": [
     "secp256k1"
@@ -33,12 +33,12 @@
   },
   "codebase": {
     "git_repo": "https://github.com/notional-labs/composable-centauri",
-    "recommended_version": "v2.3.5",
+    "recommended_version": "v3.1.0",
     "compatible_versions": [
-      "v2.3.5"
+      "v3.1.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/notional-labs/composable-centauri/releases/download/v2.3.5/banksyd"
+      "linux/amd64": "https://github.com/notional-labs/composable-centauri/releases/download/v3.1.0/centaurid"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/notional-labs/composable-networks/main/mainnet/genesis.json"
@@ -60,6 +60,26 @@
         "height": 0,
         "binaries": {
           "linux/amd64": "https://github.com/notional-labs/composable-centauri/releases/download/v2.3.5/banksyd"
+        },
+        "next_version_name": "centauri"
+      },
+      {
+        "name": "centauri",
+        "tag": "v3.1.0",
+        "recommended_version": "v3.1.0",
+        "compatible_versions": [
+          "v3.1.0"
+        ],
+        "cosmos_sdk_version": "v0.47.3",
+        "ibc_go_version": "v7.0.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.0"
+        },
+        "height": 188500,
+        "proposal": 3,
+        "binaries": {
+          "linux/amd64": "https://github.com/notional-labs/composable-centauri/releases/download/v3.1.0/centaurid"
         }
       }
     ]
@@ -73,6 +93,11 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "composable-mainnet-seed.autostake.com:26976",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:22256",
+        "provider": "Lavender.Five Nodes 🐝"
       }
     ],
     "persistent_peers": [
@@ -100,6 +125,10 @@
       {
         "address": "https://composable-rpc.cogwheel.zone:443",
         "provider": "Cogwheel"
+      },
+      {
+        "address": "https://composable-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       }
     ],
     "rest": [
@@ -118,6 +147,10 @@
       {
         "address": "https://composable-api.cogwheel.zone:443",
         "provider": "Cogwheel"
+      },
+      {
+        "address": "https://composable-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       }
     ],
     "grpc": [
@@ -136,6 +169,10 @@
       {
         "address": "https://composable-grpc.cogwheel.zone:443",
         "provider": "Cogwheel"
+      },
+      {
+        "address": "https://composable-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       }
     ]
   },
