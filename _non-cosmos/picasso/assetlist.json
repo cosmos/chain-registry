@@ -1,0 +1,52 @@
+{
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "picasso",
+  "assets": [
+    {
+        "description": "The native staking and governance token of Picasso.",
+        "denom_units": [
+          {
+            "denom": "ppica",
+            "exponent": 0
+          },
+          {
+            "denom": "pica",
+            "exponent": 12
+          }
+        ],
+        "base": "ppica",
+        "name": "Pica",
+        "display": "pica",
+        "symbol": "PICA",
+        "logo_URIs": {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/composable/images/composable.svg"
+        }
+      },
+    {
+      "denom_units": [
+        {
+          "denom": "ibc/EE9046745AEC0E8302CB7ED9D5AD67F528FB3B7AE044B247FB0FB293DBDA35E9",
+          "exponent": 0
+        },
+        {
+          "denom": "ksm",
+          "exponent": 12
+        }
+      ],
+      "base": "ibc/EE9046745AEC0E8302CB7ED9D5AD67F528FB3B7AE044B247FB0FB293DBDA35E9",
+      "name": "Kusama",
+      "display": "ksm",
+      "symbol": "KSM",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "kusama",
+            "base_denom": "Planck"
+          },
+          "provider": "Kusama Parachain"
+        }
+      ]
+    }
+  ]
+}
