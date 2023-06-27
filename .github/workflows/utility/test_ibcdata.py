@@ -44,6 +44,6 @@ def test_existstsOnChainReg(input):
     m = pattern.match(input)
     chain1 = m.group(1).lower()
     chain2 = m.group(2).lower()
-    non_cosmos = os.path.join('_non-cosmos')
+    non_cosmos = join('_non-cosmos')
     assert ((isdir(join(getcwd(),chain1)) or isdir(join(getcwd(),non_cosmos,chain1))) and
         (isdir(join(getcwd(),chain2)) or isdir(join(getcwd(),non_cosmos,chain2))))
