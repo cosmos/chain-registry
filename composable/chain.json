@@ -1,0 +1,212 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "composable",
+  "chain_id": "centauri-1",
+  "website": "https://www.composable.finance/",
+  "pretty_name": "Centauri",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "centauri",
+  "daemon_name": "centaurid",
+  "node_home": "$HOME/.banksy",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ppica",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ppica"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/notional-labs/composable-centauri",
+    "recommended_version": "v3.1.2",
+    "compatible_versions": [
+      "v3.1.0",
+      "v3.1.1",
+      "v3.1.2"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/notional-labs/composable-centauri/releases/download/v3.1.2/centaurid"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/notional-labs/composable-networks/main/mainnet/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v2.3.5",
+        "tag": "v2.3.5",
+        "recommended_version": "v2.3.5",
+        "compatible_versions": [
+          "v2.3.5"
+        ],
+        "cosmos_sdk_version": "v0.47.1",
+        "ibc_go_version": "v7.0.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.0"
+        },
+        "height": 0,
+        "binaries": {
+          "linux/amd64": "https://github.com/notional-labs/composable-centauri/releases/download/v2.3.5/banksyd"
+        },
+        "next_version_name": "centauri"
+      },
+      {
+        "name": "centauri",
+        "tag": "v3.1.0",
+        "recommended_version": "v3.1.2",
+        "compatible_versions": [
+          "v3.1.0",
+          "v3.1.1",
+          "v3.1.2"
+        ],
+        "cosmos_sdk_version": "v0.47.3",
+        "ibc_go_version": "v7.0.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.0"
+        },
+        "height": 188500,
+        "proposal": 3,
+        "binaries": {
+          "linux/amd64": "https://github.com/notional-labs/composable-centauri/releases/download/v3.1.2/centaurid"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/composable/images/composable.svg"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "composable-mainnet-seed.autostake.com:26976",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:22256",
+        "provider": "Lavender.Five Nodes 🐝"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "composable-mainnet-peer.autostake.com:26976",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "63559b939442512ed82d2ded46d02ab1021ea29a",
+        "address": "95.214.55.138:53656",
+        "provider": "genznodes"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-composable-ia.cosmosia.notional.ventures",
+        "provider": "Notional"
+      },
+      {
+        "address": "https://rpc.composable.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://composable-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://composable-rpc.cogwheel.zone:443",
+        "provider": "Cogwheel"
+      },
+      {
+        "address": "https://composable-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://composable-rpc.genznodes.dev",
+        "provider": "genznodes"
+      }  
+    ],
+    "rest": [
+      {
+        "address": "https://api-composable-ia.cosmosia.notional.ventures",
+        "provider": "Notional"
+      },
+      {
+        "address": "https://api.composable.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://composable-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://composable-api.cogwheel.zone:443",
+        "provider": "Cogwheel"
+      },
+      {
+        "address": "https://composable-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://composable-api.genznodes.dev",
+        "provider": "genznodes"
+      }  
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc-composable-ia.cosmosia.notional.ventures",
+        "provider": "Notional"
+      },
+      {
+        "address": "grpc.composable.nodestake.top:9090",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "composable-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://composable-grpc.cogwheel.zone:443",
+        "provider": "Cogwheel"
+      },
+      {
+        "address": "https://composable-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "composable-grpc.genznodes.dev:53090",
+        "provider": "genznodes"
+      }  
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/centauri",
+      "tx_page": "https://ping.pub/centauri/tx/${txHash}"
+    },
+    {
+      "kind": "NodeStake Explorer",
+      "url": "https://explorer.nodestake.top/composable",
+      "tx_page": "https://explorer.nodestake.top/composable/tx/${txHash}"
+    }
+  ]
+}

@@ -13,7 +13,7 @@ jobs:
 
       - name: Validate Assetlist.json schema
         run: |
-          for file in $(find . -name 'assetlist.json'); do
+          for file in $(find . -name 'assetlist.json' | grep -v '_template/'); do
             if ! jsonschema -i "$file" ./assetlist.schema.json; then
               exit 1
             fi
