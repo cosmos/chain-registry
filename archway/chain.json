@@ -37,11 +37,14 @@
     "compatible_versions": [
       "v1.0.0"
     ],
-    "cosmos_sdk_version": "",
+    "cosmos_sdk_version": "v0.45.16",
+    "cosmwasm_version": "v0.32.0",
     "cosmwasm_enabled": true,
+    "ibc_go_version": "v4.3.1",
     "cosmwasm_path": "$HOME/.example/data/wasm",
     "binaries": {
-      "linux/amd64": "https://github.com/archway-network/archway/releases/download/v1.0.0/archwayd_linux_amd64"
+      "linux/amd64": "https://github.com/archway-network/archway/releases/download/v1.0.0/archwayd_linux_amd64",
+      "linux/arm64": "https://github.com/archway-network/archway/releases/download/v1.0.0/archwayd_linux_arm64"
     },
     "genesis": {
       "genesis_url": "https://github.com/archway-network/networks/blob/main/archway-1/genesis/genesis.json.gz"
@@ -53,11 +56,14 @@
         "compatible_versions": [
           "v1.0.0"
         ],
-        "cosmos_sdk_version": "",
+        "cosmos_sdk_version": "v0.45.16",
+        "cosmwasm_version": "v0.32.0",
         "cosmwasm_enabled": true,
+        "ibc_go_version": "v4.3.1",
         "cosmwasm_path": "$HOME/.example/data/wasm",
         "binaries": {
-          "linux/amd64": "https://github.com/archway-network/archway/releases/download/v1.0.0/archwayd_linux_amd64"
+          "linux/amd64": "https://github.com/archway-network/archway/releases/download/v1.0.0/archwayd_linux_amd64",
+          "linux/arm64": "https://github.com/archway-network/archway/releases/download/v1.0.0/archwayd_linux_arm64"
         }
       }
     ]
@@ -77,6 +83,11 @@
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
         "address": "archway.rpc.kjnodes.com:15659",
         "provider": "kjnodes.com"
+      },
+      {
+        "id": "3ba7bf08f00e228026177e9cdc027f6ef6eb2b39",
+        "address": "35.232.234.58:26656",
+        "provider": "Archway Foundation"
       }
     ]
   },
@@ -85,18 +96,50 @@
       {
         "address": "https://archway-rpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc.mainnet.archway.io",
+        "provider": "Archway Foundation"
+      },
+      {
+        "address": "https://rpc-1.archway.nodes.guru",
+        "provider": "Nodes.Guru"
+      },
+      {
+        "address": "https://archway.rpc.silknodes.io/",
+        "provider": "Silk Nodes"
       }
     ],
     "rest": [
       {
         "address": "https://archway-api.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://api.mainnet.archway.io",
+        "provider": "Archway Foundation"
+      },
+      {
+        "address": "https://api-1.archway.nodes.guru",
+        "provider": "Nodes.Guru"
+      },
+      {
+        "address": "https://archway.api.silknodes.io/",
+        "provider": "Silk Nodes"
       }
     ],
     "grpc": [
       {
         "address": "https://archway-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "grpc.mainnet.archway.io:443",
+        "provider": "Archway Foundation"
+      },
+      {
+        "address": "grpc-1.archway.nodes.guru:10690",
+        "provider": "Nodes.Guru"
       }
     ]
   },
@@ -106,6 +149,12 @@
       "url": "https://www.mintscan.io/archway",
       "tx_page": "https://www.mintscan.io/archway/txs/${txHash}",
       "account_page": "https://www.mintscan.io/archway/account/${accountAddress}"
+    },
+    {
+      "kind": "Nodes Guru",
+      "url": "https://archway.explorers.guru/",
+      "tx_page": "https://archway.explorers.guru/transaction/${txHash}",
+      "account_page": "https://archway.explorers.guru/account/${accountAddress}"
     },
     {
       "kind": "ping.pub",
