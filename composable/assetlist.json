@@ -1,27 +1,62 @@
 {
-    "$schema": "../assetlist.schema.json",
-    "chain_name": "composable",
-    "assets": [
-      {
-        "description": "The native staking and governance token of Centauri.",
-        "denom_units": [
-          {
-            "denom": "ppica",
-            "exponent": 0
-          },
-          {
-            "denom": "pica",
-            "exponent": 12
-          }
-        ],
-        "base": "ppica",
-        "name": "Pica",
-        "display": "pica",
-        "symbol": "PICA",
-        "logo_URIs": {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/composable/images/composable.svg"
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "composable",
+  "assets": [
+    {
+      "description": "The native staking and governance token of Centauri.",
+      "denom_units": [
+        {
+          "denom": "ppica",
+          "exponent": 0
         },
-        "coingecko_id": "composable-finance-layr"
+        {
+          "denom": "pica",
+          "exponent": 12
+        }
+      ],
+      "base": "ppica",
+      "name": "Pica",
+      "display": "pica",
+      "symbol": "PICA",
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/composable/images/composable.svg",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/composable/images/composable.png"
       }
-    ]
-  }
+    },
+    {
+      "description": "The native staking and governance token of Kusama Relay Chain.",
+      "denom_units": [
+        {
+          "denom": "ibc/EE9046745AEC0E8302CB7ED9D5AD67F528FB3B7AE044B247FB0FB293DBDA35E9",
+          "exponent": 0,
+          "aliases": [
+            "4"
+          ]
+        },
+        {
+          "denom": "ksm",
+          "exponent": 12
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/EE9046745AEC0E8302CB7ED9D5AD67F528FB3B7AE044B247FB0FB293DBDA35E9",
+      "name": "KSM",
+      "display": "ksm",
+      "symbol": "KSM",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "picasso",
+            "base_denom": "4",
+            "channel_id": "channel-17"
+          },
+          "chain": {
+            "channel_id": "channel-2",
+            "path": "transfer/channel-2/4"
+          }
+        }
+      ]
+    }
+  ]
+}
