@@ -13,7 +13,11 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "ustars"
+        "denom": "ustars",
+        "fixed_min_gas_price": 1,
+        "low_gas_price": 1,
+        "average_gas_price": 1.1,
+        "high_gas_price": 1.2
       }
     ]
   },
@@ -26,21 +30,29 @@
   },
   "codebase": {
     "git_repo": "https://github.com/public-awesome/stargaze",
-    "recommended_version": "v9.1.0",
+    "recommended_version": "v10.0.1",
     "compatible_versions": [
-      "v9.1.0",
-      "v9.0.0"
+      "v10.0.1",
+      "v10.0.0"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/public-awesome/mainnet/main/stargaze-1/genesis.tar.gz"
     },
     "versions": [
       {
-        "name": "v9.0.0",
+        "name": "v9",
         "recommended_version": "v9.1.0",
         "compatible_versions": [
           "v9.1.0",
           "v9.0.0"
+        ]
+      },
+      {
+        "name": "v10",
+        "recommended_version": "v10.0.1",
+        "compatible_versions": [
+          "v10.0.1",
+          "v10.0.0"
         ]
       }
     ]
@@ -88,6 +100,11 @@
         "id": "604f4baaa30cd3f50d080bf45806d222c7fadc94",
         "address": "seeds.whispernode.com:13756",
         "provider": "WhisperNode🤐"
+      },
+      {
+        "id": "96e0040d44a2f0b59d2a07e128369363d8535b67",
+        "address": "seed-stargaze.ibs.team:16658",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "persistent_peers": [
@@ -96,7 +113,7 @@
         "address": "stargaze-mainnet-peer.autostake.com:26986",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
-       {
+      {
         "id": "344c62c700a59de6137ccd6cade56721cb1e9777",
         "address": "stargaze.ramuchi.tech:26656",
         "provider": "ramuchi.tech"
@@ -161,6 +178,14 @@
       {
         "address": "https://stargaze-rpc.staketab.org:443",
         "provider": "Staketab"
+      },
+      {
+        "address": "https://stargaze-rpc.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://stargaze-rpc.stakerhouse.com",
+        "provider": "StakerHouse"
       }
     ],
     "rest": [
@@ -215,6 +240,14 @@
       {
         "address": "https://stargaze-rest.staketab.org",
         "provider": "Staketab"
+      },
+      {
+        "address": "https://stargaze-api.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://stargaze-api.stakerhouse.com",
+        "provider": "StakerHouse"
       }
     ],
     "grpc": [
@@ -237,6 +270,10 @@
       {
         "address": "services.staketab.com:9092",
         "provider": "Staketab"
+      },
+      {
+        "address": "stargaze-grpc.w3coins.io:13790",
+        "provider": "w3coins"
       }
     ]
   },
