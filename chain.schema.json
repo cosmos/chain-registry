@@ -77,10 +77,10 @@
         "bech32PrefixConsPub": {
           "type": "string",
           "description": "e.g., 'cosmosvalconspub'"
-        },
-        "additionalProperties": false,
-        "minProperties": 1
-      }
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
     },
     "daemon_name": {
       "type": "string"
@@ -225,6 +225,11 @@
         "cosmwasm_enabled": {
           "type": "boolean"
         },
+        "cosmwasm_path": {
+          "type": "string",
+          "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
+          "pattern": "^\\$HOME.*$"
+        },
         "ibc_go_version": {
           "type": "string"
         },
@@ -322,6 +327,11 @@
               "cosmwasm_enabled": {
                 "type": "boolean"
               },
+              "cosmwasm_path": {
+                "type": "string",
+                "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
+                "pattern": "^\\$HOME.*$"
+              },
               "ibc_go_version": {
                 "type": "string"
               },
@@ -398,8 +408,7 @@
           }
         },
         "additionalProperties": false
-      },
-      "minItems": 1
+      }
     },
     "logo_URIs": {
       "type": "object",
