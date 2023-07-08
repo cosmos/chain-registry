@@ -2,9 +2,9 @@
   "$schema": "../chain.schema.json",
   "chain_name": "vincechain",
   "status": "live",
-  "network_type": "mainnet",
-  "pretty_name": "VinceChain",
-  "chain_id": "vince_1000-1",
+  "network_type": "testnet",
+  "pretty_name": "VinceChain Testnet",
+  "chain_id": "vince_1903-1",
   "bech32_prefix": "vce",
   "node_home": "$HOME/.vinced",
   "slip44": 60,
@@ -29,7 +29,7 @@
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/AyrisDev/VinceFinance",
+    "git_repo": "https://github.com/AyrisDev/vinceChain_Blockchain",
     "recommended_version": "",
     "compatible_versions": ["", ""],
     "binaries": {
@@ -40,7 +40,7 @@
       "windows/amd64": ""
     },
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/AyrisDev/VinceFinance/main/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/AyrisDev/vinceChain_Blockchain/master/genesis.json"
     },
     "versions": [
       {
@@ -63,9 +63,9 @@
   "peers": {
     "seeds": [
       {
-        "id": "37344378264b62e15fae8260fb7fad7839ebf864",
-        "address": "vincescan.com:26656",
-        "provider": "VinceChain"
+        "id": "e55544ae75edbce87a43e36e152d9fe1492de186",
+        "address": "http://154.53.47.14:26656",
+        "provider": "AyrisDev"
       }
     ],
     "persistent_peers": []
@@ -73,20 +73,20 @@
   "apis": {
     "rpc": [
       {
-        "address": "http://vincescan.com:26657/",
+        "address": "http://api-testnet.vincechain.com/:26657/",
         "provider": "vincescan.com"
       }
     ],
     "rest": [
       {
-        "address": "http://vincescan.com:1317/",
+        "address": "http://lcd-testnet.vincechain.com/:1317/",
         "provider": "vincescan.com"
       }
     ],
     "grpc": [],
     "evm-http-jsonrpc": [
       {
-        "address": "http://rpc.vincescan.com",
+        "address": "http://rpc-testnet.vincechain.com",
         "provider": "vincescan.com"
       }
     ]
@@ -94,8 +94,8 @@
   "explorers": [
     {
       "kind": "blockscout",
-      "url": "https://vincescan.com",
-      "tx_page": "https://vincescan.com/tx/${txHash}"
+      "url": "https://scan-testnet.vincechain.com",
+      "tx_page": "https://scan-testnet.vincechain.com/tx/${txHash}"
     }
   ]
 }
