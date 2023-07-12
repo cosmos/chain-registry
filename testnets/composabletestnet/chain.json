@@ -12,11 +12,21 @@
     "secp256k1"
   ], 
   "slip44": 118,
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ppica"
+      }
+    ]
+  },
   "fees": {
     "fee_tokens": [
       {
         "denom": "ppica",
-        "fixed_min_gas_price": 0.025
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0
       }
     ]
   },
@@ -41,17 +51,63 @@
   },
   "peers": {
     "seeds": [],
-    "persistent_peers": []
+    "persistent_peers": [
+      {
+        "id": "488f98949ba03931c433aaf12d799bb1cd6f3942",
+        "address": "65.21.225.10:47656",
+        "provider": "Indonode"
+      },
+      {
+        "id": "667703b3bdf291ec7774c0c46a54eddd2ccb6d36",
+        "address": "46.17.250.108:61456",
+        "provider": "Sr20de"
+      }
+    ]
   },
   "apis": {
-    "rpc": [],
-    "rest": [],
-    "grpc": []
+    "rpc": [
+      {
+        "address": "https://rpc.composable-t.indonode.net:443",
+        "provider": "Indonode"
+      },
+      {
+        "address": "https://rpc-composable-testnet.sr20de.xyz:443",
+        "provider": "Sr20de"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.composable-t.indonode.net",
+        "provider": "Indonode"
+      },
+      {
+        "address": "https://api-composable-testnet.sr20de.xyz",
+        "provider": "Sr20de"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.composable-t.indonode.net:47090",
+        "provider": "Indonode"
+      },
+      {
+        "address": "https://grpc-composable-testnet.sr20de.xyz",
+        "provider": "Sr20de"
+      }
+    ]
   },
   "explorers": [
     {
       "url": "https://explorer.nodexcapital.com/composable-3",
       "tx_page": "https://explorer.nodexcapital.com/composable-3/tx/${txHash}"
+    },
+    {
+      "url": "https://explorer.indonode.net/composable-testnet-3",
+      "tx_page": "https://explorer.indonode.net/composable-testnet-3/tx/${txHash}"
+    },
+    {
+      "url": "https://explorer.sr20de.xyz/Composible-3",
+      "tx_page": "https://explorer.sr20de.xyz/Composible-3/tx/${txHash}"
     }
   ]
 }

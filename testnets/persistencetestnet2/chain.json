@@ -1,0 +1,175 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "persistencetestnet2",
+  "chain_id": "test-core-2",
+  "pretty_name": "Persistence Testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://persistence.one/",
+  "bech32_prefix": "persistence",
+  "daemon_name": "persistenceCore",
+  "node_home": "$HOME/.persistenceCore",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uxprt",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uxprt"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/persistenceOne/persistenceCore",
+    "recommended_version": "v7.0.2",
+    "compatible_versions": [
+      "v7.0.2"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v7.0.2/persistenceCore-v7.0.2-linux-amd64.tar.gz"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/persistenceOne/networks/auditOne/test-core-2/test-core-2/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v7.0.2",
+        "recommended_version": "v7.0.2",
+        "compatible_versions": [
+          "v7.0.2"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v7.0.2/persistenceCore-v7.0.2-linux-amd64.tar.gz"
+        }
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "3ce04530d850e727d092e9a81d9f580c7ff8db56",
+        "address": "141.94.97.77:26656",
+        "provider": "Persistence"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "171e837618d9ec0b5faf0c91edc0cc3edd1cf204",
+        "address": "188.172.228.225:26656",
+        "provider": "YTWOFUND"
+      },
+      {
+        "id": "cee6b94965f301e8b5ad905a65fa39c03cd193ce",
+        "address": "51.68.152.17.30:26656",
+        "provider": "Persistence"
+      },
+      {
+        "id": "7f971fc5fc2ffedbaf32f3b4021645571461a712",
+        "address": "198.244.177.67:26656",
+        "provider": "Persistence"
+      },
+      {
+        "id": "21ca0b996db604681fb73721ecb01d2c6410c628",
+        "address": "162.19.94.46:26656",
+        "provider": "Persistence"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-persistence-testnet-01.stakeflow.io/",
+        "provider": "StakeFlow"
+      },
+      {
+        "address": "https://persistence-testnet-rpc.baryon.dev/",
+        "provider": "Baryon"
+      },
+      {
+        "address": "https://persistence-testnet-rpc.cosmonautstakes.com/",
+        "provider": "Cosmonaut Stakes"
+      },
+      {
+        "address": "https://rpc.testnet2.persistence.one/",
+        "provider": "Persistence"
+      },
+      {
+        "address": "https://persistence-testnet-rpc.polkachu.com/",
+        "provider": "Polkachu"
+      },
+      {
+        "address":"https://persistencecoretest-rpc.ytwofund.pro/",
+        "provider":"YTWOFUND"
+      },
+      {
+        "address":"http://persistence-testnet.paranorm.pro:24657/",
+        "provider":"Paranorm"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-persistence-testnet-01.stakeflow.io/",
+        "provider": "StakeFlow"
+      },
+      {
+        "address": "https://persistence-testnet-api.baryon.dev/",
+        "provider": "Baryon"
+      },
+      {
+        "address": "https://persistence-testnet-rest.cosmonautstakes.com/",
+        "provider": "Cosmonaut Stakes"
+      },
+      {
+        "address": "https://rest.testnet2.persistence.one/",
+        "provider": "Persistence"
+      },
+      {
+        "address": "https://persistence-testnet-api.polkachu.com/",
+        "provider": "Polkachu"
+      },
+      {
+        "address":"https://persistenceCoreTest-rest.ytwofund.pro",
+        "provider":"YTWOFUND"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "persistence-testnet-grpc.polkachu.com:15490",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "persistenceCoreTest-grpc.ytwofund.pro:9090",
+        "provider": "YTWOFUND"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://testnet.mintscan.io/persistence-testnet",
+      "tx_page": "https://testnet.mintscan.io/persistence-testnet/txs/${txHash}",
+      "account_page": "https://testnet.mintscan.io/persistence-testnet/account/${accountAddress}"
+    },
+    {
+      "kind": "StakeFlow",
+      "url": "https://stakeflow.io/persistence-testnet",
+      "tx_page": "https://stakeflow.io/persistence-testnet/transactions/${txHash}",
+      "account_page": "https://stakeflow.io/persistence-testnet/accounts/${accountAddress}"
+    },
+    {
+      "kind": "baryon",
+      "url": "https://testnet-explorer.baryon.dev/test-core-2",
+      "tx_page": "https://testnet-explorer.baryon.dev/test-core-2/tx/{txHash}",
+      "account_page": "https://testnet-explorer.baryon.dev/test-core-2/account/${accountAddress}"
+    }
+  ]
+}
