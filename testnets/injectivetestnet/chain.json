@@ -33,13 +33,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/InjectiveLabs/testnet",
-    "recommended_version": "v1.10.2",
+    "recommended_version": "v1.11.1",
     "compatible_versions": [
-      "v1.10.2"
+      "v1.11.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.10.2-1678712142/linux-amd64.zip",
-      "darwin/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.10.2-1678712142/darwin-amd64.zip"
+      "linux/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.11.1-1685205489/linux-amd64.zip",
+      "darwin/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.11.1-1685205489/darwin-amd64.zip"
     },
     "genesis": {
       "genesis_url": "aws s3 cp s3://injective-snapshots/testnet/genesis.json . --no-sign-request"
@@ -54,12 +54,30 @@
         "binaries": {
           "linux/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.10.2-1678712142/linux-amd64.zip",
           "darwin/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.10.2-1678712142/darwin-amd64.zip"
+        },
+        "next_version_name": "v1.11.1"
+      },
+      {
+        "name": "v1.11.1",
+        "recommended_version": "v1.11.1",
+        "compatible_versions": [
+          "v1.11.1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.11.1-1685205489/linux-amd64.zip",
+          "darwin/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.11.1-1685205489/darwin-amd64.zip"
         }
       }
     ]
   },
   "peers": {
-    "seeds": [],
+    "seeds": [
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "testnet-seeds.polkachu.com:14356",
+        "provider": "polkachu"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "e5cc63a9117e6f372169f15774ea4f7c5177da25",
@@ -96,6 +114,10 @@
   "apis": {
     "rpc": [
       {
+        "address": "https://injective-testnet-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
         "address": "https://k8s.testnet.tm.injective.network:443",
         "provider": "injectiveLabs"
       },
@@ -106,6 +128,10 @@
     ],
     "rest": [
       {
+        "address": "https://injective-testnet-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
         "address": "https://k8s.testnet.lcd.injective.network",
         "provider": "injectiveLabs"
       },
@@ -115,6 +141,10 @@
       }
     ],
     "grpc": [
+      {
+        "address": "injective-testnet-grpc.polkachu.com:14390",
+        "provider": "Polkachu"
+      },
       {
         "address": "k8s.testnet.chain.grpc.injective.network:443",
         "provider": "injectiveLabs"
