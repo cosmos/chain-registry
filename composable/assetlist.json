@@ -3,7 +3,7 @@
   "chain_name": "composable",
   "assets": [
     {
-      "description": "The native staking and governance token of Centauri.",
+      "description": "The native staking and governance token of Composable.",
       "denom_units": [
         {
           "denom": "ppica",
@@ -53,6 +53,41 @@
           "chain": {
             "channel_id": "channel-2",
             "path": "transfer/channel-2/4"
+          }
+        }
+      ]
+    },
+     {
+      "description": "The native staking and governance token of Polkadot Relay Chain.",
+      "denom_units": [
+        {
+          "denom": "ibc/3CC19CEC7E5A3E90E78A5A9ECC5A0E2F8F826A375CF1E096F4515CF09DA3E366",
+          "exponent": 0,
+          "aliases": [
+            "79228162514264337593543950342"
+          ]
+        },
+        {
+          "denom": "dot",
+          "exponent": 10
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/3CC19CEC7E5A3E90E78A5A9ECC5A0E2F8F826A375CF1E096F4515CF09DA3E366",
+      "name": "DOT",
+      "display": "dot",
+      "symbol": "DOT",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "picasso",
+            "base_denom": "79228162514264337593543950342",
+            "channel_id": "channel-17"
+          },
+          "chain": {
+            "channel_id": "channel-2",
+            "path": "transfer/channel-2/transfer/channel-15/79228162514264337593543950342"
           }
         }
       ]
