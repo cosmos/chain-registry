@@ -91,26 +91,29 @@
       "coingecko_id": "usdx"
     },
     {
-      "description": "The native stablecoin of Kava",
       "denom_units": [
         {
           "denom": "uusdt",
           "exponent": 0
         },
         {
-          "denom": "USDT",
+          "denom": "usdt",
           "exponent": 6
         }
       ],
       "base": "uusdt",
-      "name": "USDT",
-      "display": "USDT",
+      "display": "usdt",
       "symbol": "USDT",
-      "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/usdt.svg",
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/usdt.png"
-      },
-      "coingecko_id": "tether"
+      "traces": [
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+          },
+          "provider": "Tether"
+        }
+      ]
     }
   ]
 }
