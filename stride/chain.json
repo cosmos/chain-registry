@@ -33,20 +33,21 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Stride-Labs/stride",
-    "recommended_version": "v9.0.0",
+    "recommended_version": "v12.1.0",
     "compatible_versions": [
-      "v9.0.0"
+      "v12.1.0"
     ],
-    "cosmos_sdk_version": "0.46",
+    "cosmos_sdk_version": "0.47.3",
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
+      "type": "cometbft",
+      "version": "0.37.2"
     },
     "cosmwasm_version": "0.29",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "5.1.0",
+    "ibc_go_version": "7.2.0",
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/Stride-Labs/testnet/main/mainnet/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/Stride-Labs/testnet/main/mainnet/genesis.json",
+      "ics_ccv_url": "https://raw.githubusercontent.com/Stride-Labs/mainnet/main/ics-instructions/ccv.json"
     },
     "versions": [
       {
@@ -68,11 +69,52 @@
       {
         "name": "v9",
         "height": 3396933,
-        "recommended_version": "v9.0.0",
+        "recommended_version": "v9.2.1",
         "compatible_versions": [
-          "v9.0.0"
+          "v9.0.0", "v9.2.1"
         ],
-        "proposal": 202
+        "proposal": 202,
+        "next_version_name": "v10"
+      },
+      {
+        "name": "v10",
+        "height": 4191914,
+        "proposal": 206,
+        "recommended_version": "v10.0.0",
+        "compatible_versions": [
+          "v10.0.0"
+        ],
+        "ibc_go_version": "7.1.0",
+        "cosmos_sdk_version": "0.47.3",
+        "next_version_name": "v11"
+      },
+      {
+        "name": "v11",
+        "tag": "v11.0.0",
+        "height": 4291924,
+        "proposal": 207,
+        "recommended_version": "v11.0.0",
+        "compatible_versions": [
+          "v11.0.0"
+        ],
+        "ibc_go_version": "7.2.0",
+        "next_version_name": "v12"
+      },
+      {
+        "name": "v12",
+        "tag": "v12.0.0",
+        "height": 4616678,
+        "proposal": 208,
+        "recommended_version": "v12.1.0",
+        "compatible_versions": [
+          "v12.1.0"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.2"
+        },
+        "ibc_go_version": "7.2.0",
+        "next_version_name": ""
       }
     ]
   },
@@ -115,12 +157,12 @@
       },
       {
         "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "stride-seed-1.allnodes.me:26656",
+        "address": "stride-seed-de.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
       },
       {
         "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "stride-seed-2.allnodes.me:26656",
+        "address": "stride-seed-us.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
       },
       {
@@ -136,7 +178,7 @@
       {
         "id": "ced7684f4d60399986cdbc1465ac00a420a14202",
         "address": "seed-stride-01.stakeflow.io:1807",
-        "provider": "Genesis Lab"
+        "provider": "Stakeflow"
       }
     ],
     "persistent_peers": [
@@ -151,6 +193,11 @@
         "provider": "Cosmostation-2"
       },
       {
+        "id": "a7b4cf6f65138ba61518c2c45402da32dc8e28b7",
+        "address": "stride.peer.stavr.tech:21016",
+        "provider": "🔥STAVR🔥"
+      },
+      {
         "id": "b5f9fa874781f975687018ae559f0d952d3a2e24",
         "address": "52.52.208.179:26656",
         "provider": "Cosmostation-3"
@@ -163,15 +210,28 @@
       {
         "id": "ced7684f4d60399986cdbc1465ac00a420a14202",
         "address": "peer-stride-01.stakeflow.io:1807",
-        "provider": "Genesis Lab"
+        "provider": "Stakeflow"
+      },
+      {
+        "id": "4d17c6e85a1e6282efee950ff3dfe85b4b043f0f",
+        "address": "148.251.51.144:26656",
+        "provider": "Stake-Take"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
+        "address": "https://stride.rpc.bccnodes.com:443",
+        "provider": "BccNodes"
+      },
+      {
         "address": "https://stride-rpc.polkachu.com/",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://stride-rpc.onivalidator.com",
+        "provider": "Oni Validator ⛩️"
       },
       {
         "address": "https://stride.rpc.chandrastation.com",
@@ -188,6 +248,14 @@
       {
         "address": "https://rpc.stride.silentvalidator.com/",
         "provider": "silent"
+      },
+      {
+        "address": "https://rpc-stride.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
+        "address": "http://stride.rpc.m.stavr.tech:21017",
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "https://stride.rpc.kjnodes.com",
@@ -231,10 +299,30 @@
       },
       {
         "address": "https://rpc-stride-01.stakeflow.io",
-        "provider": "Genesis Lab"
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://rpc.stride.stake-take.com",
+        "provider": "Stake-Take"
+      },
+      {
+        "address": "https://stride-rpc.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://stride-rpc.publicnode.com",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+	  {
+        "address": "https://community.nuxian-node.ch:6797/stride/trpc",
+        "provider": "PRO Delegators"
       }
     ],
     "rest": [
+      {
+        "address": "https://stride.api.bccnodes.com:443",
+        "provider": "BccNodes"
+      },
       {
         "address": "https://stride-api.polkachu.com/",
         "provider": "Polkachu"
@@ -246,6 +334,14 @@
       {
         "address": "http://api-stride.nodeist.net",
         "provider": "Nodeist"
+      },
+      {
+        "address": "https://api-stride.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
+        "address": "https://stride.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "https://stride-api.lavenderfive.com/",
@@ -297,10 +393,30 @@
       },
       {
         "address": "https://api-stride-01.stakeflow.io",
-        "provider": "Genesis Lab"
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://api.stride.stake-take.com",
+        "provider": "Stake-Take"
+      },
+      {
+        "address": "https://stride-api.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://stride-rest.publicnode.com",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+	  {
+        "address": "https://community.nuxian-node.ch:6797/stride/crpc",
+        "provider": "PRO Delegators"
       }
     ],
     "grpc": [
+      {
+        "address": "stride.grpc.bccnodes.com:443",
+        "provider": "BccNodes"
+      },
       {
         "address": "stride-grpc.polkachu.com:12290",
         "provider": "Polkachu"
@@ -312,6 +428,14 @@
       {
         "address": "stride.nodejumper.io:9090",
         "provider": "NODEJUMPER"
+      },
+      {
+        "address": "http://stride.grpc.m.stavr.tech:9986",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "grpc-stride.cosmos-spaces.cloud:1140",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "stride-mainnet-grpc.autostake.com:443",
@@ -331,11 +455,25 @@
       },
       {
         "address": "grpc-stride-01.stakeflow.io:1802",
-        "provider": "Genesis Lab"
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "stride-grpc.w3coins.io:12290",
+        "provider": "w3coins"
+      },
+      {
+        "address": "stride-grpc.publicnode.com:443",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "BccNodes",
+      "url": "https://explorer.bccnodes.com/stride-M",
+      "tx_page": "https://explorer.bccnodes.com/stride-M/tx/${txHash}",
+      "account_page": "https://explorer.bccnodes.com/stride-M/account/${accountAddress}"
+    },
     {
       "kind": "EZ Staking Tools",
       "url": "https://ezstaking.tools/stride",
@@ -353,6 +491,12 @@
       "url": "https://explorer.stride.zone/stride",
       "tx_page": "https://explorer.stride.zone/stride/tx/${txHash}",
       "account_page": "https://explorer.stride.zone/stride/account/${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥 Explorer",
+      "url": "https://explorer.stavr.tech/stride",
+      "tx_page": "https://explorer.stavr.tech/stride/tx/${txHash}",
+      "account_page": "https://explorer.stavr.tech/stride/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
@@ -376,6 +520,12 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/stride",
       "account_page": "https://stakeflow.io/stride/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Stake-Take",
+      "url": "https://explorer.stake-take.com/stride",
+      "tx_page": "https://explorer.stake-take.com/stride/tx/${txHash}",
+      "account_page": "https://explorer.stake-take.com/stride/account/${accountAddress}"
     }
   ],
   "logo_URIs": {

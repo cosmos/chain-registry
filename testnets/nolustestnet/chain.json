@@ -5,7 +5,7 @@
   "website": "https://nolus.io/",
   "network_type": "testnet",
   "pretty_name": "Nolus Testnet",
-  "chain_id": "nolus-rila",
+  "chain_id": "rila-1",
   "bech32_prefix": "nolus",
   "daemon_name": "nolusd",
   "node_home": "$HOME/.nolusd",
@@ -17,7 +17,7 @@
     "fee_tokens": [
       {
         "denom": "unls",
-        "low_gas_price": 0,
+        "low_gas_price": 0.01,
         "average_gas_price": 0.025,
         "high_gas_price": 0.05
       }
@@ -35,32 +35,32 @@
   },
   "codebase": {
     "git_repo": "https://github.com/nolus-protocol/nolus-core",
-    "recommended_version": "v0.2.2",
+    "recommended_version": "v0.4.0",
     "compatible_versions": [],
     "cosmos_sdk_version": "0.45",
     "consensus": {
       "type": "tendermint",
       "version": "0.34"
     },
-    "cosmwasm_version": "0.30",
+    "cosmwasm_version": "0.31",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "4.2.0",
+    "ibc_go_version": "4.3.0",
     "ics_enabled": [
       "ics20-1",
       "ics27-1"
     ],
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/nolus-protocol/nolus-networks/main/testnet/nolus-rila/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/nolus-protocol/nolus-networks/main/testnet/rila-1/genesis.json"
     },
     "versions": [
       {
-        "name": "v0.2.2",
-        "recommended_version": "v0.2.2",
+        "name": "v0.3.0",
+        "recommended_version": "v0.3.0",
         "compatible_versions": [],
         "cosmos_sdk_version": "0.45",
-        "cosmwasm_version": "0.30",
+        "cosmwasm_version": "0.31",
         "cosmwasm_enabled": true,
-        "ibc_go_version": "4.2.0",
+        "ibc_go_version": "4.3.0",
         "ics_enabled": [
           "ics20-1",
           "ics27-1"
@@ -75,29 +75,29 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://net-rila.nolus.io:26657",
+        "address": "https://rila-cl.nolus.network:26657",
         "provider": "NolusProtocol"
       }
     ],
     "rest": [
       {
-        "address": "https://net-rila.nolus.io:1317",
+        "address": "https://rila-cl.nolus.network:1317",
         "provider": "NolusProtocol"
       }
     ],
     "grpc": [
       {
-        "address": "https://net-rila.nolus.io:1318",
+        "address": "https://rila-cl.nolus.network:9090",
         "provider": "NolusProtocol"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "ping.pub",
-      "url": "https://explorer-rila.nolus.io/nolus-rila/",
-      "tx_page": "https://explorer-rila.nolus.io/nolus-rila/tx/${txHash}",
-      "account_page": "https://explorer-rila.nolus.io/nolus-rila/account/${accountAddress}"
+      "kind": "Nolus Explorer",
+      "url": "https://explorer-rila.nolus.io/rila-1/",
+      "tx_page": "https://explorer-rila.nolus.io/rila-1/tx/${txHash}",
+      "account_page": "https://explorer-rila.nolus.io/rila-1/account/${accountAddress}"
     }
   ],
   "keywords": [
