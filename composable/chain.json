@@ -3,7 +3,7 @@
   "chain_name": "composable",
   "chain_id": "centauri-1",
   "website": "https://www.composable.finance/",
-  "pretty_name": "Centauri",
+  "pretty_name": "Composable",
   "status": "live",
   "network_type": "mainnet",
   "bech32_prefix": "centauri",
@@ -33,15 +33,10 @@
   },
   "codebase": {
     "git_repo": "https://github.com/notional-labs/composable-centauri",
-    "recommended_version": "v3.1.2",
+    "recommended_version": "v4.5.0",
     "compatible_versions": [
-      "v3.1.0",
-      "v3.1.1",
-      "v3.1.2"
+      "v4.5.0"
     ],
-    "binaries": {
-      "linux/amd64": "https://github.com/notional-labs/composable-centauri/releases/download/v3.1.2/centaurid"
-    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/notional-labs/composable-networks/main/mainnet/genesis.json"
     },
@@ -84,7 +79,42 @@
         "proposal": 3,
         "binaries": {
           "linux/amd64": "https://github.com/notional-labs/composable-centauri/releases/download/v3.1.2/centaurid"
-        }
+        },
+        "next_version_name": "reward"
+      },  
+      {
+        "name": "reward",
+        "tag": "v3.2.2",
+        "recommended_version": "v3.2.2",
+        "compatible_versions": [
+          "v3.2.2"
+        ],
+        "cosmos_sdk_version": "v0.47.3",
+        "ibc_go_version": "v7.0.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.1"
+        },
+        "height": 420000,
+        "proposal": 4,
+        "next_version_name": "v4"
+      },
+      {
+        "name": "v4",
+        "tag": "v4.5.0",
+        "recommended_version": "v4.5.0",
+        "compatible_versions": [
+          "v4.5.0"
+        ],
+        "cosmos_sdk_version": "v0.47.3",
+        "ibc_go_version": "v7.0.1",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.1"
+        },
+        "height": 792909,
+        "proposal": 5,
+        "next_version_name": ""
       }
     ]
   },
@@ -102,6 +132,11 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:22256",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "d2362ebcdd562500ac8c4cfa2214a89ad811033c",
+        "address": "seeds.whispernode.com:22256",
+        "provider": "WhisperNode🤐"
       }
     ],
     "persistent_peers": [
@@ -114,6 +149,16 @@
         "id": "63559b939442512ed82d2ded46d02ab1021ea29a",
         "address": "95.214.55.138:53656",
         "provider": "genznodes"
+      },
+      {
+        "id": "cd44c8cae65a4c74281f05dd8aae5780cceae710",
+        "address": "95.216.42.88:37656",
+        "provider": "StakeTown"
+      },
+      {
+        "id": "715af1847e1c785510d4cb94ac29f2bd7d0ddf91",
+        "address": "65.108.206.74:36656",
+        "provider": "vinjan"  
       }
     ]
   },
@@ -136,13 +181,29 @@
         "provider": "Cogwheel"
       },
       {
+        "address": "https://rpc-centauri.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://composable-rpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://composable-rpc.genznodes.dev",
         "provider": "genznodes"
-      }  
+      },
+      {
+        "address": "https://rpc-composable.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://composable-rpc.stake-town.com",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "https://rpc-composable.vinjan.xyz:443",
+        "provider": "vinjan"  
+      }
     ],
     "rest": [
       {
@@ -162,13 +223,29 @@
         "provider": "Cogwheel"
       },
       {
+        "address": "https://api-centauri.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://composable-api.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "hhttps://composable-api.genznodes.dev",
+        "address": "https://composable-api.genznodes.dev",
         "provider": "genznodes"
-      }  
+      },
+      {
+        "address": "https://lcd-composable.whispernode.com:443",
+        "provider": "WhisperNode🤐"
+      },
+      {
+        "address": "https://composable-api.stake-town.com",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "https://api-composable.vinjan.xyz:443",
+        "provider": "vinjan"  
+      }
     ],
     "grpc": [
       {
@@ -184,6 +261,10 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
+        "address": "grpc-centauri.cosmos-spaces.cloud:1120",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://composable-grpc.cogwheel.zone:443",
         "provider": "Cogwheel"
       },
@@ -194,7 +275,15 @@
       {
         "address": "composable-grpc.genznodes.dev:53090",
         "provider": "genznodes"
-      }  
+      },
+      {
+        "address": "composable-grpc.stake-town.com:10190",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "grpc-composable.vinjan.xyz:36090",
+        "provider": "vinjan"  
+      }
     ]
   },
   "explorers": [

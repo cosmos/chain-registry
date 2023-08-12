@@ -21,6 +21,10 @@
     "chain_id": {
       "type": "string"
     },
+    "pre_fork_chain_name": {
+      "type": "string",
+      "pattern": "[a-z0-9]+"
+    },
     "pretty_name": {
       "type": "string"
     },
@@ -193,6 +197,10 @@
             "windows/amd64": {
               "type": "string",
               "format": "uri"
+            },
+            "windows/arm64": {
+              "type": "string",
+              "format": "uri"
             }
           },
           "additionalProperties": false
@@ -256,6 +264,10 @@
               "type": "string"
             },
             "genesis_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "ics_ccv_url": {
               "type": "string",
               "format": "uri"
             }
@@ -368,6 +380,10 @@
                     "format": "uri"
                   },
                   "windows/amd64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "windows/arm64": {
                     "type": "string",
                     "format": "uri"
                   }
