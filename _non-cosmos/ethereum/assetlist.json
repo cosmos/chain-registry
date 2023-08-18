@@ -726,6 +726,16 @@
       "name": "Binance USD",
       "display": "busd",
       "symbol": "BUSD",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "USD"
+          },
+          "provider": "Binance"
+        }
+      ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/busd.svg",
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/busd.png"
@@ -758,6 +768,39 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pepe.png"
       },
       "coingecko_id": "pepe"
+    },
+    {
+      "description": "Maximize ETH yield through leveraged staking across Aave, Compound and Morpho and liquidity provision of ETH liquid staking tokens on Uniswap V3.",
+      "type_asset": "erc20",
+      "address": "0xb5b29320d2Dde5BA5BAFA1EbcD270052070483ec",
+      "denom_units": [
+        {
+          "denom": "0xb5b29320d2Dde5BA5BAFA1EbcD270052070483ec",
+          "exponent": 0
+        },
+        {
+          "denom": "YieldETH",
+          "exponent": 18
+        }
+      ],
+      "base": "0xb5b29320d2Dde5BA5BAFA1EbcD270052070483ec",
+      "name": "Real Yield ETH",
+      "display": "YieldETH",
+      "symbol": "YieldETH",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "wei"
+          },
+          "provider": "Seven Seas & DeFine Logic Labs"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/yieldeth.svg",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/yieldeth.png"
+      }
     }
   ]
 }
