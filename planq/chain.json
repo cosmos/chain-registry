@@ -33,19 +33,23 @@
   },
   "codebase": {
     "git_repo": "https://github.com/planq-network/planq",
-    "recommended_version": "v1.0.3",
+    "recommended_version": "v1.0.7",
     "compatible_versions": [
-      "v1.0.0",
-      "v1.0.1",
-      "v1.0.2"
+      "v1.0.7"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.3/planq_1.0.3_Linux_x86_64.tar.gz",
-      "linux/arm64": "https://github.com/planq-network/planq/releases/download/v1.0.3/planq_1.0.3_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.3/planq_1.0.3_Darwin_x86_64.tar.gz",
-      "darwin/arm64": "https://github.com/planq-network/planq/releases/download/v1.0.3/planq_1.0.3_Darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.3/planq_1.0.3_Windows_x86_64.zip"
+      "linux/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.7/planq_1.0.7_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/planq-network/planq/releases/download/v1.0.7/planq_1.0.7_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.7/planq_1.0.7_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/planq-network/planq/releases/download/v1.0.7/planq_1.0.7_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.7/planq_1.0.7_Windows_x86_64.zip"
     },
+    "cosmos_sdk_version": "v0.46.3",
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.34.26"
+    },
+    "ibc_go_version": "5.0.2",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/planq-network/networks/main/mainnet/genesis.json"
     },
@@ -56,7 +60,8 @@
         "compatible_versions": [
           "v1.0.0",
           "v1.0.1",
-          "v1.0.2"
+          "v1.0.2",
+          "v1.0.3"
         ],
         "binaries": {
           "linux/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.3/planq_1.0.3_Linux_x86_64.tar.gz",
@@ -64,6 +69,26 @@
           "darwin/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.3/planq_1.0.3_Darwin_x86_64.tar.gz",
           "darwin/arm64": "https://github.com/planq-network/planq/releases/download/v1.0.3/planq_1.0.3_Darwin_arm64.tar.gz",
           "windows/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.3/planq_1.0.3_Windows_x86_64.zip"
+        }
+      },
+      {
+        "name": "v1.0.7",
+        "recommended_version": "v1.0.7",
+        "compatible_versions": [
+          "v1.0.7"
+        ],
+        "cosmos_sdk_version": "v0.46.3",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.34.26"
+        },
+        "ibc_go_version": "5.0.2",
+        "binaries": {
+          "linux/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.7/planq_1.0.7_Linux_x86_64.tar.gz",
+          "linux/arm64": "https://github.com/planq-network/planq/releases/download/v1.0.7/planq_1.0.7_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.7/planq_1.0.7_Darwin_x86_64.tar.gz",
+          "darwin/arm64": "https://github.com/planq-network/planq/releases/download/v1.0.7/planq_1.0.7_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/planq-network/planq/releases/download/v1.0.7/planq_1.0.7_Windows_x86_64.zip"
         }
       }
     ]
@@ -115,6 +140,11 @@
         "id": "8391cf5a7fe59098205015870635f90acfb5dcb4",
         "address": "rpc.planq.hexnodes.co:33656",
         "provider": "Hexnodes"
+      },
+      {
+        "id": "c48fd9194479c2f462bded977cfff7fa46327d17",
+        "address": "95.214.55.138:28656",
+        "provider": "genznodes"
       }
     ]
   },
@@ -155,7 +185,11 @@
       {
         "address": "https://rpc.planq.hexnodes.co",
         "provider": "Hexnodes"
-      }  
+      },
+      {
+        "address": "https://planq-rpc.genznodes.dev",
+        "provider": "genznodes"
+      }
     ],
     "rest": [
       {
@@ -193,6 +227,10 @@
       {
         "address": "https://lcd.planq.hexnodes.co",
         "provider": "Hexnodes"
+      },
+      {
+        "address": "https://planq-api.genznodes.dev",
+        "provider": "genznodes"
       }
     ],
     "grpc": [
@@ -220,9 +258,13 @@
         "address": "https://grpc.planq.indonode.net:14090",
         "provider": "Indonode"
       },
-       {
+      {
         "address": "https://grpc.planq.hexnodes.co:33090",
         "provider": "Hexnodes"
+      },
+      {
+        "address": "planq-grpc.genznodes.dev:28090",
+        "provider": "genznodes"
       }
     ],
     "evm-http-jsonrpc": [
@@ -241,6 +283,10 @@
       {
         "address": "https://jsonrpc.planq.nodexcapital.com",
         "provider": "NodeX Validator"
+      },
+      {
+        "address": "https://planq-rpc-evm.genznodes.dev",
+        "provider": "genznodes"
       }
     ]
   },

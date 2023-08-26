@@ -1,0 +1,158 @@
+{
+    "$schema": "../chain.schema.json",
+    "chain_name": "sei",
+    "status": "live",
+    "website": "https://www.sei.io/",
+    "network_type": "mainnet",
+    "pretty_name": "Sei",
+    "chain_id": "pacific-1",
+    "bech32_prefix": "sei",
+    "daemon_name": "seid",
+    "node_home": "$HOME/.sei",
+    "key_algos": [
+        "secp256k1"
+    ],
+    "slip44": 118,
+    "fees": {
+        "fee_tokens": [
+            {
+                "denom": "usei",
+                "fixed_min_gas_price": 0.1,
+                "low_gas_price": 0.1,
+                "average_gas_price": 0.1,
+                "high_gas_price": 0.25
+            }
+        ]
+    },
+    "staking": {
+        "staking_tokens": [
+            {
+                "denom": "usei"
+            }
+        ]
+    },
+    "codebase": {
+        "git_repo": "https://github.com/sei-protocol/sei-chain",
+        "recommended_version": "3.0.8",
+        "compatible_versions": [
+            "3.0.8"
+        ],
+        "ibc_go_version": "v3.0.0",
+        "cosmos_sdk_version": "v0.45.10",
+        "cosmwasm_version": "v0.27.0",
+        "cosmwasm_enabled": true,
+        "cosmwasm_path": "$HOME/.sei/wasm",
+        "genesis": {
+            "genesis_url": "https://raw.githubusercontent.com/sei-protocol/testnet/main/pacific-1/genesis.json"
+        },
+        "versions": [
+            {
+                "name": "",
+                "recommended_version": "3.0.8",
+                "compatible_versions": [
+                    "3.0.8"
+                ],
+                "ibc_go_version": "v3.0.0",
+                "cosmos_sdk_version": "v0.45.10",
+                "cosmwasm_version": "v0.27.0",
+                "cosmwasm_enabled": true,
+                "cosmwasm_path": "$HOME/.sei/wasm"
+            }
+        ]
+    },
+    "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sei/images/sei.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sei/images/sei.svg"
+    },
+    "peers": {
+        "seeds": [
+            {
+                "id": "20e1000e88125698264454a884812746c2eb4807",
+                "address": "seeds.lavenderfive.com:11956",
+                "provider": "Lavender.Five Nodes 🐝"
+            }
+        ],
+        "persistent_peers": [
+            {
+                "id": "20e1000e88125698264454a884812746c2eb4807",
+                "address": "seeds.lavenderfive.com:11956",
+                "provider": "Lavender.Five Nodes 🐝"
+            }
+        ]
+    },
+    "apis": {
+        "rpc": [
+            {
+                "address": "https://sei-rpc.lavenderfive.com:443",
+                "provider": "Lavender.Five Nodes 🐝"
+            },
+            {
+                "address": "https://sei-rpc.polkachu.com/",
+                "provider": "polkachu.com"
+            },
+            {
+                "address": "https://sei-rpc.brocha.in/",
+                "provider": "Brochain"
+            },
+            {
+                "address": "https://rpc-sei.stingray.plus/",
+                "provider": "StingRay"
+            },
+            {
+                "address": "https://rpc-sei.rhinostake.com",
+                "provider": "RHINO"
+            }
+        ],
+        "rest": [
+            {
+                "address": "https://sei-api.lavenderfive.com:443",
+                "provider": "Lavender.Five Nodes 🐝"
+            },
+            {
+                "address": "https://sei-api.polkachu.com/",
+                "provider": "polkachu.com"
+            },
+             {
+                "address": "https://sei-rest.brocha.in/",
+                "provider": "Brochain"
+            },
+             {
+                "address": "https://api-sei.stingray.plus/",
+                "provider": "StingRay"
+            },
+             {
+                "address": "https://rest-sei.rhinostake.com",
+                "provider": "RHINO"
+            }
+        ],
+        "grpc": [
+            {
+                "address": "https://sei-grpc.lavenderfive.com:443",
+                "provider": "Lavender.Five Nodes 🐝"
+            },
+            {
+                "address": "https://sei-grpc.polkachu.com:11990/",
+                "provider": "polkachu.com"
+            }
+        ]
+    },
+    "explorers": [
+        {
+            "kind": "ping.pub",
+            "url": "https://ping.pub/sei",
+            "tx_page": "https://ping.pub/sei/tx/${txHash}"
+        },
+        {
+            "kind": "mintscan",
+            "url": "https://www.mintscan.io/sei",
+            "tx_page": "https://www.mintscan.io/sei/transactions/${txHash}",
+            "account_page": "https://www.mintscan.io/sei/accounts/${accountAddress}"
+        },
+        {
+            "kind": "seiscan",
+            "url": "https://www.seiscan.app/pacific-1",
+            "tx_page": "https://www.seiscan.app/pacific-1/txs/${txHash}",
+            "account_page": "https://www.seiscan.app/pacific-1/accounts/${accountAddress}"
+        }
+    ]
+}
