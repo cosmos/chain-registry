@@ -47,16 +47,16 @@
   },
   "codebase": {
     "git_repo": "https://github.com/quasar-finance/quasar-preview",
-    "recommended_version": "v0.1.0",
+    "recommended_version": "v1.0.0",
     "compatible_versions": [
-      "v0.1.0"
+      "v1.0.0"
     ],
-    "cosmos_sdk_version": "0.46",
+    "cosmos_sdk_version": "v0.45.16",
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
+      "type": "cometbft",
+      "version": "v0.34.27"
     },
-    "cosmwasm_version": "0.27",
+    "cosmwasm_version": "v0.31.0",
     "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/quasar-finance/networks/main/quasar-1/definitive-genesis.json"
@@ -64,17 +64,35 @@
     "versions": [
       {
         "name": "v0.1.0",
-        "recommended_version": "v0.1.0",
+        "recommended_version": "v0.1.1",
         "compatible_versions": [
-          "v0.1.0"
+          "v0.1.0", "v0.1.1"
         ],
-        "cosmos_sdk_version": "0.46",
+        "cosmos_sdk_version": "v0.45.14",
         "consensus": {
           "type": "tendermint",
-          "version": "0.34"
+          "version": "v0.34.26"
         },
         "cosmwasm_version": "0.27",
-        "cosmwasm_enabled": true
+        "cosmwasm_enabled": true,
+        "next_version_name": "v1"
+      },
+      {
+        "name": "v1",
+        "proposal": 9,
+        "height": 2249500,
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ],
+        "cosmos_sdk_version": "v0.45.16",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.34.27"
+        },
+        "cosmwasm_version": "0.31.0",
+        "cosmwasm_enabled": true,
+        "next_version_name": ""
       }
     ]
   },
@@ -227,8 +245,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/quasar",
-      "tx_page": "https://www.mintscan.io/quasar/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/quasar/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/quasar/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/quasar/accounts/${accountAddress}"
     },
     {
       "kind": "bigdipper",

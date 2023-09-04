@@ -18,7 +18,10 @@
     "fee_tokens": [
       {
         "denom": "upasg",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.001,
+        "average_gas_price": 0.0025,
+        "high_gas_price": 0.01
       }
     ]
   },
@@ -31,9 +34,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/envadiv/Passage3D",
-    "recommended_version": "v2.0.0",
+    "recommended_version": "v2.0.1",
     "compatible_versions": [
-      "v2.0.0"
+      "v2.0.1"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/envadiv/mainnet/main/passage-2/genesis.json"
@@ -41,9 +44,9 @@
     "versions": [
       {
         "name": "v2.0.0",
-        "recommended_version": "v2.0.0",
+        "recommended_version": "v2.0.1",
         "compatible_versions": [
-          "v2.0.0"
+          "v2.0.1"
         ],
         "cosmos_sdk_version": "v0.45.16",
         "ibc_go_version": "v4.4.2",
@@ -268,8 +271,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/passage",
-      "tx_page": "https://www.mintscan.io/passage/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/passage/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/passage/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/passage/accounts/${accountAddress}"
     },
     {
       "kind": "atomscan",
