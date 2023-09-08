@@ -33,16 +33,17 @@
   },
   "codebase": {
     "git_repo": "https://github.com/cosmos/gaia",
-    "recommended_version": "v10.0.2",
+    "recommended_version": "v11.0.0",
     "compatible_versions": [
-      "v10.0.0", "v10.0.1", "v10.0.2"
+      "v11.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v10.0.2/gaiad-v10.0.2-linux-amd64",
-      "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v10.0.2/gaiad-v10.0.2-linux-arm64",
-      "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v10.0.2/gaiad-v10.0.2-darwin-amd64",
-      "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v10.0.2/gaiad-v10.0.2-darwin-arm64",
-      "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v10.0.2/gaiad-v10.0.2-windows-amd64.exe"
+      "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-linux-amd64",
+      "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-linux-arm64",
+      "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-darwin-amd64",
+      "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-darwin-arm64",
+      "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-windows-amd64.exe",
+      "windows/arm64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-windows-arm64.exe"
     },
     "genesis": {
       "genesis_url": "https://github.com/cosmos/mainnet/raw/master/genesis/genesis.cosmoshub-4.json.gz"
@@ -92,6 +93,31 @@
           "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v10.0.2/gaiad-v10.0.2-darwin-amd64?checksum=sha256:d0bee3b4b243fe1f88ad3258f4648de3a73787434702bcac6e31ca38f81a283a",
           "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v10.0.2/gaiad-v10.0.2-darwin-arm64?checksum=sha256:c8124d66ffa99b51da274656f6c3401b1ec9e165a76f3f01699761672e83a136gaiad-v10.0.1-linux-amd64",
           "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v10.0.2/gaiad-v10.0.2-windows-amd64.exe?checksum=sha256:c02ab2b8fc347f858db1c33fcacafa2467ca550ed83178aee67331762e876926"
+        },
+        "next_version_name": "v11"
+      },
+      {
+        "name": "v11",
+        "tag": "v11.0.0",
+        "proposal": 804,
+        "height": 16596000,
+        "recommended_version": "v10.0.2",
+        "compatible_versions": [
+          "v11.0.0"
+        ],
+        "cosmos_sdk_version": "v0.45.16-ics",
+        "ibc_go_version": "v4.4.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.29"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-linux-amd64",
+          "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-linux-arm64",
+          "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-darwin-amd64",
+          "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-darwin-arm64",
+          "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-windows-amd64.exe",
+          "windows/arm64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-windows-arm64.exe"
         },
         "next_version_name": ""
       }
@@ -318,6 +344,10 @@
       {
         "address": "https://cosmos-rpc.highstakes.ch:26657/",
         "provider": "High Stakes \uD83C\uDDE8\uD83C\uDDED"
+      },
+      {
+        "address": "https://cosmoshub-mainnet.rpc.l0vd.com:443",
+        "provider": "L0vd.com ❤️"
       }
     ],
     "rest": [
@@ -424,6 +454,10 @@
       {
         "address": "https://cosmos-api.highstakes.ch:1317/",
         "provider": "High Stakes \uD83C\uDDE8\uD83C\uDDED"
+      },
+      {
+        "address": "https://cosmoshub-mainnet.api.l0vd.com",
+        "provider": "L0vd.com ❤️"
       }
     ],
     "grpc": [
@@ -494,21 +528,25 @@
       {
         "address": "cosmos-grpc.tienthuattoan.ventures:9090",
         "provider": "TienThuatToan"
-      }      
+      },
+      {
+        "address": "cosmoshub-mainnet.grpc.l0vd.com:80",
+        "provider": "L0vd.com ❤️"
+      }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/cosmoshub",
-      "tx_page": "https://ezstaking.tools/cosmoshub/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/cosmoshub/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/cosmoshub",
+      "tx_page": "https://app.ezstaking.io/cosmoshub/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/cosmoshub/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/cosmos",
-      "tx_page": "https://www.mintscan.io/cosmos/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/cosmos/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/cosmos/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/cosmos/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
