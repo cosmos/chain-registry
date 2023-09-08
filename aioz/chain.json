@@ -3,37 +3,113 @@
   "chain_name": "aioz",
   "status": "live",
   "network_type": "mainnet",
+  "website": "https://aioz.network/",
   "pretty_name": "AIOZ Network",
   "chain_id": "aioz_168-1",
   "bech32_prefix": "aioz",
   "daemon_name": "aiozd",
   "node_home": "$HOME/.aioz",
-  "genesis": {
-    "genesis_url": "https://archive.aioz.network/aioz_168-1/genesis.json"
-  },
   "key_algos": [
     "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
   ],
   "slip44": 60,
   "fees": {
     "fee_tokens": [
       {
         "denom": "attoaioz",
-        "fixed_min_gas_price": 1000000000
+        "fixed_min_gas_price": 1000000000,
+        "low_gas_price": 1000000000,
+        "average_gas_price": 1000000000,
+        "high_gas_price": 1500000000
       }
     ]
   },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "attoaioz"
+      }
+    ],
+    "lock_duration": {
+      "time": "2419200s"
+    }
+  },
   "codebase": {
     "git_repo": "https://github.com/AIOZNetwork/go-aioz",
-    "recommended_version": "v1.2.0",
+    "recommended_version": "v1.4.1",
     "compatible_versions": [
-      "v1.2.0"
+      "v1.4.1",
+      "v1.4.0"
     ],
     "binaries": {
-      "linux/amd64": "https://archive.aioz.network/aiozd-v1.2.0-linux-amd64.tar.gz",
-      "darwin/amd64": "https://archive.aioz.network/aiozd-v1.2.0-darwin-amd64.tar.gz",
-      "windows/amd64": "https://archive.aioz.network/aiozd-v1.2.0-windows-amd64.zip"
-    }
+      "linux/amd64": "https://archive.aioz.network/aiozd-v1.4.1-linux-amd64.tar.gz",
+      "darwin/amd64": "https://archive.aioz.network/aiozd-v1.4.1-darwin-amd64.tar.gz",
+      "windows/amd64": "https://archive.aioz.network/aiozd-v1.4.1-windows-amd64.zip"
+    },
+    "genesis": {
+      "genesis_url": "https://archive.aioz.network/aioz_168-1/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.0.0",
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://archive.aioz.network/aiozd-v1.0.0-linux-amd64.tar.gz",
+          "darwin/amd64": "https://archive.aioz.network/aiozd-v1.0.0-darwin-amd64.tar.gz",
+          "windows/amd64": "https://archive.aioz.network/aiozd-v1.0.0-windows-amd64.zip"
+        },
+        "next_version_name": "v1.2.0"
+      },
+      {
+        "name": "v1.2.0",
+        "recommended_version": "v1.2.0",
+        "compatible_versions": [
+          "v1.2.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://archive.aioz.network/aiozd-v1.2.0-linux-amd64.tar.gz",
+          "darwin/amd64": "https://archive.aioz.network/aiozd-v1.2.0-darwin-amd64.tar.gz",
+          "windows/amd64": "https://archive.aioz.network/aiozd-v1.2.0-windows-amd64.zip"
+        },
+        "next_version_name": "v1.3.0"
+      },
+      {
+        "name": "v1.3.0",
+        "recommended_version": "v1.3.0",
+        "compatible_versions": [
+          "v1.3.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://archive.aioz.network/aiozd-v1.3.0-linux-amd64.tar.gz",
+          "darwin/amd64": "https://archive.aioz.network/aiozd-v1.3.0-darwin-amd64.tar.gz",
+          "windows/amd64": "https://archive.aioz.network/aiozd-v1.3.0-windows-amd64.zip"
+        },
+        "next_version_name": "v1.4.0"
+      },
+      {
+        "name": "v1.4",
+        "recommended_version": "v1.4.1",
+        "compatible_versions": [
+          "v1.4.1",
+          "v1.4.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://archive.aioz.network/aiozd-v1.4.1-linux-amd64.tar.gz",
+          "darwin/amd64": "https://archive.aioz.network/aiozd-v1.4.1-darwin-amd64.tar.gz",
+          "windows/amd64": "https://archive.aioz.network/aiozd-v1.4.1-windows-amd64.zip"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/aioz/images/aioz.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/aioz/images/aioz.svg"
   },
   "peers": {
     "seeds": [
@@ -74,6 +150,12 @@
     ]
   },
   "apis": {
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://eth-dataseed.aioz.network",
+        "provider": "AIOZ Network"
+      }
+    ],
     "rpc": [
       {
         "address": "https://rpc-dataseed.aioz.network:443",
@@ -88,13 +170,7 @@
     ],
     "grpc": [
       {
-        "address": "https://grpc-dataseed.aioz.network:443",
-        "provider": "AIOZ Network"
-      }
-    ],
-    "evm-jsonrpc": [
-      {
-        "address": "https://eth-dataseed.aioz.network",
+        "address": "grpc-dataseed.aioz.network:443",
         "provider": "AIOZ Network"
       }
     ]

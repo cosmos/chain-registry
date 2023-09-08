@@ -1,0 +1,72 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "celestiatestnet2",
+  "chain_id": "arabica-9",
+  "pretty_name": "Arabica Testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "bech32_prefix": "celestia",
+  "daemon_name": "celestia-appd",
+  "node_home": "$HOME/.celestia-app",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "utia",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/celestiaorg/celestia-app",
+    "recommended_version": "v1.0.0-rc7",
+    "compatible_versions": [
+      "v1.0.0-rc7"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/arabica-9/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.0.0-rc7",
+        "recommended_version": "v1.0.0-rc7",
+        "compatible_versions": [
+          "v1.0.0-rc7"
+        ]
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "5a7a963c342ee2b8960e6cb9b7451e5743133781",
+        "address": "consensus-full-arabica-9.celestia-arabica.com",
+        "provider": "Celestia"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://consensus-full-arabica-9.celestia-arabica.com/",
+        "provider": "Celestia"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-arabica-9.consensus.celestia-arabica.com/",
+        "provider": "Celestia"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Ping.Pub",
+      "url": "https://explorer-arabica-9.celestia-arabica.com/arabica-9",
+      "tx_page": "https://explorer-arabica-9.celestia-arabica.com/arabica-9/tx/${txHash}"
+    }
+  ]
+}

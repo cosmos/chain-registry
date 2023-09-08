@@ -5,10 +5,16 @@ jobs:
     name: Validate edited chains.json
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install JSON-Schema-Validator
+        run: npm install -g jsonschema
+
       - name: Validate Chain.json schema
-        uses: snapcart/json-schema-validator@v1.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          json_schema: ./chain.schema.json
-          json_path_pattern: .*\/chain.json$
+        run: |
+          for file in $(find . -name 'chain.json' | grep -v '_template/'); do
+            if ! jsonschema -i "$file" ./chain.schema.json; then
+              exit 1
+            fi
+          done
