@@ -30,12 +30,14 @@
   },
   "codebase": {
     "git_repo": "https://github.com/terra-money/core/",
-    "recommended_version": "v2.3.2",
+    "recommended_version": "v2.4.1",
     "compatible_versions": [
-      "v2.3.0",
-      "v2.3.1",
-      "v2.3.2"
+      "v2.4.1"
     ],
+    "binaries": {
+      "linux/arm64": "https://github.com/terra-money/core/releases/download/v2.4.1/terra_2.4.1_Linux_arm64.tar.gz",
+      "linux/amd64": "https://github.com/terra-money/core/releases/download/v2.4.1/terra_2.4.1_Linux_x86_64.tar.gz"
+    },
     "genesis": {
       "name": "v2.0",
       "genesis_url": "https://tfl-phoenix-1.s3.amazonaws.com/genesis.json"
@@ -103,38 +105,48 @@
       },
       {
         "name": "v2.3",
-        "tag": "v2.3.2",
+        "tag": "v2.3.5",
         "height": 4711800,
-        "recommended_version": "v2.3.2",
+        "recommended_version": "v2.3.5",
         "compatible_versions": [
           "v2.3.0",
           "v2.3.1",
-          "v2.3.2"
+          "v2.3.2",
+          "v2.3.4",
+          "v2.3.5"
         ],
         "cosmos_sdk_version": "v0.46.11",
         "cosmwasm_enabled": true,
         "cosmwasm_version": "v0.30.0",
         "ibc_go_version": "v6.1.1",
         "consensus": {
-          "type": "cometbft",
+          "type": "tendermint",
           "version": "v0.34.27"
         },
         "binaries": {
-          "linux/arm64": "https://github.com/terra-money/core/releases/download/v2.3.2/terra_2.3.2_Linux_arm64.tar.gz?checksum=sha256:fa1ef4c41133bb0347b75b6a6ff1312ecbf622cf7b61d55f91965d6d47fae7ec",
-          "linux/amd64": "https://github.com/terra-money/core/releases/download/v2.3.2/terra_2.3.2_Linux_x86_64.tar.gz?checksum=sha256:a6e23b6bf9305eee3a416305afd3eb8af52da72410ee54b2d2aa6981a9251499"
-        }
+          "linux/arm64": "https://github.com/terra-money/core/releases/download/v2.3.5/terra_2.3.5_Linux_arm64.tar.gz?checksum=sha256:93b0c508e16f779b93f0e76629ab247ddaf5fa0db96573405b3b2b11e3eb6859",
+          "linux/amd64": "https://github.com/terra-money/core/releases/download/v2.3.5/terra_2.3.5_Linux_x86_64.tar.gz?checksum=sha256:8c3ac7392436b102dcdd63fd275fa73b1e0201e65e420af71954782cee682ac6"
+        },
+        "next_version_name": "v2.4"
       },
       {
         "name": "v2.4",
-        "tag": "v2.4.0",
+        "tag": "v2.4.1",
+        "proposal": 4737,
+        "height": 5994365,
         "cosmos_sdk_version": "v0.46.11",
         "cosmwasm_enabled": true,
         "cosmwasm_version": "v0.30.0",
         "ibc_go_version": "v6.1.1",
         "consensus": {
-          "type": "cometbft",
+          "type": "tendermint",
           "version": "v0.34.27"
-        }
+        },
+        "binaries": {
+          "linux/arm64": "https://github.com/terra-money/core/releases/download/v2.4.1/terra_2.4.1_Linux_arm64.tar.gz",
+          "linux/amd64": "https://github.com/terra-money/core/releases/download/v2.4.1/terra_2.4.1_Linux_x86_64.tar.gz"
+        },
+        "next_version_name": ""
       }
     ]
   },
@@ -165,12 +177,12 @@
       },
       {
         "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "terra-seed-1.allnodes.me:26656",
+        "address": "terra2-seed-de.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
       },
       {
         "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "terra-seed-2.allnodes.me:26656",
+        "address": "terra2-seed-us.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
       },
       {
@@ -251,6 +263,14 @@
       {
         "address": "https://rpc-terra-01.stakeflow.io",
         "provider": "Stakeflow"
+      },
+      {
+        "address": "https://terra-phoenix-rpc.highstakes.ch:26657/",
+        "provider": "High Stakes \uD83C\uDDE8\uD83C\uDDED"
+      },
+      {
+        "address": "https://rpc-terra.wildsage.io",
+        "provider": "🧙 WildSage Labs"
       }
     ],
     "rest": [
@@ -259,8 +279,8 @@
         "provider": "CryptoCrew"
       },
       {
-        "address": "https://lcd-terra.wildsage.io:443/",
-        "provider": "WildSage Labs"
+        "address": "https://lcd-terra.wildsage.io",
+        "provider": "🧙 WildSage Labs"
       },
       {
         "address": "https://terra-mainnet-lcd.autostake.com:443",
@@ -285,6 +305,10 @@
       {
         "address": "https://api-terra-01.stakeflow.io",
         "provider": "Stakeflow"
+      },
+      {
+        "address": "https://terra-phoenix-api.highstakes.ch:1317/",
+        "provider": "High Stakes \uD83C\uDDE8\uD83C\uDDED"
       }
     ],
     "grpc": [
@@ -301,7 +325,7 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://terra-grpc.publicnode.com",
+        "address": "terra-grpc.publicnode.com:443",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
       },
       {
@@ -327,6 +351,12 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/terra",
       "account_page": "https://stakeflow.io/terra/accounts/${accountAddress}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/terra",
+      "tx_page": "https://www.mintscan.io/terra/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/terra/accounts/${accountAddress}"
     }
   ]
 }
