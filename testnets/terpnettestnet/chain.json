@@ -6,8 +6,31 @@
   "pretty_name": "Terp-Network",
   "chain_id": "90u-2",
   "bech32_prefix": "terp",
-  "daemon_name": "terp",
+  "daemon_name": "terpd",
   "node_home": "$HOME/.terp",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uthiolx",
+        "fixed_min_gas_price": 0.075,
+        "low_gas_price": 0.075,
+        "average_gas_price": 0.1,
+        "high_gas_price": 0.125
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uterpx"
+      }
+    ]
+  },
+  
   "codebase": {
     "git_repo": "github.com/terpnetwork/terp-core.git",
     "recommended_version": "barberry",
