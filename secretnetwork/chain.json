@@ -20,8 +20,8 @@
     "fee_tokens": [
       {
         "denom": "uscrt",
-        "fixed_min_gas_price": 0.0125,
-        "low_gas_price": 0.0125,
+        "fixed_min_gas_price": 0.1,
+        "low_gas_price": 0.1,
         "average_gas_price": 0.1,
         "high_gas_price": 0.25
       }
@@ -36,12 +36,12 @@
   },
   "codebase": {
     "git_repo": "https://github.com/scrtlabs/SecretNetwork",
-    "recommended_version": "v1.9.2",
+    "recommended_version": "v1.10.0",
     "compatible_versions": [
-      "v1.9.2"
+      "v1.10.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.9.0/secretnetwork_1.9.2_mainnet_goleveldb_amd64.deb"
+      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.10.0/secretnetwork_1.10.0_mainnet_goleveldb_amd64.deb"
     },
     "genesis": {
       "genesis_url": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/genesis.json"
@@ -118,6 +118,19 @@
         ],
         "binaries": {
           "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.9.2/secretnetwork_1.9.2_mainnet_goleveldb_amd64.deb"
+        },
+        "next_version_name": "v1.10"
+      },
+      {
+        "name": "v1.10",
+        "tag": "v1.10.0",
+        "height": 10186400,
+        "recommended_version": "v1.10.0",
+        "compatible_versions": [
+          "v1.10.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.10.0/secretnetwork_1.10.0_mainnet_goleveldb_amd64.deb"
         }
       }
     ]
@@ -198,6 +211,10 @@
       {
         "address": "https://1rpc.io/scrt-rpc",
         "provider": "1RPC - Automata Network"
+      },
+      {
+        "address": "https://secretnetwork-rpc.highstakes.ch:26657/",
+        "provider": "High Stakes \uD83C\uDDE8\uD83C\uDDED"
       }
     ],
     "rest": [
@@ -224,6 +241,10 @@
       {
         "address": "https://1rpc.io/scrt-lcd",
         "provider": "1RPC - Automata Network"
+      },
+      {
+        "address": "https://secretnetwork-api.highstakes.ch:1317/",
+        "provider": "High Stakes \uD83C\uDDE8\uD83C\uDDED"
       }
     ],
     "grpc": [
@@ -239,10 +260,10 @@
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/secretnetwork",
-      "tx_page": "https://ezstaking.tools/secretnetwork/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/secretnetwork/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/secretnetwork",
+      "tx_page": "https://app.ezstaking.io/secretnetwork/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/secretnetwork/account/${accountAddress}"
     },
     {
       "kind": "secret nodes",
@@ -257,8 +278,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/secret",
-      "tx_page": "https://www.mintscan.io/secret/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/secret/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/secret/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/secret/accounts/${accountAddress}"
     },
     {
       "kind": "atomscan",

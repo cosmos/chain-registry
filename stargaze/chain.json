@@ -30,10 +30,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/public-awesome/stargaze",
-    "recommended_version": "v10.0.1",
+    "recommended_version": "v12.0.0",
     "compatible_versions": [
-      "v10.0.1",
-      "v10.0.0"
+      "v12.0.0"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/public-awesome/mainnet/main/stargaze-1/genesis.tar.gz"
@@ -45,7 +44,8 @@
         "compatible_versions": [
           "v9.1.0",
           "v9.0.0"
-        ]
+        ],
+	"next_version_name": "v10"
       },
       {
         "name": "v10",
@@ -53,7 +53,24 @@
         "compatible_versions": [
           "v10.0.1",
           "v10.0.0"
-        ]
+        ],
+        "next_version_name": "v11"
+      },
+      {
+        "name": "v11",
+        "recommended_version": "v11.0.0",
+        "compatible_versions": [
+          "v11.0.0"
+        ],
+        "next_version_name": "v12"
+      },
+      {
+        "name": "v12",
+        "recommended_version": "v12.0.0",
+        "compatible_versions": [
+          "v12.0.0"
+        ],
+        "next_version_name": ""
       }
     ]
   },
@@ -110,6 +127,11 @@
         "id": "96e0040d44a2f0b59d2a07e128369363d8535b67",
         "address": "seed-stargaze.ibs.team:16658",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
+        "address": "seeds.stakerhouse.com:10356",
+        "provider": "StakerHouse"
       }
     ],
     "persistent_peers": [
@@ -155,6 +177,10 @@
       {
         "address": "https://stargaze.c29r3.xyz:443/rpc/",
         "provider": "c29r3"
+      },
+      {
+        "address": "https://rpc-stargaze.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://stargaze-rpc.ibs.team",
@@ -231,6 +257,10 @@
         "provider": "D-stake"
       },
       {
+        "address": "https://api-stargaze.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://api.stargaze.silentvalidator.com/",
         "provider": "silent"
       },
@@ -255,7 +285,7 @@
         "provider": "w3coins"
       },
       {
-        "address": "https://stargaze-api.stakerhouse.com",
+        "address": "https://stargaze-rest.stakerhouse.com",
         "provider": "StakerHouse"
       },
       {
@@ -277,6 +307,10 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
+        "address": "grpc-stargaze.cosmos-spaces.cloud:1150",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://stargaze-grpc.ramuchi.tech:9090",
         "provider": "ramuchi.tech"
       },
@@ -291,21 +325,25 @@
       {
         "address": "stargaze-grpc.publicnode.com:443",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "stargaze-grpc.stakerhouse.com:443",
+        "provider": "StakerHouse"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/stargaze",
-      "tx_page": "https://ezstaking.tools/stargaze/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/stargaze/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/stargaze",
+      "tx_page": "https://app.ezstaking.io/stargaze/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/stargaze/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/stargaze/",
-      "tx_page": "https://www.mintscan.io/stargaze/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/stargaze/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/stargaze/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/stargaze/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",

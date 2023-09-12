@@ -27,13 +27,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/akash-network/node/",
-    "recommended_version": "v0.22.7",
+    "recommended_version": "v0.24.0",
     "compatible_versions": [
-      "v0.20.0", "v0.22.7"
+      "v0.24.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.22.7/akash_linux_amd64.zip",
-      "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.22.7/akash_linux_arm64.zip"
+      "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.24.0/akash_linux_amd64.zip",
+      "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.24.0/akash_linux_arm64.zip"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/akash-network/net/master/mainnet/genesis.json"
@@ -43,12 +43,25 @@
         "name": "v0.22.0",
         "recommended_version": "v0.22.7",
         "compatible_versions": [
-          "v0.20.0", "v0.22.7"
+          "v0.22.7"
         ],
         "binaries": {
           "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.22.7/akash_linux_amd64.zip",
           "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.22.7/akash_linux_arm64.zip"
-        }
+        },
+        "next_version_name": "v0.24.0"
+      },
+      {
+        "name": "v0.24.0",
+        "recommended_version": "v0.24.0",
+        "compatible_versions": [
+          "v0.24.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.24.0/akash_linux_amd64.zip",
+          "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.24.0/akash_linux_arm64.zip"
+        },
+        "next_version_name": "v0.24.0"
       }
     ]
   },
@@ -153,6 +166,10 @@
         "provider": "Polkachu"
       },
       {
+        "address": "https://rpc-akash.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://rpc-akash-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
       },
@@ -187,6 +204,10 @@
       {
         "address": "https://akash-rpc.publicnode.com",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://akash-rpc.validatornode.com",
+        "provider": "ValidatorNode"
       }
     ],
     "rest": [
@@ -205,6 +226,10 @@
       {
         "address": "https://akash-api.polkachu.com",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://api-akash.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://api-akash-ia.cosmosia.notional.ventures",
@@ -241,6 +266,10 @@
       {
         "address": "https://akash-rest.publicnode.com",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://akash-api.validatornode.com",
+        "provider": "ValidatorNode"
       }
     ],
     "grpc": [
@@ -259,6 +288,10 @@
       {
         "address": "akash-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "grpc-akash.cosmos-spaces.cloud:1110",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "akash.grpc.interchain.ivaldilabs.xyz:443",
@@ -280,16 +313,16 @@
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/akash",
-      "tx_page": "https://ezstaking.tools/akash/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/akash/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/akash",
+      "tx_page": "https://app.ezstaking.io/akash/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/akash/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/akash",
-      "tx_page": "https://www.mintscan.io/akash/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/akash/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/akash/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/akash/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -316,6 +349,11 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/akash",
       "account_page": "https://stakeflow.io/akash/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ValidatorNode",
+      "url": "https://explorer.validatornode.com/akash-network",
+      "tx_page": "https://explorer.validatornode.com/akash-network/tx/${txHash}"
     }
   ]
 }

@@ -1,0 +1,108 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "mun",
+  "website": "https://mun.money",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Mun",
+  "chain_id": "mun-1",
+  "bech32_prefix": "mun",
+  "daemon_name": "mund",
+  "node_home": "$HOME/.mun",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "umun",
+        "fixed_min_gas_price": 0.025
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "umun"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/munblockchain/mun-node",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://mainnet1rpc.mun.money/genesis"
+    },
+    "versions": [
+      {
+        "name": "v1.0.0",
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mun/images/mun.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mun/images/mun.svg"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "036c564e3de76ffad3e013bea52c16eb1de5a400",
+        "address": "31.14.40.112:26656",
+        "provider": "Mun"
+      }
+    ],
+    "persistent_peers": [
+	{
+	"id": "d28d8c1d31fa97fe668c90700797709f3a0f1b6c",
+        "address": "rpc.mun.indonode.net:55656",
+        "provider": "Indonode"
+	}
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://mainnet1rpc.mun.money",
+        "provider": "Mun"
+      },
+      {
+        "address": "https://rpc.mun.indonode.net",
+        "provider": "Indonode"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://mainnet1.mun.money",
+        "provider": "Mun"
+      },
+      {
+        "address": "https://api.mun.indonode.net",
+        "provider": "Indonode"
+      }
+    ],
+    "grpc": []
+  },
+  "explorers": [
+    {
+      "url": "https://explorer.mun.money/mun",
+      "tx_page": "https://explorer.mun.money/mun/${txHash}"
+    },
+    {
+      "url": "https://explorer.indonode.net/mun/staking",
+      "tx_page": "https://explorer.indonode.net/mun/${txHash}"
+    },
+	{
+	  "kind": "ping.pub",
+      "url": "https://ping.pub/mun",
+      "tx_page": "https://ping.pub/mun/${txHash}"
+    }
+  ]
+}

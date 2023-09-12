@@ -33,9 +33,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/lum-network/chain",
-    "recommended_version": "v1.5.1",
+    "recommended_version": "v1.5.2",
     "compatible_versions": [
-      "v1.5.1"
+      "v1.5.2"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/lum-network/mainnet/master/genesis.json"
@@ -98,6 +98,16 @@
         "compatible_versions": [
           "v1.5.1"
         ],
+        "next_version_name": "v1.5.2"
+      },
+      {
+        "name": "v1.5.2",
+        "proposal": 87,
+        "height": 8688700,
+        "recommended_version": "v1.5.2",
+        "compatible_versions": [
+          "v1.5.2"
+        ],
         "next_version_name": ""
       }
     ]
@@ -122,6 +132,11 @@
         "id": "0df233b1eb62504f96a856ce358014b2fb8ce91b",
         "address": "lum-seed.panthea.eu:43656",
         "provider": "Panthea EU"
+      },
+      {
+        "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
+        "address": "seeds.stakerhouse.com:10756",
+        "provider": "StakerHouse"
       }
     ],
     "persistent_peers": [
@@ -168,6 +183,10 @@
       {
         "address": "https://lum-rpc.stakerhouse.com",
         "provider": "StakerHouse"
+      },
+      {
+        "address": "https://lum-rpc.panthea.eu",
+        "provider": "Panthea EU"
       }
     ],
     "rest": [
@@ -192,8 +211,12 @@
         "provider": "Inter Blockchain Services"
       },
       {
-        "address": "https://lum-api.stakerhouse.com",
+        "address": "https://lum-rest.stakerhouse.com",
         "provider": "StakerHouse"
+      },
+      {
+        "address": "https://lum-api.panthea.eu",
+        "provider": "Panthea EU"
       }
     ],
     "grpc": [
@@ -209,16 +232,16 @@
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/lumnetwork",
-      "tx_page": "https://ezstaking.tools/lumnetwork/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/lumnetwork/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/lumnetwork",
+      "tx_page": "https://app.ezstaking.io/lumnetwork/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/lumnetwork/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/lum",
-      "tx_page": "https://www.mintscan.io/lum/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/lum/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/lum/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/lum/accounts/${accountAddress}"
     },
     {
       "kind": "lum-network",

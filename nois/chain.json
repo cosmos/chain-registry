@@ -36,16 +36,16 @@
   },
   "codebase": {
     "git_repo": "https://github.com/noislabs/noisd",
-    "recommended_version": "v1.0.0",
+    "recommended_version": "v1.0.4",
     "compatible_versions": [
-      "v1.0.0"
+      "v1.0.0", "v1.0.4"
     ],
-    "cosmos_sdk_version": "0.45",
+    "cosmos_sdk_version": "v0.45.15",
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
+      "type": "cometbft",
+      "version": "v0.34.29"
     },
-    "cosmwasm_version": "0.30",
+    "cosmwasm_version": "v0.31.0",
     "cosmwasm_enabled": true,
     "genesis": {
       "name": "v1",
@@ -54,18 +54,18 @@
     "versions": [
       {
         "name": "v1",
-        "tag": "v1.0.0",
+        "tag": "v1.0.4",
         "height": 0,
-        "recommended_version": "v1.0.0",
+        "recommended_version": "v1.0.4",
         "compatible_versions": [
-          "v1.0.0"
+          "v1.0.0", "v1.0.4"
         ],
-        "cosmos_sdk_version": "0.45",
+        "cosmos_sdk_version": "v0.45.15",
         "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
+          "type": "cometbft",
+          "version": "v0.34.29"
         },
-        "cosmwasm_version": "0.30",
+        "cosmwasm_version": "v0.31.0",
         "cosmwasm_enabled": true
       }
     ]
@@ -126,6 +126,10 @@
       {
         "address": "https://nois-rpc.nysa.network",
         "provider": "nysa.network"
+      },
+      {
+        "address": "https://nois.rpc.bccnodes.com",
+        "provider": "BccNodes"
       },
       {
         "address": "https://nois-rpc.lavenderfive.com:443",
@@ -199,6 +203,10 @@
         "provider": "nysa.network"
       },
       {
+        "address": "nois.grpc.bccnodes.com:443",
+        "provider": "BccNodes"
+      },
+      {
         "address": "https://nois-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
@@ -259,6 +267,10 @@
       {
         "address": "https://api.noismain.mcbnode.online",
         "provider": "mcbnode"
+      },
+      {
+        "address": "https://nois.api.bccnodes.com",
+        "provider": "BccNodes"
       },
       {
         "address": "https://m-nois.api.utsa.tech",
@@ -328,16 +340,22 @@
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/nois",
-      "tx_page": "https://ezstaking.tools/nois/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/nois/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/nois",
+      "tx_page": "https://app.ezstaking.io/nois/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/nois/account/${accountAddress}"
     },
     {
       "kind": "🔥STAVR🔥",
       "url": "https://explorer.stavr.tech/nois-mainnet",
       "tx_page": "https://explorer.stavr.tech/nois-mainnet/txs/${txHash}",
       "account_page": "https://explorer.stavr.tech/nois-mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "BccNodes",
+      "url": "https://explorer.stavr.tech/nois-mainnet",
+      "tx_page": "https://explorer.bccnodes.com/nois-M/txs/${txHash}",
+      "account_page": "https://explorer.bccnodes.com/nois-M/account/${accountAddress}"
     },
     {
       "kind": "explorers.guru",
