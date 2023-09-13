@@ -10,15 +10,49 @@
   "node_home": "$HOME/.band",
   "bech32_prefix": "band",
   "slip44": 494,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uband"
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uband"
+      }
+    ]
+  },
   "codebase": {
     "git_repo": "https://github.com/bandprotocol/chain",
-    "recommended_version": "v2.4.1",
+    "recommended_version": "v2.5.2",
     "compatible_versions": [
-      "v2.4.1"
+      "v2.5.2"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/bandprotocol/launch/master/laozi-mainnet/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v2.4.1",
+        "recommended_version": "v2.4.1",
+        "compatible_versions": [
+          "v2.4.1"
+        ]
+      },
+      {
+        "name": "v2.5.2",
+        "recommended_version": "v2.5.2",
+        "compatible_versions": [
+          "v2.5.2"
+        ]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.svg"
   },
   "peers": {
     "seeds": [
@@ -32,8 +66,13 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "bandchain-mainnet-seed.autostake.net:26666",
+        "address": "bandchain-mainnet-seed.autostake.com:26666",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "4ded49b3a718828eb64cf35da1ed791ecb201bc1",
+        "address": "seed-band-01.stakeflow.io:25017",
+        "provider": "Stakeflow"
       }
     ],
     "persistent_peers": [
@@ -47,8 +86,18 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "bandchain-mainnet-peer.autostake.net:26666",
+        "address": "bandchain-mainnet-peer.autostake.com:26666",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "4ded49b3a718828eb64cf35da1ed791ecb201bc1",
+        "address": "peer-band-01.stakeflow.io:25017",
+        "provider": "Stakeflow"
+      },
+      {
+        "id": "d3fe7586b604196461db92c2c7cf72eb354af1fc",
+        "address": "rpc.band.indonode.net:12656",
+        "provider": "Indonode"
       }
     ]
   },
@@ -67,8 +116,28 @@
         "provider": "Inter Blockchain Services"
       },
       {
-        "address": "https://bandchain-mainnet-rpc.autostake.net:443",
+        "address": "https://bandchain-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://rpc-band-01.stakeflow.io",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://rpc-band.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
+        "address": "https://band-rpc.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://bandprotocol-rpc.highstakes.ch:26657/",
+        "provider": "High Stakes \uD83C\uDDE8\uD83C\uDDED"
+      },
+      {
+        "address": "https://rpc.band.indonode.net",
+        "provider": "Indonode"
       }
     ],
     "rest": [
@@ -85,8 +154,28 @@
         "provider": "Inter Blockchain Services"
       },
       {
-        "address": "https://bandchain-mainnet-lcd.autostake.net:443",
+        "address": "https://api-band.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
+        "address": "https://bandchain-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://api-band-01.stakeflow.io",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://band-api.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://bandprotocol-api.highstakes.ch:1317/",
+        "provider": "High Stakes \uD83C\uDDE8\uD83C\uDDED"
+      },
+      {
+        "address": "https://api.band.indonode.net",
+        "provider": "Indonode"
       }
     ],
     "grpc": [
@@ -95,8 +184,20 @@
         "provider": "Notional"
       },
       {
-        "address": "bandchain-mainnet-grpc-autostake.net:443",
+        "address": "bandchain-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "grpc-band.cosmos-spaces.cloud:2240",
+        "provider": "Cosmos Spaces"
+      },
+      {
+        "address": "grpc-band-01.stakeflow.io:2502",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "band-grpc.w3coins.io:22990",
+        "provider": "w3coins"
       }
     ]
   },
@@ -109,8 +210,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/band",
-      "tx_page": "https://www.mintscan.io/band/txs${txHash}",
-      "account_page": "https://www.mintscan.io/band/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/band/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/band/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -120,13 +221,19 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/band-protocol",
-      "tx_page": "https://atomscan.com/band-protocol/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/band-protocol/transactions/${txHash}",
+      "account_page": "https://atomscan.com/band-protocol/accounts/${accountAddress}"
     },
     {
       "kind": "bigdipper",
       "url": "https://bigdipper.live/band",
       "tx_page": "https://bigdipper.live/band/transactions/${txHash}",
       "account_page": "https://bigdipper.live/band/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Stakeflow",
+      "url": "https://stakeflow.io/band-protocol",
+      "account_page": "https://stakeflow.io/band-protocol/accounts/${accountAddress}"
     }
   ]
 }
