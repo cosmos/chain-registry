@@ -26,14 +26,22 @@
     "compatible_versions": [
       "v1.1.0"
     ],
-    "binaries": {},
-    "genesis": {},
+    "binaries": {
+      "linux/amd64": "https://github.com/ChronicNetwork/cht/releases/download/v.1.1.0/cht"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/ChronicNetwork/net/main/mainnet/v1.1/genesis.json"
+    },
     "versions": [
       {
         "name": "v1.1.0",
         "recommended_version": "v1.1.0",
-        "compatible_versions": [],
-        "binaries": {}
+        "compatible_versions": [
+          "v1.1.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/ChronicNetwork/cht/releases/download/v.1.1.0/cht"
+        }
       }
     ]
   },
@@ -42,9 +50,36 @@
     "persistent_peers": []
   },
   "apis": {
-    "rpc": [],
-    "rest": [],
+    "rpc": [
+      {
+        "address": "https://rpc-chronic.zenchainlabs.io/",
+        "provider": "ZenChainLabs"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-chronic.zenchainlabs.io/",
+        "provider": "ZenChainLabs"
+      }
+    ],
     "grpc": []
   },
-  "explorers": []
+  "explorers": [
+    {
+      "kind": "skynetexplorers",
+      "url": "https://www.skynetexplorers.com/chronic-token",
+      "tx_page": ""
+    },
+    {
+      "kind": "Zenscan.io",
+      "url": "https://www.chronic.zenscan.io",
+      "tx_page": ""
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/chronicnetwork",
+      "tx_page": "https://atomscan.com/chronicnetwork/transactions/${txHash}",
+      "account_page": "https://atomscan.com/chronicnetwork/accounts/${accountAddress}"
+    }
+  ]
 }
