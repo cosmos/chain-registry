@@ -36,13 +36,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/archway-network/archway",
-    "recommended_version": "v1.0.1",
+    "recommended_version": "v2.0.0",
     "compatible_versions": [
-      "v1.0.0", "v1.0.1"
+      "v2.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/archway-network/archway/releases/download/v1.0.1/archwayd_linux_amd64",
-      "linux/arm64": "https://github.com/archway-network/archway/releases/download/v1.0.1/archwayd_linux_arm64"
+      "linux/amd64": "https://github.com/archway-network/archway/releases/download/v2.0.0/archwayd_linux_amd64",
+      "linux/arm64": "https://github.com/archway-network/archway/releases/download/v2.0.0/archwayd_linux_arm64"
     },
     "cosmos_sdk_version": "v0.45.16",
     "consensus": {
@@ -76,7 +76,32 @@
         "binaries": {
           "linux/amd64": "https://github.com/archway-network/archway/releases/download/v1.0.1/archwayd_linux_amd64",
           "linux/arm64": "https://github.com/archway-network/archway/releases/download/v1.0.1/archwayd_linux_arm64"
-        }
+        },
+        "next_version_name": "v2.0.0"
+      },
+      {
+        "name": "v2.0.0",
+        "recommended_version": "v2.0.0",
+        "compatible_versions": [
+          "v2.0.0"
+        ],
+        "tag": "v2.0.0",
+        "proposal": 10,
+        "height": 525000,
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.27"
+        },
+        "cosmos_sdk_version": "v0.45.16",
+        "cosmwasm_version": "v0.32.0",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "v4.3.1",
+        "cosmwasm_path": "$HOME/.example/data/wasm",
+        "binaries": {
+          "linux/amd64": "https://github.com/archway-network/archway/releases/download/v2.0.0/archwayd_linux_amd64",
+          "linux/arm64": "https://github.com/archway-network/archway/releases/download/v2.0.0/archwayd_linux_arm64"
+        },
+        "next_version_name": ""
       }
     ]
   },
@@ -120,6 +145,11 @@
         "id": "6471ac9ff8474373e8055d45b6246fd8c5204890",
         "address": "archway.seed.mzonder.com:10756",
         "provider": "MZONDER"
+      },
+      {
+        "id": "261acb73f483d1cace653cb54f7b8815f63b7e56",
+        "address": "archway.lgns.net:26656",
+        "provider": "Luganodes"
       }
     ],
     "persistent_peers": [
@@ -132,6 +162,11 @@
         "id": "a477bfcef79f283d82e531ec1a6717677c8caf59",
         "address": "peer-archway.mms.team:56108",
         "provider": "MMS"
+      },
+      {
+        "id": "218eed47b5472642034e81fdf408dec8b79dcba7",
+        "address": "88.99.208.54:31656",
+        "provider": "StakeTown"
       }
     ]
   },
@@ -182,6 +217,10 @@
         "provider": "Stake-Take"
       },
       {
+        "address": "https://archway-rpc.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
         "address": "https://archway-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
@@ -200,12 +239,24 @@
       {
         "address": "https://rpc-archway.mzonder.com",
         "provider": "MZONDER"
+      },
+      {
+        "address": "https://rpc.archway.lgns.net",
+        "provider": "Luganodes"
+      },
+      {
+        "address": "https://archway-rpc.stake-town.com:443",
+        "provider": "StakeTown"
       }
     ],
     "rest": [
       {
         "address": "https://api.mainnet.archway.io",
         "provider": "Archway Foundation"
+      },
+      {
+        "address": "https://archway-api.w3coins.io",
+        "provider": "w3coins"
       },
       {
         "address": "https://m-archway.api.utsa.tech",
@@ -266,6 +317,14 @@
       {
         "address": "https://api-archway.mzonder.com",
         "provider": "MZONDER"
+      },
+      {
+        "address": "https://rest.archway.lgns.net",
+        "provider": "Luganodes"
+      },
+      {
+        "address": "https://archway-api.stake-town.com:443",
+        "provider": "StakeTown"
       }
     ],
     "grpc": [
@@ -280,6 +339,10 @@
       {
         "address": "grpc-1.archway.nodes.guru:10690",
         "provider": "Nodes.Guru"
+      },
+      {
+        "address": "archway-grpc.w3coins.io:11590",
+        "provider": "w3coins"
       },
       {
         "address": "archway.grpc.kjnodes.com:15690",
@@ -312,6 +375,14 @@
       {
         "address": "grpc-archway.mzonder.com:443",
         "provider": "MZONDER"
+      },
+      {
+        "address": "grpc.archway.lgns.net:443",
+        "provider": "Luganodes"
+      },
+      {
+        "address": "archway-grpc.stake-town.com:443",
+        "provider": "StakeTown"
       }
     ]
   },
@@ -331,8 +402,8 @@
     {
       "kind": "Mintscan",
       "url": "https://mintscan.io/archway/",
-      "tx_page": "https://mintscan.io/archway/txs/${txHash}",
-      "account_page": "https://mintscan.io/archway/account/${accountAddress}"
+      "tx_page": "https://mintscan.io/archway/transactions/${txHash}",
+      "account_page": "https://mintscan.io/archway/accounts/${accountAddress}"
     },
     {
       "kind": "Silk Nodes",

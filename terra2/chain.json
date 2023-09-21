@@ -4,7 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "website": "https://www.terra.money/",
-  "pretty_name": "Terra 2.0",
+  "pretty_name": "Terra",
   "chain_id": "phoenix-1",
   "daemon_name": "terrad",
   "node_home": "$HOME/.terra",
@@ -35,8 +35,8 @@
       "v2.4.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/terra-money/core/releases/download/v2.1.4/terra_2.1.4_Linux_x86_64.tar.gz?checksum=sha256:e05b85ae2eac5df886f4f9d0ecf719b82ebe4da4fc59cae93a34af7c3e89ddfb",
-      "darwin/amd64": "https://github.com/terra-money/core/releases/download/v2.1.4/terra_2.1.4_Darwin_x86_64.tar.gz?checksum=sha256:4b66ebf800cb903f7b6c07686636eff43e686f5956c9fadc307f077afd7f23bb"
+      "linux/arm64": "https://github.com/terra-money/core/releases/download/v2.4.1/terra_2.4.1_Linux_arm64.tar.gz",
+      "linux/amd64": "https://github.com/terra-money/core/releases/download/v2.4.1/terra_2.4.1_Linux_x86_64.tar.gz"
     },
     "genesis": {
       "name": "v2.0",
@@ -263,6 +263,14 @@
       {
         "address": "https://rpc-terra-01.stakeflow.io",
         "provider": "Stakeflow"
+      },
+      {
+        "address": "https://terra-phoenix-rpc.highstakes.ch:26657/",
+        "provider": "High Stakes \uD83C\uDDE8\uD83C\uDDED"
+      },
+      {
+        "address": "https://rpc-terra.wildsage.io",
+        "provider": "🧙 WildSage Labs"
       }
     ],
     "rest": [
@@ -271,8 +279,8 @@
         "provider": "CryptoCrew"
       },
       {
-        "address": "https://lcd-terra.wildsage.io:443/",
-        "provider": "WildSage Labs"
+        "address": "https://lcd-terra.wildsage.io",
+        "provider": "🧙 WildSage Labs"
       },
       {
         "address": "https://terra-mainnet-lcd.autostake.com:443",
@@ -297,6 +305,10 @@
       {
         "address": "https://api-terra-01.stakeflow.io",
         "provider": "Stakeflow"
+      },
+      {
+        "address": "https://terra-phoenix-api.highstakes.ch:1317/",
+        "provider": "High Stakes \uD83C\uDDE8\uD83C\uDDED"
       }
     ],
     "grpc": [
@@ -339,6 +351,12 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/terra",
       "account_page": "https://stakeflow.io/terra/accounts/${accountAddress}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/terra",
+      "tx_page": "https://www.mintscan.io/terra/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/terra/accounts/${accountAddress}"
     }
   ]
 }
