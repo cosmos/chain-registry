@@ -4,7 +4,8 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Secret Network",
-  "chain_id": "pulsar-2",
+  "chain_id": "pulsar-3",
+  "pre_fork_chain_name": "secretnetworktestnet2",
   "bech32_prefix": "secret",
   "daemon_name": "secretd",
   "node_home": "$HOME/.secretd",
@@ -22,27 +23,25 @@
   },
   "codebase": {
     "git_repo": "https://github.com/scrtlabs/SecretNetwork",
-    "recommended_version": "v1.3.1",
+    "recommended_version": "v1.9.3",
     "binaries": {
-      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretnetwork_1.3.1_testnet_goleveldb_amd64.deb"
+      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.9.3/secretnetwork_1.9.3_testnet_goleveldb_amd64.deb"
     },
     "compatible_versions": [
-      "v1.3.0",
-      "v1.3.1"
+      "v1.9.3"
     ],
     "genesis": {
-      "genesis_url": "https://storage.googleapis.com/stakeordie-pulsar-2/genesis.json"
+      "genesis_url": "https://rpc.pulsar3.scrttestnet.com/genesis"
     },
     "versions": [
       {
-        "name": "v1.3.1",
-        "recommended_version": "v1.3.1",
+        "name": "v1.9.3",
+        "recommended_version": "v1.9.3",
         "compatible_versions": [
-          "v1.3.0",
-          "v1.3.1"
+          "v1.9.3"
         ],
         "binaries": {
-          "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretnetwork_1.3.1_testnet_goleveldb_amd64.deb"
+          "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.9.3/secretnetwork_1.9.3_testnet_goleveldb_amd64.deb"
         }
       }
     ]
@@ -50,18 +49,18 @@
   "peers": {
     "seeds": [
       {
-        "id": "7a421a6f5f1618f7b6fdfbe4854985746f85d263",
-        "address": "108.62.104.102:26656",
+        "id": "b5d1bb9194c6148367b64586d6bc0128866fc646",
+        "address": "212.7.211.39:26656",
         "provider": "Community"
       },
       {
-        "id": "a72e376dca664bac55e8ce55a2e972a8ae2c995e",
-        "address": "144.202.126.98:26656",
+        "id": "a3c9c415fe6b46babd16f000c7dbd4d94be6e450",
+        "address": "178.162.151.73:26656",
         "provider": "Community"
       },
       {
-        "id": "f95ba3da4a9eec559397f4b47b1539e24af6904c",
-        "address": "52.190.249.47:26656",
+        "id": "c088b57ebc7b2cfa2ec99e8b4ffef90bead96b47",
+        "address": "185.56.139.84:26656",
         "provider": "Community"
       }
     ]
@@ -78,10 +77,6 @@
       }
     ],
     "rest": [
-      {
-        "address": "http://testnet.securesecrets.org:1317",
-        "provider": "Trivium | Trivium.Network"
-      },
       {
         "address": "https://lcd.testnet.secretsaturn.net",
         "provider": "𝕊ecret 𝕊aturn"
@@ -103,11 +98,6 @@
     ]
   },
   "explorers": [
-    {
-      "kind": "secret nodes",
-      "url": "https://secretnodes.com/secret/chains/pulsar-2",
-      "tx_page": "https://secretnodes.com/secret/chains/pulsar-2/transactions/${txHash}"
-    },
     {
       "kind": "ping.pub",
       "url": "https://testnet.ping.pub/secret",
