@@ -402,6 +402,9 @@
       "items": {
         "type": "object",
         "properties": {
+          "image_sync": {
+            "$ref": "#/$defs/pointer"
+          },
           "png": {
             "type": "string",
             "format": "uri-reference",
@@ -630,6 +633,24 @@
       "properties": {
         "denom": {
           "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "pointer": {
+      "type": "object",
+      "description": "The (primary) key used to identify an object within the Chain Registry.",
+      "required": [
+        "chain_name"
+      ],
+      "properties": {
+        "chain_name": {
+          "type": "string",
+          "description": "The chain name or platform from which the object resides. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'"
+        },
+        "base_denom": {
+          "type": "string",
+          "description": "The base denom of the asset from which the object originates. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
         }
       },
       "additionalProperties": false
