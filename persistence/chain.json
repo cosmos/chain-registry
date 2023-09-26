@@ -32,29 +32,88 @@
       {
         "denom": "uxprt"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/persistenceOne/persistenceCore",
-    "recommended_version": "v7.0.0",
+    "recommended_version": "v9.1.1",
     "compatible_versions": [
-      "v7.0.0"
+      "v9.1.1"
     ],
+    "cosmos_sdk_version": "v0.47.x-lsm",
+    "ibc_go_version": "v7.2.0",
+    "ics_enabled": [
+      "ics20-1",
+      "ics27-1"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.2"
+    },
+    "cosmwasm_version": "v0.40.2",
+    "cosmwasm_enabled": true,
+    "cosmwasm_path": "$HOME/.persistenceCore/wasm",
     "binaries": {
-      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v7.0.0/persistenceCore-v7.0.0-linux-amd64.tar.gz"
+      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v9.1.1/persistenceCore-v9.1.1-linux-amd64.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/persistenceOne/genesisTransactions/master/core-1/final_genesis.json"
     },
     "versions": [
       {
-        "name": "v7.0.0",
+        "name": "v7",
+        "tag": "v7.0.0",
         "recommended_version": "v7.0.0",
         "compatible_versions": [
           "v7.0.0"
         ],
         "binaries": {
           "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v7.0.0/persistenceCore-v7.0.0-linux-amd64.tar.gz"
+        },
+        "next_version_name": "v8"
+      },
+      {
+        "name": "v8",
+        "tag": "v8.1.0",
+        "height": 13046600,
+        "proposal": 42,
+        "recommended_version": "v8.1.0",
+        "compatible_versions": [
+          "v8.1.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v8.1.0/persistenceCore-v8.1.0-linux-amd64.tar.gz"
+        },
+        "next_version_name": "v9"
+      },
+      {
+        "name": "v9",
+        "tag": "v9.1.1",
+        "height": 13160000,
+        "proposal": 43,
+        "recommended_version": "v9.1.1",
+        "compatible_versions": [
+          "v9.1.1",
+          "v9.1.0"
+        ],
+        "cosmos_sdk_version": "v0.47.x-lsm",
+        "ibc_go_version": "v7.2.0",
+        "ics_enabled": [
+          "ics20-1",
+          "ics27-1"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "cosmwasm_version": "v0.40.2",
+        "cosmwasm_enabled": true,
+        "cosmwasm_path": "$HOME/.persistenceCore/wasm",
+        "binaries": {
+          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v9.1.1/persistenceCore-v9.1.1-linux-amd64.tar.gz"
         }
       }
     ]
