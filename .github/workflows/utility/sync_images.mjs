@@ -41,7 +41,7 @@
 //           return
 //           (end recursive function)
 //               
-//  Step 3: Set logo_URIs to first image           
+//  Step 3: Set logo_URIs to first image in images array
 //
 //   iterate chains
 //     iterate assets
@@ -87,7 +87,7 @@ function createImagesArray(){
     if(imageContainingObject.hasUpdated){
       if(chainName == "lavatestnet") {
         //console.log(newImageContainingObject);
-        //chain_reg.setFileProperty(chainName, "chain", images, newImageContainingObject.images);
+        chain_reg.setFileProperty(chainName, "chain", images, newImageContainingObject.images);
       }
     }
 
@@ -115,7 +115,7 @@ function createImagesArray(){
 
     if(!logo_URIs && !images){
       newImageContainingObject = createOriginLink(imageContainingObject);
-      //chain_reg.setAssetProperty(assetPointer.chain_name, assetPointer.base_denom, images, newImageContainingObject.images);
+      chain_reg.setAssetProperty(assetPointer.chain_name, assetPointer.base_denom, images, newImageContainingObject.images);
     }
 
   });
