@@ -78,44 +78,47 @@ function createImagesArray(){
     let imageContainingObject = {
       chain_name: chainName,
       logo_URIs: logo_URIs,
-      images: images
+      images: images,
+      hasUpdated: false
     }
 
     //console.log(imageContainingObject);
     newImageContainingObject = compareImages(imageContainingObject);
 
-    if(imageContainingObject.hasUpdated){
-      if(chainName == "lavatestnet") {
-        //console.log(newImageContainingObject);
-        chain_reg.setFileProperty(chainName, "chain", images, newImageContainingObject.images);
-      }
+    if(newImageContainingObject.hasUpdated){
+      //console.log(newImageContainingObject);
+      chain_reg.setFileProperty(chainName, "chain", "images", newImageContainingObject.images);
     }
 
   });
 
   let assets = chain_reg.getAssetPointers();
   assets.forEach((assetPointer) => {
-    //console.log(assetPointer.base_denom);
+    console.log(assetPointer.base_denom);
 
     let logo_URIs = chain_reg.getAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "logo_URIs");
     //console.log(logo_URIs);
     let images = chain_reg.getAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images");
     //console.log(images);
 
-
     let imageContainingObject = {
       chain_name: assetPointer.chain_name,
       base_denom: assetPointer.base_denom,
       logo_URIs: logo_URIs,
-      images: images
+      images: images,
+      hasUpdated: false
     }
 
     //console.log(imageContainingObject);
-    compareImages(imageContainingObject);
+    newImageContainingObject = compareImages(imageContainingObject);
 
-    if(!logo_URIs && !images){
-      newImageContainingObject = createOriginLink(imageContainingObject);
-      chain_reg.setAssetProperty(assetPointer.chain_name, assetPointer.base_denom, images, newImageContainingObject.images);
+    //if(!logo_URIs && !images){
+      //newImageContainingObject = createOriginLink(imageContainingObject);
+    //}
+
+    console.log(newImageContainingObject)
+    if(newImageContainingObject.hasUpdated){
+      chain_reg.setAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images", newImageContainingObject.images);
     }
 
   });
@@ -131,7 +134,7 @@ function compareImages(imageContainingObject) {
         if(imageContainingObject.logo_URIs.png == image.png && 
            imageContainingObject.logo_URIs.svg == image.svg) {
           match = true;
-          return;
+          return newImageContainingObject;
         }
       });
       if(!match){
@@ -148,27 +151,33 @@ function compareImages(imageContainingObject) {
         svg: imageContainingObject.logo_URIs.svg
       }];
       newImageContainingObject.hasUpdated = true;
-      return newImageContainingObject;
+    }
+  } else {
+    if(!imageContainingObject.images && imageContainingObject.base_denom){
+      //console.log(imageContainingObject);
+      newImageContainingObject = createOriginLink(imageContainingObject);
     }
   }
+  return newImageContainingObject;
 }
 
 function createOriginLink(imageContainingObject){
   let newImageContainingObject = imageContainingObject;
-  newImageContainingObject.images = [];
   let traces = chain_reg.getAssetProperty(
                 imageContainingObject.chain_name,
                 imageContainingObject.base_denom,
                 "traces");
   if(traces){
-    newImageContainingObject.images.push({
-      image_sync: {
-        chain_name: traces[0].counterparty.chain_name,
-        base_denom: traces[0].counterparty.base_denom
+    newImageContainingObject.images = [
+      {
+        image_sync: {
+          chain_name: traces[0].counterparty.chain_name,
+          base_denom: traces[0].counterparty.base_denom
+        }
       }
-    });
+    ];
     newImageContainingObject.hasUpdated = true;
-    console.log(newImageContainingObject);
+    //console.log(newImageContainingObject);
   }
   return newImageContainingObject;
 }
