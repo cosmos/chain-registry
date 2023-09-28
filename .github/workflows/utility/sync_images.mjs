@@ -174,4 +174,10 @@ function createOriginLink(imageContainingObject){
   }
 }
 
-iterateFiles();
+function main(){
+  createImagesArray();
+  //pull from linked image
+  //add to logo_URIs
+}
+
+main()
