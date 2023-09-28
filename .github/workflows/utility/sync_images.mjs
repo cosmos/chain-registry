@@ -94,7 +94,7 @@ function createImagesArray(){
 
   let assets = chain_reg.getAssetPointers();
   assets.forEach((assetPointer) => {
-    console.log(assetPointer.base_denom);
+    //console.log(assetPointer.base_denom);
 
     let logo_URIs = chain_reg.getAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "logo_URIs");
     //console.log(logo_URIs);
@@ -116,7 +116,7 @@ function createImagesArray(){
       //newImageContainingObject = createOriginLink(imageContainingObject);
     //}
 
-    console.log(newImageContainingObject)
+    //console.log(newImageContainingObject)
     if(newImageContainingObject.hasUpdated){
       chain_reg.setAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images", newImageContainingObject.images);
     }
