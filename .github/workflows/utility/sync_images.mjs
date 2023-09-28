@@ -154,24 +154,23 @@ function compareImages(imageContainingObject) {
 }
 
 function createOriginLink(imageContainingObject){
+  let newImageContainingObject = imageContainingObject;
+  newImageContainingObject.images = [];
   let traces = chain_reg.getAssetProperty(
                 imageContainingObject.chain_name,
                 imageContainingObject.base_denom,
                 "traces");
   if(traces){
-    let newImageContainingObject = imageContainingObject;
-    newImageContainingObject.images = [
-      {
-        image_sync: {
-          chain_name: traces[0].counterparty.chain_name,
-          base_denom: traces[0].counterparty.base_denom
-        }
+    newImageContainingObject.images.push({
+      image_sync: {
+        chain_name: traces[0].counterparty.chain_name,
+        base_denom: traces[0].counterparty.base_denom
       }
-    ];
+    });
     newImageContainingObject.hasUpdated = true;
     console.log(newImageContainingObject);
-    return newImageContainingObject;
   }
+  return newImageContainingObject;
 }
 
 function main(){
