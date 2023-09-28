@@ -195,6 +195,38 @@
           }
         }
       ]
+    },
+    {
+      "description": "Native USDC on Migaloo",
+      "denom_units": [
+        {
+          "denom": "ibc/tbd",
+          "exponent": 0
+        },
+        {
+          "denom": "uusdc",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/tbd",
+      "name": "USDC",
+      "display": "usdc",
+      "symbol": "isdc",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-60"
+          },
+          "chain": {
+            "channel_id": "channel-14",
+            "path": "transfer/channel-14"
+          }
+        }
+      ]
     }
   ]
 }
