@@ -1,143 +1,147 @@
 {
-    "$schema": "../../chain.schema.json",
-    "chain_name": "lavatestnet",
-    "status": "live",
-    "network_type": "testnet",
-    "website": "https://www.lavanet.xyz/",
-    "pretty_name": "Lava",
-    "chain_id": "lava-testnet-2",
-    "bech32_prefix": "lava@",
-    "daemon_name": "lavad",
-    "node_home": "$HOME/.lava",
-    "key_algos": [
-      "secp256k1"
-    ],
-    "slip44": 118,
-    "fees": {
-      "fee_tokens": [
-        {
-          "denom": "ulava",
-          "fixed_min_gas_price": 0.000000001,
-          "low_gas_price": 0.000000001,
-          "average_gas_price": 0.000000001,
-          "high_gas_price": 0.000000001
-        }
-      ]
-    },
-    "staking": {
-      "staking_tokens": [
-        {
-          "denom": "ulava"
-        }
-      ],
-      "lock_duration": {
-        "time": "1209600s"
-      }
-    },
-    "codebase": {
-      "git_repo": "https://github.com/lavanet/lava",
-      "recommended_version": "v0.21.1.2",
-      "compatible_versions": [
-        "v0.21.1.2"
-      ],
-      "binaries": {
-        "linux/amd64": "https://github.com/lavanet/lava/releases/download/v0.21.1.2/lavad-v0.21.1.2-linux-amd64"
-      },
-      "cosmos_sdk_version": "0.47",
-      "consensus": {
-        "type": "tendermint",
-        "version": "0.34"
-      },
-      "cosmwasm_version": "0.30",
-      "cosmwasm_enabled": false,
-      "ibc_go_version": "v7.2.0",
-      "ics_enabled": [
-        "ics20-1"
-      ],
-      "genesis": {
-        "name": "v0.3.0",
-        "genesis_url": "https://raw.githubusercontent.com/lavanet/lava-config/main/testnet-2/genesis_json/genesis.json"
-      },
-      "versions": [
-        {
-          "name": "v0.21.1.2",
-          "tag": "v0.21.1.2",
-          "height": 340778,
-          "recommended_version": "v0.21.1.2",
-          "compatible_versions": [
-            "v0.21.1.2"
-          ],
-          "cosmos_sdk_version": "0.47",
-          "consensus": {
-            "type": "tendermint",
-            "version": "0.34"
-          },
-          "cosmwasm_enabled": false,
-          "ibc_go_version": "3.0.1",
-          "ics_enabled": [
-            "ics20-1"
-          ],
-          "binaries": {
-            "linux/amd64": "https://github.com/lavanet/lava/releases/download/v0.21.1.2/lavad-v0.21.1.2-linux-amd64"
-          }
-        }
-      ]
-    },
-    "images": [
+  "$schema": "../../chain.schema.json",
+  "chain_name": "lavatestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://www.lavanet.xyz/",
+  "pretty_name": "Lava",
+  "chain_id": "lava-testnet-2",
+  "bech32_prefix": "lava@",
+  "daemon_name": "lavad",
+  "node_home": "$HOME/.lava",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
       {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lava/images/lava-icon.png",
-        "theme": {
-          "primary_color_hex": "#D7001F"
-        }
+        "denom": "ulava",
+        "fixed_min_gas_price": 1e-9,
+        "low_gas_price": 1e-9,
+        "average_gas_price": 1e-9,
+        "high_gas_price": 1e-9
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ulava"
       }
     ],
-    "logo_URIs": {
+    "lock_duration": {
+      "time": "1209600s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/lavanet/lava",
+    "recommended_version": "v0.21.1.2",
+    "compatible_versions": [
+      "v0.21.1.2"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/lavanet/lava/releases/download/v0.21.1.2/lavad-v0.21.1.2-linux-amd64"
+    },
+    "cosmos_sdk_version": "0.47",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "cosmwasm_version": "0.30",
+    "cosmwasm_enabled": false,
+    "ibc_go_version": "v7.2.0",
+    "ics_enabled": [
+      "ics20-1"
+    ],
+    "genesis": {
+      "name": "v0.3.0",
+      "genesis_url": "https://raw.githubusercontent.com/lavanet/lava-config/main/testnet-2/genesis_json/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v0.21.1.2",
+        "tag": "v0.21.1.2",
+        "height": 340778,
+        "recommended_version": "v0.21.1.2",
+        "compatible_versions": [
+          "v0.21.1.2"
+        ],
+        "cosmos_sdk_version": "0.47",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_enabled": false,
+        "ibc_go_version": "3.0.1",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/lavanet/lava/releases/download/v0.21.1.2/lavad-v0.21.1.2-linux-amd64"
+        }
+      }
+    ]
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lava/images/lava-icon.png",
+      "theme": {
+        "primary_color_hex": "#D7001F"
+      }
+    },
+    {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lava/images/lava-icon.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lava/images/lava-icon.svg"
-    },
-    "peers": {
-      "seeds": [
-        {
-          "id": "3a445bfdbe2d0c8ee82461633aa3af31bc2b4dc0",
-          "address": "prod-pnet-seed-node.lavanet.xyz:26656",
-          "provider": "Lava"
-        },
-        {
-          "id": "e593c7a9ca61f5616119d6beb5bd8ef5dd28d62d",
-          "address": "prod-pnet-seed-node2.lavanet.xyz:26656",
-          "provider": "Lava"
-        },
-        {
-          "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
-          "address": "testnet-seeds.polkachu.com:19956",
-          "provider": "Polkachu"
-        }
-      ]
-    },
-    "apis": {
-      "rpc": [
-        {
-          "address": "https://https://public-rpc-testnet2.lavanet.xyz/",
-          "provider": "Lava"
-        }
-      ],
-      "rest": [
-        {
-          "address": "https://public-rpc-testnet2.lavanet.xyz/rest/",
-          "provider": "Lava"
-        }
-      ]
-    },
-    "explorers": [
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lava/images/lava-icon.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lava/images/lava-icon.svg"
+  },
+  "peers": {
+    "seeds": [
       {
-        "kind": "explorers.guru",
-        "url": "https://lava.explorers.guru/",
-        "tx_page": "https://lava.explorers.guru//transaction/${txHash}",
-        "account_page": "https://lava.explorers.guru//account/${accountAddress}"
+        "id": "3a445bfdbe2d0c8ee82461633aa3af31bc2b4dc0",
+        "address": "prod-pnet-seed-node.lavanet.xyz:26656",
+        "provider": "Lava"
+      },
+      {
+        "id": "e593c7a9ca61f5616119d6beb5bd8ef5dd28d62d",
+        "address": "prod-pnet-seed-node2.lavanet.xyz:26656",
+        "provider": "Lava"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "testnet-seeds.polkachu.com:19956",
+        "provider": "Polkachu"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://https://public-rpc-testnet2.lavanet.xyz/",
+        "provider": "Lava"
       }
     ],
-    "keywords": [
-      "rpc",
-      "api"
+    "rest": [
+      {
+        "address": "https://public-rpc-testnet2.lavanet.xyz/rest/",
+        "provider": "Lava"
+      }
     ]
-  }
+  },
+  "explorers": [
+    {
+      "kind": "explorers.guru",
+      "url": "https://lava.explorers.guru/",
+      "tx_page": "https://lava.explorers.guru//transaction/${txHash}",
+      "account_page": "https://lava.explorers.guru//account/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "rpc",
+    "api"
+  ]
+}
