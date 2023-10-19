@@ -36,13 +36,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/archway-network/archway",
-    "recommended_version": "v1.0.1",
+    "recommended_version": "v4.0.2",
     "compatible_versions": [
-      "v1.0.0", "v1.0.1"
+      "v4.0.2"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/archway-network/archway/releases/download/v1.0.1/archwayd_linux_amd64",
-      "linux/arm64": "https://github.com/archway-network/archway/releases/download/v1.0.1/archwayd_linux_arm64"
+      "linux/amd64": "https://github.com/archway-network/archway/releases/download/v4.0.2/archwayd_linux_amd64",
+      "linux/arm64": "https://github.com/archway-network/archway/releases/download/v4.0.2/archwayd_linux_arm64"
     },
     "cosmos_sdk_version": "v0.45.16",
     "consensus": {
@@ -60,7 +60,8 @@
         "name": "v1.0.0",
         "recommended_version": "v1.0.1",
         "compatible_versions": [
-          "v1.0.0", "v1.0.1"
+          "v1.0.0",
+          "v1.0.1"
         ],
         "tag": "v1.0.1",
         "height": 1,
@@ -76,7 +77,46 @@
         "binaries": {
           "linux/amd64": "https://github.com/archway-network/archway/releases/download/v1.0.1/archwayd_linux_amd64",
           "linux/arm64": "https://github.com/archway-network/archway/releases/download/v1.0.1/archwayd_linux_arm64"
-        }
+        },
+        "next_version_name": "v2.0.0"
+      },
+      {
+        "name": "v2.0.0",
+        "recommended_version": "v2.0.0",
+        "compatible_versions": [
+          "v2.0.0"
+        ],
+        "tag": "v2.0.0",
+        "proposal": 10,
+        "height": 525000,
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.27"
+        },
+        "cosmos_sdk_version": "v0.45.16",
+        "cosmwasm_version": "v0.32.0",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "v4.3.1",
+        "cosmwasm_path": "$HOME/.example/data/wasm",
+        "binaries": {
+          "linux/amd64": "https://github.com/archway-network/archway/releases/download/v2.0.0/archwayd_linux_amd64",
+          "linux/arm64": "https://github.com/archway-network/archway/releases/download/v2.0.0/archwayd_linux_arm64"
+        },
+        "next_version_name": "v4.0.2"
+      },
+      {
+        "name": "v4.0.2",
+        "recommended_version": "v4.0.2",
+        "compatible_versions": [
+          "v4.0.2"
+        ],
+        "proposal": 21,
+        "height": 1215711,
+        "binaries": {
+          "linux/amd64": "https://github.com/archway-network/archway/releases/download/v4.0.2/archwayd_linux_amd64",
+          "linux/arm64": "https://github.com/archway-network/archway/releases/download/v4.0.2/archwayd_linux_arm64"
+        },
+        "next_version_name": ""
       }
     ]
   },
@@ -110,6 +150,21 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:11556",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "b6c1198fa025ce24d26d90527c5d2b71f9399756",
+        "address": "seed-node.mms.team:34656",
+        "provider": "MMS"
+      },
+      {
+        "id": "6471ac9ff8474373e8055d45b6246fd8c5204890",
+        "address": "archway.seed.mzonder.com:10756",
+        "provider": "MZONDER"
+      },
+      {
+        "id": "261acb73f483d1cace653cb54f7b8815f63b7e56",
+        "address": "archway.lgns.net:26656",
+        "provider": "Luganodes"
       }
     ],
     "persistent_peers": [
@@ -117,6 +172,16 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "archway-mainnet-peer.autostake.com:26946",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "a477bfcef79f283d82e531ec1a6717677c8caf59",
+        "address": "peer-archway.mms.team:56108",
+        "provider": "MMS"
+      },
+      {
+        "id": "218eed47b5472642034e81fdf408dec8b79dcba7",
+        "address": "88.99.208.54:31656",
+        "provider": "StakeTown"
       }
     ]
   },
@@ -167,6 +232,10 @@
         "provider": "Stake-Take"
       },
       {
+        "address": "https://archway-rpc.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
         "address": "https://archway-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
@@ -177,12 +246,32 @@
       {
         "address": "https://archway-rpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc-archway.mms.team",
+        "provider": "MMS"
+      },
+      {
+        "address": "https://rpc-archway.mzonder.com",
+        "provider": "MZONDER"
+      },
+      {
+        "address": "https://rpc.archway.lgns.net",
+        "provider": "Luganodes"
+      },
+      {
+        "address": "https://archway-rpc.stake-town.com:443",
+        "provider": "StakeTown"
       }
     ],
     "rest": [
       {
         "address": "https://api.mainnet.archway.io",
         "provider": "Archway Foundation"
+      },
+      {
+        "address": "https://archway-api.w3coins.io",
+        "provider": "w3coins"
       },
       {
         "address": "https://m-archway.api.utsa.tech",
@@ -235,6 +324,22 @@
       {
         "address": "https://archway-api.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://api-archway.mms.team",
+        "provider": "MMS"
+      },
+      {
+        "address": "https://api-archway.mzonder.com",
+        "provider": "MZONDER"
+      },
+      {
+        "address": "https://rest.archway.lgns.net",
+        "provider": "Luganodes"
+      },
+      {
+        "address": "https://archway-api.stake-town.com:443",
+        "provider": "StakeTown"
       }
     ],
     "grpc": [
@@ -249,6 +354,10 @@
       {
         "address": "grpc-1.archway.nodes.guru:10690",
         "provider": "Nodes.Guru"
+      },
+      {
+        "address": "archway-grpc.w3coins.io:11590",
+        "provider": "w3coins"
       },
       {
         "address": "archway.grpc.kjnodes.com:15690",
@@ -273,6 +382,22 @@
       {
         "address": "https://archway-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "grpc-archway.mms.team:443",
+        "provider": "MMS"
+      },
+      {
+        "address": "grpc-archway.mzonder.com:443",
+        "provider": "MZONDER"
+      },
+      {
+        "address": "grpc.archway.lgns.net:443",
+        "provider": "Luganodes"
+      },
+      {
+        "address": "archway-grpc.stake-town.com:443",
+        "provider": "StakeTown"
       }
     ]
   },
@@ -292,8 +417,8 @@
     {
       "kind": "Mintscan",
       "url": "https://mintscan.io/archway/",
-      "tx_page": "https://mintscan.io/archway/txs/${txHash}",
-      "account_page": "https://mintscan.io/archway/account/${accountAddress}"
+      "tx_page": "https://mintscan.io/archway/transactions/${txHash}",
+      "account_page": "https://mintscan.io/archway/accounts/${accountAddress}"
     },
     {
       "kind": "Silk Nodes",
@@ -317,6 +442,12 @@
       "kind": "ping.pub",
       "url": "https://ping.pub/archway",
       "tx_page": "https://ping.pub/archway/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.svg"
     }
   ]
 }
