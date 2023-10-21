@@ -12,9 +12,6 @@
     "secp256k1"
   ],
   "slip44": 118,
-  "alternative_slip44s": [
-    566
-  ],
   "fees": {
     "fee_tokens": [
       {
@@ -34,9 +31,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/irisnet/irishub",
-    "recommended_version": "v1.4.1",
+    "recommended_version": "v2.0.3",
     "compatible_versions": [
-      "v1.4.1"
+      "v2.0.3"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/irisnet/mainnet/master/config/genesis.json"
@@ -52,9 +49,18 @@
       },
       {
         "name": "v1.4.1",
+        "next_version_name": "v2.0.0",
         "recommended_version": "v1.4.1",
         "compatible_versions": [
           "v1.4.1"
+        ]
+      },
+      {
+        "name": "v2.0.0",
+        "next_version_name": "v2.1.0",
+        "recommended_version": "v2.0.3",
+        "compatible_versions": [
+          "v2.0.3"
         ]
       }
     ]
@@ -136,6 +142,10 @@
       {
         "address": "https://iris.rpc.kjnodes.com",
         "provider": "kjnodes"
+      },
+      {
+        "address": "https://rpc-irisnet.nodeist.net",
+        "provider": "Nodeist"
       }
     ],
     "rest": [
@@ -166,6 +176,10 @@
       {
         "address": "https://iris.api.kjnodes.com",
         "provider": "kjnodes"
+      },
+      {
+        "address": "https://api-irisnet.nodeist.net",
+        "provider": "Nodeist"
       }
     ],
     "grpc": [
@@ -188,6 +202,10 @@
       {
         "address": "iris.grpc.kjnodes.com:443",
         "provider": "kjnodes"
+      },
+      {
+        "address": "https://grpc-irisnet.nodeist.net",
+        "provider": "Nodeist"
       }
     ],
     "evm-http-jsonrpc": [
@@ -225,6 +243,11 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/irisnet",
       "account_page": "https://stakeflow.io/irisnet/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Nodeist Explorer",
+      "url": "https://exp.nodeist.net/iris",
+      "tx_page": "https://exp.nodeist.net/iris/tx/${txHash}"
     }
   ],
   "images": [
