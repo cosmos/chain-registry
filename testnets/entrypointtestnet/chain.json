@@ -1,0 +1,102 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "entrypointtestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "EntryPoint Testnet",
+  "chain_id": "entrypoint-pubtest-1",
+  "bech32_prefix": "entrypoint",
+  "daemon_name": "entrypointd",
+  "node_home": "$HOME/.entrypointd",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ibc/E774302AE43D5FA03522C42B14823288E7DD1B2F54F85DFD3D6FC3E5FCF54645",
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.01,
+        "high_gas_price": 0.02
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uentry"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/entrypoint-zone/testnets",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "cosmos_sdk_version": "0.47.4",
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.37.2"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/entrypoint-zone/testnets/blob/2c4490fcce0f9f32d579e2581e592f5c320e5c14/entrypoint-pubtest-1/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.0.0",
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ],
+        "cosmos_sdk_version": "0.47.4",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.2"
+        }
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://testnet-rest.entrypoint.zone",
+        "provider": "Simply Staking"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://testnet-rpc.entrypoint.zone",
+        "provider": "Simply Staking"
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/entrypointtestnet/images/entrypoint-chain-logo.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/entrypointtestnet/images/entrypoint-chain-logo.svg"
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer.entrypoint.zone/entrypoint",
+      "tx_page": "https://explorer.entrypoint.zone/entrypoint/tx/${txHash}",
+      "account_page": "https://explorer.entrypoint.zone/entrypoint/account/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://testnet.ping.pub/entrypoint",
+      "tx_page": "https://testnet.ping.pub/entrypoint/tx/${txHash}",
+      "account_page": "https://testnet.ping.pub/entrypoint/account/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "testnet"
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/entrypointtestnet/images/entrypoint-chain-logo.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/entrypointtestnet/images/entrypoint-chain-logo.svg"
+    }
+  ]
+}
