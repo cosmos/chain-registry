@@ -61,5 +61,7 @@ def test_existstsOnChainReg(input):
     chain1 = m.group(1).lower()
     chain2 = m.group(2).lower()
     non_cosmos = join('_non-cosmos')
-    assert ((isdir(join(getcwd(),chain1)) or isdir(join(getcwd(),non_cosmos,chain1)) or isdir(join(getcwd(),testnets,chain1))) and
-        (isdir(join(getcwd(),chain2)) or isdir(join(getcwd(),non_cosmos,chain2)) or isdir(join(getcwd(),testnets,chain1)))
+    testnets = join('testnets')
+    nc_testnets = join('testnets','_non-cosmos')
+    assert ((isdir(join(getcwd(),chain1)) or isdir(join(getcwd(),non_cosmos,chain1)) or isdir(join(getcwd(),testnets,chain1)) or isdir(join(getcwd(),nc_testnets,chain1))) and
+        (isdir(join(getcwd(),chain2)) or isdir(join(getcwd(),non_cosmos,chain2)) or isdir(join(getcwd(),testnets,chain1)) or isdir(join(getcwd(),nc_testnets,chain2))))
