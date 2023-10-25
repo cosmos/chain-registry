@@ -5,8 +5,11 @@ from os.path import isfile, isdir, join
 
 import pytest
 
-mypath = join(getcwd(),"_IBC")
-ibcData_files = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+mypathMainnets = join(getcwd(),"_IBC")
+mypathTestnets = join(getcwd(),"testnets","_IBC")
+ibcData_files_mainnet = [f for f in listdir(mypathMainnets) if isfile(join(mypathMainnets, f))]
+ibcData_files_testnet = [f for f in listdir(mypathTestnets) if isfile(join(mypathTestnets, f))]
+ibcData_files = ibcData_files_mainnet + ibcData_files_testnet
 
 @pytest.mark.parametrize("input", ibcData_files)
 def test_fileName(input):
