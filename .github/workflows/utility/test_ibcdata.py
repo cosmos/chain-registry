@@ -27,14 +27,27 @@ def test_alphabeticalOrder(input):
     toSort.sort(key=str.lower)
     assert (m.group(1) == toSort[0]) and (m.group(2) == toSort[1])
 
-@pytest.mark.parametrize("input", ibcData_files)
-def test_chainNameMatchFileName(input):
-    # validates that the chain-name for chain-1 and chain-2 inside the json file match the order used in the file name.
+@pytest.mark.parametrize("input", ibcData_files_mainnet)
+def test_chainNameMatchFileNameMainnets(input):
+    # validates for mainnet connections that the chain-name for chain-1 and chain-2 inside the json file match the order used in the file name.
     pattern = re.compile(r'(.*)-(.*).json$')
     m = pattern.match(input)
     fileName_chain1 = m.group(1).lower()
     fileName_chain2 = m.group(2).lower()
-    with open(join(mypath,input), "r") as read_file:
+    with open(join(mypathMainnets,input), "r") as read_file:
+        json_file = json.load(read_file)
+        chain_1 = str(json_file["chain_1"]["chain_name"]).lower()
+        chain_2 = str(json_file["chain_2"]["chain_name"]).lower()
+    assert fileName_chain1 == chain_1 and fileName_chain2 == chain_2
+
+@pytest.mark.parametrize("input", ibcData_files_testnet)
+def test_chainNameMatchFileNameTestnets(input):
+    # validates for testnet connections that the chain-name for chain-1 and chain-2 inside the json file match the order used in the file name.
+    pattern = re.compile(r'(.*)-(.*).json$')
+    m = pattern.match(input)
+    fileName_chain1 = m.group(1).lower()
+    fileName_chain2 = m.group(2).lower()
+    with open(join(mypathTestnets,input), "r") as read_file:
         json_file = json.load(read_file)
         chain_1 = str(json_file["chain_1"]["chain_name"]).lower()
         chain_2 = str(json_file["chain_2"]["chain_name"]).lower()
@@ -48,5 +61,5 @@ def test_existstsOnChainReg(input):
     chain1 = m.group(1).lower()
     chain2 = m.group(2).lower()
     non_cosmos = join('_non-cosmos')
-    assert ((isdir(join(getcwd(),chain1)) or isdir(join(getcwd(),non_cosmos,chain1))) and
-        (isdir(join(getcwd(),chain2)) or isdir(join(getcwd(),non_cosmos,chain2))))
+    assert ((isdir(join(getcwd(),chain1)) or isdir(join(getcwd(),non_cosmos,chain1)) or isdir(join(getcwd(),testnets,chain1))) and
+        (isdir(join(getcwd(),chain2)) or isdir(join(getcwd(),non_cosmos,chain2)) or isdir(join(getcwd(),testnets,chain1)))
