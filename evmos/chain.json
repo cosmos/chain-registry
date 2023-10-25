@@ -36,23 +36,23 @@
   },
   "codebase": {
     "git_repo": "https://github.com/evmos/evmos",
-    "recommended_version": "v13.0.2",
+    "recommended_version": "v14.0.0",
     "compatible_versions": [
-      "v13.0.2"
+      "v14.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v13.0.2/evmos_13.0.2_Linux_amd64.tar.gz",
-      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v13.0.2/evmos_13.0.2_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v13.0.2/evmos_13.0.2_Darwin_amd64.tar.gz",
-      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v13.0.2/evmos_13.0.2_Darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v13.0.2/evmos_13.0.2_Windows_amd64.zip"
+      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v14.0.0/evmos_14.0.0_Linux_amd64.tar.gz",
+      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v14.0.0/evmos_14.0.0_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v14.0.0/evmos_14.0.0_Darwin_amd64.tar.gz",
+      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v14.0.0/evmos_14.0.0_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v14.0.0/evmos_14.0.0_Windows_amd64.zip"
     },
-    "cosmos_sdk_version": "0.46",
+    "cosmos_sdk_version": "v0.47.4-evmos.2",
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
+      "type": "cometbft",
+      "version": "0.37.2"
     },
-    "ibc_go_version": "6.1.0",
+    "ibc_go_version": "7.3.0",
     "genesis": {
       "genesis_url": "https://archive.evmos.org/mainnet/genesis.json"
     },
@@ -106,6 +106,30 @@
           "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v13.0.2/evmos_13.0.2_Darwin_amd64.tar.gz",
           "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v13.0.2/evmos_13.0.2_Darwin_arm64.tar.gz",
           "windows/amd64": "https://github.com/evmos/evmos/releases/download/v13.0.2/evmos_13.0.2_Windows_amd64.zip"
+        },
+        "next_version_name": "v14.0.0"
+      },
+      {
+        "name": "v14.0.0",
+        "tag": "v14.0.0",
+        "proposal": 196,
+        "height": 16105000,
+        "recommended_version": "v14.0.0",
+        "compatible_versions": [
+          "v14.0.0"
+        ],
+        "cosmos_sdk_version": "v0.47.4-evmos.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "ibc_go_version": "v7.3.0",
+        "binaries": {
+          "linux/amd64": "https://github.com/evmos/evmos/releases/download/v14.0.0/evmos_14.0.0_Linux_amd64.tar.gz",
+          "linux/arm64": "https://github.com/evmos/evmos/releases/download/v14.0.0/evmos_14.0.0_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v14.0.0/evmos_14.0.0_Darwin_amd64.tar.gz",
+          "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v14.0.0/evmos_14.0.0_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/evmos/evmos/releases/download/v14.0.0/evmos_14.0.0_Windows_amd64.zip"
         },
         "next_version_name": ""
       }
@@ -223,15 +247,16 @@
         "id": "d3c8c2ecd3cf0d05cc49ff12b81c52b3ec9675a5",
         "address": "peer-evmos.mms.team:26656",
         "provider": "MMS"
+      },
+      {
+        "id": "c8e2800e5743a1575fd8a0fcbb7a74c6f67a23a9",
+        "address": "88.99.208.54:40656",
+        "provider": "StakeTown"
       }
     ]
   },
   "apis": {
     "rpc": [
-      {
-        "address": "https://evmos.kingnodes.com",
-        "provider": "kingnodes"
-      },
       {
         "address": "https://rpc-evmos.ecostake.com",
         "provider": "ecostake"
@@ -339,13 +364,21 @@
       {
         "address": "https://rpc-evmos.mms.team",
         "provider": "MMS"
+      },
+      {
+        "address": "https://evmos-rpc.stake-town.com:443",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "https://evmos.rpc.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://evmos-rpc.antrixy.org/",
+        "provider": "Antrix Validators"
       }
     ],
     "rest": [
-      {
-        "address": "https://evmos.kingnodes.com",
-        "provider": "kingnodes"
-      },
       {
         "address": "https://lcd-evmos.whispernode.com:443",
         "provider": "WhisperNode🤐"
@@ -441,13 +474,21 @@
       {
         "address": "https://api-evmos.mms.team",
         "provider": "MMS"
+      },
+      {
+        "address": "https://evmos-api.stake-town.com:443",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "https://evmos.api.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://evmos-rest.antrixy.org/",
+        "provider": "Antrix Validators"
       }
     ],
     "grpc": [
-      {
-        "address": "grpc-evmos.kingnodes.com:443",
-        "provider": "kingnodes"
-      },
       {
         "address": "grpc.bd.evmos.org:9090",
         "provider": "evmos.org"
@@ -507,6 +548,18 @@
       {
         "address": "grpc-evmos.mms.team:443",
         "provider": "MMS"
+      },
+      {
+        "address": "evmos-grpc.stake-town.com:443",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "evmos.grpc.liveraven.net:443",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://evmos-grpc.antrixy.org/",
+        "provider": "Antrix Validators"
       }
     ],
     "evm-http-jsonrpc": [
@@ -551,12 +604,24 @@
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
       },
       {
-       "address": "https://evmos-jsonrpc.theamsolutions.info",
+        "address": "https://evmos-jsonrpc.theamsolutions.info",
         "provider": "AM Solutions"
       },
       {
-       "address": "https://jsonrpc-evmos.mms.team",
+        "address": "https://jsonrpc-evmos.mms.team",
         "provider": "MMS"
+      },
+      {
+        "address": "https://evmos-jsonrpc.stake-town.com:443",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "https://evmos.jsonrpc.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://evmos.json.antrixy.org",
+        "provider": "Antrix Validators"
       }
     ]
   },
@@ -609,6 +674,12 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/evmos",
       "account_page": "https://stakeflow.io/evmos/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.svg"
     }
   ]
 }
