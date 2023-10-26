@@ -13,7 +13,11 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "uaura"
+        "denom": "uaura",
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.02,
+        "high_gas_price": 0.025
       }
     ]
   },
@@ -22,13 +26,16 @@
       {
         "denom": "uaura"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1209600s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/aura-nw/aura",
-    "recommended_version": "aura_v0.4.4",
+    "recommended_version": "aura_v0.4.5",
     "compatible_versions": [
-      "aura_v0.4.4"
+      "aura_v0.4.5"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/aura-nw/mainnet-artifacts/main/xstaxy-1/genesis.json"
@@ -39,7 +46,18 @@
         "recommended_version": "aura_v0.4.4",
         "compatible_versions": [
           "aura_v0.4.4"
-        ]
+        ],
+        "next_version_name": "v0.4.5"
+      },
+      {
+        "name": "v0.4.5",
+        "proposal": 4,
+        "height": 1292226,
+        "recommended_version": "aura_v0.4.5",
+        "compatible_versions": [
+          "aura_v0.4.5"
+        ],
+        "next_version_name": ""
       }
     ]
   },
@@ -76,6 +94,11 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:21756",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "d05e3f406ed2275ec86957c5983a27768350ac47",
+        "address": "seed-node.mms.team:26656",
+        "provider": "MMS"
       }
     ],
     "persistent_peers": [
@@ -108,6 +131,16 @@
         "id": "07317346ab58eb4de14fe8c7705863002186d340",
         "address": "142.132.201.53:36656",
         "provider": "Stake-Take"
+      },
+      {
+        "id": "da9f07269cac08619190dbce8b0978556315b359",
+        "address": "p2p.aura.safeblock.space:26656",
+        "provider": "Safe Block"
+      },
+      {
+        "id": "bdd32536c902de9b240a36f0b23641233a080351",
+        "address": "peer-aura.mms.team:27656",
+        "provider": "MMS"
       }
     ]
   },
@@ -172,6 +205,14 @@
       {
         "address": "https://rpc.aura.silentvalidator.com",
         "provider": "silent"
+      },
+      {
+        "address": "https://aura-rpc.sergo.dev",
+        "provider": "SerGo"
+      },
+      {
+        "address": "https://rpc-aura.mms.team",
+        "provider": "MMS"
       }
     ],
     "rest": [
@@ -234,6 +275,14 @@
       {
         "address": "https://api.aura.silentvalidator.com",
         "provider": "silent"
+      },
+      {
+        "address": "https://aura-api.sergo.dev",
+        "provider": "SerGo"
+      },
+      {
+        "address": "https://api-aura.mms.team",
+        "provider": "MMS"
       }
     ],
     "grpc": [
@@ -261,7 +310,7 @@
         "address": "aura.grpc.kjnodes.com:11790",
         "provider": "kjnodes"
       },
-       {
+      {
         "address": "aura-grpc.tienthuattoan.ventures:9090",
         "provider": "TienThuatToan"
       },
@@ -276,6 +325,10 @@
       {
         "address": "grpc.aura.silentvalidator.com:443",
         "provider": "silent"
+      },
+      {
+        "address": "grpc-aura.mms.team:443",
+        "provider": "MMS"
       }
     ]
   },
@@ -315,6 +368,18 @@
       "url": "https://explorer.stake-take.com/aura",
       "tx_page": "https://explorer.stake-take.com/aura/tx/${txHash}",
       "account_page": "https://explorer.stake-take.com/aura/account/${accountAddress}"
+    },
+    {
+      "kind": "Safe Block",
+      "url": "https://explorer.safeblock.space/aura",
+      "tx_page": "https://explorer.safeblock.space/aura/tx/${txHash}",
+      "account_page": "https://explorer.safeblock.space/aura/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/aura/images/Aura-logo-2.2.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/aura/images/Aura-logo-2.2.svg"
     }
   ]
 }

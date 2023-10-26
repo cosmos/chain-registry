@@ -4,41 +4,76 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Terp-Network",
-  "chain_id": "athena-4",
+  "chain_id": "90u-2",
   "bech32_prefix": "terp",
-  "daemon_name": "terp",
+  "daemon_name": "terpd",
   "node_home": "$HOME/.terp",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uthiolx",
+        "fixed_min_gas_price": 0.075,
+        "low_gas_price": 0.075,
+        "average_gas_price": 0.1,
+        "high_gas_price": 0.125
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uterpx"
+      }
+    ]
+  },
+  
   "codebase": {
     "git_repo": "github.com/terpnetwork/terp-core.git",
-    "recommended_version": "v0.4.0",
+    "recommended_version": "v2.0.0",
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34.24"
+      "type": "cometbft",
+      "version": "v0.37.2"
     },
     "compatible_versions": [
-      "v0.4.0",
-      "v0.4.0-1-g8ef7c32"
+      "v2.0.0"
     ],
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/terpnetwork/test-net/master/athena-4/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/terpnetwork/test-net/master/90u-2/genesis.json"
     },
     "binaries": {
-      "linux/amd64": "https://github.com/terpnetwork/terp-core/archive/refs/tags/v0.4.0.tar.gz"
+      "linux/amd64": "https://github.com/terpnetwork/terp-core/releases/download/v2.0.0/terpd-v2.0.0-linux-amd64"
     },
     "versions": [
       {
-        "name": "v0.4.0",
-        "recommended_version": "v0.4.0",
+        "name": "v2.0.0",
+        "recommended_version": "v2.0.0",
         "compatible_versions": [
-          "v0.4.0",
-          "v0.4.0-1-g8ef7c32"
+          "v2.0.0"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/terpnetwork/terp-core/releases/download/v2.0.0/terpd-v2.0.0-linux-amd64"
+        }
+      },
+      {
+        "name": "barberry",
+        "recommended_version": "barberry",
+        "compatible_versions": [
+          "barberry"
         ],
         "consensus": {
           "type": "tendermint",
           "version": "0.34.24"
         },
         "binaries": {
-          "linux/amd64": "https://github.com/terpnetwork/terp-core/archive/refs/tags/v0.4.0.tar.gz"
+          "linux/amd64": "https://github.com/terpnetwork/terp-core/archive/refs/tags/barberry.tar.gz"
         }
       }
     ]
@@ -59,57 +94,32 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-terp.zenchainlabs.io/"
-      },
-      {
-        "address": "https://terp-testnet.nodejumper.io:443/"
-      },
-      {
-        "address": "https://terp-testnet.rpc.kjnodes.com:443/"
-      },
-      {
-        "address": "https://rpc-t.terp.nodestake.top:443/"
-      },
-      {
-        "address": "https://rpc.terp.nodexcapital.com:443/"
-      },
-      {
-        "address": "https://terp.rpc.yeksin.net:443/"
-      },
-      {
-        "address": "https://terp-test-rpc.theamsolutions.info:443/"
+        "address": "https://terp-testnet-rpc.itrocket.net:443/"
       }
     ],
     "rest": [
       {
-        "address": "https://api-terp.zenchainlabs.io/",
-        "provider": "Zenchainlabs"
-      },
-      {
-        "address": "https://api-t.terp.nodestake.top/",
-        "provider": "NodeJumper.io"
-      },
-      {
-        "address": "https://api.terp-test.theamsolutions.info:443/"
+        "address": "https://terp-testnet-api.itrocket.net:443/"
       }
     ],
     "grpc": [
       {
-        "address": "grpc-t.terp.nodestake.top/",
-        "provider": "nodestake"
+        "address": "terp-testnet-grpc.itrocket.net/",
+        "provider": "itrocket"
       }
     ]
   },
   "explorers": [
     {
       "kind": "Ping Pub",
-      "url": "https://explorer.kjnodes.com/terp-test",
-      "tx_page": "https://explorer.kjnodes.com/terp-test/tx/${txHash}"
-    },
-    {
-      "kind": "Ping Pub",
       "url": "https://explorer.nodestake.top/terp-testnet",
       "tx_page": "https://explorer.nodestake.top/terp-testnet/tx/${txHash}"
+    },
+    {
+      "kind": "NODEXPLORER",
+      "url": "https://explorer.nodexcapital.com",
+      "tx_page": "https://explorer.nodexcapital.com/terp/tx/${txHash}",
+      "account_page": "https://explorer.nodexcapital.com/terp/account/{$accountAddress}"
     }
   ]
 }

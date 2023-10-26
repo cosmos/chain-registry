@@ -1,0 +1,135 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "dydx",
+  "status": "live",
+  "website": "https://dydx.exchange/",
+  "network_type": "mainnet",
+  "pretty_name": "dYdX Protocol",
+  "chain_id": "dydx-mainnet-1",
+  "bech32_prefix": "dydx",
+  "daemon_name": "dydxprotocold",
+  "node_home": "$HOME/.dydxprotocol",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "adydx",
+        "fixed_min_gas_price": 12500000000
+      },
+      {
+        "denom": "ibc/8E27BA2D5493AF5636760E354E46004562C46AB7EC0CC4C1CA14E9E20E2545B5",
+        "fixed_min_gas_price": 0.025
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "adydx"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/dydxprotocol/v4-chain/",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "cosmos_sdk_version": "v0.47.4",
+    "cosmwasm_enabled": false,
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/dydxopsdao/networks/main/dydx-mainnet-1/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1",
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ],
+        "cosmos_sdk_version": "v0.47.4"
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx.svg"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:23856",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "dydx-mainnet-seed.autostake.com:27366",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "65b740ee326c9260c30af1f044e9cda63c73f7c1",
+        "address": "seeds.kingnodes.net:23856",
+        "provider": "Kingnodes"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "dydx-mainnet-peer.autostake.com:27366",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://dydx-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://dydx-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://rpc-dydx.ecostake.com:443",
+        "provider": "ecostake"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://dydx-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://dydx-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://rest-dydx.ecostake.com:443",
+        "provider": "ecostake"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://dydx-grpc.lavenderfive.com",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "dydx-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/dydx",
+      "tx_page": "https://www.mintscan.io/dydx/txs/${txHash}",
+      "account_page": "https://www.mintscan.io/dydx/account/${accountAddress}"
+    }
+  ]
+}

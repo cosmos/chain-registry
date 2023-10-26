@@ -8,7 +8,7 @@
   "network_type": "mainnet",
   "bech32_prefix": "noble",
   "daemon_name": "nobled",
-  "node_home": "$HOME/.nobled",
+  "node_home": "$HOME/.noble",
   "key_algos": [
     "secp256k1"
   ],
@@ -24,10 +24,10 @@
       },
       {
         "denom": "ibc/EF48E6B1A1A19F47ECAEA62F5670C37C0580E86A9E88498B7E393EB6F49F33C0",
-        "fixed_min_gas_price": 0.00000,
-        "low_gas_price": 0.00000,
-        "average_gas_price": 0.00200,
-        "high_gas_price": 0.00300
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0.002,
+        "high_gas_price": 0.003
       }
     ]
   },
@@ -43,14 +43,14 @@
   },
   "codebase": {
     "git_repo": "https://github.com/strangelove-ventures/noble",
-    "recommended_version": "v1.0.0",
+    "recommended_version": "v3.1.0",
     "compatible_versions": [
-      "v1.0.0"
+      "v3.1.0"
     ],
-    "cosmos_sdk_version": "v0.45",
+    "cosmos_sdk_version": "v0.45.15",
     "consensus": {
-      "type": "tendermint",
-      "version": "v0.34"
+      "type": "cometbft",
+      "version": "v0.34.27"
     },
     "cosmwasm_enabled": false,
     "ibc_go_version": "v3.4.0",
@@ -81,7 +81,6 @@
           "ics20-1"
         ],
         "next_version_name": "neon"
-
       },
       {
         "name": "neon",
@@ -100,7 +99,48 @@
         "ibc_go_version": "v3.4.0",
         "ics_enabled": [
           "ics20-1"
-        ]
+        ],
+        "next_version_name": "radon"
+      },
+      {
+        "name": "radon",
+        "tag": "v3.0.0",
+        "height": 1296000,
+        "recommended_version": "v3.0.0",
+        "compatible_versions": [
+          "v3.0.0"
+        ],
+        "cosmos_sdk_version": "v0.45.15",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.27"
+        },
+        "cosmwasm_enabled": false,
+        "ibc_go_version": "v3.4.0",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "next_version_name": "v3.1.0"
+      },
+      {
+        "name": "v3.1.0",
+        "tag": "v3.1.0",
+        "height": 2672000,
+        "recommended_version": "v3.1.0",
+        "compatible_versions": [
+          "v3.1.0"
+        ],
+        "cosmos_sdk_version": "v0.45.15",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.27"
+        },
+        "cosmwasm_enabled": false,
+        "ibc_go_version": "v3.4.0",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "next_version_name": ""
       }
     ]
   },
@@ -144,6 +184,12 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/noble",
       "account_page": "https://stakeflow.io/noble/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/stake.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/Noble-Logo.svg"
     }
   ]
 }
