@@ -12,9 +12,6 @@
     "secp256k1"
   ],
   "slip44": 118,
-  "alternative_slip44s": [
-    566
-  ],
   "fees": {
     "fee_tokens": [
       {
@@ -34,9 +31,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/irisnet/irishub",
-    "recommended_version": "v1.4.1",
+    "recommended_version": "v2.0.3",
     "compatible_versions": [
-      "v1.4.1"
+      "v2.0.3"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/irisnet/mainnet/master/config/genesis.json"
@@ -52,9 +49,18 @@
       },
       {
         "name": "v1.4.1",
+        "next_version_name": "v2.0.0",
         "recommended_version": "v1.4.1",
         "compatible_versions": [
           "v1.4.1"
+        ]
+      },
+      {
+        "name": "v2.0.0",
+        "next_version_name": "v2.1.0",
+        "recommended_version": "v2.0.3",
+        "compatible_versions": [
+          "v2.0.3"
         ]
       }
     ]
@@ -104,6 +110,11 @@
         "id": "445b38a181d147c243185d94567412e5c5f1a22c",
         "address": "peer-irisnet-01.stakeflow.io:1906",
         "provider": "Stakeflow"
+      },
+      {
+        "id": "3ddf22082bda8607289bd94b649e0e2595f1fffd",
+        "address": "iris-mainnet.peers.l0vd.com:19656",
+        "provider": "L0vd.com ❤️"
       }
     ]
   },
@@ -136,6 +147,14 @@
       {
         "address": "https://iris.rpc.kjnodes.com",
         "provider": "kjnodes"
+      },
+      {
+        "address": "https://rpc-irisnet.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://iris-mainnet.rpc.l0vd.com:443",
+        "provider": "L0vd.com ❤️"
       }
     ],
     "rest": [
@@ -166,6 +185,14 @@
       {
         "address": "https://iris.api.kjnodes.com",
         "provider": "kjnodes"
+      },
+      {
+        "address": "https://api-irisnet.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://iris-mainnet.api.l0vd.com:443",
+        "provider": "L0vd.com ❤️"
       }
     ],
     "grpc": [
@@ -188,6 +215,14 @@
       {
         "address": "iris.grpc.kjnodes.com:443",
         "provider": "kjnodes"
+      },
+      {
+        "address": "https://grpc-irisnet.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "iris-mainnet.grpc.l0vd.com:80",
+        "provider": "L0vd.com ❤️"
       }
     ],
     "evm-http-jsonrpc": [
@@ -225,6 +260,16 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/irisnet",
       "account_page": "https://stakeflow.io/irisnet/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Nodeist Explorer",
+      "url": "https://exp.nodeist.net/iris",
+      "tx_page": "https://exp.nodeist.net/iris/tx/${txHash}"
+    },
+    {
+      "kind": "L0vd.com ❤️",
+      "url": "https://explorers.l0vd.com/iris-mainnet",
+      "tx_page": "https://explorers.l0vd.com/iris-mainnet/tx/${txHash}"
     }
   ],
   "images": [

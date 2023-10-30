@@ -182,10 +182,112 @@ function createOriginLink(imageContainingObject){
   return newImageContainingObject;
 }
 
+
+function getLinkedImages(){
+
+//   get list of chains, iterate each chain
+//     iterate images
+//       pull from origin
+
+  let chains = chain_reg.getChains();
+  chains.forEach((chainName) => {
+    let images = chain_reg.getFileProperty(chainName, "chain", "images");
+    if(images) {
+      let replacementImage;
+      images?.forEach((image) => {
+        replacementImage = getLinkedImage(image?.image_sync?.chain_name, image?.image_sync?.base_denom);
+        if(replacementImage){
+          image.png = replacementImage?.png;
+          image.svg = replacementImage?.svg;
+          image.theme = replacementImage?.theme;
+        }
+      });
+      chain_reg.setFileProperty(chainName, "chain", "images", images);
+    }
+  });
+
+//   get list of assets, iterate each asset
+//     iterate images
+//       pull from origin
+
+  let assets = chain_reg.getAssetPointers();
+  assets.forEach((assetPointer) => {
+    let images = chain_reg.getAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images");
+    if(images) {
+      images?.forEach((image) => {
+        let replacementImage;
+        replacementImage = getLinkedImage(image?.image_sync?.chain_name, image?.image_sync?.base_denom);
+        if(replacementImage){
+          image.png = replacementImage?.png;
+          image.svg = replacementImage?.svg;
+          image.theme = replacementImage?.theme;
+        }
+      });
+      chain_reg.setAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images", images);
+    }
+  });
+
+}
+
+function getLinkedImage(chain_name, base_denom){
+  let images;
+  if (base_denom) {
+    images = chain_reg.getAssetProperty(chain_name, base_denom, "images");
+  } else {
+    images = chain_reg.getFileProperty(chain_name, "chain", "images")
+  }
+  if(!images){return;}
+  let image = images[0];
+  if(image.image_sync){
+    return getLinkedImage(image.image_sync.chain_name, image.image_sync.base_denom);
+  } else {
+    return image;
+  }
+}
+
+function overwriteLogoURIs(chain_name, base_denom){
+
+//   iterate chains
+//     iterate assets
+//       if images
+//         logo_URIs::png&&svg = images[0].png&&svg
+
+  
+
+  let chains = chain_reg.getChains();
+  chains.forEach((chainName) => {
+    let images = chain_reg.getFileProperty(chainName, "chain", "images");
+    let logo_URIs = {
+      png: images?.[0]?.png,
+      svg: images?.[0]?.svg
+    }
+    if(images) {
+      if(images[0].png || images[0].svg) {
+        chain_reg.setFileProperty(chainName, "chain", "logo_URIs", logo_URIs);
+      }
+    }
+  });
+
+  let assets = chain_reg.getAssetPointers();
+  assets.forEach((assetPointer) => {
+    let images = chain_reg.getAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images");
+    let logo_URIs = {
+      png: images?.[0]?.png,
+      svg: images?.[0]?.svg
+    }
+    if(images) {
+      if(images[0].png || images[0].svg) {
+        chain_reg.setAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "logo_URIs", logo_URIs);
+      }
+    }
+  });
+
+}
+
 function main(){
   createImagesArray();
-  //pull from linked image
-  //add to logo_URIs
+  getLinkedImages();
+  overwriteLogoURIs();
 }
 
 main()
