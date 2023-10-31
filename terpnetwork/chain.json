@@ -10,20 +10,21 @@
   "node_home": "$HOME/.terp",
   "codebase": {
     "git_repo": "https://github.com/terpnetwork/terp-core.git",
-    "recommended_version": "v1.0.0-stable",
+    "recommended_version": "barberry",
     "consensus": {
       "type": "cometbft",
-      "version": "0.37.0"
+      "version": "0.37.1"
     },
     "compatible_versions": [
       "v1.0.0",
-      "v1.0.0-stable"
+      "v1.0.0-stable",
+      "barberry"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/terpnetwork/mainnet/main/morocco-1/genesis.json"
     },
     "binaries": {
-      "linux/amd64": "https://github.com/terpnetwork/terp-core/archive/refs/tags/v1.0.0-stable.tar.gz"
+      "linux/amd64": "https://github.com/terpnetwork/terp-core/releases/download/barberry/terpd_linux_amd64"
     },
     "versions": [
       {
@@ -31,7 +32,7 @@
         "recommended_version": "v1.0.0-stable",
         "compatible_versions": [
           "v1.0.0",
-	  "v1.0.0-stable"
+          "v1.0.0-stable"
         ],
         "consensus": {
           "type": "cometbft",
@@ -49,11 +50,6 @@
   "peers": {
     "seeds": [
       {
-        "id": "c71e63b5da517984d55d36d00dc0dc2413d0ce03",
-        "address": "seed.terp.network:26656",
-        "provider": "TerpNET"
-      },
-      {
         "id": "d8256642afae77264bcce1631d51233a9d00249b",
         "address": "terp-mainnet-seed.itrocket.net:13656",
         "provider": "itrocket.net"
@@ -61,19 +57,9 @@
     ],
     "persistent_peers": [
       {
-        "id": "ed791e0800539a51efd07cfdef1f3a6809412bc1",
-        "address": "65.109.174.30:64656",
-	      "provider": "High Stakes"
-      },
-      {
         "id": "a81dc3bf1bb1c3837b768eeb82659eecc971890b",
         "address": "terp-mainnet-peer.itrocket.net:13656",
-	      "provider": "itrocket.net"
-      },
-      {
-        "id": "2c95d84233633b141a476aa47214cd95048af3d7",
-        "address": "rpc.terpnetwork.hexnodes.co:18656",
-	      "provider": "Hexnodes"
+        "provider": "itrocket.net"
       }
     ]
   },
@@ -84,29 +70,12 @@
         "provider": "ZenChainLabs"
       },
       {
-        "address": "https://rpc.terp.network:443",
-        "provider": "TerpNET"
-      },
-      {
         "address": "https://rpc.terp.nodestake.top:443",
         "provider": "NodeStake"
       },
       {
         "address": "https://terp-mainnet-rpc.itrocket.net:443",
         "provider": "itrocket.net"
-
-      },
-      {
-        "address": "https://terp-rpc.d-stake.xyz:443",
-        "provider": "D-Stake"
-      },
-      {
-        "address": "https://rpc.terp.nodexcapital.com:443",
-        "provider": "NodeXValidator"
-      },
-      {
-        "address": "https://rpc.terpnetwork.hexnodes.co:443",
-        "provider": "Hexnodes"
       }
     ],
     "rest": [
@@ -119,24 +88,8 @@
         "provider": "NodeStake"
       },
       {
-        "address": "https://api.terp.network:443",
-        "provider": "TerpNET"
-      },
-      {
         "address": "https://terp-mainnet-api.itrocket.net:443",
         "provider": "itrocket.net"
-      },
-      {
-        "address": "https://terp-api.d-stake.xyz:443",
-        "provider": "D-Stake"
-      },
-      {
-        "address": "https://rest.terp.nodexcapital.com:443",
-        "provider": "NodeXValidator"
-      },
-      {
-        "address": "https://lcd.terpnetwork.hexnodes.co:443",
-        "provider": "Hexnodes"
       }
     ],
     "grpc": [
@@ -147,18 +100,6 @@
       {
         "address": "terp-mainnet-grpc.itrocket.net:13090",
         "provider": "itrocket.net"
-      },
-      {
-        "address": "https://terp-grpc.d-stake.xyz:443",
-        "provider": "D-Stake"
-      },
-      {
-        "address": "https://grpc.terp.nodexcapital.com:443",
-        "provider": "NodeXValidator"
-      },
-      {
-        "address": "https://grpc.terpnetwork.hexnodes.co:443",
-        "provider": "Hexnodes"
       }
     ]
   },
@@ -170,10 +111,15 @@
       "account_page": "https://explorer.nodestake.top/terp/account/{$accountAddress}"
     },
     {
-      "kind": "NODEXPLORER",
-      "url": "https://explorer.nodexcapital.com",
-      "tx_page": "https://explorer.nodexcapital.com/terp/tx/${txHash}",
-      "account_page": "https://explorer.nodexcapital.com/terp/account/{$accountAddress}"
+      "kind": "ZenChainLabs",
+      "url": "https://terp.zenscan.io/",
+      "tx_page": "https://terp.zenscan.io/transaction.php?hash=${txHash}",
+      "account_page": "https://terp.zenscan.io/address.php?address=${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terpnetwork/images/logo.png"
     }
   ]
 }

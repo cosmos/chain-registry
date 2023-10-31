@@ -1,0 +1,141 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "celestia",
+  "chain_id": "celestia",
+  "pretty_name": "Celestia",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "celestia",
+  "daemon_name": "celestia-appd",
+  "node_home": "$HOME/.celestia-app",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "utia",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.1,
+        "average_gas_price": 0.2,
+        "high_gas_price": 0.4
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "utia"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/celestiaorg/celestia-app",
+    "recommended_version": "v1.3.0",
+    "compatible_versions": ["v1.3.0"],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/celestia/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.3.0",
+        "recommended_version": "v1.3.0",
+        "compatible_versions": ["v1.3.0"]
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "e6116822e1a5e283d8a85d3ec38f4d232274eaf3",
+        "address": "consensus-full-seed-1.celestia-bootstrap.net:26656",
+        "provider": "Lunar Oasis"
+      },
+      {
+        "id": "cf7ac8b19ff56a9d47c75551bd4864883d1e24b5",
+        "address": "consensus-full-seed-1.celestia-bootstrap.net:26656",
+        "provider": "Lunar Oasis"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "celestia-mainnet-seed.autostake.com:27206",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "celestia-mainnet-peer.autostake.com:27206",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://public-celestia-rpc.numia.xyz",
+        "provider": "Numia"
+      },
+      {
+        "address": "https://celestia-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://celestia-rpc.mesa.newmetric.xyz",
+        "provider": "Newmetric"
+      },
+      {
+        "address": "https://rpc.lunaroasis.net",
+        "provider": "Lunar Oasis"
+      },
+      {
+        "address": "https://rpc.celestia.nodestake.top",
+        "provider": "NodeStake"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://public-celestia-lcd.numia.xyz",
+        "provider": "Numia"
+      },
+      {
+        "address": "https://celestia-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://celestia-rest.mesa.newmetric.xyz",
+        "provider": "Newmetric"
+      },
+      {
+        "address": "https://api.lunaroasis.net",
+        "provider": "Lunar Oasis"
+      },
+      {
+        "address": "https://api.celestia.nodestake.top",
+        "provider": "NodeStake"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.celestia.nodestake.top",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "celestia-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Mintscan",
+      "url": "https://mintscan.io/celestia",
+      "tx_page": "https://mintscan.io/celestia/txs/${txHash}"
+    },
+    {
+      "kind": "NodeStake",
+      "url": "https://explorer.nodestake.top/celestia/",
+      "tx_page": "https://explorer.nodestake.top/celestia/txs/${txHash}",
+      "account_page": "https://explorer.nodestake.top/celestia/account/${accountAddress}"
+    }
+  ]
+}

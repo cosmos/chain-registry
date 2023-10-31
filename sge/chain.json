@@ -16,7 +16,10 @@
     "fee_tokens": [
       {
         "denom": "usge",
-        "fixed_min_gas_price": 0.001
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.1,
+        "average_gas_price": 0.25,
+        "high_gas_price": 0.5
       }
     ]
   },
@@ -137,6 +140,10 @@
       {
         "address": "https://sge-rpc.ramuchi.tech",
         "provider": "ramuchi.tech"
+      },
+      {
+        "address": "https://sge-rpc.stakerhouse.com",
+        "provider": "StakerHouse"
       }
     ],
     "rest": [
@@ -159,6 +166,10 @@
       {
         "address": "https://sge-api.ramuchi.tech/",
         "provider": "ramuchi.tech"
+      },
+      {
+        "address": "https://sge-rest.stakerhouse.com",
+        "provider": "StakerHouse"
       }
     ],
     "grpc": [
@@ -177,14 +188,18 @@
       {
         "address": "https://sge-grpc.ramuchi.tech:443",
         "provider": "ramuchi.tech"
+      },
+      {
+        "address": "sge-grpc.stakerhouse.com:443",
+        "provider": "StakerHouse"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "nodeist.net",
-      "url": "https://exp.nodeist.net/Sge",
-      "tx_page": "https://exp.nodeist.net/Sge/tx/${txHash}"
+      "kind": "ping.pub",
+      "url": "https://blockexplorer.sgenetwork.io/sge",
+      "tx_page": "https://blockexplorer.sgenetwork.io/sge/tx/${txHash}"
     },
     {
       "kind": "nodestake.top",
@@ -195,6 +210,12 @@
       "kind": "stakerhouse",
       "url": "https://cosmotracker.com/sge",
       "tx_page": "https://cosmotracker.com/sge/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sge/images/sge.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sge/images/sge.svg"
     }
   ]
 }
