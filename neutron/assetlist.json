@@ -39,21 +39,29 @@
           "aliases": [
             "uatom"
           ]
+        },
+        {
+          "denom": "atom",
+          "exponent": 6
         }
       ],
+      "type_asset": "ics20",
       "base": "ibc/C4CFF46FD6DE35CA4CF4CE031E643C8FDC9BA4B99AE598E9B0ED98FE3A2319F9",
-      "name": "IBC uatom",
-      "display": "uatom",
-      "symbol": "UATOM",
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/atom.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/atom.svg"
-      },
-      "coingecko_id": "cosmos-hub",
-      "images": [
+      "name": "IBC atom",
+      "display": "atom",
+      "symbol": "ATOM",
+      "traces": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/atom.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/atom.svg"
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom",
+            "channel_id": "channel-569"
+          },
+          "chain": {
+            "channel_id": "channel-1",
+            "path": "transfer/channel-1/uatom"
+          }
         }
       ]
     },
@@ -66,21 +74,29 @@
           "aliases": [
             "uusdc"
           ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
         }
       ],
+      "type_asset": "ics20",
       "base": "ibc/F082B65C88E4B6D5EF1DB243CDA1D331D002759E938A0F5CD3FFDC5D53B3E349",
-      "name": "IBC uusdc",
-      "display": "uusdc",
+      "name": "IBC usdc",
+      "display": "usdc",
       "symbol": "USDC",
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/atom.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/atom.svg"
-      },
-      "coingecko_id": "usdc",
-      "images": [
+      "traces": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/atom.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/atom.svg"
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "axelar",
+            "base_denom": "uusdc",
+            "channel_id": "channel-78"
+          },
+          "chain": {
+            "channel_id": "channel-2",
+            "path": "transfer/channel-2/uusdc"
+          }
         }
       ]
     }
