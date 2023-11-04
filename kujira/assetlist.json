@@ -235,6 +235,38 @@
       }
     },
     {
+      "description": "whLOCAL on Kujira",
+      "denom_units": [
+        {
+          "denom": "ibc/DE92DB84EA7E8CB5EC76BC395CF634D6483B67414AD28BEF3F71EBFD6A780D36",
+          "exponent": 0
+        },
+        {
+          "denom": "whLOCAL",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/DE92DB84EA7E8CB5EC76BC395CF634D6483B67414AD28BEF3F71EBFD6A780D36",
+      "name": "whLOCAL",
+      "display": "whLOCAL",
+      "symbol": "whLOCAL",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "terra2",
+            "base_denom": "cw20:terra1xzkel96e5e8vfmqw7valzdzzv9hqasfyslclvnmvxdejvpda3xwsskxzus"
+            "channel_id": "channel-XX"
+          },
+          "chain": {
+            "channel_id": "channel-43",
+            "path": "transfer/channel-43/cw20:terra1xzkel96e5e8vfmqw7valzdzzv9hqasfyslclvnmvxdejvpda3xwsskxzus"
+          }
+        }
+      ]
+    }
+    {
       "description": "Local Money - the decentralized on/off ramp.",
       "denom_units": [
         {
@@ -250,13 +282,14 @@
       "name": "LOCAL",
       "display": "local",
       "symbol": "LOCAL",
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kujira/images/local.png"
-      },
-      "coingecko_id": "local-money",
-      "images": [
+      "traces": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kujira/images/local.png"
+          "type": "wrapped",
+          "counterparty": {
+            "chain_name": "kujira",
+            "base_denom": "ibc/DE92DB84EA7E8CB5EC76BC395CF634D6483B67414AD28BEF3F71EBFD6A780D36"
+          },
+          "provider": "Local Money"
         }
       ]
     }
