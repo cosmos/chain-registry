@@ -4,22 +4,26 @@
   "status": "live",
   "network_type": "mainnet",
   "website": "https://humans.ai/",
-  "pretty_name": "humans",
+  "pretty_name": "Humans.ai",
   "chain_id": "humans_1089-1",
-  "bech32_prefix": "humans",
+  "bech32_prefix": "human",
   "node_home": "$HOME/.humansd",
   "daemon_name": "humansd",
-  "key_algos": ["ethsecp256k1"],
-  "extra_codecs": ["ethermint"],
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
+  ],
   "slip44": 60,
   "fees": {
     "fee_tokens": [
       {
         "denom": "aheart",
         "fixed_min_gas_price": 250000000,
-        "low_gas_price": 20000000000,
-        "average_gas_price": 25000000000,
-        "high_gas_price": 40000000000
+        "low_gas_price": 80000000000,
+        "average_gas_price": 100000000000,
+        "high_gas_price": 160000000000
       }
     ]
   },
@@ -33,7 +37,9 @@
   "codebase": {
     "git_repo": "https://github.com/humansdotai/",
     "recommended_version": "v1.0.0",
-    "compatible_versions": ["v1.0.0"],
+    "compatible_versions": [
+      "v1.0.0"
+    ],
     "cosmos_sdk_version": "0.46.11",
     "consensus": {
       "type": "cometbft",
@@ -46,7 +52,9 @@
       {
         "name": "v1.0.0",
         "recommended_version": "v1.0.0",
-        "compatible_versions": ["v1.0.0"],
+        "compatible_versions": [
+          "v1.0.0"
+        ],
         "consensus": {
           "type": "cometbft",
           "version": "0.34.27"
@@ -96,10 +104,6 @@
         "provider": "NodeStake"
       },
       {
-        "address": "https://rpc.nodejumper.io/humans",
-        "provider": "NODEJUMPER"
-      },
-      {
         "address": "https://humans.rpc.kjnodes.com",
         "provider": "kjnodes"
       },
@@ -144,10 +148,6 @@
       {
         "address": "https://api.humans.nodestake.top",
         "provider": "NodeStake"
-      },
-      {
-        "address": "https://rest.nodejumper.io/humans",
-        "provider": "NODEJUMPER"
       },
       {
         "address": "https://humans.api.kjnodes.com",
@@ -237,6 +237,11 @@
   },
   "explorers": [
     {
+      "kind": "mintscan",
+      "url": "https://mintscan.io/humans",
+      "tx_page": "https://www.mintscan.io/humans/tx/${txHash}"
+    },
+    {
       "kind": "bigdipper",
       "url": "https://bigdipper.live/humans",
       "tx_page": "https://bigdipper.live/humans/transactions/${txHash}",
@@ -256,6 +261,12 @@
       "kind": "exploreme",
       "url": "https://humansai.exploreme.pro/",
       "tx_page": "https://humans.exploreme.pro/transaction/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/humans/images/humans_small_light.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/humans/images/humans_small_light.svg"
     }
   ]
 }
