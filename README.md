@@ -17,15 +17,20 @@ Once schemas have matured and client needs are better understood Chain Registry 
 ## Web Endpoints
 - https://registry.ping.pub (Update every 24H)
 - https://proxy.atomscan.com/directory/ (Update every 24H)
+- https://cosmoschains.thesilverfox.pro (Updated every 24H)
 
 ## APIs
 - https://github.com/cmwaters/skychart
 - https://github.com/empowerchain/cosmos-chain-directory
+- https://github.com/effofxprime/Cosmregistry-API
 
 ## Web Interfaces
 - https://cosmos.directory
 - https://chain-registry.netlify.com
 - https://atomscan.com/directory
+
+## Tooling
+- https://github.com/gaia/chain-registry-query/
 
 ## Contributing
 
