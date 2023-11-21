@@ -17,7 +17,10 @@
     "fee_tokens": [
       {
         "denom": "ukyve",
-        "fixed_min_gas_price": 0.02
+        "fixed_min_gas_price": 0.02,
+        "low_gas_price": 0.02,
+        "average_gas_price": 0.03,
+        "high_gas_price": 0.06
       }
     ]
   },
@@ -30,10 +33,16 @@
   },
   "codebase": {
     "git_repo": "https://github.com/KYVENetwork/chain",
-    "recommended_version": "v1.2.2",
+    "recommended_version": "v1.3.0",
     "compatible_versions": [
-      "v1.2.1", "v1.2.2"
+      "v1.3.0"
     ],
+    "binaries": {
+      "linux/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.3.0/kyved_mainnet_linux_amd64.tar.gz",
+      "linux/arm64": "https://github.com/KYVENetwork/chain/releases/download/v1.3.0/kyved_mainnet_linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.3.0/kyved_mainnet_darwin_amd64.tar.gz",
+      "darwin/arm64": "https://github.com/KYVENetwork/chain/releases/download/v1.3.0/kyved_mainnet_darwin_arm64.tar.gz"
+    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/KYVENetwork/networks/main/kyve-1/genesis.json"
     },
@@ -62,8 +71,26 @@
         "proposal": 4,
         "recommended_version": "v1.2.2",
         "compatible_versions": [
-          "v1.2.1", "1.2.2"
-        ]
+          "v1.2.1",
+          "1.2.2"
+        ],
+        "next_version_name": "v1.3.0"
+      },
+      {
+        "name": "v1.3.0",
+        "proposal": 8,
+        "height": 2061100,
+        "recommended_version": "v1.3.0",
+        "compatible_versions": [
+          "v1.3.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.3.0/kyved_mainnet_linux_amd64.tar.gz",
+          "linux/arm64": "https://github.com/KYVENetwork/chain/releases/download/v1.3.0/kyved_mainnet_linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.3.0/kyved_mainnet_darwin_amd64.tar.gz",
+          "darwin/arm64": "https://github.com/KYVENetwork/chain/releases/download/v1.3.0/kyved_mainnet_darwin_arm64.tar.gz"
+        },
+        "next_version_name": ""
       }
     ]
   },
@@ -71,6 +98,7 @@
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kyve/images/kyve.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kyve/images/kyve.svg"
   },
+  "description": "Revolutionizing data reliability in the Web3 space, KYVE Network provides fast and easy tooling for data validation, immutability, and retrieval, ensuring trustless data for seamless scalability and eliminating data risks and roadblocks.",
   "peers": {
     "seeds": [
       {
@@ -82,7 +110,12 @@
         "id": "cec848e7d4c5a7ae305b27cda133d213435c110f",
         "address": "seed-kyve.ibs.team:16664",
         "provider": "Inter Blockchain Services"
-      }     
+      },
+      {
+        "id": "63aef665906f1ac532f6266bb2067510ca35a9a2",
+        "address": "seed-node.mms.team:41656",
+        "provider": "MMS"
+      }
     ],
     "persistent_peers": [
       {
@@ -109,6 +142,11 @@
         "id": "ae3f75549c0fe53bae94909fb7477eb308dfe989",
         "address": "88.99.104.180:46656",
         "provider": "Stake-Take"
+      },
+      {
+        "id": "00917221debc335189292cce406cd20a8a44e603",
+        "address": "peer-kyve.mms.team:27656",
+        "provider": "MMS"
       }
     ]
   },
@@ -135,6 +173,10 @@
         "provider": "Inter Blockchain Services"
       },
       {
+        "address": "https://rpc-kyve.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://rpc.kyve.nodestake.top",
         "provider": "NodeStake"
       },
@@ -149,6 +191,10 @@
       {
         "address": "https://rpc.kyve.stake-take.com",
         "provider": "Stake-Take"
+      },
+      {
+        "address": "https://rpc-kyve.mms.team",
+        "provider": "MMS"
       }
     ],
     "rest": [
@@ -177,6 +223,10 @@
         "provider": "NodeStake"
       },
       {
+        "address": "https://api-kyve.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://www.kyve-lcd.enigma-validator.com",
         "provider": "Enigma"
       },
@@ -187,6 +237,10 @@
       {
         "address": "https://api.kyve.stake-take.com",
         "provider": "Stake-Take"
+      },
+      {
+        "address": "https://api-kyve.mms.team",
+        "provider": "MMS"
       }
     ],
     "grpc": [
@@ -199,12 +253,20 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
+        "address": "grpc-kyve.cosmos-spaces.cloud:2590",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://grpc-kyve.nodeist.net",
         "provider": "Nodeist"
       },
       {
         "address": "https://kyve.grpc.liveraven.net",
         "provider": "LiveRaveN"
+      },
+      {
+        "address": "grpc-kyve.mms.team:443",
+        "provider": "MMS"
       }
     ]
   },
@@ -226,6 +288,12 @@
       "url": "https://explorer.stake-take.com/kyve",
       "tx_page": "https://explorer.stake-take.com/kyve/txs/${txHash}",
       "account_page": "https://explorer.stake-take.com/kyve/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kyve/images/kyve.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kyve/images/kyve.svg"
     }
   ]
 }

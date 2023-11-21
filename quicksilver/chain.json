@@ -30,21 +30,21 @@
   },
   "codebase": {
     "git_repo": "https://github.com/ingenuity-build/quicksilver",
-    "recommended_version": "v1.2.14",
+    "recommended_version": "v1.2.17",
     "compatible_versions": [
-      "v1.2.13", "v1.2.14"
+      "v1.2.17"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/ingenuity-build/quicksilver/releases/download/v1.2.14/quicksilverd-v1.2.14-amd64"
+      "linux/amd64": "https://github.com/ingenuity-build/quicksilver/releases/download/v1.2.17/quicksilverd-v1.2.17-amd64"
     },
-    "cosmos_sdk_version": "0.46",
+    "cosmos_sdk_version": "0.46.15",
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
+      "type": "cometbft",
+      "version": "v0.34.29"
     },
-    "cosmwasm_version": "0.29",
+    "cosmwasm_version": "v0.29.0-sdk46.0.20221114145317-d6e67fd50956",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "5.2.1",
+    "ibc_go_version": "5.3.2",
     "genesis": {
       "genesis_url": "https://github.com/ingenuity-build/mainnet/raw/main/genesis.json"
     },
@@ -83,14 +83,16 @@
         },
         "cosmwasm_version": "0.29",
         "cosmwasm_enabled": true,
-        "ibc_go_version": "5.2.0"
+        "ibc_go_version": "5.2.0",
+        "next_version_name": "v1.2.13"
       },
       {
         "name": "v1.2.13",
         "height": 2148751,
         "recommended_version": "v1.2.14",
         "compatible_versions": [
-          "v1.2.13", "v1.2.14"
+          "v1.2.13",
+          "v1.2.14"
         ],
         "binaries": {
           "linux/amd64": "https://github.com/ingenuity-build/quicksilver/releases/download/v1.2.14/quicksilverd-v1.2.14-amd64"
@@ -102,7 +104,51 @@
         },
         "cosmwasm_version": "0.29",
         "cosmwasm_enabled": true,
-        "ibc_go_version": "5.2.1"
+        "ibc_go_version": "5.2.1",
+        "next_version_name": "v1.2.15"
+      },
+      {
+        "name": "v1.2.15",
+        "proposal": 18,
+        "height": 3052279,
+        "recommended_version": "v1.2.16",
+        "compatible_versions": [
+          "v1.2.15",
+          "v1.2.16"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/ingenuity-build/quicksilver/releases/download/v1.2.16/quicksilverd-v1.2.16-amd64"
+        },
+        "cosmos_sdk_version": "0.46.14",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.34.29"
+        },
+        "cosmwasm_version": "0.29",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "5.3.1",
+        "next_version_name": "v1.2.17"
+      },
+      {
+        "name": "v1.2.17",
+        "proposal": 26,
+        "height": 4530000,
+        "recommended_version": "v1.2.17",
+        "compatible_versions": [
+          "v1.2.17"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/ingenuity-build/quicksilver/releases/download/v1.2.17/quicksilverd-v1.2.17-amd64"
+        },
+        "cosmos_sdk_version": "0.46.15",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.29"
+        },
+        "cosmwasm_version": "v0.29.0-sdk46.0.20221114145317-d6e67fd50956",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "5.3.2",
+        "next_version_name": ""
       }
     ]
   },
@@ -110,6 +156,7 @@
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quicksilver/images/qck.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quicksilver/images/qck.svg"
   },
+  "description": "Liquid Stake your Cosmos assets with your preferred validator and receive liquid staked assets (qASSETs) that you can use for swapping, pooling, lending, and more, all while your original stake earns staking APY from securing the network.",
   "peers": {
     "seeds": [
       {
@@ -139,12 +186,12 @@
       },
       {
         "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "quicksilver-seed-1.allnodes.me:26656",
+        "address": "quicksilver-seed-de.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
       },
       {
         "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "quicksilver-seed-2.allnodes.me:26656",
+        "address": "quicksilver-seed-us.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
       },
       {
@@ -161,7 +208,12 @@
         "id": "559e316b30830ddd5e93617592ef70330ecce86d",
         "address": "seed-quicksilver.ibs.team:16656",
         "provider": "Inter Blockchain Services"
-      }      
+      },
+      {
+        "id": "95fe6a416dff4150e0394f8b429743db60ea1327",
+        "address": "seed-node.mms.team:27656",
+        "provider": "MMS"
+      }
     ],
     "persistent_peers": [
       {
@@ -173,6 +225,11 @@
         "id": "3461638afd470034067392e5dba8dcf6de49f81f",
         "address": "rpc.quicksilver.indonode.net:28656",
         "provider": "Indonode"
+      },
+      {
+        "id": "958d4be52e81fb4d2cbca134ba7fc9f91cfef247",
+        "address": "65.108.226.26:16656",
+        "provider": "[NODERS]TEAM"
       },
       {
         "id": "ae44851a5d63d70382c1621bc7727db2a40d10d0",
@@ -193,6 +250,11 @@
         "id": "8200b77d075f2634e6f9dab11fd56726a2e6d75b",
         "address": "quicksilver-seed.theamsolutions.info:31656",
         "provider": "AM Solutions"
+      },
+      {
+        "id": "82b49e6cc0826642e745b7a7a621aecbf8083af7",
+        "address": "peer-quicksilver.mms.team:56103",
+        "provider": "MMS"
       }
     ]
   },
@@ -207,12 +269,20 @@
         "provider": "Quicksilver"
       },
       {
+        "address": "http://quicksilver.statesync.nodersteam.com:16657",
+        "provider": "[NODERS]TEAM"
+      },
+      {
         "address": "https://rpc-quicksilver-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
       },
       {
         "address": "https://quicksilver-rpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc-quicksilver.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://m-quicksilver.rpc.utsa.tech",
@@ -269,6 +339,14 @@
       {
         "address": "https://quicksilver-rpc.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://rpc-quicksilver.mms.team/",
+        "provider": "MMS"
+      },
+      {
+        "address": "https://quicksilver-rpc.publicnode.com",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
       }
     ],
     "rest": [
@@ -281,8 +359,16 @@
         "provider": "Notional"
       },
       {
+        "address": "http://quicksilver.api.nodersteam.com:16017",
+        "provider": "[NODERS]TEAM"
+      },
+      {
         "address": "https://quicksilver-api.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://api-quicksilver.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://quicksilver-mainnet-lcd.autostake.com:443",
@@ -335,6 +421,14 @@
       {
         "address": "https://quicksilver-api.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://api-quicksilver.mms.team",
+        "provider": "MMS"
+      },
+      {
+        "address": "https://quicksilver-rest.publicnode.com",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
       }
     ],
     "grpc": [
@@ -349,6 +443,14 @@
       {
         "address": "quicksilver-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "quicksilver.grpc.nodersteam.com:9161",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "grpc-quicksilver.cosmos-spaces.cloud:3300",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "quicksilver-mainnet-grpc.autostake.com:443",
@@ -385,6 +487,14 @@
       {
         "address": "quicksilver-grpc.w3coins.io:11190",
         "provider": "w3coins"
+      },
+      {
+        "address": "grpc-quicksilver.mms.team:443",
+        "provider": "MMS"
+      },
+      {
+        "address": "quicksilver-grpc.publicnode.com:443",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
       }
     ]
   },
@@ -392,8 +502,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/quicksilver",
-      "tx_page": "https://www.mintscan.io/quicksilver/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/quicksilver/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/quicksilver/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/quicksilver/accounts/${accountAddress}"
     },
     {
       "kind": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀 explorer",
@@ -417,9 +527,15 @@
       "tx_page": "https://explorer.stake-take.com/quicksilver/tx/${txHash}"
     },
     {
-     "kind": "AM Solutions Explorers", 
+      "kind": "AM Solutions Explorers",
       "url": "https://explorer.theamsolutions.info/quicksilver-main/staking",
       "tx_page": "https://explorer.theamsolutions.info/quicksilver-main/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quicksilver/images/qck.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quicksilver/images/qck.svg"
     }
   ]
 }

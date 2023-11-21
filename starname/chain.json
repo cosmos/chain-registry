@@ -53,6 +53,7 @@
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/starname/images/iov.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/starname/images/iov.svg"
   },
+  "description": "Starname is the best way to claim your part of the blockchain. You can use it for decentralized identification, payments, ownership and applications. Starname can be integrated into digital wallets, dapps and exchanges.",
   "peers": {
     "persistent_peers": [
       {
@@ -64,19 +65,23 @@
   "apis": {
     "rpc": [
       {
+        "address": "https://rpc.starname.cosmos.iov.one",
+        "provider": "Starname"
+      },
+      {
         "address": "https://rpc-iov.keplr.app",
         "provider": "chainapsis"
       },
       {
         "address": "https://rpc-starname-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
-      },
-      {
-        "address": "https://starname.nodejumper.io",
-        "provider": "NODEJUMPER"
       }
     ],
     "rest": [
+      {
+        "address": "https://api.starname.cosmos.iov.one",
+        "provider": "Starname"
+      },
       {
         "address": "https://lcd-iov.keplr.app",
         "provider": "chainapsis"
@@ -84,20 +89,12 @@
       {
         "address": "https://api-starname-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
-      },
-      {
-        "address": "https://starname.nodejumper.io:1317",
-        "provider": "NODEJUMPER"
       }
     ],
     "grpc": [
       {
         "address": "grpc-starname-ia.cosmosia.notional.ventures:443",
         "provider": "starname"
-      },
-      {
-        "address": "starname.nodejumper.io:9090",
-        "provider": "NODEJUMPER"
       }
     ]
   },
@@ -105,8 +102,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/starname",
-      "tx_page": "https://www.mintscan.io/starname/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/starname/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/starname/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/starname/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -118,6 +115,12 @@
       "url": "https://atomscan.com/starname",
       "tx_page": "https://atomscan.com/starname/transactions/${txHash}",
       "account_page": "https://atomscan.com/starname/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/starname/images/iov.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/starname/images/iov.svg"
     }
   ]
 }
