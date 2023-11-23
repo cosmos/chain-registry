@@ -17,7 +17,10 @@
     "fee_tokens": [
       {
         "denom": "axpla",
-        "fixed_min_gas_price": 850000000000
+        "fixed_min_gas_price": 850000000000,
+        "low_gas_price": 850000000000,
+        "average_gas_price": 1147500000000,
+        "high_gas_price": 1487500000000
       }
     ]
   },
@@ -128,12 +131,12 @@
         "provider": "Holdings"
       },
       {
-        "address": "http://xpla.api.staking-explorer.com",
-        "provider": "xpla.staking-explorer.com"
-      },
-      {
         "address": "https://xpla-api.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "http://xpla.api.staking-explorer.com",
+        "provider": "staking-explorer.com"
       }
     ],
     "grpc": [],
@@ -158,7 +161,14 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/xpla",
-      "tx_page": "https://www.mintscan.io/xpla/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/xpla/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/xpla/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.svg"
     }
   ]
 }

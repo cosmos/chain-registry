@@ -33,9 +33,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/lum-network/chain",
-    "recommended_version": "v1.5.0-2",
+    "recommended_version": "v1.6.2-1",
     "compatible_versions": [
-      "v1.5.0-2"
+      "v1.6.2-1"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/lum-network/mainnet/master/genesis.json"
@@ -88,6 +88,46 @@
         "compatible_versions": [
           "v1.5.0-2"
         ],
+        "next_version_name": "v1.5.1"
+      },
+      {
+        "name": "v1.5.1",
+        "height": 8527300,
+        "proposal": 82,
+        "recommended_version": "v1.5.1",
+        "compatible_versions": [
+          "v1.5.1"
+        ],
+        "next_version_name": "v1.5.2"
+      },
+      {
+        "name": "v1.5.2",
+        "proposal": 87,
+        "height": 8688700,
+        "recommended_version": "v1.5.2",
+        "compatible_versions": [
+          "v1.5.2"
+        ],
+        "next_version_name": "v1.6.1"
+      },
+      {
+        "name": "v1.6.1",
+        "proposal": 88,
+        "height": 9520750,
+        "recommended_version": "v1.6.1",
+        "compatible_versions": [
+          "v1.6.1"
+        ],
+        "next_version_name": "v1.6.2"
+      },
+      {
+        "name": "v1.6.2",
+        "proposal": 90,
+        "height": 10027000,
+        "recommended_version": "v1.6.2-1",
+        "compatible_versions": [
+          "v1.6.2-1"
+        ],
         "next_version_name": ""
       }
     ]
@@ -104,6 +144,11 @@
         "provider": "lum foundation"
       },
       {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "lum-mainnet-seed.autostake.com:27416",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:16756",
         "provider": "Lavender.Five Nodes 🐝"
@@ -112,6 +157,11 @@
         "id": "0df233b1eb62504f96a856ce358014b2fb8ce91b",
         "address": "lum-seed.panthea.eu:43656",
         "provider": "Panthea EU"
+      },
+      {
+        "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
+        "address": "seeds.stakerhouse.com:10756",
+        "provider": "StakerHouse"
       }
     ],
     "persistent_peers": [
@@ -119,6 +169,11 @@
         "id": "b47626b9d78ed7ed3c413304387026f907c70cbe",
         "address": "peer-0.mainnet.lum.network:26656",
         "provider": "lum foundation"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "lum-mainnet-peer.autostake.com:27416",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "fbaeeff89ec94a4f6c4a2a61e24af7d06b3be0c8",
@@ -144,6 +199,10 @@
         "provider": "Lum Foundation"
       },
       {
+        "address": "https://lum-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "address": "https://lumnetwork-rpc.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
       },
@@ -158,12 +217,20 @@
       {
         "address": "https://lum-rpc.stakerhouse.com",
         "provider": "StakerHouse"
+      },
+      {
+        "address": "https://lum-rpc.panthea.eu",
+        "provider": "Panthea EU"
       }
     ],
     "rest": [
       {
         "address": "https://node0.mainnet.lum.network/rest",
         "provider": "Lum Foundation"
+      },
+      {
+        "address": "https://lum-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://lumnetwork-api.lavenderfive.com/",
@@ -182,8 +249,12 @@
         "provider": "Inter Blockchain Services"
       },
       {
-        "address": "https://lum-api.stakerhouse.com",
+        "address": "https://lum-rest.stakerhouse.com",
         "provider": "StakerHouse"
+      },
+      {
+        "address": "https://lum-api.panthea.eu",
+        "provider": "Panthea EU"
       }
     ],
     "grpc": [
@@ -192,23 +263,31 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
+        "address": "lum-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "address": "lum-grpc.stakerhouse.com:443",
         "provider": "StakerHouse"
+      },
+      {
+        "address": "lum-grpc.panthea.eu:16770",
+        "provider": "Panthea EU"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/lumnetwork",
-      "tx_page": "https://ezstaking.tools/lumnetwork/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/lumnetwork/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/lumnetwork",
+      "tx_page": "https://app.ezstaking.io/lumnetwork/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/lumnetwork/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/lum",
-      "tx_page": "https://www.mintscan.io/lum/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/lum/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/lum/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/lum/accounts/${accountAddress}"
     },
     {
       "kind": "lum-network",
@@ -225,6 +304,12 @@
       "url": "https://atomscan.com/lum-network",
       "tx_page": "https://atomscan.com/lum-network/transactions/${txHash}",
       "account_page": "https://atomscan.com/lum-network/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lumnetwork/images/lum.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lumnetwork/images/lum.svg"
     }
   ]
 }

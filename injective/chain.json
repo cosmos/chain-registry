@@ -17,7 +17,7 @@
     "fee_tokens": [
       {
         "denom": "inj",
-        "fixed_min_gas_price": 500000000,
+        "fixed_min_gas_price": 160000000,
         "low_gas_price": 500000000,
         "average_gas_price": 700000000,
         "high_gas_price": 900000000
@@ -35,7 +35,7 @@
     "git_repo": "https://github.com/InjectiveLabs/injective-chain-releases",
     "recommended_version": "v1.11.5-1687535916",
     "compatible_versions": [
-      "v1.11", 
+      "v1.11",
       "v1.11.3-1686246472",
       "v1.11.4-1686608669",
       "v1.11.5-1687535916"
@@ -43,7 +43,7 @@
     "binaries": {
       "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.11.5-1687535916/linux-amd64.zip",
       "darwin/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.11.5-1687535916/darwin-amd64.zip"
-    },  
+    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/InjectiveLabs/mainnet-config/master/10001/genesis.json"
     },
@@ -66,7 +66,7 @@
         "height": 34775000,
         "recommended_version": "v1.11.5-1687535916",
         "compatible_versions": [
-          "v1.11", 
+          "v1.11",
           "v1.11.3-1686246472",
           "v1.11.4-1686608669",
           "v1.11.5-1687535916"
@@ -82,6 +82,7 @@
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg"
   },
+  "description": "Injective’s mission is to create a truly free and inclusive financial system through decentralization.",
   "peers": {
     "seeds": [
       {
@@ -226,7 +227,7 @@
         "provider": "Notional"
       },
       {
-        "address": "https://rpc-cached-injective.cosmos-spaces.cloud",
+        "address": "https://rpc-injective.cosmos-spaces.cloud",
         "provider": "Cosmos Spaces"
       },
       {
@@ -256,6 +257,14 @@
       {
         "address": "https://injective-rpc.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://injective-rpc.tienthuattoan.ventures",
+        "provider": "TienThuatToan"
+      },
+      {
+        "address": "https://injective-rpc.highstakes.ch:26657/",
+        "provider": "High Stakes 🇨🇭"
       }
     ],
     "rest": [
@@ -310,6 +319,14 @@
       {
         "address": "https://injective-api.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://injective-api.tienthuattoan.ventures",
+        "provider": "TienThuatToan"
+      },
+      {
+        "address": "https://injective-api.highstakes.ch:1317/",
+        "provider": "High Stakes 🇨🇭"
       }
     ],
     "grpc": [
@@ -352,6 +369,10 @@
       {
         "address": "injective-grpc.w3coins.io:14390",
         "provider": "w3coins"
+      },
+      {
+        "address": "injective-grpc.tienthuattoan.ventures:9900",
+        "provider": "TienThuatToan"
       }
     ]
   },
@@ -375,13 +396,19 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/injective",
-      "tx_page": "https://www.mintscan.io/injective/${txHash}",
-      "account_page": "https://www.mintscan.io/injective/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/injective/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/injective/accounts/${accountAddress}"
     },
     {
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/injective",
       "account_page": "https://stakeflow.io/injective/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg"
     }
   ]
 }

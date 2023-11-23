@@ -6,6 +6,7 @@
   "pretty_name": "Neutron",
   "chain_id": "neutron-1",
   "bech32_prefix": "neutron",
+  "website": "https://neutron.org/",
   "daemon_name": "neutrond",
   "node_home": "$HOME/.neutrond",
   "key_algos": [
@@ -16,9 +17,21 @@
     "fee_tokens": [
       {
         "denom": "untrn",
-        "low_gas_price": 0.01,
-        "average_gas_price": 0.025,
-        "high_gas_price": 0.05
+        "low_gas_price": 0.5,
+        "average_gas_price": 0.5,
+        "high_gas_price": 0.5
+      },
+      {
+        "denom": "ibc/C4CFF46FD6DE35CA4CF4CE031E643C8FDC9BA4B99AE598E9B0ED98FE3A2319F9",
+        "low_gas_price": 0.022,
+        "average_gas_price": 0.022,
+        "high_gas_price": 0.022
+      },
+      {
+        "denom": "ibc/F082B65C88E4B6D5EF1DB243CDA1D331D002759E938A0F5CD3FFDC5D53B3E349",
+        "low_gas_price": 0.25,
+        "average_gas_price": 0.25,
+        "high_gas_price": 0.25
       }
     ]
   },
@@ -31,8 +44,11 @@
   },
   "codebase": {
     "git_repo": "https://github.com/neutron-org/neutron",
-    "recommended_version": "v1.0.1",
-    "compatible_versions": [],
+    "recommended_version": "v1.0.4",
+    "compatible_versions": [
+      "v1.0.3",
+      "v1.0.4"
+    ],
     "cosmos_sdk_version": "0.45",
     "consensus": {
       "type": "tendermint",
@@ -47,8 +63,11 @@
     "versions": [
       {
         "name": "v1.0.1",
-        "recommended_version": "v1.0.1",
-        "compatible_versions": [],
+        "recommended_version": "v1.0.4",
+        "compatible_versions": [
+          "v1.0.3",
+          "v1.0.4"
+        ],
         "cosmos_sdk_version": "0.45",
         "consensus": {
           "type": "tendermint",
@@ -64,6 +83,7 @@
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-black-logo.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-black-logo.svg"
   },
+  "description": "The most secure CosmWasm platform in Cosmos, Neutron lets smart-contracts leverage bleeding-edge Interchain technology with minimal overhead.",
   "peers": {
     "seeds": [
       {
@@ -124,7 +144,7 @@
         "provider": "WhisperNode🤐"
       },
       {
-        "address": "https://rpc-cached-neutron.cosmos-spaces.cloud",
+        "address": "https://rpc-neutron.cosmos-spaces.cloud",
         "provider": "Cosmos Spaces"
       },
       {
@@ -134,6 +154,18 @@
       {
         "address": "http://rpc.neutron.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://neutron-rpc.publicnode.com",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://community.nuxian-node.ch:6797/neutron/trpc",
+        "provider": "PRO Delegators"
+      },
+      {
+        "address": "https://rpc-neutron.in3s.com:443",
+        "provider": "in3s.com"
       }
     ],
     "rest": [
@@ -160,6 +192,14 @@
       {
         "address": "http://api.neutron.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://neutron-rest.publicnode.com",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://community.nuxian-node.ch:6797/neutron/crpc",
+        "provider": "PRO Delegators"
       }
     ],
     "grpc": [
@@ -190,6 +230,10 @@
       {
         "address": "grpc.neutron.nodestake.top:9090",
         "provider": "NodeStake"
+      },
+      {
+        "address": "neutron-grpc.publicnode.com:443",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
       }
     ]
   },
@@ -197,8 +241,14 @@
     {
       "kind": "Mintscan",
       "url": "https://www.mintscan.io/neutron",
-      "tx_page": "https://www.mintscan.io/neutron/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/neutron/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/neutron/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/neutron/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-black-logo.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-black-logo.svg"
     }
   ]
 }
