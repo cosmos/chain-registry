@@ -4,87 +4,110 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Composable Testnet",
-  "chain_id": "banksy-testnet-1",
-  "bech32_prefix": "banksy",
-  "daemon_name": "banksyd",
+  "chain_id": "banksy-testnet-3",
+  "bech32_prefix": "centauri",
+  "daemon_name": "centaurid",
   "node_home": "$HOME/.banksy",
   "key_algos": [
     "secp256k1"
-  ],
+  ], 
   "slip44": 118,
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ppica"
+      }
+    ]
+  },
   "fees": {
     "fee_tokens": [
       {
-        "denom": "ubanksy",
-        "fixed_min_gas_price": 0.025
+        "denom": "ppica",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0
       }
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/notional-labs/composable-testnet",
-    "recommended_version": "v2.2.0",
+    "git_repo": "https://github.com/notional-labs/composable-centauri",
+    "recommended_version": "v3.0.0",
     "compatible_versions": [
-      "v2.2.0"
+      "v3.0.0"
     ],
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/notional-labs/composable-testnet/main/networks/testnet-1/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/notional-labs/composable-networks/main/banksy-testnet-3/genesis.json"
     },
     "versions": [
       {
-        "name": "v2.2.0",
-        "recommended_version": "v2.2.0",
+        "name": "v3.0.0",
+        "recommended_version": "v3.0.0",
         "compatible_versions": [
-          "v2.2.0"
+          "v3.0.0"
         ]
       }
     ]
   },
   "peers": {
+    "seeds": [],
     "persistent_peers": [
       {
-        "id": "bf95ad80f82320b8fefea75eeede60f563d1f847",
-        "address": "168.119.91.22:26656"
+        "id": "488f98949ba03931c433aaf12d799bb1cd6f3942",
+        "address": "65.21.225.10:47656",
+        "provider": "Indonode"
       },
       {
-        "id": "7bff2e43489a7acd09a38ab47c1f25ec24e24947",
-        "address": "162.19.237.201:26656"
-      },
-      {
-        "id": "7ab89f884656a66ca90fd9d44489da3c6ca1fea4",
-        "address": "95.217.144.107:22256"
-      }
-    ],
-    "seeds": [
-      {
-        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
-        "address": "testnet-seeds.polkachu.com:22256"
+        "id": "667703b3bdf291ec7774c0c46a54eddd2ccb6d36",
+        "address": "46.17.250.108:61456",
+        "provider": "Sr20de"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-          "address": "https://composable-testnet-rpc.polkachu.com",
-          "provider": "polkachu"
+        "address": "https://rpc.composable-t.indonode.net:443",
+        "provider": "Indonode"
+      },
+      {
+        "address": "https://rpc-composable-testnet.sr20de.xyz:443",
+        "provider": "Sr20de"
       }
     ],
     "rest": [
       {
-        "address": "https://composable-testnet-api.polkachu.com",
-        "provider": "polkachu"
+        "address": "https://api.composable-t.indonode.net",
+        "provider": "Indonode"
+      },
+      {
+        "address": "https://api-composable-testnet.sr20de.xyz",
+        "provider": "Sr20de"
       }
     ],
     "grpc": [
       {
-        "address": "composable-testnet-grpc.polkachu.com:22290",
-        "provider": "polkachu"
+        "address": "https://grpc.composable-t.indonode.net:47090",
+        "provider": "Indonode"
+      },
+      {
+        "address": "https://grpc-composable-testnet.sr20de.xyz",
+        "provider": "Sr20de"
       }
     ]
   },
   "explorers": [
     {
-      "url": "https://explorer.nodestake.top/composable-testnet",
-      "tx_page": "https://explorer.nodestake.top/composable-testnet/tx/${txHash}"
+      "url": "https://explorer.nodexcapital.com/composable-3",
+      "tx_page": "https://explorer.nodexcapital.com/composable-3/tx/${txHash}"
+    },
+    {
+      "url": "https://explorer.indonode.net/composable-testnet-3",
+      "tx_page": "https://explorer.indonode.net/composable-testnet-3/tx/${txHash}"
+    },
+    {
+      "url": "https://explorer.sr20de.xyz/Composible-3",
+      "tx_page": "https://explorer.sr20de.xyz/Composible-3/tx/${txHash}"
     }
   ]
 }

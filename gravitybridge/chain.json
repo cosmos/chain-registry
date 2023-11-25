@@ -45,12 +45,12 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Gravity-Bridge/Gravity-Bridge",
-    "recommended_version": "v1.9.0",
+    "recommended_version": "v1.11.1",
     "compatible_versions": [
-      "v1.9.0"
+      "v1.11.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.9.0/gravity-linux-amd64"
+      "linux/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.11.1/gravity-linux-amd64"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json"
@@ -73,14 +73,43 @@
       {
         "name": "orion",
         "height": 6698820,
-        "recommended_version": "v1.9.0",
+        "recommended_version": "v1.9.1",
         "proposal": 172,
         "compatible_versions": [
-          "v1.9.0"
+          "v1.9.0",
+          "v1.9.1"
         ],
         "binaries": {
-          "linux/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.9.0/gravity-linux-amd64"
-        }
+          "linux/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.9.1/gravity-linux-amd64"
+        },
+        "next_version_name": "antares"
+      },
+      {
+        "name": "antares",
+        "height": 7440250,
+        "recommended_version": "v1.10.2",
+        "proposal": 183,
+        "compatible_versions": [
+          "v1.10.0",
+          "v1.10.2"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.10.2/gravity-linux-amd64"
+        },
+	"next_version_name": "apollo"
+      },
+      {
+        "name": "apollo",
+        "height": 9244100,
+        "recommended_version": "v1.11.1",
+        "proposal": 212,
+        "compatible_versions": [
+          "v1.11.1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.11.1/gravity-linux-amd64"
+        },
+        "next_version_name": ""
       }
     ]
   },
@@ -88,6 +117,7 @@
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gravitybridge/images/grav.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gravitybridge/images/grav.svg"
   },
+  "description": "An open, decentralized bridge that unlocks the power of interoperability & liquidity between blockchain ecosystems.",
   "peers": {
     "seeds": [
       {
@@ -118,11 +148,16 @@
       {
         "id": "4e595d6781b122b2aea91b08da0ad97f708bf52a",
         "address": "seed-gravity-bridge-01.stakeflow.io:1306",
-        "provider": "Genesis Lab"
+        "provider": "Stakeflow"
+      },
+      {
+        "id": "9f4ed62cd0b60d7c4bdbdce5db5794211707528b",
+        "address": "seed-gravity.ibs.team:16661",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "persistent_peers": [
-     {
+      {
         "id": "b9180ddd3329ddaea74fe6fbdc729506b90f313b",
         "address": "gravity.ramuchi.tech:36656",
         "provider": "ramuchi.tech"
@@ -130,7 +165,12 @@
       {
         "id": "4e595d6781b122b2aea91b08da0ad97f708bf52a",
         "address": "peer-gravity-bridge-01.stakeflow.io:1306",
-        "provider": "Genesis Lab"
+        "provider": "Stakeflow"
+      },
+      {
+        "id": "64a8bf0acf5385086409c1e1cc3cc9b9e5645243",
+        "address": "65.21.91.99:26776",
+        "provider": "Staketab"
       }
     ]
   },
@@ -170,7 +210,15 @@
       },
       {
         "address": "https://rpc-gravity-bridge-01.stakeflow.io",
-        "provider": "Genesis Lab"
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://gravity-rpc.staketab.org:443",
+        "provider": "Staketab"
+      },
+      {
+        "address": "https://gravity-rpc.w3coins.io",
+        "provider": "w3coins"
       }
     ],
     "rest": [
@@ -204,7 +252,15 @@
       },
       {
         "address": "https://api-gravity-bridge-01.stakeflow.io",
-        "provider": "Genesis Lab"
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://gravity-rest.staketab.org",
+        "provider": "Staketab"
+      },
+      {
+        "address": "https://gravity-api.w3coins.io",
+        "provider": "w3coins"
       }
     ],
     "grpc": [
@@ -230,22 +286,30 @@
       },
       {
         "address": "grpc-gravity-bridge-01.stakeflow.io:1302",
-        "provider": "Genesis Lab"
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "services.staketab.com:9017",
+        "provider": "Staketab"
+      },
+      {
+        "address": "gravity-grpc.w3coins.io:14290",
+        "provider": "w3coins"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/gravitybridge",
-      "tx_page": "https://ezstaking.tools/gravitybridge/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/gravitybridge/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/gravitybridge",
+      "tx_page": "https://app.ezstaking.io/gravitybridge/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/gravitybridge/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/gravity-bridge",
-      "tx_page": "https://www.mintscan.io/gravity-bridge/${txHash}",
-      "account_page": "https://www.mintscan.io/gravity-bridge/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/gravity-bridge/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/gravity-bridge/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -272,6 +336,12 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/gravity-bridge",
       "account_page": "https://stakeflow.io/gravity-bridge/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gravitybridge/images/grav.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gravitybridge/images/grav.svg"
     }
   ]
 }

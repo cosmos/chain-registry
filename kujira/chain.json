@@ -33,23 +33,84 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Team-Kujira/core",
-    "recommended_version": "v0.8.4-mainnet",
+    "recommended_version": "v0.9.1",
     "compatible_versions": [
-      "v0.8.4-mainnet"
+      "v0.9.1"
+    ],
+    "cosmos_sdk_version": "v0.47.5",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.2"
+    },
+    "ics_enabled": [
+      "ics20-1"
     ],
     "genesis": {
       "genesis_url": "https://github.com/Team-Kujira/networks/raw/master/mainnet/kaiyo-1.json"
     },
     "versions": [
       {
-        "name": "v0.8.4-mainnet",
+        "name": "v0.8.4",
+        "tag": "v0.8.4",
+        "height": 9226200,
+        "proposal": 302,
         "recommended_version": "v0.8.4-mainnet",
         "compatible_versions": [
+          "v0.8.4",
           "v0.8.4-mainnet"
-        ]
+        ],
+        "cosmos_sdk_version": "0.46.11",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.27"
+        },
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "next_version_name": "v0.8.7"
+      },
+      {
+        "name": "v0.8.7",
+        "proposal": -1,
+        "recommended_version": "v0.8.7",
+        "compatible_versions": [
+          "v0.8.7"
+        ],
+        "next_version_name": "v0.9.0"
+      },
+      {
+        "name": "v0.9.0",
+        "proposal": 483,
+        "height": 14783000,
+        "recommended_version": "v0.9.0",
+        "compatible_versions": [
+          "v0.9.0"
+        ],
+        "cosmos_sdk_version": "v0.47.5",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "next_version_name": "v0.9.1"
+      },
+      {
+        "name": "v0.9.1",
+        "proposal": 488,
+        "height": 15205000,
+        "recommended_version": "v0.9.1",
+        "compatible_versions": [
+          "v0.9.1"
+        ],
+        "cosmos_sdk_version": "v0.47.5",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "next_version_name": ""
       }
     ]
   },
+  "description": "A decentralized ecosystem for protocols, builders and web3 users seeking sustainable FinTech.",
   "peers": {
     "seeds": [
       {
@@ -84,13 +145,23 @@
       },
       {
         "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "kujira-seed-1.allnodes.me:26656",
+        "address": "kujira-seed-de.allnodes.me:26656",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "e726816f42831689eab9378d5d577f1d06d25716",
+        "address": "kujira-seed-us.allnodes.me:26656",
         "provider": "Allnodes.com ⚡️ Nodes & Staking"
       },
       {
         "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:11856",
         "provider": "WhisperNode🤐"
+      },
+      {
+        "id": "654ba97f74254965a80c0fac0f277f6f6e5506b6",
+        "address": "seed-node.mms.team:29656",
+        "provider": "MMS"
       }
     ],
     "persistent_peers": [
@@ -98,6 +169,11 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "kujira-mainnet-peer.autostake.com:26796",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "c1a740841a6dc0b56730e975b1a4aa2d8c73b204",
+        "address": "peer-kujira.mms.team:29656",
+        "provider": "MMS"
       }
     ]
   },
@@ -166,6 +242,30 @@
       {
         "address": "https://rpc.kujira.rektdao.club",
         "provider": "rektDAO"
+      },
+      {
+        "address": "https://kujira-rpc.theamsolutions.info",
+        "provider": "AM Solutions"
+      },
+      {
+        "address": "https://kujira-rpc.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://rpc-kujira.mms.team",
+        "provider": "MMS"
+      },
+      {
+        "address": "https://kujira-rpc.publicnode.com",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://rpc-kujira.rorcualnodes.com",
+        "provider": "Rorcual"
+      },
+      {
+        "address": "https://kujira.interstellar-lounge.org",
+        "provider": "Interstellar Lounge 🍸"
       }
     ],
     "rest": [
@@ -224,6 +324,22 @@
       {
         "address": "https://api.kujira.rektdao.club",
         "provider": "rektDAO"
+      },
+      {
+        "address": "https://kujira-api.theamsolutions.info",
+        "provider": "AM Solutions"
+      },
+      {
+        "address": "https://kujira-api.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://api-kujira.mms.team",
+        "provider": "MMS"
+      },
+      {
+        "address": "https://kujira-rest.publicnode.com",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
       }
     ],
     "grpc": [
@@ -250,6 +366,18 @@
       {
         "address": "kujira.grpc.kjnodes.com:11390",
         "provider": "kjnodes"
+      },
+      {
+        "address": "kujira-grpc.w3coins.io:11890",
+        "provider": "w3coins"
+      },
+      {
+        "address": "grpc-kujira.mms.team:443",
+        "provider": "MMS"
+      },
+      {
+        "address": "kujira-grpc.publicnode.com:443",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
       }
     ]
   },
@@ -269,16 +397,16 @@
       "url": "https://atomscan.com/kujira",
       "tx_page": "https://atomscan.com/kujira/transactions/${txHash}",
       "account_page": "https://atomscan.com/kujira/accounts/${accountAddress}"
-    },
-    {
-      "kind": "mintscan",
-      "url": "https://www.mintscan.io/kujira",
-      "tx_page": "https://www.mintscan.io/kujira/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/kujira/account/${accountAddress}"
     }
   ],
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kujira/images/kujira-chain-logo.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kujira/images/kuji.svg"
-  }
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kujira/images/kujira-chain-logo.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kujira/images/kuji.svg"
+    }
+  ]
 }

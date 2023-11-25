@@ -21,6 +21,10 @@
     "chain_id": {
       "type": "string"
     },
+    "pre_fork_chain_name": {
+      "type": "string",
+      "pattern": "[a-z0-9]+"
+    },
     "pretty_name": {
       "type": "string"
     },
@@ -193,6 +197,10 @@
             "windows/amd64": {
               "type": "string",
               "format": "uri"
+            },
+            "windows/arm64": {
+              "type": "string",
+              "format": "uri"
             }
           },
           "additionalProperties": false
@@ -210,7 +218,8 @@
               "type": "string",
               "enum": [
                 "tendermint",
-                "cometbft"
+                "cometbft",
+                "sei-tendermint"
               ]
             },
             "version": {
@@ -224,6 +233,11 @@
         },
         "cosmwasm_enabled": {
           "type": "boolean"
+        },
+        "cosmwasm_path": {
+          "type": "string",
+          "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
+          "pattern": "^\\$HOME.*$"
         },
         "ibc_go_version": {
           "type": "string"
@@ -251,6 +265,10 @@
               "type": "string"
             },
             "genesis_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "ics_ccv_url": {
               "type": "string",
               "format": "uri"
             }
@@ -307,7 +325,8 @@
                     "type": "string",
                     "enum": [
                       "tendermint",
-                      "cometbft"
+                      "cometbft",
+                      "sei-tendermint"
                     ]
                   },
                   "version": {
@@ -321,6 +340,11 @@
               },
               "cosmwasm_enabled": {
                 "type": "boolean"
+              },
+              "cosmwasm_path": {
+                "type": "string",
+                "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
+                "pattern": "^\\$HOME.*$"
               },
               "ibc_go_version": {
                 "type": "string"
@@ -360,6 +384,10 @@
                   "windows/amd64": {
                     "type": "string",
                     "format": "uri"
+                  },
+                  "windows/arm64": {
+                    "type": "string",
+                    "format": "uri"
                   }
                 },
                 "additionalProperties": false
@@ -376,6 +404,9 @@
       "items": {
         "type": "object",
         "properties": {
+          "image_sync": {
+            "$ref": "#/$defs/pointer"
+          },
           "png": {
             "type": "string",
             "format": "uri-reference",
@@ -392,14 +423,20 @@
               "primary_color_hex": {
                 "type": "string",
                 "pattern": "^#[0-9a-fA-F]{6}$"
+              },
+              "circle": {
+                "type": "boolean"
+              },
+              "dark_mode": {
+                "type": "boolean"
               }
             },
+            "minProperties": 1,
             "additionalProperties": false
           }
         },
         "additionalProperties": false
-      },
-      "minItems": 1
+      }
     },
     "logo_URIs": {
       "type": "object",
@@ -416,6 +453,10 @@
         }
       },
       "additionalProperties": false
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1999
     },
     "peers": {
       "type": "object",
@@ -605,6 +646,24 @@
       "properties": {
         "denom": {
           "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "pointer": {
+      "type": "object",
+      "description": "The (primary) key used to identify an object within the Chain Registry.",
+      "required": [
+        "chain_name"
+      ],
+      "properties": {
+        "chain_name": {
+          "type": "string",
+          "description": "The chain name or platform from which the object resides. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'"
+        },
+        "base_denom": {
+          "type": "string",
+          "description": "The base denom of the asset from which the object originates. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
         }
       },
       "additionalProperties": false
