@@ -786,6 +786,41 @@
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/sqatom.svg"
         }
       ]
+    },
+    {
+      "description": "CRO is the native token of the Crypto.org Chain, referred to as Native CRO.",
+      "denom_units": [
+        {
+          "denom": "ibc/E6931F78057F7CC5DA0FD6CEF82FF39373A6E0452BF1FD76910B93292CF356C1",
+          "exponent": 0,
+          "aliases": [
+            "basecro"
+          ]
+        },
+        {
+          "denom": "cro",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/E6931F78057F7CC5DA0FD6CEF82FF39373A6E0452BF1FD76910B93292CF356C1",
+      "name": "Cronos",
+      "display": "cro",
+      "symbol": "CRO",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cryptoorgchain",
+            "base_denom": "basecro",
+            "channel_id": "channel-10"
+          },
+          "chain": {
+            "channel_id": "channel-5",
+            "path": "transfer/channel-5/basecro"
+          }
+        }
+      ]
     }
   ]
 }
