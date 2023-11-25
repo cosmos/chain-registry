@@ -833,6 +833,41 @@
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro.svg"
       }
+    },
+    {
+      "description": "The native token of Stargaze",
+      "denom_units": [
+        {
+          "denom": "ibc/987C17B11ABC2B20019178ACE62929FE9840202CE79498E29FE8E5CB02B7C0A4",
+          "exponent": 0,
+          "aliases": [
+            "ustars"
+          ]
+        },
+        {
+          "denom": "stars",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/987C17B11ABC2B20019178ACE62929FE9840202CE79498E29FE8E5CB02B7C0A4",
+      "name": "Stargaze",
+      "display": "stars",
+      "symbol": "STARS",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "stargaze",
+            "base_denom": "ustars",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "channel-75",
+            "path": "transfer/channel-75/ustars"
+          }
+        }
+      ]
     }
   ]
 }
