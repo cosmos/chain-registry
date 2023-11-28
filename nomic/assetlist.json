@@ -3,7 +3,7 @@
   "chain_name": "nomic",
   "assets": [
     {
-      "description": "Nomic Token (NOM) is the Nomic's native utility token, used as the primary means to govern, secure the blockchain, incentivize participants, and provide a default mechanism to store and exchange value.",
+      "description": "Nomic's native token.",
       "denom_units": [
         {
           "denom": "unom",
@@ -19,13 +19,50 @@
       "display": "nom",
       "symbol": "NOM",
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nomic.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nomic.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nom.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nom.svg"
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nomic.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nomic.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nom.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nom.svg"
+        }
+      ]
+    },
+    {
+      "description": "Bitcoin. On Cosmos.",
+      "denom_units": [
+        {
+          "denom": "usat",
+          "exponent": 0
+        },
+        {
+          "denom": "nbtc",
+          "exponent": 14
+        }
+      ],
+      "base": "usat",
+      "name": "Nomic Bitcoin",
+      "display": "nbtc",
+      "symbol": "nBTC",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nbtc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nbtc.svg"
+      },
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "bitcoin",
+            "base_denom": "sat"
+          },
+          "provider": "Nomic"
+        }
+      ],
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nbtc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nbtc.svg"
         }
       ]
     }

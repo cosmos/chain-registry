@@ -16,7 +16,10 @@
     "fee_tokens": [
       {
         "denom": "usge",
-        "fixed_min_gas_price": 0.001
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.1,
+        "average_gas_price": 0.25,
+        "high_gas_price": 0.5
       }
     ]
   },
@@ -29,10 +32,16 @@
   },
   "codebase": {
     "git_repo": "https://github.com/sge-network/sge",
-    "recommended_version": "v1.1.0",
+    "recommended_version": "v1.1.1",
     "compatible_versions": [
-      "v1.1.0"
+      "v1.1.1"
     ],
+    "cosmos_sdk_version": "v0.46.14",
+    "ibc_go_version": "v5.3.1",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.34.29"
+    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/sge-network/networks/master/mainnet/sgenet-1/genesis.json"
     },
@@ -42,7 +51,30 @@
         "recommended_version": "v1.1.0",
         "compatible_versions": [
           "v1.1.0"
-        ]
+        ],
+        "cosmos_sdk_version": "v0.46.14",
+        "ibc_go_version": "v5.2.1",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.29"
+        },
+        "next_version_name": "v1.1.1"
+      },
+      {
+        "name": "v1.1.1",
+        "recommended_version": "v1.1.1",
+        "compatible_versions": [
+          "v1.1.1"
+        ],
+        "proposal": 1,
+        "height": 1097000,
+        "cosmos_sdk_version": "v0.46.14",
+        "ibc_go_version": "v5.3.1",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.29"
+        },
+        "next_version_name": ""
       }
     ]
   },
@@ -113,6 +145,11 @@
         "id": "17da9d2fea9d6d431d390c3b9575547d8881da2b",
         "address": "185.16.39.190:11156",
         "provider": "StakerHouse"
+      },
+      {
+        "id": "7e82897f6fa112e11f0b8defda1a9290f90a5320",
+        "address": "p2p.sge.safeblock.space:33656",
+        "provider": "Safe Block"
       }
     ]
   },
@@ -137,6 +174,22 @@
       {
         "address": "https://sge-rpc.ramuchi.tech",
         "provider": "ramuchi.tech"
+      },
+      {
+        "address": "https://sge-rpc.stakerhouse.com",
+        "provider": "StakerHouse"
+      },
+      {
+        "address": "https://rpc.sge.tcnetwork.io",
+        "provider": "TC Network"
+      },
+      {
+        "address": "https://sge-rpc.sr20de.xyz",
+        "provider": "Sr20de"
+      },
+      {
+        "address": "https://rpc.sge.safeblock.space",
+        "provider": "Safe Block"
       }
     ],
     "rest": [
@@ -159,6 +212,22 @@
       {
         "address": "https://sge-api.ramuchi.tech/",
         "provider": "ramuchi.tech"
+      },
+      {
+        "address": "https://sge-rest.stakerhouse.com",
+        "provider": "StakerHouse"
+      },
+      {
+        "address": "https://rest.sge.tcnetwork.io",
+        "provider": "TC Network"
+      },
+      {
+        "address": "https://sge-api.sr20de.xyz",
+        "provider": "Sr20de"
+      },
+      {
+        "address": "https://api.sge.safeblock.space",
+        "provider": "Safe Block"
       }
     ],
     "grpc": [
@@ -177,6 +246,14 @@
       {
         "address": "https://sge-grpc.ramuchi.tech:443",
         "provider": "ramuchi.tech"
+      },
+      {
+        "address": "sge-grpc.stakerhouse.com:443",
+        "provider": "StakerHouse"
+      },
+      {
+        "address": "https://sge-grpc.sr20de.xyz",
+        "provider": "Sr20de"
       }
     ]
   },
@@ -195,6 +272,18 @@
       "kind": "stakerhouse",
       "url": "https://cosmotracker.com/sge",
       "tx_page": "https://cosmotracker.com/sge/tx/${txHash}"
+    },
+    {
+      "kind": "TC Network",
+      "url": "https://explorer.tcnetwork.io/sge",
+      "tx_page": "https://explorer.tcnetwork.io/sge/transaction/${txHash}",
+      "account_page": "https://explorer.tcnetwork.io/sge/account/${accountAddress}"
+    },
+    {
+      "kind": "Safe Block",
+      "url": "https://explorer.safeblock.space/sge",
+      "tx_page": "https://explorer.safeblock.space/sge/tx/${txHash}",
+      "account_page": "https://explorer.safeblock.space/sge/account/${accountAddress}"
     }
   ],
   "images": [

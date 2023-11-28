@@ -37,24 +37,26 @@
   },
   "codebase": {
     "git_repo": "https://github.com/osmosis-labs/osmosis",
-    "recommended_version": "v19.2.0",
+    "recommended_version": "v20.2.1",
     "compatible_versions": [
-      "v19.2.0",
-      "v19.1.0",
-      "v19.0.0"
+      "v20.2.1",
+      "v20.2.0",
+      "v20.1.2",
+      "v20.1.1",
+      "v20.1.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v19.2.0/osmosisd-19.2.0-linux-amd64?checksum=sha256:723ff1c5349eb3c039c3dc5f55895bbde2e1499fe7c0a96960cc6fadeec814c4",
-      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v19.2.0/osmosisd-19.2.0-linux-arm64?checksum=sha256:d933b893d537422164a25bf161d7f269a59ea26d37f398cdb7dd575a9ec33ed2"
+      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v20.2.1/osmosisd-20.2.1-linux-amd64?checksum=sha256:4e60a870861ca17819fbcb49fff981b5731ec1121d7cbab43987c5f04ff099fa",
+      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v20.2.1/osmosisd-20.2.1-linux-arm64?checksum=sha256:4e7fe2cc369a9eef28a8083414c2d7e0a8cb5eb5b75e913ded06ee457dff62bb"
     },
-    "cosmos_sdk_version": "osmosis-labs/cosmos-sdk@0.45.0-rc1.0.20230927020814-2854ac001f06",
+    "cosmos_sdk_version": "osmosis-labs/cosmos-sdk@0.45.0-rc1.0.20230922030206-734f99fba785",
     "consensus": {
       "type": "tendermint",
-      "version": "informalsystems/tendermint@0.34.24"
+      "version": "0.38.0"
     },
     "cosmwasm_version": "osmosis-labs/wasmd@0.31.0-osmo-v16",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "4.3.1",
+    "ibc_go_version": "4.5.1",
     "ics_enabled": [
       "ics20-1"
     ],
@@ -286,6 +288,35 @@
         "binaries": {
           "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v19.2.0/osmosisd-19.2.0-linux-amd64?checksum=sha256:723ff1c5349eb3c039c3dc5f55895bbde2e1499fe7c0a96960cc6fadeec814c4",
           "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v19.2.0/osmosisd-19.2.0-linux-arm64?checksum=sha256:d933b893d537422164a25bf161d7f269a59ea26d37f398cdb7dd575a9ec33ed2"
+        },
+        "next_version_name": "v20"
+      },
+      {
+        "name": "v20",
+        "tag": "v20.2.1",
+        "height": 12028900,
+        "recommended_version": "v20.2.1",
+        "compatible_versions": [
+          "v20.2.1",
+          "v20.2.0",
+          "v20.1.2",
+          "v20.1.1",
+          "v20.1.0"
+        ],
+        "cosmos_sdk_version": "osmosis-labs/cosmos-sdk@0.45.0-rc1.0.20230922030206-734f99fba785",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.38.0"
+        },
+        "cosmwasm_version": "osmosis-labs/wasmd@0.31.0-osmo-v16",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "4.5.1",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v20.2.1/osmosisd-20.2.1-linux-amd64?checksum=sha256:4e60a870861ca17819fbcb49fff981b5731ec1121d7cbab43987c5f04ff099fa",
+          "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v20.2.1/osmosisd-20.2.1-linux-arm64?checksum=sha256:4e7fe2cc369a9eef28a8083414c2d7e0a8cb5eb5b75e913ded06ee457dff62bb"
         }
       }
     ]
@@ -298,14 +329,13 @@
       }
     },
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
     }
   ],
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png"
   },
+  "description": "Osmosis (OSMO) is a decentralized exchange (DEX) for Cosmos, an ecosystem of sovereign, interoperable blockchains all connected trustlessly over IBC, the Inter-Blockchain Communication Protocol. Osmosis also offers non-IBC assets bridged from the Ethereum and Polkadot ecosystems. Osmosis' Supercharged Liquidity implements an efficient liquidity pool mechanism analogous to Uniswap's concentrated liquidity, attaining improved capital efficiency and allowing liquidity providers to compete for earned fees and incentives.\n\nAs an appchain DEX, Osmosis has greater control over the full blockchain stack than DEXs that must follow the code of a parent chain. This fine-grained control has enabled, for example, the development of Superfluid Staking, an improvement to Proof-of-Stake security. Superfluid staking allows the underlying OSMO in an LP position to add to chain security and earn staking rewards for doing so. The customizability of appchains also allows for the development of a transaction mempool shielded with threshold encryption, which will greatly reduce harmful MEV on Osmosis.\n\nOsmosis's vision is to build a cross-chain native DEX and trading suite that connects all chains over IBC, including Ethereum and Bitcoin. To build out the trading functionalities, Osmosis has invited external developers to create a bespoke DEX ecosystem that includes lending, credit, margin, fiat on-ramps, Defi strategy vaults, NFTs, stablecoins, and more – all the functionalities of a centralized exchange and more, plus the trust-minimization of decentralized finance.",
   "peers": {
     "seeds": [
       {
@@ -344,11 +374,6 @@
         "provider": "WhisperNode🤐"
       },
       {
-        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
-        "address": "osmosis.rpc.kjnodes.com:11259",
-        "provider": "kjnodes"
-      },
-      {
         "id": "38ab18cb2ea1dfeb6232b429e1508f56b6ae5031",
         "address": "seed-osmosis-01.stakeflow.io:65535",
         "provider": "Stakeflow"
@@ -359,14 +384,9 @@
         "provider": "MMS"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "osmosis-seed-de.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "osmosis-seed-us.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -406,9 +426,14 @@
         "provider": "MMS"
       },
       {
-        "id": "1fd3c5d3bb28bef6615fdd8ab6dc6008df646a87",
-        "address": "88.99.208.54:41656",
+        "id": "b95edbc3337a6fdd672cd6af2790c0e9ade2c4dd",
+        "address": "65.108.195.213:41656",
         "provider": "StakeTown"
+      },
+      {
+        "id": "10539f7c0e3ab233cf0deec9930aa8b660aeeabf",
+        "address": "osmosis-mainnet.peers.l0vd.com:12656",
+        "provider": "L0vd.com ❤️"
       }
     ]
   },
@@ -479,10 +504,6 @@
         "provider": "OnFinality"
       },
       {
-        "address": "https://osmosis.rpc.kjnodes.com",
-        "provider": "kjnodes"
-      },
-      {
         "address": "https://rpc-osmosis-01.stakeflow.io",
         "provider": "Stakeflow"
       },
@@ -499,8 +520,8 @@
         "provider": "MMS"
       },
       {
-        "address": "https://osmosis-rpc.publicnode.com",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "address": "https://osmosis-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "https://community.nuxian-node.ch:6797/osmosis/trpc",
@@ -511,8 +532,16 @@
         "provider": "FreshSTAKING"
       },
       {
-        "address": "https://osmosis-rpc.stake-town.com:443",
+        "address": "https://osmosis-rpc.stake-town.com",
         "provider": "StakeTown"
+      },
+      {
+        "address": "https://rpc-osmosis.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://osmosis-mainnet.rpc.l0vd.com:443",
+        "provider": "L0vd.com ❤️"
       }
     ],
     "rest": [
@@ -569,10 +598,6 @@
         "provider": "ivaldilabs"
       },
       {
-        "address": "https://osmosis.api.kjnodes.com",
-        "provider": "kjnodes"
-      },
-      {
         "address": "https://api-osmosis-01.stakeflow.io",
         "provider": "Stakeflow"
       },
@@ -594,19 +619,27 @@
       },
       {
         "address": "https://osmosis-rest.publicnode.com",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "https://community.nuxian-node.ch:6797/osmosis/crpc",
         "provider": "PRO Delegators"
       },
       {
-        "address": "https://osmosis-api.stake-town.com:443",
+        "address": "https://osmosis-api.stake-town.com",
         "provider": "StakeTown"
       },
       {
         "address": "https://rpc-osmosis.in3s.com:443",
         "provider": "in3s.com"
+      },
+      {
+        "address": "https://api-osmosis.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://osmosis-mainnet.api.l0vd.com:443",
+        "provider": "L0vd.com ❤️"
       }
     ],
     "grpc": [
@@ -635,10 +668,6 @@
         "provider": "ivaldilabs"
       },
       {
-        "address": "osmosis.grpc.kjnodes.com:11290",
-        "provider": "kjnodes"
-      },
-      {
         "address": "grpc-osmosis-01.stakeflow.io:6754",
         "provider": "Stakeflow"
       },
@@ -656,11 +685,19 @@
       },
       {
         "address": "osmosis-grpc.publicnode.com:443",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "osmosis-grpc.stake-town.com:443",
         "provider": "StakeTown"
+      },
+      {
+        "address": "https://grpc-osmosis.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "osmosis-mainnet.grpc.l0vd.com:80",
+        "provider": "L0vd.com ❤️"
       }
     ]
   },
@@ -710,6 +747,16 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/osmosis",
       "account_page": "https://stakeflow.io/osmosis/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Nodeist Explorer",
+      "url": "https://exp.nodeist.net/osmosis",
+      "tx_page": "https://exp.nodeist.net/osmosis/tx/${txHash}"
+    },
+    {
+      "kind": "L0vd.com ❤️",
+      "url": "https://explorers.l0vd.com/osmosis-mainnet",
+      "tx_page": "https://explorers.l0vd.com/osmosis-mainnet/tx/${txHash}"
     }
   ],
   "keywords": [
