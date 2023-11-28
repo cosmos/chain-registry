@@ -882,6 +882,128 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg"
       }
+    },
+    {
+      "description": "Maximize ETH yield through leveraged staking across Aave, Compound and Morpho and liquidity provision of ETH liquid staking tokens on Uniswap V3.",
+      "denom_units": [
+        {
+          "denom": "ibc/FBB3FEF80ED2344D821D4F95C31DBFD33E4E31D5324CAD94EF756E67B749F668",
+          "exponent": 0,
+          "aliases": [
+            "0xb5b29320d2Dde5BA5BAFA1EbcD270052070483ec",
+            "yieldeth-wei"
+          ]
+        },
+        {
+          "denom": "YieldETH",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/FBB3FEF80ED2344D821D4F95C31DBFD33E4E31D5324CAD94EF756E67B749F668",
+      "name": "Real Yield Eth",
+      "display": "YieldETH",
+      "symbol": "YieldETH",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "wei"
+          },
+          "provider": "Seven Seas & DeFine Logic Labs"
+        },
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xb5b29320d2Dde5BA5BAFA1EbcD270052070483ec"
+          },
+          "provider": "Axelar"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "axelar",
+            "base_denom": "yieldeth-wei",
+            "channel_id": "channel-3"
+          },
+          "chain": {
+            "channel_id": "channel-208",
+            "path": "transfer/channel-208/yieldeth-wei"
+          }
+        }
+      ]
+    },
+    {
+      "description": "The native staking token of dYdX Protocol.",
+      "denom_units": [
+        {
+          "denom": "ibc/831F0B1BBB1D08A2B75311892876D71565478C532967545476DF4C2D7492E48C",
+          "exponent": 0,
+          "aliases": [
+            "adydx"
+          ]
+        },
+        {
+          "denom": "dydx",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/831F0B1BBB1D08A2B75311892876D71565478C532967545476DF4C2D7492E48C",
+      "name": "dYdX",
+      "display": "dydx",
+      "symbol": "DYDX",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "dydx",
+            "base_denom": "adydx",
+            "channel_id": "channel-3"
+          },
+          "chain": {
+            "channel_id": "channel-6787",
+            "path": "transfer/channel-6787/adydx"
+          }
+        }
+      ]
+    },
+    {
+      "description": "The native token of Quasar",
+      "denom_units": [
+        {
+          "denom": "ibc/1B708808D372E959CD4839C594960309283424C775F4A038AAEBE7F83A988477",
+          "exponent": 0,
+          "aliases": [
+            "uqsr"
+          ]
+        },
+        {
+          "denom": "qsr",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/1B708808D372E959CD4839C594960309283424C775F4A038AAEBE7F83A988477",
+      "name": "Quasar",
+      "display": "qsr",
+      "symbol": "QSR",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "quasar",
+            "base_denom": "uqsr",
+            "channel_id": "channel-1"
+          },
+          "chain": {
+            "channel_id": "channel-688",
+            "path": "transfer/channel-688/uqsr"
+          }
+        }
+      ]
     }
   ]
 }
