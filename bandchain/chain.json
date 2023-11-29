@@ -13,7 +13,10 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "uband"
+        "denom": "uband",
+        "low_gas_price": 0.0025,
+        "average_gas_price": 0.003,
+        "high_gas_price": 0.005
       }
     ]
   },
@@ -26,9 +29,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/bandprotocol/chain",
-    "recommended_version": "v2.5.2",
+    "recommended_version": "v2.5.3",
     "compatible_versions": [
-      "v2.5.2"
+      "v2.5.3"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/bandprotocol/launch/master/laozi-mainnet/genesis.json"
@@ -47,6 +50,13 @@
         "compatible_versions": [
           "v2.5.2"
         ]
+      },
+      {
+        "name": "v2.5.3",
+        "recommended_version": "v2.5.3",
+        "compatible_versions": [
+          "v2.5.3"
+        ]
       }
     ]
   },
@@ -54,6 +64,7 @@
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.svg"
   },
+  "description": "Band Protocol is a cross-chain data oracle platform that aggregates and connects real-world data and APIs to smart contracts.",
   "peers": {
     "seeds": [
       {
@@ -73,6 +84,16 @@
         "id": "4ded49b3a718828eb64cf35da1ed791ecb201bc1",
         "address": "seed-band-01.stakeflow.io:25017",
         "provider": "Stakeflow"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "band.rpc.kjnodes.com:16959",
+        "provider": "kjnodes"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -98,6 +119,11 @@
         "id": "d3fe7586b604196461db92c2c7cf72eb354af1fc",
         "address": "rpc.band.indonode.net:12656",
         "provider": "Indonode"
+      },
+      {
+        "id": "c6f9e1309055eedbcd58d018b54247f13e9f878b",
+        "address": "88.99.208.54:44656",
+        "provider": "StakeTown"
       }
     ]
   },
@@ -133,11 +159,23 @@
       },
       {
         "address": "https://bandprotocol-rpc.highstakes.ch:26657/",
-        "provider": "High Stakes \uD83C\uDDE8\uD83C\uDDED"
+        "provider": "High Stakes 🇨🇭"
       },
       {
         "address": "https://rpc.band.indonode.net",
         "provider": "Indonode"
+      },
+      {
+        "address": "https://rpc-band.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://band.rpc.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://band-rpc.stake-town.com",
+        "provider": "StakeTown"
       }
     ],
     "rest": [
@@ -171,11 +209,23 @@
       },
       {
         "address": "https://bandprotocol-api.highstakes.ch:1317/",
-        "provider": "High Stakes \uD83C\uDDE8\uD83C\uDDED"
+        "provider": "High Stakes 🇨🇭"
       },
       {
         "address": "https://api.band.indonode.net",
         "provider": "Indonode"
+      },
+      {
+        "address": "https://api-band.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://band.api.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://band-api.stake-town.com",
+        "provider": "StakeTown"
       }
     ],
     "grpc": [
@@ -198,6 +248,18 @@
       {
         "address": "band-grpc.w3coins.io:22990",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://grpc-band.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "band.grpc.kjnodes.com:443",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "band-grpc.stake-town.com:443",
+        "provider": "StakeTown"
       }
     ]
   },
@@ -219,6 +281,11 @@
       "tx_page": "https://ping.pub/band-protocol/tx/${txHash}"
     },
     {
+      "kind": "Nodeist Explorer",
+      "url": "https://exp.nodeist.net/band",
+      "tx_page": "https://exp.nodeist.net/band/tx/${txHash}"
+    },
+    {
       "kind": "atomscan",
       "url": "https://atomscan.com/band-protocol",
       "tx_page": "https://atomscan.com/band-protocol/transactions/${txHash}",
@@ -234,6 +301,17 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/band-protocol",
       "account_page": "https://stakeflow.io/band-protocol/accounts/${accountAddress}"
+    },
+    {
+      "kind": "kjnodes Explorer",
+      "url": "https://explorer.kjnodes.com/band",
+      "tx_page": "https://explorer.kjnodes.com/band/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.svg"
     }
   ]
 }

@@ -29,6 +29,9 @@ Once schemas have matured and client needs are better understood Chain Registry 
 - https://chain-registry.netlify.com
 - https://atomscan.com/directory
 
+## Tooling
+- https://github.com/gaia/chain-registry-query/
+
 ## Contributing
 
 We accept pull requests to add data to an existing assetlist.json or chain.json (especially to add peer data or public rpc endpoint) or to add a new chain.
