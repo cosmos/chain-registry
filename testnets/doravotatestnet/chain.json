@@ -1,7 +1,7 @@
 {
   "$schema": "../../chain.schema.json",
   "chain_name": "doravotatestnet",
-  "chain_id": "doravota-devnet",
+  "chain_id": "vota-testnet",
   "pretty_name": "Dora Vota Testnet",
   "status": "live",
   "network_type": "testnet",
@@ -15,15 +15,15 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "uDORA",
-        "fixed_min_gas_price": 0.0025
+        "denom": "peaka",
+        "fixed_min_gas_price": 100000000000
       }
     ]
   },
   "staking": {
     "staking_tokens": [
       {
-        "denom": "uDORA"
+        "denom": "peaka"
       }
     ]
   },
@@ -36,7 +36,7 @@
     "binaries": {
     },
     "genesis": {
-      "genesis_url": "https://github.com/DoraFactory/doravota/blob/main/config/genesis.json"
+      "genesis_url": "https://github.com/DoraFactory/doravota/blob/main/config/testnet/genesis.json"
     },
     "versions": [
       {
@@ -76,17 +76,21 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://vota-rpc.dorafactory.org/",
+        "address": "https://vota-testnet-rpc.dorafactory.org/",
         "provider": "dorafactory"
       }
     ],
     "rest": [
       {
-        "address": "https://vota-rest.dorafactory.org",
+        "address": "https://vota-testnet-rest.dorafactory.org",
         "provider": "dorafactory"
       }
     ],
     "grpc": [
+      {
+        "address": "vota-testnet-grpc.dorafactory.org:443",
+        "provider": "dorafactory"
+      }
     ]
   },
   "explorers": [

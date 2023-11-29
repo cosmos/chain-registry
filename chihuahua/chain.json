@@ -9,6 +9,10 @@
   "bech32_prefix": "chihuahua",
   "daemon_name": "chihuahuad",
   "node_home": "$HOME/.chihuahuad",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
@@ -29,14 +33,23 @@
   },
   "codebase": {
     "git_repo": "https://github.com/ChihuahuaChain/chihuahua/",
-    "recommended_version": "v5.0.2",
+    "recommended_version": "v5.0.4",
     "compatible_versions": [
-      "v5.0.2"
+      "v5.0.3",
+      "v5.0.4"
     ],
+    "cosmos_sdk_version": "v0.47.5",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.2"
+    },
+    "ibc_go_version": "7.3.0",
+    "cosmwasm_version": "v0.41.0",
+    "cosmwasm_enabled": true,
+    "cosmwasm_path": "$HOME/.chihuahuad/data/wasm",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/ChihuahuaChain/chihuahua/main/mainnet/genesis.json"
     },
-    "cosmwasm_enabled": true,
     "versions": [
       {
         "name": "v421",
@@ -80,6 +93,26 @@
         "proposal": 53,
         "height": 9180000,
         "cosmwasm_enabled": true,
+        "next_version_name": "v503"
+      },
+      {
+        "name": "v503",
+        "recommended_version": "v5.0.4",
+        "compatible_versions": [
+          "v5.0.3",
+          "v5.0.4"
+        ],
+        "proposal": 54,
+        "height": 9430000,
+        "cosmos_sdk_version": "v0.47.5",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "ibc_go_version": "7.3.0",
+        "cosmwasm_version": "v0.41.0",
+        "cosmwasm_enabled": true,
+        "cosmwasm_path": "$HOME/.chihuahuad/data/wasm",
         "next_version_name": ""
       }
     ]
@@ -116,14 +149,9 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "chihuahua-seed-de.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "chihuahua-seed-us.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "id": "3c5b1a13f810507b9ef1240372b3cbc9bd90da26",
@@ -200,8 +228,8 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://chihuahua-rpc.publicnode.com",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "address": "https://chihuahua-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "rest": [
@@ -255,7 +283,7 @@
       },
       {
         "address": "https://chihuahua-rest.publicnode.com",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "grpc": [
@@ -281,7 +309,7 @@
       },
       {
         "address": "chihuahua-grpc.publicnode.com:443",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ]
   },
@@ -302,6 +330,12 @@
       "url": "https://atomscan.com/chihuahua",
       "tx_page": "https://atomscan.com/chihuahua/transactions/${txHash}",
       "account_page": "https://atomscan.com/chihuahua/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/chihuahua/images/huahua.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/chihuahua/images/huahua.svg"
     }
   ]
 }
