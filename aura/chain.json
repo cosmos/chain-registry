@@ -9,11 +9,18 @@
   "bech32_prefix": "aura",
   "daemon_name": "aurad",
   "node_home": "$HOME/.aura",
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
-        "denom": "uaura"
+        "denom": "uaura",
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.02,
+        "high_gas_price": 0.025
       }
     ]
   },
@@ -22,14 +29,24 @@
       {
         "denom": "uaura"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1209600s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/aura-nw/aura",
-    "recommended_version": "aura_v0.4.5",
+    "recommended_version": "v0.7.1",
     "compatible_versions": [
-      "aura_v0.4.5"
+      "v0.7.1"
     ],
+    "cosmos_sdk_version": "0.47.4",
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.37.2"
+    },
+    "cosmwasm_version": "0.41.0",
+    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/aura-nw/mainnet-artifacts/main/xstaxy-1/genesis.json"
     },
@@ -50,6 +67,23 @@
         "compatible_versions": [
           "aura_v0.4.5"
         ],
+        "next_version_name": "v0.7.1"
+      },
+      {
+        "name": "v0.7.1",
+        "proposal": 7,
+        "height": 3666129,
+        "recommended_version": "v0.7.1",
+        "compatible_versions": [
+          "v0.7.1"
+        ],
+        "cosmos_sdk_version": "0.47.4",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.2"
+        },
+        "cosmwasm_version": "0.41.0",
+        "cosmwasm_enabled": true,
         "next_version_name": ""
       }
     ]
@@ -106,6 +140,11 @@
         "provider": "KonsorTech"
       },
       {
+        "id": "dce07d176e5ba4cfdc7b806eb80eabab162a09d0",
+        "address": "45.76.213.229:26656",
+        "provider": "[NODERS]TEAM"
+      },
+      {
         "id": "57406c041d38af3bac9acdcb2b4bdc90dc7a8852",
         "address": "aura.peers.stavr.tech:21056",
         "provider": "🔥STAVR🔥"
@@ -134,6 +173,11 @@
         "id": "bdd32536c902de9b240a36f0b23641233a080351",
         "address": "peer-aura.mms.team:27656",
         "provider": "MMS"
+      },
+      {
+        "id": "2bd24dbac94c3b95707c8f06a57d61a31ae666fa",
+        "address": "88.99.208.54:46656",
+        "provider": "StakeTown"
       }
     ]
   },
@@ -150,6 +194,10 @@
       {
         "address": "https://m-aura.rpc.utsa.tech",
         "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
+      },
+      {
+        "address": "http://aura.mainnet.rpc.nodersteam.com:10657",
+        "provider": "[NODERS]TEAM"
       },
       {
         "address": "https://rpc.aura.nodestake.top",
@@ -206,6 +254,10 @@
       {
         "address": "https://rpc-aura.mms.team",
         "provider": "MMS"
+      },
+      {
+        "address": "https://aura-rpc.stake-town.com",
+        "provider": "StakeTown"
       }
     ],
     "rest": [
@@ -220,6 +272,10 @@
       {
         "address": "https://m-aura.api.utsa.tech",
         "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
+      },
+      {
+        "address": "http://aura.mainnet.api.nodersteam.com:10017",
+        "provider": "[NODERS]TEAM"
       },
       {
         "address": "https://aura.api.m.stavr.tech",
@@ -276,6 +332,10 @@
       {
         "address": "https://api-aura.mms.team",
         "provider": "MMS"
+      },
+      {
+        "address": "https://aura-api.stake-town.com",
+        "provider": "StakeTown"
       }
     ],
     "grpc": [
@@ -290,6 +350,10 @@
       {
         "address": "https://grpc.aura.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "aura.mainnet.grpc.nodersteam.com:9100/",
+        "provider": "[NODERS]TEAM"
       },
       {
         "address": "https://aura-grpc.ramuchi.tech:15000",
@@ -322,6 +386,14 @@
       {
         "address": "grpc-aura.mms.team:443",
         "provider": "MMS"
+      },
+      {
+        "address": "aura-grpc.stake-town.com:443",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "grpc.aura.safeblock.space:9090",
+        "provider": "Safe Block"
       }
     ]
   },

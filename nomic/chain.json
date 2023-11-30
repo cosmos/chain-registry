@@ -9,15 +9,39 @@
   "bech32_prefix": "nomic",
   "daemon_name": "nomic",
   "node_home": "$HOME/.nomic-stakenet-3",
+  "slip44": 118,
+  "key_algos": [
+    "secp256k1"
+  ],
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "unom",
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "unom"
+      }
+    ],
+    "lock_duration": {
+      "time": "1209600s"
+    }
+  },
   "codebase": {
     "git_repo": "https://github.com/nomic-io/nomic",
-    "recommended_version": "develop",
+    "recommended_version": "main",
     "compatible_versions": [
       "develop",
       "v3"
     ],
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/nomic-io/nomic/develop/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/nomic-io/nomic/develop/genesis/stakenet-3.json"
     },
     "versions": [
       {
@@ -33,11 +57,13 @@
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nomic.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nomic.svg"
   },
+  "description": "The superior way to use Bitcoin in Cosmos DeFi. Use IBC to securely and efficiently bridge your BTC to Osmosis and more.",
   "peers": {
     "seeds": [
       {
         "id": "238120dfe716082754048057c1fdc3d6f09609b5",
-        "address": "161.35.51.124:26656"
+        "address": "rpc.nomic.mappum.io:26656",
+        "provider": "mappum"
       },
       {
         "id": "34544f82960d2ff2b1defb7b04f097557f4183be",
@@ -53,6 +79,11 @@
         "id": "27b6d74c8408e033e2e5a9e966a0d15782e33596",
         "address": "seeds.nethernode.xyz:12756",
         "provider": "carbonZERO🌲"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": []
@@ -60,7 +91,7 @@
   "apis": {
     "rpc": [
       {
-        "address": "http://138.197.71.46:26657",
+        "address": "https://stakenet-rpc.nomic.io:2096",
         "provider": "nomic-io"
       },
       {
@@ -110,5 +141,13 @@
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nomic.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nomic.svg"
     }
-  ]
+  ],
+  "bech32_config": {
+    "bech32PrefixAccAddr": "nomic",
+    "bech32PrefixAccPub": "nomic",
+    "bech32PrefixConsAddr": "nomic",
+    "bech32PrefixConsPub": "nomic",
+    "bech32PrefixValAddr": "nomic",
+    "bech32PrefixValPub": "nomic"
+  }
 }

@@ -218,7 +218,8 @@
               "type": "string",
               "enum": [
                 "tendermint",
-                "cometbft"
+                "cometbft",
+                "sei-tendermint"
               ]
             },
             "version": {
@@ -324,7 +325,8 @@
                     "type": "string",
                     "enum": [
                       "tendermint",
-                      "cometbft"
+                      "cometbft",
+                      "sei-tendermint"
                     ]
                   },
                   "version": {
@@ -421,8 +423,15 @@
               "primary_color_hex": {
                 "type": "string",
                 "pattern": "^#[0-9a-fA-F]{6}$"
+              },
+              "circle": {
+                "type": "boolean"
+              },
+              "dark_mode": {
+                "type": "boolean"
               }
             },
+            "minProperties": 1,
             "additionalProperties": false
           }
         },
@@ -444,6 +453,10 @@
         }
       },
       "additionalProperties": false
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1999
     },
     "peers": {
       "type": "object",
