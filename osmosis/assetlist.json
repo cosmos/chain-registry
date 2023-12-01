@@ -46,7 +46,7 @@
         }
       ],
       "base": "uion",
-      "name": "Ion",
+      "name": "Ion DAO",
       "display": "ion",
       "symbol": "ION",
       "logo_URIs": {
@@ -77,7 +77,7 @@
       ],
       "address": "osmo14klwqgkmackvx2tqa0trtg69dmy0nrg4ntq4gjgw2za4734r5seqjqm4gm",
       "base": "factory/osmo14klwqgkmackvx2tqa0trtg69dmy0nrg4ntq4gjgw2za4734r5seqjqm4gm/uibcx",
-      "name": "IBCX Core <Product of ION DAO>",
+      "name": "IBC Index",
       "display": "ibcx",
       "symbol": "IBCX",
       "logo_URIs": {
@@ -102,7 +102,7 @@
       ],
       "address": "osmo1xqw2sl9zk8a6pch0csaw78n4swg5ws8t62wc5qta4gnjxfqg6v2qcs243k",
       "base": "factory/osmo1xqw2sl9zk8a6pch0csaw78n4swg5ws8t62wc5qta4gnjxfqg6v2qcs243k/stuibcx",
-      "name": "stIBCX Core <Product of ION DAO>",
+      "name": "Staked IBCX",
       "display": "stibcx",
       "symbol": "stIBCX",
       "logo_URIs": {
@@ -531,7 +531,7 @@
         }
       ],
       "base": "factory/osmo1s794h9rxggytja3a4pmwul53u98k06zy2qtrdvjnfuxruh7s8yjs6cyxgd/ucdt",
-      "name": "CDT",
+      "name": "CDT Stablecoin",
       "display": "cdt",
       "symbol": "CDT",
       "logo_URIs": {
@@ -556,7 +556,7 @@
         }
       ],
       "base": "factory/osmo1s794h9rxggytja3a4pmwul53u98k06zy2qtrdvjnfuxruh7s8yjs6cyxgd/umbrn",
-      "name": "MBRN",
+      "name": "Membrane",
       "display": "mbrn",
       "symbol": "MBRN",
       "logo_URIs": {
@@ -567,52 +567,6 @@
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/MBRN.svg"
         }
       ]
-    },
-    {
-      "description": "DYDX on Osmosis",
-      "denom_units": [
-        {
-          "denom": "ibc/831F0B1BBB1D08A2B75311892876D71565478C532967545476DF4C2D7492E48C",
-          "exponent": 0,
-          "aliases": [
-            "adydx"
-          ]
-        },
-        {
-          "denom": "dydx",
-          "exponent": 18
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/831F0B1BBB1D08A2B75311892876D71565478C532967545476DF4C2D7492E48C",
-      "name": "DYDX",
-      "display": "dydx",
-      "symbol": "DYDX",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "dydx",
-            "base_denom": "adydx",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-6787",
-            "path": "transfer/channel-6787/adydx"
-          }
-        }
-      ],
-      "images": [
-        {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx-circle.svg",
-          "theme": {
-            "circle": true
-          }
-        }
-      ],
-      "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx-circle.svg"
-      }
     },
     {
       "description": "TIA on Osmosis",
@@ -786,6 +740,264 @@
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/sqatom.svg"
         }
       ]
+    },
+    {
+      "description": "CRO is the native token of the Crypto.org Chain, referred to as Native CRO.",
+      "denom_units": [
+        {
+          "denom": "ibc/E6931F78057F7CC5DA0FD6CEF82FF39373A6E0452BF1FD76910B93292CF356C1",
+          "exponent": 0,
+          "aliases": [
+            "basecro"
+          ]
+        },
+        {
+          "denom": "cro",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/E6931F78057F7CC5DA0FD6CEF82FF39373A6E0452BF1FD76910B93292CF356C1",
+      "name": "Cronos",
+      "display": "cro",
+      "symbol": "CRO",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cryptoorgchain",
+            "base_denom": "basecro",
+            "channel_id": "channel-10"
+          },
+          "chain": {
+            "channel_id": "channel-5",
+            "path": "transfer/channel-5/basecro"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "cryptoorgchain",
+            "base_denom": "basecro"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro.svg"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro.svg"
+      }
+    },
+    {
+      "description": "The native token of Stargaze",
+      "denom_units": [
+        {
+          "denom": "ibc/987C17B11ABC2B20019178ACE62929FE9840202CE79498E29FE8E5CB02B7C0A4",
+          "exponent": 0,
+          "aliases": [
+            "ustars"
+          ]
+        },
+        {
+          "denom": "stars",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/987C17B11ABC2B20019178ACE62929FE9840202CE79498E29FE8E5CB02B7C0A4",
+      "name": "Stargaze",
+      "display": "stars",
+      "symbol": "STARS",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "stargaze",
+            "base_denom": "ustars",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "channel-75",
+            "path": "transfer/channel-75/ustars"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "stargaze",
+            "base_denom": "ustars"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg"
+      }
+    },
+    {
+      "description": "Maximize ETH yield through leveraged staking across Aave, Compound and Morpho and liquidity provision of ETH liquid staking tokens on Uniswap V3.",
+      "denom_units": [
+        {
+          "denom": "ibc/FBB3FEF80ED2344D821D4F95C31DBFD33E4E31D5324CAD94EF756E67B749F668",
+          "exponent": 0,
+          "aliases": [
+            "0xb5b29320d2Dde5BA5BAFA1EbcD270052070483ec",
+            "yieldeth-wei"
+          ]
+        },
+        {
+          "denom": "YieldETH",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/FBB3FEF80ED2344D821D4F95C31DBFD33E4E31D5324CAD94EF756E67B749F668",
+      "name": "Real Yield Eth",
+      "display": "YieldETH",
+      "symbol": "YieldETH",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "wei"
+          },
+          "provider": "Seven Seas & DeFine Logic Labs"
+        },
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xb5b29320d2Dde5BA5BAFA1EbcD270052070483ec"
+          },
+          "provider": "Axelar"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "axelar",
+            "base_denom": "yieldeth-wei",
+            "channel_id": "channel-3"
+          },
+          "chain": {
+            "channel_id": "channel-208",
+            "path": "transfer/channel-208/yieldeth-wei"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "wei"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.svg"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.svg"
+      }
+    },
+    {
+      "description": "The native staking token of dYdX Protocol.",
+      "denom_units": [
+        {
+          "denom": "ibc/831F0B1BBB1D08A2B75311892876D71565478C532967545476DF4C2D7492E48C",
+          "exponent": 0,
+          "aliases": [
+            "adydx"
+          ]
+        },
+        {
+          "denom": "dydx",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/831F0B1BBB1D08A2B75311892876D71565478C532967545476DF4C2D7492E48C",
+      "name": "dYdX",
+      "display": "dydx",
+      "symbol": "DYDX",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "dydx",
+            "base_denom": "adydx",
+            "channel_id": "channel-3"
+          },
+          "chain": {
+            "channel_id": "channel-6787",
+            "path": "transfer/channel-6787/adydx"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "dydx",
+            "base_denom": "adydx"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx.svg"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx.svg"
+      }
+    },
+    {
+      "description": "The native token of Quasar",
+      "denom_units": [
+        {
+          "denom": "ibc/1B708808D372E959CD4839C594960309283424C775F4A038AAEBE7F83A988477",
+          "exponent": 0,
+          "aliases": [
+            "uqsr"
+          ]
+        },
+        {
+          "denom": "qsr",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/1B708808D372E959CD4839C594960309283424C775F4A038AAEBE7F83A988477",
+      "name": "Quasar",
+      "display": "qsr",
+      "symbol": "QSR",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "quasar",
+            "base_denom": "uqsr",
+            "channel_id": "channel-1"
+          },
+          "chain": {
+            "channel_id": "channel-688",
+            "path": "transfer/channel-688/uqsr"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "quasar",
+            "base_denom": "uqsr"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quasar/images/quasar.png"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quasar/images/quasar.png"
+      }
     }
   ]
 }
