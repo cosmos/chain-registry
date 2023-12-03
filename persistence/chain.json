@@ -32,30 +32,118 @@
       {
         "denom": "uxprt"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/persistenceOne/persistenceCore",
-    "recommended_version": "v7.0.0",
+    "recommended_version": "v10.0.0",
     "compatible_versions": [
-      "v7.0.0"
+      "v10.0.0"
     ],
+    "cosmos_sdk_version": "v0.47.3-lsm5",
+    "ibc_go_version": "v7.2.0-lsm3",
+    "ics_enabled": [
+      "ics20-1",
+      "ics27-1"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.2"
+    },
+    "cosmwasm_version": "v0.40.2-lsm3",
+    "cosmwasm_enabled": true,
+    "cosmwasm_path": "$HOME/.persistenceCore/wasm",
     "binaries": {
-      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v7.0.0/persistenceCore-v7.0.0-linux-amd64.tar.gz"
+      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v10.0.0/persistenceCore-v10.0.0-linux-amd64.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/persistenceOne/genesisTransactions/master/core-1/final_genesis.json"
     },
     "versions": [
       {
-        "name": "v7.0.0",
+        "name": "v7",
+        "tag": "v7.0.0",
         "recommended_version": "v7.0.0",
         "compatible_versions": [
           "v7.0.0"
         ],
         "binaries": {
           "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v7.0.0/persistenceCore-v7.0.0-linux-amd64.tar.gz"
-        }
+        },
+        "next_version_name": "v8"
+      },
+      {
+        "name": "v8",
+        "tag": "v8.1.0",
+        "height": 13046600,
+        "proposal": 42,
+        "recommended_version": "v8.1.0",
+        "compatible_versions": [
+          "v8.1.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v8.1.0/persistenceCore-v8.1.0-linux-amd64.tar.gz"
+        },
+        "next_version_name": "v9"
+      },
+      {
+        "name": "v9",
+        "tag": "v9.2.1",
+        "height": 13160000,
+        "proposal": 43,
+        "recommended_version": "v9.2.1",
+        "compatible_versions": [
+          "v9.1.1",
+          "v9.1.0",
+          "v9.2.1"
+        ],
+        "cosmos_sdk_version": "v0.47.3-lsm",
+        "ibc_go_version": "v7.2.0-lsm3",
+        "ics_enabled": [
+          "ics20-1",
+          "ics27-1"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "cosmwasm_version": "v0.40.2-lsm3",
+        "cosmwasm_enabled": true,
+        "cosmwasm_path": "$HOME/.persistenceCore/wasm",
+        "binaries": {
+          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v9.2.1/persistenceCore-v9.2.1-linux-amd64.tar.gz"
+        },
+        "next_version_name": "v10"
+      },
+      {
+        "name": "v10",
+        "tag": "v10.0.0",
+        "height": 13870350,
+        "proposal": 55,
+        "recommended_version": "v10.0.0",
+        "compatible_versions": [
+          "v10.0.0"
+        ],
+        "cosmos_sdk_version": "v0.47.3-lsm",
+        "ibc_go_version": "v7.2.0-lsm3",
+        "ics_enabled": [
+          "ics20-1",
+          "ics27-1"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "cosmwasm_version": "v0.47.3-lsm5",
+        "cosmwasm_enabled": true,
+        "cosmwasm_path": "$HOME/.persistenceCore/wasm",
+        "binaries": {
+          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v10.0.0/persistenceCore-v10.0.0-linux-amd64.tar.gz"
+        },
+        "next_version_name": ""
       }
     ]
   },
@@ -63,6 +151,7 @@
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.svg"
   },
+  "description": "Persistence is an app chain for Liquid Staking powering an ecosystem of DeFi applications focused on unlocking the liquidity of staked assets.",
   "peers": {
     "seeds": [
       {
@@ -80,14 +169,9 @@
         "provider": "Polkachu"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "persistence-seed-1.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "persistence-seed-2.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "id": "ce9dc9467af943bf35f17f04cfcdf3895914d867",
@@ -146,6 +230,10 @@
         "provider": "Architect Nodes"
       },
       {
+        "address": "https://rpc-persistence.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://persistence-mainnet-rpc.cosmonautstakes.com",
         "provider": "Cosmonaut Stakes"
       },
@@ -176,6 +264,18 @@
       {
         "address": "https://rpc-persistence-01.stakeflow.io",
         "provider": "Stakeflow"
+      },
+      {
+        "address": "https://persistence-rpc.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://persistence-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://persistence-rpc.highstakes.ch:26657/",
+        "provider": "High Stakes 🇨🇭"
       }
     ],
     "rest": [
@@ -194,6 +294,10 @@
       {
         "address": "https://persistence-api.polkachu.com",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://api-persistence.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://persistence-api.kleomedes.network",
@@ -234,6 +338,18 @@
       {
         "address": "https://api-persistence-01.stakeflow.io",
         "provider": "Stakeflow"
+      },
+      {
+        "address": "https://persistence-api.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://persistence-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://persistence-api.highstakes.ch:1317/",
+        "provider": "High Stakes 🇨🇭"
       }
     ],
     "grpc": [
@@ -258,12 +374,24 @@
         "provider": "POSTHUMAN∞DVS"
       },
       {
+        "address": "grpc-persistence.cosmos-spaces.cloud:1180",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "141.95.33.97:9090",
         "provider": "Stakewolle.com | Auto-compound"
       },
       {
         "address": "grpc-persistence-01.stakeflow.io:49090",
         "provider": "Stakeflow"
+      },
+      {
+        "address": "persistence-grpc.w3coins.io:15490",
+        "provider": "w3coins"
+      },
+      {
+        "address": "persistence-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ]
   },
@@ -271,8 +399,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/persistence",
-      "tx_page": "https://www.mintscan.io/persistence/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/persistence/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/persistence/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/persistence/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -295,6 +423,12 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/persistence",
       "account_page": "https://stakeflow.io/persistence/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.svg"
     }
   ]
 }

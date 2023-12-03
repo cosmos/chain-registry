@@ -35,18 +35,18 @@
   },
   "codebase": {
     "git_repo": "https://github.com/nolus-protocol/nolus-core",
-    "recommended_version": "v0.4.0",
+    "recommended_version": "v0.4.1",
     "compatible_versions": [
-      "v0.4.0"
+      "v0.4.1"
     ],
     "cosmos_sdk_version": "0.45",
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
+      "type": "cometbft",
+      "version": "0.34.27"
     },
     "cosmwasm_version": "0.31",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "4.3.0",
+    "ibc_go_version": "4.3.1",
     "ics_enabled": [
       "ics20-1",
       "ics27-1"
@@ -73,18 +73,51 @@
       },
       {
         "name": "v0.4.0",
+        "proposal": 5,
+        "height": 207300,
         "recommended_version": "v0.4.0",
         "compatible_versions": [
           "v0.4.0"
         ],
-        "proposal": 5
+        "cosmos_sdk_version": "0.45",
+        "cosmwasm_version": "0.31",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "4.3.0",
+        "ics_enabled": [
+          "ics20-1",
+          "ics27-1"
+        ],
+        "next_version_name": "v0.4.1"
+      },
+      {
+        "name": "v0.4.1",
+        "proposal": 34,
+        "height": 941000,
+        "recommended_version": "v0.4.1",
+        "compatible_versions": [
+          "v0.4.1"
+        ],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.34.27"
+        },
+        "cosmwasm_version": "0.31",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "4.3.1",
+        "ics_enabled": [
+          "ics20-1",
+          "ics27-1"
+        ],
+        "next_version_name": ""
       }
     ]
   },
   "logo_URIs": {
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.svg",
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.png"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.svg"
   },
+  "description": "Elevate your game with up to 3x equity. Dive into a world of minimized risks and unlock the full potential of your assets.",
   "peers": {
     "seeds": [
       {
@@ -98,24 +131,14 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "nolus-seed-1.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "nolus-seed-2.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
         "address": "nolus.rpc.kjnodes.com:14359",
         "provider": "kjnodes"
-      },
-      {
-        "id": "cefe4a5394dc57f318547258c511a9a96aaeaa7b",
-        "address": "seed-nolus.ibs.team:56656",
-        "provider": "Inter Blockchain Services"
       }
     ],
     "persistent_peers": [
@@ -141,16 +164,12 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
+        "address": "https://nolus-rpc.sphincs.plus",
+        "provider": "Sphincs.plus 🔅"
+      },
+      {
         "address": "https://nolus.rpc.liveraven.net",
         "provider": "LiveRaveN"
-      },
-      {
-        "address": "https://rpc.nolus.nodexcapital.com",
-        "provider": "⚡NodeX Validator⚡"
-      },
-      {
-        "address": "https://rpc-nolus.nodeist.net",
-        "provider": "Nodeist"
       },
       {
         "address": "https://rpc-nolus.architectnodes.com",
@@ -161,8 +180,24 @@
         "provider": "kjnodes"
       },
       {
-        "address": "https://nolus-rpc.ibs.team",
-        "provider": "Inter Blockchain Services"
+        "address": "https://nolus-rpc.enigma-validator.com/",
+        "provider": "Enigma"
+      },
+      {
+        "address": "https://nolus-rpc.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://rpc-nolus.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
+        "address": "https://nolus-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://community.nuxian-node.ch:6797/nolus/trpc",
+        "provider": "PRO Delegators"
       }
     ],
     "rest": [
@@ -179,16 +214,16 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
+        "address": "https://nolus-lcd.sphincs.plus",
+        "provider": "Sphincs.plus 🔅"
+      },
+      {
+        "address": "https://api-nolus.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://nolus.api.liveraven.net",
         "provider": "LiveRaveN"
-      },
-      {
-        "address": "https://rest.nolus.nodexcapital.com",
-        "provider": "⚡NodeX Validator⚡"
-      },
-      {
-        "address": "https://rpc-nolus.nodeist.net",
-        "provider": "Nodeist"
       },
       {
         "address": "https://rest-nolus.architectnodes.com",
@@ -199,8 +234,20 @@
         "provider": "kjnodes"
       },
       {
-        "address": "https://nolus-api.ibs.team",
-        "provider": "Inter Blockchain Services"
+        "address": "https://nolus-lcd.enigma-validator.com/",
+        "provider": "Enigma"
+      },
+      {
+        "address": "https://nolus-api.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://nolus-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://community.nuxian-node.ch:6797/nolus/crpc",
+        "provider": "PRO Delegators"
       }
     ],
     "grpc": [
@@ -221,20 +268,24 @@
         "provider": "LiveRaveN"
       },
       {
-        "address": "https://grpc.nolus.nodexcapital.com",
-        "provider": "⚡NodeX Validator⚡"
-      },
-      {
-        "address": "https://grpc-nolus.nodeist.net",
-        "provider": "Nodeist"
-      },
-      {
         "address": "grpc-nolus.architectnodes.com:1443",
         "provider": "Architect Nodes"
       },
       {
+        "address": "grpc-nolus.cosmos-spaces.cloud:1190",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "nolus.grpc.kjnodes.com:14390",
         "provider": "kjnodes"
+      },
+      {
+        "address": "nolus-grpc.w3coins.io:19790",
+        "provider": "w3coins"
+      },
+      {
+        "address": "nolus-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ]
   },
@@ -246,25 +297,36 @@
       "account_page": "https://explorer.nolus.io/pirin-1/account/${accountAddress}"
     },
     {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/nolus",
+      "tx_page": "https://ping.pub/nolus/tx/${txHash}",
+      "account_page": "https://ping.pub/nolus/account/${accountAddress}"
+    },
+    {
       "kind": "NODEXPLORER",
       "url": "https://explorer.nodexcapital.com/nolus",
       "tx_page": "https://explorer.nodexcapital.com/nolus/tx/${txHash}",
       "account_page": "https://explorer.nodexcapital.com/nolus/account/${accountAddress}"
     },
     {
-      "kind": "Nodeist Explorer",
-      "url": "https://exp.nodeist.net/nolus",
-      "tx_page": "https://exp.nodeist.net/nolus/tx/${txHash}",
-      "account_page": "https://exp.nodeist.net/nolus/account/${accountAddress}"
+      "kind": "Nodes Guru Explorer",
+      "url": "https://nolus.explorers.guru",
+      "tx_page": "https://nolus.explorers.guru/transaction/${txHash}"
     },
     {
-      "kind": "ping.pub",
-      "url": "https://ping.pub/nolus",
-      "tx_page": "https://ping.pub/nolus/tx/${txHash}",
-      "account_page": "https://ping.pub/nolus/account/${accountAddress}"
+      "kind": "KJ Nodes Explorer",
+      "url": "https://explorer.kjnodes.com/nolus",
+      "tx_page": "https://explorer.kjnodes.com/nolus/tx/${txHash}",
+      "account_page": "https://explorer.kjnodes.com/nolus/account/${accountAddress}"
     }
   ],
   "keywords": [
     "mainnet"
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.svg"
+    }
   ]
 }
