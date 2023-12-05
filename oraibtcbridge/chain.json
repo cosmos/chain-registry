@@ -1,0 +1,106 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "oraibtcbridge",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://orai.io/",
+  "pretty_name": "Orai Bitcoin Bridge",
+  "chain_id": "oraibtc-subnet-1",
+  "bech32_prefix": "oraibtc",
+  "daemon_name": "nomic",
+  "node_home": "$HOME/.oraibtc",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uoraibtc",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0
+      },
+      {
+        "denom": "usat",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uoraibtc"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/oraichain/bitcoin-bridge",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": ["v1.0.0"],
+    "binaries": {
+      "linux/arm64": "https://github.com/oraichain/Gravity-Bridge/releases/download/v1.0.2.2/gravity_arm64?checksum=sha256:14ca829756f3e9cf9bccc24ea3aa394bcb029532ee7b4d34f9719613c2ed265a"
+    },
+    "genesis": {
+      "genesis_url": "https://oraibtc.rpc.orai.io/genesis"
+    },
+    "versions": [
+      {
+        "name": "v1.0.0",
+        "height": 0,
+        "recommended_version": "v1.0.0",
+        "compatible_versions": ["v1.0.0"],
+        "binaries": {}
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/bitcoin-btc-logo.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/bitcoin-btc-logo.svg"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "f42fdf68b989b32001bbf5a8bd9b7cc20e0568ab",
+        "address": "34.68.27.95:26656",
+        "provider": "oraichain-team"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "f42fdf68b989b32001bbf5a8bd9b7cc20e0568ab",
+        "address": "34.68.27.95:26656",
+        "provider": "oraichain-team"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://oraibtc.rpc.orai.io",
+        "provider": "oraichain-team"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://oraibtc.lcd.orai.io",
+        "provider": "oraichain-team"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "http://34.68.27.95:9001",
+        "provider": "oraichain-team"
+      }
+    ]
+  },
+  "explorers": [],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraibtcbridge/images/bitcoin-btc-logo.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraibtcbridge/images/bitcoin-btc-logo.svg"
+    }
+  ]
+}
