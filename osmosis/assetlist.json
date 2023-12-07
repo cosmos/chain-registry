@@ -646,7 +646,7 @@
       "description": "NOIS on Osmosis",
       "denom_units": [
         {
-          "denom": "ibc/64BA6E31FE887D66C6F8F31C7B1A80C7CA179239677B4088BB55F5EA07DBE273",
+          "denom": "ibc/6928AFA9EA721938FED13B051F9DBF1272B16393D20C49EA5E4901BB76D94A90",
           "exponent": 0,
           "aliases": [
             "unois"
@@ -658,7 +658,7 @@
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/64BA6E31FE887D66C6F8F31C7B1A80C7CA179239677B4088BB55F5EA07DBE273",
+      "base": "ibc/6928AFA9EA721938FED13B051F9DBF1272B16393D20C49EA5E4901BB76D94A90",
       "name": "Nois NOIS",
       "display": "nois",
       "symbol": "NOIS",
@@ -672,7 +672,7 @@
           },
           "chain": {
             "channel_id": "channel-8277",
-            "path": "transfer/channel-8277"
+            "path": "transfer/channel-8277/unois"
           }
         }
       ],
@@ -1016,13 +1016,94 @@
       "display": "lvn",
       "symbol": "LVN",
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/levana.png"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/levana.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/levana.svg"
       },
       "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/levana.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/levana.svg"
+        },
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/levana.png"
         }
       ]
+    },
+    {
+      "description": "MilkyWay's liquid staked TIA",
+      "denom_units": [
+        {
+          "denom": "factory/osmo1f5vfcph2dvfeqcqkhetwv75fda69z7e5c2dldm3kvgj23crkv6wqcn47a0/umilkTIA",
+          "exponent": 0
+        },
+        {
+          "denom": "milkTIA",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/osmo1f5vfcph2dvfeqcqkhetwv75fda69z7e5c2dldm3kvgj23crkv6wqcn47a0/umilkTIA",
+      "name": "milkTIA",
+      "display": "milkTIA",
+      "symbol": "milkTIA",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.png"
+        }
+      ]
+    },
+    {
+      "denom_units": [
+        {
+          "denom": "ibc/ECBE78BF7677320A93E7BA1761D144BCBF0CBC247C290C049655E106FE5DC68E",
+          "exponent": 0,
+          "aliases": [
+            "stk/uosmo"
+          ]
+        },
+        {
+          "denom": "stkosmo",
+          "exponent": 6,
+          "aliases": [
+            "stk/osmo"
+          ]
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/ECBE78BF7677320A93E7BA1761D144BCBF0CBC247C290C049655E106FE5DC68E",
+      "name": "PSTAKE staked OSMO",
+      "display": "stkosmo",
+      "symbol": "stkOSMO",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "persistence",
+            "base_denom": "stk/uosmo",
+            "channel_id": "channel-6"
+          },
+          "chain": {
+            "channel_id": "channel-4",
+            "path": "transfer/channel-4/stk/uosmo"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "persistence",
+            "base_denom": "stk/uosmo"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkosmo.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkosmo.svg"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkosmo.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkosmo.svg"
+      }
     }
   ]
 }
