@@ -36,15 +36,16 @@
   },
   "codebase": {
     "git_repo": "https://github.com/bluzelle/bluzelle-public",
-    "recommended_version": "v9.0",
+    "recommended_version": "v10.0",
     "compatible_versions": [
-      "v9.0"
+      "v10.0"
     ],
-    "cosmos_sdk_version": "0.45.11",
+    "cosmos_sdk_version": "v0.45.11",
     "consensus": {
-      "type": "tendermint",
+      "type": "cometbft",
       "version": "0.34.23"
     },
+    "ibc_go_version": "v3.4.0",
     "genesis": {
       "genesis_url": "https://a.client.sentry.net.bluzelle.com:26657/genesis"
     },
@@ -71,7 +72,27 @@
         "consensus": {
           "type": "tendermint",
           "version": "0.34.23"
-        }
+        },
+        "next_version_name": "10.0"
+      },
+      {
+        "name": "10.0",
+        "recommended_version": "v10.0",
+        "compatible_versions": [
+          "v10.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/bluzelle/bluzelle-public/releases/download/v10.0/curiumd"
+        },
+        "proposal": 1,
+        "height": 3333333,
+        "cosmos_sdk_version": "v0.45.11",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.23"
+        },
+        "ibc_go_version": "v3.4.0",
+        "next_version_name": ""
       }
     ]
   },
@@ -115,10 +136,6 @@
       {
         "address": "https://bluzelle-rpc.genznodes.dev",
         "provider": "genznodes"
-      },
-      {
-        "address": "https://rpc-curium.nodine.id",
-        "provider": "Nodine.ID"
       }
     ],
     "rest": [
@@ -137,14 +154,6 @@
       {
         "address": "https://bluzelle-api.genznodes.dev/",
         "provider": "genznodes"
-      },
-      {
-        "address": "https://api-bluzelle.nodeist.net",
-        "provider": "Nodeist"
-      },
-      {
-        "address": "https://api-curium.nodine.id",
-        "provider": "Nodine.ID"
       }
     ],
     "grpc": [
