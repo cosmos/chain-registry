@@ -452,14 +452,15 @@
           },
           "text_position": {
             "type": "string",
-            "enum": ["top", "bottom", "left", "right"],
+            "enum": ["top", "bottom", "left", "right", "integrated"],
             "description": "Indicates in which position the text is placed, in case the layout is 'icon' type, it's required only in this case."
           }
         },
         "if": {
           "properties": {
             "layout": { "const": "logo" }
-          }
+          },
+          "required": ["layout"]
         },
         "then": {
           "required": ["text_position"]
