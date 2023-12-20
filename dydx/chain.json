@@ -2,7 +2,7 @@
   "$schema": "../chain.schema.json",
   "chain_name": "dydx",
   "status": "live",
-  "website": "https://dydx.exchange/",
+  "website": "https://dydx.trade/",
   "network_type": "mainnet",
   "pretty_name": "dYdX Protocol",
   "chain_id": "dydx-mainnet-1",
@@ -40,10 +40,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/dydxprotocol/v4-chain/",
-    "recommended_version": "v1.0.1",
+    "recommended_version": "v2.0.0",
     "compatible_versions": [
-      "v1.0.0",
-      "v1.0.1"
+      "v2.0.0"
     ],
     "cosmos_sdk_version": "v0.47.4",
     "cosmwasm_enabled": false,
@@ -52,11 +51,10 @@
     },
     "versions": [
       {
-        "name": "v1",
-        "recommended_version": "v1.0.1",
+        "name": "v2",
+        "recommended_version": "v2.0.0",
         "compatible_versions": [
-          "v1.0.0",
-          "v1.0.1"
+          "v2.0.0"
         ],
         "cosmos_sdk_version": "v0.47.4"
       }
@@ -70,24 +68,44 @@
   "peers": {
     "seeds": [
       {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:23856",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "65b740ee326c9260c30af1f044e9cda63c73f7c1",
+        "address": "seeds.kingnodes.net:23856",
+        "provider": "KingNodes"
+      },
+      {
+        "id": "f04a77b92d0d86725cdb2d6b7a7eb0eda8c27089",
+        "address": "dydx-mainnet-seed.bwarelabs.com:36656",
+        "provider": "Bware Labs"
+      },
+      {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:23856",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "dydx-mainnet-seed.autostake.com:27366",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "id": "c2c2fcb5e6e4755e06b83b499aff93e97282f8e8",
+        "address": "tenderseed.ccvalidators.com:26401",
+        "provider": "CryptoCrew"
       },
       {
-        "id": "65b740ee326c9260c30af1f044e9cda63c73f7c1",
-        "address": "seeds.kingnodes.net:23856",
-        "provider": "Kingnodes"
+        "id": "4f20c3e303c9515051b6276aeb89c0b88ee79f8f",
+        "address": "seed.dydx.cros-nest.com:26656",
+        "provider": "Crosnest"
       },
       {
-        "id": "4c30c8a95e26b07b249813b677caab28bf0c54eb",
-        "address": "rpc.dydx.nodestake.top:666",
-        "provider": "NodeStake"
+        "id": "a9cae4047d5c34772442322b10ef5600d8e54900",
+        "address": "dydx-mainnet-seednode.allthatnode.com:26656",
+        "provider": "DSRV"
+      },
+      {
+        "id": "802607c6db8148b0c68c8a9ec1a86fd3ba606af6",
+        "address": "64.227.38.88:26656",
+        "provider": "Luganodes"
       },
       {
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
@@ -100,33 +118,47 @@
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
-        "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "seeds.kingnodes.net:23856",
-        "provider": "Kingnodes"
+        "id": "4c30c8a95e26b07b249813b677caab28bf0c54eb",
+        "address": "rpc.dydx.nodestake.top:666",
+        "provider": "NodeStake"
       },
       {
-        "id": "4f20c3e303c9515051b6276aeb89c0b88ee79f8f",
-        "address": "seed.dydx.cros-nest.com:26656",
-        "provider": "Crosnest"
-      }
-    ],
-    "persistent_peers": [
-      {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "dydx-mainnet-peer.autostake.com:27366",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "address": "dydx-mainnet-seed.autostake.com:27366",
+        "provider": "AutoStake ⚡ 0% fee > cashbacks 🪂💰"
+      },
+      {
+        "id": "09ba537d6563018b97c502979c3478df4decf426",
+        "address": "dydxprotocol-seed.genznodes.dev:22656",
+        "provider": "genznodes"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
+        "address": "https://community.nuxian-node.ch:6797/dydx/trpc",
+        "provider": "PRO Delegators"
+      },
+      {
+        "address": "https://dydx-dao-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://dydx-mainnet-full-rpc.public.blastapi.io",
+        "provider": "Bware Labs"
+      },
+      {
+        "address": "https://dydx-rpc.kingnodes.com:443",
+        "provider": "Kingnodes"
+      },
+      {
         "address": "https://dydx-rpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://dydx-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake ⚡ 0% fee > cashbacks 🪂💰"
       },
       {
         "address": "https://rpc-dydx.ecostake.com:443",
@@ -141,16 +173,8 @@
         "provider": "Cosmos Spaces"
       },
       {
-        "address": "https://dydx.rpc.kjnodes.com:443",
-        "provider": "kjnodes"
-      },
-      {
         "address": "https://dydx-rpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
-      },
-      {
-        "address": "https://dydx-rpc.kingnodes.com:443",
-        "provider": "Kingnodes"
       },
       {
         "address": "https://rpc-dydx.cros-nest.com:443",
@@ -163,12 +187,28 @@
     ],
     "rest": [
       {
+	"address": "https://community.nuxian-node.ch:6797/dydx/crpc",
+        "provider": "PRO Delegators"
+      },
+      {
+	"address": "https://dydx-dao-api.polkachu.com",
+	"provider": "Polkachu"
+      },
+      {
+        "address": "https://dydx-mainnet-full-lcd.public.blastapi.io",
+        "provider": "Bware Labs"
+      },
+      {
+        "address": "https://dydx-rest.kingnodes.com:443",
+        "provider": "Kingnodes"
+      },
+      {
         "address": "https://dydx-api.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://dydx-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake ⚡ 0% fee > cashbacks 🪂💰"
       },
       {
         "address": "https://rest-dydx.ecostake.com:443",
@@ -183,16 +223,8 @@
         "provider": "NodeStake"
       },
       {
-        "address": "https://dydx.api.kjnodes.com:443",
-        "provider": "kjnodes"
-      },
-      {
         "address": "https://dydx-rest.publicnode.com",
         "provider": "Allnodes ⚡️ Nodes & Staking"
-      },
-      {
-        "address": "https://dydx-rest.kingnodes.com:443",
-        "provider": "Kingnodes"
       },
       {
         "address": "https://rest-dydx.cros-nest.com:443",
@@ -205,12 +237,40 @@
     ],
     "grpc": [
       {
+        "address": "dydx-dao-grpc-1.polkachu.com:23890",
+        "provider": "Polkachu (1)"
+      },
+      {
+        "address": "dydx-dao-grpc-2.polkachu.com:23890",
+        "provider": "Polkachu (2)"
+      },
+      {
+        "address": "dydx-dao-grpc-3.polkachu.com:23890",
+        "provider": "Polkachu (3)"
+      },
+      {
+        "address": "dydx-dao-grpc-4.polkachu.com:23890",
+        "provider": "Polkachu (4)"
+      },
+      {
+        "address": "dydx-dao-grpc-5.polkachu.com:23890",
+        "provider": "Polkachu (5)"
+      },
+      {
+        "address": "dydx-mainnet-full-grpc.public.blastapi.io:443",
+        "provider": "Bware Labs"
+      },
+      {
+        "address": "https://dydx-grpc.kingnodes.com:443",
+        "provider": "Kingnodes"
+      },
+      {
         "address": "https://dydx-grpc.lavenderfive.com",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "dydx-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake ⚡ 0% fee > cashbacks 🪂💰"
       },
       {
         "address": "https://grpc.dydx.nodestake.top",
@@ -227,10 +287,6 @@
       {
         "address": "dydx-grpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
-      },
-      {
-        "address": "https://dydx-grpc.kingnodes.com:443",
-        "provider": "Kingnodes"
       }
     ]
   },

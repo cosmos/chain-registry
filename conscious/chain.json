@@ -1,0 +1,106 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "conscious",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://www.consciousdao.com/",
+  "pretty_name": "ConsciousDAO",
+  "chain_id": "cvn_2032-1",
+  "bech32_prefix": "cvn",
+  "node_home": "$HOME/.cvnd",
+  "daemon_name": "cvnd",
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "acvnt",
+        "fixed_min_gas_price": 100000000,
+        "low_gas_price": 100000000,
+        "average_gas_price": 200000000,
+        "high_gas_price": 300000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "acvnt"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/cvn-network/cvn",
+    "recommended_version": "v2.1.1",
+    "compatible_versions": [
+      "v2.1.1"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/cvn-network/cvn/release/v2.1.x/networks/mainnet/config/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.0.3",
+        "recommended_version": "v1.0.4",
+        "compatible_versions": [
+          "v1.0.3"
+        ],
+        "next_version_name": "v2.1.1"
+      },
+      {
+        "name": "v2.1.1",
+        "recommended_version": "v2.1.1",
+        "compatible_versions": [
+          "v2.1.1"
+        ],
+        "next_version_name": ""
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/conscious/images/cvn.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/conscious/images/cvn.svg"
+  },
+  "peers": {
+    "seeds": [
+    ],
+    "persistent_peers": [
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.cvn.io/",
+        "provider": "cvn.io"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.consciousdao.com",
+        "provider": "consciousdao.com"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://rest.consciousdao.com",
+        "provider": "consciousdao.com"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://node.cvn.io/",
+        "provider": "cvn"
+      },
+      {
+        "address": "https://node.consciousdao.io/",
+        "provider": "consciousdao"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "blockscout",
+      "url": "https://explore.consciousdao.com/",
+      "tx_page": "https://explore.consciousdao.com/tx/${txHash}"
+    }
+  ]
+}
