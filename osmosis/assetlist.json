@@ -83,6 +83,7 @@
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ibcx.svg"
       },
+      "coingecko_id": "ibc-index",
       "images": [
         {
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ibcx.svg"
@@ -537,6 +538,7 @@
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/CDT.svg"
       },
+      "coingecko_id": "collateralized-debt-token",
       "images": [
         {
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/CDT.svg"
@@ -562,6 +564,7 @@
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/MBRN.svg"
       },
+      "coingecko_id": "membrane",
       "images": [
         {
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/MBRN.svg"
@@ -1045,12 +1048,24 @@
       "name": "milkTIA",
       "display": "milkTIA",
       "symbol": "milkTIA",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "celestia",
+            "base_denom": "utia"
+          },
+          "provider": "MilkyWay"
+        }
+      ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.png"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.svg"
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.svg"
         }
       ]
     },
@@ -1103,6 +1118,154 @@
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkosmo.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkosmo.svg"
+      }
+    },
+    {
+      "description": "The PAGE token is used for actions in the PageDAO NFT literary ecosystem and for DAO governance.",
+      "denom_units": [
+        {
+          "denom": "ibc/23A62409E4AD8133116C249B1FA38EED30E500A115D7B153109462CD82C1CD99",
+          "exponent": 0,
+          "aliases": [
+            "gravity0x60e683C6514Edd5F758A55b6f393BeBBAfaA8d5e",
+            "0x60e683C6514Edd5F758A55b6f393BeBBAfaA8d5e"
+          ]
+        },
+        {
+          "denom": "page",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/23A62409E4AD8133116C249B1FA38EED30E500A115D7B153109462CD82C1CD99",
+      "name": "PageDAO",
+      "display": "page",
+      "symbol": "PAGE.grv",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "gravity",
+            "base_denom": "gravity0x60e683C6514Edd5F758A55b6f393BeBBAfaA8d5e",
+            "channel_id": "channel-10"
+          },
+          "chain": {
+            "channel_id": "channel-144",
+            "path": "transfer/channel-144/gravity0x60e683C6514Edd5F758A55b6f393BeBBAfaA8d5e"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "gravitybridge",
+            "base_denom": "gravity0x60e683C6514Edd5F758A55b6f393BeBBAfaA8d5e"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/page.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/page.svg"
+          }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/page.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/page.svg"
+      }
+    },
+    {
+      "description": "Nomic's native token.",
+      "denom_units": [
+        {
+          "denom": "ibc/F49DFB3BC8105C57EE7F17EC2402438825B31212CFDD81681EB87911E934F32C",
+          "exponent": 0,
+          "aliases": [
+            "unom"
+          ]
+        },
+        {
+          "denom": "nom",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/F49DFB3BC8105C57EE7F17EC2402438825B31212CFDD81681EB87911E934F32C",
+      "name": "Nomic",
+      "display": "nomic",
+      "symbol": "NOM",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "nomic",
+            "base_denom": "unom",
+            "channel_id": "channel-1"
+          },
+          "chain": {
+            "channel_id": "channel-6897",
+            "path": "transfer/channel-6897/unom"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "nomic",
+            "base_denom": "unom"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nom.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nom.svg"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nom.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nom.svg"
+      }
+    },
+    {
+      "description": "Bitcoin. On Cosmos.",
+      "denom_units": [
+        {
+          "denom": "ibc/75345531D87BD90BF108BE7240BD721CB2CB0A1F16D4EBA71B09EC3C43E15C8F",
+          "exponent": 0,
+          "aliases": [
+            "usat"
+          ]
+        },
+        {
+          "denom": "nbtc",
+          "exponent": 14
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/75345531D87BD90BF108BE7240BD721CB2CB0A1F16D4EBA71B09EC3C43E15C8F",
+      "name": "Nomic Bitcoin",
+      "display": "nbtc",
+      "symbol": "nBTC",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "nomic",
+            "base_denom": "usat",
+            "channel_id": "channel-1"
+          },
+          "chain": {
+            "channel_id": "channel-6897",
+            "path": "transfer/channel-6897/usat"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "nomic",
+            "base_denom": "usat"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nbtc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nbtc.svg"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nbtc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nbtc.svg"
       }
     }
   ]
