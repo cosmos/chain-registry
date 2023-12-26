@@ -9,18 +9,16 @@
   "bech32_prefix": "celestia",
   "daemon_name": "celestia-appd",
   "node_home": "$HOME/.celestia-app",
-  "key_algos": [
-    "secp256k1"
-  ],
+  "key_algos": ["secp256k1"],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
         "denom": "utia",
-        "fixed_min_gas_price": 0,
-        "low_gas_price": 0.1,
-        "average_gas_price": 0.2,
-        "high_gas_price": 0.4
+        "fixed_min_gas_price": 0.002,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.02,
+        "high_gas_price": 0.1
       }
     ]
   },
@@ -34,9 +32,7 @@
   "codebase": {
     "git_repo": "https://github.com/celestiaorg/celestia-app",
     "recommended_version": "v1.3.0",
-    "compatible_versions": [
-      "v1.3.0"
-    ],
+    "compatible_versions": ["v1.3.0"],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/celestia/genesis.json"
     },
@@ -44,9 +40,7 @@
       {
         "name": "v1.3.0",
         "recommended_version": "v1.3.0",
-        "compatible_versions": [
-          "v1.3.0"
-        ]
+        "compatible_versions": ["v1.3.0"]
       }
     ]
   },
@@ -83,13 +77,8 @@
         "provider": "Stakeflow"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "celestia-seed-de.allnodes.me:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "celestia-seed-us.allnodes.me:26656",
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
@@ -101,6 +90,11 @@
         "id": "9aa8a73ea9364aa3cf7806d4dd25b6aed88d8152",
         "address": "celestia.seed.mzonder.com:13156",
         "provider": "MZONDER"
+      },
+      {
+        "id": "3abb9ad6d7a3c728984c4b7e9c05e91731779865",
+        "address": "seed-celestia.theamsolutions.info:23656",
+        "provider": "AM Solutions"
       }
     ],
     "persistent_peers": [
@@ -118,6 +112,11 @@
         "id": "6de4ce5baa9d2bed33c0c53b9518b907cfaab33b",
         "address": "65.108.128.201:11656",
         "provider": "Polkachu"
+      },
+      {
+        "id": "a26091f9c247c1e68410a4e8b107a715a0e886f6",
+        "address": "65.108.226.26:29656",
+        "provider": "[NODERS]TEAM"
       }
     ]
   },
@@ -126,10 +125,6 @@
       {
         "address": "https://public-celestia-rpc.numia.xyz",
         "provider": "Numia"
-      },
-      {
-        "address": "https://celestia-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://celestia-rpc.mesa.newmetric.xyz",
@@ -156,6 +151,10 @@
         "provider": "Cosmos Spaces"
       },
       {
+        "address": "http://celestia.rpc.nodersteam.com:29657",
+        "provider": "[NODERS]TEAM"
+      },
+      {
         "address": "https://celestia-rpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
@@ -174,6 +173,14 @@
       {
         "address": "https://rpc-celestia.mzonder.com",
         "provider": "MZONDER"
+      },
+      {
+        "address": "https://celestia-rpc.enigma-validator.com",
+        "provider": "Enigma"
+      },
+      {
+        "address": "https://rpc-celestia.theamsolutions.info",
+        "provider": "AM Solutions"
       }
     ],
     "rest": [
@@ -182,12 +189,12 @@
         "provider": "Numia"
       },
       {
-        "address": "https://celestia-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
         "address": "https://celestia-rest.mesa.newmetric.xyz",
         "provider": "Newmetric"
+      },
+      {
+        "address": "http://celestia.rpc.nodersteam.com:1617",
+        "provider": "[NODERS]TEAM"
       },
       {
         "address": "https://api.lunaroasis.net",
@@ -224,6 +231,14 @@
       {
         "address": "https://api-celestia.mzonder.com",
         "provider": "MZONDER"
+      },
+      {
+        "address": "https://celestia-lcd.enigma-validator.com",
+        "provider": "Enigma"
+      },
+      {
+        "address": "https://rest-celestia.theamsolutions.info",
+        "provider": "AM Solutions"
       }
     ],
     "grpc": [
@@ -238,6 +253,10 @@
       {
         "address": "https://celestia-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "celestia.grpc.nodersteam.com:9690",
+        "provider": "[NODERS]TEAM"
       },
       {
         "address": "grpc-celestia-01.stakeflow.io:15002",
@@ -262,6 +281,10 @@
       {
         "address": "grpc-celestia.mzonder.com:443",
         "provider": "MZONDER"
+      },
+      {
+        "address": "grpc-celestia.theamsolutions.info:443",
+        "provider": "AM Solutions"
       }
     ]
   },
@@ -269,7 +292,8 @@
     {
       "kind": "Mintscan",
       "url": "https://mintscan.io/celestia",
-      "tx_page": "https://mintscan.io/celestia/txs/${txHash}"
+      "tx_page": "https://mintscan.io/celestia/txs/${txHash}",
+      "account_page": "https://mintscan.io/celestia/address/${accountAddress}"
     },
     {
       "kind": "NodeStake",
@@ -287,6 +311,18 @@
       "url": "https://explorer.tcnetwork.io/celestia",
       "tx_page": "https://explorer.tcnetwork.io/celestia/transaction/${txHash}",
       "account_page": "https://explorer.tcnetwork.io/celestia/account/${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Celestia-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Celestia-Mainnet/transaction/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Celestia-Mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "AM Solutions",
+      "url": "https://explorer.theamsolutions.info/celestia-main",
+      "tx_page": "https://explorer.theamsolutions.info/celestia-main/transaction/${txHash}",
+      "account_page": "https://explorer.theamsolutions.info/celestia-main/account/${accountAddress}"
     }
   ],
   "images": [
