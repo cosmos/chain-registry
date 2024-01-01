@@ -33,21 +33,14 @@
   },
   "codebase": {
     "git_repo": "https://github.com/provenance-io/provenance",
-    "recommended_version": "v1.16.0",
+    "recommended_version": "v1.17.0",
     "compatible_versions": [
-      "v1.16.0"
+      "v1.17.0"
     ],
-    "binaries": {
-      "linux/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.16.0/provenance-linux-amd64-v1.16.0.zip"
-    },
-    "genesis": {
-      "name": "v1.0.1",
-      "genesis_url": "https://raw.githubusercontent.com/provenance-io/mainnet/main/pio-mainnet-1/genesis.json"
-    },
     "cosmos_sdk_version": "0.46.13",
     "consensus": {
       "type": "tendermint",
-      "version": "0.34.28"
+      "version": "0.34.29"
     },
     "cosmwasm_version": "0.30",
     "cosmwasm_enabled": true,
@@ -56,6 +49,13 @@
       "ics20-1",
       "ics27-1"
     ],
+    "binaries": {
+      "linux/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.17.0/provenance-linux-amd64-v1.17.0.zip"
+    },
+    "genesis": {
+      "name": "v1.0.1",
+      "genesis_url": "https://raw.githubusercontent.com/provenance-io/mainnet/main/pio-mainnet-1/genesis.json"
+    },
     "versions": [
       {
         "name": "v1.0.1",
@@ -249,6 +249,30 @@
         "binaries": {
           "linux/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.16.0/provenance-linux-amd64-v1.16.0.zip"
         }
+      },
+      {
+        "name": "saffron",
+        "tag": "v1.17.0",
+        "height": 13736000,
+        "recommended_version": "v1.17.0",
+        "compatible_versions": [
+          "v1.17.0"
+        ],
+        "cosmos_sdk_version": "0.46.13",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34.29"
+        },
+        "cosmwasm_version": "0.30",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "6.2.0",
+        "ics_enabled": [
+          "ics20-1",
+          "ics27-1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.17.0/provenance-linux-amd64-v1.17.0.zip"
+        }
       }
     ]
   },
@@ -264,6 +288,11 @@
         "provider": "TAKESHI"
       },
       {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "provenance-mainnet-seed.autostake.com:27376",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "id": "40f9493fa7ab4259159240e9a8ba12f90743079b",
         "address": "seed.provenance.io:26656",
         "provider": "Figure"
@@ -272,6 +301,13 @@
         "id": "ad3386812bb9f2fee4e9da6d9f37547afc948977",
         "address": "provenance-seed.panthea.eu:42656",
         "provider": "Panthea EU"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "provenance-mainnet-peer.autostake.com:27376",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -290,14 +326,34 @@
         "provider": "Notional"
       },
       {
+        "address": "https://provenance-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "address": "https://provenance-rpc.ibs.team",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://provenance-rpc.highstakes.ch:26657/",
+        "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://provenance-rpc.panthea.eu",
+        "provider": "Panthea EU"
+      },
+      {
+        "address": "https://rpc.provenance.blockval.io/",
+        "provider": "Blockval"
       }
     ],
     "rest": [
       {
         "address": "https://api-provenance.takeshi.team",
         "provider": "TAKESHI"
+      },
+      {
+        "address": "https://provenance-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://api.provenance.io",
@@ -310,6 +366,18 @@
       {
         "address": "https://provenance-api.ibs.team",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://provenance-api.highstakes.ch:1317/",
+        "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://provenance-api.panthea.eu",
+        "provider": "Panthea EU"
+      },
+      {
+        "address": "https://api.provenance.blockval.io",
+        "provider": "Blockval"
       }
     ],
     "grpc": [
@@ -318,8 +386,20 @@
         "provider": "TAKESHI"
       },
       {
+        "address": "provenance-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "address": "grpc-provenance-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
+      },
+      {
+        "address": "provenance-grpc.panthea.eu:16780",
+        "provider": "Panthea EU"
+      },
+      {
+        "address": "grpc.provenance.blockval.io:9290",
+        "provider": "Blockval"
       }
     ]
   },
@@ -342,8 +422,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/provenance",
-      "tx_page": "https://www.mintscan.io/provenance/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/provenance/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/provenance/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/provenance/accounts/${accountAddress}"
     },
     {
       "kind": "atomscan",
@@ -356,6 +436,12 @@
       "url": "https://bigdipper.live/provenance",
       "tx_page": "https://bigdipper.live/provenance/transactions/${txHash}",
       "account_page": "https://bigdipper.live/provenance/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/provenance/images/prov.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/provenance/images/prov.svg"
     }
   ]
 }

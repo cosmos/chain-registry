@@ -3,7 +3,7 @@
   "chain_name": "omniflixhub",
   "status": "live",
   "network_type": "mainnet",
-  "website": "https://omniflix.co/home",
+  "website": "https://omniflix.network/",
   "pretty_name": "OmniFlix",
   "chain_id": "omniflixhub-1",
   "daemon_name": "omniflixhubd",
@@ -12,9 +12,9 @@
   "slip44": 118,
   "codebase": {
     "git_repo": "https://github.com/OmniFlix/omniflixhub",
-    "recommended_version": "v0.11.1",
+    "recommended_version": "v0.12.1",
     "compatible_versions": [
-      "v0.11.1"
+      "v0.12.1"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/OmniFlix/mainnet/main/omniflixhub-1/genesis.json"
@@ -45,7 +45,18 @@
         "recommended_version": "v0.11.1",
         "compatible_versions": [
           "v0.11.1"
-        ]
+        ],
+        "next_version_name": "v0.12.x"
+      },
+      {
+        "name": "v0.12.x",
+        "proposal": 15,
+        "height": 8054200,
+        "recommended_version": "v0.12.1",
+        "compatible_versions": [
+          "v0.12.1"
+        ],
+        "next_version_name": ""
       }
     ]
   },
@@ -71,6 +82,7 @@
       }
     ]
   },
+  "description": "Decentralized media and network layer for Creators & Sovereign Communities powered by NFTs and related distribution protocols.",
   "peers": {
     "seeds": [
       {
@@ -92,6 +104,11 @@
         "id": "9aa8a73ea9364aa3cf7806d4dd25b6aed88d8152",
         "address": "omniflix.seed.mzonder.com:10656",
         "provider": "MZONDER"
+      },
+      {
+        "id": "6b0ffcce9b59b91ceb8eea5d4599e27707e3604a",
+        "address": "seeds.stakeup.tech:10215",
+        "provider": "StakeUp"
       }
     ],
     "persistent_peers": [
@@ -134,16 +151,8 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://rpc-omniflix.huginn.tech:443",
-        "provider": "Huginn"
-      },
-      {
         "address": "https://rpc.omniflix.silentvalidator.com/",
         "provider": "silent"
-      },
-      {
-        "address": "https://omniflix.nodejumper.io",
-        "provider": "NODEJUMPER"
       },
       {
         "address": "https://omniflixhub-mainnet-rpc.autostake.com:443",
@@ -158,12 +167,20 @@
         "provider": "Staketab"
       },
       {
+        "address": "https://rpc-omniflixhub.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://omniflix-rpc.dakshavalidator.in",
         "provider": "Daksha Validator"
       },
       {
         "address": "https://rpc-omniflix.mzonder.com:443",
         "provider": "MZONDER"
+      },
+      {
+        "address": "https://rpc.omniflix.stakeup.tech:443",
+        "provider": "StakeUp"
       }
     ],
     "rest": [
@@ -180,12 +197,12 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://api.omniflix.silentvalidator.com/",
-        "provider": "silent"
+        "address": "https://api-omniflixhub.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
       },
       {
-        "address": "https://omniflix.nodejumper.io:1317",
-        "provider": "NODEJUMPER"
+        "address": "https://api.omniflix.silentvalidator.com/",
+        "provider": "silent"
       },
       {
         "address": "https://omniflix.kingnodes.com",
@@ -209,11 +226,11 @@
       },
       {
         "address": "http://omniflix.api.staking-explorer.com",
-        "provider": "omniflix.staking-explorer.com"
+        "provider": "Daily $FLIX DROP 💰"
       },
       {
-        "address": "https://api-omniflix.mzonder.com:443",
-        "provider": "MZONDER"
+        "address": "https://api.omniflix.stakeup.tech",
+        "provider": "StakeUp"
       }
     ],
     "grpc": [
@@ -234,8 +251,8 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "omniflix.nodejumper.io:9090",
-        "provider": "NODEJUMPER"
+        "address": "grpc-omniflixhub.cosmos-spaces.cloud:2230",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "omniflixhub-mainnet-grpc.autostake.com:443",
@@ -252,27 +269,37 @@
       {
         "address": "grpc-omniflix.mzonder.com:443",
         "provider": "MZONDER"
+      },
+      {
+        "address": "grpc.omniflix.stakeup.tech:443",
+        "provider": "StakeUp"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/omniflixhub",
-      "tx_page": "https://ezstaking.tools/omniflixhub/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/omniflixhub/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/omniflixhub",
+      "tx_page": "https://app.ezstaking.io/omniflixhub/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/omniflixhub/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/omniflix",
-      "tx_page": "https://www.mintscan.io/omniflix/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/omniflix/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/omniflix/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/omniflix/accounts/${accountAddress}"
     },
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/omniflixhub",
       "tx_page": "https://atomscan.com/omniflixhub/transactions/${txHash}",
       "account_page": "https://atomscan.com/omniflixhub/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/omniflixhub/images/flix.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/omniflixhub/images/flix.svg"
     }
   ]
 }

@@ -1,0 +1,151 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "nibiru",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://nibiru.fi/",
+  "pretty_name": "Nibiru",
+  "chain_id": "cataclysm-1",
+  "bech32_prefix": "nibi",
+  "daemon_name": "nibid",
+  "node_home": "$HOME/.nibid",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "unibi",
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.05,
+        "high_gas_price": 0.1
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "unibi"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/NibiruChain/nibiru",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/NibiruChain/nibiru/releases/download/v1.0.0/nibid_1.0.0_linux_amd64.tar.gz",
+      "linux/arm64": "https://github.com/NibiruChain/nibiru/releases/download/v1.0.0/nibid_1.0.0_linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/NibiruChain/nibiru/releases/download/v1.0.0/nibid_1.0.0_darwin_amd64.tar.gz",
+      "darwin/arm64": "https://github.com/NibiruChain/nibiru/releases/download/v1.0.0/nibid_1.0.0_darwin_arm64.tar.gz"
+    },
+    "cosmos_sdk_version": "v0.45.5",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.2"
+    },
+    "cosmwasm_version": "v0.44.0",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "v7.3.1",
+    "genesis": {
+      "genesis_url": "https://github.com/NibiruChain/Networks/blob/main/Mainnet/cataclysm-1/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.0.0",
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ],
+        "tag": "v1.0.0",
+        "height": 1,
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "cosmos_sdk_version": "v0.45.5",
+        "cosmwasm_version": "v0.44.0",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "v7.3.1",
+        "cosmwasm_path": "$HOME/.nibid/data/wasm",
+        "binaries": {
+          "linux/amd64": "https://github.com/NibiruChain/nibiru/releases/download/v1.0.0/nibid_1.0.0_linux_amd64.tar.gz",
+          "linux/arm64": "https://github.com/NibiruChain/nibiru/releases/download/v1.0.0/nibid_1.0.0_linux_arm64.tar.gz"
+        },
+        "next_version_name": ""
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nibiru/images/nibiru.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nibiru/images/nibiru.svg"
+  },
+  "description": "A Web3 hub ushering in the next era of money",
+  "peers": {
+    "seeds": [
+      {
+        "id": "b7262df35a7e1d1fb4027464efe9d9d6218ca4c7",
+        "address": "35.233.111.89:26656",
+        "provider": "Nibiru Foundation"
+      },
+      {
+        "id": "ebf72163ad536ca73a037fa5d564d511be59c2f4",
+        "address": "34.34.137.54:26656",
+        "provider": "Nibiru Foundation"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "05106550b6e738d8ce50cb857520124bbcce318f",
+        "address": "35.189.236.126:26656",
+        "provider": "Nibiru Foundation"
+      },
+      {
+        "id": "e7af24b15365bff9537e2776c2a5fdf01b933dc5",
+        "address": "34.76.178.49:26656",
+        "provider": "Nibiru Foundation"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.nibiru.fi",
+        "provider": "Nibiru Foundation"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lcd.nibiru.fi",
+        "provider": "Nibiru Foundation"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.nibiru.fi:443",
+        "provider": "Nibiru Foundation"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Nodes Guru",
+      "url": "https://nibiru.explorers.guru/",
+      "tx_page": "https://nibiru.explorers.guru/transaction/${txHash}",
+      "account_page": "https://nibiru.explorers.guru/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nibiru/images/nibiru.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nibiru/images/nibiru.svg"
+    }
+  ]
+}

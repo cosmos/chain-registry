@@ -17,7 +17,7 @@
     "fee_tokens": [
       {
         "denom": "uatom",
-        "fixed_min_gas_price": 0,
+        "fixed_min_gas_price": 0.005,
         "low_gas_price": 0.01,
         "average_gas_price": 0.025,
         "high_gas_price": 0.03
@@ -33,16 +33,17 @@
   },
   "codebase": {
     "git_repo": "https://github.com/cosmos/gaia",
-    "recommended_version": "v10.0.2",
+    "recommended_version": "v14.1.0",
     "compatible_versions": [
-      "v10.0.0", "v10.0.1", "v10.0.2"
+      "v14.1.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v10.0.2/gaiad-v10.0.2-linux-amd64",
-      "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v10.0.2/gaiad-v10.0.2-linux-arm64",
-      "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v10.0.2/gaiad-v10.0.2-darwin-amd64",
-      "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v10.0.2/gaiad-v10.0.2-darwin-arm64",
-      "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v10.0.2/gaiad-v10.0.2-windows-amd64.exe"
+      "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v14.1.0/gaiad-v14.1.0-linux-amd64?checksum=sha256:baed43bd3f523fd587cff4d8f78f395a3bcb6d20d9a671bef69b8fbe101338f6",
+      "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v14.1.0/gaiad-v14.1.0-linux-arm64?checksum=sha256:a57822b2a199ca461f8a8baf4e98a46803f8fa5d4ceb130b539ebd0c03c035a8",
+      "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v14.1.0/gaiad-v14.1.0-darwin-amd64?checksum=sha256:4edec8b191bbb0bdcd0f89d1fadfc1cfdb720ac943b7c03d584760725547c047",
+      "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v14.1.0/gaiad-v14.1.0-darwin-arm64?checksum=sha256:5177c7ca2b0e66daedc506c6fcdab0d8c436dae846de32081556b8edd57027e8",
+      "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v14.1.0/gaiad-v14.1.0-windows-amd64.exe?checksum=sha256:d912548fc1c87ca26defce1a60f089910fa55b38d27063870750efeab176db9d",
+      "windows/arm64": "https://github.com/cosmos/gaia/releases/download/v14.1.0/gaiad-v14.1.0-windows-arm64.exe?checksum=sha256:b17cc1f1a9a5050b72f99d497fdda6d1d4615b6a42971f556d2777ba838fe7b0"
     },
     "genesis": {
       "genesis_url": "https://github.com/cosmos/mainnet/raw/master/genesis/genesis.cosmoshub-4.json.gz"
@@ -71,14 +72,16 @@
         },
         "next_version_name": "v10"
       },
-       {
+      {
         "name": "v10",
         "tag": "v10.0.2",
         "proposal": 798,
         "height": 15816200,
         "recommended_version": "v10.0.2",
         "compatible_versions": [
-          "v10.0.0", "v10.0.1", "v10.0.2"
+          "v10.0.0",
+          "v10.0.1",
+          "v10.0.2"
         ],
         "cosmos_sdk_version": "v0.45.16-ics",
         "ibc_go_version": "v4.4.2",
@@ -93,7 +96,108 @@
           "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v10.0.2/gaiad-v10.0.2-darwin-arm64?checksum=sha256:c8124d66ffa99b51da274656f6c3401b1ec9e165a76f3f01699761672e83a136gaiad-v10.0.1-linux-amd64",
           "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v10.0.2/gaiad-v10.0.2-windows-amd64.exe?checksum=sha256:c02ab2b8fc347f858db1c33fcacafa2467ca550ed83178aee67331762e876926"
         },
-        "next_version_name": ""
+        "next_version_name": "v11"
+      },
+      {
+        "name": "v11",
+        "tag": "v11.0.0",
+        "proposal": 804,
+        "height": 16596000,
+        "recommended_version": "v11.0.0",
+        "compatible_versions": [
+          "v11.0.0"
+        ],
+        "cosmos_sdk_version": "v0.45.16-ics",
+        "ibc_go_version": "v4.4.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.29"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-linux-amd64",
+          "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-linux-arm64",
+          "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-darwin-amd64",
+          "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-darwin-arm64",
+          "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-windows-amd64.exe",
+          "windows/arm64": "https://github.com/cosmos/gaia/releases/download/v11.0.0/gaiad-v11.0.0-windows-arm64.exe"
+        },
+        "next_version_name": "v12"
+      },
+      {
+        "name": "v12",
+        "tag": "v12.0.0",
+        "proposal": 821,
+        "height": 16985500,
+        "recommended_version": "v12.0.0",
+        "compatible_versions": [
+          "v12.0.0"
+        ],
+        "cosmos_sdk_version": "v0.45.16-ics",
+        "ibc_go_version": "v4.4.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.29"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v12.0.0/gaiad-v12.0.0-linux-amd64",
+          "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v12.0.0/gaiad-v12.0.0-linux-arm64",
+          "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v12.0.0/gaiad-v12.0.0-darwin-amd64",
+          "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v12.0.0/gaiad-v12.0.0-darwin-arm64",
+          "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v12.0.0/gaiad-v12.0.0-windows-amd64.exe",
+          "windows/arm64": "https://github.com/cosmos/gaia/releases/download/v12.0.0/gaiad-v12.0.0-windows-arm64.exe"
+        },
+        "next_version_name": "v13"
+      },
+      {
+        "name": "v13",
+        "tag": "v13.0.2",
+        "proposal": 825,
+        "height": 17380000,
+        "recommended_version": "v13.0.2",
+        "compatible_versions": [
+          "v13.0.1",
+          "v13.0.2"
+        ],
+        "cosmos_sdk_version": "v0.45.16-ics-lsm",
+        "ibc_go_version": "v4.4.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.29"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v13.0.2/gaiad-v13.0.2-linux-amd64?checksum=sha256:729a55b29857fedfe1271f26e1fdf2cb12d2c6515c2ad0d9bbe432a81ae43df8",
+          "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v13.0.2/gaiad-v13.0.2-linux-arm64?checksum=sha256:9bfbe0d5212fa3cdabe34b75b42e1420f50fe8aff64ec9247dcbc5942969e333",
+          "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v13.0.2/gaiad-v13.0.2-darwin-amd64?checksum=sha256:910b515369b0cfa8eecc54f2f930fd5de2634b7106825b62f4c4c563fe2a6a07",
+          "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v13.0.2/gaiad-v13.0.2-darwin-arm64?checksum=sha256:5a148b56bec7d9ef23d21778725eedb9bc70eaa6a61155b22947216812a17369",
+          "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v13.0.2/gaiad-v13.0.2-windows-amd64.exe?checksum=sha256:bc339c368b07306a73a16af8f005bc14439b393790f61d0568358495eb83e71c",
+          "windows/arm64": "https://github.com/cosmos/gaia/releases/download/v13.0.2/gaiad-v13.0.2-windows-arm64.exe?checksum=sha256:8728e0f56d52479c80ba4b1c8f68a8fc3085220fad241ba1180867b2c3bc97fa"
+        },
+        "next_version_name": "v14"
+      },
+      {
+        "name": "v14",
+        "tag": "v14.1.0",
+        "proposal": 854,
+        "height": 18262000,
+        "recommended_version": "v14.1.0",
+        "compatible_versions": [
+          "v14.1.0"
+        ],
+        "cosmos_sdk_version": "v0.45.16-ics-lsm",
+        "ibc_go_version": "v4.4.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.29"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v14.1.0/gaiad-v14.1.0-linux-amd64?checksum=sha256:baed43bd3f523fd587cff4d8f78f395a3bcb6d20d9a671bef69b8fbe101338f6",
+          "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v14.1.0/gaiad-v14.1.0-linux-arm64?checksum=sha256:a57822b2a199ca461f8a8baf4e98a46803f8fa5d4ceb130b539ebd0c03c035a8",
+          "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v14.1.0/gaiad-v14.1.0-darwin-amd64?checksum=sha256:4edec8b191bbb0bdcd0f89d1fadfc1cfdb720ac943b7c03d584760725547c047",
+          "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v14.1.0/gaiad-v14.1.0-darwin-arm64?checksum=sha256:5177c7ca2b0e66daedc506c6fcdab0d8c436dae846de32081556b8edd57027e8",
+          "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v14.1.0/gaiad-v14.1.0-windows-amd64.exe?checksum=sha256:d912548fc1c87ca26defce1a60f089910fa55b38d27063870750efeab176db9d",
+          "windows/arm64": "https://github.com/cosmos/gaia/releases/download/v14.1.0/gaiad-v14.1.0-windows-arm64.exe?checksum=sha256:b17cc1f1a9a5050b72f99d497fdda6d1d4615b6a42971f556d2777ba838fe7b0"
+        },
+        "next_version_name": "v15"
       }
     ]
   },
@@ -101,6 +205,7 @@
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
   },
+  "description": "In a nutshell, Cosmos Hub bills itself as a project that solves some of the hardest problems facing the blockchain industry. It aims to offer an antidote to slow, expensive, unscalable and environmentally harmful proof-of-work protocols, like those used by Bitcoin, by offering an ecosystem of connected blockchains.\n\nThe project’s other goals include making blockchain technology less complex and difficult for developers thanks to a modular framework that demystifies decentralized apps. Last but not least, an Inter-blockchain Communication protocol makes it easier for blockchain networks to communicate with each other — preventing fragmentation in the industry.\n\nCosmos Hub's origins can be dated back to 2014, when Tendermint, a core contributor to the network, was founded. In 2016, a white paper for Cosmos was published — and a token sale was held the following year. ATOM tokens are earned through a hybrid proof-of-stake algorithm, and they help to keep the Cosmos Hub, the project’s flagship blockchain, secure. This cryptocurrency also has a role in the network’s governance.",
   "peers": {
     "seeds": [
       {
@@ -124,19 +229,14 @@
         "provider": "Golden Ratio Staking"
       },
       {
-        "id": "7aa410eb8f699c366b1f1e2904ba6b0d1cac379b",
+        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:14956",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "cosmoshub-seed-de.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "cosmoshub-seed-us.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
@@ -152,6 +252,11 @@
         "id": "11c6114a18f7b380e536b0bd17c031f4746e4ded",
         "address": "seed-node.mms.team:43656",
         "provider": "MMS"
+      },
+      {
+        "id": "87ccc1dcc0b846fc1623ab9a5ab55682e8e2ad2e",
+        "address": "seed-cosmoshub.freshstaking.com:26656",
+        "provider": "FreshSTAKING"
       }
     ],
     "persistent_peers": [
@@ -182,6 +287,11 @@
         "id": "28d36c3d45f0208528de3c38f2934ae241bd23e7",
         "address": "peer-cosmoshub.mms.team:26656",
         "provider": "MMS"
+      },
+      {
+        "id": "87ccc1dcc0b846fc1623ab9a5ab55682e8e2ad2e",
+        "address": "seed-cosmoshub.freshstaking.com:26656",
+        "provider": "FreshSTAKING"
       }
     ]
   },
@@ -196,8 +306,12 @@
         "provider": "Chainlayer"
       },
       {
+        "address": "https://cosmos-rpc.onivalidator.com",
+        "provider": "Oni Validator ⛩️"
+      },
+      {
         "address": "https://rpc-cosmoshub.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://cosmoshub-rpc.lavenderfive.com:443",
@@ -216,7 +330,7 @@
         "provider": "PUPMØS"
       },
       {
-        "address": "https://rpc-cached-cosmoshub.cosmos-spaces.cloud",
+        "address": "https://rpc-cosmoshub.cosmos-spaces.cloud",
         "provider": "Cosmos Spaces"
       },
       {
@@ -230,10 +344,6 @@
       {
         "address": "https://rpc-cosmoshub-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
-      },
-      {
-        "address": "https://rpc.cosmos.interbloc.org",
-        "provider": "Interbloc"
       },
       {
         "address": "https://rpc-cosmoshub.architectnodes.com",
@@ -264,10 +374,6 @@
         "provider": "FreshSTAKING"
       },
       {
-        "address": "https://cosmoshub.rpc.interchain.ivaldilabs.xyz",
-        "provider": "ivaldilabs"
-      },
-      {
         "address": "https://cosmos-rpc.easy2stake.com/",
         "provider": "Easy 2 Stake"
       },
@@ -280,8 +386,8 @@
         "provider": "Silk Nodes"
       },
       {
-        "address": "https://cosmos-rpc.publicnode.com",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "address": "https://cosmos-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "https://cosmoshub.rpc.kjnodes.com",
@@ -300,8 +406,28 @@
         "provider": "w3coins"
       },
       {
+        "address": "https://cosmos-rpc.enigma-validator.com",
+        "provider": "Enigma"
+      },
+      {
         "address": "https://rpc-cosmoshub.mms.team",
         "provider": "MMS"
+      },
+      {
+        "address": "https://cosmos-rpc.tienthuattoan.ventures",
+        "provider": "TienThuatToan"
+      },
+      {
+        "address": "https://community.nuxian-node.ch:6797/gaia/trpc",
+        "provider": "PRO Delegators"
+      },
+      {
+        "address": "https://cosmos-rpc.highstakes.ch:26657/",
+        "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://cosmoshub-rpc.cosmosrescue.dev",
+        "provider": "cosmosrescue"
       }
     ],
     "rest": [
@@ -338,10 +464,6 @@
         "provider": "Staketab"
       },
       {
-        "address": "https://api.cosmos.interbloc.org",
-        "provider": "Interbloc"
-      },
-      {
         "address": "https://lcd.cosmos.dragonstake.io",
         "provider": "DragonStake"
       },
@@ -358,12 +480,8 @@
         "provider": "ecostake"
       },
       {
-        "address": "https://cosmoshub.rest.interchain.ivaldilabs.xyz",
-        "provider": "ivaldilabs"
-      },
-      {
         "address": "https://lcd-cosmoshub.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://cosmos-lcd.easy2stake.com",
@@ -379,7 +497,7 @@
       },
       {
         "address": "https://cosmos-rest.publicnode.com",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "https://cosmoshub.api.kjnodes.com",
@@ -396,6 +514,30 @@
       {
         "address": "https://api-cosmoshub.mms.team",
         "provider": "MMS"
+      },
+      {
+        "address": "https://cosmos-api.tienthuattoan.ventures",
+        "provider": "TienThuatToan"
+      },
+      {
+        "address": "https://community.nuxian-node.ch:6797/gaia/crpc",
+        "provider": "PRO Delegators"
+      },
+      {
+        "address": "https://cosmos-api.highstakes.ch:1317/",
+        "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://cosmoshub-mainnet.api.l0vd.com",
+        "provider": "L0vd.com ❤️"
+      },
+      {
+        "address": "https://cosmos-lcd.enigma-validator.com",
+        "provider": "Enigma"
+      },
+      {
+        "address": "https://cosmoshub-api.cosmosrescue.dev",
+        "provider": "cosmosrescue"
       }
     ],
     "grpc": [
@@ -428,19 +570,15 @@
         "provider": "Stakin"
       },
       {
-        "address": "cosmoshub.grpc.interchain.ivaldilabs.xyz:443",
-        "provider": "ivaldilabs"
-      },
-      {
         "address": "https://grpc.cosmos.nodestake.top",
         "provider": "NodeStake"
       },
       {
         "address": "cosmos-grpc.publicnode.com:443",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
-        "address": "grpc-cosmoshub.cosmos-spaces.cloud:1290",
+        "address": "grpc-cosmoshub.cosmos-spaces.cloud:3910",
         "provider": "Cosmos Spaces"
       },
       {
@@ -453,7 +591,7 @@
       },
       {
         "address": "grpc-cosmoshub.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "cosmos-grpc.w3coins.io:14990",
@@ -462,21 +600,33 @@
       {
         "address": "grpc-cosmoshub.mms.team:443",
         "provider": "MMS"
+      },
+      {
+        "address": "cosmos-grpc.tienthuattoan.ventures:9090",
+        "provider": "TienThuatToan"
+      },
+      {
+        "address": "cosmoshub-mainnet.grpc.l0vd.com:80",
+        "provider": "L0vd.com ❤️"
+      },
+      {
+        "address": "https://grpc-cosmos.nodeist.net",
+        "provider": "Nodeist"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/cosmoshub",
-      "tx_page": "https://ezstaking.tools/cosmoshub/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/cosmoshub/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/cosmoshub",
+      "tx_page": "https://app.ezstaking.io/cosmoshub/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/cosmoshub/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/cosmos",
-      "tx_page": "https://www.mintscan.io/cosmos/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/cosmos/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/cosmos/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/cosmos/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -509,6 +659,23 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/cosmos",
       "account_page": "https://stakeflow.io/cosmos/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Nodeist Explorer",
+      "url": "https://exp.nodeist.net/cosmos",
+      "tx_page": "https://exp.nodeist.net/cosmos/tx/${txHash}"
+    },
+    {
+      "kind": "Inbloc",
+      "url": "https://inbloc.org",
+      "tx_page": "https://inbloc.org/transactions/${txHash}",
+      "account_page": "https://inbloc.org/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
     }
   ]
 }

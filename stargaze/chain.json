@@ -30,10 +30,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/public-awesome/stargaze",
-    "recommended_version": "v10.0.1",
+    "recommended_version": "v12.0.0",
     "compatible_versions": [
-      "v10.0.1",
-      "v10.0.0"
+      "v12.0.0"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/public-awesome/mainnet/main/stargaze-1/genesis.tar.gz"
@@ -45,7 +44,8 @@
         "compatible_versions": [
           "v9.1.0",
           "v9.0.0"
-        ]
+        ],
+        "next_version_name": "v10"
       },
       {
         "name": "v10",
@@ -53,7 +53,24 @@
         "compatible_versions": [
           "v10.0.1",
           "v10.0.0"
-        ]
+        ],
+        "next_version_name": "v11"
+      },
+      {
+        "name": "v11",
+        "recommended_version": "v11.0.0",
+        "compatible_versions": [
+          "v11.0.0"
+        ],
+        "next_version_name": "v12"
+      },
+      {
+        "name": "v12",
+        "recommended_version": "v12.0.0",
+        "compatible_versions": [
+          "v12.0.0"
+        ],
+        "next_version_name": ""
       }
     ]
   },
@@ -61,6 +78,7 @@
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg"
   },
+  "description": "The premier community-focused blockchain for NFTs. Stargaze empowers creators, developers, collectors, and traders to participate on the platform. The Stargaze chain consists of various NFT-related apps such as a Launchpad, and a Marketplace with offers and auctions.",
   "peers": {
     "seeds": [
       {
@@ -92,24 +110,24 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "stargaze-seed-de.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
-        "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "stargaze-seed-us.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "604f4baaa30cd3f50d080bf45806d222c7fadc94",
+        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:13756",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "id": "96e0040d44a2f0b59d2a07e128369363d8535b67",
         "address": "seed-stargaze.ibs.team:16658",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
+        "address": "seeds.stakerhouse.com:10356",
+        "provider": "StakerHouse"
       }
     ],
     "persistent_peers": [
@@ -174,7 +192,7 @@
       },
       {
         "address": "https://rpc-stargaze.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://stargaze-mainnet-rpc.autostake.com:443",
@@ -197,8 +215,12 @@
         "provider": "StakerHouse"
       },
       {
-        "address": "https://stargaze-rpc.publicnode.com",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "address": "https://stargaze-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://stargaze-rpc.reece.sh:443",
+        "provider": "Reecepbcups"
       }
     ],
     "rest": [
@@ -248,7 +270,7 @@
       },
       {
         "address": "https://lcd-stargaze.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://stargaze-api.ramuchi.tech",
@@ -263,12 +285,16 @@
         "provider": "w3coins"
       },
       {
-        "address": "https://stargaze-api.stakerhouse.com",
+        "address": "https://stargaze-rest.stakerhouse.com",
         "provider": "StakerHouse"
       },
       {
         "address": "https://stargaze-rest.publicnode.com",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://stargaze-api.reece.sh:443",
+        "provider": "Reecepbcups"
       }
     ],
     "grpc": [
@@ -302,22 +328,26 @@
       },
       {
         "address": "stargaze-grpc.publicnode.com:443",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "stargaze-grpc.stakerhouse.com:443",
+        "provider": "StakerHouse"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/stargaze",
-      "tx_page": "https://ezstaking.tools/stargaze/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/stargaze/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/stargaze",
+      "tx_page": "https://app.ezstaking.io/stargaze/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/stargaze/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/stargaze/",
-      "tx_page": "https://www.mintscan.io/stargaze/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/stargaze/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/stargaze/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/stargaze/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -335,6 +365,12 @@
       "url": "https://starscan.net/",
       "tx_page": "https://starscan.net/stargaze-1/tx/${txHash}",
       "account_page": "https://starscan.net/stargaze-1/address/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg"
     }
   ]
 }

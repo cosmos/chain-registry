@@ -1,28 +1,47 @@
 {
-    "$schema": "../../assetlist.schema.json",
-    "chain_name": "impacthubtestnet",
-    "assets": [
-      {
-        "description": "The native token of IXO Chain",
-        "denom_units": [
-          {
-            "denom": "uixo",
-            "exponent": 0
-          },
-          {
-            "denom": "ixo",
-            "exponent": 6
-          }
-        ],
-        "base": "uixo",
-        "name": "IXO",
-        "display": "ixo",
-        "symbol": "IXO",
-        "logo_URIs": {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/impacthubtestnet/images/ixo.svg",
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/impacthubtestnet/images/ixo.png"
+  "$schema": "../../assetlist.schema.json",
+  "chain_name": "impacthubtestnet",
+  "assets": [
+    {
+      "description": "The native token of IXO Chain",
+      "denom_units": [
+        {
+          "denom": "uixo",
+          "exponent": 0
         },
-        "coingecko_id": "ixo"
+        {
+          "denom": "ixo",
+          "exponent": 6
+        }
+      ],
+      "base": "uixo",
+      "name": "IXO",
+      "display": "ixo",
+      "symbol": "IXO",
+      "traces": [
+        {
+          "type": "test-mintage",
+          "counterparty": {
+            "chain_name": "impacthub",
+            "base_denom": "uixo"
+          },
+          "provider": "impacthub"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "impacthub",
+            "base_denom": "uixo"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/impacthub/images/ixo.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/impacthub/images/ixo.svg"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/impacthub/images/ixo.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/impacthub/images/ixo.svg"
       }
-    ]
-  }
+    }
+  ]
+}
