@@ -17,7 +17,10 @@
     "fee_tokens": [
       {
         "denom": "ufis",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
       }
     ]
   },
@@ -26,17 +29,71 @@
       {
         "denom": "ufis"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1209600s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/stafihub/stafihub",
-    "recommended_version": "v0.2.3",
+    "recommended_version": "v0.5.0",
     "compatible_versions": [
-      "v0.2.3"
+      "v0.5.0"
+    ],
+    "cosmos_sdk_version": "0.46",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "ibc_go_version": "5.2.1",
+    "ics_enabled": [
+      "ics20-1"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/stafihub/network/main/mainnets/stafihub-1(dragonberry)/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v020",
+        "tag": "v0.2.3",
+        "height": 0,
+        "next_version_name": "v030"
+      },
+      {
+        "name": "v030",
+        "tag": "v0.3.0",
+        "height": 2626590,
+        "proposal": 1,
+        "next_version_name": "v040"
+      },
+      {
+        "name": "v040",
+        "tag": "v0.4.0",
+        "height": 3766566,
+        "proposal": 2,
+        "next_version_name": "v050"
+      },
+      {
+        "name": "v050",
+        "tag": "v0.5.0",
+        "height": 5868372,
+        "proposal": 4,
+        "recommended_version": "v0.5.0",
+        "compatible_versions": [
+          "v0.5.0"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "ibc_go_version": "5.2.1",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "next_version_name": "v060"
+      }
+    ]
   },
   "peers": {
     "persistent_peers": [
@@ -47,10 +104,6 @@
       {
         "id": "045fe6e054a5abe35f5433bd333f0a1b18aa28cf",
         "address": "45.136.28.11:26656"
-      },
-      {
-        "id": "d35d55635093fddb6de22295c8fe31de98efe6ef",
-        "address": "5.161.120.176:26656"
       },
       {
         "id": "20c0b45c47426c51b3187aa5dca82d9900c2fb36",
@@ -79,14 +132,6 @@
       {
         "address": "https://rpc.stafihub.nodestake.top:443",
         "provider": "NodeStake"
-      },
-      {
-        "address": "https://rpc.stafihub.mcbnode.online:443",
-        "provider": "MCBNode"
-      },
-      {
-        "address": "https://stafihub.nodejumper.io",
-        "provider": "NODEJUMPER"
       }
     ],
     "rest": [
@@ -101,35 +146,23 @@
       {
         "address": "https://api.stafihub.nodestake.top",
         "provider": "NodeStake"
-      },
-      {
-        "address": "https://api.stafihub.mcbnode.online",
-        "provider": "MCBNode"
-      },
-      {
-        "address": "https://stafihub.nodejumper.io:1317",
-        "provider": "NODEJUMPER"
       }
     ],
     "grpc": [
       {
-        "address": "https://public-grpc-rpc1.stafihub.io",
+        "address": "public-grpc-rpc1.stafihub.io:443",
         "provider": "StaFiHub"
       },
       {
-        "address": "https://public-grpc-rpc2.stafihub.io",
+        "address": "public-grpc-rpc2.stafihub.io:443",
         "provider": "StaFiHub"
       },
       {
-        "address": "https://grpc.stafihub.nodestake.top",
+        "address": "grpc.stafihub.nodestake.top:443",
         "provider": "NodeStake"
       },
       {
-        "address": "https://grpc.stafihub.mcbnode.online",
-        "provider": "MCBNode"
-      },
-      {
-        "address": "https://stafihub.nodejumper.io:9090",
+        "address": "stafihub.nodejumper.io:9090",
         "provider": "NODEJUMPER"
       }
     ]
@@ -138,12 +171,19 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/stafi",
-      "tx_page": "https://www.mintscan.io/stafi/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/stafi/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/stafi/accounts/${accountAddress}"
     },
     {
       "kind": "ping-pub",
       "url": "https://ping.pub/stafihub",
       "tx_page": "https://ping.pub/stafihub/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/stafihub",
+      "tx_page": "https://atomscan.com/stafihub/transactions/${txHash}",
+      "account_page": "https://atomscan.com/stafihub/accounts/${accountAddress}"
     }
   ],
   "logo_URIs": {
@@ -151,5 +191,10 @@
   },
   "keywords": [
     "liquid staking"
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stafihub/images/stafihub-chain-logo.png"
+    }
   ]
 }

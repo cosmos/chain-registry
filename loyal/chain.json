@@ -36,7 +36,20 @@
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/LoyalLabs/net/main/mainnet/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v0.25.3",
+        "recommended_version": "v0.25.3",
+        "compatible_versions": [
+          "v0.25.3"
+        ]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/loyal/images/lyl.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/loyal/images/lyl.svg"
   },
   "peers": {
     "seeds": [
@@ -47,24 +60,17 @@
       {
         "id": "f8f5d04e17c998478c29ba6ab74b2e995a2b6dcd",
         "address": "tenderseed.ccvalidators.com:29002"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:17856",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
       {
-        "id": "b66ecdf36bb19a9af0460b3ae0901aece93ae006",
-        "address": "pubnode1.joinloyal.io:27656"
-      },
-      {
-        "id": "9f779b69d2ba3548de5427432571e8f88f72a59a",
-        "address": "149.102.153.60:2566"
-      },
-      {
         "id": "7490c272d1c9db40b7b9b61b0df3bb4365cb63a6",
         "address": "54.80.32.192:26656"
-      },
-      {
-        "id": "a19b19f09084e9f1579243a5613efde8ae5aa946",
-        "address": "65.21.199.148:26624"
       },
       {
         "id": "607dbee191f06d9479d7ae8f9fc5de75ca840d6f",
@@ -78,7 +84,8 @@
         "address": "https://rpc-main.joinloyal.io/"
       },
       {
-        "address": "https://rpc-loyal.nodeist.net/"
+        "address": "https://loyal-rpc.polkachu.com",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
@@ -86,7 +93,14 @@
         "address": "https://lcd-main.joinloyal.io/"
       },
       {
-        "address": "https://api-loyal.nodeist.net/"
+        "address": "https://loyal-api.polkachu.com",
+        "provider": "Polkachu"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.loyal.nodestake.top",
+        "provider": "NodeStake"
       }
     ]
   },
@@ -96,15 +110,21 @@
       "url": "https://pingpub.joinloyal.io/loyal",
       "tx_page": "https://pingpub.joinloyal.io/loyal/tx/${txHash}"
     },
-     {
-      "kind": "Nodeist Explorer",
-      "url": "https://exp.nodeist.net/m-loyal",
-      "tx_page": "https://exp.nodeist.net/m-loyal/tx/${txHash}"
-    },
     {
       "kind": "TC Network",
       "url": "https://explorer.tcnetwork.io/loyal",
       "tx_page": "https://explorer.tcnetwork.io/loyal/transaction/${txHash}"
+    },
+    {
+      "kind": "NodeStake Explorer",
+      "url": "https://explorer.nodestake.top/loyal",
+      "tx_page": "https://explorer.nodestake.top/loyal/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/loyal/images/lyl.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/loyal/images/lyl.svg"
     }
   ]
 }

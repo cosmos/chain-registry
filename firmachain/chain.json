@@ -8,6 +8,11 @@
   "chain_id": "colosseum-1",
   "bech32_prefix": "firma",
   "slip44": 7777777,
+  "daemon_name": "firmachaind",
+  "node_home": "$HOME/.firmachain",
+  "key_algos": [
+    "secp256k1"
+  ],
   "fees": {
     "fee_tokens": [
       {
@@ -16,21 +21,36 @@
       }
     ]
   },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ufct"
+      }
+    ]
+  },
   "codebase": {
     "git_repo": "https://github.com/firmachain/firmachain",
-    "recommended_version": "v0.3.3",
+    "recommended_version": "v0.3.5-patch",
     "compatible_versions": [
-      "v0.3.3"
+      "v0.3.5-patch"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/FirmaChain/mainnet/main/colosseum-1/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v0.3.5",
+        "recommended_version": "v0.3.5-patch",
+        "compatible_versions": [
+          "v0.3.5-patch"
+        ]
+      }
+    ]
   },
-  "daemon_name": "firmachaind",
-  "node_home": "$HOME/.firmachain",
-  "key_algos": [
-    "secp256k1"
-  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/firmachain/images/fct.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/firmachain/images/fct.svg"
+  },
   "peers": {
     "seeds": [
       {
@@ -53,6 +73,13 @@
         "address": "seeds.lavenderfive.com:16456",
         "provider": "Lavender.Five Nodes 🐝"
       }
+    ],
+    "persistent_peers": [
+      {
+        "id": "931a7c680d28c84a8a53e4017a6eae0788ee7cf2",
+        "address": "firmachain-seed.ramuchi.tech:57656",
+        "provider": "ramuchi.tech"
+      }
     ]
   },
   "apis": {
@@ -68,6 +95,10 @@
       {
         "address": "https://firmachain-rpc.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://firmachain-rpc.ramuchi.tech",
+        "provider": "ramuchi.tech"
       }
     ],
     "rest": [
@@ -82,21 +113,29 @@
       {
         "address": "https://firmachain-api.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://firmachain-api.ramuchi.tech",
+        "provider": "ramuchi.tech"
       }
     ],
     "grpc": [
       {
-        "address": "https://firmachain-grpc.lavenderfive.com/",
+        "address": "firmachain-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://firmachain-grpc.ramuchi.tech:1390",
+        "provider": "ramuchi.tech"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
-      "url": "https://ezstaking.tools/firmachain",
-      "tx_page": "https://ezstaking.tools/firmachain/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/firmachain/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/firmachain",
+      "tx_page": "https://app.ezstaking.io/firmachain/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/firmachain/account/${accountAddress}"
     },
     {
       "kind": "bigdipper",
@@ -107,6 +146,18 @@
       "kind": "explorer.ChainTools",
       "url": "https://explorer.chaintools.tech/firmachain",
       "tx_page": "https://explorer.chaintools.tech/firmachain/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/firmachain",
+      "tx_page": "https://atomscan.com/firmachain/transactions/${txHash}",
+      "account_page": "https://atomscan.com/firmachain/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/firmachain/images/fct.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/firmachain/images/fct.svg"
     }
   ]
 }

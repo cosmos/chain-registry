@@ -1,7 +1,8 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "passage",
-  "chain_id": "passage-1",
+  "chain_id": "passage-2",
+  "pre_fork_chain_name": "passage1",
   "pretty_name": "Passage",
   "status": "live",
   "network_type": "mainnet",
@@ -17,19 +18,59 @@
     "fee_tokens": [
       {
         "denom": "upasg",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.001,
+        "average_gas_price": 0.0025,
+        "high_gas_price": 0.01
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "upasg"
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/envadiv/Passage3D",
-    "recommended_version": "v1.1.0",
+    "recommended_version": "v2.2.0",
     "compatible_versions": [
-      "v1.1.0"
+      "v2.2.0"
     ],
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/envadiv/mainnet/main/passage-1/genesis.json"
-    }
+      "genesis_url": "https://raw.githubusercontent.com/envadiv/mainnet/main/passage-2/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v2.0.0",
+        "recommended_version": "v2.0.1",
+        "compatible_versions": [
+          "v2.0.1"
+        ],
+        "cosmos_sdk_version": "v0.45.16",
+        "ibc_go_version": "v4.4.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.27"
+        },
+        "next_version_name": "v2.2.0"
+      },
+      {
+        "name": "v2.2.0",
+        "recommended_version": "v2.2.0",
+        "compatible_versions": [
+          "v2.2.0"
+        ],
+        "cosmos_sdk_version": "v0.45.16",
+        "ibc_go_version": "v4.4.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.27"
+        },
+        "next_version_name": ""
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -57,74 +98,43 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "passage-mainnet-seed.autostake.net:26916",
+        "address": "passage-mainnet-seed.autostake.com:26916",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "id": "2534bb8af72ab14e001a9f48b7cf9626221c6be5",
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:15656",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "passage-seed-1.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "passage-seed-2.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
+        "address": "seeds.stakerhouse.com:10556",
+        "provider": "StakerHouse"
       }
     ],
     "persistent_peers": [
       {
-        "id": "69975e7afdf731a165e40449fcffc75167a084fc",
-        "address": "104.131.169.70:26656"
-      },
-      {
         "id": "d35d652b6cb3bf7d6cb8d4bd7c036ea03e7be2ab",
         "address": "116.203.182.185:26656"
-      },
-      {
-        "id": "ffacd3202ded6945fed12fa4fd715b1874985b8c",
-        "address": "3.98.38.91:26656"
       },
       {
         "id": "8e0b0d4f80d0d2853f853fbd6a76390113f07d72",
         "address": "65.108.127.249:26656"
       },
       {
-        "id": "0111da7144fd2e8ce0dfe17906ef6fd760325aca",
-        "address": "142.132.213.231:26656"
-      },
-      {
-        "id": "55f34a3a6a48de316f778aebab7406298169ce02",
-        "address": "10.40.40.40:26656"
-      },
-      {
-        "id": "a8f1ec69d4dc60481b4250966053836af6f3d39f",
-        "address": "167.86.99.7:26656"
-      },
-      {
-        "id": "c51fb04ff004829736e6d3cb2c704a6c111470ea",
-        "address": "38.242.216.139:26656"
-      },
-      {
-        "id": "813f91ac5338de44e28aa7946039986dbec286ff",
-        "address": "198.244.228.17:36056"
-      },
-      {
-        "id": "9e6f10f401dadcb28a8164574147056b8e3ab748",
-        "address": "65.109.34.42:26656"
-      },
-      {
-        "id": "f76ccaa550d283ef1adb55c6aca5d94eab6a1806",
-        "address": "146.59.81.204:24456"
-      },
-      {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "passage-mainnet-peer.autostake.net:26916",
+        "address": "passage-mainnet-peer.autostake.com:26916",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "621f75a74a95298fe16e0c2dd899c087bcba6594",
+        "address": "65.108.195.29:50656",
+        "provider": "Staketab"
       }
     ]
   },
@@ -135,12 +145,8 @@
         "provider": "vitwit"
       },
       {
-        "address": "https://rpc.passage.blockscope.net:26657",
-        "provider": "blockscope"
-      },
-      {
-        "address": "https://services.staketab.com/passage-rpc",
-        "provider": "staketab"
+        "address": "https://passage-rpc.staketab.org:443",
+        "provider": "Staketab"
       },
       {
         "address": "https://rpc-passage.ecostake.com",
@@ -153,6 +159,10 @@
       {
         "address": "https://rpc-passage-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://rpc-passage.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://rpc.passage.nodestake.top",
@@ -172,12 +182,24 @@
       },
       {
         "address": "https://rpc-passage.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
-        "address": "https://passage-mainnet-rpc.autostake.net:443",
+        "address": "https://passage-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
-      }
+      },
+      {
+        "address": "https://passage-rpc.stakerhouse.com",
+        "provider": "StakerHouse"
+      },
+      {
+        "address": "https://passage-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://passage-rpc.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
+      } 
     ],
     "rest": [
       {
@@ -185,8 +207,8 @@
         "provider": "vitwit"
       },
       {
-        "address": "https://services.staketab.com/passage-api",
-        "provider": "staketab"
+        "address": "https://passage-rest.staketab.org",
+        "provider": "Staketab"
       },
       {
         "address": "https://rest-passage.ecostake.com",
@@ -195,6 +217,10 @@
       {
         "address": "https://passage-api.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://api-passage.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://api-passage-ia.cosmosia.notional.ventures/",
@@ -217,13 +243,25 @@
         "provider": "D-stake"
       },
       {
-        "address": "https://passage-mainnet-lcd.autostake.net:443",
+        "address": "https://passage-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://lcd-passage.whispernode.com:443",
-        "provider": "WhisperNode🤐"
-      }
+        "provider": "WhisperNode 🤐"
+      },
+      {
+        "address": "https://passage-rest.stakerhouse.com",
+        "provider": "StakerHouse"
+      },
+      {
+        "address": "https://passage-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://passage-api.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
+      } 
     ],
     "grpc": [
       {
@@ -231,7 +269,7 @@
         "provider": "Notional"
       },
       {
-        "address": "https://passage-grpc.lavenderfive.com:443",
+        "address": "passage-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -239,17 +277,33 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://grpc.passage.nodestake.top",
+        "address": "grpc-passage.cosmos-spaces.cloud:2320",
+        "provider": "Cosmos Spaces"
+      },
+      {
+        "address": "grpc.passage.nodestake.top:443",
         "provider": "NodeStake"
       },
       {
-        "address": "https://grpc-passage.d-stake.xyz",
-        "provider": "D-stake"
+        "address": "passage-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://passage-mainnet-grpc.autostake.net:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      }
+        "address": "services.staketab.com:9023",
+        "provider": "Staketab"
+      },
+      {
+        "address": "passage-grpc.stakerhouse.com:443",
+        "provider": "StakerHouse"
+      },
+      {
+        "address": "passage-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "passage-grpc.stakeandrelax.net:15690",
+        "provider": "Stake&Relax 🦥"
+      } 
     ]
   },
   "explorers": [
@@ -262,11 +316,28 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/passage",
-      "tx_page": "https://www.mintscan.io/passage/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/passage/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/passage/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/passage/accounts/${accountAddress}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/passage",
+      "tx_page": "https://atomscan.com/passage/transactions/${txHash}",
+      "account_page": "https://atomscan.com/passage/accounts/${accountAddress}"
+    },
+    {
+      "kind": "cosmotracker",
+      "url": "https://cosmotracker.com/passage",
+      "tx_page": "https://cosmotracker.com/passage/tx/${txHash}",
+      "account_page": "https://cosmotracker.com/passage/account/${accountAddress}"
     }
   ],
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/passage/images/pasg.png"
-  }
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/passage/images/pasg.png"
+    }
+  ]
 }

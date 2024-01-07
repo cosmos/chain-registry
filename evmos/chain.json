@@ -9,8 +9,12 @@
   "bech32_prefix": "evmos",
   "node_home": "$HOME/.evmosd",
   "daemon_name": "evmosd",
-  "key_algos": ["ethsecp256k1"],
-  "extra_codecs": ["ethermint"],
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
+  ],
   "slip44": 60,
   "fees": {
     "fee_tokens": [
@@ -32,37 +36,140 @@
   },
   "codebase": {
     "git_repo": "https://github.com/evmos/evmos",
-    "recommended_version": "v11.0.2",
+    "recommended_version": "v15.0.0",
     "compatible_versions": [
-      "v11.0.0",
-      "v11.0.1",
-      "v11.0.2"
+      "v15.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v11.0.2/evmos_11.0.2_Linux_amd64.tar.gz",
-      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v11.0.2/evmos_11.0.2_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v11.0.2/evmos_11.0.2_Darwin_amd64.tar.gz",
-      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v11.0.2/evmos_11.0.2_Darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v11.0.2/evmos_11.0.2_Windows_amd64.zip"
+      "linux/amd64": "https://github.com/evmos/evmos/releases/download/v15.0.0/evmos_15.0.0_Linux_amd64.tar.gz",
+      "linux/arm64": "https://github.com/evmos/evmos/releases/download/v15.0.0/evmos_15.0.0_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v15.0.0/evmos_15.0.0_Darwin_amd64.tar.gz",
+      "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v15.0.0/evmos_15.0.0_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/evmos/evmos/releases/download/v15.0.0/evmos_15.0.0_Windows_amd64.zip"
     },
-    "cosmos_sdk_version": "0.46",
-    "tendermint_version": "0.34",
-    "ibc_go_version": "6.1.0",
+    "cosmos_sdk_version": "v0.47.5-evmos",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.3-0.20230920093934-46df7b597e3c"
+    },
+    "ibc_go_version": "7.3.1",
     "genesis": {
       "genesis_url": "https://archive.evmos.org/mainnet/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v12",
+        "tag": "v12.1.5",
+        "proposal": 137,
+        "height": 12303000,
+        "recommended_version": "v12.1.5",
+        "compatible_versions": [
+          "v12.1.5",
+          "v12.1.3",
+          "v12.1.2",
+          "v12.1.1",
+          "v12.1.0"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "ibc_go_version": "6.1.0",
+        "binaries": {
+          "linux/amd64": "https://github.com/evmos/evmos/releases/download/v12.1.5/evmos_12.1.5_Linux_amd64.tar.gz",
+          "linux/arm64": "https://github.com/evmos/evmos/releases/download/v12.1.5/evmos_12.1.5_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v12.1.5/evmos_12.1.5_Darwin_amd64.tar.gz",
+          "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v12.1.5/evmos_12.1.5_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/evmos/evmos/releases/download/v12.1.5/evmos_12.1.5_Windows_amd64.zip"
+        },
+        "next_version_name": "v13.0.2"
+      },
+      {
+        "name": "v13.0.2",
+        "tag": "v13.0.2",
+        "proposal": 149,
+        "height": 14538200,
+        "recommended_version": "v13.0.2",
+        "compatible_versions": [
+          "v13.0.2"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.29"
+        },
+        "ibc_go_version": "v6.2.0",
+        "binaries": {
+          "linux/amd64": "https://github.com/evmos/evmos/releases/download/v13.0.2/evmos_13.0.2_Linux_amd64.tar.gz",
+          "linux/arm64": "https://github.com/evmos/evmos/releases/download/v13.0.2/evmos_13.0.2_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v13.0.2/evmos_13.0.2_Darwin_amd64.tar.gz",
+          "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v13.0.2/evmos_13.0.2_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/evmos/evmos/releases/download/v13.0.2/evmos_13.0.2_Windows_amd64.zip"
+        },
+        "next_version_name": "v14.0.0"
+      },
+      {
+        "name": "v14.0.0",
+        "tag": "v14.0.0",
+        "proposal": 196,
+        "height": 16105000,
+        "recommended_version": "v14.0.0",
+        "compatible_versions": [
+          "v14.0.0"
+        ],
+        "cosmos_sdk_version": "v0.47.4-evmos.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "ibc_go_version": "v7.3.0",
+        "binaries": {
+          "linux/amd64": "https://github.com/evmos/evmos/releases/download/v14.0.0/evmos_14.0.0_Linux_amd64.tar.gz",
+          "linux/arm64": "https://github.com/evmos/evmos/releases/download/v14.0.0/evmos_14.0.0_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v14.0.0/evmos_14.0.0_Darwin_amd64.tar.gz",
+          "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v14.0.0/evmos_14.0.0_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/evmos/evmos/releases/download/v14.0.0/evmos_14.0.0_Windows_amd64.zip"
+        },
+        "next_version_name": "v15.0.0"
+      },
+      {
+        "name": "v15.0.0",
+        "tag": "v15.0.0",
+        "proposal": 240,
+        "height": 16946771,
+        "recommended_version": "v15.0.0",
+        "compatible_versions": [
+          "v15.0.0"
+        ],
+        "cosmos_sdk_version": "v0.47.5-evmos",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.3-0.20230920093934-46df7b597e3c"
+        },
+        "ibc_go_version": "v7.3.1",
+        "binaries": {
+          "linux/amd64": "https://github.com/evmos/evmos/releases/download/v15.0.0/evmos_15.0.0_Linux_amd64.tar.gz",
+          "linux/arm64": "https://github.com/evmos/evmos/releases/download/v15.0.0/evmos_15.0.0_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/evmos/evmos/releases/download/v15.0.0/evmos_15.0.0_Darwin_amd64.tar.gz",
+          "darwin/arm64": "https://github.com/evmos/evmos/releases/download/v15.0.0/evmos_15.0.0_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/evmos/evmos/releases/download/v15.0.0/evmos_15.0.0_Windows_amd64.zip"
+        },
+        "next_version_name": ""
+      }
+    ]
   },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.svg"
+  },
+  "description": "Developers use Evmos as the Ethereum Canary Chain to deploy applications of the future. Get all the functionalities of Ethereum with the power of IBC and Interchain composability.",
   "peers": {
     "seeds": [
       {
         "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
         "address": "seed.rhinostake.com:13456",
         "provider": "RHINO"
-      },
-      {
-        "id": "906840c2f447915f3d0e37bc68221f5494f541db",
-        "address": "3.39.58.32:26656",
-        "provider": "Cosmostation"
       },
       {
         "id": "7aa31684d201f8ebc0b1e832d90d7490345d77ee",
@@ -73,11 +180,6 @@
         "id": "5740e4a36e646e80cc5648daf5e983e5b5d8f265",
         "address": "54.39.18.27:26656",
         "provider": "Figment"
-      },
-      {
-        "id": "de2c5e946e21360d4ffa3885579fa038a7d9776e",
-        "address": "46.101.148.190:26656",
-        "provider": "DragonStake"
       },
       {
         "id": "588cedb70fa1d98c14a2f2c1456bfa41e1a156a8",
@@ -96,7 +198,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "evmos-mainnet-seed.autostake.net:26736",
+        "address": "evmos-mainnet-seed.autostake.com:26736",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
@@ -110,27 +212,22 @@
         "provider": "Pro-nodes75"
       },
       {
-        "id": "e4f7c3181d0028209c664bfd4c259f2c4d947491",
-        "address": "seeds.whispernode.com:13456",
-        "provider": "WhisperNode🤐"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "evmos-seed-1.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "ac009a9564d3471852795b5d703095a1d4b6a3e1",
+        "address": "seed-evmos-01.stakeflow.io:1707",
+        "provider": "Stakeflow"
       },
       {
-        "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "evmos-seed-2.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "008175475229d09bcbbbe713c4e50faa85719c9e",
+        "address": "seed-node.mms.team:37656",
+        "provider": "MMS"
       }
     ],
     "persistent_peers": [
-      {
-        "id": "906840c2f447915f3d0e37bc68221f5494f541db",
-        "address": "3.39.58.32:26656",
-        "provider": "Cosmostation"
-      },
       {
         "id": "7aa31684d201f8ebc0b1e832d90d7490345d77ee",
         "address": "52.10.99.253:26656",
@@ -142,54 +239,42 @@
         "provider": "Figment"
       },
       {
-        "id": "de2c5e946e21360d4ffa3885579fa038a7d9776e",
-        "address": "46.101.148.190:26656",
-        "provider": "DragonStake"
-      },
-      {
         "id": "588cedb70fa1d98c14a2f2c1456bfa41e1a156a8",
         "address": "evmos-sentry.mercury-nodes.net:29539",
         "provider": "Mercury"
       },
       {
-        "id": "a7779498a15dfd5adc678f0f6672935413413f42",
-        "address": "alice.peers.evmos.bh.rocks:26656",
-        "provider": "BlockHunters"
-      },
-      {
-        "id": "d4a5fcc56f369665c232788c22844dc3a018fe08",
-        "address": "peer.evmos.silknodes.io:26602",
-        "provider": "Silk Nodes"
-      },
-      {
-        "id": "2d588e1bc71431f6c677a9ed7f5ff8f7caa82573",
-        "address": "evmos-rpc.agoranodes.com:26656",
-        "provider": "AgoraNodes"
-      },
-      {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "evmos-mainnet-peer.autostake.net:26736",
+        "address": "evmos-mainnet-peer.autostake.com:26736",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "ac009a9564d3471852795b5d703095a1d4b6a3e1",
+        "address": "peer-evmos-01.stakeflow.io:1707",
+        "provider": "Stakeflow"
+      },
+      {
+        "id": "d3c8c2ecd3cf0d05cc49ff12b81c52b3ec9675a5",
+        "address": "peer-evmos.mms.team:26656",
+        "provider": "MMS"
+      },
+      {
+        "id": "25695d17ec014c39054ac0026db3228053a6a2db",
+        "address": "65.108.195.213:40656",
+        "provider": "StakeTown"
+      },
+      {
+        "id": "cdf9f4c1f76006e783634ec3cdb48c1fed3c4a00",
+        "address": "evmos-mainnet.peer.stakevillage.net:16956",
+        "provider": "Stake Village"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.evmos.kingnodes.com",
-        "provider": "kingnodes"
-      },
-      {
         "address": "https://rpc-evmos.ecostake.com",
         "provider": "ecostake"
-      },
-      {
-        "address": "https://rpc-evmos.whispernode.com:443",
-        "provider": "WhisperNode🤐"
-      },
-      {
-        "address": "https://evmos.rpc.interchain.ivaldilabs.xyz",
-        "provider": "Ivaldi Labs"
       },
       {
         "address": "https://evmos-rpc.lavenderfive.com:443",
@@ -204,14 +289,6 @@
         "provider": "Notional"
       },
       {
-        "address": "https://rpc.evmos.posthuman.digital",
-        "provider": "POSTHUMAN ꝏ DVS"
-      },
-      {
-        "address": "https://rpc.evmos.interbloc.org",
-        "provider": "Interbloc"
-      },
-      {
         "address": "https://rpc.evmos.testnet.run",
         "provider": "TestNetRun"
       },
@@ -220,28 +297,12 @@
         "provider": "NodeStake"
       },
       {
-        "address": "https://rpc.evmos.bh.rocks",
-        "provider": "BlockHunters"
-      },
-      {
-        "address": "https://rpc-evmos.goldenratiostaking.net",
-        "provider": "Golden Ratio Staking"
-      },
-      {
         "address": "https://rpc.evmos.chaintools.tech/",
         "provider": "ChainTools"
       },
       {
         "address": "https://evmos-rpc.polkachu.com",
         "provider": "Polkachu"
-      },
-      {
-        "address": "https://rpc.evmos.silknodes.io/",
-        "provider": "Silk Nodes"
-      },
-      {
-        "address": "https://evmos-rpc.agoranodes.com/",
-        "provider": "AgoraNodes"
       },
       {
         "address": "https://rpc.evmos.silentvalidator.com/",
@@ -264,31 +325,43 @@
         "provider": "Validatrium"
       },
       {
-        "address": "https://evmos-mainnet-rpc.autostake.net:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "address": "https://evmos-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
-        "address": "https://rpc-evmos.carbonZERO.zone:443",
-        "provider": "carbonZERO🌲"
+        "address": "https://rpc-evmos-01.stakeflow.io",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://evmos-rpc.theamsolutions.info",
+        "provider": "AM Solutions"
+      },
+      {
+        "address": "https://rpc-evmos.validavia.me",
+        "provider": "Validavia"
+      },
+      {
+        "address": "https://evmos-rpc.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://evmos-rpc.stake-town.com",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "https://evmos.rpc.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://evmos-rpc.antrixy.org/",
+        "provider": "Antrix Validators"
+      },
+      {
+        "address": "https://evmos-mainnet.rpc.stakevillage.net:443",
+        "provider": "Stake Village"
       }
     ],
     "rest": [
-      {
-        "address": "https://api.evmos.kingnodes.com",
-        "provider": "kingnodes"
-      },
-      {
-        "address": "https://rest-evmos.ecostake.com",
-        "provider": "ecostake"
-      },
-      {
-        "address": "https://lcd-evmos.whispernode.com:443",
-        "provider": "WhisperNode🤐"
-      },
-      {
-        "address": "https://evmos.rest.interchain.ivaldilabs.xyz",
-        "provider": "Ivaldi Labs"
-      },
       {
         "address": "https://rest.bd.evmos.org:1317",
         "provider": "Blockdaemon"
@@ -302,40 +375,12 @@
         "provider": "Notional"
       },
       {
-        "address": "https://lcd.evmos.posthuman.digital",
-        "provider": "POSTHUMAN ꝏ DVS"
-      },
-      {
-        "address": "https://api.evmos.interbloc.org",
-        "provider": "Interbloc"
-      },
-      {
-        "address": "https://api.evmos.testnet.run",
-        "provider": "TestNetRun"
-      },
-      {
-        "address": "https://lcd.evmos.bh.rocks",
-        "provider": "BlockHunters"
-      },
-      {
-        "address": "https://rpc.evmos.chaintools.tech/",
-        "provider": "ChainTools"
-      },
-      {
         "address": "https://api.evmos.nodestake.top",
         "provider": "NodeStake"
       },
       {
         "address": "https://evmos-api.polkachu.com",
         "provider": "Polkachu"
-      },
-      {
-        "address": "https://api.evmos.silknodes.io/",
-        "provider": "Silk Nodes"
-      },
-      {
-        "address": "https://evmos-rest.agoranodes.com",
-        "provider": "AgoraNodes"
       },
       {
         "address": "https://api.evmos.silentvalidator.com/",
@@ -358,21 +403,49 @@
         "provider": "Validatrium"
       },
       {
-        "address": "https://evmos-mainnet-lcd.autostake.net:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "address": "https://rest-evmos.ecostake.com",
+        "provider": "ecostake"
       },
       {
-        "address": "https://rest-evmos.carbonZERO.zone:443",
-        "provider": "carbonZERO🌲"
+        "address": "https://evmos-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://api-evmos-01.stakeflow.io",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://evmos-api.theamsolutions.info",
+        "provider": "AM Solutions"
+      },
+      {
+        "address": "https://lcd-evmos.validavia.me",
+        "provider": "Validavia"
+      },
+      {
+        "address": "https://evmos-api.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://evmos-api.stake-town.com",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "https://evmos.api.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://evmos-rest.antrixy.org/",
+        "provider": "Antrix Validators"
+      },
+      {
+        "address": "https://evmos-mainnet.api.stakevillage.net",
+        "provider": "Stake Village"
       }
     ],
     "grpc": [
       {
-        "address": "https://grpc.evmos.kingnodes.com",
-        "provider": "kingnodes"
-      },
-      {
-        "address": "https://grpc.bd.evmos.org:9090",
+        "address": "grpc.bd.evmos.org:9090",
         "provider": "evmos.org"
       },
       {
@@ -380,31 +453,19 @@
         "provider": "Notional"
       },
       {
-        "address": "grpc.evmos.posthuman.digital:443",
-        "provider": "POSTHUMAN ꝏ DVS"
-      },
-      {
-        "address": "https://evmos-grpc.lavenderfive.com:443",
+        "address": "evmos-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "evmos.grpc.interchain.ivaldilabs.xyz:443",
-        "provider": "Ivaldi Labs"
-      },
-      {
-        "address": "grpc.evmos.testnet.run:8091",
-        "provider": "TestNetRun"
-      },
-      {
-        "address": "https://grpc.evmos.nodestake.top",
+        "address": "grpc.evmos.nodestake.top:443",
         "provider": "NodeStake"
       },
       {
-        "address": "https://grpc.evmos.bh.rocks",
-        "provider": "BlockHunters"
+        "address": "grpc-evmos.cosmos-spaces.cloud:1190",
+        "provider": "Cosmos Spaces"
       },
       {
-        "address": "https://evmos.grpcui.chaintools.host/",
+        "address": "evmos.grpcui.chaintools.host:443",
         "provider": "ChainTools"
       },
       {
@@ -412,24 +473,48 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://grpc.evmos.silknodes.io/",
-        "provider": "Silk Nodes"
-      },
-      {
-        "address": "https://evmos-grpc.agoranodes.com",
-        "provider": "AgoraNodes"
-      },
-      {
-        "address": "https://grpc.evmos.silentvalidator.com/",
-        "provider": "silent"
-      },
-      {
         "address": "evmos.grpc.stakin-nodes.com:443",
         "provider": "Stakin"
       },
       {
-        "address": "sevmos-mainnet-grpc.autostake.net:443",
+        "address": "evmos-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "evmos-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "grpc-evmos-01.stakeflow.io:1702",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://evmos-grpc.theamsolutions.info ",
+        "provider": "AM Solutions"
+      },
+      {
+        "address": "evmos-grpc.w3coins.io:13490",
+        "provider": "w3coins"
+      },
+      {
+        "address": "grpc-evmos.mms.team:443",
+        "provider": "MMS"
+      },
+      {
+        "address": "evmos-grpc.stake-town.com:443",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "evmos.grpc.liveraven.net:443",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://evmos-grpc.antrixy.org/",
+        "provider": "Antrix Validators"
+      },
+      {
+        "address": "evmos-mainnet.grpc.stakevillage.net:16990",
+        "provider": "Stake Village"
       }
     ],
     "evm-http-jsonrpc": [
@@ -466,27 +551,51 @@
         "provider": "TC Network"
       },
       {
-        "address": "https://jsonrpc-evmos.goldenratiostaking.net",
-        "provider": "Golden Ratio Staking"
-      },
-      {
         "address": "https://evmosevm.rpc.stakin-nodes.com",
         "provider": "Stakin"
+      },
+      {
+        "address": "https://evmos-evm.publicnode.com",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://evmos-jsonrpc.theamsolutions.info",
+        "provider": "AM Solutions"
+      },
+      {
+        "address": "https://jsonrpc-evmos.mms.team",
+        "provider": "MMS"
+      },
+      {
+        "address": "https://evmos-jsonrpc.stake-town.com",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "https://evmos.jsonrpc.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://evmos.json.antrixy.org",
+        "provider": "Antrix Validators"
+      },
+      {
+        "address": "https://evmos-mainnet.jsonrpc.stakevillage.net",
+        "provider": "Stake Village"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
-      "url": "https://ezstaking.tools/evmos",
-      "tx_page": "https://ezstaking.tools/evmos/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/evmos/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/evmos",
+      "tx_page": "https://app.ezstaking.io/evmos/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/evmos/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/evmos",
-      "tx_page": "https://www.mintscan.io/evmos/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/evmos/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/evmos/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/evmos/accounts/${accountAddress}"
     },
     {
       "kind": "bigdipper",
@@ -512,12 +621,30 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/evmos",
-      "tx_page": "https://atomscan.com/evmos/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/evmos/transactions/${txHash}",
+      "account_page": "https://atomscan.com/evmos/accounts/${accountAddress}"
     },
     {
       "kind": "tcnetwork",
       "url": "https://evmos.tcnetwork.io",
       "tx_page": "https://evmos.tcnetwork.io/transaction/${txHash}"
+    },
+    {
+      "kind": "Stakeflow",
+      "url": "https://stakeflow.io/evmos",
+      "account_page": "https://stakeflow.io/evmos/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Stake Village",
+      "url": "https://exp.stakevillage.net/evmos",
+      "tx_page": "https://exp.stakevillage.net/evmos/tx/${txHash}",
+      "account_page": "https://exp.stakevillage.net/evmos/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.svg"
     }
   ]
 }

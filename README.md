@@ -17,15 +17,20 @@ Once schemas have matured and client needs are better understood Chain Registry 
 ## Web Endpoints
 - https://registry.ping.pub (Update every 24H)
 - https://proxy.atomscan.com/directory/ (Update every 24H)
+- https://cosmoschains.thesilverfox.pro (Updated every 24H)
 
 ## APIs
 - https://github.com/cmwaters/skychart
 - https://github.com/empowerchain/cosmos-chain-directory
+- https://github.com/effofxprime/Cosmregistry-API
 
 ## Web Interfaces
 - https://cosmos.directory
 - https://chain-registry.netlify.com
 - https://atomscan.com/directory
+
+## Tooling
+- https://github.com/gaia/chain-registry-query/
 
 ## Contributing
 
@@ -78,10 +83,14 @@ A sample `chain.json` includes the following information.
     "git_repo": "https://github.com/osmosis-labs/osmosis",
     "recommended_version": "v12.2.0",
     "compatible_versions": [
+      "v12.1.0"
       "v12.2.0"
     ],
     "cosmos_sdk_version": "0.46",
-    "tendermint_version": "0.34",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
     "cosmwasm_version": "0.28",
     "cosmwasm_enabled": true,
     "ibc_go_version": "3.0.0",
@@ -103,43 +112,70 @@ A sample `chain.json` includes the following information.
         "name": "v4",
         "tag": "v4.2.0",
         "height": 1314500,
+        "proposal": 38,
         "next_version_name": "v5"
       },
       {
         "name": "v5",
         "tag": "v6.4.1",
         "height": 2383300,
+        "proposal": 95,
         "next_version_name": "v7"
       },
       {
         "name": "v7",
         "tag": "v8.0.0",
         "height": 3401000,
+        "proposal": 157,
         "next_version_name": "v9"
       },
       {
         "name": "v9",
         "tag": "v10.0.1",
         "height": 4707300,
+        "proposal": 252,
         "next_version_name": "v11"
       },
       {
         "name": "v11",
         "tag": "v11.0.0",
         "height": 5432450,
+        "proposal": 296,
         "next_version_name": "v12"
       },
       {
         "name": "v12",
         "tag": "v12.1.0",
-        "height": 6246000
+        "height": 6246000,
+        "proposal": 335,
+        "recommended_version": "v12.2.0",
+        "compatible_versions": [
+          "v12.1.0"
+          "v12.2.0"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.28",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "3.0.0",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "next_version_name": "v13"
       }
     ]
   },
-  "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg"
-  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
+      "theme": {
+        "primary_color_hex": "#231D4B"
+      }
+    }
+  ],
   "peers": {
     "seeds": [
       {
@@ -164,16 +200,8 @@ A sample `chain.json` includes the following information.
         "address": "134.255.252.173:26656",
         "provider": "divecrypto"
       },
-      {
-        "id": "785bc83577e3980545bac051de8f57a9fd82695f",
-        "address": "194.233.164.146:26656",
-        "provider": "forbole"
-      },
-      {
-        "id": "778fdedf6effe996f039f22901a3360bc838b52e",
-        "address": "161.97.187.189:36657",
-        "provider": "kalpatech"
-      },
+      ...
+      ...
       {
         "id": "64d36f3a186a113c02db0cf7c588c7c85d946b5b",
         "address": "209.97.132.170:26656",
@@ -257,10 +285,15 @@ An example assetlist json contains the following structure:
       "name": "Osmosis",
       "display": "osmo",
       "symbol": "OSMO",
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
-      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg",
+          "theme": {
+            "primary_color_hex": "#5c09a0"
+          }
+        }
+      ],
       "coingecko_id": "osmosis",
       "keywords": [
         "dex",
@@ -282,10 +315,15 @@ An example assetlist json contains the following structure:
       "name": "Ion",
       "display": "ion",
       "symbol": "ION",
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.svg"
-      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.svg",
+          "theme": {
+            "primary_color_hex": "#3f97fc"
+          }
+        }
+      ],
       "coingecko_id": "ion",
       "keywords": [
         "memecoin"
@@ -339,3 +377,7 @@ An example ibc metadata file contains the following structure:
   ]
 }
 ```
+
+---
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.

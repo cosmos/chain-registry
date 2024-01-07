@@ -4,7 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "website": "https://www.cheqd.io/",
-  "pretty_name": "cheqd",
+  "pretty_name": "Cheqd",
   "chain_id": "cheqd-mainnet-1",
   "bech32_prefix": "cheqd",
   "daemon_name": "cheqd-noded",
@@ -15,8 +15,8 @@
       {
         "denom": "ncheq",
         "fixed_min_gas_price": 25,
-        "low_gas_price": 25,
-        "average_gas_price": 50,
+        "low_gas_price": 50,
+        "average_gas_price": 75,
         "high_gas_price": 100
       }
     ]
@@ -30,20 +30,50 @@
   },
   "codebase": {
     "git_repo": "https://github.com/cheqd/cheqd-node",
-    "recommended_version": "v1.2.2",
+    "recommended_version": "v1.4.4",
     "compatible_versions": [
-      "v1.2.2",
-      "v1.2.4"
+      "v1.2.5",
+      "v1.3.0",
+      "v1.4.0",
+      "v1.4.4"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v1.2.2/cheqd-noded-1.2.2-Linux-x86_64.tar.gz",
-      "linux/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v1.2.2/cheqd-noded-1.2.2-Linux-arm64.tar.gz"
+      "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.4/cheqd-noded-1.4.4-linux-amd64.tar.gz",
+      "linux/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.4/cheqd-noded-1.4.4-linux-arm64.tar.gz",
+      "darwin/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.4/cheqd-noded-1.4.4-darwin-amd64.tar.gz",
+      "darwin/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.4/cheqd-noded-1.4.4-darwin-arm64.tar.gz"
     },
-    "cosmos_sdk_version": "0.46.8",
-    "tendermint_version": "0.34.24",
+    "cosmos_sdk_version": "0.46.10",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34.26"
+    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/cheqd/cheqd-node/main/networks/mainnet/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v1",
+        "recommended_version": "v1.4.4",
+        "compatible_versions": [
+          "v1.2.5",
+          "v1.3.0",
+          "v1.4.0",
+          "v1.4.4"
+        ],
+        "cosmos_sdk_version": "0.46.10",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34.26"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-linux-amd64.tar.gz",
+          "linux/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-linux-arm64.tar.gz",
+          "darwin/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-darwin-amd64.tar.gz",
+          "darwin/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-darwin-arm64.tar.gz"
+        }
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -68,14 +98,19 @@
         "provider": "cheqd"
       },
       {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "cheqd-mainnet-seed.autostake.com:27326",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:16156",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "id": "d8676573a3718c05d3d0d07906f3604a9e3a034d",
+        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:16156",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       }
     ],
     "persistent_peers": [
@@ -93,6 +128,11 @@
         "id": "9201b408d24941fd342e739f0814aa3eb8ab7577",
         "address": "sentry1.ap.cheqd.net:26656",
         "provider": "cheqd"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "cheqd-mainnet-peer.autostake.com:27326",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -116,7 +156,15 @@
       },
       {
         "address": "https://rpc-cheqd.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
+      },
+      {
+        "address": "https://cheqd-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://rpc-cheqd.blockval.io",
+        "provider": "Blockval"
       }
     ],
     "rest": [
@@ -133,12 +181,20 @@
         "provider": "Notional"
       },
       {
+        "address": "https://cheqd-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "address": "https://api.cheqd.nodestake.top",
         "provider": "NodeStake"
       },
       {
         "address": "https://lcd-cheqd.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
+      },
+      {
+        "address": "https://api-cheqd.blockval.io",
+        "provider": "Blockval"
       }
     ],
     "grpc": [
@@ -147,25 +203,33 @@
         "provider": "cheqd"
       },
       {
-        "address": "https://cheqd-grpc.lavenderfive.com:443",
+        "address": "cheqd-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "cheqd-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "grpc-cheqd-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
       },
       {
-        "address": "https://grpc.cheqd.nodestake.top",
+        "address": "grpc.cheqd.nodestake.top:443",
         "provider": "NodeStake"
+      },
+      {
+        "address": "grpc-cheqd.blockval.io:9290",
+        "provider": "Blockval"
       }
     ]
   },
   "explorers": [
     {
       "kind": "bigdipper",
-      "url": "https://explorer.cheqd.io/",
-      "tx_page": "https://explorer.cheqd.io/transactions/${txHash}",
-      "account_page": "https://explorer.cheqd.io/accounts/${accountAddress}"
+      "url": "https://bigdipper.live/cheqd",
+      "tx_page": "https://bigdipper.live/cheqd/transactions/${txHash}",
+      "account_page": "https://bigdipper.live/cheqd/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -179,10 +243,10 @@
       "account_page": "https://atomscan.com/cheqd/accounts/${accountAddress}"
     },
     {
-      "kind": "EZStaking Tools",
-      "url": "https://ezstaking.tools/cheqd",
-      "tx_page": "https://ezstaking.tools/cheqd/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/cheqd/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/cheqd",
+      "tx_page": "https://app.ezstaking.io/cheqd/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/cheqd/account/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -198,5 +262,11 @@
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cheqd/images/cheq.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cheqd/images/cheq.svg"
-  }
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cheqd/images/cheq.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cheqd/images/cheq.svg"
+    }
+  ]
 }

@@ -30,37 +30,25 @@
   "codebase": {
     "git_repo": "https://gitlab.com/dysonproject/dyson",
     "recommended_version": "v0.0.2-bebf2e98",
-    "compatible_versions": [
-      "v0.0.2-bebf2e98"
-    ],
+    "compatible_versions": ["v0.0.2-bebf2e98"],
     "genesis": {
       "genesis_url": "https://gitlab.com/dysonproject/dyson-deploy/-/raw/develop/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v0.0.2-bebf2e98",
+        "recommended_version": "v0.0.2-bebf2e98",
+        "compatible_versions": ["v0.0.2-bebf2e98"]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dyson/images/dyson.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dyson/images/dyson.svg"
   },
   "peers": {
-    "seeds": [
-      {
-        "id": "2c4f8e193fd10ab3a2bc919b484fd1c78eceffb3",
-        "address": "85.159.211.61:26656",
-        "provider": ""
-      },
-      {
-        "id": "1f3bd1f48c7c277e7be83895cdbb46f8333adb61",
-        "address": "178.79.183.171:26656",
-        "provider": ""
-      }
-    ],
+    "seeds": [],
     "persistent_peers": [
-      {
-        "id": "2c4f8e193fd10ab3a2bc919b484fd1c78eceffb3",
-        "address": "85.159.211.61:26656",
-        "provider": ""
-      },
-      {
-        "id": "2c4f8e193fd10ab3a2bc919b484fd1c78eceffb3",
-        "address": "85.159.211.61:26656",
-        "provider": ""
-      },
       {
         "id": "b1fd06f7f129ad6bf66635b7068931cf0fb68497",
         "address": "161.97.91.203:27656",
@@ -71,32 +59,32 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://dys-tm.dyson.lol:443",
-        "provider": "lol"
-      },
-      {
         "address": "https://dys-tm.dysonprotocol.com:443",
         "provider": "dysonprotocol"
+      },
+      {
+        "address": "https://dyson-rpc.cogwheel.zone:443",
+        "provider": "cogwheel"
       }
     ],
     "rest": [
-      {
-        "address": "https://dys-api.dyson.lol:443",
-        "provider": "lol"
-      },
       {
         "address": "https://dys-api.dysonprotocol.com:443",
         "provider": "dysonprotocol"
       },
       {
-        "address": "https://dyson-api.genznodes.dev:443",
-        "provider": "genznodes"
+        "address": "https://dyson-api.cogwheel.zone:443",
+        "provider": "cogwheel"
       }
     ],
     "grpc": [
       {
-        "address": "https://dys-grpc.dyson.lol:443",
+        "address": "dys-grpc.dyson.lol:443",
         "provider": "lol"
+      },
+      {
+        "address": "https://dyson-grpc.cogwheel.zone:443",
+        "provider": "cogwheel"
       }
     ]
   },
@@ -104,12 +92,14 @@
     {
       "kind": "dysonprotocol",
       "url": "https://explorer.dys.dysonprotocol.com/dyson/",
-      "tx_page": "https://explorer.dys.dysonprotocol.com/dyson/tx/${txHash}"
-    },
+      "tx_page": "https://explorer.dys.dysonprotocol.com/dyson/tx/${txHash}",
+      "account_page": "https://explorer.dys.dysonprotocol.com/dyson/account/${accountAddress}"
+    }
+  ],
+  "images": [
     {
-      "kind": "lol",
-      "url": "https://explorer.dys.dyson.lol",
-      "tx_page": "https://explorer.dys.dyson.lol/dyson/tx/${txHash}"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dyson/images/dyson.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dyson/images/dyson.svg"
     }
   ]
 }

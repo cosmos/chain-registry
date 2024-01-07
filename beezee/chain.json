@@ -16,26 +16,56 @@
     "fee_tokens": [
       {
         "denom": "ubze",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ubze"
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/bze-alphateam/bze",
-    "recommended_version": "v5.1.2",
+    "recommended_version": "v6.0.0",
     "compatible_versions": [
-      "v5.1.2"
+      "v6.0.0"
     ],
     "binaries": {
-      "darwin/amd64": "https://github.com/bze-alphateam/bze/releases/download/v5.1.2/bze-5.1.2-darwin-amd64.tar.gz",
-      "darwin/arm64": "https://github.com/bze-alphateam/bze/releases/download/v5.1.2/bze-5.1.2-darwin-arm64.tar.gz",
-      "linux/amd64": "https://github.com/bze-alphateam/bze/releases/download/v5.1.2/bze-5.1.2-linux-amd64.tar.gz",
-      "linux/arm64": "https://github.com/bze-alphateam/bze/releases/download/v5.1.2/bze-5.1.2-linux-arm64.tar.gz",
-      "windows/amd64": "https://github.com/bze-alphateam/bze/releases/download/v5.1.2/bze-5.1.2-win64.zip"
+      "darwin/amd64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-darwin-amd64.tar.gz",
+      "darwin/arm64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-darwin-arm64.tar.gz",
+      "linux/amd64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-linux-amd64.tar.gz",
+      "linux/arm64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-linux-arm64.tar.gz",
+      "windows/amd64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-win64.zip"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/bze-alphateam/bze/main/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v6.0.0",
+        "recommended_version": "v6.0.0",
+        "compatible_versions": [
+          "v6.0.0"
+        ],
+        "binaries": {
+          "darwin/amd64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-darwin-amd64.tar.gz",
+          "darwin/arm64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-darwin-arm64.tar.gz",
+          "linux/amd64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-linux-amd64.tar.gz",
+          "linux/arm64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-linux-arm64.tar.gz",
+          "windows/amd64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-win64.zip"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/beezee/images/bze.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/beezee/images/bze.svg"
   },
   "peers": {
     "seeds": [
@@ -57,14 +87,9 @@
         "provider": "AlphaTeam"
       },
       {
-        "id": "2624d40b8861415e004d4532bb7d8d90dd0e6e66",
-        "address": "51.15.115.192:26656",
-        "provider": "AlphaTeam"
-      },
-      {
-        "id": "f238198a75e886a21cd0522b6b06aa019b9e182e",
-        "address": "51.15.55.142:26656",
-        "provider": "AlphaTeam"
+        "id": "1ff4f14f7f6026ce3d5d9a335e5e1298bcf6e5d3",
+        "address": "144.76.102.237:26656",
+        "provider": "[NODERS]TEAM"
       }
     ]
   },
@@ -107,6 +132,12 @@
   "explorers": [
     {
       "kind": "ping.pub",
+      "url": "https://ping.pub/beezee",
+      "tx_page": "https://ping.pub/beezee/tx/${txHash}",
+      "account_page": "https://ping.pub/beezee/account/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
       "url": "https://explorers.vidulum.app/beezee",
       "tx_page": "https://explorers.vidulum.app/beezee/tx/${txHash}"
     },
@@ -114,6 +145,18 @@
       "kind": "ping.pub",
       "url": "https://explorer.erialos.me/beezee",
       "tx_page": "https://explorer.erialos.me/beezee/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/beezee",
+      "tx_page": "https://atomscan.com/beezee/transactions/${txHash}",
+      "account_page": "https://atomscan.com/beezee/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/beezee/images/bze.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/beezee/images/bze.svg"
     }
   ]
 }

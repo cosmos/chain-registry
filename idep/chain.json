@@ -32,15 +32,26 @@
     },
     "genesis": {
       "genesis_url": "https://github.com/IDEP-network/Antora/raw/main/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v1.0.0",
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/IDEP-network/Antora/raw/main/iond"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/idep/images/idep.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/idep/images/idep.svg"
   },
   "peers": {
     "seeds": [
-      {
-        "id": "6e52997400aaa1b3d2155e45cf2559bf7a4c5e76",
-        "address": "164.92.161.91:26656",
-        "provider": "IDEP"
-      },
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:16556",
@@ -66,43 +77,21 @@
     ]
   },
   "apis": {
-    "rpc": [
-      {
-        "address": "https://rpc.idep.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
-        "address": "https://idep-rpc.lavenderfive.com/",
-        "provider": "Lavender.Five Nodes 🐝"
-      }
-    ],
-    "rest": [
-      {
-        "address": "https://api.idep.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
-        "address": "https://idep-api.lavenderfive.com/",
-        "provider": "Lavender.Five Nodes 🐝"
-      }
-    ],
+    "rpc": [],
+    "rest": [],
     "grpc": [
       {
-        "address": "https://grpc.idep.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
-        "address": "https://idep-grpc.lavenderfive.com:443/",
+        "address": "idep-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
-      "url": "https://ezstaking.tools/idep",
-      "tx_page": "https://ezstaking.tools/idep/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/idep/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/idep",
+      "tx_page": "https://app.ezstaking.io/idep/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/idep/account/${accountAddress}"
     },
     {
       "kind": "chadscan",
@@ -112,12 +101,19 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/idep",
-      "tx_page": "https://atomscan.com/idep/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/idep/transactions/${txHash}",
+      "account_page": "https://atomscan.com/idep/accounts/${accountAddress}"
     },
     {
       "kind": "TC Network",
       "url": "https://explorer.tcnetwork.io/idep",
       "tx_page": "https://explorer.tcnetwork.io/idep/transaction/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/idep/images/idep.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/idep/images/idep.svg"
     }
   ]
 }

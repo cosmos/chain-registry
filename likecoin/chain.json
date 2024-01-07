@@ -17,9 +17,10 @@
     "fee_tokens": [
       {
         "denom": "nanolike",
-        "low_gas_price": 1,
-        "average_gas_price": 10,
-        "high_gas_price": 1000
+        "fixed_min_gas_price": 1000,
+        "low_gas_price": 1000,
+        "average_gas_price": 10000,
+        "high_gas_price": 1000000
       }
     ]
   },
@@ -28,26 +29,159 @@
       {
         "denom": "nanolike"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/likecoin/likecoin-chain",
-    "recommended_version": "v3.1.0",
+    "recommended_version": "v4.1.1",
     "compatible_versions": [
-      "v3.1.0"
+      "v4.1.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Linux_x86_64.tar.gz",
-      "linux/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Darwin_x86_64.tar.gz",
-      "darwin/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Windows_x86_64.zip"
+      "linux/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.1.1/likecoin-chain_4.1.1_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.1.1/likecoin-chain_4.1.1_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.1.1/likecoin-chain_4.1.1_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.1.1/likecoin-chain_4.1.1_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.1.1/likecoin-chain_4.1.1_Windows_x86_64.zip"
     },
-    "cosmos_sdk_version": "0.45",
-    "tendermint_version": "0.34",
+    "cosmos_sdk_version": "0.46",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "cosmwasm_enabled": false,
+    "ibc_go_version": "6.2.1",
+    "ics_enabled": [
+      "ics20-1"
+    ],
     "genesis": {
+      "name": "fotan-1.0",
       "genesis_url": "https://raw.githubusercontent.com/likecoin/mainnet/982c14399089950a59d3ebbedcbbc7ead6040457/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "fotan-1.0",
+        "tag": "v1.2.0",
+        "height": 0,
+        "recommended_version": "v1.2.0",
+        "compatible_versions": [
+          "v1.2.0",
+          "fotan-1.2"
+        ],
+        "cosmos_sdk_version": "0.42",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v1.2.0/likecoin-chain_1.2.0_Linux_x86_64.tar.gz",
+          "linux/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v1.2.0/likecoin-chain_1.2.0_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v1.2.0/likecoin-chain_1.2.0_Darwin_x86_64.tar.gz",
+          "darwin/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v1.2.0/likecoin-chain_1.2.0_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v1.2.0/likecoin-chain_1.2.0_Windows_x86_64.zip"
+        },
+        "next_version_name": "v2.0.0"
+      },
+      {
+        "name": "v2.0.0",
+        "tag": "v2.0.2",
+        "height": 3692800,
+        "recommended_version": "v2.0.2",
+        "compatible_versions": [
+          "v2.0.0",
+          "v2.0.1",
+          "v2.0.2"
+        ],
+        "cosmos_sdk_version": "0.44",
+        "ibc_go_version": "2.1.0",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v2.0.2/likecoin-chain_2.0.2_Linux_x86_64.tar.gz",
+          "linux/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v2.0.2/likecoin-chain_2.0.2_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v2.0.2/likecoin-chain_2.0.2_Darwin_x86_64.tar.gz",
+          "darwin/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v2.0.2/likecoin-chain_2.0.2_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v2.0.2/likecoin-chain_2.0.2_Windows_x86_64.zip"
+        },
+        "next_version_name": "v3.0.0"
+      },
+      {
+        "name": "v3.0.0",
+        "tag": "v3.1.0",
+        "height": 4810000,
+        "recommended_version": "v3.1.0",
+        "compatible_versions": [
+          "v3.1.0"
+        ],
+        "cosmos_sdk_version": "0.45",
+        "ibc_go_version": "2.3.0",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Linux_x86_64.tar.gz",
+          "linux/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Darwin_x86_64.tar.gz",
+          "darwin/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v3.1.0/likecoin-chain_3.1.0_Windows_x86_64.zip"
+        },
+        "next_version_name": "v4.0.0"
+      },
+      {
+        "name": "v4.0.0",
+        "tag": "v4.0.1",
+        "height": 9419200,
+        "recommended_version": "v4.0.1",
+        "compatible_versions": [
+          "v4.0.0",
+          "v4.0.1",
+          "v4.0.2"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "ibc_go_version": "5.3.1",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.0.1/likecoin-chain_4.0.1_Linux_x86_64.tar.gz",
+          "linux/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.0.1/likecoin-chain_4.0.1_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.0.1/likecoin-chain_4.0.1_Darwin_x86_64.tar.gz",
+          "darwin/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.0.1/likecoin-chain_4.0.1_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.0.1/likecoin-chain_4.0.1_Windows_x86_64.zip"
+        },
+        "next_version_name": "v4.1.1"
+      },
+      {
+        "name": "v4.1.1",
+        "tag": "v4.1.1",
+        "height": 12102100,
+        "recommended_version": "v4.1.1",
+        "compatible_versions": [
+          "v4.1.1"
+        ],
+        "cosmos_sdk_version": "0.46",
+        "ibc_go_version": "6.2.1",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.1.1/likecoin-chain_4.1.1_Linux_x86_64.tar.gz",
+          "linux/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.1.1/likecoin-chain_4.1.1_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.1.1/likecoin-chain_4.1.1_Darwin_x86_64.tar.gz",
+          "darwin/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.1.1/likecoin-chain_4.1.1_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.1.1/likecoin-chain_4.1.1_Windows_x86_64.zip"
+        },
+        "next_version_name": ""
+      }
+    ]
   },
   "peers": {
     "seeds": [
@@ -60,6 +194,11 @@
         "id": "e44a2165ac573f84151671b092aa4936ac305e2a",
         "address": "nnkken.dev:26656",
         "provider": "nnkken"
+      },
+      {
+        "id": "d354a96014507ea480d04f8fe009dd5a4f7fe7fb",
+        "address": "likecoin-seed.oldcat.io.oldcat.io:26656",
+        "provider": "Oldcat"
       }
     ],
     "persistent_peers": [
@@ -67,16 +206,6 @@
         "id": "f087d600cf3d34d3bac04a9723a53180619e8445",
         "address": "35.247.83.138:26656",
         "provider": "like.co"
-      },
-      {
-        "id": "75822abfbcc23dcefd025e245b46e2dec5357f75",
-        "address": "207.246.101.4:26656",
-        "provider": "forbole"
-      },
-      {
-        "id": "9f62898076c35d78df21c1d2280be922221c23af",
-        "address": "139.59.8.62:2180",
-        "provider": "Notional"
       },
       {
         "id": "20afcd5637b2278efc78c54fd523bd331d1820f2",
@@ -97,8 +226,16 @@
         "provider": "like.co"
       },
       {
-        "address": "https://rpc-likecoin-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
+        "address": "https://likecoin-node.oldcat.io:443/rpc/",
+        "provider": "Oldcat"
+      },
+      {
+        "address": "https://rpc-likecoin-mainnet.pikaser.net",
+        "provider": "PikaSer"
+      },
+      {
+        "address": "http://51.159.223.25:28657",
+        "provider": "Citizen Cosmos"
       }
     ],
     "rest": [
@@ -107,14 +244,26 @@
         "provider": "like.co"
       },
       {
-        "address": "https://api-likecoin-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
+        "address": "https://likecoin-node.oldcat.io:443/api/",
+        "provider": "Oldcat"
+      },
+      {
+        "address": "https://rest-likecoin-mainnet.pikaser.net",
+        "provider": "PikaSer"
       }
     ],
     "grpc": [
       {
-        "address": "grpc-likecoin-ia.cosmosia.notional.ventures:443",
-        "provider": "Notional"
+        "address": "mainnet-node-grpc.like.co:80",
+        "provider": "like.co"
+      },
+      {
+        "address": "https://likecoin-node.oldcat.io:443/grpc/",
+        "provider": "Oldcat"
+      },
+      {
+        "address": "grpc-likecoin-mainnet.pikaser.net:443",
+        "provider": "PikaSer"
       }
     ]
   },
@@ -122,8 +271,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/likecoin",
-      "tx_page": "https://www.mintscan.io/likecoin/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/likecoin/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/likecoin/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/likecoin/accounts/${accountAddress}"
     },
     {
       "kind": "bigdipper",
@@ -143,7 +292,8 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/likecoin",
-      "tx_page": "https://atomscan.com/likecoin/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/likecoin/transactions/${txHash}",
+      "account_page": "https://atomscan.com/likecoin/accounts/${accountAddress}"
     }
   ],
   "logo_URIs": {
@@ -152,6 +302,16 @@
   },
   "keywords": [
     "depub",
-    "like"
+    "publishing",
+    "like",
+    "book",
+    "writing",
+    "nft"
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/likecoin/images/likecoin-chain-logo.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/likecoin/images/likecoin-chain-logo.svg"
+    }
   ]
 }

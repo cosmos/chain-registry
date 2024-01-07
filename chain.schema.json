@@ -21,6 +21,10 @@
     "chain_id": {
       "type": "string"
     },
+    "pre_fork_chain_name": {
+      "type": "string",
+      "pattern": "[a-z0-9]+"
+    },
     "pretty_name": {
       "type": "string"
     },
@@ -77,10 +81,10 @@
         "bech32PrefixConsPub": {
           "type": "string",
           "description": "e.g., 'cosmosvalconspub'"
-        },
-        "additionalProperties": false,
-        "minProperties": 1
-      }
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
     },
     "daemon_name": {
       "type": "string"
@@ -96,7 +100,8 @@
           "secp256k1",
           "ethsecp256k1",
           "ed25519",
-          "sr25519"
+          "sr25519",
+          "bn254"
         ],
         "uniqueItems": true
       }
@@ -165,6 +170,11 @@
         "recommended_version": {
           "type": "string"
         },
+        "go_version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$",
+          "description": "Minimum accepted go version to build the binary."
+        },
         "compatible_versions": {
           "type": "array",
           "items": {
@@ -193,15 +203,10 @@
             "windows/amd64": {
               "type": "string",
               "format": "uri"
-            }
-          },
-          "additionalProperties": false
-        },
-        "genesis": {
-          "type": "object",
-          "properties": {
-            "genesis_url": {
-              "type": "string"
+            },
+            "windows/arm64": {
+              "type": "string",
+              "format": "uri"
             }
           },
           "additionalProperties": false
@@ -209,14 +214,36 @@
         "cosmos_sdk_version": {
           "type": "string"
         },
-        "tendermint_version": {
-          "type": "string"
+        "consensus": {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "tendermint",
+                "cometbft",
+                "sei-tendermint"
+              ]
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         },
         "cosmwasm_version": {
           "type": "string"
         },
         "cosmwasm_enabled": {
           "type": "boolean"
+        },
+        "cosmwasm_path": {
+          "type": "string",
+          "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
+          "pattern": "^\\$HOME.*$"
         },
         "ibc_go_version": {
           "type": "string"
@@ -246,6 +273,10 @@
             "genesis_url": {
               "type": "string",
               "format": "uri"
+            },
+            "ics_ccv_url": {
+              "type": "string",
+              "format": "uri"
             }
           },
           "additionalProperties": false
@@ -270,9 +301,111 @@
                 "type": "number",
                 "description": "Block Height"
               },
+              "proposal": {
+                "type": "number",
+                "description": "Proposal that will officially signal community acceptance of the upgrade."
+              },
+              "previous_version_name": {
+                "type": "string",
+                "description": "[Optional] Name of the previous version"
+              },
               "next_version_name": {
                 "type": "string",
                 "description": "[Optional] Name of the following version"
+              },
+              "recommended_version": {
+                "type": "string"
+              },
+              "go_version": {
+                "type": "string",
+                "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$",
+                "description": "Minimum accepted go version to build the binary."
+              },
+              "compatible_versions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "cosmos_sdk_version": {
+                "type": "string"
+              },
+              "consensus": {
+                "type": "object",
+                "required": [
+                  "type"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "tendermint",
+                      "cometbft",
+                      "sei-tendermint"
+                    ]
+                  },
+                  "version": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "cosmwasm_version": {
+                "type": "string"
+              },
+              "cosmwasm_enabled": {
+                "type": "boolean"
+              },
+              "cosmwasm_path": {
+                "type": "string",
+                "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
+                "pattern": "^\\$HOME.*$"
+              },
+              "ibc_go_version": {
+                "type": "string"
+              },
+              "ics_enabled": {
+                "type": "array",
+                "description": "List of IBC apps (usually corresponding to a ICS standard) which have been enabled on the network.",
+                "items": {
+                  "type": "string",
+                  "description": "IBC app or ICS standard.",
+                  "enum": [
+                    "ics20-1",
+                    "ics27-1",
+                    "mauth"
+                  ]
+                }
+              },
+              "binaries": {
+                "type": "object",
+                "properties": {
+                  "linux/amd64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "linux/arm64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "darwin/amd64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "darwin/arm64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "windows/amd64": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "windows/arm64": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "additionalProperties": false
               }
             },
             "additionalProperties": false
@@ -280,6 +413,72 @@
         }
       },
       "additionalProperties": false
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "image_sync": {
+            "$ref": "#/$defs/pointer"
+          },
+          "png": {
+            "type": "string",
+            "format": "uri-reference",
+            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$"
+          },
+          "svg": {
+            "type": "string",
+            "format": "uri-reference",
+            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$"
+          },
+          "theme": {
+            "type": "object",
+            "properties": {
+              "primary_color_hex": {
+                "type": "string",
+                "pattern": "^#[0-9a-fA-F]{6}$"
+              },
+              "circle": {
+                "type": "boolean"
+              },
+              "dark_mode": {
+                "type": "boolean"
+              }
+            },
+            "minProperties": 1,
+            "additionalProperties": false
+          },
+          "layout": {
+            "type": "string",
+            "enum": ["logo", "logomark", "logotype"],
+            "description": "logomark == icon only; logotype == text only; logo == icon + text."
+          },
+          "text_position": {
+            "type": "string",
+            "enum": ["top", "bottom", "left", "right", "integrated"],
+            "description": "Indicates in which position the text is placed, in case the layout is 'icon' type, it's required only in this case."
+          }
+        },
+        "if": {
+          "properties": {
+            "layout": { "const": "logo" }
+          },
+          "required": ["layout"]
+        },
+        "then": {
+          "required": ["text_position"]
+        },
+        "anyOf": [
+          {
+            "required": ["png"]
+          },
+          {
+            "required": ["svg"]
+          }
+        ],
+        "additionalProperties": false
+      }
     },
     "logo_URIs": {
       "type": "object",
@@ -296,6 +495,10 @@
         }
       },
       "additionalProperties": false
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 3000
     },
     "peers": {
       "type": "object",
@@ -488,7 +691,24 @@
         }
       },
       "additionalProperties": false
+    },
+    "pointer": {
+      "type": "object",
+      "description": "The (primary) key used to identify an object within the Chain Registry.",
+      "required": [
+        "chain_name"
+      ],
+      "properties": {
+        "chain_name": {
+          "type": "string",
+          "description": "The chain name or platform from which the object resides. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'"
+        },
+        "base_denom": {
+          "type": "string",
+          "description": "The base denom of the asset from which the object originates. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
+        }
+      },
+      "additionalProperties": false
     }
-  },
-  "additionalProperties": false
+  }
 }

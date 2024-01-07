@@ -17,7 +17,17 @@
     "fee_tokens": [
       {
         "denom": "loki",
-        "fixed_min_gas_price": 0.0125
+        "fixed_min_gas_price": 0.0125,
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.05,
+        "high_gas_price": 0.06
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "loki"
       }
     ]
   },
@@ -29,9 +39,34 @@
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/ODIN-PROTOCOL/networks/master/mainnets/odin-mainnet-freya/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v0.6.2",
+        "recommended_version": "v0.6.2",
+        "compatible_versions": [
+          "v0.6.2"
+        ]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/odin/images/odin.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/odin/images/odin.svg"
   },
   "peers": {
+    "seeds": [
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:16856",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "odin-mainnet-seed.autostake.com:26766",
+        "provider": "AutoStake.net"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "9d16b1ce74a34b869d69ad5fe34eaca614a36ecd",
@@ -55,24 +90,7 @@
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "odin-mainnet-peer.autostake.net:26766",
-        "provider": "AutoStake.net"
-      }
-    ],
-    "seeds": [
-      {
-        "id": "c8ee9f66163f0c1220c586eab1a2a57f6381357f",
-        "address": "odin.seed.rhinostake.com:16658",
-        "provider": "Rhino Stake"
-      },
-      {
-        "id": "20e1000e88125698264454a884812746c2eb4807",
-        "address": "seeds.lavenderfive.com:16856",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "odin-mainnet-seed.autostake.net:26766",
+        "address": "odin-mainnet-peer.autostake.com:26766",
         "provider": "AutoStake.net"
       }
     ]
@@ -88,7 +106,7 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://odin-mainnet-rpc.autostake.net:443",
+        "address": "https://odin-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
@@ -102,17 +120,17 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://odin-mainnet-lcd.autostake.net:443",
+        "address": "https://odin-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "grpc": [
       {
-        "address": "https://odin-grpc.lavenderfive.com:443/",
+        "address": "odin-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://odin-mainnet-grpc.autostake.net:443",
+        "address": "odin-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
@@ -127,6 +145,12 @@
       "kind": "ping.pub",
       "url": "https://ping.pub/odin",
       "tx_page": "https://ping.pub/odin/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/odin/images/odin.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/odin/images/odin.svg"
     }
   ]
 }
