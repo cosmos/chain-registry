@@ -182,24 +182,24 @@
       "type_asset": "ics20",
       "base": "ibc/0B3C3D06228578334B66B57FBFBA4033216CEB8119B27ACDEE18D92DA5B28D43",
       "name": "Wormhole USDC(Avalanche)",
-      "display": "avalanche-usdc.hole",
-      "symbol": "avaxUsdc.hole",
+      "display": "avalanche.USDC.wh",
+      "symbol": "avalanche.USDC.wh",
       "traces": [
         {
-          "type": "bridge",
+          "type": "ibc",
           "counterparty": {
-            "chain_name": "avalanche",
-            "base_denom": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E"
+            "chain_name": "gateway",
+            "base_denom": "factory/wormhole14ejqjyq8um4p3xfqj74yld5waqljf88fz25yxnma0cngspxe3les00fpjx/5ZLmAZpcbaP4EGyihSmpfwryzDr84h51tboV392BCjW4",
+            "channel_id": "channel-3"
           },
-          "provider": "Wormhole"
+          "chain": {
+            "channel_id": "channel-2186",
+            "path": "transfer/channel-2186/factory/wormhole14ejqjyq8um4p3xfqj74yld5waqljf88fz25yxnma0cngspxe3les00fpjx/5ZLmAZpcbaP4EGyihSmpfwryzDr84h51tboV392BCjW4"
+          }
         }
       ],
       "images": [
         {
-          "image_sync": {
-            "chain_name": "osmosis",
-            "base_denom": "avalanche-uusdc"
-          },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/usdc.hole.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/usdc.hole.svg"
         }
