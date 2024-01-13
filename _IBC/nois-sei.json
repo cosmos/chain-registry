@@ -1,0 +1,47 @@
+{
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "nois",
+    "client_id": "07-tendermint-921",
+    "connection_id": "connection-973"
+  },
+  "chain_2": {
+    "chain_name": "sei",
+    "client_id": "07-tendermint-920",
+    "connection_id": "connection-972"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-1",
+        "port_id": "transfer"
+      },
+      "chain_2": {
+        "channel_id": "channel-909",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "status": "live",
+        "preferred": true
+      }
+    },
+    {
+      "chain_1": {
+        "channel_id": "channel-2",
+        "port_id": "wasm.nois1acyc05v6fgcdgj88nmz2t40aex9nlnptqpwp5hf8hwg7rhce9uuqgqz5wp"
+      },
+      "chain_2": {
+        "channel_id": "channel-910",
+        "port_id": "wasm.sei1la2alhdegg3ycey08nl4m0qh4fpkr80mah4q0jy7pdaq8wyss3tqah7886"
+      },
+      "ordering": "unordered",
+      "version": "nois-v7",
+      "tags": {
+        "status": "live",
+        "preferred": true
+      }
+    }  
+  ]
+}
