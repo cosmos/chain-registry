@@ -18,17 +18,28 @@
       "name": "Cronos",
       "display": "cro",
       "symbol": "CRO",
-      "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro.svg",
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cronos.png"
-      },
-      "coingecko_id": "crypto-com-chain",
+      "traces": [
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "cryptoorgchain",
+            "base_denom": "basecro"
+          },
+          "provider": "Cronos"
+        }
+      ],
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cronos.png",
+          "image_sync": {
+            "chain_name": "cryptoorgchain",
+            "base_denom": "basecro"
+          },
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro.svg"
         }
-      ]
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro.svg"
+      }
     },
     {
       "description": "Tether USDt on Cronos",
@@ -57,7 +68,7 @@
           },
           "chain": {
             "channel_id": "channel-11",
-            "path": "transfer/channel-11"
+            "path": "transfer/channel-11/erc20/tether/usdt"
           }
         }
       ],
@@ -69,7 +80,10 @@
           },
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
         }
-      ]
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+      }
     }
   ]
 }

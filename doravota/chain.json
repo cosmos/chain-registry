@@ -8,15 +8,16 @@
   "bech32_prefix": "dora",
   "daemon_name": "dorad",
   "node_home": "$HOME/.dora",
-  "key_algos": [
-    "secp256k1"
-  ],
+  "key_algos": ["secp256k1"],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
         "denom": "peaka",
-        "fixed_min_gas_price": 100000000000
+        "fixed_min_gas_price": 100000000000,
+        "low_gas_price": 100000000000,
+        "average_gas_price": 100000000000,
+        "high_gas_price": 100000000000
       }
     ]
   },
@@ -30,11 +31,8 @@
   "codebase": {
     "git_repo": "https://github.com/dorafactory/doravota",
     "recommended_version": "v11.0.0",
-    "compatible_versions": [
-      "v11.0.0"
-    ],
-    "binaries": {
-    },
+    "compatible_versions": ["v11.0.0"],
+    "binaries": {},
     "genesis": {
       "genesis_url": "https://github.com/DoraFactory/doravota/blob/main/config/mainnet/genesis.json"
     },
@@ -42,35 +40,25 @@
       {
         "name": "v9.0.1",
         "recommended_version": "v9.0.1",
-        "compatible_versions": [
-          "v9.0.1"
-        ],
-        "binaries": {
-        }
+        "compatible_versions": ["v9.0.1"],
+        "binaries": {}
       },
       {
         "name": "v10.0.1",
         "recommended_version": "v10.0.1",
-        "compatible_versions": [
-          "v10.0.1"
-        ],
-        "binaries": {
-        }
+        "compatible_versions": ["v10.0.1"],
+        "binaries": {}
       },
       {
         "name": "v11",
         "recommended_version": "v11.0.0",
-        "compatible_versions": [
-          "v11.0.0"
-        ],
-        "binaries": {
-        }
+        "compatible_versions": ["v11.0.0"],
+        "binaries": {}
       }
     ]
   },
   "peers": {
-    "seeds": [
-    ],
+    "seeds": [],
     "persistent_peers": []
   },
   "apis": {
@@ -97,7 +85,7 @@
     {
       "kind": "Dora Vota Ping Pub",
       "url": "https://vota-explorer.dorafactory.org",
-      "tx_page": "https://vota-explorer.dorafactory.org/dora/tx/${txHash}"
+      "tx_page": "https://vota-explorer.dorafactory.org/doravota/tx/${txHash}"
     }
   ]
 }

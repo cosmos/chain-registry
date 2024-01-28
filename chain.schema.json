@@ -100,7 +100,8 @@
           "secp256k1",
           "ethsecp256k1",
           "ed25519",
-          "sr25519"
+          "sr25519",
+          "bn254"
         ],
         "uniqueItems": true
       }
@@ -169,6 +170,11 @@
         "recommended_version": {
           "type": "string"
         },
+        "go_version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$",
+          "description": "Minimum accepted go version to build the binary."
+        },
         "compatible_versions": {
           "type": "array",
           "items": {
@@ -218,7 +224,8 @@
               "type": "string",
               "enum": [
                 "tendermint",
-                "cometbft"
+                "cometbft",
+                "sei-tendermint"
               ]
             },
             "version": {
@@ -298,12 +305,21 @@
                 "type": "number",
                 "description": "Proposal that will officially signal community acceptance of the upgrade."
               },
+              "previous_version_name": {
+                "type": "string",
+                "description": "[Optional] Name of the previous version"
+              },
               "next_version_name": {
                 "type": "string",
                 "description": "[Optional] Name of the following version"
               },
               "recommended_version": {
                 "type": "string"
+              },
+              "go_version": {
+                "type": "string",
+                "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$",
+                "description": "Minimum accepted go version to build the binary."
               },
               "compatible_versions": {
                 "type": "array",
@@ -324,7 +340,8 @@
                     "type": "string",
                     "enum": [
                       "tendermint",
-                      "cometbft"
+                      "cometbft",
+                      "sei-tendermint"
                     ]
                   },
                   "version": {
@@ -421,11 +438,45 @@
               "primary_color_hex": {
                 "type": "string",
                 "pattern": "^#[0-9a-fA-F]{6}$"
+              },
+              "circle": {
+                "type": "boolean"
+              },
+              "dark_mode": {
+                "type": "boolean"
               }
             },
+            "minProperties": 1,
             "additionalProperties": false
+          },
+          "layout": {
+            "type": "string",
+            "enum": ["logo", "logomark", "logotype"],
+            "description": "logomark == icon only; logotype == text only; logo == icon + text."
+          },
+          "text_position": {
+            "type": "string",
+            "enum": ["top", "bottom", "left", "right", "integrated"],
+            "description": "Indicates in which position the text is placed, in case the layout is 'icon' type, it's required only in this case."
           }
         },
+        "if": {
+          "properties": {
+            "layout": { "const": "logo" }
+          },
+          "required": ["layout"]
+        },
+        "then": {
+          "required": ["text_position"]
+        },
+        "anyOf": [
+          {
+            "required": ["png"]
+          },
+          {
+            "required": ["svg"]
+          }
+        ],
         "additionalProperties": false
       }
     },
@@ -444,6 +495,10 @@
         }
       },
       "additionalProperties": false
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 3000
     },
     "peers": {
       "type": "object",

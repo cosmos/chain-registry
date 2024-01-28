@@ -245,11 +245,49 @@ function getLinkedImage(chain_name, base_denom){
   }
 }
 
+function overwriteLogoURIs(chain_name, base_denom){
+
+//   iterate chains
+//     iterate assets
+//       if images
+//         logo_URIs::png&&svg = images[0].png&&svg
+
+  
+
+  let chains = chain_reg.getChains();
+  chains.forEach((chainName) => {
+    let images = chain_reg.getFileProperty(chainName, "chain", "images");
+    let logo_URIs = {
+      png: images?.[0]?.png,
+      svg: images?.[0]?.svg
+    }
+    if(images) {
+      if(images[0].png || images[0].svg) {
+        chain_reg.setFileProperty(chainName, "chain", "logo_URIs", logo_URIs);
+      }
+    }
+  });
+
+  let assets = chain_reg.getAssetPointers();
+  assets.forEach((assetPointer) => {
+    let images = chain_reg.getAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images");
+    let logo_URIs = {
+      png: images?.[0]?.png,
+      svg: images?.[0]?.svg
+    }
+    if(images) {
+      if(images[0].png || images[0].svg) {
+        chain_reg.setAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "logo_URIs", logo_URIs);
+      }
+    }
+  });
+
+}
+
 function main(){
   createImagesArray();
-  //pull from linked image
   getLinkedImages();
-  //add to logo_URIs
+  overwriteLogoURIs();
 }
 
 main()
