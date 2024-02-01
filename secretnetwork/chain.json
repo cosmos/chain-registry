@@ -20,8 +20,8 @@
     "fee_tokens": [
       {
         "denom": "uscrt",
-        "fixed_min_gas_price": 0.1,
-        "low_gas_price": 0.1,
+        "fixed_min_gas_price": 0.05,
+        "low_gas_price": 0.05,
         "average_gas_price": 0.1,
         "high_gas_price": 0.25
       }
@@ -36,12 +36,12 @@
   },
   "codebase": {
     "git_repo": "https://github.com/scrtlabs/SecretNetwork",
-    "recommended_version": "v1.10.0",
+    "recommended_version": "v1.12.1",
     "compatible_versions": [
-      "v1.10.0"
+      "v1.12.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.10.0/secretnetwork_1.10.0_mainnet_goleveldb_amd64.deb"
+      "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.12.1/secretnetwork_1.12.1_mainnet_goleveldb_amd64.deb"
     },
     "genesis": {
       "genesis_url": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/genesis.json"
@@ -131,7 +131,34 @@
         ],
         "binaries": {
           "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.10.0/secretnetwork_1.10.0_mainnet_goleveldb_amd64.deb"
-        }
+        },
+        "next_version_name": "v1.11"
+      },
+      {
+        "name": "v1.11",
+        "tag": "v1.11.0",
+        "height": 10824000,
+        "recommended_version": "v1.11.0",
+        "compatible_versions": [
+          "v1.11.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.11.0/secretnetwork_1.11.0_mainnet_goleveldb_amd64.deb"
+        },
+        "next_version_name": "v1.12"
+      },
+      {
+        "name": "v1.12",
+        "tag": "v1.12.1",
+        "height": 11136666,
+        "recommended_version": "v1.12.1",
+        "compatible_versions": [
+          "v1.12.1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.12.1/secretnetwork_1.12.1_mainnet_goleveldb_amd64.deb"
+        },
+        "next_version_name": ""
       }
     ]
   },
@@ -139,6 +166,7 @@
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/scrt.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/scrt.svg"
   },
+  "description": "Secret Network is the first blockchain with customizable privacy. You get to choose what you share, with whom, and how. This protects users, and empowers developers to build a better Web3.",
   "peers": {
     "seeds": [
       {
@@ -162,14 +190,19 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "id": "d6a6edd7d3d04b59955e135e2d27b7dcc285ead7",
+        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:17156",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "id": "5b0d6ef879fe1326045fa18d5bf767c5968704e6",
         "address": "secretnetwork-mainnet-seed.autostake.com:26656",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -184,13 +217,13 @@
     "grpc-web": [
       {
         "address": "https://wgrpc.secret.express",
-        "provider": "Secret Community API team - Secret Express"
+        "provider": "Secret Community API - Secret Express"
       }
     ],
     "rpc": [
       {
         "address": "https://rpc.secret.express",
-        "provider": "Secret Community API team - Secret Express"
+        "provider": "Secret Community API - Secret Express"
       },
       {
         "address": "https://scrt.public-rpc.com",
@@ -201,42 +234,26 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://rpc-secret.whispernode.com:443",
-        "provider": "WhisperNode🤐"
-      },
-      {
-        "address": "https://secret-rpc.bharvest.io",
-        "provider": "B-Harvest"
-      },
-      {
         "address": "https://1rpc.io/scrt-rpc",
         "provider": "1RPC - Automata Network"
       },
       {
         "address": "https://secretnetwork-rpc.highstakes.ch:26657/",
-        "provider": "High Stakes \uD83C\uDDE8\uD83C\uDDED"
+        "provider": "High Stakes 🇨🇭"
       }
     ],
     "rest": [
       {
         "address": "https://lcd.secret.express",
-        "provider": "Secret Community API team - Secret Express"
+        "provider": "Secret Community API - Secret Express"
       },
       {
         "address": "https://secretnetwork-api.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://lcd-secret.whispernode.com:443",
-        "provider": "WhisperNode🤐"
-      },
-      {
         "address": "http://secretnetwork-mainnet-lcd.autostake.com:1317",
         "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://secret-api.bharvest.io",
-        "provider": "B-Harvest"
       },
       {
         "address": "https://1rpc.io/scrt-lcd",
@@ -244,7 +261,7 @@
       },
       {
         "address": "https://secretnetwork-api.highstakes.ch:1317/",
-        "provider": "High Stakes \uD83C\uDDE8\uD83C\uDDED"
+        "provider": "High Stakes 🇨🇭"
       }
     ],
     "grpc": [
@@ -255,6 +272,10 @@
       {
         "address": "secretnetwork-mainnet-grpc.autostake.com:9090",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://grpc.secret.express",
+        "provider": "Secret Community API - Secret Express"
       }
     ]
   },
@@ -286,6 +307,12 @@
       "url": "https://atomscan.com/secret-network",
       "tx_page": "https://atomscan.com/secret-network/transactions/${txHash}",
       "account_page": "https://atomscan.com/secret-network/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/scrt.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/scrt.svg"
     }
   ]
 }

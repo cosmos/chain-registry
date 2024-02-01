@@ -16,7 +16,11 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "uqwoyn"
+        "denom": "uqwoyn",
+        "fixed_min_gas_price": 0.03,
+        "low_gas_price": 0.03,
+        "average_gas_price": 0.05,
+        "high_gas_price": 0.075
       }
     ]
   },
@@ -29,18 +33,23 @@
   },
   "codebase": {
     "git_repo": "https://github.com/cosmic-horizon/QWOYN",
-    "recommended_version": "v5.2.0",
+    "recommended_version": "v5.4.1",
     "compatible_versions": [
-      "v5.2.0"
+      "v5.4.1"
     ],
-    "cosmos_sdk_version": "0.47.3",
-    "ibc_go_version": "7.0.1",
+    "cosmos_sdk_version": "0.47.6",
+    "ibc_go_version": "7.3.1",
     "ics_enabled": [
       "ics20-1",
       "ics27-1"
     ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.2"
+    },
+    "cosmwasm_version": "0.40.0",
     "genesis": {
-      "genesis_url": "https://github.com/cosmic-horizon/mainnet/blob/main/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/cosmic-horizon/mainnet/main/genesis.json"
     },
     "versions": [
       {
@@ -73,8 +82,8 @@
         "cosmos_sdk_version": "0.47.3",
         "ibc_go_version": "7.0.1",
         "consensus": {
-        "type": "cometbft",
-        "version": "v0.37.1"
+          "type": "cometbft",
+          "version": "v0.37.1"
         },
         "next_version_name": "v5.2.0"
       },
@@ -90,12 +99,56 @@
         "cosmos_sdk_version": "0.47.3",
         "ibc_go_version": "7.0.1",
         "consensus": {
-        "type": "cometbft",
-        "version": "v0.37.1"
+          "type": "cometbft",
+          "version": "v0.37.1"
         },
+        "next_version_name": "v5.3.0"
+      },
+      {
+        "name": "v5.3.0",
+        "tag": "v5.3.0",
+        "proposal": 13,
+        "height": 2789768,
+        "recommended_version": "v5.3.0",
+        "compatible_versions": [
+          "v5.3.0"
+        ],
+        "cosmos_sdk_version": "0.47.6",
+        "ibc_go_version": "7.0.1",
+        "ics_enabled": [
+          "ics20-1",
+          "ics27-1"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "cosmwasm_version": "0.40.0",
+        "next_version_name": "v5.4.1"
+      },
+      {
+        "name": "v5.4.1",
+        "tag": "v5.4.1",
+        "proposal": 15,
+        "height": 3395000,
+        "recommended_version": "v5.4.1",
+        "compatible_versions": [
+          "v5.4.1"
+        ],
+        "cosmos_sdk_version": "0.47.6",
+        "ibc_go_version": "7.3.1",
+        "ics_enabled": [
+          "ics20-1",
+          "ics27-1"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "cosmwasm_version": "0.40.0",
         "next_version_name": ""
       }
-    ]    
+    ]
   },
   "peers": {
     "seeds": [
@@ -111,6 +164,11 @@
         "id": "9aa8a73ea9364aa3cf7806d4dd25b6aed88d8152",
         "address": "qwoyn.seed.mzonder.com:11656",
         "provider": "MZONDER"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -157,6 +215,10 @@
       {
         "address": "https://rpc-qwoyn.mzonder.com:443",
         "provider": "MZONDER"
+      },
+      {
+        "address": "https://rpc.qwoyn.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ],
     "grpc": [
@@ -179,6 +241,10 @@
       {
         "address": "grpc-qwoyn.mzonder.com:443",
         "provider": "MZONDER"
+      },
+      {
+        "address": "https://grpc.qwoyn.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ],
     "rest": [
@@ -201,6 +267,10 @@
       {
         "address": "https://api-qwoyn.mzonder.com",
         "provider": "MZONDER"
+      },
+      {
+        "address": "https://lcd.qwoyn.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ]
   },
@@ -220,5 +290,10 @@
   ],
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/qwoyn/images/qwoyn.png"
-  }
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/qwoyn/images/qwoyn.png"
+    }
+  ]
 }
