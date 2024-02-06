@@ -17,7 +17,7 @@
     "fee_tokens": [
       {
         "denom": "unois",
-        "fixed_min_gas_price": 0,
+        "fixed_min_gas_price": 0.05,
         "low_gas_price": 0.05,
         "average_gas_price": 0.05,
         "high_gas_price": 0.1
@@ -36,16 +36,17 @@
   },
   "codebase": {
     "git_repo": "https://github.com/noislabs/noisd",
-    "recommended_version": "v1.0.0",
+    "recommended_version": "v1.0.4",
     "compatible_versions": [
-      "v1.0.0"
+      "v1.0.0",
+      "v1.0.4"
     ],
-    "cosmos_sdk_version": "0.45",
+    "cosmos_sdk_version": "v0.45.15",
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
+      "type": "cometbft",
+      "version": "v0.34.29"
     },
-    "cosmwasm_version": "0.30",
+    "cosmwasm_version": "v0.31.0",
     "cosmwasm_enabled": true,
     "genesis": {
       "name": "v1",
@@ -54,18 +55,19 @@
     "versions": [
       {
         "name": "v1",
-        "tag": "v1.0.0",
+        "tag": "v1.0.4",
         "height": 0,
-        "recommended_version": "v1.0.0",
+        "recommended_version": "v1.0.4",
         "compatible_versions": [
-          "v1.0.0"
+          "v1.0.0",
+          "v1.0.4"
         ],
-        "cosmos_sdk_version": "0.45",
+        "cosmos_sdk_version": "v0.45.15",
         "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
+          "type": "cometbft",
+          "version": "v0.34.29"
         },
-        "cosmwasm_version": "0.30",
+        "cosmwasm_version": "v0.31.0",
         "cosmwasm_enabled": true
       }
     ]
@@ -76,6 +78,10 @@
       "theme": {
         "primary_color_hex": "#0C0914"
       }
+    },
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nois/images/nois.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nois/images/nois.svg"
     }
   ],
   "logo_URIs": {
@@ -114,9 +120,19 @@
         "provider": "itrocket"
       },
       {
+        "id": "1de5c83c5a5eb223c814401f0506b44b742741da",
+        "address": "nois.peer.stavr.tech:40136",
+        "provider": "🔥STAVR🔥"
+      },
+      {
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
-        "address": "nois.rpc.kjnodes.com:51659",
+        "address": "nois.rpc.kjnodes.com:15159",
         "provider": "kjnodes"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ]
   },
@@ -127,6 +143,10 @@
         "provider": "nysa.network"
       },
       {
+        "address": "https://nois.rpc.bccnodes.com",
+        "provider": "BccNodes"
+      },
+      {
         "address": "https://nois-rpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
@@ -135,12 +155,12 @@
         "provider": "MadeInBlock"
       },
       {
-        "address": "https://rpc.noismain.mcbnode.online",
-        "provider": "mcbnode"
+        "address": "https://m-nois.rpc.utsa.tech",
+        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
       },
       {
-        "address": "https://m-nois.rpc.utsa.tech",
-        "provider": "UTSA"
+        "address": "http://nois.rpc.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "https://rpc-nois.ezstaking.dev",
@@ -151,16 +171,8 @@
         "provider": "itrocket"
       },
       {
-        "address": "https://rpc.nois.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
         "address": "https://rpc-nois.d-stake.xyz",
         "provider": "D-Stake"
-      },
-      {
-        "address": "https://rpc.nois.hexnodes.co",
-        "provider": "HexNodes"
       },
       {
         "address": "https://rpc-nois.sr20de.xyz",
@@ -181,6 +193,14 @@
       {
         "address": "https://nois.rpc.kjnodes.com",
         "provider": "kjnodes"
+      },
+      {
+        "address": "https://rpc.nois.silentvalidator.com",
+        "provider": "silent"
+      },
+      {
+        "address": "https://nois-rpc.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
       }
     ],
     "grpc": [
@@ -189,12 +209,24 @@
         "provider": "nysa.network"
       },
       {
+        "address": "nois.grpc.bccnodes.com:443",
+        "provider": "BccNodes"
+      },
+      {
         "address": "https://nois-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://grpc.noismain.mcbnode.online",
         "provider": "mcbnode"
+      },
+      {
+        "address": "http://nois.grpc.m.stavr.tech:191",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "nois-mainnet-grpc.itrocket.net:36090",
+        "provider": "itrocket"
       },
       {
         "address": "nois-mainnet-grpc.itrocket.net:36090",
@@ -229,18 +261,22 @@
         "provider": "Kingnodes"
       },
       {
-        "address": "nois.grpc.kjnodes.com:51090",
+        "address": "nois.grpc.kjnodes.com:15190",
         "provider": "kjnodes"
+      },
+      {
+        "address": "grpc.nois.silentvalidator.com:443",
+        "provider": "silent"
+      },
+      {
+        "address": "nois-grpc.stakeandrelax.net:17390",
+        "provider": "Stake&Relax 🦥"
       }
     ],
     "rest": [
       {
-        "address": "https://api.noismain.mcbnode.online",
-        "provider": "mcbnode"
-      },
-      {
         "address": "https://m-nois.api.utsa.tech",
-        "provider": "UTSA"
+        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
       },
       {
         "address": "https://nois-api.lavenderfive.com:443",
@@ -255,32 +291,20 @@
         "provider": "MadeInBlock"
       },
       {
-        "address": "https://nois-mainnet-api.itrocket.net",
-        "provider": "itrocket"
+        "address": "https://nois.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
       },
       {
-        "address": "https://api.nois.nodestake.top",
-        "provider": "NodeStake"
+        "address": "https://nois-mainnet-api.itrocket.net",
+        "provider": "itrocket"
       },
       {
         "address": "https://api-nois.d-stake.xyz",
         "provider": "D-Stake"
       },
       {
-        "address": "https://lcd.nois.hexnodes.co",
-        "provider": "HexNodes"
-      },
-      {
         "address": "https://api-nois.sr20de.xyz",
         "provider": "SR20DE"
-      },
-      {
-        "address": "https://nois.api.m.stavr.tech",
-        "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "https://nois-testnet-lcd.autostake.com",
-        "provider": "AutoStake"
       },
       {
         "address": "https://nois-api.polkachu.com",
@@ -293,15 +317,35 @@
       {
         "address": "https://nois.api.kjnodes.com",
         "provider": "kjnodes"
+      },
+      {
+        "address": "https://api.nois.silentvalidator.com",
+        "provider": "silent"
+      },
+      {
+        "address": "https://nois-api.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/nois",
-      "tx_page": "https://ezstaking.tools/nois/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/nois/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/nois",
+      "tx_page": "https://app.ezstaking.io/nois/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/nois/account/${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/nois-mainnet",
+      "tx_page": "https://explorer.stavr.tech/nois-mainnet/txs/${txHash}",
+      "account_page": "https://explorer.stavr.tech/nois-mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "BccNodes",
+      "url": "https://explorer.stavr.tech/nois-mainnet",
+      "tx_page": "https://explorer.bccnodes.com/nois-M/txs/${txHash}",
+      "account_page": "https://explorer.bccnodes.com/nois-M/account/${accountAddress}"
     },
     {
       "kind": "explorers.guru",

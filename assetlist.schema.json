@@ -40,6 +40,10 @@
           "type": "string",
           "description": "[OPTIONAL] A short description of the asset"
         },
+        "extended_description": {
+          "type": "string",
+          "description": "[OPTIONAL] A long description of the asset"
+        },
         "denom_units": {
           "type": "array",
           "items": {
@@ -63,7 +67,8 @@
         },
         "name": {
           "type": "string",
-          "description": "The project name of the asset. For example Bitcoin."
+          "description": "The project name of the asset. For example Bitcoin.",
+          "maxLength": 42
         },
         "display": {
           "type": "string",
@@ -133,6 +138,9 @@
           "items": {
             "type": "object",
             "properties": {
+              "image_sync": {
+                "$ref": "#/$defs/pointer"
+              },
               "png": {
                 "type": "string",
                 "format": "uri-reference",
@@ -149,8 +157,15 @@
                   "primary_color_hex": {
                    "type": "string",
                    "pattern": "^#[0-9a-fA-F]{6}$"
+                  },
+                  "circle": {
+                    "type": "boolean"
+                  },
+                  "dark_mode": {
+                    "type": "boolean"
                   }
                 },
+                "minProperties": 1,
                 "additionalProperties": false
               }
             },
@@ -215,21 +230,20 @@
       },
       "additionalProperties": false
     },
-    "asset_pointer": {
+    "pointer": {
       "type": "object",
-      "description": "The (primary) key used to identify an asset defined within the Chain Registry.",
+      "description": "The (primary) key used to identify an object within the Chain Registry.",
       "required": [
-        "platform",
-        "base_denom"
+        "chain_name"
       ],
       "properties": {
-        "platform": {
+        "chain_name": {
           "type": "string",
-          "description": "The platform from which the asset originates. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'"
+          "description": "The chain name or platform from which the object resides. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'"
         },
         "base_denom": {
           "type": "string",
-          "description": "The base unit of the asset on its source platform. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
+          "description": "The base denom of the asset from which the object originates. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
         }
       },
       "additionalProperties": false
@@ -378,7 +392,9 @@
             "bridge",
             "liquid-stake",
             "synthetic",
-            "wrapped"
+            "wrapped",
+            "additional-mintage",
+            "test-mintage"
           ]
         },
         "counterparty": {

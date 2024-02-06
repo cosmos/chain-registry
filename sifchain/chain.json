@@ -9,6 +9,7 @@
   "bech32_prefix": "sif",
   "daemon_name": "sifnoded",
   "node_home": "$HOME/.sifnoded",
+  "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
@@ -51,6 +52,10 @@
       }
     ]
   },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sifchain/images/rowan.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sifchain/images/rowan.svg"
+  },
   "peers": {
     "seeds": [
       {
@@ -64,9 +69,9 @@
         "provider": "Polkachu"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "sifchain-seed-1.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -96,9 +101,6 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.sifchain.finance:443"
-      },
-      {
         "address": "https://sifchain-rpc.polkachu.com",
         "provider": "Polkachu"
       },
@@ -111,14 +113,11 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://sif-rpc.kleomedes.network",
-        "provider": "Kleomedes"
+        "address": "https://sifchain-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "rest": [
-      {
-        "address": "https://api.sifchain.finance:443"
-      },
       {
         "address": "https://api-sifchain-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
@@ -128,12 +127,12 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://sif-api.kleomedes.network",
-        "provider": "Kleomedes"
-      },
-      {
         "address": "https://sifchain-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://sifchain-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "grpc": [
@@ -148,15 +147,19 @@
       {
         "address": "sifchain-grpc.polkachu.com:13290",
         "provider": "Polkachu"
+      },
+      {
+        "address": "sifchain-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/sifchain",
-      "tx_page": "https://ezstaking.tools/sifchain/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/sifchain/account/${accountAddress}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/sifchain",
+      "tx_page": "https://app.ezstaking.io/sifchain/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/sifchain/account/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -169,15 +172,16 @@
       "tx_page": "https://sifchain.explorers.guru/transaction/${txHash}"
     },
     {
-      "kind": "mintscan",
-      "url": "https://www.mintscan.io/sifchain",
-      "tx_page": "https://www.mintscan.io/sifchain/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/sifchain/account/${accountAddress}"
-    },
-    {
       "kind": "atomscan",
       "url": "https://atomscan.com/sifchain",
-      "tx_page": "https://atomscan.com/sifchain/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/sifchain/transactions/${txHash}",
+      "account_page": "https://atomscan.com/sifchain/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sifchain/images/rowan.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sifchain/images/rowan.svg"
     }
   ]
 }
