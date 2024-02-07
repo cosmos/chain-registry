@@ -14,6 +14,7 @@
           "exponent": 6
         }
       ],
+      "type_asset": "sdk.coin",
       "base": "uosmo",
       "name": "Osmosis",
       "display": "osmo",
@@ -22,16 +23,16 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
       },
-      "coingecko_id": "osmosis",
-      "keywords": [
-        "dex",
-        "staking"
-      ],
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
         }
+      ],
+      "coingecko_id": "osmosis",
+      "keywords": [
+        "dex",
+        "staking"
       ]
     },
     {
@@ -45,6 +46,7 @@
           "exponent": 6
         }
       ],
+      "type_asset": "sdk.coin",
       "base": "uion",
       "name": "Ion DAO",
       "display": "ion",
@@ -53,16 +55,86 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.svg"
       },
-      "coingecko_id": "ion",
-      "keywords": [
-        "memecoin"
-      ],
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.svg"
         }
+      ],
+      "coingecko_id": "ion",
+      "keywords": [
+        "memecoin"
       ]
+    },
+    {
+      "description": "Circle's stablecoin on Axelar",
+      "denom_units": [
+        {
+          "denom": "ibc/D189335C6E4A68B513C10AB227BF1C1D38C746766278BA3EEB4FB14124F1D858",
+          "exponent": 0,
+          "aliases": [
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/D189335C6E4A68B513C10AB227BF1C1D38C746766278BA3EEB4FB14124F1D858",
+      "name": "USD Coin (Axelar)",
+      "display": "usdc",
+      "symbol": "USDC.axl",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "USD"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "provider": "Axelar"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "axelar",
+            "base_denom": "uusdc",
+            "channel_id": "channel-3"
+          },
+          "chain": {
+            "channel_id": "channel-208",
+            "path": "transfer/channel-208/uusdc"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/usdc.axl.svg",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/usdc.axl.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/usdc.axl.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/usdc.axl.svg"
+        },
+        {
+          "image_sync": {
+            "chain_name": "axelar",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/usdc.svg"
+        }
+      ],
+      "coingecko_id": "axlusdc"
     },
     {
       "denom_units": [
@@ -116,54 +188,6 @@
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/stibcx.svg"
         }
       ]
-    },
-    {
-      "denom_units": [
-        {
-          "denom": "ibc/D189335C6E4A68B513C10AB227BF1C1D38C746766278BA3EEB4FB14124F1D858",
-          "exponent": 0,
-          "aliases": [
-            "uusdc"
-          ]
-        },
-        {
-          "denom": "usdc",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/D189335C6E4A68B513C10AB227BF1C1D38C746766278BA3EEB4FB14124F1D858",
-      "name": "Axelar USD Coin",
-      "display": "usdc",
-      "symbol": "USDC.axl",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "axelar",
-            "base_denom": "uusdc",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-208",
-            "path": "transfer/channel-208/uusdc"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "axelar",
-            "base_denom": "uusdc"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/usdc.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/usdc.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/usdc.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/usdc.svg"
-      }
     },
     {
       "denom_units": [
