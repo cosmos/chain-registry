@@ -1,0 +1,210 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "unification",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://unification.com/",
+  "pretty_name": "Unification",
+  "chain_id": "FUND-MainNet-2",
+  "bech32_prefix": "und",
+  "daemon_name": "und",
+  "node_home": "$HOME/.und_mainchain",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 5555,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "nund",
+        "fixed_min_gas_price": 25,
+        "low_gas_price": 100,
+        "average_gas_price": 200,
+        "high_gas_price": 300
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "nund"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/unification-com/mainchain",
+    "recommended_version": "v1.8.2",
+    "compatible_versions": [
+      "v1.8.1",
+      "v1.8.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/unification-com/mainchain/releases/download/v1.8.2/und_v1.8.2_linux_x86_64.tar.gz",
+      "darwin/amd64": "https://github.com/unification-com/mainchain/releases/download/v1.8.2/und_v1.8.2_darwin_x86_64.tar.gz",
+      "windows/amd64": "https://github.com/unification-com/mainchain/releases/download/v1.8.2/und_v1.8.2_windows_x86_64.tar.gz"
+    },
+    "cosmos_sdk_version": "0.46.15",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34.29"
+    },
+    "cosmwasm_enabled": false,
+    "ibc_go_version": "5.3.1",
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/unification-com/mainnet/master/latest/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "1-ibc",
+        "tag": "v1.6.3",
+        "proposal": 6,
+        "height": 2002620,
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34.21"
+        },
+        "cosmos_sdk_version": "0.45.9",
+        "ibc_go_version": "3.1.0",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "cosmwasm_enabled": false,
+        "next_version_name": "v1.7.0"
+      },
+      {
+        "name": "2-grog",
+        "tag": "v1.7.0",
+        "proposal": 13,
+        "height": 4727000,
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34.26"
+        },
+        "cosmos_sdk_version": "0.45.14",
+        "ibc_go_version": "3.4.0",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "cosmwasm_enabled": false,
+        "next_version_name": "v1.8.0"
+      },
+      {
+        "name": "3-keyleth",
+        "tag": "v1.8.2",
+        "proposal": 14,
+        "height": 6943000,
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34.29"
+        },
+        "cosmos_sdk_version": "0.46.15",
+        "ibc_go_version": "5.3.1",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "cosmwasm_enabled": false,
+        "recommended_version": "v1.8.2",
+        "compatible_versions": [
+          "v1.8.1",
+          "v1.8.0"
+        ]
+      }
+    ]
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/unification/images/fund.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/unification/images/fund.svg"
+    }
+  ],
+  "peers": {
+    "seeds": [
+      {
+        "id": "0c2b65bc604a18a490f5f55bb7b4140cfb512ced",
+        "address": "seed1.unification.io:26656",
+        "provider": "Unification"
+      },
+      {
+        "id": "e66e0f89af19da09f676c85b262d591b8c2bb9d8",
+        "address": "seed2.unification.io:26656",
+        "provider": "Unification"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "cbfbef01568737d2c7327bc198b8d929ea648b9c",
+        "address": "162.55.32.89:26656",
+        "provider": "Chainmasters"
+      },
+      {
+        "id": "677060cb6a19cb2c2e9650c35abc509e8210022b",
+        "address": "65.108.209.227:26656",
+        "provider": "Chainmasters"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc1.unification.io:443",
+        "provider": "Unification"
+      },
+      {
+        "address": "https://rpc.unification.chainmasters.ninja/",
+        "provider": "Chainmasters"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.unification.io",
+        "provider": "Unification"
+      },
+      {
+        "address": "https://rest.unification.chainmasters.ninja/",
+        "provider": "Chainmasters"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.unification.io:443",
+        "provider": "Unification"
+      },
+      {
+        "address": "grpc.unification.chainmasters.info",
+        "provider": "Chainmasters"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "bigdipper",
+      "url": "https://explorer.unification.io/",
+      "tx_page": "https://explorer.unification.io/transactions/${txHash}",
+      "account_page": "https://explorer.unification.io/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer.unification.chainmasters.ninja/unification",
+      "tx_page": "https://explorer.unification.chainmasters.ninja/unification/tx/${txHash}",
+      "account_page": "https://explorer.unification.chainmasters.ninja/Unification/account/${accountAddress}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/unification",
+      "tx_page": "https://atomscan.com/unification/transactions/${txHash}",
+      "account_page": "https://atomscan.com/unification/accounts/${accountAddress}"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/unification/images/fund.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/unification/images/fund.svg"
+  }
+}

@@ -6,17 +6,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout registry
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Install JSON-Schema-Validator
+        run: npm install -g jsonschema
 
       - name: Validate IBC data schemas
-        uses: snapcart/json-schema-validator@v1.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          json_schema: ./ibc_data.schema.json
-          json_path_pattern: ^_IBC\/.*\.json$
+        run: |
+          for file in $(find . -name '*/_IBC/*.json'); do
+            if ! jsonschema -i "$file" ./ibc-data.schema.json; then
+              exit 1
+            fi
+          done
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
           python-version: 3.9
 

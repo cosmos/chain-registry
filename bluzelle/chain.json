@@ -1,0 +1,221 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "bluzelle",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://bluzelle.com/",
+  "pretty_name": "Bluzelle",
+  "chain_id": "bluzelle-9",
+  "bech32_prefix": "bluzelle",
+  "daemon_name": "curiumd",
+  "node_home": "$HOME/.curium",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 483,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ubnt",
+        "fixed_min_gas_price": 0.002,
+        "low_gas_price": 0.002,
+        "average_gas_price": 0.002,
+        "high_gas_price": 0.025
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ubnt"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/bluzelle/bluzelle-public",
+    "recommended_version": "v10.0",
+    "compatible_versions": [
+      "v10.0"
+    ],
+    "cosmos_sdk_version": "v0.45.11",
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.34.23"
+    },
+    "ibc_go_version": "v3.4.0",
+    "genesis": {
+      "genesis_url": "https://a.client.sentry.net.bluzelle.com:26657/genesis"
+    },
+    "versions": [
+      {
+        "name": "v2.0",
+        "recommended_version": "v2.0",
+        "compatible_versions": [
+          "v2.0"
+        ],
+        "cosmos_sdk_version": "0.44.3",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34.14"
+        }
+      },
+      {
+        "name": "v9.0",
+        "recommended_version": "v9.0",
+        "compatible_versions": [
+          "v9.0"
+        ],
+        "cosmos_sdk_version": "0.45.11",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34.23"
+        },
+        "next_version_name": "10.0"
+      },
+      {
+        "name": "10.0",
+        "recommended_version": "v10.0",
+        "compatible_versions": [
+          "v10.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/bluzelle/bluzelle-public/releases/download/v10.0/curiumd"
+        },
+        "proposal": 1,
+        "height": 3333333,
+        "cosmos_sdk_version": "v0.45.11",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.23"
+        },
+        "ibc_go_version": "v3.4.0",
+        "next_version_name": ""
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bluzelle/images/bluzelle.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bluzelle/images/bluzelle.svg"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "58fb5ba6e285a4b785c597f9ed480ced7bd06329",
+        "address": "a.gateway.sentry.net.bluzelle.com:26656",
+        "provider": "Bluzelle"
+      },
+      {
+        "id": "ea7e48103d33356aa576b3d60cfabc250a7c2998",
+        "address": "b.gateway.sentry.net.bluzelle.com:26656",
+        "provider": "Bluzelle"
+      },
+      {
+        "id": "70b5e2af27c5591967d7f1fea965b8627dd656e8",
+        "address": "c.gateway.sentry.net.bluzelle.com:26656",
+        "provider": "Bluzelle"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://a.client.sentry.net.bluzelle.com:26657",
+        "provider": "Bluzelle"
+      },
+      {
+        "address": "https://b.client.sentry.net.bluzelle.com:26657",
+        "provider": "Bluzelle"
+      },
+      {
+        "address": "https://c.client.sentry.net.bluzelle.com:26657",
+        "provider": "Bluzelle"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://a.client.sentry.net.bluzelle.com:1317",
+        "provider": "Bluzelle"
+      },
+      {
+        "address": "https://b.client.sentry.net.bluzelle.com:1317",
+        "provider": "Bluzelle"
+      },
+      {
+        "address": "https://c.client.sentry.net.bluzelle.com:1317",
+        "provider": "Bluzelle"
+      },
+      {
+        "address": "https://bluzelle-api.genznodes.dev/",
+        "provider": "genznodes"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "a.client.sentry.net.bluzelle.com:9090",
+        "provider": "Bluzelle"
+      },
+      {
+        "address": "b.client.sentry.net.bluzelle.com:9090",
+        "provider": "Bluzelle"
+      },
+      {
+        "address": "c.client.sentry.net.bluzelle.com:9090",
+        "provider": "Bluzelle"
+      },
+      {
+        "address": "bluzelle-grpc.genznodes.dev:34090",
+        "provider": "genznodes"
+      },
+      {
+        "address": "https://grpc-curium.nodine.id:443",
+        "provider": "Nodine.ID"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.explorer.net.bluzelle.com/bluzelle",
+      "tx_page": "https://ping.explorer.net.bluzelle.com/bluzelle/tx/${txHash}",
+      "account_page": "https://ping.explorer.net.bluzelle.com/bluzelle/account/${accountAddress}"
+    },
+    {
+      "kind": "big dipper",
+      "url": "https://bd.explorer.net.bluzelle.com",
+      "tx_page": "https://bd.explorer.net.bluzelle.com/transactions/${txHash}",
+      "account_page": "https://bd.explorer.net.bluzelle.com/accounts/${accountAddress}"
+    },
+    {
+      "kind": "TC Network",
+      "url": "https://explorer.tcnetwork.io/bluzelle",
+      "tx_page": "https://explorer.tcnetwork.io/bluzelle/transaction/${txHash}"
+    },
+    {
+      "kind": "Nodine.ID",
+      "url": "https://explorer.co.id/bluzelle",
+      "tx_page": "https://explorer.co.id/bluzelle/transaction/${txHash}"
+    }
+  ],
+  "keywords": [
+    "bluzelle",
+    "game",
+    "gamma4",
+    "nft"
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bluzelle/images/bluzelle.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bluzelle/images/bluzelle.svg"
+    }
+  ]
+}

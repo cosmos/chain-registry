@@ -3,18 +3,32 @@
   "chain_name": "dig",
   "status": "live",
   "network_type": "mainnet",
+  "website": "https://digchain.org/",
   "pretty_name": "Dig Chain",
   "chain_id": "dig-1",
   "bech32_prefix": "dig",
   "daemon_name": "digd",
   "node_home": "$HOME/.dig",
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/notional-labs/dig/master/networks/mainnets/dig-1/genesis.json"
-  },
-  "key_algos": ["secp256k1", "ethsecp256k1"],
+  "key_algos": [
+    "secp256k1",
+    "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
+      {
+        "denom": "udig",
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.03,
+        "high_gas_price": 0.035
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
       {
         "denom": "udig"
       }
@@ -23,55 +37,31 @@
   "codebase": {
     "git_repo": "https://github.com/notional-labs/dig",
     "recommended_version": "v1.0.0",
-    "compatible_versions": ["v1.0.0"]
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/notional-labs/dig/master/networks/mainnets/dig-1/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.0.0",
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dig/images/dig.png"
   },
   "peers": {
-    "seeds": [
-      {
-        "id": "37b2839da4463b22a51b1fe20d97992164270eba",
-        "address": "62.171.157.192:26656"
-      },
-      {
-        "id": "e2c96b96d4c3a461fb246edac3b3cdbf47768838",
-        "address": "65.21.202.37:6969"
-      }
-    ],
+    "seeds": [],
     "persistent_peers": [
-      {
-        "id": "33f4788e1c6a378b929c66f31e8d253b9fd47c47",
-        "address": "194.163.154.251:26656"
-      },
       {
         "id": "64eccffdc60a206227032d3a021fbf9dfc686a17",
         "address": "194.163.156.84:26656"
-      },
-      {
-        "id": "be7598b2d56fb42a27821259ad14aff24c40f3d2",
-        "address": "172.16.152.118:26656"
-      },
-      {
-        "id": "f446e37e47297ce9f8951957d17a2ae9a16db0b8",
-        "address": "137.184.67.162:26656"
-      },
-      {
-        "id": "ab2fa2789f481e2856a5d83a2c3028c5b215421d",
-        "address": "144.91.117.49:26656"
-      },
-      {
-        "id": "e9e89250b40b4512237c77bd04dc76c06a3f8560",
-        "address": "185.214.135.205:26656"
-      },
-      {
-        "id": "1539976f4ee196f172369e6f348d60a6e3ec9e93",
-        "address": "159.69.147.189:26656"
-      },
-      {
-        "id": "85316823bee88f7b05d0cfc671bee861c0237154",
-        "address": "95.217.198.243:26656"
-      },
-      {
-        "id": "eb55b70c9fd8fc0d5530d0662336377668aab3f9",
-        "address": "185.194.219.128:26656"
       }
     ]
   },
@@ -81,7 +71,7 @@
         "address": "https://rpc-1-dig.notional.ventures"
       },
       {
-        "address": "https://rpc-dig-ia.notional.ventures/",
+        "address": "https://rpc-dig-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
       }
     ],
@@ -90,13 +80,13 @@
         "address": "https://api-1-dig.notional.ventures"
       },
       {
-        "address": "https://api-dig-ia.notional.ventures/",
+        "address": "https://api-dig-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
       }
     ],
     "grpc": [
       {
-        "address": "grpc-dig-ia.notional.ventures:443",
+        "address": "grpc-dig-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
       }
     ]
@@ -106,6 +96,21 @@
       "kind": "ping.pub",
       "url": "https://ping.pub/dig",
       "tx_page": "https://ping.pub/dig/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/dig",
+      "tx_page": "https://atomscan.com/dig/transactions/${txHash}"
+    },
+    {
+      "kind": "TC Network",
+      "url": "https://explorer.tcnetwork.io/dig",
+      "tx_page": "https://explorer.tcnetwork.io/dig/transaction/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dig/images/dig.png"
     }
   ]
 }
