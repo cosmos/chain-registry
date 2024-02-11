@@ -17,22 +17,62 @@
     "fee_tokens": [
       {
         "denom": "orai",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.003,
+        "average_gas_price": 0.005,
+        "high_gas_price": 0.007
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "orai"
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/oraichain/orai",
-    "recommended_version": "v0.40.3",
+    "recommended_version": "v0.41.4",
     "compatible_versions": [
-      "v0.40.3"
+      "v0.41.3",
+      "v0.41.4"
     ],
     "binaries": {
-      "linux/amd64": "https://orai.s3.us-east-2.amazonaws.com/v0.40.3/oraid"
+      "linux/amd64": "https://github.com/oraichain/orai/releases/download/v0.41.4/oraid"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v0.40.3",
+        "recommended_version": "v0.40.3",
+        "compatible_versions": [
+          "v0.40.3"
+        ],
+        "binaries": {
+          "linux/amd64": "https://orai.s3.us-east-2.amazonaws.com/v0.40.3/oraid"
+        }
+      },
+      {
+        "name": "v0.41.4",
+        "height": 13567875,
+        "proposal": 197,
+        "recommended_version": "v0.41.4",
+        "compatible_versions": [
+          "v0.41.3",
+          "v0.41.4"
+        ],
+        "binaries": {
+          "linux/amd64": "https://orai.s3.us-east-2.amazonaws.com/v0.41.4/oraid"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai.svg"
   },
   "peers": {
     "seeds": [
@@ -45,11 +85,6 @@
         "id": "9749da4a81526266d7b8fe9a03d260cd3db241ad",
         "address": "18.116.209.76:26656",
         "provider": "oraichain-team"
-      },
-      {
-        "id": "59d49e39d507bb190e746bcf5590d65879c132e2",
-        "address": "13.79.247.74:26656",
-        "provider": "vaiot"
       },
       {
         "id": "35c1f999d67de56736b412a1325370a8e2fdb34a",
@@ -65,6 +100,21 @@
         "id": "d091cabe3584cb32043cc0c9199b0c7a5b68ddcb",
         "address": "seed.orai.synergynodes.com:26656",
         "provider": "synergynodes"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "oraichain-mainnet-seed.autostake.com:27436",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "f223f1be06ef35a6dfe54995f05daeb1897d94d7",
+        "address": "seed-node.mms.team:42656",
+        "provider": "MMS"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -75,10 +125,6 @@
       {
         "id": "9749da4a81526266d7b8fe9a03d260cd3db241ad",
         "address": "18.116.209.76:26656"
-      },
-      {
-        "id": "59d49e39d507bb190e746bcf5590d65879c132e2",
-        "address": "13.79.247.74:26656"
       },
       {
         "id": "35c1f999d67de56736b412a1325370a8e2fdb34a",
@@ -94,9 +140,14 @@
         "provider": "synergynodes"
       },
       {
-      "id": "8b346750e75fd584645192a65c62c7ab88741791",
-      "address": "peer-oraichain.vchain.zone",
-      "provider": "Vchain-team"
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "oraichain-mainnet-peer.autostake.com:27436",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "c14df7b2e097d743aa7574c7cf65397a06ea3833",
+        "address": "peer-oraichain.mms.team:56103",
+        "provider": "MMS"
       }
     ]
   },
@@ -107,24 +158,20 @@
         "provider": "oraichain-team"
       },
       {
-        "address": "http://18.223.242.70:26657",
-        "provider": "oraichain-team"
+        "address": "https://rpc-orai.nodine.id/",
+        "provider": "Nodine.ID"
       },
       {
-        "address": "http://18.116.209.76:26657",
-        "provider": "oraichain-team"
+        "address": "https://oraichain-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "http://64.225.53.108:26657",
-        "provider": "oraichain-team"
+        "address": "https://rpc-oraichain.mms.team",
+        "provider": "MMS"
       },
       {
-        "address": "http://13.79.247.74:26657",
-        "provider": "vaiot"
-      },
-      {
-        "address": "https://rpc-oraichain.vchain.zone",
-        "provider": "Vchain-team"
+        "address": "https://rpc-orai.blockval.io/",
+        "provider": "Blockval"
       }
     ],
     "rest": [
@@ -133,20 +180,30 @@
         "provider": "oraichain-team"
       },
       {
-        "address": "http://18.223.242.70:1317",
-        "provider": "oraichain-team"
+        "address": "https://oraichain-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "http://18.116.209.76:1317",
-        "provider": "oraichain-team"
+        "address": "https://api-oraichain.mms.team",
+        "provider": "MMS"
       },
       {
-        "address": "http://64.225.53.108:1317",
-        "provider": "oraichain-team"
+        "address": "https://api-orai.blockval.io",
+        "provider": "Blockval"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc-oraichain.mms.team:443",
+        "provider": "MMS"
       },
       {
-        "address": "https://rest-oraichain.vchain.zone",
-        "provider": "Vchain-team"
+        "address": "oraichain-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "grpc-orai.blockval.io:9390",
+        "provider": "Blockval"
       }
     ]
   },
@@ -155,6 +212,28 @@
       "kind": "oraiscan",
       "url": "https://scan.orai.io",
       "tx_page": "https://scan.orai.io/txs/${txHash}"
+    },
+    {
+      "kind": "Nodine Explorer",
+      "url": "https://explorer.co.id/orai",
+      "tx_page": "https://explorer.co.id/orai/tx/${txHash}"
+    },
+    {
+      "kind": "Blockval Explorer",
+      "url": "https://explorer.blockval.io/oraichain",
+      "tx_page": "https://explorer.blockval.io/oraichain/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/orai",
+      "tx_page": "https://atomscan.com/orai/transactions/${txHash}",
+      "account_page": "https://atomscan.com/orai/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai.svg"
     }
   ]
 }

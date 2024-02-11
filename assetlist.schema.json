@@ -40,6 +40,10 @@
           "type": "string",
           "description": "[OPTIONAL] A short description of the asset"
         },
+        "extended_description": {
+          "type": "string",
+          "description": "[OPTIONAL] A long description of the asset"
+        },
         "denom_units": {
           "type": "array",
           "items": {
@@ -49,7 +53,7 @@
         },
         "type_asset": {
           "type": "string",
-          "enum": ["sdk.coin", "cw20", "snip20", "erc20"],
+          "enum": ["sdk.coin", "cw20", "erc20", "ics20", "snip20", "snip25"],
           "default": "sdk.coin",
           "description": "[OPTIONAL] The potential options for type of asset. By default, assumes sdk.coin"
         },
@@ -63,7 +67,8 @@
         },
         "name": {
           "type": "string",
-          "description": "The project name of the asset. For example Bitcoin."
+          "description": "The project name of the asset. For example Bitcoin.",
+          "maxLength": 42
         },
         "display": {
           "type": "string",
@@ -88,7 +93,8 @@
                 "$ref": "#/$defs/non_ibc_transition"
               }
             ]
-          }
+          },
+          "minContains": 1
         },
         "ibc": {
           "type": "object",
@@ -127,16 +133,57 @@
           },
           "additionalProperties": false
         },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "image_sync": {
+                "$ref": "#/$defs/pointer"
+              },
+              "png": {
+                "type": "string",
+                "format": "uri-reference",
+                "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$"
+              },
+              "svg": {
+                "type": "string",
+                "format": "uri-reference",
+                "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$"
+              },
+              "theme": {
+                "type": "object",
+                "properties": {
+                  "primary_color_hex": {
+                   "type": "string",
+                   "pattern": "^#[0-9a-fA-F]{6}$"
+                  },
+                  "circle": {
+                    "type": "boolean"
+                  },
+                  "dark_mode": {
+                    "type": "boolean"
+                  }
+                },
+                "minProperties": 1,
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
         "coingecko_id": {
           "type": "string",
           "description": "[OPTIONAL] The coingecko id to fetch asset data from coingecko v3 api. See https://api.coingecko.com/api/v3/coins/list"
         },
         "keywords": {
           "type": "array",
-          "maxContains": 20,
           "items": {
             "type": "string"
-          }
+          },
+          "minContains": 1,
+          "maxContains": 20
         }
       },
       "additionalProperties": false,
@@ -177,26 +224,26 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "minContains": 1
         }
       },
       "additionalProperties": false
     },
-    "asset_pointer": {
+    "pointer": {
       "type": "object",
-      "description": "The (primary) key used to identify an asset defined within the Chain Registry.",
+      "description": "The (primary) key used to identify an object within the Chain Registry.",
       "required": [
-        "platform",
-        "base_denom"
+        "chain_name"
       ],
       "properties": {
-        "platform": {
+        "chain_name": {
           "type": "string",
-          "description": "The platform from which the asset originates. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'"
+          "description": "The chain name or platform from which the object resides. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'"
         },
         "base_denom": {
           "type": "string",
-          "description": "The base unit of the asset on its source platform. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
+          "description": "The base denom of the asset from which the object originates. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
         }
       },
       "additionalProperties": false
@@ -345,7 +392,9 @@
             "bridge",
             "liquid-stake",
             "synthetic",
-            "wrapped"
+            "wrapped",
+            "additional-mintage",
+            "test-mintage"
           ]
         },
         "counterparty": {

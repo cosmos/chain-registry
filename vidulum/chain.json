@@ -17,7 +17,17 @@
     "fee_tokens": [
       {
         "denom": "uvdl",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0.0002,
+        "low_gas_price": 0.002,
+        "average_gas_price": 0.005,
+        "high_gas_price": 0.007
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uvdl"
       }
     ]
   },
@@ -35,36 +45,40 @@
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/vidulum/mainnet/main/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v1.2.0",
+        "recommended_version": "v1.2.0",
+        "compatible_versions": [
+          "v1.2.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/vidulum/mainnet/releases/download/v1.2.0/vidulum_linux_amd64.tar.gz",
+          "linux/arm64": "https://github.com/vidulum/mainnet/releases/download/v1.2.0/vidulum_linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/vidulum/mainnet/releases/download/v1.2.0/vidulum_darwin_amd64.tar.gz",
+          "windows/amd64": "https://github.com/vidulum/mainnet/releases/download/v1.2.0/vidulum_windows_amd64.zip"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/vidulum/images/vdl.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/vidulum/images/vdl.svg"
   },
   "peers": {
     "seeds": [
       {
-        "id": "883ec7d5af7222c206674c20c997ccc5c242b38b",
-        "address": "ec2-3-82-120-39.compute-1.amazonaws.com:26656",
-        "provider": "notional"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
       {
-        "id": "3bf3d98dfd4000dd5ff8189882a9f96848b99b87",
-        "address": "137.220.60.196:26656",
-        "provider": "vidulum"
-      },
-      {
-        "id": "7a44ea6ecb59b0e4bd01b58a75163ec64b164bb4",
-        "address": "63.210.148.24:26656",
-        "provider": "vidulum"
-      },
-      {
         "id": "52051fef449e76eb399966312f523e8e5e27490b",
         "address": "95.217.118.211:26656",
         "provider": "minerpool"
-      },
-      {
-        "id": "cae7d9d21c1752300277eab72d861b0c6638b2e3",
-        "address": "164.68.119.151:26656",
-        "provider": "bluebird"
       },
       {
         "id": "209688f5bccb88f6397a97cc11ab545a014aa559",
@@ -92,6 +106,10 @@
       {
         "address": "https://api-vidulum-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://api-vdl.nodine.id/",
+        "provider": "Nodine.ID"
       }
     ],
     "grpc": [
@@ -115,7 +133,19 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/vidulum",
-      "tx_page": "https://atomscan.com/vidulum/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/vidulum/transactions/${txHash}",
+      "account_page": "https://atomscan.com/vidulum/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Nodine Explorer",
+      "url": "https://explorer.co.id/vidulum",
+      "tx_page": "https://explorer.co.id/vidulum/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/vidulum/images/vdl.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/vidulum/images/vdl.svg"
     }
   ]
 }

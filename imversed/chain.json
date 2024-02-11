@@ -45,13 +45,34 @@
     },
     "genesis": {
       "genesis_url": "https://static.imversed.com/mainnet/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v3.11",
+        "recommended_version": "v3.11",
+        "compatible_versions": [
+          "v3.11"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/imversed/imversed/releases/download/v3.11/imversed_3.11_Linux_amd64.tar.gz"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/imversed/images/imversed.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/imversed/images/imversed.svg"
   },
   "peers": {
     "seeds": [
       {
         "id": "6413d43ff0dce9400515f24e8e93a0cf28f0efff",
         "address": "35.209.184.54:26656"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -62,21 +83,11 @@
     ]
   },
   "apis": {
-    "rpc": [
-      {
-        "address": "https://rpc.imversed.network:443",
-        "provider": "imversed"
-      }
-    ],
+    "rpc": [],
+    "rest": [],
     "grpc": [
       {
-        "address": "https://grpc.imversed.network:443",
-        "provider": "imversed"
-      }
-    ],
-    "rest": [
-      {
-        "address": "https://rest.imversed.network:443",
+        "address": "grpc.imversed.network:443",
         "provider": "imversed"
       }
     ],
@@ -92,6 +103,12 @@
       "kind": "blockscout",
       "url": "https://txe.imversed.network/",
       "tx_page": "https://txe.imversed.network/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/imversed/images/imversed.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/imversed/images/imversed.svg"
     }
   ]
 }

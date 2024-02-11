@@ -9,6 +9,23 @@
   "daemon_name": "cyber",
   "node_home": "$HOME/.cyber",
   "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "boot",
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0.01
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "boot"
+      }
+    ]
+  },
   "codebase": {
     "git_repo": "https://github.com/cybercongress/go-cyber",
     "recommended_version": "v0.3.0",
@@ -21,7 +38,26 @@
     },
     "genesis": {
       "genesis_url": "https://cloudflare-ipfs.com/ipfs/QmYubyVNfghD4xCrTFj26zBwrF9s5GJhi1TmxvrwmJCipr"
-    }
+    },
+    "cosmwasm_enabled": true,
+    "versions": [
+      {
+        "name": "v0.3.0",
+        "recommended_version": "v0.3.0",
+        "compatible_versions": [
+          "v0.3.0"
+        ],
+        "cosmwasm_enabled": true,
+        "binaries": {
+          "linux/amd64": "https://github.com/cybercongress/go-cyber/releases/download/v0.2.0/cyber_v0.2.0_linux-amd64.tar.gz",
+          "darwin/amd64": "https://github.com/cybercongress/go-cyber/releases/download/v0.2.0/cyber_v0.2.0_darwin-amd64.tar.gz"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bostrom/images/boot.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bostrom/images/boot.svg"
   },
   "peers": {
     "seeds": [
@@ -29,46 +65,14 @@
         "id": "d0518ce9881a4b0c5872e5e9b7c4ea8d760dad3f",
         "address": "85.10.207.173:26656",
         "provider": "cybercongress"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
-    "persistent_peers": [
-      {
-        "id": "5d542c0eb40ae48dc2cac0c140aedb605ded77dc",
-        "address": "195.201.105.229:26656"
-      },
-      {
-        "id": "c72de1e20beed51b779d89b1cf08d8146016eec4",
-        "address": "185.186.208.37:26656"
-      },
-      {
-        "id": "4c130ed1c58f6d6be981c59a748511e581969c51",
-        "address": "93.180.175.201:36656"
-      },
-      {
-        "id": "df79a86dc236b8dff250c402e95cd6853e8ad7c4",
-        "address": "46.166.165.4:26656"
-      },
-      {
-        "id": "39a20a7d84c6e91c6638f5a685a13f655e050ee0",
-        "address": "176.37.214.146:26656"
-      },
-      {
-        "id": "77d27615009fc703ece46901792cc8750cccd0de",
-        "address": "185.230.90.71:26656"
-      },
-      {
-        "id": "dd22cffccafaece970cfa9e7eb3c8468f6fa1c84",
-        "address": "46.166.165.14:26656"
-      },
-      {
-        "id": "5e8522bef5ceca507e05aa0d5f67f37a70222c73",
-        "address": "185.230.90.202:26656"
-      },
-      {
-        "id": "55937c36959ea3984cc6e6ebd3354d73bbbdbcda",
-        "address": "95.165.24.115:26656"
-      }
-    ]
+    "persistent_peers": []
   },
   "apis": {
     "rpc": [
@@ -77,12 +81,12 @@
         "provider": "cybercongress"
       },
       {
-        "address": "https://rpc.cyber.posthuman.digital",
-        "provider": "posthuman"
-      },
-      {
         "address": "https://rpc-cyber-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://rpc.cyber.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ],
     "rest": [
@@ -91,18 +95,22 @@
         "provider": "cybercongress"
       },
       {
-        "address": "https://lcd.cyber.posthuman.digital",
-        "provider": "posthuman"
-      },
-      {
         "address": "https://api-cyber-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://lcd.cyber.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ],
     "grpc": [
       {
         "address": "grpc-cyber-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
+      },
+      {
+        "address": "https://grpc.cyber.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ]
   },
@@ -120,7 +128,14 @@
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/bostrom",
-      "tx_page": "https://atomscan.com/bostrom/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/bostrom/transactions/${txHash}",
+      "account_page": "https://atomscan.com/bostrom/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bostrom/images/boot.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bostrom/images/boot.svg"
     }
   ]
 }
