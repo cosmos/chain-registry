@@ -36,7 +36,7 @@ Once schemas have matured and client needs are better understood Chain Registry 
 
 We accept pull requests to add data to an existing assetlist.json or chain.json (especially to add peer data or public rpc endpoint) or to add a new chain or asset.
 
-Please give Pull Requests a title that somewhat describes the change more precisely than the default title given to a Commit. PRs titled 'Update chain.json' are insufficient, and would be difficult to navigate when search through the backlog of Pull Requests. You could, for example, add the affect Chain Name, API types, or Provider to give some more detail.  
+Please give Pull Requests a title that somewhat describes the change more precisely than the default title given to a Commit. PRs titled 'Update chain.json' are insufficient, and would be difficult to navigate when search through the backlog of Pull Requests. Some recommended details would be: the affected Chain Name, API types, or Provider to give some more detail; e.g., "Add Cosmos Hub APIs for Acme Validator".
 
 # chain.json
 
