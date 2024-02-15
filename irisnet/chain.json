@@ -15,7 +15,10 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "uiris"
+        "denom": "uiris",
+        "low_gas_price": 0.2,
+        "average_gas_price": 0.3,
+        "high_gas_price": 0.4
       }
     ]
   },
@@ -28,13 +31,43 @@
   },
   "codebase": {
     "git_repo": "https://github.com/irisnet/irishub",
-    "recommended_version": "v1.3.0",
+    "recommended_version": "v2.0.3",
     "compatible_versions": [
-      "v1.3.0"
+      "v2.0.3"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/irisnet/mainnet/master/config/genesis.json"
-    }
+    },
+    "versions": [
+      {
+        "name": "v1.3.0",
+        "next_version_name": "v1.4.1",
+        "recommended_version": "v1.3.0",
+        "compatible_versions": [
+          "v1.3.0"
+        ]
+      },
+      {
+        "name": "v1.4.1",
+        "next_version_name": "v2.0.0",
+        "recommended_version": "v1.4.1",
+        "compatible_versions": [
+          "v1.4.1"
+        ]
+      },
+      {
+        "name": "v2.0.0",
+        "next_version_name": "v2.1.0",
+        "recommended_version": "v2.0.3",
+        "compatible_versions": [
+          "v2.0.3"
+        ]
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.svg"
   },
   "peers": {
     "seeds": [
@@ -45,109 +78,193 @@
       {
         "id": "a17d7923293203c64ba75723db4d5f28e642f469",
         "address": "seed-2.mainnet.irisnet.org:26656"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "445b38a181d147c243185d94567412e5c5f1a22c",
+        "address": "seed-irisnet-01.stakeflow.io:1906",
+        "provider": "Stakeflow"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "iris.rpc.kjnodes.com:16659",
+        "provider": "kjnodes"
       }
     ],
     "persistent_peers": [
-      {
-        "id": "fdc0406afdd3acc63f74f5439e09104f663a7c1f",
-        "address": "44.241.177.178:26656",
-        "provider": "cosmostation"
-      },
-      {
-        "id": "090bcbe5302e6104821a96c4899912870db04cb9",
-        "address": "52.11.128.123:26656",
-        "provider": "cosmostation"
-      },
       {
         "id": "83b3f989f3ce089afdf733f8aa06e792d7e00c08",
         "address": "3.34.6.30:26656",
         "provider": "cosmostation"
       },
       {
-        "id": "87f18756b93d835c59fe5ce2a8da51858837eb5b",
-        "address": "54.180.15.28:26656",
-        "provider": "Node-A-Team"
+        "id": "445b38a181d147c243185d94567412e5c5f1a22c",
+        "address": "peer-irisnet-01.stakeflow.io:1906",
+        "provider": "Stakeflow"
       },
       {
-        "id": "90e48220190b16cad95145b6213d512d703e5617",
-        "address": "138.197.158.189:26656",
-        "provider": "Figment"
+        "id": "3ddf22082bda8607289bd94b649e0e2595f1fffd",
+        "address": "iris-mainnet.peers.l0vd.com:19656",
+        "provider": "L0vd.com ❤️"
       },
       {
-        "id": "ebfb43ca1b592b5f8a1faf3e2aa1a34e8e1099cc",
-        "address": "iris01.dokia.cloud:26656",
-        "provider": "Dokia"
-      },
-      {
-        "id": "92fadc989ed29aee0d46afce3226f8565d1f36cb",
-        "address": "144.91.116.17:46656",
-        "provider": "syncnode"
-      },
-      {
-        "id": "4ac6200974d3fd80a8e49d145a2c254ed37a9b9a",
-        "address": "159.69.106.156:26656",
-        "provider": "P2P.ORG"
-      },
-      {
-        "id": "4e02a4b4f4350ea2b770cd03dc41fedcadb13176",
-        "address": "159.69.55.206:26656",
-        "provider": "P2P.ORG"
-      },
-      {
-        "id": "84cc32adca3986b35953886ad075431d318a98b5",
-        "address": "52.214.130.28:46656",
-        "provider": "stake.fish"
+        "id": "a19022cc07010836ed2a9c77dd56968965edb454",
+        "address": "mainnet-iris.konsortech.xyz:30656",
+        "provider": "KonsorTech"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-iris.keplr.app",
-        "provider": "chainapsis"
-      },
-      {
         "address": "https://rpc-irisnet-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://rpc-irisnet-01.stakeflow.io",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://irisnet-rpc.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://iris-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://iris-rpc.highstakes.ch:26657/",
+        "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://mainnet-iris-rpc.konsortech.xyz",
+        "provider": "KonsorTech"
       }
     ],
     "rest": [
       {
-        "address": "https://lcd-iris.keplr.app",
-        "provider": "chainapsis"
-      },
-      {
         "address": "https://api-irisnet-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://api-irisnet-01.stakeflow.io",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://irisnet-api.w3coins.io",
+        "provider": "w3coins"
+      },
+      {
+        "address": "https://iris-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://iris-api.highstakes.ch:1317/",
+        "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://mainnet-iris-api.konsortech.xyz",
+        "provider": "KonsorTech"
       }
     ],
     "grpc": [
       {
         "address": "grpc-irisnet-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
+      },
+      {
+        "address": "grpc-irisnet-01.stakeflow.io:1902",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "irisnet-grpc.w3coins.io:22690",
+        "provider": "w3coins"
+      },
+      {
+        "address": "iris-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "iris.grpc.kjnodes.com:443",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://grpc-irisnet.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "iris-mainnet.grpc.l0vd.com:80",
+        "provider": "L0vd.com ❤️"
+      },
+      {
+        "address": "mainnet-iris.konsortech.xyz:30090",
+        "provider": "KonsorTech"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://iris-evm.publicnode.com",
+        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://mainnet-iris-evm.konsortech.xyz",
+        "provider": "KonsorTech"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZStaking Tools",
-      "url": "https://ezstaking.tools/irisnet",
-      "tx_page": "https://ezstaking.tools/irisnet/txs/${txHash}"
+      "kind": "EZ Staking",
+      "url": "https://app.ezstaking.io/irisnet",
+      "tx_page": "https://app.ezstaking.io/irisnet/txs/${txHash}",
+      "account_page": "https://app.ezstaking.io/irisnet/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/iris",
-      "tx_page": "https://www.mintscan.io/iris/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/iris/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/iris/accounts/${accountAddress}"
     },
     {
-      "kind": "ping-pub",
+      "kind": "ping.pub",
       "url": "https://ping.pub/iris-network",
       "tx_page": "https://ping.pub/iris-network/tx/${txHash}"
     },
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/iris-network",
-      "tx_page": "https://atomscan.com/iris-network/transactions/${txHash}"
+      "tx_page": "https://atomscan.com/iris-network/transactions/${txHash}",
+      "account_page": "https://atomscan.com/iris-network/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Stakeflow",
+      "url": "https://stakeflow.io/irisnet",
+      "account_page": "https://stakeflow.io/irisnet/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Nodeist Explorer",
+      "url": "https://exp.nodeist.net/iris",
+      "tx_page": "https://exp.nodeist.net/iris/tx/${txHash}"
+    },
+    {
+      "kind": "L0vd.com ❤️",
+      "url": "https://explorers.l0vd.com/iris-mainnet",
+      "tx_page": "https://explorers.l0vd.com/iris-mainnet/tx/${txHash}"
+    },
+    {
+      "kind": "KonsorTech",
+      "url": "https://explorer.konsortech.xyz/iris",
+      "tx_page": "https://explorer.konsortech.xyz/iris/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.svg"
     }
   ]
 }
