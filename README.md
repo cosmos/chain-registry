@@ -1,6 +1,6 @@
 # Chain Registry
 
-This repo contains a `chain.json` and `assetlist.json` for a number of cosmos-sdk based chains.  A `chain.json` contains data that makes it easy to start running or interacting with a node.
+This repo contains a `chain.json`, `assetlist.json`, and `versions.json` for a number of cosmos-sdk based chains (and `assetlist.json` for non-cosmos chains).  A `chain.json` contains data that makes it easy to start running or interacting with a node.
 
 Schema files containing the recommended metadata structure can be found in the `*.schema.json` files located in the root directory. Schemas are still undergoing revision as user needs are surfaced. Optional fields may be added beyond what is contained in the schema files.
 
@@ -34,7 +34,9 @@ Once schemas have matured and client needs are better understood Chain Registry 
 
 ## Contributing
 
-We accept pull requests to add data to an existing assetlist.json or chain.json (especially to add peer data or public rpc endpoint) or to add a new chain.
+We accept pull requests to add data to an existing assetlist.json or chain.json (especially to add peer data or public rpc endpoint) or to add a new chain or asset.
+
+Please give Pull Requests a title that somewhat describes the change more precisely than the default title given to a Commit. PRs titled 'Update chain.json' are insufficient, and would be difficult to navigate when search through the backlog of Pull Requests. Some recommended details would be: the affected Chain Name, API types, or Provider to give some more detail; e.g., "Add Cosmos Hub APIs for Acme Validator".
 
 # chain.json
 
