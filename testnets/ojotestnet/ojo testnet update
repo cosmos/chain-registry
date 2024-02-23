@@ -1,0 +1,115 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "ojotestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Ojo Network Sauron Testnet",
+  "chain_id": "ojo-devnet",
+  "bech32_prefix": "ojo",
+  "daemon_name": "ojod",
+  "node_home": "$HOME/.ojo",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uojo",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0.025
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uojo"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/ojo-network/ojo",
+    "recommended_version": "v0.1.2",
+    "compatible_versions": [
+      "v0.1.2"
+    ],
+    "genesis": {
+      "genesis_url": "https://rpc.devnet-n0.ojo-devnet.node.ojo.network/genesis"
+    },
+    "binaries": {
+      "darwin/amd64": "https://github.com/ojo-network/ojo/releases/download/v0.1.2/ojod-v0.1.2-darwin-amd64.tar.gz",
+      "darwin/arm64": "https://github.com/ojo-network/ojo/releases/download/v0.1.2/ojod-v0.1.2-darwin-arm64.tar.gz",
+      "linux/amd64": "https://github.com/ojo-network/ojo/releases/download/v0.1.2/ojod-v0.1.2-linux-amd64.tar.gz",
+      "linux/arm64": "https://github.com/ojo-network/ojo/releases/download/v0.1.2/ojod-v0.1.2-linux-arm64.tar.gz"
+    },
+    "cosmos_sdk_version": "0.46.7",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34.24"
+    },
+    "ibc_go_version": "5.2.0",
+    "ics_enabled": [
+      "ics20-1"
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "http://ojo.rpc.t.stavr.tech:37097",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://rpc-1.ojo.nodes.guru/",
+        "provider": "Ojo Network"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://ojo.api.t.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://api-1.ojo.nodes.guru/",
+        "provider": "Ojo Network"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Ojo-Devnet",
+      "tx_page": "https://explorer.stavr.tech/Ojo-Devnet/tx/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Ojo-Devnet/account/${accountAddress}"
+    },
+    {
+      "kind": "Ojo Network",
+      "url": "https://sauron.ojo.network/ojo-devnet-1",
+      "tx_page": "https://sauron.ojo.network/ojo-devnet-1/tx/${txHash}"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/ojotestnet/images/ojo.png"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "testnet-seeds.polkachu.com:21656",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "c2bce5d89c030583f1d465d7c9a40d1b4c347089",
+        "address": "rpc-t.ojo.nodestake.top:666",
+        "provider": "Nodestake"
+      }
+    ]
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/ojotestnet/images/ojo.png"
+    }
+  ]
+}

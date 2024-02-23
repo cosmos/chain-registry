@@ -9,6 +9,7 @@
   "bech32_prefix": "darc",
   "daemon_name": "knstld",
   "node_home": "$HOME/.knstld",
+  "slip44": 118,
   "codebase": {
     "git_repo": "https://github.com/knstl/konstellation",
     "recommended_version": "v0.6.2",
@@ -35,7 +36,10 @@
     "fee_tokens": [
       {
         "denom": "udarc",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.0001,
+        "average_gas_price": 0.001,
+        "high_gas_price": 0.01
       }
     ]
   },
@@ -66,6 +70,11 @@
         "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
         "address": "seeds.stakerhouse.com:10856",
         "provider": "StakerHouse"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -77,26 +86,19 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "konstellation-mainnet-peer.autostake.com:26826",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "5a10c5f0a2d981037a0a3e5ecc825901ae0d416c",
+        "address": "65.109.0.135:26656",
+        "provider": "[NODERS]TEAM"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://node1.konstellation.tech:26657",
-        "provider": "konstellation"
-      },
-      {
-        "address": "https://konstellation-rpc.polkachu.com",
-        "provider": "Polkachu"
-      },
-      {
         "address": "https://rpc-konstellation-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
-      },
-      {
-        "address": "https://konstellation-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://konstellation-rpc.stakerhouse.com",
@@ -105,24 +107,8 @@
     ],
     "rest": [
       {
-        "address": "https://node1.konstellation.tech:1318",
-        "provider": "konstellation"
-      },
-      {
         "address": "https://api-konstellation-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
-      },
-      {
-        "address": "https://konstellation-api.polkachu.com",
-        "provider": "Polkachu"
-      },
-      {
-        "address": "https://api-konstellation.starsquid.io",
-        "provider": "Starsquid"
-      },
-      {
-        "address": "https://konstellation-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://konstellation-rest.stakerhouse.com",
@@ -158,6 +144,11 @@
       "kind": "cosmotracker",
       "url": "https://cosmotracker.com/konstellation",
       "tx_page": "https://cosmotracker.com/konstellation/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/konstellation/images/Konstellation-dark.png"
     }
   ]
 }
