@@ -14,7 +14,10 @@
     "fee_tokens": [
       {
         "denom": "peaka",
-        "fixed_min_gas_price": 100000000000
+        "fixed_min_gas_price": 100000000000,
+        "low_gas_price": 100000000000,
+        "average_gas_price": 100000000000,
+        "high_gas_price": 100000000000
       }
     ]
   },
@@ -63,12 +66,20 @@
       {
         "address": "https://vota-rpc.dorafactory.org/",
         "provider": "dorafactory"
+      },
+      {
+        "address": "https://m-dora.rpc.utsa.tech",
+        "provider": "lesnik | UTSA"
       }
     ],
     "rest": [
       {
         "address": "https://vota-rest.dorafactory.org",
         "provider": "dorafactory"
+      },
+      {
+        "address": "https://m-dora.api.utsa.tech",
+        "provider": "lesnik | UTSA"
       }
     ],
     "grpc": [
@@ -83,6 +94,11 @@
       "kind": "Dora Vota Ping Pub",
       "url": "https://vota-explorer.dorafactory.org",
       "tx_page": "https://vota-explorer.dorafactory.org/doravota/tx/${txHash}"
+    },
+    {
+      "kind": "lesnik | UTSA Ping Pub",
+      "url": "https://exp.utsa.tech/dora/staking",
+      "tx_page": "https://exp.utsa.tech/dora/tx/${txHash}"
     }
   ]
 }
