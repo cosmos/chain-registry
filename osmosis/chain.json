@@ -37,14 +37,16 @@
   },
   "codebase": {
     "git_repo": "https://github.com/osmosis-labs/osmosis",
-    "recommended_version": "v20.5.0",
+    "recommended_version": "v22.0.1",
     "compatible_versions": [
-      "v20.5.0"
+      "v22.0.0",
+      "v22.0.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v20.5.0/osmosisd-20.5.0-linux-amd64",
-      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v20.5.0/osmosisd-20.5.0-linux-arm64"
+      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v22.0.1/osmosisd-22.0.1-linux-amd64",
+      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v22.0.1/osmosisd-22.0.1-linux-arm64"
     },
+    "go_version": "1.21",
     "cosmos_sdk_version": "osmosis-labs/cosmos-sdk@0.45.0-rc1.0.20230922030206-734f99fba785",
     "consensus": {
       "type": "tendermint",
@@ -309,7 +311,62 @@
         "binaries": {
           "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v20.5.0/osmosisd-20.5.0-linux-amd64?checksum=sha256:f9ff6176e32499f22b20288c71dbc802556eb5399baef23de164fe6158a55a69",
           "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v20.5.0/osmosisd-20.5.0-linux-arm64?checksum=sha256:99359257ff81d21b55b685924a74473d532cbc5af196a672a784bf13dad06d26"
-        }
+        },
+        "next_version_name": "v21"
+      },
+      {
+        "name": "v21",
+        "tag": "v21.1.4",
+        "proposal": 696,
+        "height": 12834100,
+        "recommended_version": "v21.1.4",
+        "compatible_versions": [
+          "v21.1.4"
+        ],
+        "cosmos_sdk_version": "osmosis-labs/cosmos-sdk v0.47.5-osmo-4",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "cosmwasm_version": "osmosis-labs/wasmd v0.45.0-osmo",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "7.3.1",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v21.1.4/osmosisd-21.1.4-linux-amd64?checksum=sha256:518fd61873622d505640ab08edb788e307e6beb4f52476fab77661dd96860416",
+          "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v21.1.4/osmosisd-21.1.4-linux-arm64?checksum=sha256:cdbc163f4f045718e1464a82ada4d9d2511dc8c6c3fea11044cb8e675b6f86f7"
+        },
+        "next_version_name": "v22"
+      },
+      {
+        "name": "v22",
+        "tag": "v22.0.1",
+        "proposal": 714,
+        "height": 13325950,
+        "recommended_version": "v22.0.1",
+        "compatible_versions": [
+          "v22.0.0",
+          "v22.0.1"
+        ],
+        "cosmos_sdk_version": "osmosis-labs/cosmos-sdk v0.47.5-v22-osmo-2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "osmosis-labs/cometbft v0.37.2-v21-osmo-1"
+        },
+        "cosmwasm_version": "osmosis-labs/wasmd v0.45.0-osmo",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "7.3.1",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v22.0.1/osmosisd-22.0.1-linux-amd64",
+          "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v22.0.1/osmosisd-22.0.1-linux-arm64"
+        },
+        "go_version": "1.21",
+        "next_version_name": ""
       }
     ]
   },
@@ -500,10 +557,6 @@
         "provider": "w3coins"
       },
       {
-        "address": "https://rpc-osmosis.mms.team",
-        "provider": "MMS"
-      },
-      {
         "address": "https://osmosis-rpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
@@ -530,6 +583,22 @@
       {
         "address": "https://rpc.osmosis.validatus.com",
         "provider": "Validatus"
+      },
+      {
+        "address": "https://rpc.osmosis.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://osmosis.interstellar-lounge.org",
+        "provider": "Interstellar Lounge 🍸"
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/osmosis/rpc",
+        "provider": "Stakewolle"
+      },
+      {
+        "address": "https://rpc.cros-nest.com/osmosis",
+        "provider": "Crosnest"
       }
     ],
     "rest": [
@@ -586,10 +655,6 @@
         "provider": "WhisperNode 🤐"
       },
       {
-        "address": "https://api-osmosis.mms.team",
-        "provider": "MMS"
-      },
-      {
         "address": "https://osmosis-rest.publicnode.com",
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
@@ -602,16 +667,28 @@
         "provider": "StakeTown"
       },
       {
-        "address": "https://osmosis-mainnet.api.l0vd.com:443",
-        "provider": "L0vd.com ❤️"
-      },
-      {
         "address": "https://osmosis-api.reece.sh",
         "provider": "Reecepbcups"
       },
       {
         "address": "https://api.osmosis.validatus.com:443",
         "provider": "Validatus"
+      },
+      {
+        "address": "https://lcd.osmosis.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://osmosis-rest.interstellar-lounge.org",
+        "provider": "Interstellar Lounge 🍸"
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/osmosis/rest",
+        "provider": "Stakewolle"
+      },
+      {
+        "address": "https://rest.cros-nest.com/osmosis",
+        "provider": "Crosnest"
       }
     ],
     "grpc": [
@@ -674,6 +751,10 @@
       {
         "address": "grpc.osmosis.validatus.com:443",
         "provider": "Validatus"
+      },
+      {
+        "address": "https://grpc.osmosis.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ]
   },
@@ -733,6 +814,11 @@
       "kind": "L0vd.com ❤️",
       "url": "https://explorers.l0vd.com/osmosis-mainnet",
       "tx_page": "https://explorers.l0vd.com/osmosis-mainnet/tx/${txHash}"
+    },
+    {
+      "kind": "Chainscope",
+      "url": "https://chainsco.pe/osmosis",
+      "tx_page": "https://chainsco.pe/osmosis/tx/${txHash}"
     }
   ],
   "keywords": [
