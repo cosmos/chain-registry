@@ -40,23 +40,61 @@
   },
   "codebase": {
     "git_repo": "https://github.com/dydxprotocol/v4-chain/",
-    "recommended_version": "v2.0.0",
+    "recommended_version": "protocol/v3.0.0",
     "compatible_versions": [
-      "v2.0.0"
+      "protocol/v3.0.0"
     ],
-    "cosmos_sdk_version": "v0.47.4",
-    "cosmwasm_enabled": false,
+    "binaries": {
+      "linux/amd64": "https://github.com/dydxprotocol/v4-chain/releases/download/protocol%2Fv3.0.0/dydxprotocold-v3.0.0-linux-amd64.tar.gz",
+      "linux/arm64": "https://github.com/dydxprotocol/v4-chain/releases/download/protocol%2Fv3.0.0/dydxprotocold-v3.0.0-linux-arm64.tar.gz"
+    },
+    "cosmos_sdk_version": "dydxprotocol/cosmos-sdk v0.47.5-0.20240111163003-128eb0a555af",
+    "ibc_go_version": "v7.3.0",
+    "consensus": {
+      "type": "cometbft",
+      "version": "dydxprotocol/cometbft v0.37.3-0.20230908230338-65f7a2f25c18"
+    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/dydxopsdao/networks/main/dydx-mainnet-1/genesis.json"
     },
     "versions": [
       {
         "name": "v2",
-        "recommended_version": "v2.0.0",
+        "recommended_version": "protocol/v2.0.0",
         "compatible_versions": [
-          "v2.0.0"
+          "protocol/v2.0.0"
         ],
-        "cosmos_sdk_version": "v0.47.4"
+        "binaries": {
+          "linux/amd64": "https://github.com/dydxprotocol/v4-chain/releases/download/protocol%2Fv2.0.0/dydxprotocold-v2.0.0-linux-amd64.tar.gz",
+          "linux/arm64": "https://github.com/dydxprotocol/v4-chain/releases/download/protocol%2Fv2.0.0/dydxprotocold-v2.0.0-linux-arm64.tar.gz"
+        },
+        "cosmos_sdk_version": "dydxprotocol/cosmos-sdk v0.47.5-0.20231011192538-b95c66dedbd5",
+	"ibc_go_version": "v7.3.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "dydxprotocol/cometbft v0.37.3-0.20230908230338-65f7a2f25c18"
+	},
+        "next_version_name": "v3.0.0"
+      },
+      {
+        "name": "v3.0.0",
+        "proposal": 7,
+        "height": 7147832,
+        "recommended_version": "protocol/v3.0.0",
+        "compatible_versions": [
+          "protocol/v3.0.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/dydxprotocol/v4-chain/releases/download/protocol%2Fv3.0.0/dydxprotocold-v3.0.0-linux-amd64.tar.gz",
+          "linux/arm64": "https://github.com/dydxprotocol/v4-chain/releases/download/protocol%2Fv3.0.0/dydxprotocold-v3.0.0-linux-arm64.tar.gz"
+        },
+        "cosmos_sdk_version": "dydxprotocol/cosmos-sdk v0.47.5-0.20240111163003-128eb0a555af",
+	"ibc_go_version": "v7.3.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "dydxprotocol/cometbft v0.37.3-0.20230908230338-65f7a2f25c18"
+	},
+        "next_version_name": ""
       }
     ]
   },
@@ -125,17 +163,28 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "dydx-mainnet-seed.autostake.com:27366",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake | StakeDrops"
       },
       {
         "id": "09ba537d6563018b97c502979c3478df4decf426",
         "address": "dydxprotocol-seed.genznodes.dev:22656",
         "provider": "genznodes"
       }
+    ],
+    "persistent_peers": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "dydx-mainnet-peer.autostake.com:27366",
+        "provider": "AutoStake | StakeDrops"
+      }
     ]
   },
   "apis": {
     "rpc": [
+      {
+        "address": "https://community.nuxian-node.ch:6797/dydx/trpc",
+        "provider": "PRO Delegators"
+      },
       {
         "address": "https://dydx-dao-rpc.polkachu.com",
         "provider": "Polkachu"
@@ -154,7 +203,7 @@
       },
       {
         "address": "https://dydx-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake | StakeDrops"
       },
       {
         "address": "https://rpc-dydx.ecostake.com:443",
@@ -167,10 +216,6 @@
       {
         "address": "https://rpc-dydx.cosmos-spaces.cloud",
         "provider": "Cosmos Spaces"
-      },
-      {
-        "address": "https://dydx.rpc.kjnodes.com:443",
-        "provider": "kjnodes"
       },
       {
         "address": "https://dydx-rpc.publicnode.com:443",
@@ -187,8 +232,12 @@
     ],
     "rest": [
       {
-        "address": "https://dydx-dao-api.polkachu.com",
-        "provider": "Polkachu"
+	"address": "https://community.nuxian-node.ch:6797/dydx/crpc",
+        "provider": "PRO Delegators"
+      },
+      {
+	"address": "https://dydx-dao-api.polkachu.com",
+	"provider": "Polkachu"
       },
       {
         "address": "https://dydx-mainnet-full-lcd.public.blastapi.io",
@@ -204,7 +253,7 @@
       },
       {
         "address": "https://dydx-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake | StakeDrops"
       },
       {
         "address": "https://rest-dydx.ecostake.com:443",
@@ -217,10 +266,6 @@
       {
         "address": "https://api.dydx.nodestake.top:443",
         "provider": "NodeStake"
-      },
-      {
-        "address": "https://dydx.api.kjnodes.com:443",
-        "provider": "kjnodes"
       },
       {
         "address": "https://dydx-rest.publicnode.com",
@@ -270,7 +315,7 @@
       },
       {
         "address": "dydx-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake | StakeDrops"
       },
       {
         "address": "https://grpc.dydx.nodestake.top",

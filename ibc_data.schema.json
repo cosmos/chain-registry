@@ -80,10 +80,52 @@
         },
         "additionalProperties": false
       }
+    },
+    "operators": {
+      "type": "array",
+      "description": "ibc connection operator information.",
+      "items": {
+        "type": "object",
+        "required": [
+          "chain_1",
+          "chain_2",
+          "memo",
+          "name"
+        ],
+        "properties": {
+          "chain_1": {
+            "type": "object",
+            "$ref": "#/$defs/chain_operator_info"
+          },
+          "chain_2": {
+            "type": "object",
+            "$ref": "#/$defs/chain_operator_info"
+          },
+          "memo": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "description": "Operator display name"
+          },
+          "discord_handle": {
+            "type": "string"
+          }
+        }
+      }
     }
   },
   "additionalProperties": false,
   "$defs": {
+    "chain_operator_info": {
+      "type": "object",
+      "description": "Operator information on a specific chain.",
+      "properties": {
+        "address": {
+          "type": "string"
+        }
+      }
+    },
     "chain_info": {
       "type": "object",
       "description": "Top level IBC data pertaining to the chain. `chain_1` and `chain_2` should be in alphabetical order.",

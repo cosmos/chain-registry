@@ -31,13 +31,12 @@
   },
   "codebase": {
     "git_repo": "https://github.com/oraichain/orai",
-    "recommended_version": "v0.41.4",
-    "compatible_versions": ["v0.41.3", "v0.41.4"],
-    "binaries": {
-      "linux/amd64": "https://github.com/oraichain/orai/releases/download/v0.41.4/oraid"
-    },
+    "recommended_version": "v0.41.6",
+    "compatible_versions": ["v0.41.3", "v0.41.4", "v0.41.6"],
+    "cosmwasm_version": "0.30.2",
+    "cosmwasm_enabled": true,
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/genesis.json"
     },
     "versions": [
       {
@@ -46,17 +45,16 @@
         "compatible_versions": ["v0.40.3"],
         "binaries": {
           "linux/amd64": "https://orai.s3.us-east-2.amazonaws.com/v0.40.3/oraid"
-        }
+        },
+        "next_version_name": "v0.41.6"
       },
       {
-        "name": "v0.41.4",
+        "name": "v0.41.6",
         "height": 13567875,
         "proposal": 197,
-        "recommended_version": "v0.41.4",
-        "compatible_versions": ["v0.41.3", "v0.41.4"],
-        "binaries": {
-          "linux/amd64": "https://orai.s3.us-east-2.amazonaws.com/v0.41.4/oraid"
-        }
+        "recommended_version": "v0.41.6",
+        "compatible_versions": ["v0.41.3", "v0.41.4", "v0.41.6"],
+        "next_version_name": ""
       }
     ]
   },
@@ -95,6 +93,21 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "oraichain-mainnet-seed.autostake.com:27436",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "f223f1be06ef35a6dfe54995f05daeb1897d94d7",
+        "address": "seed-node.mms.team:42656",
+        "provider": "MMS"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "fe0a0d46eb5436905bf8465f83d2da5a503bf4eb",
+        "address": "mainnet-seed.konsortech.xyz:33165",
+        "provider": "KonsorTech"
       }
     ],
     "persistent_peers": [
@@ -127,6 +140,16 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "oraichain-mainnet-seed.autostake.com:27436",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "c14df7b2e097d743aa7574c7cf65397a06ea3833",
+        "address": "peer-oraichain.mms.team:56103",
+        "provider": "MMS"
+      },
+      {
+        "id": "efb9d22a6fdf7460f965982ae013d242bbbfd53c",
+        "address": "mainnet-orai.konsortech.xyz:33656",
+        "provider": "KonsorTech"
       }
     ]
   },
@@ -137,19 +160,31 @@
         "provider": "oraichain-team"
       },
       {
+        "address": "https://rpc.orai.pfc.zone/",
+        "provider": "PFC"
+      },
+      {
+        "address": "https://rpc-orai.nodine.id/",
+        "provider": "Nodine.ID"
+      },
+      {
         "address": "https://oraichain-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://rpc-oraichain.mms.team",
         "provider": "MMS"
+      },
+      {
+        "address": "https://rpc-orai.blockval.io/",
+        "provider": "Blockval"
+      },
+      {
+        "address": "https://mainnet-orai-rpc.konsortech.xyz",
+        "provider": "KonsorTech"
       }
     ],
     "rest": [
-      {
-        "address": "http://lcd.orai.io",
-        "provider": "oraichain-team"
-      },
       {
         "address": "http://lcd.orai.io",
         "provider": "oraichain-team"
@@ -161,6 +196,14 @@
       {
         "address": "https://api-oraichain.mms.team",
         "provider": "MMS"
+      },
+      {
+        "address": "https://api-orai.blockval.io",
+        "provider": "Blockval"
+      },
+      {
+        "address": "https://mainnet-orai-api.konsortech.xyz",
+        "provider": "KonsorTech"
       }
     ],
     "grpc": [
@@ -169,8 +212,20 @@
         "provider": "MMS"
       },
       {
+        "address": "grpc.orai.pfc.zone:443",
+        "provider": "PFC"
+      },
+      {
         "address": "oraichain-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "grpc-orai.blockval.io:9390",
+        "provider": "Blockval"
+      },
+      {
+        "address": "mainnet-orai.konsortech.xyz:33090",
+        "provider": "KonsorTech"
       }
     ]
   },
@@ -186,10 +241,21 @@
       "tx_page": "https://explorer.co.id/orai/tx/${txHash}"
     },
     {
+      "kind": "Blockval Explorer",
+      "url": "https://explorer.blockval.io/oraichain",
+      "tx_page": "https://explorer.blockval.io/oraichain/tx/${txHash}"
+    },
+    {
       "kind": "atomscan",
       "url": "https://atomscan.com/orai",
       "tx_page": "https://atomscan.com/orai/transactions/${txHash}",
       "account_page": "https://atomscan.com/orai/accounts/${accountAddress}"
+    },
+    {
+      "kind": "KonsorTech Explorer",
+      "url": "https://explorer.konsortech.xyz/oraichain",
+      "tx_page": "https://explorer.konsortech.xyz/oraichain/transactions/${txHash}",
+      "account_page": "https://explorer.konsortech.xyz/oraichain/accounts/${accountAddress}"
     }
   ],
   "images": [

@@ -32,17 +32,24 @@
   },
   "codebase": {
     "git_repo": "https://github.com/PeggyJV/sommelier",
-    "recommended_version": "v6.0.0",
+    "recommended_version": "v7.0.1",
     "compatible_versions": [
-      "v6.0.0"
+      "v7.0.0",
+      "v7.0.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v6.0.0/sommelier_6.0.0_linux_amd64.tar.gz",
-      "linux/arm64": "https://github.com/PeggyJV/sommelier/releases/download/v6.0.0/sommelier_6.0.0_linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v6.0.0/sommelier_6.0.0_darwin_amd64.tar.gz",
-      "darwin/arm64": "https://github.com/PeggyJV/sommelier/releases/download/v6.0.0/sommelier_6.0.0_darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v6.0.0/sommelier_6.0.0_windows_amd64.tar.gz"
+      "linux/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v7.0.1/sommelier_7.0.1_linux_amd64.tar.gz",
+      "linux/arm64": "https://github.com/PeggyJV/sommelier/releases/download/v7.0.1/sommelier_7.0.1_linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v7.0.1/sommelier_7.0.1_darwin_amd64.tar.gz",
+      "darwin/arm64": "https://github.com/PeggyJV/sommelier/releases/download/v7.0.1/sommelier_7.0.1_darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v7.0.1/sommelier_7.0.1_windows_amd64.tar.gz"
     },
+    "cosmos_sdk_version": "v0.46.14",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.34.28"
+    },
+    "ibc_go_version": "v6.2.0",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/PeggyJV/sommelier/main/contrib/mainnet/sommelier-2/genesis.json"
     },
@@ -73,7 +80,32 @@
           "darwin/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v6.0.0/sommelier_6.0.0_darwin_amd64.tar.gz",
           "darwin/arm64": "https://github.com/PeggyJV/sommelier/releases/download/v6.0.0/sommelier_6.0.0_darwin_arm64.tar.gz",
           "windows/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v6.0.0/sommelier_6.0.0_windows_amd64.tar.gz"
-        }
+        },
+        "next_version_name": "v7"
+      },
+      {
+        "name": "v7",
+        "proposal": 119,
+        "height": 13010200,
+        "recommended_version": "v7.0.1",
+        "compatible_versions": [
+          "v7.0.0",
+          "v7.0.1"    
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v7.0.1/sommelier_7.0.1_linux_amd64.tar.gz",
+          "linux/arm64": "https://github.com/PeggyJV/sommelier/releases/download/v7.0.1/sommelier_7.0.1_linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v7.0.1/sommelier_7.0.1_darwin_amd64.tar.gz",
+          "darwin/arm64": "https://github.com/PeggyJV/sommelier/releases/download/v7.0.1/sommelier_7.0.1_darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v7.0.1/sommelier_7.0.1_windows_amd64.tar.gz"
+        },
+        "cosmos_sdk_version": "v0.46.14",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.28"
+        },
+        "ibc_go_version": "v6.2.0",
+        "next_version_name": ""
       }
     ]
   },
@@ -102,6 +134,21 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "sommelier-mainnet-seed.autostake.com:27176",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "ab5a8afdc5db008c1288e129c2eb9e3e900e7fda",
+        "address": "seed.sommelier.validatus.com:6000",
+        "provider": "Validatus"
+      },
+      {
+        "id": "ac65237d8760a58be6818566139d33713983d9ef",
+        "address": "sommelier.seed.stavr.tech:2076",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -128,20 +175,16 @@
         "provider": "PUPMØS"
       },
       {
+        "address": "https://somm.rpc.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      },
+      {
         "address": "https://sommelier-rpc.lavenderfive.com/",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://sommelier-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://rpc-sommelier.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
-      },
-      {
-        "address": "https://rpc.sommelier.nodexcapital.com",
-        "provider": "⚡NodeX Validator⚡"
       },
       {
         "address": "https://somm-rpc.kleomedes.network",
@@ -162,34 +205,30 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://sommelier-api.lavenderfive.com/",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://som.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
       },
       {
-        "address": "https://api-sommelier.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
+        "address": "https://sommelier-api.lavenderfive.com/",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://sommelier-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://rest.sommelier.nodexcapital.com",
-        "provider": "⚡NodeX Validator⚡"
-      },
-      {
         "address": "https://somm-api.kleomedes.network",
         "provider": "Kleomedes"
-      },
-      {
-        "address": "https://sommelier-api.w3coins.io",
-        "provider": "w3coins"
       }
     ],
     "grpc": [
       {
         "address": "sommelier-grpc.polkachu.com:14190",
         "provider": "Polkachu"
+      },
+      {
+        "address": "somm.grpc.m.stavr.tech:114",
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "sommelier-grpc.lavenderfive.com:443",
@@ -200,16 +239,16 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "grpc-sommelier.cosmos-spaces.cloud:2310",
-        "provider": "Cosmos Spaces"
-      },
-      {
         "address": "https://grpc.sommelier.nodexcapital.com",
         "provider": "⚡NodeX Validator⚡"
       },
       {
         "address": "sommelier-grpc.w3coins.io:14190",
         "provider": "w3coins"
+      },
+      {
+        "address": "grpc.sommelier.validatus.com",
+        "provider": "Validatus"
       }
     ]
   },
@@ -224,6 +263,12 @@
       "url": "https://www.mintscan.io/sommelier",
       "tx_page": "https://www.mintscan.io/sommelier/transactions/${txHash}",
       "account_page": "https://www.mintscan.io/sommelier/accounts/${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Sommelier-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Sommelier-Mainnet/tx/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Sommelier-Mainnet/account/${accountAddress}"
     },
     {
       "kind": "NODEXPLORER",
