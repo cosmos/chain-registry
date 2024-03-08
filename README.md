@@ -300,7 +300,11 @@ An example assetlist json contains the following structure:
       "keywords": [
         "dex",
         "staking"
-      ]
+      ],
+      "socials": {
+        "webiste": "https://osmosis.zone",
+        "twitter": "https://twitter.com/osmosiszone"
+      }
     },
     {
       "denom_units": [
@@ -328,8 +332,13 @@ An example assetlist json contains the following structure:
       ],
       "coingecko_id": "ion",
       "keywords": [
-        "memecoin"
-      ]
+        "memecoin",
+        "defi"
+      ],
+      "socials": {
+        "webiste": "https://ion.wtf",
+        "twitter": "https://twitter.com/_IONDAO"
+      }
     }
   ]
 }
