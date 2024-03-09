@@ -4,7 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "website": "https://c4e.io/",
-  "pretty_name": "Chain4Energy",
+  "pretty_name": "C4E",
   "chain_id": "perun-1",
   "bech32_prefix": "c4e",
   "daemon_name": "c4ed",
@@ -12,20 +12,30 @@
   "key_algos": [
     "secp256k1"
   ],
-  "slip44": 4444,
+  "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
         "denom": "uc4e",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uc4e"
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/chain4energy/c4e-chain",
-    "recommended_version": "v1.2.1",
+    "recommended_version": "v1.3.1",
     "compatible_versions": [
-      "v1.2.1"
+      "v1.3.1"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/chain4energy/c4e-chains/main/perun-1/genesis.json"
@@ -135,6 +145,28 @@
           "linux/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.0/c4ed_v1.3.0_darwin_amd64.tar.gz",
           "linux/arm64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.0/c4ed_v1.3.0_linux_arm64.tar.gz",
           "darwin/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.0/c4ed_v1.3.0_darwin_amd64.tar.gz"
+        },
+        "next_version_name": "v1.3.1"
+      },
+      {
+        "name": "v1.3.1",
+        "tag": "v1.3.1",
+        "proposal": 8,
+        "height": 7372232,
+        "recommended_version": "v1.3.1",
+        "compatible_versions": [
+          "v1.3.1"
+        ],
+        "cosmos_sdk_version": "v0.46.13",
+        "ibc_go_version": "v5.2.1",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.28"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.1/c4ed_v1.3.1_darwin_amd64.tar.gz",
+          "linux/arm64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.1/c4ed_v1.3.1_linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.1/c4ed_v1.3.1_darwin_amd64.tar.gz"
         },
         "next_version_name": ""
       }

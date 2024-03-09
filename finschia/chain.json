@@ -1,0 +1,160 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "finschia",
+  "chain_id": "finschia-2",
+  "website": "https://www.finschia.io/",
+  "pretty_name": "Finschia",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "link",
+  "daemon_name": "fnsad",
+  "node_home": "$HOME/.finschia",
+  "key_algos": ["secp256k1"],
+  "slip44": 438,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "cony",
+        "fixed_min_gas_price": 0.015,
+        "low_gas_price": 0.015,
+        "average_gas_price": 0.015,
+        "high_gas_price": 0.015
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "cony"
+      }
+    ],
+    "lock_duration": {
+      "time": "604800s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/finschia/finschia",
+    "recommended_version": "v2.0.1",
+    "compatible_versions": ["v2.0.0", "v2.0.1"],
+    "go_version": "1.20",
+    "binaries": {
+      "linux/amd64": "https://github.com/Finschia/finschia/releases/download/v2.0.1/fnsad-2.0.1-linux-amd64",
+      "linux/arm64": "https://github.com/Finschia/finschia/releases/download/v2.0.1/fnsad-2.0.1-linux-arm64",
+      "darwin/amd64": "https://github.com/Finschia/finschia/releases/download/v2.0.1/fnsad-2.0.1-darwin-amd64",
+      "darwin/arm64": "https://github.com/Finschia/finschia/releases/download/v2.0.1/fnsad-2.0.1-darwin-arm64"
+    },
+    "cosmos_sdk_version": "github.com/Finschia/finschia-sdk@v0.48.1",
+    "cosmwasm_version": "github.com/Finschia/wasmd@v0.2.0",
+    "cosmwasm_enabled": true,
+    "cosmwasm_path": "$HOME/.finschia/wasm/wasm",
+    "ibc_go_version": "v4.3.1",
+    "ics_enabled": ["ics20-1"],
+    "genesis": {
+      "name": "v2",
+      "genesis_url": "https://vos.line-scdn.net/finschia-2-fileshare/datafile/finschia-prod-2/finschia-2-genesis.tgz"
+    },
+    "versions": [
+      {
+        "name": "v1",
+        "tag": "v1.1.1",
+        "height": 55791218,
+        "recommended_version": "v1.1.1",
+        "compatible_versions": ["v1.1.1"],
+        "go_version": "1.18",
+        "binaries": {
+          "linux/amd64": "https://github.com/Finschia/finschia/releases/download/v1.1.1/finschia-v1.1.1-linux-amd64.tgz",
+          "linux/arm64": "https://github.com/Finschia/finschia/releases/download/v1.1.1/finschia-v1.1.1-linux-arm64.tgz",
+          "darwin/amd64": "https://github.com/Finschia/finschia/releases/download/v1.1.1/finschia-v1.1.1-darwin-amd64.tgz",
+          "darwin/arm64": "https://github.com/Finschia/finschia/releases/download/v1.1.1/finschia-v1.1.1-darwin-arm64.tgz"
+        },
+        "cosmos_sdk_version": "github.com/Finschia/finschia-sdk@v0.47.3",
+        "cosmwasm_version": "github.com/Finschia/wasmd@v0.1.5",
+        "cosmwasm_enabled": true,
+        "cosmwasm_path": "$HOME/.finschia/wasm/wasm",
+        "ibc_go_version": "v3.3.3",
+        "ics_enabled": ["ics20-1"],
+        "next_version_name": "v2"
+      },
+      {
+        "name": "v2",
+        "tag": "v2.0.1",
+        "proposal": 17,
+        "height": 59938000,
+        "recommended_version": "v2.0.1",
+        "compatible_versions": ["v2.0.0", "v2.0.1"],
+        "go_version": "1.20",
+        "binaries": {
+          "linux/amd64": "https://github.com/Finschia/finschia/releases/download/v2.0.1/fnsad-2.0.1-linux-amd64",
+          "linux/arm64": "https://github.com/Finschia/finschia/releases/download/v2.0.1/fnsad-2.0.1-linux-arm64",
+          "darwin/amd64": "https://github.com/Finschia/finschia/releases/download/v2.0.1/fnsad-2.0.1-darwin-amd64",
+          "darwin/arm64": "https://github.com/Finschia/finschia/releases/download/v2.0.1/fnsad-2.0.1-darwin-arm64"
+        },
+        "cosmos_sdk_version": "github.com/Finschia/finschia-sdk@v0.48.1",
+        "cosmwasm_version": "github.com/Finschia/wasmd@v0.2.0",
+        "cosmwasm_enabled": true,
+        "cosmwasm_path": "$HOME/.finschia/wasm/wasm",
+        "ibc_go_version": "v4.3.1",
+        "ics_enabled": ["ics20-1"],
+        "previous_version_name": "v1",
+        "next_version_name": "v3"
+      }
+    ]
+  },
+  "description": "Finschia (formerly LINE Blockchain Mainnet) aims to build a sustainable token model and create token demand to become a blockchain with 1 billion users.",
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "484d01bbaa57830e87033c3593804e305d538204",
+        "address": "147.92.234.184:26656"
+      },
+      {
+        "id": "a1e0bfde4641fc9273700231e3a7c5859f0f389a",
+        "address": "147.92.172.51:26656"
+      },
+      {
+        "id": "1f56631a742d980955c72135e5dec159900212b3",
+        "address": "147.92.234.226:26656"
+      },
+      {
+        "id": "11f9fcb1bcae2eaf6f9a5a9369a96347660d20c8",
+        "address": "147.92.172.69:26656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://finschia-rpc.finschia.io"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://finschia-api.finschia.io"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "finschia-grpc.finschia.io:443"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/finschia",
+      "tx_page": "https://www.mintscan.io/finschia/tx/${txHash}",
+      "account_page": "https://www.mintscan.io/finschia/address/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/finschia/images/fnsa.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/finschia/images/fnsa.svg"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/finschia/images/fnsa.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/finschia/images/fnsa.svg"
+  }
+}

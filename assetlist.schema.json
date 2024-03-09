@@ -38,7 +38,7 @@
       "properties": {
         "deprecated": {
           "type": "boolean",
-          "description": "[OPTIONAL] Whether the asset has been deprected for use. For readability, it is best to omit this property unless TRUE."
+          "description": "[OPTIONAL] Whether the asset has been deprecated for use. For readability, it is best to omit this property unless TRUE."
         },
         "description": {
           "type": "string",
@@ -188,6 +188,20 @@
           },
           "minContains": 1,
           "maxContains": 20
+        },
+        "socials": {
+          "type": "object",
+          "minProperties": 1,
+          "properties": {
+            "website": {
+              "type": "string",
+              "format": "uri"
+            },
+            "twitter": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
         }
       },
       "additionalProperties": false,
