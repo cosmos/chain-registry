@@ -31,16 +31,19 @@ const files = Array.from(domainToDirectoryNameMap.keys());
 export const nonChainDirectories = [
   ".git",
   ".github",
+  ".vs",
   "_IBC",
   "_memo_keys",
   "_non-cosmos",
+  "_template",
   "testnets",
   ".gitignore",
   "assetlist.schema.json",
   "chain.schema.json",
   "ibc_data.schema.json",
   "memo_keys.schema.json",
-  "README.md"
+  "README.md",
+  "LICENSE"
 ]
 
 export const assetSchema = {
@@ -421,8 +424,6 @@ export function filterAssetPointersByAssetProperty(pointers, property, value) {
   });
   return filtered;
 }
-
-
 
 function main() {
   populateChainDirectories();
