@@ -11,7 +11,7 @@ import * as path from 'path';
 
 export let chainNameToDirectoryMap = new Map();
 
-export const chainRegistryRoot = "../../..";
+export const chainRegistryRoot = "../../../chain-registry";
 
 const networkTypeToDirectoryNameMap = new Map();
 networkTypeToDirectoryNameMap.set("mainnet", "");
@@ -229,6 +229,41 @@ export function getAssetProperty(chainName, baseDenom, property) {
   }
 }
 
+
+export function getAssetDecimals(chainName, baseDenom) {
+  let decimals;
+  let display = getAssetProperty(chainName, baseDenom, "display");
+  let denom_units = getAssetProperty(chainName, baseDenom, "denom_units");
+  denom_units?.forEach((denom_unit) => {
+    if(
+      denom_unit.denom == display ||
+      denom_unit.aliases?.includes(display)
+    ) {
+      decimals = denom_unit.exponent;
+      return;
+    }
+  });
+  return decimals;
+}
+
+
+export function getAssetObject(chainName, baseDenom) {
+  const assets = getFileProperty(chainName, "assetlist", "assets");
+  if(assets) {
+    let selectedAsset;
+    assets.forEach((asset) => {
+      if(asset.base == baseDenom) {
+        selectedAsset = asset;
+        return;
+      }
+    });
+    if(selectedAsset) {
+      return selectedAsset;
+    }
+  }
+}
+
+
 export function setAssetProperty(chainName, baseDenom, property, value) {
   const assets = getFileProperty(chainName, "assetlist", "assets");
   if(assets) {
@@ -248,6 +283,23 @@ export function getAssetPropertyWithTrace(chainName, baseDenom, property) {
     if (property != "traces") {
       let traces = getAssetProperty(chainName, baseDenom, "traces");
       if (traces) {
+        let originAsset = {
+          chainName: traces[traces.length - 1].counterparty.chain_name,
+          baseDenom: traces[traces.length - 1].counterparty.base_denom
+        }
+        return getAssetPropertyWithTrace(originAsset.chainName, originAsset.baseDenom, property);
+      }
+    }
+  }
+  return value;
+}
+
+export function getAssetPropertyWithTraceIBC(chainName, baseDenom, property) {
+  let value = getAssetProperty(chainName, baseDenom, property);
+  if (!value) {
+    if (property != "traces") {
+      let traces = getAssetProperty(chainName, baseDenom, "traces");
+      if (traces && (traces[traces.length - 1].type == "ibc" || traces[traces.length - 1].type == "ibc-cw20")) {
         let originAsset = {
           chainName: traces[traces.length - 1].counterparty.chain_name,
           baseDenom: traces[traces.length - 1].counterparty.base_denom
