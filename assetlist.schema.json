@@ -36,9 +36,17 @@
         "symbol"
       ],
       "properties": {
+        "deprecated": {
+          "type": "boolean",
+          "description": "[OPTIONAL] Whether the asset has been deprecated for use. For readability, it is best to omit this property unless TRUE."
+        },
         "description": {
           "type": "string",
           "description": "[OPTIONAL] A short description of the asset"
+        },
+        "extended_description": {
+          "type": "string",
+          "description": "[OPTIONAL] A long description of the asset"
         },
         "denom_units": {
           "type": "array",
@@ -63,7 +71,8 @@
         },
         "name": {
           "type": "string",
-          "description": "The project name of the asset. For example Bitcoin."
+          "description": "The project name of the asset. For example Bitcoin.",
+          "maxLength": 42
         },
         "display": {
           "type": "string",
@@ -179,6 +188,20 @@
           },
           "minContains": 1,
           "maxContains": 20
+        },
+        "socials": {
+          "type": "object",
+          "minProperties": 1,
+          "properties": {
+            "website": {
+              "type": "string",
+              "format": "uri"
+            },
+            "twitter": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
         }
       },
       "additionalProperties": false,
