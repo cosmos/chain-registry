@@ -28,7 +28,11 @@
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.svg"
         }
-      ]
+      ],
+      "socials": {
+        "webiste": "https://persistence.one/",
+        "twitter": "https://twitter.com/PersistenceOne"
+      }
     },
     {
       "description": "PSTAKE Liquid-Staked ATOM",
@@ -50,6 +54,16 @@
       "name": "PSTAKE staked ATOM",
       "display": "stkatom",
       "symbol": "stkATOM",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom"
+          },
+          "provider": "pSTAKE"
+        }
+      ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkatom.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkatom.svg"
@@ -340,6 +354,16 @@
       "name": "PSTAKE staked OSMO",
       "display": "stkosmo",
       "symbol": "stkOSMO",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "uosmo"
+          },
+          "provider": "pSTAKE"
+        }
+      ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkosmo.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkosmo.svg"
@@ -372,6 +396,16 @@
       "name": "PSTAKE staked DYDX",
       "display": "stkdydx",
       "symbol": "stkDYDX",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "dydx",
+            "base_denom": "adydx"
+          },
+          "provider": "pSTAKE"
+        }
+      ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkdydx.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkdydx.svg"
@@ -380,6 +414,146 @@
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkdydx.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkdydx.svg"
+        }
+      ]
+    },
+    {
+      "description": "PSTAKE Liquid-Staked STARS",
+      "denom_units": [
+        {
+          "denom": "stk/ustars",
+          "exponent": 0,
+          "aliases": []
+        },
+        {
+          "denom": "stkstars",
+          "exponent": 6,
+          "aliases": [
+            "stk/stars"
+          ]
+        }
+      ],
+      "base": "stk/ustars",
+      "name": "PSTAKE staked STARS",
+      "display": "stkstars",
+      "symbol": "stkSTARS",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "stargaze",
+            "base_denom": "ustars"
+          },
+          "provider": "pSTAKE"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkstars.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkstars.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkstars.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/stkstars.svg"
+        }
+      ]
+    },
+    {
+      "denom_units": [
+        {
+          "denom": "ibc/AD8E1D4AC4EA8FC79CC46E33319A3791477D4DEBFC30D5D874074B993422B41B",
+          "exponent": 0,
+          "aliases": [
+            "ustars"
+          ]
+        },
+        {
+          "denom": "stars",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/AD8E1D4AC4EA8FC79CC46E33319A3791477D4DEBFC30D5D874074B993422B41B",
+      "name": "Stargaze",
+      "display": "stars",
+      "symbol": "STARS",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "stargaze",
+            "base_denom": "ustars",
+            "channel_id": "channel-287"
+          },
+          "chain": {
+            "channel_id": "channel-197",
+            "path": "transfer/channel-197/ustars"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "stargaze",
+            "base_denom": "ustars"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg"
+      }
+    },
+    {
+      "description": "The native token cw20 for Shade on Secret Network",
+      "denom_units": [
+        {
+          "denom": "ibc/5D3B6445EA1D7064C4B1CCB588638589529556E1BCBADF13475021B42EA8C73B",
+          "exponent": 0,
+          "aliases": [
+            "cw20:secret153wu605vvp934xhd4k9dtd640zsep5jkesstdm"
+          ]
+        },
+        {
+          "denom": "shd",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/5D3B6445EA1D7064C4B1CCB588638589529556E1BCBADF13475021B42EA8C73B",
+      "name": "Shade",
+      "display": "shd",
+      "symbol": "SHD",
+      "traces": [
+        {
+          "type": "ibc-cw20",
+          "counterparty": {
+            "chain_name": "secretnetwork",
+            "base_denom": "cw20:secret153wu605vvp934xhd4k9dtd640zsep5jkesstdm",
+            "port": "wasm.secret1tqmms5awftpuhalcv5h5mg76fa0tkdz4jv9ex4",
+            "channel_id": "channel-132"
+          },
+          "chain": {
+            "port": "transfer",
+            "channel_id": "channel-159",
+            "path": "transfer/channel-159/cw20:secret153wu605vvp934xhd4k9dtd640zsep5jkesstdm"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/shd.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/shd.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "secretnetwork",
+            "base_denom": "cw20:secret153wu605vvp934xhd4k9dtd640zsep5jkesstdm"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/shd.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/shd.svg"
         }
       ]
     }

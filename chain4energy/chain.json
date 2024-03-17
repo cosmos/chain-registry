@@ -4,7 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "website": "https://c4e.io/",
-  "pretty_name": "Chain4Energy",
+  "pretty_name": "C4E",
   "chain_id": "perun-1",
   "bech32_prefix": "c4e",
   "daemon_name": "c4ed",
@@ -12,20 +12,30 @@
   "key_algos": [
     "secp256k1"
   ],
-  "slip44": 4444,
+  "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
         "denom": "uc4e",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uc4e"
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/chain4energy/c4e-chain",
-    "recommended_version": "v1.2.1",
+    "recommended_version": "v1.3.1",
     "compatible_versions": [
-      "v1.2.1"
+      "v1.3.1"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/chain4energy/c4e-chains/main/perun-1/genesis.json"
@@ -136,6 +146,28 @@
           "linux/arm64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.0/c4ed_v1.3.0_linux_arm64.tar.gz",
           "darwin/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.0/c4ed_v1.3.0_darwin_amd64.tar.gz"
         },
+        "next_version_name": "v1.3.1"
+      },
+      {
+        "name": "v1.3.1",
+        "tag": "v1.3.1",
+        "proposal": 8,
+        "height": 7372232,
+        "recommended_version": "v1.3.1",
+        "compatible_versions": [
+          "v1.3.1"
+        ],
+        "cosmos_sdk_version": "v0.46.13",
+        "ibc_go_version": "v5.2.1",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.28"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.1/c4ed_v1.3.1_darwin_amd64.tar.gz",
+          "linux/arm64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.1/c4ed_v1.3.1_linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.1/c4ed_v1.3.1_darwin_amd64.tar.gz"
+        },
         "next_version_name": ""
       }
     ]
@@ -145,6 +177,11 @@
   },
   "peers": {
     "seeds": [
+      {
+        "id": "8ac87f7f8da5c2a901d64f2c1e86f8b6ee39fef1",
+        "address": "seed-m.c4e.apeironnodes.com:41003",
+        "provider": "Apeiron Nodes"
+      },
       {
         "id": "30e98bbcf5bb29ed4e4ff685fa8fa84fa0ddff51",
         "address": "tenderseed.ccvalidators.com:26008",
@@ -174,6 +211,11 @@
         "id": "9aa8a73ea9364aa3cf7806d4dd25b6aed88d8152",
         "address": "c4e.seed.mzonder.com:11256",
         "provider": "MZONDER"
+      },
+      {
+        "id": "fbf9a48eca1ba873ad766e2cb72a0562596a248f",
+        "address": "c4e.seed.stavr.tech:17096",
+        "provider": "🔥STAVR🔥"
       },
       {
         "id": "a85a651a3cf1746694560c5b6f76d566c04ca581",
@@ -319,7 +361,7 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "http://c4e.rpc.m.stavr.tech:17097",
+        "address": "https://c4e.rpc.m.stavr.tech:443",
         "provider": "🔥STAVR🔥"
       },
       {
@@ -405,6 +447,10 @@
       {
         "address": "https://rpc.c4e.validatus.com:443",
         "provider": "Validatus"
+      },
+      {
+        "address": "http://rpc-m.c4e.apeironnodes.com:41001",
+        "provider": "Apeiron Nodes"
       }
     ],
     "rest": [
