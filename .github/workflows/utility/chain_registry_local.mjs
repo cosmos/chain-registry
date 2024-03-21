@@ -108,7 +108,17 @@ export function readJsonFile(file) {
 
 export function writeJsonFile(file, object) {
   try {
-    fs.writeFileSync((file), JSON.stringify(object,null,2), (err) => {
+    const jsonString = JSON.stringify(object, (key, value) => {
+      // Check if the value is a number and not NaN or Infinity
+      if (typeof value === 'number' && isFinite(value) && !isNaN(value)) {
+        // Convert number to string without scientific notation
+        const stringValue = value.toString();
+        return stringValue.includes('e') ? parseFloat(stringValue) : value;
+      }
+      return value; // Return other types unchanged
+    }, 2); // 2 spaces for indentation
+
+    fs.writeFileSync(file, jsonString, (err) => {
       if (err) throw err;
     });
   } catch (err) {
