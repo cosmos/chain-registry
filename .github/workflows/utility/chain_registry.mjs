@@ -36,6 +36,7 @@ export const nonChainDirectories = [
   "_memo_keys",
   "_non-cosmos",
   "_template",
+  "_scripts",
   "testnets",
   ".gitignore",
   "assetlist.schema.json",
