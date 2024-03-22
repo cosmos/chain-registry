@@ -16,15 +16,27 @@ import * as chain_reg from './chain_registry_local.mjs';
 export function validate_chain_files() {
 
   const chainRegChains = chain_reg.getChains();
+  const chainIdMap = new Map();
 
   //iterate each chain
   chainRegChains.forEach((chain_name) => {
 
+    //check if chain_id is registered by another chain
+    let CHAIN_KILLED = chain_reg.getFileProperty(chain_name, "chain", "status");
+    if (!CHAIN_KILLED) {
+      let chain_id = chain_reg.getFileProperty(chain_name, "chain", "chain_id");
+      if (chain_id) {
+        if (chainIdMap.has(chain_id)) {
+          let conflict_chain_name = chainIdMap.get(chain_id);
+          throw new Error(`Duplicate chain ID found! Chain ID ${chain_id} is already claimed by ${conflict_chain_name}.`);
+        }
+        chainIdMap.set(chain_id, chain_name);
+      }
+    }
+
     //check if all fee tokens are registered
     let fees = chain_reg.getFileProperty(chain_name, "chain", "fees");
-    if (!fees) { return; }  // no fees defined
-    if (!fees.fee_tokens) { return; }  // no fee_tokens defined
-    fees.fee_tokens.forEach((fee_token) => {
+    fees?.fee_tokens?.forEach((fee_token) => {
       if (!fee_token.denom) {
         throw new Error(`One of ${chain_name}'s fee tokens does not have denom specified.`);
       }
