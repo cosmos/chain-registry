@@ -43,8 +43,10 @@ export const nonChainDirectories = [
   "chain.schema.json",
   "ibc_data.schema.json",
   "memo_keys.schema.json",
+  "versions.schema.json",
   "README.md",
-  "LICENSE"
+  "LICENSE",
+  "package.json"
 ]
 
 export const assetSchema = {
