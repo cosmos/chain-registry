@@ -36,14 +36,17 @@ export const nonChainDirectories = [
   "_memo_keys",
   "_non-cosmos",
   "_template",
+  "_scripts",
   "testnets",
   ".gitignore",
   "assetlist.schema.json",
   "chain.schema.json",
   "ibc_data.schema.json",
   "memo_keys.schema.json",
+  "versions.schema.json",
   "README.md",
-  "LICENSE"
+  "LICENSE",
+  "package.json"
 ]
 
 export const assetSchema = {
