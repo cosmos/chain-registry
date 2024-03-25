@@ -1,0 +1,28 @@
+name: Update Chainlists
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+
+permissions: write-all
+
+jobs:
+  update_json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+        
+      - name: Update JSON file
+        run: |
+          bash .github/workflows/utility/update_chainlists.sh
+          
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9.1.1
+        with:
+          message: "Updated Lists"
+          author_name: "Workflow Updater"
