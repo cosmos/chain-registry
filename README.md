@@ -36,7 +36,7 @@ Once schemas have matured and client needs are better understood Chain Registry 
 
 We accept pull requests to add data to an existing assetlist.json or chain.json (especially to add peer data or public rpc endpoint) or to add a new chain or asset.
 
-Please give Pull Requests a title that somewhat describes the change more precisely than the default title given to a Commit. PRs titled 'Update chain.json' are insufficient, and would be difficult to navigate when search through the backlog of Pull Requests. Some recommended details would be: the affected Chain Name, API types, or Provider to give some more detail; e.g., "Add Cosmos Hub APIs for Acme Validator".
+Please give Pull Requests a title that somewhat describes the change more precisely than the default title given to a Commit. PRs titled 'Update chain.json' are insufficient, and would be difficult to navigate when searching through the backlog of Pull Requests. Some recommended details would be: the affected Chain Name, API types, or Provider to give some more detail; e.g., "Add Cosmos Hub APIs for Acme Validator".
 
 # chain.json
 
@@ -300,7 +300,11 @@ An example assetlist json contains the following structure:
       "keywords": [
         "dex",
         "staking"
-      ]
+      ],
+      "socials": {
+        "webiste": "https://osmosis.zone",
+        "twitter": "https://twitter.com/osmosiszone"
+      }
     },
     {
       "denom_units": [
@@ -328,8 +332,13 @@ An example assetlist json contains the following structure:
       ],
       "coingecko_id": "ion",
       "keywords": [
-        "memecoin"
-      ]
+        "memecoin",
+        "defi"
+      ],
+      "socials": {
+        "webiste": "https://ion.wtf",
+        "twitter": "https://twitter.com/_IONDAO"
+      }
     }
   ]
 }
@@ -341,7 +350,7 @@ The metadata contained in these files represents a path abstraction between two 
 
 This schema also allows us to provide helpful info to describe open channels.
 
-Note: when creating these files, please ensure the the chains in both the file name and the references of `chain-1` and `chain-2` in the json file are in alphabetical order. Ex: `Achain-Zchain.json`. The chain names used must match name of the chain's directory here in the chain-registry.
+Note: when creating these files, please ensure the chains in both the file name and the references of `chain-1` and `chain-2` in the json file are in alphabetical order. Ex: `Achain-Zchain.json`. The chain names used must match name of the chain's directory here in the chain-registry.
 
 An example ibc metadata file contains the following structure:
 

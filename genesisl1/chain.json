@@ -7,7 +7,7 @@
   "chain_id": "genesis_29-2",
   "bech32_prefix": "genesis",
   "daemon_name": "genesisd",
-  "node_home": "$HOME/.genesisd",
+  "node_home": "$HOME/.genesis",
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -27,21 +27,39 @@
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/alpha-omega-labs/genesisd",
-    "recommended_version": "v0.3.0",
+    "git_repo": "https://github.com/alpha-omega-labs/genesis-crypto",
+    "recommended_version": "v1.0.0",
     "compatible_versions": [
-      "v0.3.0"
+      "v1.0.0"
     ],
+    "cosmos_sdk_version": "0.46.15",
     "genesis": {
-      "genesis_url": "https://github.com/alpha-omega-labs/genesisd/raw/neolithic/genesis_29-1-state/genesis.json"
+      "name": "plan_ethermint",
+      "genesis_url": "https://raw.githubusercontent.com/alpha-omega-labs/genesis-parameters/main/genesis_29-2/genesis.json"
     },
     "versions": [
       {
-        "name": "v0.3.0",
-        "recommended_version": "v0.3.0",
+        "name": "plan_ethermint",
+        "tag": "v0.3.0",
+        "height": 0,
+        "recommended_version": "v0.5.0",
         "compatible_versions": [
-          "v0.3.0"
-        ]
+          "v0.3.0",
+          "v0.5.0"
+        ],
+        "cosmos_sdk_version": "0.44.5",
+        "next_version_name": "plan_crypto"
+      },
+      {
+        "name": "plan_crypto",
+        "tag": "v1.0.0",
+        "height": 7400000,
+        "proposal": 92,
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ],
+        "cosmos_sdk_version": "0.46.15"
       }
     ]
   },
@@ -79,6 +97,16 @@
     "rest": [
       {
         "address": "https://api.genesisl1.org",
+        "provider": "GenesisL1"
+      },
+      {
+        "address": "https://1317.genesisl1.org",
+        "provider": "GenesisL1"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://rpc.genesisl1.org",
         "provider": "GenesisL1"
       }
     ]
