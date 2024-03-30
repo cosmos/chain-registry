@@ -36,6 +36,8 @@
     "compatible_versions": [
       "v1.0.0"
     ],
+    "cosmwasm_version": "0.45",
+    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://github.com/EmpowerPlastic/empowerchain/raw/main/mainnet/empowerchain-1/genesis.tar.gz"
     },
@@ -73,14 +75,19 @@
         "address": "seed.empowerchain.io:26656"
       },
       {
-        "id": "d2362ebcdd562500ac8c4cfa2214a89ad811033c",
+        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:17456",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "id": "9aa8a73ea9364aa3cf7806d4dd25b6aed88d8152",
         "address": "empowerchain.seed.mzonder.com:12156",
         "provider": "MZONDER"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -102,12 +109,22 @@
       {
         "id": "a5ce71892959a23ed941cb0167f28959b6694ea3",
         "address": "rpc-empower.vinjan.xyz:24656",
-        "provider": "vinjan"  
+        "provider": "vinjan"
       },
       {
         "id": "60b046f36fe485fb40cb8ece99e14244141de3cc",
         "address": "mainnet-empower.konsortech.xyz:27656",
-        "provider": "KonsorTech" 
+        "provider": "KonsorTech"
+      },
+      {
+        "id": "f7eb23352efa7aba7ba9aa56fe034ede139deab3",
+        "address": "empower.peer.stakevillage.net:16856",
+        "provider": "Stake Village"
+      },
+      {
+        "id": "73ef1c0f9bc77fd925decf7fa41f22a35b5dc76d",
+        "address": "empower.declab.pro:26609",
+        "provider": "Decloud Nodes Lab"
       }
     ]
   },
@@ -131,15 +148,11 @@
       },
       {
         "address": "https://rpc-empower.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://rpc-empowerchain.mzonder.com:443",
         "provider": "MZONDER"
-      },
-      {
-        "address": "https://rpc.empower.indonode.net:443",
-        "provider": "Indonode"
       },
       {
         "address": "https://empower-rpc.w3coins.io",
@@ -147,7 +160,7 @@
       },
       {
         "address": "https://rpc-empower.vinjan.xyz:443",
-        "provider": "vinjan"  
+        "provider": "vinjan"
       },
       {
         "address": "https://rpc.empower.nodestake.top",
@@ -156,7 +169,19 @@
       {
         "address": "https://mainnet-empower-rpc.konsortech.xyz",
         "provider": "KonsorTech"
-      }
+      },
+      {
+        "address": "https://empower.rpc.stakevillage.net:443",
+        "provider": "Stake Village"
+      },
+      {
+        "address": "https://rpc.empowerchain.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://empower.declab.pro:26607",
+        "provider": "Decloud Nodes Lab"
+      } 
     ],
     "rest": [
       {
@@ -181,19 +206,11 @@
       },
       {
         "address": "https://lcd-empower.whispernode.com:443",
-        "provider": "WhisperNode🤐"
-      },
-      {
-        "address": "https://api-empowerchain.mzonder.com:443",
-        "provider": "MZONDER"
-      },
-      {
-        "address": "https://api.empower.indonode.net:443",
-        "provider": "Indonode"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://api-empower.vinjan.xyz:443",
-        "provider": "vinjan"  
+        "provider": "vinjan"
       },
       {
         "address": "https://api.empower.nodestake.top",
@@ -202,6 +219,18 @@
       {
         "address": "https://mainnet-empower-api.konsortech.xyz",
         "provider": "KonsorTech"
+      },
+      {
+        "address": "https://empower.api.stakevillage.net",
+        "provider": "Stake Village"
+      },
+      {
+        "address": "https://lcd.empowerchain.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://empower.declab.pro:443",
+        "provider": "Decloud Nodes Lab"
       }
     ],
     "grpc": [
@@ -227,11 +256,23 @@
       },
       {
         "address": "grpc-empower.vinjan.xyz",
-        "provider": "vinjan"  
+        "provider": "vinjan"
       },
       {
         "address": "https://grpc.empower.nodestake.top:443",
         "provider": "NodeStake"
+      },
+      {
+        "address": "empower.grpc.stakevillage.net:16890",
+        "provider": "Stake Village"
+      },
+      {
+        "address": "https://grpc.empowerchain.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://empower.declab.pro:9005",
+        "provider": "Decloud Nodes Lab"
       }
     ]
   },
@@ -247,6 +288,18 @@
       "url": "https://explorer.nodestake.top/empower",
       "tx_page": "https://explorer.nodestake.top/empower/tx/${txHash}",
       "account_page": "https://explorer.nodestake.top/empower/account/{$accountAddress}"
+    },
+    {
+      "kind": "Stake Village",
+      "url": "https://exp.stakevillage.net/empower",
+      "tx_page": "https://exp.stakevillage.net/empower/tx/${txHash}",
+      "account_page": "https://exp.stakevillage.net/empower/account/${accountAddress}"
+    },
+    {
+      "kind": "Decloud Nodes Lab",
+      "url": "https://explorer.declab.pro/Empower",
+      "tx_page": "https://explorer.declab.pro/Empower/tx/${txHash}",
+      "account_page": "https://explorer.declab.pro/Empower/account/{$accountAddress}"
     }
   ]
 }
