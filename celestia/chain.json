@@ -9,7 +9,9 @@
   "bech32_prefix": "celestia",
   "daemon_name": "celestia-appd",
   "node_home": "$HOME/.celestia-app",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -31,16 +33,37 @@
   },
   "codebase": {
     "git_repo": "https://github.com/celestiaorg/celestia-app",
-    "recommended_version": "v1.3.0",
-    "compatible_versions": ["v1.3.0"],
+    "recommended_version": "v1.7.0",
+    "compatible_versions": [
+      "v1.3.0",
+      "v1.6.0",
+      "v1.7.0"
+    ],
+    "cosmos_sdk_version": "v0.46.16",
+    "ibc_go_version": "v6.2.1",
+    "consensus": {
+      "type": "tendermint",
+      "version": "celestiaorg/celestia-core v1.35.0-tm-v0.34.29"
+    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/celestia/genesis.json"
     },
     "versions": [
       {
         "name": "v1.3.0",
-        "recommended_version": "v1.3.0",
-        "compatible_versions": ["v1.3.0"]
+        "recommended_version": "v1.7.0",
+        "compatible_versions": [
+          "v1.3.0",
+          "v1.6.0",
+          "v1.7.0"
+        ],
+        "cosmos_sdk_version": "v0.46.16",
+        "ibc_go_version": "v6.2.1",
+        "consensus": {
+          "type": "tendermint",
+          "version": "celestiaorg/celestia-core v1.35.0-tm-v0.34.29"
+        },
+        "next_version_name": ""
       }
     ]
   },
@@ -76,7 +99,6 @@
         "address": "seed-celestia-01.stakeflow.io:15007",
         "provider": "Stakeflow"
       },
-
       {
         "id": "c809ca6486cd54501ce5291714c892f5dc9cfa93",
         "address": "celestia.seeds.validao.xyz:36656",
@@ -139,7 +161,7 @@
         "address": "65.108.226.26:29656",
         "provider": "[NODERS]TEAM"
       },
-       {
+      {
         "id": "c48d92566837d95f1eeae5815ac7e70fb80416f7",
         "address": "74.208.94.42:26656",
         "provider": "Cumulo"
@@ -327,7 +349,7 @@
         "address": "https://api-celestia-full.avril14th.org",
         "provider": "Avril 14th"
       },
-       {
+      {
         "address": "https://celestia.api.cumulo.org.es",
         "provider": "Cumulo"
       },
@@ -450,6 +472,12 @@
       "url": "https://explorer.theamsolutions.info/celestia-main",
       "tx_page": "https://explorer.theamsolutions.info/celestia-main/transaction/${txHash}",
       "account_page": "https://explorer.theamsolutions.info/celestia-main/account/${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/celestia",
+      "tx_page": "https://ezstaking.app/celestia/txs/${txHash}",
+      "account_page": "https://ezstaking.app/celestia/account/${accountAddress}"
     }
   ],
   "images": [
