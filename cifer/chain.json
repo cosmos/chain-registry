@@ -5,10 +5,11 @@
   "network_type": "mainnet",
   "website": "https://cifer.ai/",
   "pretty_name": "Cifer",
-  "chain_id": "cifer",
+  "chain_id": "cifer-1",
   "bech32_prefix": "cife",
   "daemon_name": "ciferd",
   "node_home": "$HOME/.ciferd",
+  "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
@@ -51,6 +52,12 @@
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cifer/images/cif.svg"
   },
   "peers": {
+    "seeds": [
+        {
+            "id": "541fbc9169c7c1ec84babea50cb76c4b991fd0b2",
+            "address": "34.128.114.243:26656"
+        }
+    ],
     "persistent_peers": []
   },
   "apis": {
@@ -63,6 +70,12 @@
     "rest": [
       {
         "address": "https://api.cifer.ai",
+        "provider": "Cifer"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "http://grpc.cifer.ai",
         "provider": "Cifer"
       }
     ]

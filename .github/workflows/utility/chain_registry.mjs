@@ -36,14 +36,17 @@ export const nonChainDirectories = [
   "_memo_keys",
   "_non-cosmos",
   "_template",
+  "_scripts",
   "testnets",
   ".gitignore",
   "assetlist.schema.json",
   "chain.schema.json",
   "ibc_data.schema.json",
   "memo_keys.schema.json",
+  "versions.schema.json",
   "README.md",
-  "LICENSE"
+  "LICENSE",
+  "package.json"
 ]
 
 export const assetSchema = {
@@ -292,6 +295,20 @@ export function getAssetPropertyWithTrace(chainName, baseDenom, property) {
     }
   }
   return value;
+}
+
+export function getAssetPropertyWithTraceCustom(chainName, baseDenom, property, types) {
+  let value = getAssetProperty(chainName, baseDenom, property);
+  if (value) { return value; }
+  if (property === "traces") { return; }
+  let traces = getAssetProperty(chainName, baseDenom, "traces");
+  if (!traces) { return; }
+  if (!types.includes(traces[traces.length - 1].type)) { return; }
+  let originAsset = {
+    chainName: traces[traces.length - 1].counterparty.chain_name,
+    baseDenom: traces[traces.length - 1].counterparty.base_denom
+  }
+  return getAssetPropertyWithTraceCustom(originAsset.chainName, originAsset.baseDenom, property, types);
 }
 
 export function getAssetPropertyWithTraceIBC(chainName, baseDenom, property) {
