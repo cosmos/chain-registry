@@ -3,8 +3,8 @@
   "chain_name": "hypersigntestnet",
   "status": "live",
   "network_type": "testnet",
-  "pretty_name": "hypersign",
-  "chain_id": "jagrat",
+  "pretty_name": "Hypersign Testnet",
+  "chain_id": "prajna-1",
   "bech32_prefix": "hid",
   "daemon_name": "hid-noded",
   "node_home": "$HOME/.hid-node",
@@ -13,122 +13,69 @@
     "fee_tokens": [
       {
         "denom": "uhid",
-        "fixed_min_gas_price": 0,
-        "low_gas_price": 0,
-        "average_gas_price": 0.02,
-        "high_gas_price": 0.05
+        "fixed_min_gas_price": 0
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/hypersign-protocol/hid-node",
-    "recommended_version": "v0.1.5",
+    "recommended_version": "v0.2.0",
     "compatible_versions": [
-      "v0.1.5"
+      "v0.2.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/hypersign-protocol/hid-node/releases/download/v0.1.5/hid-noded-0.1.5-linux-amd64.tar.gz",
-      "linux/arm64": "https://github.com/hypersign-protocol/hid-node/releases/download/v0.1.5/hid-noded-0.1.5-linux-arm64.tar.gz",
-      "darwin/arm64": "https://github.com/hypersign-protocol/hid-node/releases/download/v0.1.5/hid-noded-0.1.5-darwin-arm64.tar.gz"
+      "linux/amd64": "https://github.com/hypersign-protocol/hid-node/releases/download/v0.2.0/hid-noded-0.2.0-linux-amd64.tar.gz",
+      "linux/arm64": "https://github.com/hypersign-protocol/hid-node/releases/download/v0.2.0/hid-noded-0.2.0-linux-arm64.tar.gz",
+      "darwin/amd64": "https://github.com/hypersign-protocol/hid-node/releases/download/v0.2.0/hid-noded-0.2.0-darwin-amd64.tar.gz"
     },
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/hypersign-protocol/networks/master/testnet/jagrat/final_genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/hypersign-protocol/networks/master/testnet/prajna/final_genesis.json"
     },
     "versions": [
       {
-        "name": "v0.1.5",
-        "recommended_version": "v0.1.5",
+        "name": "v0.2.0",
+        "recommended_version": "v0.2.0",
         "compatible_versions": [
-          "v0.1.5"
+          "v0.2.0"
         ],
         "binaries": {
-          "linux/amd64": "https://github.com/hypersign-protocol/hid-node/releases/download/v0.1.5/hid-noded-0.1.5-linux-amd64.tar.gz",
-          "linux/arm64": "https://github.com/hypersign-protocol/hid-node/releases/download/v0.1.5/hid-noded-0.1.5-linux-arm64.tar.gz",
-          "darwin/arm64": "https://github.com/hypersign-protocol/hid-node/releases/download/v0.1.5/hid-noded-0.1.5-darwin-arm64.tar.gz"
+          "linux/amd64": "https://github.com/hypersign-protocol/hid-node/releases/download/v0.2.0/hid-noded-0.2.0-linux-amd64.tar.gz",
+          "linux/arm64": "https://github.com/hypersign-protocol/hid-node/releases/download/v0.2.0/hid-noded-0.2.0-linux-arm64.tar.gz",
+          "darwin/amd64": "https://github.com/hypersign-protocol/hid-node/releases/download/v0.2.0/hid-noded-0.2.0-darwin-amd64.tar.gz"
         }
       }
     ]
   },
   "peers": {
-    "seeds": [
-      {
-        "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
-        "address": "testnet-seeds.stakerhouse.com:11456",
-        "provider": "StakerHouse"
-      }
-    ],
+    "seeds": [],
     "persistent_peers": [
       {
-        "id": "70db7f0ae54e329474ecd0649d04884bc6f6abe9",
-        "address": "hid.peer.stavr.tech:11056",
-        "provider": "🔥STAVR🔥"
-      },
-      {
-        "id": "d7c9b9a3c3a6c5f4ccdfb37a8358755b277271c1",
-        "address": "3.110.226.164:26656",
-        "provider": "hypersign"
+        "id": "1669450f3ecd9f989a30a3d050a142c7a848b723",
+        "address": "34.100.151.52:26656",
+        "provider": "Hypersign"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.jagrat.hypersign.id",
-        "provider": "hypersign"
-      },
-      {
-        "address": "http://hid.rpc.t.stavr.tech:11057",
-        "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "https://hypersign-testnet-rpc.stakerhouse.com",
-        "provider": "StakerHouse"
+        "address": "https://rpc.prajna.hypersign.id",
+        "provider": "Hypersign"
       }
     ],
     "rest": [
       {
-        "address": "https://api.jagrat.hypersign.id",
-        "provider": "hypersign"
-      },
-      {
-        "address": "https://hid.api.t.stavr.tech",
-        "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "https://hypersign-testnet-rest.stakerhouse.com",
-        "provider": "StakerHouse"
+        "address": "https://api.prajna.hypersign.id",
+        "provider": "Hypersign"
       }
     ],
-    "grpc": [
-      {
-        "address": "grpc.jagrat.hypersign.id:5099",
-        "provider": "hypersign"
-      },
-      {
-        "address": "http://hid.grpc.t.stavr.tech:8022",
-        "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "hypersign-testnet-grpc.stakerhouse.com:443",
-        "provider": "StakerHouse"
-      }
-    ]
+    "grpc": []
   },
   "explorers": [
     {
-      "kind": "Ping Pub",
-      "url": "https://explorer.hypersign.id/hypersign-testnet",
-      "tx_page": "https://explorer.hypersign.id/hypersign-testnet/tx/${txHash}"
-    },
-    {
-      "kind": "🔥STAVR🔥",
-      "url": "https://explorer.stavr.tech/HyperSign",
-      "tx_page": "https://explorer.stavr.tech/HyperSign/tx/${txHash}"
-    },
-    {
-      "kind": "cosmotracker",
-      "url": "https://cosmotracker.com/hypersign",
-      "tx_page": "https://cosmotracker.com/hypersign/tx/${txHash}"
+      "kind": "Hypersign",
+      "url": "https://explorer.hypersign.id/hypersign-prajna-testnet",
+      "tx_page": "https://explorer.hypersign.id/hypersign-prajna-testnet/tx/${txHash}"
     }
   ]
 }

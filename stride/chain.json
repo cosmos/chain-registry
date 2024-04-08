@@ -84,6 +84,27 @@
         "low_gas_price": 0.1,
         "average_gas_price": 0.12,
         "high_gas_price": 0.2
+      },
+      {
+        "denom": "stutia",
+        "fixed_min_gas_price": 0.002,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.02,
+        "high_gas_price": 0.1
+      },
+      {
+        "denom": "stadydx",
+        "fixed_min_gas_price": 15000000000,
+        "low_gas_price": 15000000000,
+        "average_gas_price": 15000000000,
+        "high_gas_price": 20000000000
+      },
+      {
+        "denom": "stadym",
+        "fixed_min_gas_price": 15000000000,
+        "low_gas_price": 15000000000,
+        "average_gas_price": 15000000000,
+        "high_gas_price": 20000000000
       }
     ]
   },
@@ -96,14 +117,14 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Stride-Labs/stride",
-    "recommended_version": "v17.0.0",
+    "recommended_version": "v21.0.0",
     "compatible_versions": [
-      "v17.0.0"
+      "v21.0.0"
     ],
-    "cosmos_sdk_version": "v0.47.5-stride-distribution-fix-0",
+    "cosmos_sdk_version": "Stride-Labs/cosmos-sdk v0.47.10-stride-distribution-fix-0",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.2"
+      "version": "v0.37.4"
     },
     "ibc_go_version": "7.3.1",
     "genesis": {
@@ -253,6 +274,74 @@
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.2"
+        },
+        "ibc_go_version": "7.3.1",
+        "next_version_name": "v18"
+      },
+      {
+        "name": "v18",
+        "tag": "v18.0.0",
+        "recommended_version": "v18.0.0",
+        "compatible_versions": [
+          "v18.0.0"
+        ],
+        "proposal": 229,
+        "height": 7464647,
+        "cosmos_sdk_version": "Stride-Labs/cosmos-sdk v0.47.5-stride-distribution-fix-0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "ibc_go_version": "7.3.1",
+        "next_version_name": "v19"
+      },
+      {
+        "name": "v19",
+        "tag": "v19.0.0",
+        "recommended_version": "v19.0.0",
+        "compatible_versions": [
+          "v19.0.0"
+        ],
+        "proposal": 233,
+        "height": 8064608,
+        "cosmos_sdk_version": "Stride-Labs/cosmos-sdk v0.47.5-stride-distribution-fix-0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "ibc_go_version": "7.3.1",
+        "next_version_name": "v20"
+      },
+      {
+        "name": "v20",
+        "tag": "v20.0.0",
+        "recommended_version": "v20.0.0",
+        "compatible_versions": [
+          "v20.0.0"
+        ],
+        "proposal": 235,
+        "height": 8269628,
+        "cosmos_sdk_version": "Stride-Labs/cosmos-sdk v0.47.10-stride-distribution-fix-0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "ibc_go_version": "7.3.1",
+        "next_version_name": "v21"
+      },
+      {
+        "name": "v21",
+        "tag": "v21.0.0",
+        "recommended_version": "v21.0.0",
+        "compatible_versions": [
+          "v21.0.0"
+        ],
+        "proposal": 236,
+        "height": 8370738,
+        "cosmos_sdk_version": "Stride-Labs/cosmos-sdk v0.47.10-stride-distribution-fix-0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
         },
         "ibc_go_version": "7.3.1",
         "next_version_name": ""
@@ -416,7 +505,11 @@
       {
         "address": "https://rpc.stride.bronbro.io:443",
         "provider": "Bro_n_Bro"
-      }  
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/stride/rpc",
+        "provider": "Stakewolle"
+      }
     ],
     "rest": [
       {
@@ -426,10 +519,6 @@
       {
         "address": "https://api-stride.cosmos-spaces.cloud",
         "provider": "Cosmos Spaces"
-      },
-      {
-        "address": "https://stride.api.m.stavr.tech",
-        "provider": "🔥STAVR🔥"
       },
       {
         "address": "https://stride-api.lavenderfive.com/",
@@ -482,7 +571,11 @@
       {
         "address": "https://lcd.stride.bronbro.io:443",
         "provider": "Bro_n_Bro"
-      }    
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/stride/rest",
+        "provider": "Stakewolle"
+      }
     ],
     "grpc": [
       {
@@ -532,7 +625,7 @@
       {
         "address": "https://grpc.stride.bronbro.io:443",
         "provider": "Bro_n_Bro"
-      }    
+      }
     ]
   },
   "explorers": [
@@ -543,10 +636,10 @@
       "account_page": "https://explorer.bccnodes.com/stride-M/account/${accountAddress}"
     },
     {
-      "kind": "EZ Staking",
-      "url": "https://app.ezstaking.io/stride",
-      "tx_page": "https://app.ezstaking.io/stride/txs/${txHash}",
-      "account_page": "https://app.ezstaking.io/stride/account/${accountAddress}"
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/stride",
+      "tx_page": "https://ezstaking.app/stride/txs/${txHash}",
+      "account_page": "https://ezstaking.app/stride/account/${accountAddress}"
     },
     {
       "kind": "Apollo",
