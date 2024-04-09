@@ -1,0 +1,178 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "shido",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://shido.io/",
+  "pretty_name": "Shido",
+  "chain_id": "shido_9008-1",
+  "bech32_prefix": "shido",
+  "node_home": "$HOME/.shidod",
+  "daemon_name": "shidod",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "shido",
+        "fixed_min_gas_price": 250000000,
+        "low_gas_price": 20000000000,
+        "average_gas_price": 25000000000,
+        "high_gas_price": 40000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "shido"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/ShidoGlobal/shidochain",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "cosmos_sdk_version": "v0.47.4",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.2"
+    },
+    "cosmwasm_version": "v0.45.0",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "v7.3.0",
+    "binaries": {
+      "linux/amd64": "https://github.com/ShidoGlobal/mainnetShidoNodeSync/releases/download/v1.0.0/ubuntu_20.04.tar.gz",
+      "linux/amd64": "https://github.com/ShidoGlobal/mainnetShidoNodeSync/releases/download/v1.0.0/ubuntu_22.04.tar.gz"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/ShidoGlobal/mainnetShidoNodeSync/main/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.0.0",
+        "tag": "v1.0.0",
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ],
+        "cosmos_sdk_version": "v0.47.4",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "ibc_go_version": "v7.3.0",
+        "binaries": {
+          "linux/amd64": "https://github.com/ShidoGlobal/mainnetShidoNodeSync/releases/download/v1.0.0/ubuntu_20.04.tar.gz",
+          "linux/amd64": "https://github.com/ShidoGlobal/mainnetShidoNodeSync/releases/download/v1.0.0/ubuntu_22.04.tar.gz"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/shido/images/shido.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/shido/images/shido.svg"
+  },
+  "description": "Developers use Shido as the Ethereum and Wasm Chain to deploy applications of the future. Get all the functionalities of Ethereum and Wasm with the power of IBC and Interchain composability.",
+  "peers": {
+    "seeds": [
+      {
+        "id": "a887f17c46702e8d7317ad20a07d0cfc483c7dff",
+        "address": "18.153.251.152:26656",
+        "provider": "SHIDO"
+      },
+      {
+        "id": "628de9fd0fde3f96fd1435d844a0e55b0000dd99",
+        "address": "18.199.116.165:26656",
+        "provider": "SHIDO"
+      },
+      {
+        "id": "b4166cdc7d1f92c54b9d39fe5a94af9e54e04726",
+        "address": "15.223.62.181:26656",
+        "provider": "SHIDO"
+      },
+      {
+        "id": "98e1d5375a38b0b410b00f5459f81341069b14ad",
+        "address": "52.60.59.80:26656",
+        "provider": "SHIDO"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "a887f17c46702e8d7317ad20a07d0cfc483c7dff",
+        "address": "18.153.251.152:26656",
+        "provider": "SHIDO"
+      },
+      {
+        "id": "628de9fd0fde3f96fd1435d844a0e55b0000dd99",
+        "address": "18.199.116.165:26656",
+        "provider": "SHIDO"
+      },
+      {
+        "id": "b4166cdc7d1f92c54b9d39fe5a94af9e54e04726",
+        "address": "15.223.62.181:26656",
+        "provider": "SHIDO"
+      },
+      {
+        "id": "98e1d5375a38b0b410b00f5459f81341069b14ad",
+        "address": "52.60.59.80:26656",
+        "provider": "SHIDO"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://tendermint.shidoscan.com",
+        "provider": "Shido"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://swagger.shidoscan.com",
+        "provider": "Shido"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.shidoscan.com",
+        "provider": "shido.io"
+      },
+      {
+        "address": "https://grpc-web.shidoscan.com",
+        "provider": "shido.io"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://rpc-nodes.shidoscan.com",
+        "provider": "Shido"
+      },
+      {
+        "address": "https://rpc-delta-nodes.shidoscan.com",
+        "provider": "Shido"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "shido",
+      "url": "https://shidoscan.com",
+      "tx_page": "https://shidoscan.com/tx/${txHash}",
+      "account_page": "https://shidoscan.com/address/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/shido/images/shido.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/shido/images/shido.svg"
+    }
+  ]
+}
