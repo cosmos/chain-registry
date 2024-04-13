@@ -14559,6 +14559,75 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/rstk.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/rstk.svg"
       }
+    },
+    {
+      "description": "Gravity Bridge Paxos Gold",
+      "denom_units": [
+        {
+          "denom": "ibc/A5CCD24BA902843B1003A7EEE5F937C632808B9CF4925601241B15C5A0A51A53",
+          "exponent": 0,
+          "aliases": [
+            "gravity0x45804880De22913dAFE09f4980848ECE6EcbAf78"
+          ]
+        },
+        {
+          "denom": "gpaxg",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/A5CCD24BA902843B1003A7EEE5F937C632808B9CF4925601241B15C5A0A51A53",
+      "name": "Paxos Gold (Gravity Bridge)",
+      "display": "gpaxg",
+      "symbol": "PAXG.grv",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "comex",
+            "base_denom": "XAU"
+          },
+          "provider": "Paxos"
+        },
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x45804880De22913dAFE09f4980848ECE6EcbAf78"
+          },
+          "provider": "Gravity Bridge"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "gravitybridge",
+            "base_denom": "gravity0x45804880De22913dAFE09f4980848ECE6EcbAf78",
+            "channel_id": "channel-10"
+          },
+          "chain": {
+            "channel_id": "channel-144",
+            "path": "transfer/channel-144/gravity0x45804880De22913dAFE09f4980848ECE6EcbAf78"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/paxg.grv.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/paxg.grv.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/paxg.grv.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/paxg.grv.svg"
+        },
+        {
+          "image_sync": {
+            "chain_name": "gravitybridge",
+            "base_denom": "gravity0x45804880De22913dAFE09f4980848ECE6EcbAf78"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/paxg.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/paxg.svg"
+        }
+      ]
     }
   ]
 }
