@@ -8,6 +8,8 @@
 //   read chain.json
 //     read fee_tokens
 //       check if fee token exists in the assetlist.
+//     read staking
+//       chaeck if staking token exists in the assetlist
 //
 
 import * as path from 'path';
@@ -33,7 +35,7 @@ function checkChainIdConflict(chain_name) {
 
 }
 
-function checkFeesAreRegistered(chain_name) {
+function checkFeeTokensAreRegistered(chain_name) {
 
   let fees = chain_reg.getFileProperty(chain_name, "chain", "fees");
   fees?.fee_tokens?.forEach((fee_token) => {
@@ -41,7 +43,21 @@ function checkFeesAreRegistered(chain_name) {
       throw new Error(`One of ${chain_name}'s fee tokens does not have denom specified.`);
     }
     if (!chain_reg.getAssetProperty(chain_name, fee_token.denom, "base")) {
-      throw new Error(`Chain ${chain_name} does not have fee token ${fee_token.denom} defined in it's Assetlist.`);
+      throw new Error(`Chain ${chain_name} does not have fee token ${fee_token.denom} defined in its Assetlist.`);
+    }
+  });
+
+}
+
+function checkStakingTokensAreRegistered(chain_name) {
+
+  let staking = chain_reg.getFileProperty(chain_name, "chain", "staking");
+  staking?.staking_tokens?.forEach((staking_token) => {
+    if (!staking_token.denom) {
+      throw new Error(`One of ${chain_name}'s staking tokens does not have denom specified.`);
+    }
+    if (!chain_reg.getAssetProperty(chain_name, staking_token.denom, "base")) {
+      throw new Error(`Chain ${chain_name} does not have staking token ${staking_token.denom} defined in its Assetlist.`);
     }
   });
 
@@ -117,7 +133,10 @@ export function validate_chain_files() {
     checkChainIdConflict(chain_name);
 
     //check if all fee tokens are registered
-    checkFeesAreRegistered(chain_name);
+    checkFeeTokensAreRegistered(chain_name);
+
+    //check if all staking tokens are registered
+    checkStakingTokensAreRegistered(chain_name);
 
     //get chain's assets
     const chainAssets = chain_reg.getFileProperty(chain_name, "assetlist", "assets");
