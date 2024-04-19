@@ -234,7 +234,7 @@
       "description": "The native token of Ethereum, bridged via IBC.",
       "denom_units": [
         {
-          "denom": "eth-wei",
+          "denom": "wei",
           "exponent": 0
         },
         {
@@ -243,7 +243,7 @@
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/4C14B42547F6428A4E84F501D21CE5DF6C40C537635A8B0E6A5ED8FB4919BCE7",
+      "base": "ibc/F9D075D4079FC56A9C49B601E54A45292C319D8B0E8CC0F8439041130AA7166C",
       "name": "Ethereum",
       "display": "eth",
       "symbol": "ETH",
@@ -253,12 +253,12 @@
           "counterparty": {
             "chain_name": "ethereum",
             "base_denom": "wei",
-            "channel_id": ""
+            "channel_id": "channel-2"
           },
           "chain": {
-            "channel_id": "",
-            "path": ""
-          }
+            "channel_id": "channel-52",
+            "path": "transfer/channel-52/eth-wei"
+          },
         }
       ],
       "logo_URIs": {
@@ -287,7 +287,7 @@
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/692825E012F3EF9440A6E91F4361FE6EC6F02457A7AD34D8EB25AE479CBC80DD",
+      "base": "ibc/A342F6F8D1CDE1D934C50E8EAFF91E813D971E1BFEED7E557F1674E01004A533",
       "name": "Dai",
       "display": "dai",
       "symbol": "DAI",
@@ -297,12 +297,13 @@
           "counterparty": {
             "chain_name": "ethereum",
             "base_denom": "0x6b175474e89094c44da98b954eedeac495271d0f",
-            "channel_id": ""
+            "channel_id": "channel-2"
           },
           "chain": {
-            "channel_id": "",
-            "path": ""
-          }
+            "channel_id": "channel-52",
+            "path": "transfer/channel-52/0x6b175474e89094c44da98b954eedeac495271d0f"
+          },
+          "provider": "Picasso"
         }
       ],
       "logo_URIs": {
@@ -331,7 +332,7 @@
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/4404E14E1FD538EF6B0972221213A0F1BE747797252AA97F8C0D547BB36BEBD7",
+      "base": "ibc/5F9BE030FC355733EC79307409FA98398BBFC747C9430B326C144A74F6808B29",
       "name": "Frax Shares",
       "display": "fxs",
       "symbol": "FXS",
@@ -340,13 +341,14 @@
           "type": "ibc",
           "counterparty": {
             "chain_name": "ethereum",
-            "base_denom": "0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0",
-            "channel_id": ""
+            "base_denom": "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
+            "channel_id": "channel-2"
           },
           "chain": {
-            "channel_id": "",
-            "path": ""
-          }
+            "channel_id": "channel-52",
+            "path": "transfer/channel-52/0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0"
+          },      
+          "provider": "Picasso"
         }
       ],
       "logo_URIs": {
@@ -356,7 +358,7 @@
         {
           "image_sync": {
             "chain_name": "ethereum",
-            "base_denom": "0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0"
+            "base_denom": "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0"
           },
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/fxs.svg"
         }
@@ -375,7 +377,7 @@
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/8E143D2D8E7E5BD8CA9B35F16D32F2043DF7564D6103B67FE30AE506EC434499",
+      "base": "ibc/BF1406254074C28207C0A063113DFB9B8319F03EF4FBF499FF56D0D8B6002473",
       "name": "Frax",
       "display": "frax",
       "symbol": "FRAX",
@@ -384,7 +386,12 @@
           "type": "ibc",
           "counterparty": {
             "chain_name": "ethereum",
-            "base_denom": "0x853d955acef822db058eb8505911ed77f175b99e"
+            "base_denom": "0x853d955acef822db058eb8505911ed77f175b99e",
+            "channel_id": "channel-2"
+          },
+          "chain": {
+            "channel_id": "channel-52",
+            "path": "transfer/channel-52/0x853d955acef822db058eb8505911ed77f175b99e"
           },
           "provider": "Picasso"
         }
@@ -425,12 +432,14 @@
           "counterparty": {
             "chain_name": "ethereum",
             "base_denom": "0x5e8422345238f34275888049021821e8e08caa1f",
-            "channel_id": ""
+            "channel_id": "channel-2"
           },
           "chain": {
-            "channel_id": "",
-            "path": ""
-          }
+            "channel_id": "channel-52",
+            "path": "transfer/channel-52/0x5e8422345238f34275888049021821e8e08caa1f"
+          },
+          "provider": "Picasso"
+
         }
       ],
       "logo_URIs": {
@@ -459,7 +468,7 @@
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/2683140187F450E86076F32B7A1AAB8E1BF43A5F1517B634A3E8542B72AEB338",
+      "base": "ibc/4E0ECE7819D77B0F2B49F5C34B5E594A02D2BA8B1B0F103208F847B53EBFB69A",
       "name": "Frax Staked Ether",
       "display": "sfrxeth",
       "symbol": "sfrxETH",
@@ -468,7 +477,12 @@
           "type": "ibc",
           "counterparty": {
             "chain_name": "ethereum",
-            "base_denom": "0xac3e018457b222d93114458476f3e3416abbe38f"
+            "base_denom": "0xac3e018457b222d93114458476f3e3416abbe38f",
+            "channel_id": "channel-2"
+          },
+          "chain": {
+            "channel_id": "channel-52",
+            "path": "transfer/channel-52/0xac3e018457b222d93114458476f3e3416abbe38f"
           },
           "provider": "Picasso"
         }
@@ -499,7 +513,7 @@
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/C368A8C6966F2C7D07FA8B139053E365EC0F2122A0B5328A9599DD69493C339A",
+      "base": "ibc/5BD7F23FE150D9CF3BCC944DB829380BCC51A4022A131151C4D13B3AFAC2D1D9",
       "name": "Staked FRAX",
       "display": "sfrax",
       "symbol": "sFRAX",
@@ -509,12 +523,13 @@
           "counterparty": {
             "chain_name": "ethereum",
             "base_denom": "0xA663B02CF0a4b149d2aD41910CB81e23e1c41c32",
-            "channel_id": ""
+            "channel_id": "channel-2"
           },
           "chain": {
-            "channel_id": "",
-            "path": ""
-          }
+            "channel_id": "channel-52",
+            "path": "transfer/channel-52/0xa663b02cf0a4b149d2ad41910cb81e23e1c41c32"
+          },
+          "provider": "Picasso"
         }
       ],
       "logo_URIs": {
@@ -543,7 +558,7 @@
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/793748ABDABD5BAF45EA37ADDF73A200AB5990F49450A92BA57552BAA3554C7E",
+      "base": "ibc/37CC704EA53E96AB09A9C31D79142DE7DB252420F3AB18015F9870AE219947BD",
       "name": "Tether",
       "display": "usdt",
       "symbol": "USDT",
@@ -553,12 +568,13 @@
           "counterparty": {
             "chain_name": "ethereum",
             "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-            "channel_id": ""
+            "channel_id": "channel-2"
           },
           "chain": {
-            "channel_id": "",
-            "path": ""
-          }
+            "channel_id": "channel-52",
+            "path": "transfer/channel-52/0xdac17f958d2ee523a2206206994597c13d831ec7"
+          },
+          "provider": "Picasso"
         }
       ],
       "logo_URIs": {
