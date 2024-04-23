@@ -1,0 +1,241 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "zetachain",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "ZetaChain",
+  "chain_id": "zetachain_7000-1",
+  "bech32_prefix": "zeta",
+  "daemon_name": "zetacored",
+  "node_home": "$HOME/.zetacored",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "azeta",
+        "low_gas_price": 20000000000,
+        "average_gas_price": 25000000000,
+        "high_gas_price": 40000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "azeta"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/zeta-chain/node",
+    "recommended_version": "v14.0.0",
+    "compatible_versions": [
+      "v14.0.0"
+    ],
+    "cosmos_sdk_version": "v0.46.13",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.34.28"
+    },
+    "ibc_go_version": "v6.1.0",
+    "genesis": {
+      "genesis_url": "https://zetachain.blockpi.network/rpc/v1/public/genesis"
+    },
+    "versions": [
+      {
+        "name": "v11",
+        "recommended_version": "v11.0.0",
+        "compatible_versions": [
+          "v11.0.0"
+        ],
+        "cosmos_sdk_version": "v0.46.13",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.28"
+        },
+        "ibc_go_version": "v6.1.0",
+        "next_version_name": "v12"
+      },
+      {
+        "name": "v12",
+        "recommended_version": "v12.0.0",
+        "compatible_versions": [
+          "v12.0.0"
+        ],
+        "cosmos_sdk_version": "v0.46.13",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.28"
+        },
+        "ibc_go_version": "v6.1.0",
+        "next_version_name": "v12.1.0"
+      },
+      {
+        "name": "v12.1.0",
+        "recommended_version": "v12.1.0",
+        "compatible_versions": [
+          "v12.1.0"
+        ],
+        "cosmos_sdk_version": "v0.46.13",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.28"
+        },
+        "ibc_go_version": "v6.1.0",
+        "next_version_name": "v12.2.0"
+      },
+      {
+        "name": "v12.2.0",
+        "recommended_version": "v12.2.5",
+        "compatible_versions": [
+          "v12.2.5"
+        ],
+        "cosmos_sdk_version": "v0.46.13",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.28"
+        },
+        "ibc_go_version": "v6.1.0",
+        "next_version_name": "v14.0.0"
+      },
+      {
+        "name": "v14.0.1",
+        "recommended_version": "v14.0.1",
+        "compatible_versions": [
+          "v14.0.1"
+        ],
+        "proposal": 21,
+        "height": 2074730,
+        "cosmos_sdk_version": "v0.46.13",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.28"
+        },
+        "ibc_go_version": "v6.1.0",
+        "next_version_name": ""
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:22556",
+        "provider": "Lavender.Five Nodes 🐝"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "8d93468c6022fb3b263963bdea46b0a131d247cd",
+        "address": "34.28.196.79:26656",
+        "provider": "ZetaChain"
+      },
+      {
+        "id": "637077d431f618181597706810a65c826524fd74",
+        "address": "zetachain.rpc.nodeshub.online:22556",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://zetachain.blockpi.network/rpc/v1/public",
+        "provider": "BlockPI"
+      },
+      {
+        "address": "https://zetachain-mainnet-archive.allthatnode.com:26657",
+        "provider": "All That Node"
+      },
+      {
+        "address": "https://zetachain-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc.zetachain.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://zetachain-rpc.noders.services",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://zetachain.rpc.nodeshub.online:443",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://zetachain.blockpi.network/lcd/v1/public",
+        "provider": "BlockPI"
+      },
+      {
+        "address": "https://zetachain-mainnet-archive.allthatnode.com:1317",
+        "provider": "All That Node"
+      },
+      {
+        "address": "https://zetachain-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://api.zetachain.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://zetachain-api.noders.services",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://zetachain.api.nodeshub.online:443",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://zetachain-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://grpc.zetachain.nodestake.org:443",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "zetachain-grpc.noders.services:28090",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://zetachain.grpc.nodeshub.online",
+        "provider": "Nodes Hub"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ZetaScan",
+      "url": "https://explorer.zetachain.com/",
+      "tx_page": "https://explorer.zetachain.com/cc/tx/${txHash}"
+    },
+    {
+      "kind": "BlockScout",
+      "url": "https://zetachain.blockscout.com/",
+      "tx_page": "https://zetachain.blockscout.com/tx/${txHash}"
+    },
+    {
+      "kind": "NodeStake Explorer",
+      "url": "https://explorer.nodestake.org/zetachain",
+      "tx_page": "https://explorer.nodestake.org/zetachain/tx/${txHash}"
+    },
+    {
+      "kind": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅",
+      "url": "https://explorer.nodeshub.online/zetachain/",
+      "tx_page": "https://explorer.nodeshub.online/zetachain/tx/${txHash}",
+      "account_page": "https://explorer.nodeshub.online/zetachain/accounts/${accountAddress}"
+    }
+  ]
+}
