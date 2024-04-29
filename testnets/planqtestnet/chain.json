@@ -1,0 +1,152 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "planqtestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Planq Atlas Testnet",
+  "chain_id": "planq_7077-1",
+  "bech32_prefix": "plq",
+  "daemon_name": "planqd",
+  "node_home": "$HOME/.planqd",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "atplanq",
+        "fixed_min_gas_price": 20000000000,
+        "low_gas_price": 30000000000,
+        "average_gas_price": 35000000000,
+        "high_gas_price": 40000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "atplanq"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/planq-network/planq",
+    "recommended_version": "v1.1.2",
+    "compatible_versions": [
+      "v1.1.2"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/planq-network/planq/releases/download/v1.1.2/planq_1.1.2_linux_amd64.tar.gz",
+      "linux/arm64": "https://github.com/planq-network/planq/releases/download/v1.1.2/planq_1.1.2_linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/planq-network/planq/releases/download/v1.1.2/planq_1.1.2_darwin_amd64.tar.gz",
+      "darwin/arm64": "https://github.com/planq-network/planq/releases/download/v1.1.2/planq_1.1.2_darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/planq-network/planq/releases/download/v1.1.2/planq_1.1.2_windows_amd64.zip"
+    },
+    "cosmos_sdk_version": "v0.46.3",
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.34.33"
+    },
+    "ibc_go_version": "5.0.2",
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/planq-network/networks/main/atlas-testnet/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.1.2",
+        "recommended_version": "v1.1.2",
+        "compatible_versions": [
+          "v1.1.2"
+        ],
+        "cosmos_sdk_version": "v0.46.3",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.34.33"
+        },
+        "ibc_go_version": "5.0.2",
+        "binaries": {
+          "linux/amd64": "https://github.com/planq-network/planq/releases/download/v1.1.2/planq_1.1.2_linux_amd64.tar.gz",
+          "linux/arm64": "https://github.com/planq-network/planq/releases/download/v1.1.2/planq_1.1.2_linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/planq-network/planq/releases/download/v1.1.2/planq_1.1.2_darwin_amd64.tar.gz",
+          "darwin/arm64": "https://github.com/planq-network/planq/releases/download/v1.1.2/planq_1.1.2_darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/planq-network/planq/releases/download/v1.1.2/planq_1.1.2_windows_amd64.zip"
+        },
+        "next_version_name": ""
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/planqtestnet/images/planq.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/planqtestnet/images/planq.svg"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "9bea353c3ebfcba081c45aa4c2a8929809437859",
+        "address": "54.37.78.240:26656",
+        "provider": "Planq Network"
+      }
+    ],
+    "persistent_peers": [
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-atlas.planq.network",
+        "provider": "Planq Network"
+      },
+      {
+        "address": "https://planq_testnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "WMWL"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest-atlas.planq.network",
+        "provider": "Planq Network"
+      },
+      {
+        "address": "https://planq_testnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "WMWL"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc-atlas.planq.network",
+        "provider": "Planq Network"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://evm-rpc-atlas.planq.network",
+        "provider": "Planq Network"
+      },
+      {
+        "address": "https://planq_testnet_evm.chain.whenmoonwhenlambo.money",
+        "provider": "WMWL"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "EVM",
+      "url": "https://evm-atlas.planq.network",
+      "tx_page": "https://evm-atlas.planq.network/tx/${txHash}"
+    },
+    {
+      "kind": "Konsortech",
+      "url": "https://testnet-explorer.konsortech.xyz/planq",
+      "tx_page": "https://testnet-explorer.konsortech.xyz/planq/tx/${txHash}"
+    },
+    {
+      "kind": "WMWL",
+      "url": "https://explorer.whenmoonwhenlambo.money/planq-testnet",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/planq-testnet/tx/${txHash}"
+    }
+  ]
+}
