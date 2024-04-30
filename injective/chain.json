@@ -1,95 +1,425 @@
 {
-    "$schema": "../chain.schema.json",
-    "chain_name": "injective",
-    "status": "live",
-    "network_type": "mainnet",
-    "pretty_name": "Injective",
-    "chain_id": "injective-1",
-    "bech32_prefix": "inj",
-    "slip44": 60,
-    "daemon_name": "injectived",
-    "node_home": "$HOME/.injectived",
-    "genesis": {
-        "genesis_url": "https://raw.githubusercontent.com/InjectiveLabs/mainnet-config/master/10001/genesis.json"
+  "$schema": "../chain.schema.json",
+  "chain_name": "injective",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://injective.com/",
+  "pretty_name": "Injective",
+  "chain_id": "injective-1",
+  "bech32_prefix": "inj",
+  "extra_codecs": [
+    "injective"
+  ],
+  "slip44": 60,
+  "daemon_name": "injectived",
+  "node_home": "$HOME/.injectived",
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "inj",
+        "fixed_min_gas_price": 160000000,
+        "low_gas_price": 500000000,
+        "average_gas_price": 700000000,
+        "high_gas_price": 900000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "inj"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/InjectiveLabs/injective-chain-releases",
+    "recommended_version": "v1.12.1-1705909076",
+    "compatible_versions": [
+      "v1.12.0-1704530206",
+      "v1.12.1-1705909076"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.12.1-1705909076/linux-amd64.zip",
+      "darwin/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.12.1-1705909076/darwin-amd64.zip"
     },
-    "codebase": {
-        "git_repo": "https://github.com/InjectiveLabs/injective-chain-releases",
-        "recommended_version": "v1.1.1-1637059884",
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/InjectiveLabs/mainnet-config/master/10001/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.10",
+        "recommended_version": "v1.10",
         "compatible_versions": [
-            "v1.1.1-1637059884"
+          "v1.10"
         ],
         "binaries": {
-            "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.1.1-1637059884/linux-amd64.zip",
-            "darwin/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.1.1-1637059884/darwin-amd64.zip"
-        }
-    },
-    "peers": {
-        "seeds": [
-            {
-                "id": "2ee7586d8e5a4a2020dafddf68efdfdaa3606cc3",
-                "address": "145.40.67.249:26656",
-                "provider": "injectiveprotocol"
-            },
-            {
-                "id": "7bb20f8e9fa73e34d0d21862528d5fba839eeb56",
-                "address": "145.40.73.39:26656",
-                "provider": "injectiveprotocol"
-            },
-            {
-                "id": "de25916e19083d44d67e0c336199b215523f1578",
-                "address": "145.40.68.223:26656",
-                "provider": "injectiveprotocol"
-            },
-            {
-                "id": "1a2ccd9c436eae54d6c767ad566c58dce78f8be2",
-                "address": "145.40.68.125:26656",
-                "provider": "injectiveprotocol"
-
-            }
+          "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.10.0-1679065799/linux-amd64.zip",
+          "darwin/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.10.0-1679065799/darwin-amd64.zip"
+        },
+        "next_version_name": "v1.11"
+      },
+      {
+        "name": "v1.11",
+        "proposal": 231,
+        "height": 34775000,
+        "recommended_version": "v1.11.5-1687535916",
+        "compatible_versions": [
+          "v1.11",
+          "v1.11.3-1686246472",
+          "v1.11.4-1686608669",
+          "v1.11.5-1687535916"
         ],
+        "binaries": {
+          "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.11.5-1687535916/linux-amd64.zip",
+          "darwin/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.11.5-1687535916/darwin-amd64.zip"
+        },
+        "next_version_name": "v1.12.0"
+      },
+      {
+        "name": "v1.12.0",
+        "proposal": 314,
+        "height": 57076000,
+        "recommended_version": "v1.12.1-1705909076",
+        "compatible_versions": [
+          "v1.12.0-1704530206",
+          "v1.12.1-1705909076"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.12.1-1705909076/linux-amd64.zip",
+          "darwin/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.12.1-1705909076/darwin-amd64.zip"
+        },
+        "next_version_name": ""
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg"
+  },
+  "description": "Injective’s mission is to create a truly free and inclusive financial system through decentralization.",
+  "peers": {
+    "seeds": [
+      {
+        "id": "38c18461209694e1f667ff2c8636ba827cc01c86",
+        "address": "176.9.143.252:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "4f9025feca44211eddc26cd983372114947b2e85",
+        "address": "176.9.140.49:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "c98bb1b889ddb58b46e4ad3726c1382d37cd5609",
+        "address": "65.109.51.80:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "23d0eea9bb42316ff5ea2f8b4cd8475ef3f35209",
+        "address": "65.109.36.70:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "f9ae40fb4a37b63bea573cc0509b4a63baa1a37a",
+        "address": "15.235.114.80:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "7f3473ddab10322b63789acb4ac58647929111ba",
+        "address": "15.235.13.116:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:14356",
+        "provider": "polkachu.com"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "injective-mainnet-seed.autostake.com:26726",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:14356",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "1846e76e14913124a07e231586d487a0636c0296",
+        "address": "tenderseed.ccvalidators.com:26007",
+        "provider": "ccvalidators.com"
+      },
+      {
+        "id": "5a1cd1a7da5aab3e3075fbae0a905c7256e48193",
+        "address": "seeds.goldenratiostaking.net:1635",
+        "provider": "Golden Ratio Staking"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
+        "address": "seeds.whispernode.com:14356",
+        "provider": "WhisperNode 🤐"
+      },
+      {
+        "id": "858c86e2590f82934b8483ed184afd88416a7b31",
+        "address": "seed-injective-01.stakeflow.io:2106",
+        "provider": "Stakeflow"
+      }
+    ],
     "persistent_peers": [
-        {
-            "id": "2ee7586d8e5a4a2020dafddf68efdfdaa3606cc3",
-            "address": "2ee7586d8e5a4a2020dafddf68efdfdaa3606cc3@145.40.67.249:26656",
-            "provider": "injectiveprotocol"
-
-        },
-        {
-            "id": "30e81e1b785eaf82d2260e932251c02c95787740",
-            "address": "30e81e1b785eaf82d2260e932251c02c95787740@86.109.11.215:26656",
-            "provider": "injectiveprotocol"
-        }
+      {
+        "id": "38c18461209694e1f667ff2c8636ba827cc01c86",
+        "address": "176.9.143.252:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "4f9025feca44211eddc26cd983372114947b2e85",
+        "address": "176.9.140.49:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "c98bb1b889ddb58b46e4ad3726c1382d37cd5609",
+        "address": "65.109.51.80:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "23d0eea9bb42316ff5ea2f8b4cd8475ef3f35209",
+        "address": "65.109.36.70:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "f9ae40fb4a37b63bea573cc0509b4a63baa1a37a",
+        "address": "15.235.114.80:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "7f3473ddab10322b63789acb4ac58647929111ba",
+        "address": "15.235.13.116:11751",
+        "provider": "injectivelabs.org"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "injective-mainnet-peer.autostake.com:26726",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "858c86e2590f82934b8483ed184afd88416a7b31",
+        "address": "peer-injective-01.stakeflow.io:2106",
+        "provider": "Stakeflow"
+      }
     ]
-    },
-    "apis": {
-        "rpc": [
-            {
-                "address": "https://injective-rpc.api.chainlayer.network/",
-                "provider": "chainlayer"
-            }
-        ],
-         "rest": [
-            {
-                "address": "https://public.lcd.injective.network",
-                "provider": "injectiveprotocol"
-            },
-            {
-                "address": "https://injective-lcd.api.chainlayer.network/",
-                "provider": "chainlayer"
-            }
-        ],
-        "grpc": []
-    },
-    "explorers": [
-        {
-         "kind": "injectiveprotocol",
-         "url": "https://explorer.injective.network/",
-         "tx_page": "https://explorer.injective.network/transaction/${txHash}"
-        },
-        {
-            "kind": "ping-pub",
-            "url": "https://ping.pub/injective",
-            "tx_page": "https://ping.pub/injective/tx/${txHash}"
-        }
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://injective-1-public-rpc.mesa.ec1-prod.newmetric.xyz",
+        "provider": "NewMetric"
+      },
+      {
+        "address": "https://rpc-injective.goldenratiostaking.net",
+        "provider": "Golden Ratio Staking"
+      },
+      {
+        "address": "https://injective-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://injective-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://rpc-injective-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
+      },
+      {
+        "address": "https://injective-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://rpc-injective.whispernode.com:443",
+        "provider": "WhisperNode 🤐"
+      },
+      {
+        "address": "https://rpc-injective-01.stakeflow.io",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://injective-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://injective-rpc.highstakes.ch",
+        "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/injective/rpc",
+        "provider": "Stakewolle"
+      },
+      {
+        "address": "https://rpc.injective.bronbro.io/",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://injective-rpc.noders.services",
+        "provider": "[NODERS]TEAM"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://injective-1-public-rest.mesa.ec1-prod.newmetric.xyz",
+        "provider": "NewMetric"
+      },
+      {
+        "address": "https://api-injective-ia.cosmosia.notional.ventures/",
+        "provider": "Notional"
+      },
+      {
+        "address": "https://injective-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://injective-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://lcd-injective.whispernode.com:443",
+        "provider": "WhisperNode 🤐"
+      },
+      {
+        "address": "https://api-injective-01.stakeflow.io",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "https://rest-injective.goldenratiostaking.net",
+        "provider": "Golden Ratio Staking"
+      },
+      {
+        "address": "https://injective-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "injective-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://injective-api.highstakes.ch",
+        "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/injective/rest",
+        "provider": "Stakewolle"
+      },
+      {
+        "address": "https://lcd.injective.bronbro.io/",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://injective-api.noders.services",
+        "provider": "[NODERS]TEAM"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "k8s-injectiv-publicin-731c880328-0f3d7889b57e31a3.elb.eu-central-1.amazonaws.com:80",
+        "provider": "NewMetric"
+      },
+      {
+        "address": "grpc-injective-ia.cosmosia.notional.ventures:443",
+        "provider": "Notional"
+      },
+      {
+        "address": "injective-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "injective-grpc.polkachu.com:14390",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "injective-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "grpc-injective.cosmos-spaces.cloud:9900",
+        "provider": "Cosmos Spaces"
+      },
+      {
+        "address": "grpc.injective.posthuman.digital:80",
+        "provider": "POSTHUMAN ꝏ DVS"
+      },
+      {
+        "address": "grpc-injective.architectnodes.com:1443",
+        "provider": "Architect Nodes"
+      },
+      {
+        "address": "grpc-injective-01.stakeflow.io:2102",
+        "provider": "Stakeflow"
+      },
+      {
+        "address": "injective-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "injective-grpc.w3coins.io:14390",
+        "provider": "w3coins"
+      },
+      {
+        "address": "grpc-injective.whispernode.com:443",
+        "provider": "WhisperNode 🤐"
+      },
+      {
+        "address": "grpc.injective.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "injective-grpc.noders.services:33090",
+        "provider": "[NODERS]TEAM"
+      }
     ]
+  },
+  "explorers": [
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/injective",
+      "tx_page": "https://ezstaking.app/injective/txs/${txHash}",
+      "account_page": "https://ezstaking.app/injective/account/${accountAddress}"
+    },
+    {
+      "kind": "injectiveprotocol",
+      "url": "https://explorer.injective.network/",
+      "tx_page": "https://explorer.injective.network/transaction/${txHash}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/injective",
+      "tx_page": "https://ping.pub/injective/tx/${txHash}"
+    },
+    {
+      "kind": "atomscan",
+      "url": "https://atomscan.com/injective",
+      "tx_page": "https://atomscan.com/injective/transactions/${txHash}",
+      "account_page": "https://atomscan.com/injective/accounts/${accountAddress}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/injective",
+      "tx_page": "https://www.mintscan.io/injective/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/injective/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Stakeflow",
+      "url": "https://stakeflow.io/injective",
+      "account_page": "https://stakeflow.io/injective/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg"
+    }
+  ]
 }

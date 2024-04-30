@@ -1,0 +1,27 @@
+on: [pull_request, workflow_dispatch]
+name: Data Validation PR Workflow
+jobs:
+  validate_zone_data:
+    name: Validate Data
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        shell: bash
+    
+    steps:
+    
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
+          
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 19.6.0
+          
+      - name: Run code Node JS to Validate Data
+        working-directory: ./.github/workflows/utility
+        run: node validate_data.mjs

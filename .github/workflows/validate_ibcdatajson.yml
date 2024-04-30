@@ -1,0 +1,35 @@
+on: [pull_request, workflow_dispatch]
+name: PR workflow
+jobs:
+  validate_ibcdatajson:
+    name: Validate ibc data schemas
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout registry
+        uses: actions/checkout@v3
+
+      - name: Install JSON-Schema-Validator
+        run: npm install -g jsonschema
+
+      - name: Validate IBC data schemas
+        run: |
+          for file in $(find . -name '*/_IBC/*.json'); do
+            if ! jsonschema -i "$file" ./ibc-data.schema.json; then
+              exit 1
+            fi
+          done
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.9
+
+      - name: Install Python dependencies
+        run:  |
+          python -m pip install --upgrade pip
+          cd .github/workflows/utility
+          pip install pytest==7.1.2
+
+      - name: Chain Name Validation
+        run:   |
+          python -m pytest --import-mode=append .github/workflows/utility

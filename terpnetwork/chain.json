@@ -1,0 +1,247 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "terpnetwork",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Terp-Network",
+  "chain_id": "morocco-1",
+  "bech32_prefix": "terp",
+  "daemon_name": "terp",
+  "node_home": "$HOME/.terp",
+  "codebase": {
+    "git_repo": "https://github.com/terpnetwork/terp-core.git",
+    "recommended_version": "v4.1.0",
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.37.2"
+    },
+    "compatible_versions": [
+      "v4.1.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/terpnetwork/mainnet/main/morocco-1/genesis.json"
+    },
+    "binaries": {
+      "linux/amd64": "https://github.com/terpnetwork/terp-core/releases/download/v4.1.0/terpd-linux-amd64",
+      "linux/arm64": "https://github.com/terpnetwork/terp-core/releases/download/v4.1.0/terpd-linux-arm64"
+    },
+    "versions": [
+      {
+        "name": "v1.0.0-stable",
+        "recommended_version": "v1.0.0-stable",
+        "compatible_versions": [
+          "v1.0.0",
+          "v1.0.0-stable"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.0"
+        }
+      },
+      {
+        "name": "huckleberry",
+        "recommended_version": "huckleberry",
+        "compatible_versions": [
+          "huckleberry"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.0"
+        }
+      },
+      {
+        "name": "barberry",
+        "recommended_version": "barberry",
+        "compatible_versions": [
+          "barberry"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.1"
+        }
+      },
+      {
+        "name": "v2.0.0",
+        "recommended_version": "v2.0.0",
+        "compatible_versions": [
+          "v2.0.0"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.2"
+        }
+      },
+      {
+        "name": "v3.0.0",
+        "recommended_version": "v3.0.0",
+        "compatible_versions": [
+          "v3.0.0"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.2"
+        }
+      },
+      {
+        "name": "v2-pigeonfall",
+        "recommended_version": "v2-pigeonfall",
+        "compatible_versions": [
+          "v2-pigeonfall"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.2"
+        }
+      },
+      {
+        "name": "v3-pigeonfall",
+        "recommended_version": "v3-pigeonfall",
+        "compatible_versions": [
+          "v3-pigeonfall"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.2"
+        },
+        "next_version_name": "v4.1.0"
+      },
+      {
+        "name": "v4.1.0",
+        "proposal": 30,
+        "height": 3698609,
+        "recommended_version": "v4.1.0",
+        "compatible_versions": [
+          "v4.1.0"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.2"
+        },
+        "next_version_name": ""
+      }
+    ]
+  },
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uthiol",
+        "fixed_min_gas_price": 0.05
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uterp"
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terpnetwork/images/logo.png"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "d8256642afae77264bcce1631d51233a9d00249b",
+        "address": "terp-mainnet-seed.itrocket.net:13656",
+        "provider": "itrocket.net"
+      },
+      {
+        "id": "5f5cfac5c38506fbb4275c19e87c4107ec48808d",
+        "address": "seeds.nodex.one:10410",
+        "provider": "nodex.one"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "a81dc3bf1bb1c3837b768eeb82659eecc971890b",
+        "address": "terp-mainnet-peer.itrocket.net:13656",
+        "provider": "itrocket.net"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-terp.zenchainlabs.io/",
+        "provider": "ZenChainLabs"
+      },
+      {
+        "address": "https://terp-mainnet-rpc.itrocket.net:443",
+        "provider": "itrocket.net"
+      },
+      {
+        "address": " https://terp.rpc.nodex.one:443",
+        "provider": "nodex.one"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-terp.zenchainlabs.io:443",
+        "provider": "ZenChainLabs"
+      },
+      {
+        "address": "https://terp-mainnet-api.itrocket.net:443",
+        "provider": "itrocket.net"
+      },
+      {
+        "address": " https://terp.api.nodex.one:443",
+        "provider": "nodex.one"
+      },
+      {
+        "address": "https://terp.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.terp.nodestake.top:443",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "terp-mainnet-grpc.itrocket.net:13090",
+        "provider": "itrocket.net"
+      },
+      {
+        "address": " https://terp.grpc.nodex.one:443",
+        "provider": "nodex.one"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/terp",
+      "tx_page": "https://ping.pub/terp/tx/${txHash}",
+      "account_page": "https://ping.pub/terp/account/{$accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer.nodestake.top",
+      "tx_page": "https://explorer.nodestake.top/terp/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.top/terp/account/{$accountAddress}"
+    },
+    {
+      "kind": "ZenChainLabs",
+      "url": "https://terp.zenscan.io/",
+      "tx_page": "https://terp.zenscan.io/transaction.php?hash=${txHash}",
+      "account_page": "https://terp.zenscan.io/address.php?address=${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Terp-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Terp-Mainnet/tx/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Terp-Mainnet/account/{$accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terpnetwork/images/logo.png"
+    }
+  ]
+}
