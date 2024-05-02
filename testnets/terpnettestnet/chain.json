@@ -4,7 +4,7 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Terp-Network",
-  "chain_id": "90u-2",
+  "chain_id": "90u-4",
   "bech32_prefix": "terp",
   "daemon_name": "terpd",
   "node_home": "$HOME/.terp",
@@ -32,107 +32,25 @@
   },
   
   "codebase": {
-    "git_repo": "github.com/terpnetwork/terp-core.git",
-    "recommended_version": "v4.1.testnet",
+    "git_repo": "https://github.com/terpnetwork/terp-core",
+    "recommended_version": "v4.2.0",
     "consensus": {
       "type": "cometbft",
       "version": "v0.37.2"
     },
-    "compatible_versions": [
-      "v3-pigeonfall"
-    ],
+    "compatible_versions": [],
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/terpnetwork/test-net/master/90u-2/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/terpnetwork/test-net/master/90u-4/genesis.json"
     },
     "binaries": {
-      "linux/amd64": "https://github.com/terpnetwork/terp-core/releases/download/v4.1.testnet/terpd-linux-amd64",
-      "linux/arm64": "https://github.com/terpnetwork/terp-core/releases/download/v4.1.testnet/terpd-linux-arm64"
+      "linux/amd64": "https://github.com/terpnetwork/terp-core/releases/download/v4.2.0/terpd-linux-amd64",
+      "linux/arm64": "https://github.com/terpnetwork/terp-core/releases/download/v4.2.0/terpd-linux-arm64"
     },
     "versions": [
       {
-        "name": "v1.0.0-stable",
-        "recommended_version": "v1.0.0-stable",
-        "compatible_versions": [
-          "v1.0.0",
-          "v1.0.0-stable"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.0"
-        }
-      },
-      {
-        "name": "huckleberry",
-        "recommended_version": "huckleberry",
-        "compatible_versions": [
-          "huckleberry"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.0"
-        }
-      },
-      {
-        "name": "barberry",
-        "recommended_version": "barberry",
-        "compatible_versions": [
-          "barberry"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.1"
-        }
-      },
-      {
-        "name": "v2.0.0",
-        "recommended_version": "v2.0.0",
-        "compatible_versions": [
-          "v2.0.0"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        }
-      },
-      {
-        "name": "v3.0.0",
-        "recommended_version": "v3.0.0",
-        "compatible_versions": [
-          "v3.0.0"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        }
-      },
-      {
-        "name": "v2-pigeonfall",
-        "recommended_version": "v2-pigeonfall",
-        "compatible_versions": [
-         "v2-pigeonfall"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        }
-      },
-      {
-        "name": "v3-pigeonfall",
-        "recommended_version": "v3-pigeonfall",
-        "compatible_versions": [
-         "v3-pigeonfall"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        }
-      },
-      {
-        "name": "v4.1.testnet",
-        "recommended_version": "v4.1.testnet",
-        "compatible_versions": [
-         "v4.1.testnet"
-        ],
+        "name": "v4.2.0",
+        "recommended_version": "v4.2.0",
+        "compatible_versions": [],
         "consensus": {
           "type": "cometbft",
           "version": "0.37.2"
@@ -143,6 +61,10 @@
   "peers": {
     "seeds": [],
     "persistent_peers": [
+      {
+        "id": "9e194721d68dd28d3c4b625c17b2cb287ef30327",
+        "address": "testnet-peer.terp.network:26656"
+      },
       {
         "id": "15f5bc75be9746fd1f712ca046502cae8a0f6ce7",
         "address": "terp-testnet.nodejumper.io:30656"
@@ -156,11 +78,19 @@
   "apis": {
     "rpc": [
       {
+        "address": "https://testnet-rpc.terp.network:443/",
+        "provider": "Terpnet Foundation"
+      },
+      {
         "address": "https://terp-testnet-rpc.itrocket.net:443/",
         "provider": "itrocket"
       }
     ],
     "rest": [
+      {
+        "address": "https://testnet-api.terp.network:443/",
+        "provider": "Terpnet Foundation"
+      },
       {
         "address": "https://terp-testnet-api.itrocket.net:443/",
         "provider": "itrocket"
