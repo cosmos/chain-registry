@@ -39,18 +39,34 @@
       "extended_description": "Nim Network is a highly-adoptable AI Gaming chain that will provide the ultimate ecosystem for exploration and development of games at the intersection of Web3 and AI.",
       "denom_units": [
         {
-          "denom": "anim",
-          "exponent": 0
+          "denom": "ibc/FB53D1684F155CBB86D9CE917807E42B59209EBE3AD3A92E15EF66586C073942",
+          "exponent": 00,
+          "aliases": [
+            "anim"
+          ]
         },
         {
           "denom": "nim",
           "exponent": 18
         }
       ],
-      "base": "anim",
+      "type_asset": "ics20",
+      "base": "ibc/FB53D1684F155CBB86D9CE917807E42B59209EBE3AD3A92E15EF66586C073942",
       "name": "NIM Network",
       "display": "nim",
       "symbol": "NIM",
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "nim",
+            "base_denom": "anim",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "channel-49",
+            "path": "transfer/channel-49/anim"
+          }
+        }
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/nim.png",
