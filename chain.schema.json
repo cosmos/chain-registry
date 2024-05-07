@@ -1,8 +1,8 @@
 {
   "$id": "https://sikka.tech/chain.schema.json",
   "$schema": "https://json-schema.org/draft-07/schema",
-  "title": "Cosmos Chain",
-  "description": "Cosmos Chain.json is a metadata file that contains information about a cosmos sdk based chain.",
+  "title": "Chain",
+  "description": "Chain.json is a metadata file that contains information about a blockchain.",
   "type": "object",
   "required": [
     "chain_name",
@@ -20,6 +20,10 @@
     },
     "chain_id": {
       "type": "string"
+    },
+    "pre_fork_chain_name": {
+      "type": "string",
+      "pattern": "[a-z0-9]+"
     },
     "pretty_name": {
       "type": "string"
@@ -96,7 +100,8 @@
           "secp256k1",
           "ethsecp256k1",
           "ed25519",
-          "sr25519"
+          "sr25519",
+          "bn254"
         ],
         "uniqueItems": true
       }
@@ -165,6 +170,11 @@
         "recommended_version": {
           "type": "string"
         },
+        "go_version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$",
+          "description": "Minimum accepted go version to build the binary."
+        },
         "compatible_versions": {
           "type": "array",
           "items": {
@@ -193,6 +203,10 @@
             "windows/amd64": {
               "type": "string",
               "format": "uri"
+            },
+            "windows/arm64": {
+              "type": "string",
+              "format": "uri"
             }
           },
           "additionalProperties": false
@@ -210,7 +224,8 @@
               "type": "string",
               "enum": [
                 "tendermint",
-                "cometbft"
+                "cometbft",
+                "sei-tendermint"
               ]
             },
             "version": {
@@ -258,6 +273,10 @@
             "genesis_url": {
               "type": "string",
               "format": "uri"
+            },
+            "ics_ccv_url": {
+              "type": "string",
+              "format": "uri"
             }
           },
           "additionalProperties": false
@@ -286,12 +305,21 @@
                 "type": "number",
                 "description": "Proposal that will officially signal community acceptance of the upgrade."
               },
+              "previous_version_name": {
+                "type": "string",
+                "description": "[Optional] Name of the previous version"
+              },
               "next_version_name": {
                 "type": "string",
                 "description": "[Optional] Name of the following version"
               },
               "recommended_version": {
                 "type": "string"
+              },
+              "go_version": {
+                "type": "string",
+                "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$",
+                "description": "Minimum accepted go version to build the binary."
               },
               "compatible_versions": {
                 "type": "array",
@@ -312,7 +340,8 @@
                     "type": "string",
                     "enum": [
                       "tendermint",
-                      "cometbft"
+                      "cometbft",
+                      "sei-tendermint"
                     ]
                   },
                   "version": {
@@ -370,6 +399,10 @@
                   "windows/amd64": {
                     "type": "string",
                     "format": "uri"
+                  },
+                  "windows/arm64": {
+                    "type": "string",
+                    "format": "uri"
                   }
                 },
                 "additionalProperties": false
@@ -386,6 +419,9 @@
       "items": {
         "type": "object",
         "properties": {
+          "image_sync": {
+            "$ref": "#/$defs/pointer"
+          },
           "png": {
             "type": "string",
             "format": "uri-reference",
@@ -402,14 +438,47 @@
               "primary_color_hex": {
                 "type": "string",
                 "pattern": "^#[0-9a-fA-F]{6}$"
+              },
+              "circle": {
+                "type": "boolean"
+              },
+              "dark_mode": {
+                "type": "boolean"
               }
             },
+            "minProperties": 1,
             "additionalProperties": false
+          },
+          "layout": {
+            "type": "string",
+            "enum": ["logo", "logomark", "logotype"],
+            "description": "logomark == icon only; logotype == text only; logo == icon + text."
+          },
+          "text_position": {
+            "type": "string",
+            "enum": ["top", "bottom", "left", "right", "integrated"],
+            "description": "Indicates in which position the text is placed, in case the layout is 'icon' type, it's required only in this case."
           }
         },
+        "if": {
+          "properties": {
+            "layout": { "const": "logo" }
+          },
+          "required": ["layout"]
+        },
+        "then": {
+          "required": ["text_position"]
+        },
+        "anyOf": [
+          {
+            "required": ["png"]
+          },
+          {
+            "required": ["svg"]
+          }
+        ],
         "additionalProperties": false
-      },
-      "minItems": 1
+      }
     },
     "logo_URIs": {
       "type": "object",
@@ -426,6 +495,10 @@
         }
       },
       "additionalProperties": false
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 3000
     },
     "peers": {
       "type": "object",
@@ -615,6 +688,24 @@
       "properties": {
         "denom": {
           "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "pointer": {
+      "type": "object",
+      "description": "The (primary) key used to identify an object within the Chain Registry.",
+      "required": [
+        "chain_name"
+      ],
+      "properties": {
+        "chain_name": {
+          "type": "string",
+          "description": "The chain name or platform from which the object resides. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'"
+        },
+        "base_denom": {
+          "type": "string",
+          "description": "The base denom of the asset from which the object originates. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform."
         }
       },
       "additionalProperties": false

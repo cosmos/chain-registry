@@ -1,5 +1,5 @@
 {
-  "$schema": "../../chain.schema.json",
+  "$schema": "../chain.schema.json",
   "chain_name": "medasdigital",
   "status": "live",
   "network_type": "mainnet",
@@ -9,6 +9,7 @@
   "bech32_prefix": "medas",
   "daemon_name": "medasdigitald",
   "node_home": "$HOME/.medasdigital",
+  "slip44": 118,
   "key_algos": [
     "secp256k1"
   ],
@@ -16,10 +17,9 @@
     "fee_tokens": [
       {
         "denom": "umedas",
-        "fixed_min_gas_price": 0,
-        "low_gas_price": 0,
-        "average_gas_price": 0.0001,
-        "high_gas_price": 0.00025
+        "low_gas_price": 0.1,
+        "average_gas_price": 0.25,
+        "high_gas_price": 0.4
       }
     ]
   },
@@ -32,7 +32,7 @@
   },
   "codebase": {
     "git_repo": "https://github.com/oxygene76/medasdigital/",
-    "recommended_version": "v0.94",
+    "recommended_version": "v0.97",
     "compatible_versions": [
       "v0.94"
     ],
@@ -54,6 +54,13 @@
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/medasdigital/images/medas.svg"
   },
   "peers": {
+    "seeds": [
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "afa88136727d46b4c15fe6e041f53fdb25cc37c0",
@@ -111,9 +118,15 @@
     },
     {
       "kind": "atomscan",
-      "url": "https://atomscan.com/frontier/medasdigital-1",
-      "tx_page": "https://atomscan.com/frontier/medasdigital-1/transactions/${txHash}",
-      "account_page": "https://atomscan.com/frontier/medasdigital-1/accounts/${accountAddress}"
+      "url": "https://atomscan.com/frontier/medasdigital",
+      "tx_page": "https://atomscan.com/frontier/medasdigital/transactions/${txHash}",
+      "account_page": "https://atomscan.com/frontier/medasdigital/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/medasdigital/images/medas.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/medasdigital/images/medas.svg"
     }
   ]
 }

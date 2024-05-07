@@ -6,6 +6,7 @@
   "website": "https://odinprotocol.io/",
   "pretty_name": "Odin Protocol",
   "chain_id": "odin-mainnet-freya",
+  "pre_fork_chain_name": "odin1",
   "bech32_prefix": "odin",
   "daemon_name": "odind",
   "node_home": "$HOME/.odin",
@@ -33,20 +34,65 @@
   },
   "codebase": {
     "git_repo": "https://github.com/ODIN-PROTOCOL/odin-core",
-    "recommended_version": "v0.6.2",
+    "recommended_version": "v0.7.12",
     "compatible_versions": [
-      "v0.6.2"
+      "v0.7.12"
     ],
+    "cosmos_sdk_version": "v0.47.7",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.4"
+    },
+    "ibc_go_version": "v7.3.0",
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/ODIN-PROTOCOL/networks/master/mainnets/odin-mainnet-freya/genesis.json"
+      "genesis_url": "https://snapshots.polkachu.com/genesis/odin/genesis.json"
     },
     "versions": [
       {
-        "name": "v0.6.2",
-        "recommended_version": "v0.6.2",
+        "name": "v0.7.9",
+        "recommended_version": "v0.7.9",
         "compatible_versions": [
-          "v0.6.2"
-        ]
+          "v0.7.9"
+        ],
+        "cosmos_sdk_version": "v0.47.7",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "ibc_go_version": "v7.3.0",
+        "next_version_name": "v0.7.11"
+      },
+      {
+        "name": "v0.7.11",
+        "proposal": 22,
+        "height": 13310888,
+        "recommended_version": "v0.7.11",
+        "compatible_versions": [
+          "v0.7.11"
+        ],
+        "cosmos_sdk_version": "v0.47.7",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "ibc_go_version": "v7.3.0",
+        "next_version_name": "v0.7.12"
+      },
+      {
+        "name": "v0.7.12",
+        "proposal": 24,
+        "height": 14129800,
+        "recommended_version": "v0.7.12",
+        "compatible_versions": [
+          "v0.7.12"
+        ],
+        "cosmos_sdk_version": "v0.47.7",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "ibc_go_version": "v7.3.0",
+        "next_version_name": ""
       }
     ]
   },
@@ -65,6 +111,16 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "odin-mainnet-seed.autostake.com:26766",
         "provider": "AutoStake.net"
+      },
+      {
+        "id": "9a5b281c2d627cdf362f86721ced61a6228b87d1",
+        "address": "odin.seed.stavr.tech:1116",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -98,8 +154,12 @@
   "apis": {
     "rpc": [
       {
-        "address": "http://34.79.179.216:26657",
-        "provider": "Odin Protocol"
+        "address": "https://rpc.odinprotocol.io",
+        "provider": "Heimdall Gateway"
+      },
+      {
+        "address": "https://odin.rpc.m.stavr.tech:443",
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "https://odin-rpc.lavenderfive.com/",
@@ -112,8 +172,12 @@
     ],
     "rest": [
       {
-        "address": "http://34.79.179.216:1317/",
-        "provider": "Odin Protocol"
+        "address": "https://api.odinprotocol.io",
+        "provider": "Heimdall Gateway"
+      },
+      {
+        "address": "https://odin.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "https://odin-api.lavenderfive.com/",
@@ -130,6 +194,10 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
+        "address": "odin.grpc.m.stavr.tech:122",
+        "provider": "🔥STAVR🔥"
+      },
+      {
         "address": "odin-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       }
@@ -142,9 +210,20 @@
       "tx_page": "https://mainnet.odinprotocol.io/transactions/${txHash}"
     },
     {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Odin-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Odin-Mainnet/tx/${txHash}"
+    },
+    {
       "kind": "ping.pub",
       "url": "https://ping.pub/odin",
       "tx_page": "https://ping.pub/odin/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/odin/images/odin.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/odin/images/odin.svg"
     }
   ]
 }

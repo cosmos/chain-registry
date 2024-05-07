@@ -4,6 +4,7 @@
   "assets": [
     {
       "description": "The native EVM, governance and staking token of the Planq Network",
+      "extended_description": "Planq is the very first cryptocurrency project to keep mobile platform usability at heart, taking a step away from dependency on desktop services. By focusing on easy accessibility and close integration of other blockchains via easy to use bridges, Planq will push Web 3 adoption in the mobile space to the next level.",
       "denom_units": [
         {
           "denom": "aplanq",
@@ -19,10 +20,63 @@
       "display": "planq",
       "symbol": "PLQ",
       "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/planq/images/planq.svg",
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/planq/images/planq.png"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/planq/images/planq.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/planq/images/planq.svg"
       },
-      "coingecko_id": "planq"
+      "coingecko_id": "planq",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/planq/images/planq.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/planq/images/planq.svg"
+        }
+      ],
+      "socials": {
+        "website": "https://planq.network",
+        "twitter": "https://twitter.com/planqfoundation"
+      }
+    },
+    {
+      "description": "The token of Source Protocol bridged from BSC.",
+      "denom_units": [
+        {
+          "denom": "erc20/0x091F9A57A3F58d758b6572E9d41675918EAC7F09",
+          "exponent": 0
+        },
+        {
+          "denom": "srcx",
+          "exponent": 9
+        }
+      ],
+      "base": "erc20/0x091F9A57A3F58d758b6572E9d41675918EAC7F09",
+      "name": "Source Token",
+      "display": "srcx",
+      "symbol": "SRCX",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "binancesmartchain",
+            "base_denom": "0x454b90716a9435e7161a9aea5cf00e0acbe565ae",
+            "contract": "0xC891aBa0b42818fb4c975Bf6461033c62BCE75ff"
+          },
+          "chain": {
+            "contract": "0xC891aBa0b42818fb4c975Bf6461033c62BCE75ff"
+          },
+          "provider": "DeltaSwap.io"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "binancesmartchain",
+            "base_denom": "0x454b90716a9435e7161a9aea5cf00e0acbe565ae"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/binancesmartchain/images/srcx.png"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/binancesmartchain/images/srcx.png"
+      }
     }
   ]
 }

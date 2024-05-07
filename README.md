@@ -1,6 +1,6 @@
 # Chain Registry
 
-This repo contains a `chain.json` and `assetlist.json` for a number of cosmos-sdk based chains.  A `chain.json` contains data that makes it easy to start running or interacting with a node.
+This repo contains a `chain.json`, `assetlist.json`, and `versions.json` for a number of cosmos-sdk based chains (and `assetlist.json` for non-cosmos chains).  A `chain.json` contains data that makes it easy to start running or interacting with a node.
 
 Schema files containing the recommended metadata structure can be found in the `*.schema.json` files located in the root directory. Schemas are still undergoing revision as user needs are surfaced. Optional fields may be added beyond what is contained in the schema files.
 
@@ -17,19 +17,26 @@ Once schemas have matured and client needs are better understood Chain Registry 
 ## Web Endpoints
 - https://registry.ping.pub (Update every 24H)
 - https://proxy.atomscan.com/directory/ (Update every 24H)
+- https://cosmoschains.thesilverfox.pro (Updated every 24H)
 
 ## APIs
 - https://github.com/cmwaters/skychart
 - https://github.com/empowerchain/cosmos-chain-directory
+- https://github.com/effofxprime/Cosmregistry-API
 
 ## Web Interfaces
 - https://cosmos.directory
 - https://chain-registry.netlify.com
 - https://atomscan.com/directory
 
+## Tooling
+- https://github.com/gaia/chain-registry-query/
+
 ## Contributing
 
-We accept pull requests to add data to an existing assetlist.json or chain.json (especially to add peer data or public rpc endpoint) or to add a new chain.
+We accept pull requests to add data to an existing assetlist.json or chain.json (especially to add peer data or public rpc endpoint) or to add a new chain or asset.
+
+Please give Pull Requests a title that somewhat describes the change more precisely than the default title given to a Commit. PRs titled 'Update chain.json' are insufficient, and would be difficult to navigate when searching through the backlog of Pull Requests. Some recommended details would be: the affected Chain Name, API types, or Provider to give some more detail; e.g., "Add Cosmos Hub APIs for Acme Validator".
 
 # chain.json
 
@@ -293,7 +300,11 @@ An example assetlist json contains the following structure:
       "keywords": [
         "dex",
         "staking"
-      ]
+      ],
+      "socials": {
+        "website": "https://osmosis.zone",
+        "twitter": "https://twitter.com/osmosiszone"
+      }
     },
     {
       "denom_units": [
@@ -321,8 +332,13 @@ An example assetlist json contains the following structure:
       ],
       "coingecko_id": "ion",
       "keywords": [
-        "memecoin"
-      ]
+        "memecoin",
+        "defi"
+      ],
+      "socials": {
+        "website": "https://ion.wtf",
+        "twitter": "https://twitter.com/_IONDAO"
+      }
     }
   ]
 }
@@ -334,7 +350,7 @@ The metadata contained in these files represents a path abstraction between two 
 
 This schema also allows us to provide helpful info to describe open channels.
 
-Note: when creating these files, please ensure the the chains in both the file name and the references of `chain-1` and `chain-2` in the json file are in alphabetical order. Ex: `Achain-Zchain.json`. The chain names used must match name of the chain's directory here in the chain-registry.
+Note: when creating these files, please ensure the chains in both the file name and the references of `chain-1` and `chain-2` in the json file are in alphabetical order. Ex: `Achain-Zchain.json`. The chain names used must match name of the chain's directory here in the chain-registry.
 
 An example ibc metadata file contains the following structure:
 
@@ -372,3 +388,7 @@ An example ibc metadata file contains the following structure:
   ]
 }
 ```
+
+---
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.

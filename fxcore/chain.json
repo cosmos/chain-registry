@@ -1,0 +1,256 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "fxcore",
+  "chain_id": "fxcore",
+  "website": "https://functionx.io",
+  "pretty_name": "f(x)Core",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "fx",
+  "daemon_name": "fxcored",
+  "node_home": "$HOME/.fxcore",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "FX",
+        "fixed_min_gas_price": 4000000000000,
+        "low_gas_price": 4000000000000,
+        "average_gas_price": 4200000000000,
+        "high_gas_price": 5000000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "FX"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/functionx/fx-core",
+    "recommended_version": "v4.2.1",
+    "compatible_versions": [
+      "v4.2.1"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/FunctionX/fx-core/releases/download/v4.2.1/fx-core_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Windows_x86_64.zip"
+    },
+    "genesis": {
+      "name": "fxv1",
+      "genesis_url": "https://github.com/functionx/fx-core/raw/main/public/mainnet/genesis.json"
+    },
+    "cosmos_sdk_version": "0.46",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "ibc_go_version": "6.1.0",
+    "versions": [
+      {
+        "name": "fxv1",
+        "tag": "v1.1.2",
+        "height": 0,
+        "next_version_name": "fxv2",
+        "recommended_version": "v1.1.2",
+        "compatible_versions": [
+          "v1.1.2"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/FunctionX/fx-core/releases/download/v1.1.2/fx-core_1.1.2_Linux_x86_64.tar.gz",
+          "linux/arm64": "https://github.com/FunctionX/fx-core/releases/download/v1.1.2/fx-core_1.1.2_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/FunctionX/fx-core/releases/download/v1.1.2/fx-core_1.1.2_Darwin_x86_64.tar.gz",
+          "darwin/arm64": "https://github.com/FunctionX/fx-core/releases/download/v1.1.2/fx-core_1.1.2_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/FunctionX/fx-core/releases/download/v1.1.2/fx-core_1.1.2_Windows_x86_64.zip"
+        }
+      },
+      {
+        "name": "fxv2",
+        "tag": "v2.4.2",
+        "height": 5713000,
+        "proposal": 10,
+        "next_version_name": "fxv3",
+        "recommended_version": "v2.4.2",
+        "compatible_versions": [
+          "v2.4.2"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/FunctionX/fx-core/releases/download/v2.4.2/fx-core_2.4.2_Linux_x86_64.tar.gz",
+          "linux/arm64": "https://github.com/FunctionX/fx-core/releases/download/v2.4.2/fx-core_2.4.2_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/FunctionX/fx-core/releases/download/v2.4.2/fx-core_2.4.2_Darwin_x86_64.tar.gz",
+          "darwin/arm64": "https://github.com/FunctionX/fx-core/releases/download/v2.4.2/fx-core_2.4.2_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/FunctionX/fx-core/releases/download/v2.4.2/fx-core_2.4.2_Windows_x86_64.zip"
+        }
+      },
+      {
+        "name": "fxv3",
+        "tag": "v3.1.0",
+        "height": 8756000,
+        "proposal": 29,
+        "next_version_name": "v4.2.x",
+        "recommended_version": "v3.1.0",
+        "compatible_versions": [
+          "v3.1.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/FunctionX/fx-core/releases/download/v3.1.0/fx-core_3.1.0_Linux_x86_64.tar.gz",
+          "linux/arm64": "https://github.com/FunctionX/fx-core/releases/download/v3.1.0/fx-core_3.1.0_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/FunctionX/fx-core/releases/download/v3.1.0/fx-core_3.1.0_Darwin_x86_64.tar.gz",
+          "darwin/arm64": "https://github.com/FunctionX/fx-core/releases/download/v3.1.0/fx-core_3.1.0_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/FunctionX/fx-core/releases/download/v3.1.0/fx-core_3.1.0_Windows_x86_64.zip"
+        }
+      },
+      {
+        "name": "v4.2.x",
+        "tag": "v4.2.1",
+        "height": 10477500,
+        "proposal": 36,
+        "recommended_version": "v4.2.1",
+        "compatible_versions": [
+          "v4.2.1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Linux_x86_64.tar.gz",
+          "linux/arm64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Darwin_x86_64.tar.gz",
+          "darwin/arm64": "https://github.com/FunctionX/fx-core/releases/download/v4.2.1/fx-core_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Windows_x86_64.zip"
+        },
+        "cosmos_sdk_version": "0.46",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        }
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "c5877d9d243af1a504caf5b7f7a9c915b3ae94ae",
+        "address": "fxcore-mainnet-seed-node-1.functionx.io:26656",
+        "provider": "Function X"
+      },
+      {
+        "id": "b289311ece065c813287e3a25835bb6378999aa5",
+        "address": "fxcore-mainnet-seed-node-2.functionx.io:26656",
+        "provider": "Function X"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "96f04dffc25ffcce11e179581d2a3ab6cb5535d5",
+        "address": "fxcore-mainnet-node-1.functionx.io:26656",
+        "provider": "Function X"
+      },
+      {
+        "id": "836ded83bac83a4ac8511826fa1ad4ca2238f960",
+        "address": "fxcore-mainnet-node-2.functionx.io:26656",
+        "provider": "Function X"
+      },
+      {
+        "id": "7c7a260eeefda37eac896ae423e78cf345a2ef70",
+        "address": "fxcore-mainnet-node-3.functionx.io:26656",
+        "provider": "Function X"
+      },
+      {
+        "id": "0fee38117655b6961319950d6beb929fb194217c",
+        "address": "fxcore-mainnet-node-4.functionx.io:26656",
+        "provider": "Function X"
+      },
+      {
+        "id": "6e8818051a2ca9b8be67a6f2ba48c33d8c489d5c",
+        "address": "fxcore-mainnet-node-5.functionx.io:26656",
+        "provider": "Function X"
+      },
+      {
+        "id": "637077d431f618181597706810a65c826524fd74",
+        "address": "functionx.rpc.nodeshub.online:24256",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://fx-json.functionx.io",
+        "provider": "Function X"
+      },
+      {
+        "address": "https://functionx.rpc.nodeshub.online:443",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://fx-rest.functionx.io",
+        "provider": "Function X"
+      },
+      {
+        "address": "https://functionx.api.nodeshub.online:443",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://fx-grpc.functionx.io",
+        "provider": "Function X"
+      },
+      {
+        "address": "https://fx-grpc.portfolio-x.xyz:9090",
+        "provider": "Portfolio X"
+      },
+      {
+        "address": "functionx.grpc.nodeshub.online",
+        "provider": "Nodes Hub"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://fx-web3.functionx.io",
+        "provider": "Function X"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "starscan",
+      "url": "https://starscan.io",
+      "tx_page": "https://starscan.io/fxcore/tx/${txHash}",
+      "account_page": "https://starscan.io/fxcore/address/${accountAddress}"
+    },
+    {
+      "kind": "TC Network",
+      "url": "https://explorer.tcnetwork.io/fx",
+      "tx_page": "https://explorer.tcnetwork.io/fx/transaction/${txHash}",
+      "account_page": "https://explorer.tcnetwork.io/fx/account/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/fxcore",
+      "tx_page": "https://ping.pub/fxcore/tx/${txHash}"
+    },
+    {
+      "kind": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅",
+      "url": "https://explorer.nodeshub.online/fxcore/",
+      "tx_page": "https://explorer.nodeshub.online/fxcore/tx/${txHash}",
+      "account_page": "https://explorer.nodeshub.online/fxcore/accounts/${accountAddress}"
+    }
+  ]
+}
