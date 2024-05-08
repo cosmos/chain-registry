@@ -129,22 +129,46 @@ function compareImages(imageContainingObject) {
   let newImageContainingObject = imageContainingObject;
   if(imageContainingObject.logo_URIs){
     if(imageContainingObject.images){
+
+      //Look for a full match (i.e., png and svg both match)
       let match = false;
       imageContainingObject.images.forEach((image) => {
-        if(imageContainingObject.logo_URIs.png == image.png && 
-           imageContainingObject.logo_URIs.svg == image.svg) {
+        if (
+          imageContainingObject.logo_URIs.png == image.png && 
+          imageContainingObject.logo_URIs.svg == image.svg
+        ) {
           match = true;
-          return newImageContainingObject;
+          return;
         }
       });
-      if(!match){
-        newImageContainingObject.images.push({
-          png: imageContainingObject.logo_URIs.png,
-          svg: imageContainingObject.logo_URIs.svg
-        });
-        newImageContainingObject.hasUpdated = true;
+      if (match) {
         return newImageContainingObject;
       }
+
+      //Look for a partial match, and update the image object
+      for (let i = 0; i < imageContainingObject.images.length; i++) {
+        if (
+          imageContainingObject.logo_URIs.png == imageContainingObject.images[i].png || 
+          imageContainingObject.logo_URIs.svg == imageContainingObject.images[i].svg
+        ) {
+          newImageContainingObject.images[i] = {
+            image_sync: imageContainingObject.images[i].image_sync,
+            png: imageContainingObject.logo_URIs.png || imageContainingObject.images[i].png,
+            svg: imageContainingObject.logo_URIs.svg || imageContainingObject.images[i].svg,
+            theme: imageContainingObject.images[i].theme
+          };
+          newImageContainingObject.hasUpdated = true;
+          return newImageContainingObject;
+        }
+      }
+
+      //There was no match, so add logo URI files as a new image
+      newImageContainingObject.images.push({
+        png: imageContainingObject.logo_URIs.png,
+        svg: imageContainingObject.logo_URIs.svg
+      });
+      newImageContainingObject.hasUpdated = true;
+
     } else {
       newImageContainingObject.images = [{
         png: imageContainingObject.logo_URIs.png,
@@ -195,7 +219,10 @@ function getLinkedImages(){
     if(images) {
       let replacementImage;
       images?.forEach((image) => {
-        replacementImage = getLinkedImage(image?.image_sync?.chain_name, image?.image_sync?.base_denom);
+        if (!image?.image_sync) {
+          return;
+        }
+        replacementImage = getLinkedImage(image.image_sync.chain_name, image.image_sync.base_denom);
         if(replacementImage){
           image.png = replacementImage?.png;
           image.svg = replacementImage?.svg;
@@ -216,11 +243,14 @@ function getLinkedImages(){
     if(images) {
       images?.forEach((image) => {
         let replacementImage;
-        replacementImage = getLinkedImage(image?.image_sync?.chain_name, image?.image_sync?.base_denom);
+        if (!image?.image_sync) {
+          return;
+        }
+        replacementImage = getLinkedImage(image.image_sync.chain_name, image.image_sync.base_denom);
         if(replacementImage){
-          image.png = replacementImage?.png;
-          image.svg = replacementImage?.svg;
-          image.theme = replacementImage?.theme;
+          image.png = replacementImage.png;
+          image.svg = replacementImage.svg;
+          image.theme = replacementImage.theme;
         }
       });
       chain_reg.setAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images", images);
@@ -239,6 +269,12 @@ function getLinkedImage(chain_name, base_denom){
   if(!images){return;}
   let image = images[0];
   if(image.image_sync){
+    if (
+      base_denom == image.image_sync.base_denom &&
+      chain_name == image.image_sync.chain_name
+    ) {
+      return;
+    }
     return getLinkedImage(image.image_sync.chain_name, image.image_sync.base_denom);
   } else {
     return image;
