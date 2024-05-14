@@ -4,11 +4,7 @@
   "title": "Chain",
   "description": "Chain.json is a metadata file that contains information about a blockchain.",
   "type": "object",
-  "required": [
-    "chain_name",
-    "chain_id",
-    "bech32_prefix"
-  ],
+  "required": ["chain_name", "chain_id", "bech32_prefix"],
   "properties": {
     "$schema": {
       "type": "string",
@@ -37,18 +33,10 @@
       "format": "uri"
     },
     "status": {
-      "enum": [
-        "live",
-        "upcoming",
-        "killed"
-      ]
+      "enum": ["live", "upcoming", "killed"]
     },
     "network_type": {
-      "enum": [
-        "mainnet",
-        "testnet",
-        "devnet"
-      ]
+      "enum": ["mainnet", "testnet", "devnet"]
     },
     "bech32_prefix": {
       "type": "string",
@@ -96,13 +84,7 @@
       "type": "array",
       "items": {
         "type": "string",
-        "enum": [
-          "secp256k1",
-          "ethsecp256k1",
-          "ed25519",
-          "sr25519",
-          "bn254"
-        ],
+        "enum": ["secp256k1", "ethsecp256k1", "ed25519", "sr25519", "bn254"],
         "uniqueItems": true
       }
     },
@@ -117,9 +99,7 @@
     },
     "fees": {
       "type": "object",
-      "required": [
-        "fee_tokens"
-      ],
+      "required": ["fee_tokens"],
       "properties": {
         "fee_tokens": {
           "type": "array",
@@ -132,9 +112,7 @@
     },
     "staking": {
       "type": "object",
-      "required": [
-        "staking_tokens"
-      ],
+      "required": ["staking_tokens"],
       "properties": {
         "staking_tokens": {
           "type": "array",
@@ -216,17 +194,11 @@
         },
         "consensus": {
           "type": "object",
-          "required": [
-            "type"
-          ],
+          "required": ["type"],
           "properties": {
             "type": {
               "type": "string",
-              "enum": [
-                "tendermint",
-                "cometbft",
-                "sei-tendermint"
-              ]
+              "enum": ["tendermint", "cometbft", "sei-tendermint"]
             },
             "version": {
               "type": "string"
@@ -254,18 +226,12 @@
           "items": {
             "type": "string",
             "description": "IBC app or ICS standard.",
-            "enum": [
-              "ics20-1",
-              "ics27-1",
-              "mauth"
-            ]
+            "enum": ["ics20-1", "ics27-1", "mauth"]
           }
         },
         "genesis": {
           "type": "object",
-          "required": [
-            "genesis_url"
-          ],
+          "required": ["genesis_url"],
           "properties": {
             "name": {
               "type": "string"
@@ -285,9 +251,7 @@
           "type": "array",
           "items": {
             "type": "object",
-            "required": [
-              "name"
-            ],
+            "required": ["name"],
             "properties": {
               "name": {
                 "type": "string",
@@ -332,17 +296,11 @@
               },
               "consensus": {
                 "type": "object",
-                "required": [
-                  "type"
-                ],
+                "required": ["type"],
                 "properties": {
                   "type": {
                     "type": "string",
-                    "enum": [
-                      "tendermint",
-                      "cometbft",
-                      "sei-tendermint"
-                    ]
+                    "enum": ["tendermint", "cometbft", "sei-tendermint"]
                   },
                   "version": {
                     "type": "string"
@@ -370,11 +328,7 @@
                 "items": {
                   "type": "string",
                   "description": "IBC app or ICS standard.",
-                  "enum": [
-                    "ics20-1",
-                    "ics27-1",
-                    "mauth"
-                  ]
+                  "enum": ["ics20-1", "ics27-1", "mauth"]
                 }
               },
               "binaries": {
@@ -577,10 +531,7 @@
       "type": "array",
       "items": {
         "type": "string",
-        "enum": [
-          "ethermint",
-          "injective"
-        ],
+        "enum": ["ethermint", "injective"],
         "uniqueItems": true
       }
     }
@@ -589,10 +540,7 @@
   "$defs": {
     "peer": {
       "type": "object",
-      "required": [
-        "id",
-        "address"
-      ],
+      "required": ["id", "address"],
       "properties": {
         "id": {
           "type": "string"
@@ -608,9 +556,7 @@
     },
     "endpoint": {
       "type": "object",
-      "required": [
-        "address"
-      ],
+      "required": ["address"],
       "properties": {
         "address": {
           "type": "string"
@@ -645,9 +591,7 @@
     },
     "fee_token": {
       "type": "object",
-      "required": [
-        "denom"
-      ],
+      "required": ["denom"],
       "properties": {
         "denom": {
           "type": "string"
@@ -682,9 +626,7 @@
     },
     "staking_token": {
       "type": "object",
-      "required": [
-        "denom"
-      ],
+      "required": ["denom"],
       "properties": {
         "denom": {
           "type": "string"
@@ -695,9 +637,7 @@
     "pointer": {
       "type": "object",
       "description": "The (primary) key used to identify an object within the Chain Registry.",
-      "required": [
-        "chain_name"
-      ],
+      "required": ["chain_name"],
       "properties": {
         "chain_name": {
           "type": "string",
