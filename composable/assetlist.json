@@ -1166,6 +1166,57 @@
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pepe.png"
         }
       ]
+    }, {
+      "description": "SOL is the native cryptocurrency of the Solana blockchain.",
+      "denom_units": [
+        {
+          "denom": "ibc/2CC39C8141F257EBBA250F65B9D0F31DC8D153C225E51EC192DE6E3F65D43F0C",
+          "exponent": 0
+        },
+        {
+          "denom": "Lamport",
+          "exponent": 9
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/2CC39C8141F257EBBA250F65B9D0F31DC8D153C225E51EC192DE6E3F65D43F0C",
+      "name": "Wrapped Solana",
+      "display": "wsol",
+      "symbol": "wSOL",
+      "traces": [
+          {
+            "type": "wrapped",
+            "counterparty": {
+              "chain_name": "solana",
+              "base_denom": "Lamport"
+            },
+            "provider": "Solana"
+          },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "solana",
+            "base_denom": "So11111111111111111111111111111111111111112",
+            "channel_id": "channel-1"
+          },
+          "chain": {
+            "channel_id": "channel-71",
+            "path": "transfer/channel-71/So11111111111111111111111111111111111111112"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/solana/images/sol.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "solana",
+            "base_denom": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/solana/images/sol.svg"
+        }
+      ]
     }
   ]
 }
