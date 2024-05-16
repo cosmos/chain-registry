@@ -126,6 +126,9 @@ function checkTraceCounterpartyIsValid(chain_name, asset) {
     if (!base) {
       throw new Error(`Trace of ${chain_name}, ${asset.base} makes invalid reference to ${trace.counterparty.chain_name}, ${trace.counterparty.base_denom}.`);
     }
+    if (asset.base === trace.counterparty.base_denom && chain_name === trace.counterparty.chain_name) {
+      throw new Error(`Trace of ${chain_name}, ${asset.base} makes reference to self.`);
+    }
   });
 
 }
@@ -138,6 +141,9 @@ function checkImageSyncIsValid(chain_name, asset) {
     let base = chain_reg.getAssetProperty(image.image_sync.chain_name, image.image_sync.base_denom, "base");
     if (!base) {
       throw new Error(`Image Sync Pointer of ${chain_name}, ${asset.base} makes invalid reference to ${image.image_sync.chain_name}, ${image.image_sync.base_denom}.`);
+    }
+    if (asset.base === image.image_sync.base_denom && chain_name === image.image_sync.chain_name) {
+      throw new Error(`Image_sync of ${chain_name}, ${asset.base} makes reference to self.`);
     }
   });
 
