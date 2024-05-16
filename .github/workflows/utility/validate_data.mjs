@@ -118,6 +118,31 @@ function checkDenomUnits(asset) {
 
 }
 
+function checkTraceCounterpartyIsValid(chain_name, asset) {
+
+  if (!asset.base) { return; }
+  asset.traces?.forEach((trace) => {
+    let base = chain_reg.getAssetProperty(trace.counterparty.chain_name, trace.counterparty.base_denom, "base");
+    if (!base) {
+      throw new Error(`Trace of ${chain_name}, ${asset.base} makes invalid reference to ${trace.counterparty.chain_name}, ${trace.counterparty.base_denom}.`);
+    }
+  });
+
+}
+
+function checkImageSyncIsValid(chain_name, asset) {
+
+  if (!asset.base) { return; }
+  asset.images?.forEach((image) => {
+    if (!image.image_sync) { return; }
+    let base = chain_reg.getAssetProperty(image.image_sync.chain_name, image.image_sync.base_denom, "base");
+    if (!base) {
+      throw new Error(`Image Sync Pointer of ${chain_name}, ${asset.base} makes invalid reference to ${image.image_sync.chain_name}, ${image.image_sync.base_denom}.`);
+    }
+  });
+
+}
+
 
 export function validate_chain_files() {
 
@@ -146,6 +171,12 @@ export function validate_chain_files() {
     
       //check denom units
       checkDenomUnits(asset);
+
+      //check counterparty pointers of traces
+      checkTraceCounterpartyIsValid(chain_name, asset);
+
+      //check image_sync pointers of images
+      checkImageSyncIsValid(chain_name, asset);
     
     });
 
