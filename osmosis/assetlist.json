@@ -15280,10 +15280,10 @@
       "description": "PUNDIX token is the native token that functions within the Pundi X ecosystem, including PundiX Chain and XPOS.",
       "denom_units": [
         {
-          "denom": "ibc/2EB516F83C9FF44AB6826F269CA98A5622608C6C955E12112E58F23A324FEE07",
+          "denom": "ibc/46D8D1A6E2A80ECCB7CA6663086A2E749C508B68DA56A077CD26E6F4F9691EEE",
           "exponent": 0,
           "aliases": [
-            "ibc/55367B7B6572631B78A93C66EF9FDFCE87CDE372CC4ED7848DA78C1EB1DCDD78"
+            "eth0x0FD10b9899882a6f2fcb5c371E17e70FdEe00C38"
           ]
         },
         {
@@ -15292,33 +15292,30 @@
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/2EB516F83C9FF44AB6826F269CA98A5622608C6C955E12112E58F23A324FEE07",
+      "base": "ibc/46D8D1A6E2A80ECCB7CA6663086A2E749C508B68DA56A077CD26E6F4F9691EEE",
       "name": "Pundi X Token",
       "display": "PUNDIX",
       "symbol": "PUNDIX",
       "traces": [
         {
-          "type": "ibc",
+          "type": "bridge",
           "counterparty": {
-            "chain_name": "fxcore",
-            "base_denom": "eth0x0FD10b9899882a6f2fcb5c371E17e70FdEe00C38",
-            "channel_id": "channel-0"
+            "chain_name": "ethereum",
+            "base_denom": "0x0FD10b9899882a6f2fcb5c371E17e70FdEe00C38",
+            "contract": "0x0FD10b9899882a6f2fcb5c371E17e70FdEe00C38"
           },
-          "chain": {
-            "channel_id": "channel-0",
-            "path": "transfer/channel-0/eth0x0FD10b9899882a6f2fcb5c371E17e70FdEe00C38"
-          }
+          "provider": "Function X"
         },
         {
           "type": "ibc",
           "counterparty": {
-            "chain_name": "pundix",
-            "base_denom": "ibc/55367B7B6572631B78A93C66EF9FDFCE87CDE372CC4ED7848DA78C1EB1DCDD78",
-            "channel_id": "channel-1"
+            "chain_name": "fxcore",
+            "base_denom": "eth0x0FD10b9899882a6f2fcb5c371E17e70FdEe00C38",
+            "channel_id": "channel-19"
           },
           "chain": {
-            "channel_id": "channel-12618",
-            "path": "transfer/channel-12618/transfer/channel-0/eth0x0FD10b9899882a6f2fcb5c371E17e70FdEe00C38"
+            "channel_id": "channel-2716",
+            "path": "transfer/channel-2716/eth0x0FD10b9899882a6f2fcb5c371E17e70FdEe00C38"
           }
         }
       ],
