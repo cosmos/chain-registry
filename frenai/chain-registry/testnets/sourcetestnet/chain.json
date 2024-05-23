@@ -1,0 +1,141 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "sourcetestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Source Testnet",
+  "chain_id": "source-testnet",
+  "bech32_prefix": "source",
+  "daemon_name": "sourced",
+  "node_home": "$HOME/.source",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "usource",
+        "low_gas_price": 0.03,
+        "average_gas_price": 0.04,
+        "high_gas_price": 0.05
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "usource"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Source-Protocol-Cosmos/source",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "cosmos_sdk_version": "0.45",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "cosmwasm_version": "0.25",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "2.2.0",
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/Source-Protocol-Cosmos/testnets/master/sourcechain-testnet/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.0.0",
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.25",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "2.2.0"
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "sourcechain-mainnet-seed.autostake.net:26976",
+        "provider": "autostake"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "6ca675f9d949d5c9afc8849adf7b39bc7fccf74f",
+        "address": "164.92.98.17:26656",
+        "provider": "Source"
+      },
+      {
+        "id": "b02e2bd359623aeee2d4fad94d37af8b064508f6",
+        "address": "167.235.224.141:26656",
+        "provider": ""
+      },
+      {
+        "id": "bdf9b6ad38b803358e7fd99f35b14795ebcd8144",
+        "address": "190.2.155.67:29656",
+        "provider": ""
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-t.source.nodestake.top",
+        "provider": "Nodestake"
+      },
+      {
+        "address": "https://rpc-source.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://source-testnet.rpc.kjnodes.com",
+        "provider": "kjnodes"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-t.source.nodestake.top",
+        "provider": "Nodestake"
+      },
+      {
+        "address": "https://api-source.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://source-testnet.api.kjnodes.com",
+        "provider": "kjnodes"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc-t.source.nodestake.top",
+        "provider": "nodestake"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Nodestake",
+      "url": "https://explorer.nodestake.top/source-testnet",
+      "tx_page": "https://explorer.nodestake.top/source-testnet/tx/${txHash}"
+    },
+    {
+      "kind": "kjnodes",
+      "url": "https://explorer.kjnodes.com/source-testnet",
+      "tx_page": "https://explorer.kjnodes.com/source-testnet/txs/${txHash}"
+    }
+  ]
+}
