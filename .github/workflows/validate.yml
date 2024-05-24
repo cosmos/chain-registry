@@ -1,7 +1,6 @@
 on:
-  # push:
-  # pull_request:
-  #   types: [opened, synchronize, reopened]
+  pull_request:
+    types: [opened, synchronize, reopened]
   workflow_dispatch:
 
 name: Validate ✅
@@ -20,8 +19,8 @@ jobs:
 
       - name: Install @chain-registry/cli 📜
         run: |
-          npm install -g @chain-registry/cli@1.45.0
+          npm install -g @chain-registry/cli@1.47.0
 
       - name: Validate ✓
         run: |
-          chain-registry validate --registryDir .
+          chain-registry validate --registryDir . --logLevel error
