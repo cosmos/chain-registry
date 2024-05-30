@@ -110,41 +110,7 @@ A sample `chain.json` includes the following information.
         "height": 0,
         "next_version_name": "v4"
       },
-      {
-        "name": "v4",
-        "tag": "v4.2.0",
-        "height": 1314500,
-        "proposal": 38,
-        "next_version_name": "v5"
-      },
-      {
-        "name": "v5",
-        "tag": "v6.4.1",
-        "height": 2383300,
-        "proposal": 95,
-        "next_version_name": "v7"
-      },
-      {
-        "name": "v7",
-        "tag": "v8.0.0",
-        "height": 3401000,
-        "proposal": 157,
-        "next_version_name": "v9"
-      },
-      {
-        "name": "v9",
-        "tag": "v10.0.1",
-        "height": 4707300,
-        "proposal": 252,
-        "next_version_name": "v11"
-      },
-      {
-        "name": "v11",
-        "tag": "v11.0.0",
-        "height": 5432450,
-        "proposal": 296,
-        "next_version_name": "v12"
-      },
+      ...//version history can alternatively go into 'versions.json'
       {
         "name": "v12",
         "tag": "v12.1.0",
