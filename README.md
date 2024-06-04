@@ -110,41 +110,7 @@ A sample `chain.json` includes the following information.
         "height": 0,
         "next_version_name": "v4"
       },
-      {
-        "name": "v4",
-        "tag": "v4.2.0",
-        "height": 1314500,
-        "proposal": 38,
-        "next_version_name": "v5"
-      },
-      {
-        "name": "v5",
-        "tag": "v6.4.1",
-        "height": 2383300,
-        "proposal": 95,
-        "next_version_name": "v7"
-      },
-      {
-        "name": "v7",
-        "tag": "v8.0.0",
-        "height": 3401000,
-        "proposal": 157,
-        "next_version_name": "v9"
-      },
-      {
-        "name": "v9",
-        "tag": "v10.0.1",
-        "height": 4707300,
-        "proposal": 252,
-        "next_version_name": "v11"
-      },
-      {
-        "name": "v11",
-        "tag": "v11.0.0",
-        "height": 5432450,
-        "proposal": 296,
-        "next_version_name": "v12"
-      },
+      ...//version history can alternatively go into 'versions.json'
       {
         "name": "v12",
         "tag": "v12.1.0",
@@ -260,7 +226,7 @@ Asset Lists are inspired by the [Token Lists](https://tokenlists.org/) project o
 
 Asset lists are a similar mechanism to allow frontends and other UIs to fetch metadata associated with Cosmos SDK denoms, especially for assets sent over IBC.
 
-This standard is a work in progress.  You'll notice that the format of `assets` in the assetlist.json structure is a strict superset json representation of the [`banktypes.DenomMetadata`](https://docs.cosmos.network/master/architecture/adr-024-coin-metadata.html) from the Cosmos SDK.  This is purposefully done so that this standard may eventually be migrated into a Cosmos SDK module in the future, so it can be easily maintained on chain instead of on Github.
+This standard is a work in progress.  You'll notice that the format of `assets` in the assetlist.json structure is a strict superset json representation of the [`banktypes.DenomMetadata`](https://docs.cosmos.network/main/build/architecture/adr-024-coin-metadata) from the Cosmos SDK.  This is purposefully done so that this standard may eventually be migrated into a Cosmos SDK module in the future, so it can be easily maintained on chain instead of on Github.
 
 The assetlist JSON Schema can be found [here](/assetlist.schema.json).
 
