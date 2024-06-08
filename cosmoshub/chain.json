@@ -17,7 +17,7 @@
     "fee_tokens": [
       {
         "denom": "uatom",
-        "fixed_min_gas_price": 0.0025,
+        "fixed_min_gas_price": 0.005,
         "low_gas_price": 0.01,
         "average_gas_price": 0.025,
         "high_gas_price": 0.03
@@ -33,17 +33,23 @@
   },
   "codebase": {
     "git_repo": "https://github.com/cosmos/gaia",
-    "recommended_version": "v13.0.2",
+    "recommended_version": "v16.0.0",
     "compatible_versions": [
-      "v13.0.1", "v13.0.2"
+      "v16.0.0"
     ],
+    "cosmos_sdk_version": "v0.47.13-ics-lsm",
+    "ibc_go_version": "v7.4.0",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.5"
+    },
     "binaries": {
-      "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v13.0.2/gaiad-v13.0.2-linux-amd64?checksum=sha256:729a55b29857fedfe1271f26e1fdf2cb12d2c6515c2ad0d9bbe432a81ae43df8",
-      "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v13.0.2/gaiad-v13.0.2-linux-arm64?checksum=sha256:9bfbe0d5212fa3cdabe34b75b42e1420f50fe8aff64ec9247dcbc5942969e333",
-      "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v13.0.2/gaiad-v13.0.2-darwin-amd64?checksum=sha256:910b515369b0cfa8eecc54f2f930fd5de2634b7106825b62f4c4c563fe2a6a07",
-      "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v13.0.2/gaiad-v13.0.2-darwin-arm64?checksum=sha256:5a148b56bec7d9ef23d21778725eedb9bc70eaa6a61155b22947216812a17369",
-      "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v13.0.2/gaiad-v13.0.2-windows-amd64.exe?checksum=sha256:bc339c368b07306a73a16af8f005bc14439b393790f61d0568358495eb83e71c",
-      "windows/arm64": "https://github.com/cosmos/gaia/releases/download/v13.0.2/gaiad-v13.0.2-windows-arm64.exe?checksum=sha256:8728e0f56d52479c80ba4b1c8f68a8fc3085220fad241ba1180867b2c3bc97fa"
+      "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v16.0.0/gaiad-v16.0.0-linux-amd64",
+      "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v16.0.0/gaiad-v16.0.0-linux-arm64",
+      "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v16.0.0/gaiad-v16.0.0-darwin-amd64",
+      "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v16.0.0/gaiad-v16.0.0-darwin-arm64",
+      "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v16.0.0/gaiad-v16.0.0-darwin-amd64",
+      "windows/arm64": "https://github.com/cosmos/gaia/releases/download/v16.0.0/gaiad-v16.0.0-windows-arm64.exe"
     },
     "genesis": {
       "genesis_url": "https://github.com/cosmos/mainnet/raw/master/genesis/genesis.cosmoshub-4.json.gz"
@@ -155,7 +161,8 @@
         "height": 17380000,
         "recommended_version": "v13.0.2",
         "compatible_versions": [
-          "v13.0.1", "v13.0.2"
+          "v13.0.1",
+          "v13.0.2"
         ],
         "cosmos_sdk_version": "v0.45.16-ics-lsm",
         "ibc_go_version": "v4.4.2",
@@ -172,6 +179,81 @@
           "windows/arm64": "https://github.com/cosmos/gaia/releases/download/v13.0.2/gaiad-v13.0.2-windows-arm64.exe?checksum=sha256:8728e0f56d52479c80ba4b1c8f68a8fc3085220fad241ba1180867b2c3bc97fa"
         },
         "next_version_name": "v14"
+      },
+      {
+        "name": "v14",
+        "tag": "v14.2.0",
+        "proposal": 854,
+        "height": 18262000,
+        "recommended_version": "v14.2.0",
+        "compatible_versions": [
+          "v14.2.0"
+        ],
+        "cosmos_sdk_version": "v0.45.16-ics-lsm",
+        "ibc_go_version": "v4.4.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.29"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v14.2.0/gaiad-v14.2.0-linux-amd64?checksum=sha256:baed43bd3f523fd587cff4d8f78f395a3bcb6d20d9a671bef69b8fbe101338f6",
+          "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v14.2.0/gaiad-v14.2.0-linux-arm64?checksum=sha256:a57822b2a199ca461f8a8baf4e98a46803f8fa5d4ceb130b539ebd0c03c035a8",
+          "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v14.2.0/gaiad-v14.2.0-darwin-amd64?checksum=sha256:4edec8b191bbb0bdcd0f89d1fadfc1cfdb720ac943b7c03d584760725547c047",
+          "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v14.2.0/gaiad-v14.2.0-darwin-arm64?checksum=sha256:5177c7ca2b0e66daedc506c6fcdab0d8c436dae846de32081556b8edd57027e8",
+          "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v14.2.0/gaiad-v14.2.0-windows-amd64.exe?checksum=sha256:d912548fc1c87ca26defce1a60f089910fa55b38d27063870750efeab176db9d",
+          "windows/arm64": "https://github.com/cosmos/gaia/releases/download/v14.2.0/gaiad-v14.2.0-windows-arm64.exe?checksum=sha256:b17cc1f1a9a5050b72f99d497fdda6d1d4615b6a42971f556d2777ba838fe7b0"
+        },
+        "next_version_name": "v15"
+      },
+      {
+        "name": "v15",
+        "tag": "v15.2.0",
+        "proposal": 885,
+        "height": 19639600,
+        "recommended_version": "v15.2.0",
+        "compatible_versions": [
+          "v15.2.0"
+        ],
+        "cosmos_sdk_version": "v0.47.11-ics-lsm",
+        "ibc_go_version": "v7.4.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v15.2.0/gaiad-v15.2.0-linux-amd64",
+          "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v15.2.0/gaiad-v15.2.0-linux-arm64",
+          "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v15.2.0/gaiad-v15.2.0-darwin-amd64",
+          "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v15.2.0/gaiad-v15.2.0-darwin-arm64",
+          "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v15.2.0/gaiad-v15.2.0-darwin-amd64",
+          "windows/arm64": "https://github.com/cosmos/gaia/releases/download/v15.2.0/gaiad-v15.2.0-windows-arm64.exe"
+        },
+        "next_version_name": "v16"
+      },
+      {
+        "name": "v16",
+        "tag": "v16.0.0",
+        "proposal": 914,
+        "height": 20440500,
+        "recommended_version": "v16.0.0",
+        "compatible_versions": [
+          "v16.0.0"
+        ],
+        "cosmos_sdk_version": "v0.47.13-ics-lsm",
+        "ibc_go_version": "v7.4.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.5"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v16.0.0/gaiad-v16.0.0-linux-amd64",
+          "linux/arm64": "https://github.com/cosmos/gaia/releases/download/v16.0.0/gaiad-v16.0.0-linux-arm64",
+          "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v16.0.0/gaiad-v16.0.0-darwin-amd64",
+          "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v16.0.0/gaiad-v16.0.0-darwin-arm64",
+          "windows/amd64": "https://github.com/cosmos/gaia/releases/download/v16.0.0/gaiad-v16.0.0-darwin-amd64",
+          "windows/arm64": "https://github.com/cosmos/gaia/releases/download/v16.0.0/gaiad-v16.0.0-windows-arm64.exe"
+        },
+        "next_version_name": ""
       }
     ]
   },
@@ -203,19 +285,14 @@
         "provider": "Golden Ratio Staking"
       },
       {
-        "id": "7aa410eb8f699c366b1f1e2904ba6b0d1cac379b",
+        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:14956",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "cosmoshub-seed-de.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "cosmoshub-seed-us.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
@@ -277,10 +354,6 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-cosmoshub.blockapsis.com",
-        "provider": "chainapsis"
-      },
-      {
         "address": "https://cosmos-rpc.quickapi.com:443",
         "provider": "Chainlayer"
       },
@@ -290,7 +363,7 @@
       },
       {
         "address": "https://rpc-cosmoshub.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://cosmoshub-rpc.lavenderfive.com:443",
@@ -303,6 +376,10 @@
       {
         "address": "https://rpc-cosmoshub.ecostake.com",
         "provider": "ecostake"
+      },
+        {
+        "address": "https://go.getblock.io/17515cb3ec0e43b7817f182e5de6066a",
+        "provider": "GetBlock RPC Nodes"
       },
       {
         "address": "https://rpc-cosmoshub.pupmos.network",
@@ -325,10 +402,6 @@
         "provider": "Notional"
       },
       {
-        "address": "https://rpc.cosmos.interbloc.org",
-        "provider": "Interbloc"
-      },
-      {
         "address": "https://rpc-cosmoshub.architectnodes.com",
         "provider": "Architect Nodes"
       },
@@ -339,10 +412,6 @@
       {
         "address": "https://cosmoshub.rpc.stakin-nodes.com",
         "provider": "Stakin"
-      },
-      {
-        "address": "https://cosmos-rpc.icycro.org",
-        "provider": "IcyCRO 🧊"
       },
       {
         "address": "https://rpc.cosmos.bh.rocks",
@@ -357,10 +426,6 @@
         "provider": "FreshSTAKING"
       },
       {
-        "address": "https://cosmoshub.rpc.interchain.ivaldilabs.xyz",
-        "provider": "ivaldilabs"
-      },
-      {
         "address": "https://cosmos-rpc.easy2stake.com/",
         "provider": "Easy 2 Stake"
       },
@@ -373,15 +438,15 @@
         "provider": "Silk Nodes"
       },
       {
-        "address": "https://cosmos-rpc.publicnode.com",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "address": "https://cosmos-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "https://cosmoshub.rpc.kjnodes.com",
         "provider": "kjnodes"
       },
       {
-        "address": "https://rpc-cosmoshub.goldenratiostaking.net",
+        "address": "https://rpc.cosmoshub.goldenratiostaking.net",
         "provider": "Golden Ratio Staking"
       },
       {
@@ -391,10 +456,6 @@
       {
         "address": "https://cosmos-rpc.w3coins.io",
         "provider": "w3coins"
-      },
-      {
-        "address": "https://cosmos-rpc.enigma-validator.com",
-        "provider": "Enigma"
       },
       {
         "address": "https://rpc-cosmoshub.mms.team",
@@ -409,37 +470,37 @@
         "provider": "PRO Delegators"
       },
       {
-        "address": "https://cosmos-rpc.highstakes.ch:26657/",
+        "address": "https://cosmos-rpc.highstakes.ch",
         "provider": "High Stakes 🇨🇭"
       },
       {
-        "address": "https://cosmoshub-mainnet.rpc.l0vd.com:443",
-        "provider": "L0vd.com ❤️"
+        "address": "https://cosmoshub-rpc.cosmosrescue.dev",
+        "provider": "cosmosrescue"
       },
       {
-        "address": "https://cosmoshub-4-archive.rpc.l0vd.com:443",
-        "provider": "L0vd.com Archive ❤️"
+        "address": "https://cosmos.interstellar-lounge.org",
+        "provider": "Interstellar Lounge 🍸"
       },
       {
-        "address": "https://rpc-cosmos.in3s.com:443",
-        "provider": "in3s.com"
+        "address": "https://public.stakewolle.com/cosmos/cosmoshub/rpc",
+        "provider": "Stakewolle"
       },
       {
-        "address": "https://rpc-cosmos.nodeist.net",
-        "provider": "Nodeist"
+        "address": "https://rpc-cosmos.kewrnode.com",
+        "provider": "Kewr Node"
+      },
+      {
+        "address": "https://rpc.cosmoshub-4.citizenweb3.com",
+        "provider": "Citizen Web3"
       }
     ],
     "rest": [
-      {
-        "address": "https://lcd-cosmoshub.blockapsis.com",
-        "provider": "chainapsis"
-      },
       {
         "address": "https://cosmos-lcd.quickapi.com:443",
         "provider": "Chainlayer"
       },
       {
-        "address": "https://rest-cosmoshub.goldenratiostaking.net",
+        "address": "https://rest.cosmoshub.goldenratiostaking.net",
         "provider": "Golden Ratio Staking"
       },
       {
@@ -463,10 +524,6 @@
         "provider": "Staketab"
       },
       {
-        "address": "https://api.cosmos.interbloc.org",
-        "provider": "Interbloc"
-      },
-      {
         "address": "https://lcd.cosmos.dragonstake.io",
         "provider": "DragonStake"
       },
@@ -483,12 +540,8 @@
         "provider": "ecostake"
       },
       {
-        "address": "https://cosmoshub.rest.interchain.ivaldilabs.xyz",
-        "provider": "ivaldilabs"
-      },
-      {
         "address": "https://lcd-cosmoshub.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://cosmos-lcd.easy2stake.com",
@@ -504,7 +557,7 @@
       },
       {
         "address": "https://cosmos-rest.publicnode.com",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "https://cosmoshub.api.kjnodes.com",
@@ -531,24 +584,24 @@
         "provider": "PRO Delegators"
       },
       {
-        "address": "https://cosmos-api.highstakes.ch:1317/",
+        "address": "https://cosmos-api.highstakes.ch",
         "provider": "High Stakes 🇨🇭"
       },
       {
-        "address": "https://cosmoshub-mainnet.api.l0vd.com",
-        "provider": "L0vd.com ❤️"
+        "address": "https://cosmoshub-api.cosmosrescue.dev",
+        "provider": "cosmosrescue"
       },
       {
-        "address": "https://cosmoshub-4-archive.api.l0vd.com",
-        "provider": "L0vd.com Archive ❤️"
+        "address": "https://cosmos-rest.interstellar-lounge.org",
+        "provider": "Interstellar Lounge 🍸"
       },
       {
-        "address": "https://api-cosmos.nodeist.net",
-        "provider": "Nodeist"
+        "address": "https://public.stakewolle.com/cosmos/cosmoshub/rest",
+        "provider": "Stakewolle"
       },
       {
-        "address": "https://cosmos-lcd.enigma-validator.com",
-        "provider": "Enigma"
+        "address": "https://rest-cosmos.kewrnode.com",
+        "provider": "Kewr Node"
       }
     ],
     "grpc": [
@@ -581,16 +634,12 @@
         "provider": "Stakin"
       },
       {
-        "address": "cosmoshub.grpc.interchain.ivaldilabs.xyz:443",
-        "provider": "ivaldilabs"
-      },
-      {
         "address": "https://grpc.cosmos.nodestake.top",
         "provider": "NodeStake"
       },
       {
         "address": "cosmos-grpc.publicnode.com:443",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "grpc-cosmoshub.cosmos-spaces.cloud:3910",
@@ -606,7 +655,7 @@
       },
       {
         "address": "grpc-cosmoshub.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "cosmos-grpc.w3coins.io:14990",
@@ -627,16 +676,14 @@
       {
         "address": "https://grpc-cosmos.nodeist.net",
         "provider": "Nodeist"
+      },
+      {
+        "address": "cosmos-grpc.stakeandrelax.net:14990",
+        "provider": "Stake&Relax 🦥"
       }
     ]
   },
   "explorers": [
-    {
-      "kind": "EZ Staking",
-      "url": "https://app.ezstaking.io/cosmoshub",
-      "tx_page": "https://app.ezstaking.io/cosmoshub/txs/${txHash}",
-      "account_page": "https://app.ezstaking.io/cosmoshub/account/${accountAddress}"
-    },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/cosmos",
@@ -644,15 +691,15 @@
       "account_page": "https://www.mintscan.io/cosmos/accounts/${accountAddress}"
     },
     {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/cosmoshub",
+      "tx_page": "https://ezstaking.app/cosmoshub/txs/${txHash}",
+      "account_page": "https://ezstaking.app/cosmoshub/account/${accountAddress}"
+    },
+    {
       "kind": "ping.pub",
       "url": "https://ping.pub/cosmos",
       "tx_page": "https://ping.pub/cosmos/tx/${txHash}"
-    },
-    {
-      "kind": "bigdipper",
-      "url": "https://bigdipper.live/cosmos",
-      "tx_page": "https://bigdipper.live/cosmos/transactions/${txHash}",
-      "account_page": "https://bigdipper.live/cosmos/accounts/${accountAddress}"
     },
     {
       "kind": "atomscan",
@@ -679,6 +726,18 @@
       "kind": "Nodeist Explorer",
       "url": "https://exp.nodeist.net/cosmos",
       "tx_page": "https://exp.nodeist.net/cosmos/tx/${txHash}"
+    },
+    {
+      "kind": "Inbloc",
+      "url": "https://inbloc.org",
+      "tx_page": "https://inbloc.org/transactions/${txHash}",
+      "account_page": "https://inbloc.org/account/${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/cosmos",
+      "tx_page": "https://mainnet.whispernode.com/cosmos/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/cosmos/account/${accountAddress}"
     }
   ],
   "images": [

@@ -4,7 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "website": "https://c4e.io/",
-  "pretty_name": "Chain4Energy",
+  "pretty_name": "C4E",
   "chain_id": "perun-1",
   "bech32_prefix": "c4e",
   "daemon_name": "c4ed",
@@ -12,20 +12,30 @@
   "key_algos": [
     "secp256k1"
   ],
-  "slip44": 4444,
+  "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
         "denom": "uc4e",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uc4e"
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/chain4energy/c4e-chain",
-    "recommended_version": "v1.2.1",
+    "recommended_version": "v1.3.1",
     "compatible_versions": [
-      "v1.2.1"
+      "v1.3.1"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/chain4energy/c4e-chains/main/perun-1/genesis.json"
@@ -114,6 +124,50 @@
           "linux/arm64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.2.1/c4ed_v1.2.1_linux_arm64.tar.gz",
           "darwin/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.2.1/c4ed_v1.2.1_darwin_amd64.tar.gz"
         },
+        "next_version_name": "v1.3.0"
+      },
+      {
+        "name": "v1.3.0",
+        "tag": "v1.3.0",
+        "proposal": 7,
+        "height": 6283905,
+        "recommended_version": "v1.3.0",
+        "compatible_versions": [
+          "v1.3.0"
+        ],
+        "cosmos_sdk_version": "v0.46.13",
+        "ibc_go_version": "v5.2.1",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.28"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.0/c4ed_v1.3.0_darwin_amd64.tar.gz",
+          "linux/arm64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.0/c4ed_v1.3.0_linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.0/c4ed_v1.3.0_darwin_amd64.tar.gz"
+        },
+        "next_version_name": "v1.3.1"
+      },
+      {
+        "name": "v1.3.1",
+        "tag": "v1.3.1",
+        "proposal": 8,
+        "height": 7372232,
+        "recommended_version": "v1.3.1",
+        "compatible_versions": [
+          "v1.3.1"
+        ],
+        "cosmos_sdk_version": "v0.46.13",
+        "ibc_go_version": "v5.2.1",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.28"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.1/c4ed_v1.3.1_darwin_amd64.tar.gz",
+          "linux/arm64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.1/c4ed_v1.3.1_linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.1/c4ed_v1.3.1_darwin_amd64.tar.gz"
+        },
         "next_version_name": ""
       }
     ]
@@ -124,13 +178,23 @@
   "peers": {
     "seeds": [
       {
+        "id": "8ac87f7f8da5c2a901d64f2c1e86f8b6ee39fef1",
+        "address": "seed-m.c4e.apeironnodes.com:41003",
+        "provider": "Apeiron Nodes"
+      },
+      {
+        "id": "edca3b826d61d1e5e7d3dc173954de1324f2e512",
+        "address": "seed-m.c4e.apeironnodes.com:27003",
+        "provider": "Apeiron Nodes"
+      },
+      {
         "id": "30e98bbcf5bb29ed4e4ff685fa8fa84fa0ddff51",
         "address": "tenderseed.ccvalidators.com:26008",
         "provider": "CryptoCrew"
       },
       {
         "id": "54515079bae4cadae2f9b511cffeb9447d4bc98d",
-        "address": "c4e.seed.bccnodes.com:27656",
+        "address": "c4e.seed.bccnodes.com:30656",
         "provider": "BccNodes"
       },
       {
@@ -152,6 +216,11 @@
         "id": "9aa8a73ea9364aa3cf7806d4dd25b6aed88d8152",
         "address": "c4e.seed.mzonder.com:11256",
         "provider": "MZONDER"
+      },
+      {
+        "id": "fbf9a48eca1ba873ad766e2cb72a0562596a248f",
+        "address": "c4e.seed.stavr.tech:17096",
+        "provider": "🔥STAVR🔥"
       },
       {
         "id": "a85a651a3cf1746694560c5b6f76d566c04ca581",
@@ -177,11 +246,6 @@
         "id": "6b0ffcce9b59b91ceb8eea5d4599e27707e3604a",
         "address": "seeds.stakeup.tech:10210",
         "provider": "StakeUp"
-      },
-      {
-        "id": "03d0aa331240ede8090c1e4ab3e6756563a91204",
-        "address": "193.26.159.34:52656",
-        "provider": "genznodes"
       },
       {
         "id": "6cb7ff21d19f139f4ca5e6e2a336e59d2857aba1",
@@ -217,6 +281,16 @@
         "id": "6f181c91dee34ebf2ea5c4f951c51b8c2c897702",
         "address": "c4e.seed.kalia.network:30656",
         "provider": "Kalia Network"
+      },
+      {
+        "id": "8739107d0484a4c58c4f980d61f488655597f80c",
+        "address": "seed.c4e.validatus.com:2000",
+        "provider": "Validatus"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -274,6 +348,11 @@
         "id": "2e08beed75525c2d583e6413fa5f090801965aba",
         "address": "c4e.doubletop:30655",
         "provider": "DOUBLETOP"
+      },
+      {
+        "id": "15ea07bf6211f708eb2966b6c66e3aaa45834137",
+        "address": "185.144.99.37:16656",
+        "provider": "CrypTech"
       }
     ]
   },
@@ -288,32 +367,16 @@
         "provider": "NodeStake"
       },
       {
-        "address": "https://m-c4e.rpc.utsa.tech",
-        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
+        "address": "https://c4e.rpc.bccnodes.com",
+        "provider": "BccNodes"
       },
       {
         "address": "https://chain4energy-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "http://c4e.rpc.m.stavr.tech:17097",
+        "address": "https://c4e.rpc.m.stavr.tech:443",
         "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "https://rpc-c4e.d-stake.xyz",
-        "provider": "D-Stake"
-      },
-      {
-        "address": "https://c4e.rpc.bccnodes.com",
-        "provider": "BccNodes"
-      },
-      {
-        "address": "https://rpc-c4e.nodine.id",
-        "provider": "Nodine.ID"
-      },
-      {
-        "address": "https://rpc-m.c4e.hexnodes.co",
-        "provider": "Hexnodes"
       },
       {
         "address": "https://rpc-c4e.takeshi.team",
@@ -360,14 +423,6 @@
         "provider": "AlxVoy ⚡ ANODE.TEAM"
       },
       {
-        "address": "http://144.76.201.43:26857",
-        "provider": "Validator.run"
-      },
-      {
-        "address": "https://c4e-rpc.validatrium.club",
-        "provider": "Validatrium"
-      },
-      {
         "address": "http://185.245.182.192:46657",
         "provider": "Meerlabs"
       },
@@ -378,10 +433,6 @@
       {
         "address": "http://c4e.rpc.node75.org:26957",
         "provider": "Pro-nodes75"
-      },
-      {
-        "address": "https://rpc-c4e.stakerun.com:443",
-        "provider": "StakeRun"
       },
       {
         "address": "http://164.68.125.243:26657",
@@ -398,6 +449,26 @@
       {
         "address": "https://c4e-rpc.kalia.network:443",
         "provider": "Kalia Network"
+      },
+      {
+        "address": "http://38.242.220.64:16657",
+        "provider": "mahof"
+      },
+      {
+        "address": "http://209.182.239.169:46657",
+        "provider": "SECARD"
+      },
+      {
+        "address": "https://rpc.c4e.validatus.com:443",
+        "provider": "Validatus"
+      },
+      {
+        "address": "https://rpc-m-c4e.apeironnodes.com:443",
+        "provider": "Apeiron Nodes"
+      },
+      {
+        "address": "http://rpc-c4e.cryptech.com.ua:443",
+        "provider": "Cryptech"
       }
     ],
     "rest": [
@@ -410,8 +481,8 @@
         "provider": "NodeStake"
       },
       {
-        "address": "https://m-c4e.api.utsa.tech",
-        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
+        "address": "https://c4e.lcd.bccnodes.com",
+        "provider": "BccNodes"
       },
       {
         "address": "https://chain4energy-mainnet-lcd.autostake.com:443",
@@ -420,14 +491,6 @@
       {
         "address": "https://c4e.api.m.stavr.tech",
         "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "https://c4e.api.bccnodes.com",
-        "provider": "BccNodes"
-      },
-      {
-        "address": "https://api-m.c4e.hexnodes.co",
-        "provider": "Hexnodes"
       },
       {
         "address": "https://api-c4e.takeshi.team",
@@ -474,16 +537,8 @@
         "provider": "AlxVoy ⚡ ANODE.TEAM"
       },
       {
-        "address": "https://c4e-api.validatrium.club",
-        "provider": "Validatrium"
-      },
-      {
         "address": "http://c4e.api.node75.org:1397",
         "provider": "Pro-nodes75"
-      },
-      {
-        "address": "https://lcd-c4e.stakerun.com:443",
-        "provider": "StakeRun"
       },
       {
         "address": "http://164.68.125.243:1319",
@@ -494,18 +549,38 @@
         "provider": "Antrix Validators"
       },
       {
-        "address": "https://c4e.doubletop.tech/api",
-        "provider": "DOUBLETOP"
-      },
-      {
         "address": "https://c4e-api.kalia.network:443",
         "provider": "Kalia Network"
+      },
+      {
+        "address": "http://38.242.220.64:11317",
+        "provider": "mahof"
+      },
+      {
+        "address": "http://209.182.239.169:1417",
+        "provider": "SECARD"
+      },
+      {
+        "address": "https://api.c4e.validatus.com:443",
+        "provider": "Validatus"
+      },
+      {
+        "address": "https://api-c4e.cryptech.com.ua:443",
+        "provider": "CrypTech"
+      },
+      {
+        "address": "https://lcd-m-c4e.apeironnodes.com",
+        "provider": "Apeiron Nodes"
       }
     ],
     "grpc": [
       {
         "address": "grpc.c4e.nodestake.top:443",
         "provider": "NodeStake"
+      },
+      {
+        "address": "c4e.grpc.bccnodes.com:443",
+        "provider": "BccNodes"
       },
       {
         "address": "chain4energy-mainnet-grpc.autostake.com:443",
@@ -574,6 +649,26 @@
       {
         "address": "c4e-grpc.kalia.network:3090",
         "provider": "Kalia Network"
+      },
+      {
+        "address": "https://c4e.grpc.skynodejs.net",
+        "provider": "skynodejs"
+      },
+      {
+        "address": "http://38.242.220.64:19090",
+        "provider": "mahof"
+      },
+      {
+        "address": "http://209.182.239.169:9190",
+        "provider": "SECARD"
+      },
+      {
+        "address": "https://grpc.c4e.validatus.com:443",
+        "provider": "Validatus"
+      },
+      {
+        "address": "https://grpc-c4e.cryptech.com.ua:443",
+        "provider": "Cryptech"
       }
     ]
   },
@@ -638,6 +733,11 @@
       "kind": "ScanRun",
       "url": "https://scanrun.io/c4e",
       "tx_page": "https://scanrun.io/c4e/transactions/${txHash}"
+    },
+    {
+      "kind": "Cryptech",
+      "url": "https://explorers.cryptech.com.ua/chain4energy",
+      "tx_page": "https://explorers.cryptech.com.ua/chain4energy/tx/${txHash}"
     }
   ],
   "images": [

@@ -17,10 +17,10 @@
     "fee_tokens": [
       {
         "denom": "auptick",
-        "fixed_min_gas_price": 10000000000,
-        "low_gas_price": 10000000000,
-        "average_gas_price": 25000000000,
-        "high_gas_price": 40000000000
+        "fixed_min_gas_price": 13000000000,
+        "low_gas_price": 13000000000,
+        "average_gas_price": 16000000000,
+        "high_gas_price": 20000000000
       }
     ]
   },
@@ -33,21 +33,21 @@
   },
   "codebase": {
     "git_repo": "https://github.com/UptickNetwork/uptick",
-    "recommended_version": "v0.2.4",
+    "recommended_version": "v0.2.19",
     "compatible_versions": [
-      "v0.2.4"
+      "v0.2.19"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/UptickNetwork/uptick/releases/download/v0.2.4/uptick-linux-amd64-v0.2.4.tar.gz"
+      "linux/amd64": "https://github.com/UptickNetwork/uptick/archive/refs/tags/v0.2.19.tar.gz"
     },
-    "cosmos_sdk_version": "0.46",
+    "cosmos_sdk_version": "v0.47.5",
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
+      "type": "cometbft",
+      "version": "v0.37.3-0.20230920093934-46df7b597e3c"
     },
-    "cosmwasm_version": "",
-    "cosmwasm_enabled": false,
-    "ibc_go_version": "5.0.1",
+    "cosmwasm_version": "v0.45.0",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "7.3.0",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/uptick-network/mainnet/main/genesis.json"
     },
@@ -58,7 +58,10 @@
         "compatible_versions": [
           "v0.2.4"
         ],
-        "cosmos_sdk_version": "0.46",
+        "binaries": {
+          "linux/amd64": "https://github.com/UptickNetwork/uptick/archive/refs/tags/v0.2.4.tar.gz"
+        },
+        "cosmos_sdk_version": "0.47.5",
         "consensus": {
           "type": "tendermint",
           "version": "0.34"
@@ -66,9 +69,77 @@
         "cosmwasm_version": "",
         "cosmwasm_enabled": false,
         "ibc_go_version": "5.0.1",
+        "next_version_name": "v0.2.8"
+      },
+      {
+        "name": "v0.2.8",
+        "proposal": 8,
+        "height": 1190080,
+        "recommended_version": "v0.2.8",
+        "compatible_versions": [
+          "v0.2.8"
+        ],
         "binaries": {
-          "linux/amd64": "https://github.com/UptickNetwork/uptick/releases/download/v0.2.4/uptick-linux-amd64-v0.2.4.tar.gz"
-        }
+          "linux/amd64": "https://github.com/UptickNetwork/uptick/archive/refs/tags/v0.2.8.tar.gz"
+        },
+        "next_version_name": "v0.2.11"
+      },
+      {
+        "name": "v0.2.11",
+        "proposal": 12,
+        "height": 2411600,
+        "recommended_version": "v0.2.11",
+        "compatible_versions": [
+          "v0.2.11"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/UptickNetwork/uptick/archive/refs/tags/v0.2.11.tar.gz"
+        },
+        "next_version_name": "v0.2.17"
+      },
+      {
+        "name": "v0.2.17",
+        "proposal": 16,
+        "height": 4605201,
+        "recommended_version": "v0.2.17",
+        "compatible_versions": [
+          "v0.2.17"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/UptickNetwork/uptick/archive/refs/tags/v0.2.17.tar.gz"
+        },
+        "next_version_name": "v0.2.18"
+      },
+      {
+        "name": "v0.2.18",
+        "proposal": 17,
+        "height": 4722001,
+        "recommended_version": "v0.2.18",
+        "compatible_versions": [
+          "v0.2.18"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/UptickNetwork/uptick/archive/refs/tags/v0.2.18.tar.gz"
+        },
+        "next_version_name": "v0.2.19"
+      },
+      {
+        "name": "v0.2.19",
+        "recommended_version": "v0.2.19",
+        "compatible_versions": [
+          "v0.2.19"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/UptickNetwork/uptick/archive/refs/tags/v0.2.19.tar.gz"
+        },
+        "cosmos_sdk_version": "0.47.5",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.3-0.20230920093934-46df7b597e3c"
+        },
+        "cosmwasm_version": "v0.45.0",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "v7.3.0"
       }
     ]
   },
@@ -102,6 +173,11 @@
         "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
         "address": "seeds.stakerhouse.com:10656",
         "provider": "StakerHouse"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -152,10 +228,6 @@
         "provider": "NodeStake"
       },
       {
-        "address": "http://uptick.rpc.nodersteam.com:21657",
-        "provider": "[NODERS]TEAM"
-      },
-      {
         "address": "https://uptick.rpc.kjnodes.com",
         "provider": "kjnodes"
       },
@@ -184,30 +256,22 @@
         "provider": "StakerHouse"
       },
       {
-        "address": "https://rpc-uptick.mms.team",
-        "provider": "MMS"
-      },
-      {
         "address": "https://rpc-uptick.cakralabs.site",
         "provider": "Cakra Labs"
       },
       {
         "address": "https://rpc-uptick.sr20de.xyz",
         "provider": "Sr20de"
+      },
+      {
+        "address": "https://uptick-rpc.noders.services",
+        "provider": "[NODERS]TEAM"
       }
     ],
     "rest": [
       {
         "address": "https://uptick-rest.brocha.in:443",
         "provider": "Brochain"
-      },
-      {
-        "address": "https://uptick.api.bccnodes.com:443",
-        "provider": "BccNodes"
-      },
-      {
-        "address": "http://uptick.api.nodersteam.com:21017",
-        "provider": "[NODERS]TEAM"
       },
       {
         "address": "https://api.uptick.nodestake.top",
@@ -242,16 +306,16 @@
         "provider": "StakerHouse"
       },
       {
-        "address": "https://api-uptick.mms.team",
-        "provider": "MMS"
-      },
-      {
         "address": "https://rest-uptick.cakralabs.site",
         "provider": "Cakra Labs"
       },
       {
         "address": "https://api-uptick.sr20de.xyz",
         "provider": "Sr20de"
+      },
+      {
+        "address": "https://uptick-api.noders.services",
+        "provider": "[NODERS]TEAM"
       }
     ],
     "grpc": [
@@ -298,6 +362,10 @@
       {
         "address": "https://grpc-uptick.sr20de.xyz",
         "provider": "Sr20de"
+      },
+      {
+        "address": "uptick-grpc.noders.services:24090",
+        "provider": "[NODERS]TEAM"
       }
     ],
     "evm-http-jsonrpc": [
@@ -312,6 +380,10 @@
       {
         "address": "https://evm-uptick.sr20de.xyz",
         "provider": "Sr20de"
+      },
+      {
+        "address": "https://uptick-jsonrpc.noders.services",
+        "provider": "[NODERS]TEAM"
       }
     ]
   },

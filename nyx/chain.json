@@ -14,7 +14,17 @@
     "fee_tokens": [
       {
         "denom": "unym",
-        "fixed_min_gas_price": 0.025
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      },
+      {
+        "denom": "unyx",
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
       }
     ]
   },
@@ -30,12 +40,12 @@
   },
   "codebase": {
     "git_repo": "https://github.com/nymtech/nyxd/",
-    "recommended_version": "v0.32.0",
+    "recommended_version": "v0.43.0",
     "compatible_versions": [
-      "v0.32.0"
+      "v0.43.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/nymtech/nyxd/releases/tag/v0.32.0"
+      "linux/amd64": "https://github.com/nymtech/nyxd/releases/tag/v0.43.0"
     },
     "genesis": {
       "genesis_url": "https://nymtech.net/genesis/genesis.json"
@@ -69,12 +79,28 @@
         "cosmwasm_enabled": true,
         "binaries": {
           "linux/amd64": "https://github.com/nymtech/nyxd/releases/tag/v0.32.0"
+        },
+        "next_version_name": "v0.43.0"
+      },
+      {
+        "name": "v0.43.0",
+        "tag": "v0.43.0",
+        "height": 9912345,
+        "proposal": 10,
+        "recommended_version": "v0.43.0",
+        "compatible_versions": [
+          "v0.43.0"
+        ],
+        "cosmwasm_enabled": true,
+        "binaries": {
+          "linux/amd64": "https://github.com/nymtech/nyxd/releases/tag/v0.43.0"
         }
       }
     ]
   },
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nyx.png"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nym_token_light.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nym_token_light.svg"
   },
   "peers": {
     "seeds": [
@@ -82,6 +108,11 @@
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:15356",
         "provider": "Polkachu"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -146,20 +177,16 @@
   "apis": {
     "rpc": [
       {
+        "address": "https://rpc.nymtech.net/",
+        "provider": "Nym"
+      },
+      {
         "address": "https://rpc.nyx.nodes.guru/",
         "provider": "nodes guru"
       },
       {
-        "address": "https://nym.vladiatorlabs.io/",
-        "provider": "vladiatorlabs"
-      },
-      {
         "address": "https://rpc.nym.forbole.com/",
         "provider": "forbole"
-      },
-      {
-        "address": "https://rpc-nyx.testnet.run/",
-        "provider": "testnet-run"
       },
       {
         "address": "https://nym-mainnet-rpc.commodum.io/",
@@ -174,12 +201,24 @@
       {
         "address": "https://nym-api.polkachu.com/",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://api.nyx.nodes.guru/",
+        "provider": "nodes guru"
+      },
+      {
+        "address": "https://api.nymtech.net",
+        "provider": "Nym"
       }
     ],
     "grpc": [
       {
         "address": "nym-grpc.polkachu.com:15390",
         "provider": "Polkachu"
+      },
+      {
+        "address": "grpc.nymtech.net:443",
+        "provider": "Nym"
       }
     ]
   },
@@ -191,10 +230,10 @@
       "account_page": "https://nym.explorers.guru/account/${accountAddress}"
     },
     {
-      "kind": "EZ Staking",
-      "url": "https://app.ezstaking.io/nyx",
-      "tx_page": "https://app.ezstaking.io/nyx/txs/${txHash}",
-      "account_page": "https://app.ezstaking.io/nyx/account/${accountAddress}"
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/nyx",
+      "tx_page": "https://ezstaking.app/nyx/txs/${txHash}",
+      "account_page": "https://ezstaking.app/nyx/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
@@ -206,17 +245,27 @@
       "kind": "ping.pub",
       "url": "https://ping.pub/nyx",
       "tx_page": "https://ping.pub/nyx/tx/${txHash}"
-    },
-    {
-      "kind": "bigdipper",
-      "url": "https://bigdipper.live/nym",
-      "tx_page": "https://bigdipper.live/nym/transactions/${txHash}",
-      "account_page": "https://bigdipper.live/nym/accounts/${accountAddress}"
     }
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nyx.png"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nym_token_light.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nym_token_light.svg",
+      "theme": {
+        "dark_mode": false,
+        "circle": true
+      }
+    },
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nym_token_dark.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nym_token_dark.svg",
+      "theme": {
+        "dark_mode": true,
+        "circle": true
+      }
+    },
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nym_token_light.png"
     }
   ]
 }

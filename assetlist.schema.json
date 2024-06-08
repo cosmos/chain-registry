@@ -1,7 +1,7 @@
 {
   "$id": "https://osmosis.zone/assetlists.schema.json",
   "$schema": "https://json-schema.org/draft-07/schema",
-  "title": "Asset Lists",
+  "title": "AssetList",
   "description": "Asset lists are a similar mechanism to allow frontends and other UIs to fetch metadata associated with Cosmos SDK denoms, especially for assets sent over IBC.",
   "type": "object",
   "required": [
@@ -36,9 +36,17 @@
         "symbol"
       ],
       "properties": {
+        "deprecated": {
+          "type": "boolean",
+          "description": "[OPTIONAL] Whether the asset has been deprecated for use. For readability, it is best to omit this property unless TRUE."
+        },
         "description": {
           "type": "string",
           "description": "[OPTIONAL] A short description of the asset"
+        },
+        "extended_description": {
+          "type": "string",
+          "description": "[OPTIONAL] A long description of the asset"
         },
         "denom_units": {
           "type": "array",
@@ -49,7 +57,7 @@
         },
         "type_asset": {
           "type": "string",
-          "enum": ["sdk.coin", "cw20", "erc20", "ics20", "snip20", "snip25"],
+          "enum": ["sdk.coin", "cw20", "erc20", "ics20", "snip20", "snip25", "bitcoin-like", "evm-base", "svm-base", "substrate", "unknown"],
           "default": "sdk.coin",
           "description": "[OPTIONAL] The potential options for type of asset. By default, assumes sdk.coin"
         },
@@ -63,7 +71,8 @@
         },
         "name": {
           "type": "string",
-          "description": "The project name of the asset. For example Bitcoin."
+          "description": "The project name of the asset. For example Bitcoin.",
+          "maxLength": 42
         },
         "display": {
           "type": "string",
@@ -179,6 +188,20 @@
           },
           "minContains": 1,
           "maxContains": 20
+        },
+        "socials": {
+          "type": "object",
+          "minProperties": 1,
+          "properties": {
+            "website": {
+              "type": "string",
+              "format": "uri"
+            },
+            "twitter": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
         }
       },
       "additionalProperties": false,
@@ -275,7 +298,7 @@
               },
               "channel_id": {
                 "type": "string",
-                "pattern": "^channel-\\d+$",
+                "pattern": "^channel-(JEnb|\\d+)$",
                 "description": "The counterparty IBC transfer channel(, e.g., 'channel-1')."
               }
             },

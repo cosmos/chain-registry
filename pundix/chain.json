@@ -1,0 +1,204 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "pundix",
+  "chain_id": "PUNDIX",
+  "website": "https://pundix.com",
+  "pretty_name": "Pundi X Chain",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "px",
+  "daemon_name": "pundixd",
+  "node_home": "$HOME/.pundix",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ibc/55367B7B6572631B78A93C66EF9FDFCE87CDE372CC4ED7848DA78C1EB1DCDD78",
+        "fixed_min_gas_price": 2000000000000,
+        "low_gas_price": 2000000000000,
+        "average_gas_price": 2500000000000,
+        "high_gas_price": 3000000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ibc/55367B7B6572631B78A93C66EF9FDFCE87CDE372CC4ED7848DA78C1EB1DCDD78"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/pundix/pundix",
+    "recommended_version": "v0.2.3",
+    "compatible_versions": [
+      "v0.2.3"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/pundix/pundix/releases/download/v0.2.3/pundix_0.2.3_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/pundix/pundix/releases/download/v0.2.3/pundix_0.2.3_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/pundix/pundix/releases/download/v0.2.3/pundix_0.2.3_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/pundix/pundix/releases/download/v0.2.3/pundix_0.2.3_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/pundix/pundix/releases/download/v0.2.3/pundix_0.2.3_Windows_x86_64.zip"
+    },
+    "genesis": {
+      "name": "pxv1",
+      "genesis_url": "https://raw.githubusercontent.com/pundix/pundix/main/public/mainnet/genesis.json"
+    },
+    "cosmos_sdk_version": "0.45.11",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "ibc_go_version": "6.1.0",
+    "versions": [
+      {
+        "name": "pxv1",
+        "tag": "v0.1.3",
+        "height": 0,
+        "next_version_name": "pxv2",
+        "recommended_version": "v0.1.3",
+        "compatible_versions": [
+          "v0.1.3"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/pundix/pundix/releases/download/v0.1.3/pundix_0.1.3_Linux_x86_64.tar.gz",
+          "linux/arm64": "https://github.com/pundix/pundix/releases/download/v0.1.3/pundix_0.1.3_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/pundix/pundix/releases/download/v0.1.3/pundix_0.1.3_Darwin_x86_64.tar.gz",
+          "darwin/arm64": "https://github.com/pundix/pundix/releases/download/v0.1.3/pundix_0.1.3_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/pundix/pundix/releases/download/v0.1.3/pundix_0.1.3_Windows_x86_64.zip"
+        }
+      },
+      {
+        "name": "pxv2",
+        "tag": "v0.2.3",
+        "height": 6869100,
+        "recommended_version": "v0.2.3",
+        "compatible_versions": [
+          "v0.2.3"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/pundix/pundix/releases/download/v0.2.3/pundix_0.2.3_Linux_x86_64.tar.gz",
+          "linux/arm64": "https://github.com/pundix/pundix/releases/download/v0.2.3/pundix_0.2.3_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/pundix/pundix/releases/download/v0.2.3/pundix_0.2.3_Darwin_x86_64.tar.gz",
+          "darwin/arm64": "https://github.com/pundix/pundix/releases/download/v0.2.3/pundix_0.2.3_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/pundix/pundix/releases/download/v0.2.3/pundix_0.2.3_Windows_x86_64.zip"
+        }
+      }
+    ]
+  },
+  "description": "Pundi X Chain is a dedicated payment-focused blockchain in the Function X network. It is specially designed to perform high throughput transactions with low latency and low transaction fees. In addition, it provides room for future compliance requirement upgrades, hardware (XPOS) integration, and Point-of-Sales compatibility, with tokenonomics that offer incentives to merchants and payment processors.",
+  "peers": {
+    "seeds": [
+      {
+        "id": "78d3eb3f15a20ab1d567660d35776abe0dee71d0",
+        "address": "pundix-mainnet-seed-node-1.pundix.com:26656",
+        "provider": "Pundi X"
+      },
+      {
+        "id": "3c37c6c42dfd9094117549794299a62d49c122eb",
+        "address": "pundix-mainnet-seed-node-2.pundix.com:26656",
+        "provider": "Pundi X"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "8bd41ea9f8ba7cfee4d19887cab487cdfc1177f4",
+        "address": "pundix-mainnet-node-1.pundix.com:26656",
+        "provider": "Pundi X"
+      },
+      {
+        "id": "6c1738220234a5e1b3caf94403ecd651e9759952",
+        "address": "pundix-mainnet-node-2.pundix.com:26656",
+        "provider": "Pundi X"
+      },
+      {
+        "id": "23abe2346d40f82cf0606e47931e58752f8b9348",
+        "address": "pundix-mainnet-node-3.pundix.com:26656",
+        "provider": "Pundi X"
+      },
+      {
+        "id": "20d275af6d025be144765291db5337ea059cce18",
+        "address": "pundix-mainnet-node-4.pundix.com:26656",
+        "provider": "Pundi X"
+      },
+      {
+        "id": "47f97d7baf028ddfd3b223baab0fa062eae75310",
+        "address": "pundix-mainnet-node-5.pundix.com:26656",
+        "provider": "Pundi X"
+      },
+      {
+        "id": "637077d431f618181597706810a65c826524fd74",
+        "address": "pundix.rpc.nodeshub.online:26156",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://px-json.pundix.com",
+        "provider": "Pundi X"
+      },
+      {
+        "address": "https://pundix.rpc.nodeshub.online:443",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://px-rest.pundix.com",
+        "provider": "Pundi X"
+      },
+      {
+        "address": "https://pundix.api.nodeshub.online:443",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://px-grpc.pundix.com",
+        "provider": "Pundi X"
+      },
+      {
+        "address": "https://pundix.grpc.nodeshub.online",
+        "provider": "Nodes Hub"
+      }
+    ]
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pundix/images/pundi-x-chain-logo.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pundix/images/pundi-x-chain-logo.svg"
+    },
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pundix/images/pundi-x-chain-logo.png"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pundix/images/pundi-x-chain-logo.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pundix/images/pundi-x-chain-logo.svg"
+  },
+  "explorers": [
+    {
+      "kind": "starscan",
+      "url": "https://starscan.io",
+      "tx_page": "https://starscan.io/pundix/tx/${txHash}",
+      "account_page": "https://starscan.io/pundix/address/${accountAddress}"
+    },
+    {
+      "kind": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅",
+      "url": "https://explorer.nodeshub.online/pundix/",
+      "tx_page": "https://explorer.nodeshub.online/pundix/tx/${txHash}",
+      "account_page": "https://explorer.nodeshub.online/pundix/accounts/${accountAddress}"
+    }
+  ]
+}
