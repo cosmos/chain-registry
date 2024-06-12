@@ -1,20 +1,20 @@
 {
   "$schema": "../chain.schema.json",
-  "chain_name": "",
+  "chain_name": "examplechain",
   "status": "live",
-  "website": "",
+  "website": "https://examplechain.io/",
   "network_type": "mainnet",
-  "pretty_name": "",
-  "chain_id": "",
-  "bech32_prefix": "",
-  "daemon_name": "",
+  "pretty_name": "Example Chain",
+  "chain_id": "example-1",
+  "bech32_prefix": "xmpl",
+  "daemon_name": "exampled",
   "node_home": "$HOME/",
   "key_algos": ["secp256k1"],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
-        "denom": "",
+        "denom": "uexp",
         "fixed_min_gas_price": 0,
         "low_gas_price": 0,
         "average_gas_price": 0.025,
@@ -25,15 +25,18 @@
   "staking": {
     "staking_tokens": [
       {
-        "denom": ""
+        "denom": "uexp"
       }
     ]
   },
   "codebase": {
-    "git_repo": "",
-    "recommended_version": "v1.0.0",
-    "compatible_versions": ["v1.0.0"],
-    "cosmos_sdk_version": "",
+    "git_repo": "https://github.com/organization/repository",
+    "recommended_version": "v2.0.2",
+    "compatible_versions": [
+      "v2.0.2",
+      "v2.0.0"
+    ],
+    "cosmos_sdk_version": "0.50",
     "cosmwasm_enabled": true,
     "cosmwasm_path": "$HOME/.example/data/wasm",
     "binaries": {
@@ -46,20 +49,40 @@
       {
         "name": "v1",
         "recommended_version": "v1.0.0",
-        "compatible_versions": ["v1.0.0"],
-        "cosmos_sdk_version": "",
+        "compatible_versions": [
+          "v1.0.0"
+        ],
+        "cosmos_sdk_version": "0.50",
         "cosmwasm_enabled": true,
         "cosmwasm_path": "$HOME/.example/data/wasm",
         "binaries": {
           "linux/amd64": "OPTIONAL, REMOVE IF NOT NEEDED"
-        }
+        },
+        "next_version_name": "v2"
+      },
+      {
+        "name": "v2",
+        "recommended_version": "v2.0.2",
+        "compatible_versions": [
+          "v2.0.2",
+          "v2.0.0"
+        ],
+        "cosmos_sdk_version": "0.50",
+        "cosmwasm_enabled": true,
+        "cosmwasm_path": "$HOME/.example/data/wasm",
+        "binaries": {
+          "linux/amd64": "OPTIONAL, REMOVE IF NOT NEEDED"
+        },
+        "previous_verion_name": "v1"
       }
     ]
   },
-  "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_template/images/chain_image.png",
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_template/images/chain_image.svg"
-  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_template/images/chain_image.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_template/images/chain_image.svg"
+    }
+  ],
   "peers": {
     "seeds": [
       {
