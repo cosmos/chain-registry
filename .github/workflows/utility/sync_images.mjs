@@ -55,7 +55,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import * as chain_reg from './chain_registry.mjs';
+import * as chain_reg from './chain_registry_local.mjs';
 
 function createImagesArray(){
 
@@ -129,22 +129,46 @@ function compareImages(imageContainingObject) {
   let newImageContainingObject = imageContainingObject;
   if(imageContainingObject.logo_URIs){
     if(imageContainingObject.images){
+
+      //Look for a full match (i.e., png and svg both match)
       let match = false;
       imageContainingObject.images.forEach((image) => {
-        if(imageContainingObject.logo_URIs.png == image.png && 
-           imageContainingObject.logo_URIs.svg == image.svg) {
+        if (
+          imageContainingObject.logo_URIs.png == image.png && 
+          imageContainingObject.logo_URIs.svg == image.svg
+        ) {
           match = true;
-          return newImageContainingObject;
+          return;
         }
       });
-      if(!match){
-        newImageContainingObject.images.push({
-          png: imageContainingObject.logo_URIs.png,
-          svg: imageContainingObject.logo_URIs.svg
-        });
-        newImageContainingObject.hasUpdated = true;
+      if (match) {
         return newImageContainingObject;
       }
+
+      //Look for a partial match, and update the image object
+      for (let i = 0; i < imageContainingObject.images.length; i++) {
+        if (
+          imageContainingObject.logo_URIs.png == imageContainingObject.images[i].png || 
+          imageContainingObject.logo_URIs.svg == imageContainingObject.images[i].svg
+        ) {
+          newImageContainingObject.images[i] = {
+            image_sync: imageContainingObject.images[i].image_sync,
+            png: imageContainingObject.logo_URIs.png || imageContainingObject.images[i].png,
+            svg: imageContainingObject.logo_URIs.svg || imageContainingObject.images[i].svg,
+            theme: imageContainingObject.images[i].theme
+          };
+          newImageContainingObject.hasUpdated = true;
+          return newImageContainingObject;
+        }
+      }
+
+      //There was no match, so add logo URI files as a new image
+      newImageContainingObject.images.push({
+        png: imageContainingObject.logo_URIs.png,
+        svg: imageContainingObject.logo_URIs.svg
+      });
+      newImageContainingObject.hasUpdated = true;
+
     } else {
       newImageContainingObject.images = [{
         png: imageContainingObject.logo_URIs.png,
@@ -192,18 +216,19 @@ function getLinkedImages(){
   let chains = chain_reg.getChains();
   chains.forEach((chainName) => {
     let images = chain_reg.getFileProperty(chainName, "chain", "images");
-    if(images) {
-      let replacementImage;
-      images?.forEach((image) => {
-        replacementImage = getLinkedImage(image?.image_sync?.chain_name, image?.image_sync?.base_denom);
-        if(replacementImage){
-          image.png = replacementImage?.png;
-          image.svg = replacementImage?.svg;
-          image.theme = replacementImage?.theme;
-        }
-      });
-      chain_reg.setFileProperty(chainName, "chain", "images", images);
-    }
+    if (!images) { return; }
+    images?.forEach((image) => {
+      if (!image?.image_sync) {
+        return;
+      }
+      let replacementImage = getLinkedImage(image.image_sync.chain_name, image.image_sync.base_denom);
+      if (replacementImage) {
+        image.png = replacementImage?.png;
+        image.svg = replacementImage?.svg;
+        image.theme = replacementImage?.theme;
+      }
+    });
+    chain_reg.setFileProperty(chainName, "chain", "images", images);
   });
 
 //   get list of assets, iterate each asset
@@ -213,51 +238,62 @@ function getLinkedImages(){
   let assets = chain_reg.getAssetPointers();
   assets.forEach((assetPointer) => {
     let images = chain_reg.getAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images");
-    if(images) {
-      images?.forEach((image) => {
-        let replacementImage;
-        replacementImage = getLinkedImage(image?.image_sync?.chain_name, image?.image_sync?.base_denom);
-        if(replacementImage){
-          image.png = replacementImage?.png;
-          image.svg = replacementImage?.svg;
-          image.theme = replacementImage?.theme;
-        }
-      });
-      chain_reg.setAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images", images);
-    }
+    if (!images) { return; }
+    images?.forEach((image) => {
+      if (!image?.image_sync) {
+        return;
+      }
+      let replacementImage = getLinkedImage(image.image_sync.chain_name, image.image_sync.base_denom);
+      if (replacementImage) {
+        image.png = replacementImage.png;
+        image.svg = replacementImage.svg;
+        image.theme = replacementImage.theme;
+      }
+    });
+    chain_reg.setAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images", images);
   });
 
 }
 
+// finds the URL of the image being referenced--recursive incase the image being referenced references another image
 function getLinkedImage(chain_name, base_denom){
+
   let images;
   if (base_denom) {
     images = chain_reg.getAssetProperty(chain_name, base_denom, "images");
   } else {
     images = chain_reg.getFileProperty(chain_name, "chain", "images")
   }
-  if(!images){return;}
+  if (!images) { return; }
   let image = images[0];
-  if(image.image_sync){
+  if (image.image_sync) {
+    if (
+      base_denom == image.image_sync.base_denom &&
+      chain_name == image.image_sync.chain_name
+    ) {
+      return; //catches self-references
+    }
     return getLinkedImage(image.image_sync.chain_name, image.image_sync.base_denom);
   } else {
     return image;
   }
 }
 
-function overwriteLogoURIs(chain_name, base_denom){
+function overwriteLogoURIs(){
 
 //   iterate chains
 //     iterate assets
 //       if images
 //         logo_URIs::png&&svg = images[0].png&&svg
 
-  
+ 
 
   let chains = chain_reg.getChains();
   chains.forEach((chainName) => {
+    let logo_URIs = chain_reg.getFileProperty(chainName, "chain", "logo_URIs");
+    if (!logo_URIs) { return; }
     let images = chain_reg.getFileProperty(chainName, "chain", "images");
-    let logo_URIs = {
+    logo_URIs = {
       png: images?.[0]?.png,
       svg: images?.[0]?.svg
     }
@@ -270,8 +306,10 @@ function overwriteLogoURIs(chain_name, base_denom){
 
   let assets = chain_reg.getAssetPointers();
   assets.forEach((assetPointer) => {
+    let logo_URIs = chain_reg.getAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "logo_URIs");
+    if (!logo_URIs) { return; }
     let images = chain_reg.getAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images");
-    let logo_URIs = {
+    logo_URIs = {
       png: images?.[0]?.png,
       svg: images?.[0]?.svg
     }
@@ -284,8 +322,83 @@ function overwriteLogoURIs(chain_name, base_denom){
 
 }
 
+function defineImageSync() {
+
+  let assets = chain_reg.getAssetPointers();
+  assets.forEach((assetPointer) => {
+
+    let traces = chain_reg.getAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "traces");
+    if (!traces) { return; }
+    let lastTrace = traces[traces.length - 1];
+    let originAssetPointer = {
+      chain_name: lastTrace.counterparty.chain_name,
+      base_denom: lastTrace.counterparty.base_denom
+    }
+
+    let images = chain_reg.getAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images");
+    
+    //find out of any of the images are synced with the origin
+    for (let i = 0; i < images.length; ++i) {
+      if (
+        images[i].image_sync?.chain_name === originAssetPointer.chain_name &&
+        images[i].image_sync?.base_denom === originAssetPointer.base_denom
+      ) {
+        return;
+      }
+    }
+
+    //if there is one, then skip, otherwise,
+    //if there is none, the iterate each image, and
+    //look for any matches between the image and the origin image
+
+    let originImage = chain_reg.getAssetProperty(originAssetPointer.chain_name, originAssetPointer.base_denom, "images")?.[0];
+    if (!originImage) { return; }
+    
+    let newImages = [];
+    let HAS_UPDATED = false;
+    images.forEach((image) => {
+      let newImage = {};
+
+      if (
+        (
+          (image.png === originImage.png && originImage.png) ||
+          (image.svg === originImage.svg && originImage.svg)
+        ) &&
+        !image.image_sync
+      ) {
+        newImage.image_sync = originAssetPointer;
+        if (originImage.png) {
+          newImage.png = originImage.png;
+        }
+        if (originImage.svg) {
+          newImage.svg = originImage.svg;
+        }
+        newImage.theme === originImage.theme;
+        HAS_UPDATED = true;
+      } else {
+        newImage = image;
+      }
+      newImages.push(newImage);
+    });
+
+    if (HAS_UPDATED) {
+      chain_reg.setAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images", newImages);
+      if (assetPointer.base_denom === "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7") {
+        console.log(assetPointer.chain_name);
+        console.log(assetPointer.base_denom);
+        console.log(images);
+        console.log(newImages);
+      }
+      HAS_UPDATED = false;
+    }
+
+  });
+
+}
+
 function main(){
   createImagesArray();
+  defineImageSync();
   getLinkedImages();
   overwriteLogoURIs();
 }

@@ -2,6 +2,7 @@
   "$schema": "../chain.schema.json",
   "chain_name": "andromeda",
   "chain_id": "andromeda-1",
+  "pre_fork_chain_name": "andromeda1",
   "pretty_name": "Andromeda",
   "status": "live",
   "network_type": "mainnet",
@@ -15,7 +16,10 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "uandr"
+        "denom": "uandr",
+        "low_gas_price": 0.03,
+        "average_gas_price": 0.05,
+        "high_gas_price": 0.075
       }
     ]
   },
@@ -31,16 +35,77 @@
   },
   "codebase": {
     "git_repo": "https://github.com/andromedaprotocol/andromedad",
+    "recommended_version": "v0.1.1-patch",
+    "compatible_versions": [
+      "v0.1.1-patch"
+    ],
+    "cosmos_sdk_version": "v0.47.8",
+    "ibc_go_version": "v7.4.0",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.4"
+    },
+    "cosmwasm_version": "v0.41.0",
+    "cosmwasm_enabled": true,
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/andromedaprotocol/mainnet/release/genesis.json"
-    }
+      "genesis_url": "https://snapshots.lavenderfive.com/genesis/andromeda/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "andromeda-1-v0.1.0",
+        "height": 1696401,
+        "tag": "andromeda-1-v0.1.0",
+        "recommended_version": "andromeda-1-v0.1.0",
+        "compatible_versions": [
+          "andromeda-1-v0.1.0"
+        ],
+        "cosmos_sdk_version": "v0.47.5",
+        "ibc_go_version": "v7.3.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "cosmwasm_version": "v0.41.0",
+        "cosmwasm_enabled": true,
+        "next_version_name": "v0.1.1"
+      },
+      {
+        "name": "v0.1.1",
+        "proposal": 5,
+        "height": 2363000,
+        "tag": "v0.1.1-patch",
+        "recommended_version": "v0.1.1-patch",
+        "compatible_versions": [
+          "v0.1.1-patch"
+        ],
+        "cosmos_sdk_version": "v0.47.8",
+        "ibc_go_version": "v7.4.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "cosmwasm_version": "v0.41.0",
+        "cosmwasm_enabled": true,
+        "next_version_name": ""
+      }
+    ]
   },
   "peers": {
-      "seeds": [
+    "seeds": [
       {
         "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
         "address": "seeds.stakerhouse.com:12156",
         "provider": "StakerHouse"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "andromeda-mainnet-peer.autostake.com:27126",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "andromeda.rpc.kjnodes.com:14759",
+        "provider": "kjnodes.com 🦄"
       }
     ],
     "persistent_peers": [
@@ -75,8 +140,18 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "andromeda-mainnet-seed.autostake.com:27126",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "id": "28876b3094518bef97a1250ef641c26b7d4a658d",
-        "address": "88.99.208.54:39656",
+        "address": "138.201.21.197:39656",
+        "provider": "StakeTown"
+      },
+      {
+        "id": "1652b0e25ac00834292624db10fef408155686e5",
+        "address": "peer-comdex.blockval.io:39656",
         "provider": "StakeTown"
       }
     ]
@@ -86,10 +161,6 @@
       {
         "address": "https://rpc.andromeda-1.andromeda.aviaone.com",
         "provider": "AVIAONE"
-      },
-      {
-        "address": "https://rpc-andromeda.nodeist.net",
-        "provider": "nodeist"
       },
       {
         "address": "https://andromeda.rpc.kjnodes.com",
@@ -108,6 +179,10 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
+        "address": "https://andromeda-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "address": "https://andromeda-rpc.stake-town.com:443",
         "provider": "StakeTown"
       },
@@ -116,22 +191,34 @@
         "provider": "StakerHouse"
       },
       {
-        "address": "https://andromeda-rpc.highstakes.ch:26657",
+        "address": "https://andromeda-rpc.highstakes.ch",
         "provider": "High Stakes 🇨🇭"
       },
       {
         "address": "https://andromeda-rpc.genznodes.dev",
         "provider": "genznodes"
+      },
+      {
+        "address": "https://andromeda.rpc.kjnodes.com",
+        "provider": "kjnodes.com 🦄"
+      },
+      {
+        "address": "andromeda-rpc.noders.services",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "rpc-andromeda.blockval.io",
+        "provider": "Blockval"
+      },
+      {
+        "address": "https://andromeda.rpc.liveraven.net",
+        "provider": "LiveRaveN"
       }
     ],
     "rest": [
       {
         "address": "https://api.andromeda-1.andromeda.aviaone.com/",
         "provider": "AVIAONE"
-      },
-      {
-        "address": "https://api-andromeda.nodeist.net",
-        "provider": "nodeist"
       },
       {
         "address": "https://andromeda.api.kjnodes.com",
@@ -150,6 +237,10 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
+        "address": "https://andromeda-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
         "address": "https://andromeda-api.stake-town.com:443",
         "provider": "StakeTown"
       },
@@ -158,12 +249,28 @@
         "provider": "StakerHouse"
       },
       {
-        "address": "https://andromeda-api.highstakes.ch:1317",
+        "address": "https://andromeda-api.highstakes.ch",
         "provider": "High Stakes 🇨🇭"
       },
       {
         "address": "https://andromeda-api.genznodes.dev",
         "provider": "genznodes"
+      },
+      {
+        "address": "https://andromeda.api.kjnodes.com",
+        "provider": "kjnodes.com 🦄"
+      },
+      {
+        "address": "andromeda-api.noders.services",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "api-andromeda.blockval.io",
+        "provider": "Blockval"
+      },
+      {
+        "address": "https://andromeda.api.liveraven.net",
+        "provider": "LiveRaveN"
       }
     ],
     "grpc": [
@@ -176,12 +283,12 @@
         "provider": "AVIAONE"
       },
       {
-        "address": "https://grpc-andromeda.nodeist.net:443",
-        "provider": "nodeist"
-      },
-      {
         "address": "andromeda.grpc.kjnodes.com:443",
         "provider": "kjnodes"
+      },
+      {
+        "address": "andromeda-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://andromeda.grpc.nodex.one:443",
@@ -202,6 +309,22 @@
       {
         "address": "andromeda-grpc.genznodes.dev:27090",
         "provider": "genznodes"
+      },
+      {
+        "address": "andromeda.grpc.kjnodes.com:443",
+        "provider": "kjnodes.com 🦄"
+      },
+      {
+        "address": "andromeda-grpc.noders.services:34090",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "grpc-andromeda.blockval.io:443",
+        "provider": "Blockval"
+      },
+      {
+        "address": "andromeda.grpc.liveraven.net:443",
+        "provider": "LiveRaveN"
       }
     ]
   },
@@ -223,6 +346,11 @@
       "url": "https://cosmotracker.com/andromeda",
       "tx_page": "https://cosmotracker.com/andromeda/tx/${txHash}",
       "account_page": "https://cosmotracker.com/andromeda/account/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/andromeda",
+      "tx_page": "https://ping.pub/andromeda/tx/${txHash}"
     }
   ],
   "logo_URIs": {

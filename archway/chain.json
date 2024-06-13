@@ -17,10 +17,10 @@
     "fee_tokens": [
       {
         "denom": "aarch",
-        "fixed_min_gas_price": 900000000000,
-        "low_gas_price": 1000000000000,
-        "average_gas_price": 1500000000000,
-        "high_gas_price": 2000000000000
+        "fixed_min_gas_price": 140000000000,
+        "low_gas_price": 196000000000,
+        "average_gas_price": 225400000000,
+        "high_gas_price": 254800000000
       }
     ]
   },
@@ -36,24 +36,25 @@
   },
   "codebase": {
     "git_repo": "https://github.com/archway-network/archway",
-    "recommended_version": "v4.0.3",
+    "recommended_version": "v7.0.1",
     "compatible_versions": [
-      "v4.0.3"
+      "v7.0.0",
+      "v7.0.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/archway-network/archway/releases/download/v4.0.3/archwayd_linux_amd64",
-      "linux/arm64": "https://github.com/archway-network/archway/releases/download/v4.0.3/archwayd_linux_arm64",
-      "darwin/amd64": "https://github.com/archway-network/archway/releases/download/v4.0.3/archwayd_darwin_amd64",
-      "darwin/arm64": "https://github.com/archway-network/archway/releases/download/v4.0.3/archwayd_darwin_arm64"
+      "linux/amd64": "https://github.com/archway-network/archway/releases/download/v7.0.1/archwayd_linux_amd64",
+      "linux/arm64": "https://github.com/archway-network/archway/releases/download/v7.0.1/archwayd_linux_arm64",
+      "darwin/amd64": "https://github.com/archway-network/archway/releases/download/v7.0.1/archwayd_darwin_amd64",
+      "darwin/arm64": "https://github.com/archway-network/archway/releases/download/v7.0.1/archwayd_darwin_arm64"
     },
-    "cosmos_sdk_version": "v0.45.16",
+    "cosmos_sdk_version": "v0.47.11",
+    "ibc_go_version": "v7.4.0",
     "consensus": {
-      "type": "tendermint",
-      "version": "v0.34.27"
+      "type": "cometbft",
+      "version": "v0.37.5"
     },
-    "cosmwasm_version": "v0.33.0",
+    "cosmwasm_version": "v0.45.0",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "v4.3.1",
     "genesis": {
       "genesis_url": "https://github.com/archway-network/networks/raw/main/archway/genesis/genesis.json.gz"
     },
@@ -129,6 +130,56 @@
           "darwin/amd64": "https://github.com/archway-network/archway/releases/download/v4.0.3/archwayd_darwin_amd64",
           "darwin/arm64": "https://github.com/archway-network/archway/releases/download/v4.0.3/archwayd_darwin_arm64"
         },
+        "next_version_name": "v6.0.0"
+      },
+      {
+        "name": "v6.0.0",
+        "recommended_version": "v6.0.3",
+        "compatible_versions": [
+          "v6.0.3"
+        ],
+        "proposal": 38,
+        "height": 3554500,
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "cosmos_sdk_version": "v0.47.10",
+        "cosmwasm_version": "archway-network/archway-wasmd v0.45.0-archway",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "v7.4.0",
+        "cosmwasm_path": "$HOME/.archway/data/wasm",
+        "binaries": {
+          "linux/amd64": "https://github.com/archway-network/archway/releases/download/v6.0.3/archwayd_linux_amd64",
+          "linux/arm64": "https://github.com/archway-network/archway/releases/download/v6.0.3/archwayd_linux_arm64",
+          "darwin/amd64": "https://github.com/archway-network/archway/releases/download/v6.0.3/archwayd_darwin_amd64",
+          "darwin/arm64": "https://github.com/archway-network/archway/releases/download/v6.0.3/archwayd_darwin_arm64"
+        },
+        "next_version_name": "v7.0.0"
+      },
+      {
+        "name": "v7.0.0",
+        "proposal": 43,
+        "height": 4473000,
+        "recommended_version": "v7.0.1",
+        "compatible_versions": [
+          "v7.0.0",
+          "v7.0.1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/archway-network/archway/releases/download/v7.0.1/archwayd_linux_amd64",
+          "linux/arm64": "https://github.com/archway-network/archway/releases/download/v7.0.1/archwayd_linux_arm64",
+          "darwin/amd64": "https://github.com/archway-network/archway/releases/download/v7.0.1/archwayd_darwin_amd64",
+          "darwin/arm64": "https://github.com/archway-network/archway/releases/download/v7.0.1/archwayd_darwin_arm64"
+        },
+        "cosmos_sdk_version": "v0.47.11",
+        "ibc_go_version": "v7.4.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.5"
+        },
+        "cosmwasm_version": "v0.45.0",
+        "cosmwasm_enabled": true,
         "next_version_name": ""
       }
     ]
@@ -199,6 +250,11 @@
         "id": "17d6cb2601b67ad916d5433a404bfc000b0b6ef1",
         "address": "rpc.archway.nodestake.top:666",
         "provider": "NodeStake"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -214,7 +270,7 @@
       },
       {
         "id": "218eed47b5472642034e81fdf408dec8b79dcba7",
-        "address": "88.99.208.54:31656",
+        "address": "138.201.21.197:31656",
         "provider": "StakeTown"
       },
       {
@@ -229,10 +285,6 @@
       {
         "address": "https://rpc.mainnet.archway.io",
         "provider": "Archway Foundation"
-      },
-      {
-        "address": "https://rpc-archway.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://archway-mainnet-archive.allthatnode.com:26657",
@@ -337,7 +389,11 @@
       {
         "address": "https://rpc.archway.bronbro.io:443",
         "provider": "Bro_n_Bro"
-      }  
+      },
+      {
+        "address": "https://archway-rpc.noders.services",
+        "provider": "[NODERS]TEAM"
+      }
     ],
     "rest": [
       {
@@ -363,10 +419,6 @@
       {
         "address": "https://archway.api.kjnodes.com",
         "provider": "kjnodes"
-      },
-      {
-        "address": "https://api-archway.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://api-archway.cryptech.com.ua",
@@ -443,7 +495,11 @@
       {
         "address": "https://lcd.archway.bronbro.io:443",
         "provider": "Bro_n_Bro"
-      }  
+      },
+      {
+        "address": "https://archway-api.noders.services",
+        "provider": "[NODERS]TEAM"
+      }
     ],
     "grpc": [
       {
@@ -515,10 +571,6 @@
         "provider": "StakeUp"
       },
       {
-        "address": "grpc-archway.cosmos-spaces.cloud:4820",
-        "provider": "Cosmos Spaces"
-      },
-      {
         "address": "grpc-archway-mainnet.testnet-pride.com:9096",
         "provider": "TestnetPride"
       },
@@ -537,7 +589,11 @@
       {
         "address": "https://grpc.archway.bronbro.io:443",
         "provider": "Bro_n_Bro"
-      }    
+      },
+      {
+        "address": "archway-grpc.noders.services:13090",
+        "provider": "[NODERS]TEAM"
+      }
     ]
   },
   "explorers": [
@@ -583,10 +639,16 @@
       "tx_page": "https://ping.pub/archway/tx/${txHash}"
     },
     {
-      "kind": "Big Dipper",
-      "url": "https://bigdipper.live/archway",
-      "tx_page": "https://bigdipper.live/archway/transactions/${txHash}",
-      "account_page": "https://bigdipper.live/archway/accounts/${accountAddress}"
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/archway",
+      "tx_page": "https://ezstaking.app/archway/txs/${txHash}",
+      "account_page": "https://ezstaking.app/archway/account/${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/archway",
+      "tx_page": "https://mainnet.whispernode.com/archway/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/archway/account/${accountAddress}"
     }
   ],
   "images": [

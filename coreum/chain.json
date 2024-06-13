@@ -36,20 +36,20 @@
   },
   "codebase": {
     "git_repo": "https://github.com/CoreumFoundation/coreum",
-    "recommended_version": "v3.0.2",
+    "recommended_version": "v3.0.3",
     "compatible_versions": [
-      "v3.0.2"
+      "v3.0.3"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/CoreumFoundation/coreum/releases/download/v3.0.2/cored-linux-amd64",
-      "linux/arm64": "https://github.com/CoreumFoundation/coreum/releases/download/v3.0.2/cored-linux-arm64"
+      "linux/amd64": "https://github.com/CoreumFoundation/coreum/releases/download/v3.0.3/cored-linux-amd64?checksum=sha256:1719a32e6f8e8813d00cd86e1d8d02e893324d4f59fa7a1b8cedc5836140ecef",
+      "linux/arm64": "https://github.com/CoreumFoundation/coreum/releases/download/v3.0.3/cored-linux-arm64?checksum=sha256:cfbbad6803c0327407e4dd222a108505e6ff9e294d7c86e34b6b895b96b61bbd"
     },
     "cosmos_sdk_version": "0.47",
     "consensus": {
       "type": "cometbft",
       "version": "0.37"
     },
-    "cosmwasm_version": "0.30",
+    "cosmwasm_version": "0.44",
     "cosmwasm_enabled": true,
     "genesis": {
       "name": "v1",
@@ -101,23 +101,23 @@
       },
       {
         "name": "v3",
-        "tag": "v3.0.2",
+        "tag": "v3.0.3",
         "proposal": 8,
         "height": 13480000,
-        "recommended_version": "v3.0.2",
+        "recommended_version": "v3.0.3",
         "compatible_versions": [
-          "v3.0.2"
+          "v3.0.3"
         ],
         "cosmos_sdk_version": "0.47",
         "consensus": {
           "type": "cometbft",
           "version": "0.37"
         },
-        "cosmwasm_version": "0.30",
+        "cosmwasm_version": "0.44",
         "cosmwasm_enabled": true,
         "binaries": {
-          "linux/amd64": "https://github.com/CoreumFoundation/coreum/releases/download/v3.0.2/cored-linux-amd64",
-          "linux/arm64": "https://github.com/CoreumFoundation/coreum/releases/download/v3.0.2/cored-linux-arm64"
+          "linux/amd64": "https://github.com/CoreumFoundation/coreum/releases/download/v3.0.3/cored-linux-amd64?checksum=sha256:1719a32e6f8e8813d00cd86e1d8d02e893324d4f59fa7a1b8cedc5836140ecef",
+          "linux/arm64": "https://github.com/CoreumFoundation/coreum/releases/download/v3.0.3/cored-linux-arm64?checksum=sha256:cfbbad6803c0327407e4dd222a108505e6ff9e294d7c86e34b6b895b96b61bbd"
         }
       }
     ]
@@ -158,6 +158,11 @@
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "10ed1e176d874c8bb3c7c065685d2da6a4b86475",
+        "address": "seed-coreum.ibs.team:16674",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "persistent_peers": [
@@ -199,8 +204,20 @@
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
+        "address": "https://rpc.m.core.solonation.io",
+        "provider": "#SoloNation"
+      },
+      {
         "address": "https://coreum-rpc.genznodes.dev",
         "provider": "genznodes"
+      },
+      {
+        "address": "https://coreum-rpc.ibs.team",
+        "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/coreum/rpc",
+        "provider": "Stakewolle"
       }
     ],
     "grpc": [
@@ -251,8 +268,20 @@
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
+        "address": "https://api.m.core.solonation.io",
+        "provider": "#SoloNation"
+      },
+      {
         "address": "https://coreum-api.genznodes.dev",
         "provider": "genznodes"
+      },
+      {
+        "address": "https://coreum-api.ibs.team",
+        "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/coreum/rest",
+        "provider": "Stakewolle"
       }
     ]
   },
@@ -282,10 +311,22 @@
       "account_page": "https://explorer.silknodes.io/coreum/account/${accountAddress}"
     },
     {
+      "kind": "#SoloNation",
+      "url": "https://explorer.solonation.io/core-main",
+      "tx_page": "https://explorer.solonation.io/core-main/tx/${txHash}",
+      "account_page": "https://explorer.solonation.io/core-main/account/${accountAddress}"
+    },
+    {
       "kind": "TC Network",
       "url": "https://explorer.tcnetwork.io/coreum",
       "tx_page": "https://explorer.tcnetwork.io/coreum/transaction/${txHash}",
       "account_page": "https://explorer.tcnetwork.io/coreum/account/${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/coreum",
+      "tx_page": "https://ezstaking.app/coreum/txs/${txHash}",
+      "account_page": "https://ezstaking.app/coreum/account/${accountAddress}"
     }
   ],
   "keywords": [
@@ -293,6 +334,7 @@
     "staking",
     "wasm",
     "assets",
-    "nft"
+    "nft",
+    "XRPL"
   ]
 }

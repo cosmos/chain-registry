@@ -30,13 +30,19 @@
   },
   "codebase": {
     "git_repo": "https://github.com/akash-network/node/",
-    "recommended_version": "v0.30.0",
+    "recommended_version": "v0.36.0",
     "compatible_versions": [
-      "v0.30.0"
+      "v0.36.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.30.0/akash_linux_amd64.zip",
-      "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.30.0/akash_linux_arm64.zip"
+      "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.36.0/akash_linux_amd64.zip",
+      "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.36.0/akash_linux_arm64.zip"
+    },
+    "cosmos_sdk_version": "v0.45.16",
+    "ibc_go_version": "v4.6.0",
+    "consensus": {
+      "type": "cometbft",
+      "version": "akash-network/cometbft v0.34.27-akash"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/akash-network/net/master/mainnet/genesis.json"
@@ -106,6 +112,66 @@
         "binaries": {
           "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.30.0/akash_linux_amd64.zip",
           "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.30.0/akash_linux_arm64.zip"
+        },
+        "next_version_name": "v0.32.0"
+      },
+      {
+        "name": "v0.32.0",
+        "recommended_version": "v0.32.1",
+        "compatible_versions": [
+          "v0.32.1"
+        ],
+        "proposal": 249,
+        "height": 15414427,
+        "binaries": {
+          "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.32.1/akash_linux_amd64.zip",
+          "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.32.1238/akash_linux_arm64.zip"
+        },
+        "cosmos_sdk_version": "v0.45.16",
+        "ibc_go_version": "v4.4.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "akash-network/cometbft v0.34.27-akash"
+        },
+        "next_version_name": "v0.34.0"
+      },
+      {
+        "name": "v0.34.0",
+        "recommended_version": "v0.34.1",
+        "compatible_versions": [
+          "v0.34.1"
+        ],
+        "proposal": 256,
+        "height": 16133283,
+        "binaries": {
+          "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.34.1/akash_linux_amd64.zip",
+          "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.34.1/akash_linux_arm64.zip"
+        },
+        "cosmos_sdk_version": "v0.45.16",
+        "ibc_go_version": "v4.6.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "akash-network/cometbft v0.34.27-akash"
+        },
+        "next_version_name": "v0.36.0"
+      },
+      {
+        "name": "v0.36.0",
+        "recommended_version": "v0.36.0",
+        "compatible_versions": [
+          "v0.36.0"
+        ],
+        "proposal": 257,
+        "height": 16708237,
+        "binaries": {
+          "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.36.0/akash_linux_amd64.zip",
+          "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.36.0/akash_linux_arm64.zip"
+        },
+        "cosmos_sdk_version": "v0.45.16",
+        "ibc_go_version": "v4.6.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "akash-network/cometbft v0.34.27-akash"
         },
         "next_version_name": ""
       }
@@ -195,6 +261,11 @@
         "id": "9aa4c9097c818871e45aaca4118a9fe5e86c60e2",
         "address": "peer-akash-01.stakeflow.io:1506",
         "provider": "Stakeflow"
+      },
+      {
+        "id": "73ef1c0f9bc77fd925decf7fa41f22a35b5dc76d",
+        "address": "akash.declab.pro:26603",
+        "provider": "Decloud Nodes Lab"
       }
     ]
   },
@@ -259,6 +330,14 @@
       {
         "address": "https://rpc-akash.whispernode.com:443",
         "provider": "WhisperNode 🤐"
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/akash/rpc",
+        "provider": "Stakewolle"
+      },
+      {
+        "address": "https://akash.declab.pro:26601",
+        "provider": "Decloud Nodes Lab"
       }
     ],
     "rest": [
@@ -319,8 +398,16 @@
         "provider": "ValidatorNode"
       },
       {
-        "address": "https://lcd-akash.whispernode.com:443",
+        "address": "https://api-akash.whispernode.com:443",
         "provider": "WhisperNode 🤐"
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/akash/rest",
+        "provider": "Stakewolle"
+      },
+      {
+        "address": "https://akash.declab.pro:443",
+        "provider": "Decloud Nodes Lab"
       }
     ],
     "grpc": [
@@ -355,15 +442,23 @@
       {
         "address": "akash-grpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://akash.declab.pro:9001",
+        "provider": "Decloud Nodes Lab"
+      },
+      {
+        "address": "grpc-akash.whispernode.com:443",
+        "provider": "WhisperNode 🤐"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking",
-      "url": "https://app.ezstaking.io/akash",
-      "tx_page": "https://app.ezstaking.io/akash/txs/${txHash}",
-      "account_page": "https://app.ezstaking.io/akash/account/${accountAddress}"
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/akash",
+      "tx_page": "https://ezstaking.app/akash/txs/${txHash}",
+      "account_page": "https://ezstaking.app/akash/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
@@ -375,11 +470,6 @@
       "kind": "ping.pub",
       "url": "https://ping.pub/akash-network",
       "tx_page": "https://ping.pub/akash-network/tx/${txHash}"
-    },
-    {
-      "kind": "bigdipper",
-      "url": "https://akash.bigdipper.live/",
-      "tx_page": "https://akash.bigdipper.live/transactions/${txHash}"
     },
     {
       "kind": "atomscan",
@@ -401,6 +491,17 @@
       "kind": "ValidatorNode",
       "url": "https://explorer.validatornode.com/akash-network",
       "tx_page": "https://explorer.validatornode.com/akash-network/tx/${txHash}"
+    },
+    {
+      "kind": "Decloud Nodes Lab",
+      "url": "https://explorer.declab.pro/Akash",
+      "tx_page": "https://explorer.declab.pro/Akash/tx/${txHash}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/akash",
+      "tx_page": "https://mainnet.whispernode.com/akash/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/akash/account/${accountAddress}"
     }
   ],
   "images": [

@@ -33,14 +33,22 @@
   },
   "codebase": {
     "git_repo": "https://github.com/axelarnetwork/axelar-core",
-    "recommended_version": "v0.34.0",
+    "recommended_version": "v0.35.5",
     "compatible_versions": [
-      "v0.34.0"
+      "v0.35.5"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.34.0/axelard-linux-amd64-v0.34.0",
-      "darwin/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.34.0/axelard-darwin-amd64-v0.34.0"
+      "linux/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.35.5/axelard-linux-amd64-v0.35.5",
+      "darwin/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.35.5/axelard-darwin-amd64-v0.35.5"
     },
+    "cosmos_sdk_version": "axelarnetwork/cosmos-sdk v0.45.17-0.20230904150332-37fb903a6c62",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.34.31"
+    },
+    "ibc_go_version": "v4.5.1",
+    "cosmwasm_version": "v0.33.0",
+    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/axelarnetwork/axelarate-community/main/resources/mainnet/genesis.json"
     },
@@ -67,6 +75,26 @@
           "linux/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.34.0/axelard-linux-amd64-v0.34.0",
           "darwin/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.34.0/axelard-darwin-amd64-v0.34.0"
         },
+        "next_version_name": "v0.35ps://github.com/axelarnetwork/axelar-core/releases/down"
+      },
+      {
+        "name": "v0.35",
+        "recommended_version": "v0.35.5",
+        "compatible_versions": [
+          "v0.35.5"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.35.5/axelard-linux-amd64-v0.35.5",
+          "darwin/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.35.5/axelard-darwin-amd64-v0.35.5"
+        },
+        "cosmos_sdk_version": "axelarnetwork/cosmos-sdk v0.45.17-0.20230904150332-37fb903a6c62",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.31"
+        },
+        "ibc_go_version": "v4.5.1",
+        "cosmwasm_version": "v0.33.0",
+        "cosmwasm_enabled": true,
         "next_version_name": ""
       }
     ]
@@ -112,6 +140,11 @@
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "10ed1e176d874c8bb3c7c065685d2da6a4b86475",
+        "address": "seed-axelar.ibs.team:16671",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "persistent_peers": [
@@ -223,6 +256,10 @@
       {
         "address": "https://axelar-rpc.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://axelar-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "rest": [
@@ -293,6 +330,10 @@
       {
         "address": "https://axelar-api.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://axelar-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "grpc": [
@@ -339,6 +380,10 @@
       {
         "address": "grpc-axelar.whispernode.com:443",
         "provider": "WhisperNode 🤐"
+      },
+      {
+        "address": "axelar-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ]
   },
@@ -369,6 +414,18 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/axelar",
       "account_page": "https://stakeflow.io/axelar/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/axelar",
+      "tx_page": "https://ezstaking.app/axelar/txs/${txHash}",
+      "account_page": "https://ezstaking.app/axelar/account/${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/axelar",
+      "tx_page": "https://mainnet.whispernode.com/axelar/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/axelar/account/${accountAddress}"
     }
   ],
   "images": [
