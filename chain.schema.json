@@ -190,8 +190,7 @@
           "additionalProperties": false
         },
         "cosmos_sdk_version": {
-          "type": "string",
-          "pattern": "^(v?\\d+(?:\\.\\d+)?(?:\\.\\d+)?(?:-\\w+)?)(?:-[\\w.-]+)?$"
+          "$ref": "#/$defs/version"
         },
         "consensus": {
           "type": "object",
@@ -208,8 +207,7 @@
           "additionalProperties": false
         },
         "cosmwasm_version": {
-          "type": "string",
-          "pattern": "^(v?\\d+(?:\\.\\d+)?(?:\\.\\d+)?(?:-\\w+)?)(?:-[\\w.-]+)?$"
+          "$ref": "#/$defs/version"
         },
         "cosmwasm_enabled": {
           "type": "boolean"
@@ -220,8 +218,7 @@
           "pattern": "^\\$HOME.*$"
         },
         "ibc_go_version": {
-          "type": "string",
-          "pattern": "^(v?\\d+(?:\\.\\d+)?(?:\\.\\d+)?(?:-\\w+)?)(?:-[\\w.-]+)?$"
+          "$ref": "#/$defs/version"
         },
         "ics_enabled": {
           "type": "array",
@@ -541,6 +538,43 @@
   },
   "additionalProperties": false,
   "$defs": {
+    "version": {
+      "type": "string",
+      "oneOf": [
+        {
+          "description": "Matches complete semantic versioning patterns including an optional 'v' prefix and optional suffix (e.g., '0.47.20', 'v0.47.20', 'v0.47.20-alpha').",
+          "pattern": "^v?(\\d+\\.\\d+\\.\\d+)(?=-[\\w.-]+|$)"
+        },
+        {
+          "description": "Matches partial semantic versioning including major and minor versions only, with an optional 'v' prefix (e.g., '0.47', 'v0.47').",
+          "pattern": "^v?(\\d+\\.\\d+)(?=(?:\\.\\d+)?(?=-[\\w.-]+|$))"
+        },
+        {
+          "description": "Matches basic version numbers including only the major version, with an optional 'v' prefix (e.g., '0', 'v0').",
+          "pattern": "^v?(\\d+)(?=(?:\\.\\d+)?(?:\\.\\d+)?(?=-[\\w.-]+|$))"
+        },
+        {
+          "description": "Specifically matches version strings with a 'v' prefix, potentially followed by '.x' to denote any patch version, used in tagged formats (e.g., '@v1.2.x').",
+          "pattern": "@v(\\d+\\.\\d+)(?:\\.x)?(?=-[\\w.-]+|$)"
+        },
+        {
+          "description": "For versions embedded within paths, capturing complete semantic versions with an optional 'v' prefix (e.g., '/v1.2.3', '/path/v1.2.3').",
+          "pattern": "\\/v(\\d+\\.\\d+\\.\\d+)(?=-[\\w.-]+|$)"
+        },
+        {
+          "description": "Covers general simple versions, capturing optional 'v' prefix and up to three numeric components (e.g., 'v1', 'v1.2', 'v1.2.3').",
+          "pattern": "^v?(\\d+)(?:\\.(\\d+))?(?:\\.(\\d+))?$"
+        },
+        {
+          "description": "Handles complex namespace embedded versions, capturing detailed versions including namespaces and potential numeric build or timestamp data (e.g., 'namespace/v1.2.3-20200101').",
+          "pattern": "[\\w-]+\\/\\w+ v(\\d+)(?:\\.(\\d+))?(?:\\.(\\d+))?(?:-\\d+[\\w.-]*)"
+        },
+        {
+          "description": "Matches versions with descriptive tags, capturing versions that are prefixed with a project or repository name (e.g., 'project/v1.2.3').",
+          "pattern": "[\\w-]+\\/\\w+ v(\\d+)(?:\\.(\\d+))?(?:\\.(\\d+))?(?=-[\\w.-]+|$)"
+        }
+      ]
+    },
     "peer": {
       "type": "object",
       "required": ["id", "address"],
