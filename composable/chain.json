@@ -2,12 +2,12 @@
   "$schema": "../chain.schema.json",
   "chain_name": "composable",
   "chain_id": "centauri-1",
-  "website": "https://www.composable.finance/",
-  "pretty_name": "Composable",
+  "website": "https://www.picasso.xyz/",
+  "pretty_name": "Picasso",
   "status": "live",
   "network_type": "mainnet",
-  "bech32_prefix": "centauri",
-  "daemon_name": "centaurid",
+  "bech32_prefix": "pica",
+  "daemon_name": "picad",
   "node_home": "$HOME/.banksy",
   "key_algos": [
     "secp256k1"
@@ -32,11 +32,17 @@
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/notional-labs/composable-centauri",
-    "recommended_version": "v6.3.1",
+    "git_repo": "https://github.com/composable/composable-cosmos",
+    "recommended_version": "v6.5.3",
     "compatible_versions": [
-      "v6.3.1"
+      "v6.5.3"
     ],
+    "cosmos_sdk_version": "rust-ninja/cosmos-sdk v0.47.5-patch-validators-trim-tag",
+    "ibc_go_version": "notional-labs/ibc-go/v7 v7.2.1-0.20231010040541-6cf43006971f",
+    "consensus": {
+      "type": "cometbft",
+      "version": "composablefi/cometbft v0.37.2-fixed-len-vote-time-tag"
+    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/notional-labs/composable-networks/main/mainnet/genesis.json"
     },
@@ -137,9 +143,9 @@
       {
         "name": "v6",
         "tag": "v6.3.1",
-        "recommended_version": "v6.3.1",
+        "recommended_version": "v6.3.6",
         "compatible_versions": [
-          "v6.3.1"
+          "v6.3.6"
         ],
         "cosmos_sdk_version": "v0.47.5",
         "ibc_go_version": "v7.3.1",
@@ -149,14 +155,65 @@
         },
         "height": 2301070,
         "proposal": 12,
+        "next_version_name": "v6_4"
+      },
+      {
+        "name": "v6_4",
+        "tag": "v6.4.2",
+        "recommended_version": "v6.4.3",
+        "compatible_versions": [
+          "v6.4.3"
+        ],
+        "cosmos_sdk_version": "v0.47.5",
+        "ibc_go_version": "notional-labs/ibc-go/v7 v7.2.1-0.20231010040541-6cf43006971f",
+        "consensus": {
+          "type": "cometbft",
+          "version": "composablefi/cometbft v0.37.2-fixed-len-vote-time-tag"
+        },
+        "height": 3486739,
+        "proposal": 14,
+        "next_version_name": ""
+      },
+      {
+        "name": "v6_5_0",
+        "proposal": 16,
+        "height": 4446786,
+        "tag": "v6.5.1",
+        "recommended_version": "v6.5.2",
+        "compatible_versions": [
+          "v6.5.2"
+        ],
+        "cosmos_sdk_version": "v0.47.6",
+        "ibc_go_version": "notional-labs/ibc-go/v7 v7.2.1-0.20231010040541-6cf43006971f",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "next_version_name": "v6_5_3"
+      },
+      {
+        "name": "v6_5_3",
+        "proposal": 18,
+        "height": 4576500,
+        "tag": "v6.5.3",
+        "recommended_version": "v6.5.3",
+        "compatible_versions": [
+          "v6.5.3"
+        ],
+        "cosmos_sdk_version": "rust-ninja/cosmos-sdk v0.47.5-patch-validators-trim-tag",
+        "ibc_go_version": "notional-labs/ibc-go/v7 v7.2.1-0.20231010040541-6cf43006971f",
+        "consensus": {
+          "type": "cometbft",
+          "version": "composablefi/cometbft v0.37.2-fixed-len-vote-time-tag"
+        },
         "next_version_name": ""
       }
     ]
   },
   "logo_URIs": {
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/composable/images/composable.svg"
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/composable/images/pica.svg"
   },
-  "description": "Composable is the base layer connecting L1s and L2s. We are scaling IBC to other ecosystems, pushing the boundaries of trust-minimized interoperability. We abstract the cross-chain experience for users, delivering seamless chain-agnostic execution of user intentions.",
+  "description": "Picasso is a DeFi infrastructure-focused Layer 1 protocol that leads the industry in building the trust-minimized interoperability solution -Cross-Ecosystem IBC. Complementary to the interoperability work, Picasso is building the first Generalized Restaking Layer starting with deployment on Solana, and expand support for all IBC connected ecosystems.",
   "peers": {
     "seeds": [
       {
@@ -170,9 +227,24 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "id": "d2362ebcdd562500ac8c4cfa2214a89ad811033c",
+        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:22256",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
+      },
+      {
+        "id": "a3910d1bf22b4dacf66979d6ea75fd134aee00db",
+        "address": "seed.composable.validatus.com:2000",
+        "provider": "Validatus"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "aa6398f9644e98fa3d04f7dbdd7740c995eb0530",
+        "address": "composable.seed.stavr.tech:20306",
+        "provider": "🔥STAVR🔥"
       }
     ],
     "persistent_peers": [
@@ -188,7 +260,7 @@
       },
       {
         "id": "7082a715395427a519e611ed1454b0965fd95ef5",
-        "address": "88.99.208.54:37656",
+        "address": "138.201.21.197:37656",
         "provider": "StakeTown"
       },
       {
@@ -214,15 +286,11 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://composable-rpc.cogwheel.zone:443",
-        "provider": "Cogwheel"
+        "address": "https://picasso-rpc.cogwheel.zone:443",
+        "provider": "Cogwheel ⚙️"
       },
       {
-        "address": "https://rpc-centauri.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
-      },
-      {
-        "address": "https://composable-rpc.lavenderfive.com:443",
+        "address": "https://picasso-rpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -230,16 +298,36 @@
         "provider": "genznodes"
       },
       {
-        "address": "https://rpc-composable.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "address": "https://rpc-picasso.whispernode.com:443",
+        "provider": "WhisperNode 🤐"
       },
       {
-        "address": "https://composable-rpc.stake-town.com",
+        "address": "https://picasso-rpc.stake-town.com",
         "provider": "StakeTown"
       },
       {
         "address": "https://composable.rpc.stakevillage.net:443",
         "provider": "Stake Village"
+      },
+      {
+        "address": "https://composable-rpc.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
+      },
+      {
+        "address": "https://rpc.centauri.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://composable.rpc.moonbridge.team",
+        "provider": "Moonbridge"
+      },
+      {
+        "address": "https://rpc.composable.citizenweb3.com:443",
+        "provider": "Citizen Web3"
+      },
+      {
+        "address": "https://composable.rpc.m.stavr.tech:443",
+        "provider": "🔥STAVR🔥"
       }
     ],
     "rest": [
@@ -252,15 +340,11 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://composable-api.cogwheel.zone:443",
-        "provider": "Cogwheel"
+        "address": "https://picasso-api.cogwheel.zone:443",
+        "provider": "Cogwheel ⚙️"
       },
       {
-        "address": "https://api-centauri.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
-      },
-      {
-        "address": "https://composable-api.lavenderfive.com:443",
+        "address": "https://picasso-api.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -268,16 +352,32 @@
         "provider": "genznodes"
       },
       {
-        "address": "https://lcd-composable.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "address": "https://api-picasso.whispernode.com:443",
+        "provider": "WhisperNode 🤐"
       },
       {
-        "address": "https://composable-api.stake-town.com",
+        "address": "https://picasso-api.stake-town.com",
         "provider": "StakeTown"
       },
       {
         "address": "https://composable.api.stakevillage.net",
         "provider": "Stake Village"
+      },
+      {
+        "address": "https://composable-api.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
+      },
+      {
+        "address": "https://lcd.centauri.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://composable.api.moonbridge.team",
+        "provider": "Moonbridge"
+      },
+      {
+        "address": "https://composable.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
       }
     ],
     "grpc": [
@@ -298,11 +398,11 @@
         "provider": "Cosmos Spaces"
       },
       {
-        "address": "https://composable-grpc.cogwheel.zone:443",
-        "provider": "Cogwheel"
+        "address": "https://picasso-grpc.cogwheel.zone:443",
+        "provider": "Cogwheel ⚙️"
       },
       {
-        "address": "https://composable-grpc.lavenderfive.com:443",
+        "address": "https://picasso-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -310,7 +410,7 @@
         "provider": "genznodes"
       },
       {
-        "address": "composable-grpc.stake-town.com:443",
+        "address": "picasso-grpc.stake-town.com:443",
         "provider": "StakeTown"
       },
       {
@@ -324,14 +424,38 @@
       {
         "address": "composable.grpc.stakevillage.net:16190",
         "provider": "Stake Village"
+      },
+      {
+        "address": "composable-rpc.stakeandrelax.net:22290",
+        "provider": "Stake&Relax 🦥"
+      },
+      {
+        "address": "grpc.composable.validatus.com",
+        "provider": "Validatus"
+      },
+      {
+        "address": "https://grpc.centauri.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://composable.grpc.moonbridge.team",
+        "provider": "Moonbridge"
+      },
+      {
+        "address": "composable.grpc.m.stavr.tech:9907",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "grpc-picasso.whispernode.com:443",
+        "provider": "WhisperNode 🤐"
       }
     ]
   },
   "explorers": [
     {
       "kind": "ping.pub",
-      "url": "https://ping.pub/centauri",
-      "tx_page": "https://ping.pub/centauri/tx/${txHash}"
+      "url": "https://ping.pub/composable",
+      "tx_page": "https://ping.pub/composable/tx/${txHash}"
     },
     {
       "kind": "NodeStake Explorer",
@@ -343,11 +467,22 @@
       "url": "https://exp.stakevillage.net/composable",
       "tx_page": "https://exp.stakevillage.net/composable/tx/${txHash}",
       "account_page": "https://exp.stakevillage.net/composable/account/${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Composable-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Composable-Mainnet/tx/${txHash}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/picasso",
+      "tx_page": "https://mainnet.whispernode.com/picasso/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/picasso/account/${accountAddress}"
     }
   ],
   "images": [
     {
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/composable/images/composable.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/composable/images/pica.svg"
     }
   ]
 }

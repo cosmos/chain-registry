@@ -9,7 +9,9 @@
   "bech32_prefix": "kujira",
   "daemon_name": "kujirad",
   "node_home": "$HOME/.kujira",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -106,7 +108,6 @@
       },
       {
         "denom": "factory/kujira1643jxg8wasy5cfcn7xm8rd742yeazcksqlg4d7/umnta",
-
         "fixed_min_gas_price": 0.01807,
         "low_gas_price": 0.01807,
         "average_gas_price": 0.02711,
@@ -137,14 +138,20 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Team-Kujira/core",
-    "recommended_version": "v0.9.1",
-    "compatible_versions": ["v0.9.1"],
-    "cosmos_sdk_version": "v0.47.5",
+    "recommended_version": "v1.0.2",
+    "compatible_versions": [
+      "v1.0.2"
+    ],
+    "cosmos_sdk_version": "v0.47.8",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.2"
+      "version": "v0.37.4"
     },
-    "ics_enabled": ["ics20-1"],
+    "cosmwasm_version": "v0.45.0",
+    "cosmwasm_enabled": true,
+    "ics_enabled": [
+      "ics20-1"
+    ],
     "genesis": {
       "genesis_url": "https://github.com/Team-Kujira/networks/raw/master/mainnet/kaiyo-1.json"
     },
@@ -155,20 +162,27 @@
         "height": 9226200,
         "proposal": 302,
         "recommended_version": "v0.8.4-mainnet",
-        "compatible_versions": ["v0.8.4", "v0.8.4-mainnet"],
+        "compatible_versions": [
+          "v0.8.4",
+          "v0.8.4-mainnet"
+        ],
         "cosmos_sdk_version": "0.46.11",
         "consensus": {
           "type": "cometbft",
           "version": "v0.34.27"
         },
-        "ics_enabled": ["ics20-1"],
+        "ics_enabled": [
+          "ics20-1"
+        ],
         "next_version_name": "v0.8.7"
       },
       {
         "name": "v0.8.7",
         "proposal": -1,
         "recommended_version": "v0.8.7",
-        "compatible_versions": ["v0.8.7"],
+        "compatible_versions": [
+          "v0.8.7"
+        ],
         "next_version_name": "v0.9.0"
       },
       {
@@ -176,7 +190,9 @@
         "proposal": 483,
         "height": 14783000,
         "recommended_version": "v0.9.0",
-        "compatible_versions": ["v0.9.0"],
+        "compatible_versions": [
+          "v0.9.0"
+        ],
         "cosmos_sdk_version": "v0.47.5",
         "consensus": {
           "type": "cometbft",
@@ -188,13 +204,49 @@
         "name": "v0.9.1",
         "proposal": 488,
         "height": 15205000,
-        "recommended_version": "v0.9.1",
-        "compatible_versions": ["v0.9.1"],
+        "recommended_version": "v0.9.1-1",
+        "compatible_versions": [
+          "v0.9.1-1"
+        ],
         "cosmos_sdk_version": "v0.47.5",
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.2"
         },
+        "next_version_name": "v0.9.3"
+      },
+      {
+        "name": "v0.9.3",
+        "proposal": 534,
+        "height": 16610000,
+        "recommended_version": "v0.9.3-1",
+        "compatible_versions": [
+          "v0.9.3-1"
+        ],
+        "cosmos_sdk_version": "v0.47.5",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "cosmwasm_version": "v0.45.0",
+        "cosmwasm_enabled": true,
+        "next_version_name": "v1.0.2"
+      },
+      {
+        "name": "v1.0.2",
+        "proposal": 618,
+        "height": 18700000,
+        "recommended_version": "v1.0.2",
+        "compatible_versions": [
+          "v1.0.2"
+        ],
+        "cosmos_sdk_version": "v0.47.8",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "cosmwasm_version": "v0.45.0",
+        "cosmwasm_enabled": true,
         "next_version_name": ""
       }
     ]
@@ -225,7 +277,7 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "kujira-mainnet-seed.autostake.com:26796",
-        "provider": "AutoStake ⚡️ 0% fee"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
@@ -240,19 +292,24 @@
       {
         "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:11856",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "id": "654ba97f74254965a80c0fac0f277f6f6e5506b6",
         "address": "seed-node.mms.team:29656",
         "provider": "MMS"
+      },
+      {
+        "id": "10ed1e176d874c8bb3c7c065685d2da6a4b86475",
+        "address": "seed-kujira.ibs.team:16678",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "persistent_peers": [
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "kujira-mainnet-peer.autostake.com:26796",
-        "provider": "AutoStake ⚡️ 0% fee"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "c1a740841a6dc0b56730e975b1a4aa2d8c73b204",
@@ -265,7 +322,7 @@
     "rpc": [
       {
         "address": "https://rpc-kujira.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://rpc.kaiyo.kujira.setten.io",
@@ -313,7 +370,7 @@
       },
       {
         "address": "https://kujira-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake ⚡️ 0% fee"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://rpc.kujira.rektdao.club",
@@ -343,7 +400,7 @@
     "rest": [
       {
         "address": "https://lcd-kujira.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://lcd.kaiyo.kujira.setten.io",
@@ -387,7 +444,7 @@
       },
       {
         "address": "https://kujira-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake ⚡️ 0% fee"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://api.kujira.rektdao.club",
@@ -408,6 +465,10 @@
       {
         "address": "https://kujira-rest.publicnode.com",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://kujira-rest.interstellar-lounge.org",
+        "provider": "Interstellar Lounge 🍸"
       }
     ],
     "grpc": [
@@ -429,7 +490,7 @@
       },
       {
         "address": "kujira-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake ⚡️ 0% fee"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "kujira.grpc.kjnodes.com:11390",
@@ -446,6 +507,10 @@
       {
         "address": "kujira-grpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "grpc-kujira.whispernode.com:443",
+        "provider": "WhisperNode 🤐"
       }
     ]
   },
@@ -461,10 +526,22 @@
       "tx_page": "https://kujira.explorers.guru/transaction/${txHash}"
     },
     {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/kujira",
+      "tx_page": "https://ezstaking.app/kujira/txs/${txHash}",
+      "account_page": "https://ezstaking.app/kujira/account/${accountAddress}"
+    },
+    {
       "kind": "atomscan",
       "url": "https://atomscan.com/kujira",
       "tx_page": "https://atomscan.com/kujira/transactions/${txHash}",
       "account_page": "https://atomscan.com/kujira/accounts/${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/kujira",
+      "tx_page": "https://mainnet.whispernode.com/kujira/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/kujira/account/${accountAddress}"
     }
   ],
   "logo_URIs": {

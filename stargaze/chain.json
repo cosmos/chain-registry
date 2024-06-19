@@ -30,10 +30,18 @@
   },
   "codebase": {
     "git_repo": "https://github.com/public-awesome/stargaze",
-    "recommended_version": "v12.0.0",
+    "recommended_version": "v13.0.0",
     "compatible_versions": [
-      "v12.0.0"
+      "v13.0.0"
     ],
+    "cosmos_sdk_version": "v0.47.10",
+    "ibc_go_version": "v7.3.2",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.4"
+    },
+    "cosmwasm_version": "v0.45.0",
+    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/public-awesome/mainnet/main/stargaze-1/genesis.tar.gz"
     },
@@ -70,6 +78,24 @@
         "compatible_versions": [
           "v12.0.0"
         ],
+        "next_version_name": "v13"
+      },
+      {
+        "name": "v13",
+        "proposal": 260,
+        "height": 12801683,
+        "recommended_version": "v13.0.0",
+        "compatible_versions": [
+          "v13.0.0"
+        ],
+        "cosmos_sdk_version": "v0.47.10",
+        "ibc_go_version": "v7.3.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "cosmwasm_version": "v0.45.0",
+        "cosmwasm_enabled": true,
         "next_version_name": ""
       }
     ]
@@ -115,13 +141,13 @@
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
-        "id": "604f4baaa30cd3f50d080bf45806d222c7fadc94",
+        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:13756",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "id": "96e0040d44a2f0b59d2a07e128369363d8535b67",
-        "address": "seed-stargaze.ibs.team:16658",
+        "address": "seed-stargaze.ibs.team:16669",
         "provider": "Inter Blockchain Services"
       },
       {
@@ -192,7 +218,7 @@
       },
       {
         "address": "https://rpc-stargaze.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://stargaze-mainnet-rpc.autostake.com:443",
@@ -221,6 +247,14 @@
       {
         "address": "https://stargaze-rpc.reece.sh:443",
         "provider": "Reecepbcups"
+      },
+      {
+        "address": "https://rpc.stargaze.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://stargaze-rpc.kleomedes.network",
+        "provider": "Kleomedes"
       }
     ],
     "rest": [
@@ -270,7 +304,7 @@
       },
       {
         "address": "https://lcd-stargaze.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://stargaze-api.ramuchi.tech",
@@ -295,6 +329,14 @@
       {
         "address": "https://stargaze-api.reece.sh:443",
         "provider": "Reecepbcups"
+      },
+      {
+        "address": "https://lcd.stargaze.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://stargaze-api.kleomedes.network",
+        "provider": "Kleomedes"
       }
     ],
     "grpc": [
@@ -333,15 +375,19 @@
       {
         "address": "stargaze-grpc.stakerhouse.com:443",
         "provider": "StakerHouse"
+      },
+      {
+        "address": "https://grpc.stargaze.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking",
-      "url": "https://app.ezstaking.io/stargaze",
-      "tx_page": "https://app.ezstaking.io/stargaze/txs/${txHash}",
-      "account_page": "https://app.ezstaking.io/stargaze/account/${accountAddress}"
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/stargaze",
+      "tx_page": "https://ezstaking.app/stargaze/txs/${txHash}",
+      "account_page": "https://ezstaking.app/stargaze/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
@@ -365,6 +411,12 @@
       "url": "https://starscan.net/",
       "tx_page": "https://starscan.net/stargaze-1/tx/${txHash}",
       "account_page": "https://starscan.net/stargaze-1/address/${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/stargaze",
+      "tx_page": "https://mainnet.whispernode.com/stargaze/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/stargaze/account/${accountAddress}"
     }
   ],
   "images": [

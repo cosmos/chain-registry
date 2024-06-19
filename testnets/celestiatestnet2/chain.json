@@ -1,7 +1,7 @@
 {
   "$schema": "../../chain.schema.json",
   "chain_name": "celestiatestnet2",
-  "chain_id": "arabica-10",
+  "chain_id": "arabica-11",
   "pretty_name": "Arabica Testnet",
   "status": "live",
   "network_type": "devnet",
@@ -23,34 +23,39 @@
   },
   "codebase": {
     "git_repo": "https://github.com/celestiaorg/celestia-app",
-    "recommended_version": "v1.3.0",
-    "compatible_versions": ["v1.3.0"],
+    "recommended_version": "v1.6.0",
+    "compatible_versions": ["v1.3.0", "v1.4.0", "v1.5.0", "v1.6.0"],
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/arabica-9/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/arabica-11/genesis.json"
     },
     "versions": [
       {
         "name": "v1.3.0",
-        "recommended_version": "v1.3.0",
-        "compatible_versions": ["v1.3.0"]
+        "recommended_version": "v1.6.0",
+        "compatible_versions": ["v1.3.0", "v1.4.0", "v1.5.0", "v1.6.0"]
       }
     ]
   },
   "peers": {
     "seeds": [
       {
-        "id": "ad8e16b0b78cd44239590c49da75ba074c02e1c4",
-        "address": "consensus-full.celestia-arabica-10.com",
+        "id": "827583022cc6ce65cf762115642258f937c954cd",
+        "address": "validator-1.celestia-arabica-11.com",
         "provider": "Celestia Labs"
       },
       {
-        "id": "4686b0b70a8d1a2b24cbe0f856ba2b52a38a02b1",
-        "address": "full.consensus.celestia-arabica-10.com",
+        "id": "74e42b39f512f844492ff09e30af23d54579b7bc",
+        "address": "validator-2.celestia-arabica-11.com",
         "provider": "Celestia Labs"
       },
       {
-        "id": "25c2e83bde060c51bb117c6526e14053bd4a83ec",
-        "address": "consensus-validator.celestia-arabica-10.com",
+        "id": "00d577159b2eb1f524ef9c37cb389c020a2c38d2",
+        "address": "validator-3.celestia-arabica-11.com",
+        "provider": "Celestia Labs"
+      },
+      {
+        "id": "b2871b6dc2e18916d07264af0e87c456c2bba04f",
+        "address": "validator-4.celestia-arabica-11.com",
         "provider": "Celestia Labs"
       }
     ]
@@ -58,13 +63,13 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://consensus-full.celestia-arabica-10.com/",
+        "address": "https://validator-1.celestia-arabica-11.com/",
         "provider": "Celestia Labs"
       }
     ],
     "rest": [
       {
-        "address": "https://api.consensus.celestia-arabica-10.com/",
+        "address": "https://api.celestia-arabica-11.com/",
         "provider": "Celestia Labs"
       }
     ]
@@ -72,8 +77,8 @@
   "explorers": [
     {
       "kind": "Ping.Pub",
-      "url": "https://explorer.celestia-arabica-10.com/arabica-10",
-      "tx_page": "https://explorer.celestia-arabica-10.com/arabica-10/tx/${txHash}"
+      "url": "https://explorer.celestia-arabica-11.com/arabica-11",
+      "tx_page": "https://explorer.celestia-arabica-11.com/arabica-11/tx/${txHash}"
     }
   ]
 }
