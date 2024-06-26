@@ -466,32 +466,50 @@
               },
               "monochrome": {
                 "type": "boolean"
+              },
+              "image_type": {
+                "type": "string",
+                "minLength": 1,
+                "enum": [ "logo", "logomark", "logotype" ],
+                "description": "logomark == icon only; logotype == text only; logo == icon + text."
+              },
+              "text_position": {
+                "type": "string",
+                "minLength": 1,
+                "enum": [ "top", "bottom", "left", "right", "integrated" ],
+                "description": "Indicates in which position the text is placed, in case the layout is 'icon' type, it's required only in this case."
               }
             },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "image_type": { "const": "logo" }
+                  },
+                  "required": [ "image_type" ]
+                },
+                "then": {
+                  "required": [ "text_position" ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "text_position": {}
+                  },
+                  "required": [ "text_position" ]
+                },
+                "then": {
+                  "properties": {
+                    "image_type": { "const": "logo" }
+                  },
+                  "required": [ "image_type" ]
+                }
+              }
+            ],
             "minProperties": 1,
             "additionalProperties": false
-          },
-          "layout": {
-            "type": "string",
-            "minLength": 1,
-            "enum": ["logo", "logomark", "logotype"],
-            "description": "logomark == icon only; logotype == text only; logo == icon + text."
-          },
-          "text_position": {
-            "type": "string",
-            "minLength": 1,
-            "enum": ["top", "bottom", "left", "right", "integrated"],
-            "description": "Indicates in which position the text is placed, in case the layout is 'icon' type, it's required only in this case."
           }
-        },
-        "if": {
-          "properties": {
-            "layout": { "const": "logo" }
-          },
-          "required": ["layout"]
-        },
-        "then": {
-          "required": ["text_position"]
         },
         "anyOf": [
           {
