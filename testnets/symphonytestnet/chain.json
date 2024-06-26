@@ -1,0 +1,142 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "symphonytestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Symphony Testnet",
+  "chain_id": "symphony-testnet-1",
+  "bech32_prefix": "symphony",
+  "daemon_name": "symphonyd",
+  "node_home": "$HOME/.symphonyd",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "note",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.0025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "note"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Orchestra-Labs/symphony-osmosis",
+    "recommended_version": "v15.0.0",
+    "compatible_versions": ["v15.0.0"],
+    "cosmos_sdk_version": "0.45",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "cosmwasm_version": "0.30",
+    "cosmwasm_enabled": true,
+    "genesis": {
+      "genesis_url": "https://rpc.testnet.symphonychain.org/genesis"
+    },
+    "versions": [
+      {
+        "name": "v14.0.0-rc1",
+        "recommended_version": "v14.0.0-rc1",
+        "compatible_versions": ["v14.0.0-rc1"],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.29",
+        "cosmwasm_enabled": true
+      },
+      {
+        "name": "v15.0.0-rc3",
+        "recommended_version": "v15.0.0-rc3",
+        "compatible_versions": ["v15.0.0-rc3"],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.29",
+        "cosmwasm_enabled": true
+      },
+      {
+        "name": "v15.0.0",
+        "recommended_version": "v15.0.0",
+        "compatible_versions": ["v15.0.0-rc3"],
+        "cosmos_sdk_version": "0.45",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_version": "0.30",
+        "cosmwasm_enabled": true
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "bb197876fd952d245ef6377e3651c157e3d7ed81",
+        "address": "157.245.26.231:26656"
+      },
+      {
+        "id": "7c2b9e76be5c2142c76b429d9c29e902599ceb44",
+        "address": "157.245.21.183:26656"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "8df964c61393d33d11f7c821aba1a72f428c0d24",
+        "address": "34.41.129.120:26656"
+      },
+      {
+        "id": "eea2dc7e9abfd18787d4cc2c728689ad658cd3a2",
+        "address": "35.184.9.159:26656"
+      },
+      {
+        "id": "785f5e73e26623214269909c0be2df3f767fbe50",
+        "address": "35.225.73.240:26656"
+      },
+      {
+        "id": "adc09b9238bc582916abda954b081220d6f9cbc2",
+        "address": "34.172.132.224:26656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.testnet.symphonychain.org/",
+        "provider": "Orchestra Labs"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lcd.testnet.symphonychain.org/",
+        "provider": "Orchestra Labs"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.testnet.symphonychain.org/",
+        "provider": "Orchestra Labs"
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/symphonytestnet/images/symphony_logo.png"
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/symphonytestnet/images/symphony_logo.png"
+    }
+  ]
+}

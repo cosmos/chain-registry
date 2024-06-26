@@ -14,7 +14,7 @@
     "fee_tokens": [
       {
         "denom": "uakt",
-        "fixed_min_gas_price": 0,
+        "fixed_min_gas_price": 0.00025,
         "low_gas_price": 0.00025,
         "average_gas_price": 0.0025,
         "high_gas_price": 0.025
@@ -30,13 +30,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/akash-network/node/",
-    "recommended_version": "v0.34.1",
+    "recommended_version": "v0.36.0",
     "compatible_versions": [
-      "v0.34.1"
+      "v0.36.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.34.1/akash_linux_amd64.zip",
-      "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.34.1/akash_linux_arm64.zip"
+      "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.36.0/akash_linux_amd64.zip",
+      "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.36.0/akash_linux_arm64.zip"
     },
     "cosmos_sdk_version": "v0.45.16",
     "ibc_go_version": "v4.6.0",
@@ -153,7 +153,26 @@
           "type": "cometbft",
           "version": "akash-network/cometbft v0.34.27-akash"
         },
-        "next_version_name": ""
+        "next_version_name": "v0.36.0"
+      },
+      {
+        "name": "v0.36.0",
+        "recommended_version": "v0.36.0",
+        "compatible_versions": [
+          "v0.36.0"
+        ],
+        "proposal": 257,
+        "height": 16708237,
+        "binaries": {
+          "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.36.0/akash_linux_amd64.zip",
+          "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.36.0/akash_linux_arm64.zip"
+        },
+        "cosmos_sdk_version": "v0.45.16",
+        "ibc_go_version": "v4.6.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "akash-network/cometbft v0.34.27-akash"
+        }
       }
     ]
   },
@@ -378,7 +397,7 @@
         "provider": "ValidatorNode"
       },
       {
-        "address": "https://lcd-akash.whispernode.com:443",
+        "address": "https://api-akash.whispernode.com:443",
         "provider": "WhisperNode 🤐"
       },
       {
@@ -426,6 +445,10 @@
       {
         "address": "https://akash.declab.pro:9001",
         "provider": "Decloud Nodes Lab"
+      },
+      {
+        "address": "grpc-akash.whispernode.com:443",
+        "provider": "WhisperNode 🤐"
       }
     ]
   },
@@ -472,6 +495,12 @@
       "kind": "Decloud Nodes Lab",
       "url": "https://explorer.declab.pro/Akash",
       "tx_page": "https://explorer.declab.pro/Akash/tx/${txHash}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/akash",
+      "tx_page": "https://mainnet.whispernode.com/akash/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/akash/account/${accountAddress}"
     }
   ],
   "images": [
