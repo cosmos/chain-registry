@@ -451,39 +451,26 @@
               "primary_color_hex": {
                 "type": "string",
                 "minLength": 1,
-                "pattern": "^#[0-9a-fA-F]{6}$"
+                "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+              },
+              "background_color_hex": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^(#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})|none)$"
               },
               "circle": {
                 "type": "boolean"
               },
               "dark_mode": {
                 "type": "boolean"
+              },
+              "monochrome": {
+                "type": "boolean"
               }
             },
             "minProperties": 1,
             "additionalProperties": false
-          },
-          "layout": {
-            "type": "string",
-            "minLength": 1,
-            "enum": ["logo", "logomark", "logotype"],
-            "description": "logomark == icon only; logotype == text only; logo == icon + text."
-          },
-          "text_position": {
-            "type": "string",
-            "minLength": 1,
-            "enum": ["top", "bottom", "left", "right", "integrated"],
-            "description": "Indicates in which position the text is placed, in case the layout is 'icon' type, it's required only in this case."
           }
-        },
-        "if": {
-          "properties": {
-            "layout": { "const": "logo" }
-          },
-          "required": ["layout"]
-        },
-        "then": {
-          "required": ["text_position"]
         },
         "anyOf": [
           {
