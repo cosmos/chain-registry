@@ -94,15 +94,15 @@
           ]
         },
         {
-          "denom": "usdc",
+          "denom": "axlusdc",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
       "base": "ibc/F082B65C88E4B6D5EF1DB243CDA1D331D002759E938A0F5CD3FFDC5D53B3E349",
-      "name": "IBC usdc",
-      "display": "usdc",
-      "symbol": "USDC",
+      "name": "USD Coin (Axelar)",
+      "display": "axlusdc",
+      "symbol": "axlUSDC",
       "traces": [
         {
           "type": "ibc",
@@ -373,10 +373,10 @@
       ]
     },
     {
-      "description": "ASTRO on Neutron",
+      "description": "Astroport is a neutral marketplace where anyone, from anywhere in the galaxy, can dock to trade their wares.",
       "denom_units": [
         {
-          "denom": "ibc/5751B8BCDA688FD0A8EC0B292EEF1CDEAB4B766B63EC632778B196D317C40C3A",
+          "denom": "factory/neutron1ffus553eet978k024lmssw0czsxwr97mggyv85lpcsdkft8v9ufsz3sa07/astro",
           "exponent": 0,
           "aliases": [
             "uastro"
@@ -387,11 +387,88 @@
           "exponent": 6
         }
       ],
-      "type_asset": "ics20",
-      "base": "ibc/5751B8BCDA688FD0A8EC0B292EEF1CDEAB4B766B63EC632778B196D317C40C3A",
+      "base": "factory/neutron1ffus553eet978k024lmssw0czsxwr97mggyv85lpcsdkft8v9ufsz3sa07/astro",
       "name": "Astroport token",
       "display": "astro",
       "symbol": "ASTRO",
+      "coingecko_id": "astroport-fi",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.svg"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.svg"
+      },
+      "socials": {
+        "website": "https://astroport.fi/",
+        "twitter": "https://twitter.com/astroport_fi"
+      }
+    },
+    {
+      "description": "Astroport is a neutral marketplace where anyone, from anywhere in the galaxy, can dock to trade their wares.",
+      "denom_units": [
+        {
+          "denom": "factory/neutron1zlf3hutsa4qnmue53lz2tfxrutp8y2e3rj4nkghg3rupgl4mqy8s5jgxsn/xASTRO",
+          "exponent": 0,
+          "aliases": [
+            "uxastro"
+          ]
+        },
+        {
+          "denom": "xASTRO",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron1zlf3hutsa4qnmue53lz2tfxrutp8y2e3rj4nkghg3rupgl4mqy8s5jgxsn/xASTRO",
+      "name": "Staked Astroport Token",
+      "display": "xASTRO",
+      "symbol": "xASTRO",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "neutron",
+            "base_denom": "factory/neutron1ffus553eet978k024lmssw0czsxwr97mggyv85lpcsdkft8v9ufsz3sa07/astro"
+          },
+          "provider": "Astroport"
+        }
+      ],
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/xAstro.svg"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/xAstro.svg"
+      },
+      "socials": {
+        "website": "https://astroport.fi/",
+        "twitter": "https://twitter.com/astroport_fi"
+      }
+    },
+    {
+      "description": "ASTRO.cw20 on Neutron",
+      "denom_units": [
+        {
+          "denom": "ibc/5751B8BCDA688FD0A8EC0B292EEF1CDEAB4B766B63EC632778B196D317C40C3A",
+          "exponent": 0,
+          "aliases": [
+            "uastro"
+          ]
+        },
+        {
+          "denom": "astro.cw20",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/5751B8BCDA688FD0A8EC0B292EEF1CDEAB4B766B63EC632778B196D317C40C3A",
+      "name": "Astroport CW20 token",
+      "display": "astro.cw20",
+      "symbol": "ASTRO.cw20",
       "traces": [
         {
           "type": "ibc-cw20",
@@ -414,13 +491,11 @@
             "chain_name": "terra2",
             "base_denom": "cw20:terra1nsuqsk6kh58ulczatwev87ttq2z6r3pusulg9r24mfj2fvtzd4uq3exn26"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/astro.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/astro.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/astro-cw20.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/astro.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/astro.svg"
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/astro-cw20.svg"
       }
     },
     {
@@ -694,7 +769,11 @@
         {
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/apollo.svg"
         }
-      ]
+      ],
+      "socials": {
+        "website": "https://apollo.farm/",
+        "twitter": "https://twitter.com/ApolloDAO"
+      }
     },
     {
       "description": "NEWTROLL",
@@ -949,6 +1028,137 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/ATOM1KLFGc.png"
+        }
+      ]
+    },
+    {
+      "type_asset": "ics20",
+      "description": "USD Coin on Neutron",
+      "denom_units": [
+        {
+          "denom": "ibc/B559A80D62249C8AA07A380E2A2BEA6E5CA9A6F079C912C3A9E9B494105E4F81",
+          "exponent": 0,
+          "aliases": [
+            "uusdc",
+            "microusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "base": "ibc/B559A80D62249C8AA07A380E2A2BEA6E5CA9A6F079C912C3A9E9B494105E4F81",
+      "name": "USD Coin",
+      "display": "usdc",
+      "symbol": "USDC",
+      "coingecko_id": "usd-coin",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "noble",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.svg"
+        }
+      ],
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "channel_id": "channel-18",
+            "base_denom": "uusdc",
+            "chain_name": "noble"
+          },
+          "chain": {
+            "channel_id": "channel-30",
+            "path": "transfer/channel-30/uusdc"
+          }
+        }
+      ]
+    },
+    {
+      "description": "WEIRD FRIENDS token",
+      "denom_units": [
+        {
+          "denom": "factory/neutron133xakkrfksq39wxy575unve2nyehg5npx75nph/WEIRD",
+          "exponent": 0,
+          "aliases": [
+            "uWEIRD"
+          ]
+        },
+        {
+          "denom": "WEIRD",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron133xakkrfksq39wxy575unve2nyehg5npx75nph/WEIRD",
+      "name": "WEIRD",
+      "display": "WEIRD",
+      "symbol": "WEIRD",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/WEIRD.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/WEIRD.png"
+        }
+      ]
+    },
+    {
+      "denom_units": [
+        {
+          "denom": "factory/neutron19tynwawkm2rgefqxy7weupu4hdamyhg890zep2/TAKUMI",
+          "exponent": 0,
+          "aliases": [
+            "utakumi"
+          ]
+        },
+        {
+          "denom": "takumi",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron19tynwawkm2rgefqxy7weupu4hdamyhg890zep2/TAKUMI",
+      "name": "Takumi Asano",
+      "display": "takumi",
+      "symbol": "TAKUMI",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/TAKUMI.png"
+        }
+      ]
+    },
+    {
+      "name": "Ninja Blaze Token",
+      "description": "Ninja Blaze Token",
+      "denom_units": [
+        {
+          "denom": "factory/neutron1a6ydq8urdj0gkvjw9e9e5y9r5ce2qegm9m4xufpt96kcm60kmuass0mqq4/nbz",
+          "exponent": 0,
+          "aliases": [
+            "uNBZ"
+          ]
+        },
+        {
+          "denom": "NBZ",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron1a6ydq8urdj0gkvjw9e9e5y9r5ce2qegm9m4xufpt96kcm60kmuass0mqq4/nbz",
+      "display": "NBZ",
+      "symbol": "NBZ",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/NBZ.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/NBZ.png"
         }
       ]
     }
