@@ -1,0 +1,116 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "frenai",
+  "status": "development",
+  "website": "https://fren.ai",
+  "network_type": "mainnet",
+  "pretty_name": "fren.ai",
+  "chain_id": "fren-1",
+  "bech32_prefix": "fren",
+  "daemon_name": "frend",
+  "node_home": "$HOME/.frenai",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ufren",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.00025,
+        "average_gas_price": 0.0025,
+        "high_gas_price": 0.025
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ufren"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/frenailabs/frenai/",
+    "recommended_version": "v0.1.0",
+    "compatible_versions": ["v0.1.0"],
+    "binaries": {
+      "linux/amd64": "https://github.com/frenailabs/releases/download/v0.1.0/frenaid-v0.1.0-linux-amd64.tar.gz",
+      "linux/arm64": "https://github.com/frenailabs/releases/download/v0.1.0/frenaid-v0.1.0-linux-arm64.tar.gz"
+    },
+    "cosmos_sdk_version": "v0.50.6",
+    "ibc_go_version": "v8.0.0",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.6"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/cosmos/chain-registry/master/frenai/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v0.1.0",
+        "recommended_version": "v0.1.0",
+        "compatible_versions": [
+          "v0.1.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/frenailabs/releases/download/v0.1.0/frenaid-v0.1.0-linux-amd64.tar.gz",
+          "linux/arm64": "https://github.com/frenailabs/releases/download/v0.1.0/frenaid-v0.1.0-linux-arm64.tar.gz"
+        },
+        "next_version_name": "",
+        "cosmos_sdk_version": "v0.50.6",
+        "ibc_go_version": "v8.0.0"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "explorer",
+      "url": "https://fren.ai",
+      "tx_page": "https://fren.ai/txs/${txHash}"
+    }
+  ],
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://dexfx.ai/api/",
+        "provider": "fren.ai"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://dexfx.ai",
+        "provider": "fren.ai"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://dexfx.ai/grpc",
+        "provider": "fren.ai"
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "TBD",
+        "address": ":26656",
+        "provider": "fren.ai"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "TBD",
+        "address": ":26656",
+        "provider": "fren.ai"
+      }
+    ]
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/frenai/images/fren.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/frenai/images/fren.svg"
+    }
+  ],
+  "description": "fren.ai is a cutting-edge platform that leverages artificial intelligence to provide advanced polling, RPC, and chatbot services. It simplifies data processing and interaction through AI-driven solutions, enabling developers to build sophisticated applications with ease and efficiency."
+}
