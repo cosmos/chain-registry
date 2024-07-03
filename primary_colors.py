@@ -54,6 +54,7 @@ for item in chain_registry.rglob("*"):
                     pass
 
             print(data)
+            item.write_text(json.dumps(data, indent=4))
 
 
 # https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/wosmo.png
