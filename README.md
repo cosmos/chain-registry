@@ -198,12 +198,6 @@ A sample `chain.json` includes the following information.
         "address": "https://lcd-osmosis.blockapsis.com",
         "provider": "chainapsis"
       }
-    ],
-    "grpc": [
-      {
-        "address": "osmosis.strange.love:9090",
-        "provider": "strangelove"
-      }
     ]
   },
   "explorers": [

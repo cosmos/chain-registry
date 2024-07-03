@@ -1,9 +1,10 @@
 {
-  "$schema": "../assetlist.schema.json",
+  "$schema": "../../assetlist.schema.json",
   "chain_name": "arbitrum",
   "assets": [
     {
       "description": "The governance token of Arbitrum",
+      "extended_description": "Arbitrum is a Layer 2 scaling solution for Ethereum, enhancing transaction speed and reducing costs. Built to support smart contracts and decentralized applications (dApps), Arbitrum aims to improve scalability while maintaining compatibility with Ethereum's ecosystem.",
       "type_asset": "erc20",
       "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
       "denom_units": [
@@ -39,17 +40,42 @@
       ]
     },
     {
-      "type_asset": "evm-base",
+      "description": "wETH is 'wrapped ETH'",
+      "type_asset": "erc20",
       "denom_units": [
         {
-          "denom": "wei",
+          "denom": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
           "exponent": 0
+        },
+        {
+          "denom": "weth",
+          "exponent": 18
         }
       ],
-      "base": "wei",
-      "display": "wei",
-      "name": "Ether",
-      "symbol": "ETH"
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "base": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "display": "weth",
+      "name": "Wrapped Ether",
+      "symbol": "WETH",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+          },
+          "provider": "Arbitrum Bridge"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/weth.svg"
+        }
+      ]
     },
     {
       "type_asset": "erc20",
