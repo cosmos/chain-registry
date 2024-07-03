@@ -27,28 +27,31 @@ for item in chain_registry.rglob("*"):
                     if "images" not in asset.keys():
                         pass
 
-                    if "png" not in asset["images"][0].keys():
-                        pass
+                    for i in range(len(asset["images"])):
 
-                    if (
-                        "theme" in asset["images"][0].keys()
-                        and "primary_color_hex" in asset["images"][0]["theme"].keys()
-                    ):
-                        pass
+                        if "png" not in asset["images"][i].keys():
+                            pass
 
-                    png = asset["images"][0]["png"]
-                    png = png.replace(
-                        "https://raw.githubusercontent.com/cosmos/chain-registry/master",
-                        ".",
-                    )
+                        if (
+                            "theme" in asset["images"][i].keys()
+                            and "primary_color_hex"
+                            in asset["images"][i]["theme"].keys()
+                        ):
+                            pass
 
-                    hex = get_primary_color(png)
+                        png = asset["images"][i]["png"]
+                        png = png.replace(
+                            "https://raw.githubusercontent.com/cosmos/chain-registry/master",
+                            ".",
+                        )
 
-                    asset.setdefault("images", [{}])[0].setdefault("theme", {})[
-                        "primary_color_hex"
-                    ] = hex
+                        hex = get_primary_color(png)
 
-                    print(asset["images"][0]["theme"]["primary_color_hex"])
+                        asset.setdefault("images", [{}])[i].setdefault("theme", {})[
+                            "primary_color_hex"
+                        ] = hex
+
+                        print(asset["images"][i]["theme"]["primary_color_hex"])
 
                 except KeyError:
                     pass
