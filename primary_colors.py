@@ -22,7 +22,7 @@ for item in chain_registry.rglob("*"):
         and "_template" not in item.parts
         and "testnets" not in item.parts
     ):
-        with open(item, "r+") as f:
+        with open(item, "r+", encoding="utf-8") as f:
             data = json.load(f)
             for asset in data["assets"]:
 
@@ -60,7 +60,7 @@ for item in chain_registry.rglob("*"):
                     print(asset["images"][i]["theme"]["primary_color_hex"])
 
             print(data)
-            item.write_text(json.dumps(data, indent=2))
+            item.write_text(json.dumps(data, indent=2, ensure_ascii=False))
 
 
 # https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/wosmo.png
