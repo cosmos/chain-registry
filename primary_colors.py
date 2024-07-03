@@ -16,45 +16,48 @@ def get_primary_color(png):
 
 
 for item in chain_registry.rglob("*"):
-    if item.is_file() and "assetlist.json" in item.name:
+    if (
+        item.is_file()
+        and "assetlist.json" in item.name
+        and "_template" not in item.parts
+        and "testnets" not in item.parts
+    ):
         with open(item, "r+") as f:
             data = json.load(f)
             for asset in data["assets"]:
 
-                try:
-                    print(asset["symbol"])
+                print(asset["symbol"])
 
-                    if "images" not in asset.keys():
-                        pass
+                if "images" not in asset.keys():
+                    continue
 
-                    for i in range(len(asset["images"])):
+                for i in range(len(asset["images"])):
 
-                        if "png" not in asset["images"][i].keys():
-                            pass
+                    if "png" not in asset["images"][i].keys():
+                        continue
 
-                        if (
-                            "theme" in asset["images"][i].keys()
-                            and "primary_color_hex"
-                            in asset["images"][i]["theme"].keys()
-                        ):
-                            pass
+                    if (
+                        "theme" in asset["images"][i].keys()
+                        and "primary_color_hex" in asset["images"][i]["theme"].keys()
+                    ):
+                        continue
 
-                        png = asset["images"][i]["png"]
-                        png = png.replace(
-                            "https://raw.githubusercontent.com/cosmos/chain-registry/master",
-                            ".",
-                        )
+                    png = asset["images"][i]["png"]
+                    png = png.replace(
+                        "https://raw.githubusercontent.com/cosmos/chain-registry/master",
+                        ".",
+                    )
 
+                    try:
                         hex = get_primary_color(png)
+                    except:
+                        continue
 
-                        asset.setdefault("images", [{}])[i].setdefault("theme", {})[
-                            "primary_color_hex"
-                        ] = hex
+                    asset.setdefault("images", [{}])[i].setdefault("theme", {})[
+                        "primary_color_hex"
+                    ] = hex
 
-                        print(asset["images"][i]["theme"]["primary_color_hex"])
-
-                except KeyError:
-                    pass
+                    print(asset["images"][i]["theme"]["primary_color_hex"])
 
             print(data)
             item.write_text(json.dumps(data, indent=2))
