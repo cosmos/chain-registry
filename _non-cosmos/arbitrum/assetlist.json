@@ -37,33 +37,6 @@
       ]
     },
     {
-      "type_asset": "evm-base",
-      "denom_units": [
-        {
-          "denom": "wei",
-          "exponent": 0
-        },
-        {
-          "denom": "eth",
-          "exponent": 18
-        }
-      ],
-      "base": "wei",
-      "display": "eth",
-      "name": "Ether",
-      "symbol": "ETH",
-      "traces": [
-        {
-          "type": "additional-mintage",
-          "counterparty": {
-            "chain_name": "ethereum",
-            "base_denom": "wei"
-          },
-          "provider": "Arbitrum"
-        }
-      ]
-    },
-    {
       "description": "wETH is 'wrapped ETH'",
       "type_asset": "erc20",
       "denom_units": [
@@ -83,12 +56,12 @@
       "symbol": "WETH",
       "traces": [
         {
-          "type": "wrapped",
+          "type": "bridge",
           "counterparty": {
-            "chain_name": "Arbitrum",
-            "base_denom": "wei"
+            "chain_name": "ethereum",
+            "base_denom": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
           },
-          "provider": "Arbitrum"
+          "provider": "Arbitrum Bridge"
         }
       ],
       "images": [
