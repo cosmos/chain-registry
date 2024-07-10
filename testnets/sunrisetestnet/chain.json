@@ -4,7 +4,7 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Sunrise Testnet",
-  "chain_id": "sunrise-test",
+  "chain_id": "sunrise-test-0.1",
   "bech32_prefix": "sunrise",
   "daemon_name": "sunrised",
   "node_home": "$HOME/.sunrise",
@@ -32,12 +32,12 @@
   },
   "codebase": {
     "git_repo": "https://github.com/sunriselayer/sunrise",
-    "recommended_version": "v0.1.1",
+    "recommended_version": "v0.1.2",
     "compatible_versions": [
-      "v0.1.1"
+      "v0.1.2"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.1.1/sunrised"
+      "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.1.2/sunrised"
     },
     "cosmos_sdk_version": "0.50.2",
     "consensus": {
@@ -102,6 +102,25 @@
         "ics_enabled": [
           "ics20-1"
         ]
+      },
+      {
+        "name": "v0.1.2",
+        "recommended_version": "v0.1.2",
+        "compatible_versions": [
+          "v0.1.2"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.1.2/sunrised"
+        },
+        "cosmos_sdk_version": "0.50.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "sunriselayer/sunrise-core v0.0.5-cmt-v0.38.2"
+        },
+        "ibc_go_version": "8.0.0",
+        "ics_enabled": [
+          "ics20-1"
+        ]
       }
     ]
   },
@@ -111,24 +130,57 @@
   },
   "peers": {
     "seeds": [],
-    "persistent_peers": []
+    "persistent_peers": [
+      {
+        "id": "89e5866f0c2edd5fd1cc604e0eb173d6111d9bd8",
+        "address": "a.sunrise-test-1.cauchye.net:26656",
+        "provider": "CauchyE"
+      },
+      {
+        "id": "9cb96bd137c6fab41446f5fa36e17b1f8896b05c",
+        "address": "b.sunrise-test-1.cauchye.net:26656",
+        "provider": "CauchyE"
+      },
+      {
+        "id": "db223ecc4fba0e7135ba782c0fd710580c5213a6",
+        "address": "a-node.sunrise-test-1.cauchye.net:26656",
+        "provider": "CauchyE"
+      },
+      {
+        "id": "82bc2fdbfc735b1406b9da4181036ab9c44b63be",
+        "address": "b-node.sunrise-test-1.cauchye.net:26656",
+        "provider": "CauchyE"
+      }
+    ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://sunrise-test-1.cauchye.net/",
+        "address": "https://a-node.sunrise-test-1.cauchye.net/",
+        "provider": "CauchyE"
+      },
+      {
+        "address": "https://b-node.sunrise-test-1.cauchye.net/",
         "provider": "CauchyE"
       }
     ],
     "rest": [
       {
-        "address": "https://sunrise-test-1.cauchye.net:1318",
+        "address": "https://a-node.sunrise-test-1.cauchye.net:1318",
+        "provider": "CauchyE"
+      },
+      {
+        "address": "https://b-node.sunrise-test-1.cauchye.net:1318",
         "provider": "CauchyE"
       }
     ],
     "grpc": [
       {
-        "address": "https://sunrise-test-1.cauchye.net:9092",
+        "address": "https://a.sunrise-test-1.cauchye.net:9092",
+        "provider": "CauchyE"
+      },
+      {
+        "address": "https://b.sunrise-test-1.cauchye.net:9092",
         "provider": "CauchyE"
       }
     ]
