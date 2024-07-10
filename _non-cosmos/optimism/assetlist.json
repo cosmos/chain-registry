@@ -1,0 +1,62 @@
+{
+  "$schema": "../../assetlist.schema.json",
+  "chain_name": "optimism",
+  "assets": [
+    {
+      "description": "The governance token of Optimism",
+      "type_asset": "erc20",
+      "address": "0x4200000000000000000000000000000000000042",
+      "denom_units": [
+        {
+          "denom": "0x4200000000000000000000000000000000000042",
+          "exponent": 0
+        },
+        {
+          "denom": "op",
+          "exponent": 18
+        }
+      ],
+      "base": "0x4200000000000000000000000000000000000042",
+      "name": "Optimism",
+      "display": "op",
+      "symbol": "OP",
+      "coingecko_id": "optimism",
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/optimism/images/op.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/optimism/images/op.png",
+          "theme": {
+            "primary_color_hex": "#fc0424"
+          }
+        }
+      ]
+    },
+    {
+      "type_asset": "evm-base",
+      "denom_units": [
+        {
+          "denom": "wei",
+          "exponent": 0
+        },
+        {
+          "denom": "eth",
+          "exponent": 18
+        }
+      ],
+      "base": "wei",
+      "display": "eth",
+      "name": "Ether",
+      "symbol": "ETH",
+      "traces": [
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "wei"
+          },
+          "provider": "Optimism"
+        }
+      ]
+    }
+  ]
+}
