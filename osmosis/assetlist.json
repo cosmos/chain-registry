@@ -21129,6 +21129,78 @@
           }
         }
       ]
+    },
+    {
+      "description": "The native token of Mande Network.",
+      "extended_description": "Mande network is an open on-chain reputation layer on Web3",
+      "denom_units": [
+        {
+          "denom": "ibc/739D70CB432FE1C6D94AF306B68C14F4CFB0B9EDD1238D3A8718B1B0E84E8547",
+          "exponent": 0,
+          "aliases": [
+            "amand",
+            "ibc/5A26C8DC8DA66F4DD94326E67F94510188F5F7AFE2DB3933A0C823670E56EABF"
+          ]
+        },
+        {
+          "denom": "mand",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/739D70CB432FE1C6D94AF306B68C14F4CFB0B9EDD1238D3A8718B1B0E84E8547",
+      "name": "Mande Network",
+      "display": "mand",
+      "symbol": "MAND",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "mande",
+            "base_denom": "amand",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "channel-51",
+            "path": "transfer/channel-51/amand"
+          }
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "dymension",
+            "base_denom": "ibc/5A26C8DC8DA66F4DD94326E67F94510188F5F7AFE2DB3933A0C823670E56EABF",
+            "channel_id": "channel-2"
+          },
+          "chain": {
+            "channel_id": "channel-19774",
+            "path": "transfer/channel-19774/transfer/channel-51/amand"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mande/images/mande.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mande/images/mande.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "dymension",
+            "base_denom": "ibc/5A26C8DC8DA66F4DD94326E67F94510188F5F7AFE2DB3933A0C823670E56EABF"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mande/images/mande.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mande/images/mande.svg"
+        }
+      ],
+      "keywords": [
+        "credibility",
+        "identity",
+        "osmosis_unstable"
+      ],
+      "socials": {
+        "website": "https://mande.network/",
+        "twitter": "https://twitter.com/MandeNetwork"
+      }
     }
   ]
 }
