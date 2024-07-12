@@ -175,12 +175,20 @@
                   "primary_color_hex": {
                     "type": "string",
                     "minLength": 1,
-                    "pattern": "^#[0-9a-fA-F]{6}$"
+                    "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+                  },
+                  "background_color_hex": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "^(#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})|none)$"
                   },
                   "circle": {
                     "type": "boolean"
                   },
                   "dark_mode": {
+                    "type": "boolean"
+                  },
+                  "monochrome": {
                     "type": "boolean"
                   }
                 },
@@ -450,7 +458,8 @@
             "synthetic",
             "wrapped",
             "additional-mintage",
-            "test-mintage"
+            "test-mintage",
+            "legacy-mintage"
           ]
         },
         "counterparty": {
