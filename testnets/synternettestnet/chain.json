@@ -1,0 +1,167 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "synternettestnet",
+  "chain_id": "amber-2",
+  "pretty_name": "Amber Public Testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "bech32_prefix": "amber",
+  "daemon_name": "amberd",
+  "node_home": "$HOME/.amber",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uamber",
+        "fixed_min_gas_price": 0.005,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.03
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uamber"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Synternet/synternet-chain-releases",
+    "recommended_version": "v0.8.0",
+    "compatible_versions": [
+      "v0.8.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/Synternet/synternet-chain-releases/releases/download/v0.8.0/amberd-linux-amd64-v0.8.0-testnet"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/Synternet/synternet-chain-releases/blob/main/networks/testnet/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v0.1",
+        "recommended_version": "v0.1.0",
+        "compatible_versions": [
+          "v0.1.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/Synternet/synternet-chain-releases/releases/download/v0.0.1/amberd-linux-amd64-v0.1.0-testnet"
+        }
+      },
+      {
+        "name": "v0.2",
+        "recommended_version": "v0.2.4",
+        "compatible_versions": [
+          "v0.2.4"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/Synternet/synternet-chain-releases/releases/download/v0.2.4/amberd-linux-amd64-v0.2.4-testnet"
+        }
+      },
+      {
+        "name": "v0.5",
+        "recommended_version": "v0.5.4",
+        "compatible_versions": [
+          "v0.5.4"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/Synternet/synternet-chain-releases/releases/download/v0.5.4/amberd-linux-amd64-v0.5.4-testnet"
+        }
+      },
+      {
+        "name": "v0.6",
+        "recommended_version": "v0.6.0",
+        "compatible_versions": [
+          "v0.6.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/Synternet/synternet-chain-releases/releases/download/v0.6.0/amberd-linux-amd64-v0.6.0-testnet"
+        }
+      },
+      {
+        "name": "v0.7",
+        "recommended_version": "v0.7.0",
+        "compatible_versions": [
+          "v0.7.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/Synternet/synternet-chain-releases/releases/download/v0.7.0/amberd-linux-amd64-v0.7.0-testnet"
+        }
+      },
+      {
+        "name": "v0.8",
+        "recommended_version": "v0.8.0",
+        "compatible_versions": [
+          "v0.8.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/Synternet/synternet-chain-releases/releases/download/v0.8.0/amberd-linux-amd64-v0.8.0-testnet"
+        }
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "639d50339d7045436c756a042906b9a69970913f",
+        "address": "seed-01.theta-testnet.polypore.xyz:26656",
+        "provider": "Hypha"
+      },
+      {
+        "id": "3e506472683ceb7ed75c1578d092c79785c27857",
+        "address": "seed-02.theta-testnet.polypore.xyz:26656",
+        "provider": "Hypha"
+      }
+    ],
+    "persistent_peers": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.sentry-01.theta-testnet.polypore.xyz",
+        "provider": "Hypha"
+      },
+      {
+        "address": "https://rpc.sentry-02.theta-testnet.polypore.xyz",
+        "provider": "Hypha"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.sentry-01.theta-testnet.polypore.xyz",
+        "provider": "Hypha"
+      },
+      {
+        "address": "https://rest.sentry-02.theta-testnet.polypore.xyz",
+        "provider": "Hypha"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.sentry-01.theta-testnet.polypore.xyz",
+        "provider": "Hypha"
+      },
+      {
+        "address": "https://grpc.sentry-02.theta-testnet.polypore.xyz",
+        "provider": "Hypha"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Mintscan",
+      "url": "https://mintscan.io/cosmoshub-testnet",
+      "tx_page": "https://mintscan.io/cosmoshub-testnet/txs/${txHash}"
+    },
+    {
+      "kind": "Big Dipper",
+      "url": "https://explorer.theta-testnet.polypore.xyz/",
+      "tx_page": "https://explorer.theta-testnet.polypore.xyz/transactions/${txHash}"
+    }
+  ]
+}
