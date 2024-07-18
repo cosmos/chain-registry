@@ -40,6 +40,44 @@
       ]
     },
     {
+      "description": "Ether (ETH) is the native currency of Arbitrum.",
+      "type_asset": "evm-base",
+      "denom_units": [
+        {
+          "denom": "wei",
+          "exponent": 0
+        },
+        {
+          "denom": "eth",
+          "exponent": 18
+        }
+      ],
+      "base": "wei",
+      "display": "eth",
+      "name": "Ether",
+      "symbol": "ETH",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+          },
+          "provider": "Arbitrum Bridge"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "wei"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.png"
+        }
+      ]
+    },
+    {
       "description": "wETH is 'wrapped ETH'",
       "type_asset": "erc20",
       "denom_units": [
@@ -59,12 +97,12 @@
       "symbol": "WETH",
       "traces": [
         {
-          "type": "bridge",
+          "type": "wrapped",
           "counterparty": {
-            "chain_name": "ethereum",
-            "base_denom": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+            "chain_name": "arbitrum",
+            "base_denom": "wei"
           },
-          "provider": "Arbitrum Bridge"
+          "provider": "Arbitrum"
         }
       ],
       "images": [
@@ -74,6 +112,14 @@
             "base_denom": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
           },
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/weth.svg"
+        },
+        {
+          "image_sync": {
+            "chain_name": "arbitrum",
+            "base_denom": "wei"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.png"
         }
       ]
     },
@@ -90,6 +136,96 @@
       "display": "0xab19bdaeb37242fa0f30486195f45b9cf5361b78",
       "name": "cGLP",
       "symbol": "cGLP"
+    },
+    {
+      "description": "USDC issued on Arbitrum.",
+      "type_asset": "erc20",
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "denom_units": [
+        {
+          "denom": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+          "exponent": 0,
+          "aliases": [
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "base": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "name": "USDC",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "provider": "Circle"
+        }
+      ],
+      "coingecko_id": "usd-coin",
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true
+          }
+        }
+      ]
+    },
+    {
+      "description": "This is a bridged USDC token deployed by Arbitrum Foundation.",
+      "type_asset": "erc20",
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "denom_units": [
+        {
+          "denom": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+          "exponent": 0,
+          "aliases": [
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "base": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "name": "Bridged USDC",
+      "display": "usdc",
+      "symbol": "USDC.e",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "provider": "Arbitrum Bridge"
+        }
+      ],
+      "coingecko_id": "usd-coin-ethereum-bridged",
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true
+          }
+        }
+      ]
     }
   ]
 }
