@@ -1,27 +1,27 @@
 on: [pull_request, workflow_dispatch]
-name: PR Workflow
+name: Data Validation PR Workflow
 jobs:
-  jobname:
+  validate_zone_data:
     name: Validate Data
     runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        shell: bash
+    
     steps:
-      - name: checkout the repo
-        uses: actions/checkout@v3 #Checks out the registry; sets up python
-
-      - name: Set up Python
-        uses: actions/setup-python@v3
+    
+      - name: Checkout repository
+        uses: actions/checkout@v2
         with:
-          python-version: 3.9
-
-      - name: Install Python dependencies
-        run:  |
-          python -m pip install --upgrade pip
-          cd .github/workflows/utility
-      
-      - name: Run Data Validation python script
-        shell: python
-        run: |
-          import sys
-          sys.path.insert(1, '.github/workflows/utility')
-          import validate_data
-          validate_data.runAll()
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
+          
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 19.6.0
+          
+      - name: Run code Node JS to Validate Data
+        working-directory: ./.github/workflows/utility
+        run: node validate_data.mjs
