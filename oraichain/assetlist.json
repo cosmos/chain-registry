@@ -26,11 +26,21 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai-white.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai-white.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai-white.svg",
+          "theme": {
+            "circle": true,
+            "dark_mode": true,
+            "primary_color_hex": "#FFFFFF"
+          }
         },
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai.svg",
+          "theme": {
+            "circle": true,
+            "dark_mode": false,
+            "primary_color_hex": "#000000"
+          }
         }
       ]
     },
@@ -50,17 +60,30 @@
       "name": "ATOM",
       "display": "atom",
       "symbol": "ATOM",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom",
+            "channel_id": "channel-301"
+          },
+          "chain": {
+            "channel_id": "channel-15",
+            "path": "transfer/channel-15/uatom"
+          }
+        }
+      ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/atom.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/atom.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/atom.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/atom.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
         }
-      ],
-      "coingecko_id": "cosmos"
+      ]
     },
     {
       "description": "The OSMO native token of Oraichain.",
@@ -78,6 +101,20 @@
       "name": "OSMO",
       "display": "osmo",
       "symbol": "OSMO",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "uosmo",
+            "channel_id": "channel-216"
+          },
+          "chain": {
+            "channel_id": "channel-13",
+            "path": "transfer/channel-13/uosmo"
+          }
+        }
+      ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/osmo.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/osmo.svg"
