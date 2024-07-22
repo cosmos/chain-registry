@@ -1,0 +1,212 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "soarchaintestnet",
+  "chain_id": "soarchaintestnet",
+  "pretty_name": "Soarchain Testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "bech32_prefix": "soar",
+  "daemon_name": "soarchaind",
+  "node_home": "$HOME/.soarchaind",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "utsoar",
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.02,
+        "high_gas_price": 0.1
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "utsoar"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/soar-robotics/soarchain-core",
+    "recommended_version": "v0.2.10",
+    "compatible_versions": [
+      "v0.2.10"
+    ],
+    "cosmos_sdk_version": "0.45.5",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34.19"
+    },
+    "cosmwasm_version": "0.27",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "3.0.1",
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/soar-robotics/testnet-validator-onboard/main/release/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1",
+        "tag": "v0.2.5",
+        "height": 0,
+        "recommended_version": "v0.2.10",
+        "compatible_versions": [
+          "v0.2.10"
+        ],
+        "next_version_name": "v2"
+      },
+      {
+        "name": "v2",
+        "tag": "v0.2.6",
+        "height": 480332,
+        "recommended_version": "v0.2.6",
+        "compatible_versions": [
+          "v0.2.6"
+        ],
+        "next_version_name": "v3"
+      },
+      {
+        "name": "v3",
+        "tag": "v0.2.8",
+        "height": 871084,
+        "recommended_version": "v0.2.8",
+        "compatible_versions": [
+          "v0.2.8"
+        ],
+        "next_version_name": "v4"
+      },
+      {
+        "name": "v4",
+        "tag": "v0.2.9",
+        "height": 1020400,
+        "recommended_version": "v0.2.9",
+        "compatible_versions": [
+          "v0.2.9"
+        ],
+        "next_version_name": "v5"
+      },
+      {
+        "name": "v5",
+        "tag": "v0.2.10",
+        "height": 1175732,
+        "recommended_version": "v0.2.10",
+        "compatible_versions": [
+          "v0.2.10"
+        ]
+      }
+    ]
+  },
+  "keywords": [
+    "DePin"
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/soarchaintestnet/images/soarchain.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/soarchaintestnet/images/soarchain.svg"
+    }
+  ],
+  "peers": {
+    "seeds": [
+      {
+        "id": "3f472746f46493309650e5a033076689996c8881",
+        "address": "soarchain-testnet.rpc.kjnodes.com:17259",
+        "provider": "kjnodes"
+      },
+      {
+        "id": "994c5252f55d6b809f0c19956530187009451c89",
+        "address": "167.235.178.134:25256",
+        "provider": "polkachu"
+      },
+      {
+        "id": "5687031cd6f0de4506bdc768118873f7608bbdf8",
+        "address": "34.69.6.109:26656",
+        "provider": "soarchain"
+      },
+      {
+        "id": "72bc575f036e5ba094f82cf738a53b02055cf807",
+        "address": "rpc-t.soarchain.nodestake.org:666",
+        "provider": "nodeStake"
+      },
+      {
+        "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
+        "address": "testnet-seeds.stakerhouse.com:13056",
+        "provider": "stakerHouse"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc1.testnet.soarchain.com",
+        "provider": "soarchain"
+      },
+      {
+        "address": "https://rpc2.testnet.soarchain.com/",
+        "provider": "soarchain"
+      },
+      {
+        "address": "https://soarchain-testnet-rpc.tienthuattoan.com",
+        "provider": "tienthuattoan"
+      },
+      {
+        "address": "https://soarchain-testnet.rpc.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://rpc-t.soarchain.nodestake.org",
+        "provider": "nodeStake"
+      },
+      {
+        "address": "https://soarchain-testnet-rpc.stakerhouse.com",
+        "provider": "stakerHouse"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.testnet.soarchain.com/",
+        "provider": "soarchain"
+      },
+      {
+        "address": "https://soarchain-testnet-api.tienthuattoan.com",
+        "provider": "tienthuattoan"
+      },
+      {
+        "address": "https://soarchain-testnet-rest.stakerhouse.com",
+        "provider": "stakerHouse"
+      },
+      {
+        "address": "https://api-t.soarchain.nodestake.org",
+        "provider": "nodeStake"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "soarchain-testnet-grpc.polkachu.com:25290",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://grpc-t.soarchain.nodestake.org:443",
+        "provider": "nodeStake"
+      },
+      {
+        "address": "soarchain-testnet-grpc.stakerhouse.com:443",
+        "provider": "stakerHouse"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Soarchain Explorer",
+      "url": "https://explorer.soarchain.com/soarchain",
+      "tx_page": "https://explorer.soarchain.com/soarchain/tx/${txHash}"
+    },
+    {
+      "kind": "Kjnodes Explorer",
+      "url": "https://explorer.kjnodes.com/soarchain-testnet",
+      "tx_page": "https://explorer.kjnodes.com/soarchain-testnet/tx/${txHash}"
+    }
+  ]
+}
