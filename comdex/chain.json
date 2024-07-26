@@ -28,19 +28,21 @@
   },
   "codebase": {
     "git_repo": "https://github.com/comdex-official/comdex",
-    "recommended_version": "v13.4.0",
+    "recommended_version": "v14.1.0",
     "compatible_versions": [
-      "v13.4.0"
+      "v14.1.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/comdex-official/comdex/releases/download/v13.4.0/comdex-linux-amd64.tar.gz"
+      "linux/amd64": "https://github.com/comdex-official/comdex/releases/download/v14.1.0/comdex-linux-amd64.tar.gz",
+      "darwin/arm64": "https://github.com/comdex-official/comdex/releases/download/v14.1.0/comdex-darwin-arm64.tar.gz"
     },
-    "cosmos_sdk_version": "v0.47.5",
+    "cosmos_sdk_version": "v0.47.9",
     "consensus": {
       "type": "cometbft",
-      "version": "0.37.2"
+      "version": "0.37.5"
     },
-    "cosmwasm_version": "v0.41.0",
+    "ibc_go_version": "v7.4.0",
+    "cosmwasm_version": "v0.45.0",
     "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://comdex-mainnet-genesis.s3.ap-southeast-1.amazonaws.com/genesis.json"
@@ -92,6 +94,28 @@
           "version": "0.37.2"
         },
         "cosmwasm_version": "v0.41.0",
+        "cosmwasm_enabled": true,
+        "next_version_name": "v14.1.0"
+      },
+      {
+        "name": "v14.1.0",
+        "proposal": 234,
+        "height": 13730000,
+        "recommended_version": "v14.1.0",
+        "compatible_versions": [
+          "v14.1.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/comdex-official/comdex/releases/download/v14.1.0/comdex-linux-amd64.tar.gz",
+          "darwin/arm64": "https://github.com/comdex-official/comdex/releases/download/v14.1.0/comdex-darwin-arm64.tar.gz"
+        },
+        "cosmos_sdk_version": "v0.47.9",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.5"
+        },
+        "ibc_go_version": "v7.4.0",
+        "cosmwasm_version": "v0.45.0",
         "cosmwasm_enabled": true,
         "next_version_name": ""
       }
@@ -156,6 +180,11 @@
         "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
         "address": "seeds.stakerhouse.com:10456",
         "provider": "StakerHouse"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:24556",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -241,6 +270,10 @@
       {
         "address": "https://rpc-comdex.blockval.io",
         "provider": "Blockval"
+      },
+      {
+        "address": "https://comdex-rpc.bluestake.net:443",
+        "provider": "BlueStake 🚀"
       }
     ],
     "rest": [
@@ -299,6 +332,10 @@
       {
         "address": "https://api-comdex.blockval.io",
         "provider": "Blockval"
+      },
+      {
+        "address": "https://comdex-api.bluestake.net",
+        "provider": "BlueStake 🚀"
       }
     ],
     "grpc": [
@@ -407,7 +444,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/comdex/images/cmdx.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/comdex/images/cmdx.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/comdex/images/cmdx.svg",
+      "theme": {
+        "primary_color_hex": "#fc4454"
+      }
     }
   ]
 }
