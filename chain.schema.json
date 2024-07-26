@@ -755,32 +755,32 @@
         }
       },
       "additionalProperties": false
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "chain_type": {
-              "const": "cosmos"
-            }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "chain_type": {
+            "const": "cosmos"
           }
-        },
-        "then": {
-          "required": [ "bech32_prefix" ]
         }
       },
-      {
-        "if": {
-          "properties": {
-            "chain_type": {
-              "enum": [ "cosmos", "eip155" ]
-            }
-          }
-        },
-        "then": {
-          "required": [ "chain_id" ]
-        }
+      "then": {
+        "required": [ "bech32_prefix" ]
       }
-    ]
-  }
+    },
+    {
+      "if": {
+        "properties": {
+          "chain_type": {
+            "enum": [ "cosmos", "eip155" ]
+          }
+        }
+      },
+      "then": {
+        "required": [ "chain_id" ]
+      }
+    }
+  ]
 }
