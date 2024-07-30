@@ -1,7 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "lava",
-  "status": "upcoming",
+  "status": "live",
   "network_type": "mainnet",
   "website": "https://lavanet.xyz/",
   "update_link": "https://raw.githubusercontent.com/lavanet/lava/main/chain.schema.json",
@@ -19,10 +19,10 @@
     "fee_tokens": [
       {
         "denom": "ulava",
-        "fixed_min_gas_price": 1e-09,
-        "low_gas_price": 1e-09,
-        "average_gas_price": 5e-05,
-        "high_gas_price": 0.0001
+        "fixed_min_gas_price": 0.00002,
+        "low_gas_price": 0.00002,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.05
       }
     ]
   },
@@ -231,6 +231,10 @@
   "apis": {
     "rpc": [
       {
+        "address": "https://lava.tendermintrpc.lava.build",
+        "provider": "Lava Over Lava"
+      },
+      {
         "address": "https://lava-rpc.w3coins.io:443",
         "provider": "w3coins"
       },
@@ -269,6 +273,10 @@
     ],
     "rest": [
       {
+        "address": "https://lava.rest.lava.build",
+        "provider": "Lava Over Lava"
+      },
+      {
         "address": "https://lava-api.w3coins.io:443",
         "provider": "w3coins"
       },
@@ -299,6 +307,10 @@
     ],
     "grpc": [
       {
+        "address": "lava.grpc.lava.build:443",
+        "provider": "Lava Over Lava"
+      },
+      {
         "address": "lava-grpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
@@ -317,6 +329,12 @@
     ]
   },
   "explorers": [
+    {
+      "kind": "guru",
+      "url": "https://lava.explorers.guru/",
+      "tx_page": "ttps://lava.explorers.guru/transaction/${txHash}",
+      "account_page": "https://lava.explorers.guru/account/${accountAddress}"
+    },
     {
       "kind": "w3coins",
       "url": "https://lava-explorer.w3coins.io/Lava",
