@@ -1,0 +1,25 @@
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+name: Lint PR
+
+jobs:
+  lint-json:
+    name: Lint JSON files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository 📥
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 🌐
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Install ESLint
+        run: npm install
+
+      - name: Lint JSON files
+        run: npx eslint ./
