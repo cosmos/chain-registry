@@ -1,11 +1,12 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "lava",
-  "status": "upcoming",
+  "status": "live",
   "network_type": "mainnet",
   "website": "https://lavanet.xyz/",
   "update_link": "https://raw.githubusercontent.com/lavanet/lava/main/chain.schema.json",
   "pretty_name": "Lava",
+  "chain_type": "cosmos",
   "chain_id": "lava-mainnet-1",
   "bech32_prefix": "lava@",
   "daemon_name": "lavad",
@@ -18,10 +19,10 @@
     "fee_tokens": [
       {
         "denom": "ulava",
-        "fixed_min_gas_price": 1e-9,
-        "low_gas_price": 1e-9,
-        "average_gas_price": 0.00005,
-        "high_gas_price": 0.0001
+        "fixed_min_gas_price": 0.00002,
+        "low_gas_price": 0.00002,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.05
       }
     ]
   },
@@ -37,41 +38,160 @@
   },
   "codebase": {
     "git_repo": "https://github.com/lavanet/lava",
-    "recommended_version": "v0.33.1",
+    "recommended_version": "v2.2.0",
     "compatible_versions": [
-      "v0.33.1"
+      "v2.2.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/lavanet/lava/releases/download/v0.33.1/lavad-v0.33.1-linux-amd64?checksum=sha256:ae2e49e53bd8c979ca27c83d3d10a708fc23247dae020840fe46b9b68cb8e925"
+      "linux/amd64": "https://github.com/lavanet/lava/releases/download/v2.2.0/lavad-v2.2.0-linux-amd64"
     },
     "go_version": "1.20",
-    "cosmos_sdk_version": "github.com/lavanet/cosmos-sdk@v0.47.x-lava",
+    "cosmos_sdk_version": "lavanet/cosmos-sdk v0.47.10-lava-cosmos",
     "consensus": {
       "type": "cometbft",
       "version": "0.37.4"
     },
     "cosmwasm_enabled": false,
-    "ibc_go_version": "v7.2.0",
+    "ibc_go_version": "v7.3.1",
     "ics_enabled": [
       "ics20-1"
+    ],
+    "versions": [
+      {
+        "name": "v0.33.0",
+        "tag": "v0.33.1",
+        "recommended_version": "v0.33.1",
+        "compatible_versions": [
+          "v0.33.1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/lavanet/lava/releases/download/v0.33.1/lavad-v0.33.1-linux-amd64?checksum=sha256:ae2e49e53bd8c979ca27c83d3d10a708fc23247dae020840fe46b9b68cb8e925"
+        },
+        "go_version": "1.20",
+        "cosmos_sdk_version": "lavanet/cosmos-sdk v0.47.7-0.20231211141641-2a9ea55b724d",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.4"
+        },
+        "cosmwasm_enabled": false,
+        "ibc_go_version": "v7.2.0",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "next_version_name": ""
+      },
+      {
+        "name": "v0.34.0",
+        "proposal": 2,
+        "height": 375000,
+        "tag": "v0.34.0",
+        "recommended_version": "v0.34.0",
+        "compatible_versions": [
+          "v0.34.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/lavanet/lava/releases/download/v0.34.0/lavad-v0.34.0-linux-amd64"
+        },
+        "go_version": "1.20",
+        "cosmos_sdk_version": "lavanet/cosmos-sdk v0.47.7-0.20231211141641-2a9ea55b724d",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.4"
+        },
+        "cosmwasm_enabled": false,
+        "ibc_go_version": "v7.2.0",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "next_version_name": "v0.35.0"
+      },
+      {
+        "name": "v0.35.0",
+        "proposal": 3,
+        "height": 413000,
+        "tag": "v0.35.0",
+        "recommended_version": "v0.35.0",
+        "compatible_versions": [
+          "v0.35.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/lavanet/lava/releases/download/v0.35.0/lavad-v0.35.0-linux-amd64"
+        },
+        "go_version": "1.20",
+        "cosmos_sdk_version": "lavanet/cosmos-sdk v0.47.7-0.20231211141641-2a9ea55b724d",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.4"
+        },
+        "cosmwasm_enabled": false,
+        "ibc_go_version": "v7.2.0",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "next_version_name": "v1.0.1"
+      },
+      {
+        "name": "v1.0.1",
+        "proposal": 4,
+        "height": 451000,
+        "tag": "v1.0.1",
+        "recommended_version": "v1.0.1",
+        "compatible_versions": [
+          "v1.0.1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/lavanet/lava/releases/download/v1.0.1/lavad-v1.0.1-linux-amd64"
+        },
+        "go_version": "1.20",
+        "cosmos_sdk_version": "lavanet/cosmos-sdk v0.47.7-0.20231211141641-2a9ea55b724d",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.4"
+        },
+        "cosmwasm_enabled": false,
+        "ibc_go_version": "v7.2.0",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "next_version_name": "v2.2.0"
+      },
+      {
+        "name": "v2.2.0",
+        "proposal": 6,
+        "height": 888500,
+        "tag": "v2.2.0",
+        "recommended_version": "v2.2.0",
+        "compatible_versions": [
+          "v2.2.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/lavanet/lava/releases/download/v2.2.0/lavad-v2.2.0-linux-amd64"
+        },
+        "go_version": "1.20",
+        "cosmos_sdk_version": "lavanet/cosmos-sdk v0.47.10-lava-cosmos",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.4"
+        },
+        "cosmwasm_enabled": false,
+        "ibc_go_version": "v7.3.1",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "next_version_name": ""
+      }
     ]
   },
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lava/images/lava-chain-logo.png",
-      "theme": {
-        "primary_color_hex": "#FF3900"
-      },
-      "layout": "logo",
-      "text_position": "right"
-    },
-    {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lava/images/lava.png",
-      "layout": "logomark"
+      "theme": {
+        "primary_color_hex": "#6f043e"
+      }
     }
   ],
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lava/images/lava-chain-logo.png"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lava/images/lava.png"
   },
   "description": "Lava (LAVA) is the data access layer of the modular stack. developers and ecosystems permissionlessly add services to be served or accessed through lava. featuring a fully decentralized open source sdk integrable in frontends and a battle tested fully scalable open source server kit and can be used locally or through managed endpoints. Lava features rpc data access, indexing services, debug apis, archive access and more. Service providers can join the network, earn rewards either in the native token of the chain via token bought subscriptions on chain or through any ibc transferred token via incentive pools created and funded by ecosystems and DAOs. Developers can use the abstraction and go multi chain in seconds, not needing to choose what tools to use, having the access aggregated for them. Build whatever, wherever.",
   "peers": {
@@ -90,11 +210,30 @@
         "id": "cec848e7d4c5a7ae305b27cda133d213435c110f",
         "address": "seed-lava.ibs.team:16680",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "id": "258f523c96efde50d5fe0a9faeea8a3e83be22ca",
+        "address": "seed.lava-mainnet-1.lava.aviaone.com:10291",
+        "provider": "AVIAONE"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "b9dfd3f222e65ae605efc29dc9e3faecdc3b71d0",
+        "address": "lava.seed.stavr.tech:197",
+        "provider": "🔥STAVR🔥"
       }
     ]
   },
   "apis": {
     "rpc": [
+      {
+        "address": "https://lava.tendermintrpc.lava.build",
+        "provider": "Lava Over Lava"
+      },
       {
         "address": "https://lava-rpc.w3coins.io:443",
         "provider": "w3coins"
@@ -110,24 +249,92 @@
       {
         "address": "https://lava-rpc.ibs.team:443",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://rpc.lava-mainnet-1.lava.aviaone.com:443",
+        "provider": "AVIAONE"
+      },
+      {
+        "address": "https://lava-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://lava.rpc.m.stavr.tech:443",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://lava.rpc-archive.m.stavr.tech:443",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://lava-rpc.stake-town.com:443",
+        "provider": "StakeTown"
       }
     ],
     "rest": [
+      {
+        "address": "https://lava.rest.lava.build",
+        "provider": "Lava Over Lava"
+      },
       {
         "address": "https://lava-api.w3coins.io:443",
         "provider": "w3coins"
       },
       {
-        "address": "https://lava.api.staking-explorer.com",
-        "provider": "Daily DROP"
-      },
-      {
         "address": "https://lava-api.ibs.team:443",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://api.lava-mainnet-1.lava.aviaone.com",
+        "provider": "AVIAONE"
+      },
+      {
+        "address": "https://lava-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://lava.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://lava.api-archive.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://lava-api.stake-town.com:443",
+        "provider": "StakeTown"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "lava.grpc.lava.build:443",
+        "provider": "Lava Over Lava"
+      },
+      {
+        "address": "lava-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "lava.grpc.m.stavr.tech:443",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "lava.grpc-archive.m.stavr.tech:443",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "lava-grpc.stake-town.com:443",
+        "provider": "StakeTown"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "guru",
+      "url": "https://lava.explorers.guru/",
+      "tx_page": "ttps://lava.explorers.guru/transaction/${txHash}",
+      "account_page": "https://lava.explorers.guru/account/${accountAddress}"
+    },
     {
       "kind": "w3coins",
       "url": "https://lava-explorer.w3coins.io/Lava",
