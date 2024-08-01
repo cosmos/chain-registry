@@ -88,7 +88,52 @@
       ]
     },
     {
-      "description": "USDC is a fully collateralized US Dollar stablecoin developed by CENTRE, the open source project with Circle being the first of several forthcoming issuers.",
+      "description": "USDC issued on Polygon.",
+      "type_asset": "erc20",
+      "address": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+      "denom_units": [
+        {
+          "denom": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "exponent": 0,
+          "aliases": [
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "base": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+      "name": "USDC",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "provider": "Circle"
+        }
+      ],
+      "coingecko_id": "usd-coin",
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true
+          }
+        }
+      ]
+    },
+    {
+      "description": "USDC Bridged from Ethereum via Polygon PoS Bridge.",
       "type_asset": "erc20",
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "denom_units": [
@@ -105,30 +150,30 @@
         }
       ],
       "base": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-      "name": "USD Coin",
+      "name": "Bridged USDC",
       "display": "usdc",
-      "symbol": "USDC",
+      "symbol": "USDC.e",
       "traces": [
         {
-          "type": "additional-mintage",
+          "type": "bridge",
           "counterparty": {
             "chain_name": "ethereum",
             "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
           },
-          "provider": "Circle"
+          "provider": "Polygon PoS Bridge"
         }
       ],
-      "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
-      },
-      "coingecko_id": "usd-coin",
+      "coingecko_id": "bridged-usdc-polygon-pos-bridge",
       "images": [
         {
           "image_sync": {
             "chain_name": "ethereum",
             "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
           },
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true
+          }
         }
       ]
     },
@@ -378,6 +423,51 @@
             "base_denom": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
           },
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/weth.svg"
+        }
+      ]
+    },
+    {
+      "description": "USDT from Ethereum bridged to Polygon via Polygon PoS Bridge.",
+      "type_asset": "erc20",
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "denom_units": [
+        {
+          "denom": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "exponent": 0
+        },
+        {
+          "denom": "usdt",
+          "exponent": 6
+        }
+      ],
+      "base": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "name": "Polygon Bridged USDT",
+      "display": "usdt",
+      "symbol": "USDT",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+          },
+          "provider": "Polygon PoS Bridge"
+        }
+      ],
+      "coingecko_id": "polygon-bridged-usdt-polygon",
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#009393",
+            "background_color_hex": "#009393"
+          }
         }
       ]
     }
