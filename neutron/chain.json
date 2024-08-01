@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "pretty_name": "Neutron",
+  "chain_type": "cosmos",
   "chain_id": "neutron-1",
   "bech32_prefix": "neutron",
   "website": "https://neutron.org/",
@@ -62,21 +63,21 @@
   },
   "codebase": {
     "git_repo": "https://github.com/neutron-org/neutron",
-    "recommended_version": "v3.0.2",
+    "recommended_version": "v4.0.1",
     "compatible_versions": [
-      "v3.0.2"
+      "v4.0.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/neutron-org/neutron/releases/download/v3.0.2/neutrond-linux-amd64"
+      "linux/amd64": "https://github.com/neutron-org/neutron/releases/download/v4.0.1/neutrond-linux-amd64"
     },
-    "cosmos_sdk_version": "neutron-org/cosmos-sdk v0.47.10-neutron",
+    "cosmos_sdk_version": "neutron-org/cosmos-sdk v0.50.7-neutron",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.4"
+      "version": "v0.38.7"
     },
-    "cosmwasm_version": "neutron-org/wasmd v0.45.0",
+    "cosmwasm_version": "neutron-org/wasmd v0.51.0",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "v7.3.2",
+    "ibc_go_version": "v8.2.1",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/neutron-org/mainnet-assets/main/neutron-1-genesis.json"
     },
@@ -138,6 +139,48 @@
         "cosmwasm_version": "neutron-org/wasmd v0.45.0",
         "cosmwasm_enabled": true,
         "ibc_go_version": "v7.3.2",
+        "next_version_name": "v3.0.5"
+      },
+      {
+        "name": "v3.0.5",
+        "proposal": 37,
+        "height": 10525000,
+        "recommended_version": "v3.0.6",
+        "compatible_versions": [
+          "v3.0.6"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/neutron-org/neutron/releases/download/v3.0.6/neutrond-linux-amd64"
+        },
+        "cosmos_sdk_version": "neutron-org/cosmos-sdk v0.47.10-neutron",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "cosmwasm_version": "neutron-org/wasmd v0.45.0",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "v7.4.0",
+        "next_version_name": "v4.0.1"
+      },
+      {
+        "name": "v4.0.1",
+        "proposal": 41,
+        "height": 12255555,
+        "recommended_version": "v4.0.1",
+        "compatible_versions": [
+          "v4.0.1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/neutron-org/neutron/releases/download/v4.0.1/neutrond-linux-amd64"
+        },
+        "cosmos_sdk_version": "neutron-org/cosmos-sdk v0.50.7-neutron",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.38.7"
+        },
+        "cosmwasm_version": "neutron-org/wasmd v0.51.0",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "v8.2.1",
         "next_version_name": ""
       }
     ]
@@ -216,6 +259,10 @@
       {
         "address": "https://rpc.neutron.bronbro.io:443",
         "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://rpc.neutron.quokkastake.io",
+        "provider": "🐹 Quokka Stake"
       }
     ],
     "rest": [
@@ -250,6 +297,10 @@
       {
         "address": "https://lcd.neutron.bronbro.io:443",
         "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://api.neutron.quokkastake.io",
+        "provider": "🐹 Quokka Stake"
       }
     ],
     "grpc": [
@@ -284,6 +335,10 @@
       {
         "address": "https://grpc.neutron.bronbro.io:443",
         "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "rpc.neutron.quokkastake.io:9090",
+        "provider": "🐹 Quokka Stake"
       }
     ]
   },
@@ -299,12 +354,32 @@
       "url": "https://ezstaking.app/neutron",
       "tx_page": "https://ezstaking.app/neutron/txs/${txHash}",
       "account_page": "https://ezstaking.app/neutron/account/${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/neutron",
+      "tx_page": "https://mainnet.whispernode.com/neutron/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/neutron/account/${accountAddress}"
     }
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-black-logo.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-black-logo.svg"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-raw.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-raw.svg",
+      "theme": {
+        "primary_color_hex": "#000000",
+        "background_color_hex": "#00000000",
+        "circle": false
+      }
+    },
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/ntrn.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/ntrn.svg",
+      "theme": {
+        "primary_color_hex": "#040404",
+        "background_color_hex": "#000000",
+        "circle": true
+      }
     }
   ]
 }

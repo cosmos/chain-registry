@@ -1,0 +1,183 @@
+{
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "base",
+  "assets": [
+    {
+      "description": "Ether (ETH) is the native currency of Base.",
+      "type_asset": "evm-base",
+      "denom_units": [
+        {
+          "denom": "wei",
+          "exponent": 0
+        },
+        {
+          "denom": "eth",
+          "exponent": 18
+        }
+      ],
+      "base": "wei",
+      "display": "eth",
+      "name": "Ether",
+      "symbol": "ETH",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "wei"
+          },
+          "provider": "Base Bridge"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "wei"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.png"
+        }
+      ]
+    },
+    {
+      "description": "wETH is 'wrapped ETH'",
+      "type_asset": "erc20",
+      "denom_units": [
+        {
+          "denom": "0x4200000000000000000000000000000000000006",
+          "exponent": 0
+        },
+        {
+          "denom": "weth",
+          "exponent": 18
+        }
+      ],
+      "address": "0x4200000000000000000000000000000000000006",
+      "base": "0x4200000000000000000000000000000000000006",
+      "display": "weth",
+      "name": "Wrapped Ether",
+      "symbol": "WETH",
+      "traces": [
+        {
+          "type": "wrapped",
+          "counterparty": {
+            "chain_name": "base",
+            "base_denom": "wei"
+          },
+          "provider": "Base"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/weth.svg"
+        },
+        {
+          "image_sync": {
+            "chain_name": "base",
+            "base_denom": "wei"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.png"
+        }
+      ]
+    },
+    {
+      "description": "USDC issued on Base.",
+      "type_asset": "erc20",
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "denom_units": [
+        {
+          "denom": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "exponent": 0,
+          "aliases": [
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "base": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "name": "USDC",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "provider": "Circle"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      },
+      "coingecko_id": "usd-coin",
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true
+          }
+        }
+      ]
+    },
+    {
+      "description": "USDC Bridged from Ethereum via Base Bridge.",
+      "type_asset": "erc20",
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "denom_units": [
+        {
+          "denom": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+          "exponent": 0,
+          "aliases": [
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "base": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "name": "USD Base Coin",
+      "display": "usdc",
+      "symbol": "USDbC",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "provider": "Base Bridge"
+        }
+      ],
+      "coingecko_id": "bridged-usd-coin-base",
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true
+          }
+        }
+      ]
+    }
+  ]
+}
