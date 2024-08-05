@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://omniflix.network/",
   "pretty_name": "OmniFlix",
+  "chain_type": "cosmos",
   "chain_id": "omniflixhub-1",
   "daemon_name": "omniflixhubd",
   "node_home": "$HOME/.omniflixhub",
@@ -12,16 +13,17 @@
   "slip44": 118,
   "codebase": {
     "git_repo": "https://github.com/OmniFlix/omniflixhub",
-    "recommended_version": "v2.0.0",
+    "recommended_version": "v4.1.1",
     "compatible_versions": [
-      "v2.0.0"
+      "v4.1.1"
     ],
-    "cosmos_sdk_version": "v0.47.5",
-    "ibc_go_version": "v7.3.1",
+    "cosmos_sdk_version": "v0.47.10",
+    "ibc_go_version": "v7.4.0",
     "consensus": {
       "type": "cometbft",
-        "version": "v0.37.2"
+      "version": "v0.37.4"
     },
+    "cosmwasm_version": "v0.45.0",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/OmniFlix/mainnet/main/omniflixhub-1/genesis.json"
     },
@@ -36,7 +38,7 @@
         "ibc_go_version": "v3.3.1",
         "consensus": {
           "type": "tendermint",
-            "version": "v0.34.22"
+          "version": "v0.34.22"
         },
         "next_version_name": "v0.10.0"
       },
@@ -52,7 +54,7 @@
         "ibc_go_version": "v3.4.0",
         "consensus": {
           "type": "cometbft",
-            "version": "v0.34.27"
+          "version": "v0.34.27"
         },
         "next_version_name": "v0.11.0"
       },
@@ -68,7 +70,7 @@
         "ibc_go_version": "v4.4.2",
         "consensus": {
           "type": "cometbft",
-            "version": "v0.34.28"
+          "version": "v0.34.28"
         },
         "next_version_name": "v0.12.x"
       },
@@ -84,7 +86,7 @@
         "ibc_go_version": "v4.4.2",
         "consensus": {
           "type": "cometbft",
-            "version": "v0.34.28"
+          "version": "v0.34.28"
         },
         "next_version_name": "v2.0.0"
       },
@@ -100,8 +102,58 @@
         "ibc_go_version": "v7.3.1",
         "consensus": {
           "type": "cometbft",
-            "version": "v0.37.2"
+          "version": "v0.37.2"
         },
+        "next_version_name": "v2.1"
+      },
+      {
+        "name": "v2.1",
+        "proposal": 29,
+        "height": 10678600,
+        "recommended_version": "v2.1.0",
+        "compatible_versions": [
+          "v2.1.0"
+        ],
+        "cosmos_sdk_version": "v0.47.5",
+        "ibc_go_version": "v7.3.1",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "next_version_name": "v3"
+      },
+      {
+        "name": "v3",
+        "proposal": 31,
+        "height": 10872800,
+        "recommended_version": "v3.3.0",
+        "compatible_versions": [
+          "v3.3.0"
+        ],
+        "cosmos_sdk_version": "v0.47.10",
+        "ibc_go_version": "v7.3.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "cosmwasm_version": "v0.45.0",
+        "next_version_name": "v4"
+      },
+      {
+        "name": "v4",
+        "proposal": 36,
+        "height": 11914000,
+        "recommended_version": "v4.1.1",
+        "compatible_versions": [
+          "v4.1.1"
+        ],
+        "cosmos_sdk_version": "v0.47.10",
+        "ibc_go_version": "v7.4.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "cosmwasm_version": "v0.45.0",
         "next_version_name": ""
       }
     ]
@@ -176,14 +228,19 @@
         "id": "d8e371758cdb310906bc32ba0bb922642bb33536",
         "address": "65.21.91.99:26756",
         "provider": "Staketab"
+      },
+      {
+        "id": "82feb443470ff81afa830e15fea387cac4849aac",
+        "address": "mainnet.omniflix.peers.stakr.space:36656",
+        "provider": "STAKR.space"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://omniflix.kingnodes.com",
-        "provider": "kingnodes"
+        "address": "https://omniflix-rpc.kingnodes.com",
+        "provider": "kingnodes 👑"
       },
       {
         "address": "https://rpc.omniflix.nodestake.top",
@@ -236,6 +293,14 @@
       {
         "address": "https://rpc.omniflix.bronbro.io:443",
         "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://omniflix-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://mainnet.omniflix.rpc.srv.stakr.space",
+        "provider": "STAKR.space"
       }
     ],
     "rest": [
@@ -260,8 +325,8 @@
         "provider": "silent"
       },
       {
-        "address": "https://omniflix.kingnodes.com",
-        "provider": "kingnodes"
+        "address": "https://omniflix-rest.kingnodes.com",
+        "provider": "kingnodes 👑"
       },
       {
         "address": "https://omniflixhub-mainnet-lcd.autostake.com:443",
@@ -280,8 +345,8 @@
         "provider": "Daksha Validator"
       },
       {
-        "address": "http://omniflix.api.staking-explorer.com",
-        "provider": "Daily $FLIX DROP 💰"
+        "address": "https://omniflix.api.staking-explorer.com",
+        "provider": "Daily DROP | 3% Fee"
       },
       {
         "address": "https://api.omniflix.stakeup.tech",
@@ -290,12 +355,20 @@
       {
         "address": "https://lcd.omniflix.bronbro.io:443",
         "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://omniflix-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://mainnet.omniflix.api.srv.stakr.space",
+        "provider": "STAKR.space"
       }
     ],
     "grpc": [
       {
-        "address": "grpc-omniflix.kingnodes.com:443",
-        "provider": "kingnodes"
+        "address": "https://omniflix-grpc.kingnodes.com:443",
+        "provider": "kingnodes 👑"
       },
       {
         "address": "grpc.omniflix.nodestake.top:443",
@@ -336,15 +409,23 @@
       {
         "address": "https://grpc.omniflix.bronbro.io:443",
         "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "omniflix-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "mainnet.omniflix.grpc.stakr.space:39090",
+        "provider": "STAKR.space"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking",
-      "url": "https://app.ezstaking.io/omniflixhub",
-      "tx_page": "https://app.ezstaking.io/omniflixhub/txs/${txHash}",
-      "account_page": "https://app.ezstaking.io/omniflixhub/account/${accountAddress}"
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/omniflixhub",
+      "tx_page": "https://ezstaking.app/omniflixhub/txs/${txHash}",
+      "account_page": "https://ezstaking.app/omniflixhub/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
@@ -357,12 +438,21 @@
       "url": "https://atomscan.com/omniflixhub",
       "tx_page": "https://atomscan.com/omniflixhub/transactions/${txHash}",
       "account_page": "https://atomscan.com/omniflixhub/accounts/${accountAddress}"
+    },
+    {
+      "kind": "STAKR.space explorer",
+      "url": "https://explorer.stakr.space/omniflix/",
+      "tx_page": "https://explorer.stakr.space/omniflix/tx/${txHash}",
+      "account_page": "https://explorer.stakr.space/omniflix/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/omniflixhub/images/flix.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/omniflixhub/images/flix.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/omniflixhub/images/flix.svg",
+      "theme": {
+        "primary_color_hex": "#c33635"
+      }
     }
   ]
 }

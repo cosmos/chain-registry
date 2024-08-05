@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.quasar.fi/",
   "pretty_name": "Quasar",
+  "chain_type": "cosmos",
   "chain_id": "quasar-1",
   "bech32_prefix": "quasar",
   "daemon_name": "quasarnoded",
@@ -22,6 +23,13 @@
   },
   "fees": {
     "fee_tokens": [
+      {
+        "denom": "uqsr",
+        "fixed_min_gas_price": 0.1,
+        "low_gas_price": 0.1,
+        "average_gas_price": 0.25,
+        "high_gas_price": 0.3
+      },
       {
         "denom": "ibc/0471F1C4E7AFD3F07702BEF6DC365268D64570F7C1FDC98EA6098DD6DE59817B",
         "fixed_min_gas_price": 0.01,
@@ -47,9 +55,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/quasar-finance/quasar-preview",
-    "recommended_version": "v1.0.0",
+    "recommended_version": "v1.0.1",
     "compatible_versions": [
-      "v1.0.0"
+      "v1.0.1"
     ],
     "cosmos_sdk_version": "v0.45.16",
     "consensus": {
@@ -82,9 +90,9 @@
         "name": "v1",
         "proposal": 9,
         "height": 2249500,
-        "recommended_version": "v1.0.0",
+        "recommended_version": "v1.0.1",
         "compatible_versions": [
-          "v1.0.0"
+          "v1.0.1"
         ],
         "cosmos_sdk_version": "v0.45.16",
         "consensus": {
@@ -135,7 +143,7 @@
       },
       {
         "id": "86fd17151eec60145e6c1a635e8365aff70a77d7",
-        "address": "seed-quasar.ibs.team:55656",
+        "address": "seed-quasar.ibs.team:16667",
         "provider": "Inter Blockchain Services"
       }
     ],
@@ -205,11 +213,11 @@
       {
         "address": "https://quasar-rpc.stakeandrelax.net",
         "provider": "Stake&Relax 🦥"
-      }, 
+      },
       {
         "address": "https://quasar-rpc.genznodes.dev",
         "provider": "genznodes"
-      } 
+      }
     ],
     "rest": [
       {
@@ -263,7 +271,7 @@
       {
         "address": "https://quasar-api.genznodes.dev",
         "provider": "genznodes"
-      } 
+      }
     ],
     "grpc": [
       {
@@ -312,10 +320,16 @@
       "account_page": "https://www.mintscan.io/quasar/accounts/${accountAddress}"
     },
     {
-      "kind": "bigdipper",
-      "url": "https://bigdipper.live/quasar",
-      "tx_page": "https://bigdipper.live/quasar/transactions/${txHash}",
-      "account_page": "https://bigdipper.live/quasar/accounts/${accountAddress}"
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/quasar",
+      "tx_page": "https://ezstaking.app/quasar/txs/${txHash}",
+      "account_page": "https://ezstaking.app/quasar/account/${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/quasar",
+      "tx_page": "https://mainnet.whispernode.com/quasar/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/quasar/account/${accountAddress}"
     }
   ],
   "keywords": [
@@ -323,7 +337,10 @@
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quasar/images/quasar.png"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quasar/images/quasar.png",
+      "theme": {
+        "primary_color_hex": "#a493e4"
+      }
     }
   ]
 }

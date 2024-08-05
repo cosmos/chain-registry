@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "doravota",
+  "chain_type": "cosmos",
   "chain_id": "vota-ash",
   "pretty_name": "Dora Vota",
   "status": "live",
@@ -8,7 +9,9 @@
   "bech32_prefix": "dora",
   "daemon_name": "dorad",
   "node_home": "$HOME/.dora",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -31,8 +34,9 @@
   "codebase": {
     "git_repo": "https://github.com/dorafactory/doravota",
     "recommended_version": "v11.0.0",
-    "compatible_versions": ["v11.0.0"],
-    "binaries": {},
+    "compatible_versions": [
+      "v11.0.0"
+    ],
     "genesis": {
       "genesis_url": "https://github.com/DoraFactory/doravota/blob/main/config/mainnet/genesis.json"
     },
@@ -40,25 +44,34 @@
       {
         "name": "v9.0.1",
         "recommended_version": "v9.0.1",
-        "compatible_versions": ["v9.0.1"],
-        "binaries": {}
+        "compatible_versions": [
+          "v9.0.1"
+        ]
       },
       {
         "name": "v10.0.1",
         "recommended_version": "v10.0.1",
-        "compatible_versions": ["v10.0.1"],
-        "binaries": {}
+        "compatible_versions": [
+          "v10.0.1"
+        ]
       },
       {
         "name": "v11",
         "recommended_version": "v11.0.0",
-        "compatible_versions": ["v11.0.0"],
-        "binaries": {}
+        "compatible_versions": [
+          "v11.0.0"
+        ]
       }
     ]
   },
   "peers": {
-    "seeds": [],
+    "seeds": [
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      }
+    ],
     "persistent_peers": []
   },
   "apis": {
@@ -66,18 +79,38 @@
       {
         "address": "https://vota-rpc.dorafactory.org/",
         "provider": "dorafactory"
+      },
+      {
+        "address": "https://m-dora.rpc.utsa.tech",
+        "provider": "lesnik | UTSA"
+      },
+      {
+        "address": "https://dora-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "rest": [
       {
         "address": "https://vota-rest.dorafactory.org",
         "provider": "dorafactory"
+      },
+      {
+        "address": "https://m-dora.api.utsa.tech",
+        "provider": "lesnik | UTSA"
+      },
+      {
+        "address": "https://dora-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "grpc": [
       {
         "address": "vota-grpc.dorafactory.org:443",
         "provider": "dorafactory"
+      },
+      {
+        "address": "dora-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ]
   },
@@ -86,6 +119,11 @@
       "kind": "Dora Vota Ping Pub",
       "url": "https://vota-explorer.dorafactory.org",
       "tx_page": "https://vota-explorer.dorafactory.org/doravota/tx/${txHash}"
+    },
+    {
+      "kind": "lesnik | UTSA Ping Pub",
+      "url": "https://exp.utsa.tech/dora/staking",
+      "tx_page": "https://exp.utsa.tech/dora/tx/${txHash}"
     }
   ]
 }

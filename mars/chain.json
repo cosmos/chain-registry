@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.marsprotocol.io/",
   "pretty_name": "Mars Hub",
+  "chain_type": "cosmos",
   "chain_id": "mars-1",
   "bech32_prefix": "mars",
   "daemon_name": "marsd",
@@ -153,7 +154,7 @@
       {
         "address": "https://mars-rpc.stakeandrelax.net",
         "provider": "Stake&Relax 🦥"
-      }  
+      }
     ],
     "rest": [
       {
@@ -191,7 +192,7 @@
       {
         "address": "https://mars-api.stakeandrelax.net",
         "provider": "Stake&Relax 🦥"
-      }  
+      }
     ],
     "grpc": [
       {
@@ -229,10 +230,16 @@
       {
         "address": "mars-grpc.stakeandrelax.net:18590",
         "provider": "Stake&Relax 🦥"
-      }  
+      }
     ]
   },
   "explorers": [
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/mars",
+      "tx_page": "https://ezstaking.app/mars/txs/${txHash}",
+      "account_page": "https://ezstaking.app/mars/account/${accountAddress}"
+    },
     {
       "kind": "BigDipper",
       "url": "https://explorer.marsprotocol.io",
@@ -271,7 +278,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-protocol.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-protocol.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-protocol.svg",
+      "theme": {
+        "primary_color_hex": "#040404"
+      }
     }
   ]
 }

@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://teritori.com/",
   "pretty_name": "Teritori",
+  "chain_type": "cosmos",
   "chain_id": "teritori-1",
   "daemon_name": "teritorid",
   "node_home": "$HOME/.teritorid",
@@ -29,10 +30,19 @@
   },
   "codebase": {
     "git_repo": "https://github.com/TERITORI/teritori-chain",
-    "recommended_version": "v1.4.0",
+    "recommended_version": "v2.0.6",
     "compatible_versions": [
-      "v1.4.0"
+      "v2.0.6"
     ],
+    "ibc_go_version": "v7.3.1",
+    "cosmos_sdk_version": "v0.47.6",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.2"
+    },
+    "cosmwasm_version": "v0.41.0",
+    "cosmwasm_enabled": true,
+    "cosmwasm_path": "$HOME/.teritorid/data/wasm",
     "genesis": {
       "genesis_url": "https://github.com/TERITORI/teritori-chain/raw/mainnet/mainnet/teritori-1/genesis.json"
     },
@@ -53,6 +63,25 @@
         "compatible_versions": [
           "v1.4.0"
         ],
+        "next_version_name": "v2.0.0"
+      },
+      {
+        "name": "v2.0.0",
+        "proposal": 38,
+        "height": 7199342,
+        "recommended_version": "v2.0.6",
+        "compatible_versions": [
+          "v2.0.6"
+        ],
+        "ibc_go_version": "v7.3.1",
+        "cosmos_sdk_version": "v0.47.6",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "cosmwasm_version": "v0.41.0",
+        "cosmwasm_enabled": true,
+        "cosmwasm_path": "$HOME/.teritorid/data/wasm",
         "next_version_name": ""
       }
     ]
@@ -67,11 +96,6 @@
         "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
         "address": "seed.rhinostake.com:15956",
         "provider": "RHINO"
-      },
-      {
-        "id": "20e1000e88125698264454a884812746c2eb4807",
-        "address": "seeds.lavenderfive.com:15956",
-        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
@@ -95,13 +119,18 @@
       },
       {
         "id": "1ef268d56b79edbd0c32815f4bf9c362a0617ed4",
-        "address": "seed-teritori.ibs.team:16659",
+        "address": "seed-teritori.ibs.team:16670",
         "provider": "Inter Blockchain Services"
       },
       {
         "id": "38d107de6a22ca6e1a6bafd2041e38f5d50a6945",
         "address": "seed-node.mms.team:40656",
         "provider": "MMS"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:23656",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -135,16 +164,8 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://teritori-rpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
         "address": "https://teritori-rpc.polkachu.com",
         "provider": "Polkachu"
-      },
-      {
-        "address": "https://rpc.teritori.nodestake.top",
-        "provider": "NodeStake"
       },
       {
         "address": "https://teritori.rpc.m.stavr.tech",
@@ -179,10 +200,6 @@
         "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
       },
       {
-        "address": "https://teritori.rpc.silknodes.io",
-        "provider": "Silk Nodes"
-      },
-      {
         "address": "https://rpc-teritori.pupmos.network",
         "provider": "PUPMØS"
       },
@@ -197,20 +214,16 @@
       {
         "address": "https://teritori-rpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://teritori-rpc.bluestake.net:443",
+        "provider": "BlueStake 🚀"
       }
     ],
     "rest": [
       {
-        "address": "https://teritori-api.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
         "address": "https://teritori-api.polkachu.com",
         "provider": "Polkachu"
-      },
-      {
-        "address": "https://api.teritori.nodestake.top",
-        "provider": "NodeStake"
       },
       {
         "address": "https://teritori.api.m.stavr.tech",
@@ -241,10 +254,6 @@
         "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
       },
       {
-        "address": "https://teritori.api.silknodes.io",
-        "provider": "Silk Nodes"
-      },
-      {
         "address": "https://api-teritori.pupmos.network",
         "provider": "PUPMØS"
       },
@@ -259,13 +268,13 @@
       {
         "address": "https://teritori-rest.publicnode.com",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://teritori-api.bluestake.net",
+        "provider": "BlueStake 🚀"
       }
     ],
     "grpc": [
-      {
-        "address": "teritori-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
       {
         "address": "grpc.teritori.nodestake.top:443",
         "provider": "NodeStake"
@@ -302,10 +311,10 @@
   },
   "explorers": [
     {
-      "kind": "EZ Staking",
-      "url": "https://app.ezstaking.io/teritori",
-      "tx_page": "https://app.ezstaking.io/teritori/txs/${txHash}",
-      "account_page": "https://app.ezstaking.io/teritori/account/${accountAddress}"
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/teritori",
+      "tx_page": "https://ezstaking.app/teritori/txs/${txHash}",
+      "account_page": "https://ezstaking.app/teritori/account/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -353,7 +362,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/teritori/images/chain.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/teritori/images/chain.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/teritori/images/chain.svg",
+      "theme": {
+        "primary_color_hex": "#44c5f1"
+      }
     }
   ]
 }

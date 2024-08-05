@@ -5,6 +5,7 @@
   "website": "https://nolus.io/",
   "network_type": "mainnet",
   "pretty_name": "Nolus",
+  "chain_type": "cosmos",
   "chain_id": "pirin-1",
   "bech32_prefix": "nolus",
   "daemon_name": "nolusd",
@@ -17,7 +18,8 @@
     "fee_tokens": [
       {
         "denom": "unls",
-        "low_gas_price": 0,
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.025,
         "average_gas_price": 0.025,
         "high_gas_price": 0.05
       }
@@ -35,18 +37,18 @@
   },
   "codebase": {
     "git_repo": "https://github.com/nolus-protocol/nolus-core",
-    "recommended_version": "v0.5.0",
+    "recommended_version": "v0.5.2",
     "compatible_versions": [
-      "v0.5.0"
+      "v0.5.3"
     ],
-    "cosmos_sdk_version": "v0.47.6-nolus",
+    "cosmos_sdk_version": "nolus-protocol/cosmos-sdk v0.47.8-nolus",
     "consensus": {
       "type": "cometbft",
-      "version": "0.34.27"
+      "version": "v0.37.4"
     },
     "cosmwasm_version": "neutron-org/wasmd v0.45.0",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "7.3.1",
+    "ibc_go_version": "7.4.0",
     "ics_enabled": [
       "ics20-1",
       "ics27-1"
@@ -153,6 +155,72 @@
           "ics20-1",
           "ics27-1"
         ],
+        "next_version_name": "v5.0.1"
+      },
+      {
+        "name": "v0.5.1",
+        "proposal": 76,
+        "height": 3958000,
+        "recommended_version": "v0.5.1",
+        "compatible_versions": [
+          "v0.5.1"
+        ],
+        "cosmos_sdk_version": "nolus-protocol/cosmos-sdk v0.47.6-nolus",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "cosmwasm_version": "neutron-org/wasmd v0.45.0",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "7.3.1",
+        "ics_enabled": [
+          "ics20-1",
+          "ics27-1"
+        ],
+        "next_version_name": "v0.5.2"
+      },
+      {
+        "name": "v0.5.2",
+        "proposal": 77,
+        "height": 4059500,
+        "recommended_version": "v0.5.2",
+        "compatible_versions": [
+          "v0.5.2"
+        ],
+        "cosmos_sdk_version": "nolus-protocol/cosmos-sdk v0.47.6-nolus",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.2"
+        },
+        "cosmwasm_version": "neutron-org/wasmd v0.45.0",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "7.3.1",
+        "ics_enabled": [
+          "ics20-1",
+          "ics27-1"
+        ],
+        "next_version_name": "v0.5.3"
+      },
+      {
+        "name": "v0.5.3",
+        "proposal": 104,
+        "height": 4922500,
+        "recommended_version": "v0.5.3",
+        "compatible_versions": [
+          "v0.5.3"
+        ],
+        "cosmos_sdk_version": "nolus-protocol/cosmos-sdk v0.47.8-nolus",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "cosmwasm_version": "neutron-org/wasmd v0.45.0",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "7.4.0",
+        "ics_enabled": [
+          "ics20-1",
+          "ics27-1"
+        ],
         "next_version_name": ""
       }
     ]
@@ -186,7 +254,7 @@
       },
       {
         "id": "cefe4a5394dc57f318547258c511a9a96aaeaa7b",
-        "address": "seed-nolus.ibs.team:56656",
+        "address": "seed-nolus.ibs.team:16665",
         "provider": "Inter Blockchain Services"
       }
     ],
@@ -211,10 +279,6 @@
       {
         "address": "https://nolus-rpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://nolus-rpc.sphincs.plus",
-        "provider": "Sphincs.plus 🔅"
       },
       {
         "address": "https://nolus.rpc.liveraven.net",
@@ -261,10 +325,6 @@
       {
         "address": "https://nolus-api.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://nolus-lcd.sphincs.plus",
-        "provider": "Sphincs.plus 🔅"
       },
       {
         "address": "https://api-nolus.cosmos-spaces.cloud",
@@ -375,7 +435,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.svg",
+      "theme": {
+        "primary_color_hex": "#fc542c"
+      }
     }
   ]
 }

@@ -26,9 +26,16 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.svg",
+          "theme": {
+            "primary_color_hex": "#f4de6f"
+          }
         }
-      ]
+      ],
+      "socials": {
+        "website": "https://www.terra.money/",
+        "twitter": "https://twitter.com/terra_money"
+      }
     },
     {
       "description": "Astroport is a neutral marketplace where anyone, from anywhere in the galaxy, can dock to trade their wares.",
@@ -38,50 +45,128 @@
           "exponent": 0
         },
         {
-          "denom": "astro",
+          "denom": "astro.cw20",
           "exponent": 6
         }
       ],
       "type_asset": "cw20",
       "address": "terra1nsuqsk6kh58ulczatwev87ttq2z6r3pusulg9r24mfj2fvtzd4uq3exn26",
       "base": "cw20:terra1nsuqsk6kh58ulczatwev87ttq2z6r3pusulg9r24mfj2fvtzd4uq3exn26",
-      "name": "Astroport",
-      "display": "astro",
-      "symbol": "ASTRO",
+      "name": "Astroport CW20 Token",
+      "display": "astro.cw20",
+      "symbol": "ASTRO.cw20",
+      "traces": [
+        {
+          "type": "legacy-mintage",
+          "counterparty": {
+            "chain_name": "neutron",
+            "base_denom": "factory/neutron1ffus553eet978k024lmssw0czsxwr97mggyv85lpcsdkft8v9ufsz3sa07/astro"
+          },
+          "provider": "Astroport"
+        }
+      ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra/images/astro.png"
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/astro-cw20.svg"
       },
-      "coingecko_id": "astroport-fi",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra/images/astro.png"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/astro-cw20.svg"
+        },
+        {
+          "image_sync": {
+            "chain_name": "neutron",
+            "base_denom": "factory/neutron1ffus553eet978k024lmssw0czsxwr97mggyv85lpcsdkft8v9ufsz3sa07/astro"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.svg",
+          "theme": {
+            "primary_color_hex": "#4056e9"
+          }
         }
-      ]
+      ],
+      "socials": {
+        "website": "https://astroport.fi/",
+        "twitter": "https://twitter.com/astroport_fi"
+      }
+    },
+    {
+      "description": "Astroport is a neutral marketplace where anyone, from anywhere in the galaxy, can dock to trade their wares.",
+      "denom_units": [
+        {
+          "denom": "ibc/8D8A7F7253615E5F76CB6252A1E1BD921D5EDB7BBAAF8913FB1C77FF125D9995",
+          "exponent": 0,
+          "aliases": [
+            "uastro"
+          ]
+        },
+        {
+          "denom": "astro",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/8D8A7F7253615E5F76CB6252A1E1BD921D5EDB7BBAAF8913FB1C77FF125D9995",
+      "name": "Astroport token",
+      "display": "astro",
+      "symbol": "ASTRO",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "neutron",
+            "base_denom": "factory/neutron1ffus553eet978k024lmssw0czsxwr97mggyv85lpcsdkft8v9ufsz3sa07/astro",
+            "channel_id": "channel-25"
+          },
+          "chain": {
+            "channel_id": "channel-229",
+            "path": "transfer/channel-229/factory/neutron1ffus553eet978k024lmssw0czsxwr97mggyv85lpcsdkft8v9ufsz3sa07/astro"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "neutron",
+            "base_denom": "factory/neutron1ffus553eet978k024lmssw0czsxwr97mggyv85lpcsdkft8v9ufsz3sa07/astro"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.svg",
+          "theme": {
+            "primary_color_hex": "#4056e9"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.svg"
+      }
     },
     {
       "description": "Dinheiros is the reserve currency of dioalma.protocol, an undivisible and rare token.",
       "denom_units": [
         {
           "denom": "cw20:terra1spkm49wd9dqkranhrks4cupecl3rtgeqqljq3qrvrrts2ev2gw6sy5vz3k",
-          "exponent": 0
-        },
-        {
-          "denom": "Dinheiros",
-          "exponent": 0
+          "exponent": 0,
+          "aliases": [
+            "Dinheiros"
+          ]
         }
       ],
       "type_asset": "cw20",
       "address": "terra1spkm49wd9dqkranhrks4cupecl3rtgeqqljq3qrvrrts2ev2gw6sy5vz3k",
       "base": "cw20:terra1spkm49wd9dqkranhrks4cupecl3rtgeqqljq3qrvrrts2ev2gw6sy5vz3k",
       "name": "dinheiro",
-      "display": "Dinheiros",
+      "display": "cw20:terra1spkm49wd9dqkranhrks4cupecl3rtgeqqljq3qrvrrts2ev2gw6sy5vz3k",
       "symbol": "DINHEIROS",
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/Dinheiros.png"
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/Dinheiros.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/Dinheiros.png",
+          "theme": {
+            "primary_color_hex": "#244c9c"
+          }
         }
       ]
     },
@@ -108,12 +193,15 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/Reis.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/Reis.png",
+          "theme": {
+            "primary_color_hex": "#1d5c65"
+          }
         }
       ]
     },
     {
-      "description": "Escudos is the everyday currency of dioalma.protocol, good to send money back and foward.",
+      "description": "Escudos is the everyday currency of dioalma.protocol, good to send money back and forward.",
       "denom_units": [
         {
           "denom": "cw20:terra1qj5hs3e86qn4vm9dvtgtlkdp550r0rayk9wpay44mfw3gn3tr8nq5jw3dg",
@@ -135,7 +223,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/Escudos.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/Escudos.png",
+          "theme": {
+            "primary_color_hex": "#040404"
+          }
         }
       ]
     },
@@ -162,7 +253,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/Alem.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/Alem.png",
+          "theme": {
+            "primary_color_hex": "#d1b295"
+          }
         }
       ]
     },
@@ -218,7 +312,10 @@
       "coingecko_id": "lion-dao",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/roar.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/roar.png",
+          "theme": {
+            "primary_color_hex": "#f3f313"
+          }
         }
       ]
     },
@@ -245,7 +342,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/gem.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/gem.png",
+          "theme": {
+            "primary_color_hex": "#21b6b3"
+          }
         }
       ]
     },
@@ -272,7 +372,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/cub.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/cub.png",
+          "theme": {
+            "primary_color_hex": "#f3d343"
+          }
         }
       ]
     },
@@ -299,10 +402,13 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/blue.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/blue.png",
+          "theme": {
+            "primary_color_hex": "#040404"
+          }
         }
       ]
-    }, 
+    },
     {
       "description": "Liquidity token, NFT, HARVEST FOR VALUE",
       "type_asset": "cw20",
@@ -326,12 +432,45 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/xxx3.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/xxx3.png",
+          "theme": {
+            "primary_color_hex": "#efe8e9"
+          }
         }
       ]
     },
     {
-      "description": "The GraveDigger is the Liquid Staking Product of BackBone Labs. It will have its own platform. Its liquid staking derivative (LSD) is boneLUNA.",
+      "description": "Just a meme coin on Terra",
+      "type_asset": "cw20",
+      "address": "terra19nu4q2y0xe3vza6ve5ymup33uzm049pnrqq5ddeuulmrg279t57qstcces",
+      "denom_units": [
+        {
+          "denom": "cw20:terra19nu4q2y0xe3vza6ve5ymup33uzm049pnrqq5ddeuulmrg279t57qstcces",
+          "exponent": 0
+        },
+        {
+          "denom": "GUGU",
+          "exponent": 6
+        }
+      ],
+      "base": "cw20:terra19nu4q2y0xe3vza6ve5ymup33uzm049pnrqq5ddeuulmrg279t57qstcces",
+      "name": "GUGU",
+      "display": "GUGU",
+      "symbol": "GUGU",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/gugu.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/gugu.png",
+          "theme": {
+            "primary_color_hex": "#e3e2e5"
+          }
+        }
+      ]
+    },
+    {
+      "description": "BackBone Labs Liquid Staked LUNA",
       "type_asset": "cw20",
       "address": "terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml",
       "denom_units": [
@@ -340,22 +479,26 @@
           "exponent": 0
         },
         {
-          "denom": "bluna",
+          "denom": "bLUNA",
           "exponent": 6
         }
       ],
       "base": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml",
-      "name": "boneLuna",
-      "display": "bluna",
+      "name": "BackBone Labs Liquid Staked LUNA",
+      "display": "bLUNA",
       "symbol": "bLUNA",
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/boneluna.png"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/bLUNA.png"
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/boneluna.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/bLUNA.png",
+          "theme": {
+            "primary_color_hex": "#070707"
+          }
         }
-      ]
+      ],
+      "coingecko_id": "backbone-labs-staked-luna"
     },
     {
       "description": "Sayve is a revolutionary language learning app in the Web3 era that combines gamification, blockchain technology, and a Metaverse experience to motivate users to learn languages while earning rewards.",
@@ -382,7 +525,10 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/sayve.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/sayve.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/sayve.svg",
+          "theme": {
+            "primary_color_hex": "#f3ebdb"
+          }
         }
       ]
     },
@@ -457,7 +603,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/amproar.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/amproar.png",
+          "theme": {
+            "primary_color_hex": "#5b83c3"
+          }
         }
       ]
     },
@@ -484,7 +633,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/nicodao.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/nicodao.png",
+          "theme": {
+            "primary_color_hex": "#f1cc79"
+          }
         }
       ]
     },
@@ -511,7 +663,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/SEAS.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/SEAS.png",
+          "theme": {
+            "primary_color_hex": "#c0943f"
+          }
         }
       ]
     },
@@ -538,7 +693,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/BITZ.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/BITZ.png",
+          "theme": {
+            "primary_color_hex": "#dd6a30"
+          }
         }
       ]
     },
@@ -611,7 +769,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/seul.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/seul.png",
+          "theme": {
+            "primary_color_hex": "#0da8c9"
+          }
         }
       ]
     },
@@ -638,7 +799,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/xseul.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/xseul.png",
+          "theme": {
+            "primary_color_hex": "#0ba7ce"
+          }
         }
       ]
     },
@@ -665,7 +829,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/I.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/I.png",
+          "theme": {
+            "primary_color_hex": "#f8d034"
+          }
         }
       ]
     },
@@ -692,7 +859,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/armani.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/armani.png",
+          "theme": {
+            "primary_color_hex": "#d19a84"
+          }
         }
       ]
     },
@@ -716,7 +886,15 @@
       "symbol": "DROGO",
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/drogo.png"
-      }
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/drogo.png",
+          "theme": {
+            "primary_color_hex": "#ae987b"
+          }
+        }
+      ]
     },
     {
       "description": "ado the flower of night",
@@ -738,7 +916,15 @@
       "symbol": "ADO",
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/ADO.png"
-      }
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/ADO.png",
+          "theme": {
+            "primary_color_hex": "#040607"
+          }
+        }
+      ]
     },
     {
       "description": "The first memecoin on osmosis.",
@@ -777,11 +963,479 @@
             "chain_name": "osmosis",
             "base_denom": "factory/osmo1pfyxruwvtwk00y8z06dh2lqjdj82ldvy74wzm3/WOSMO"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/WOSMO.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/wosmo.png",
+          "theme": {
+            "primary_color_hex": "#edd5ee"
+          }
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/WOSMO.png"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/wosmo.png"
+      }
+    },
+    {
+      "description": "DNA DAO",
+      "type_asset": "cw20",
+      "address": "terra1epka8wevu90rxlvt6g5x9veevd800a760vtuftc5kqdfmrh47qds9f0m8h",
+      "denom_units": [
+        {
+          "denom": "cw20:terra1epka8wevu90rxlvt6g5x9veevd800a760vtuftc5kqdfmrh47qds9f0m8h",
+          "exponent": 0
+        },
+        {
+          "denom": "DNA",
+          "exponent": 6
+        }
+      ],
+      "base": "cw20:terra1epka8wevu90rxlvt6g5x9veevd800a760vtuftc5kqdfmrh47qds9f0m8h",
+      "name": "DNA",
+      "display": "DNA",
+      "symbol": "DNA",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/DNA.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/DNA.png",
+          "theme": {
+            "primary_color_hex": "#232333"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Bitmos opens doors for BRC20 tokens to thrive alongside established players in the Cosmos Network, revolutionizing decentralized finance (DeFi) for all.",
+      "type_asset": "cw20",
+      "address": "terra1sxe8u2hjczlekwfkcq0rs28egt38pg3wqzfx4zcrese4fnvzzupsk9gjkq",
+      "denom_units": [
+        {
+          "denom": "cw20:terra1sxe8u2hjczlekwfkcq0rs28egt38pg3wqzfx4zcrese4fnvzzupsk9gjkq",
+          "exponent": 0
+        },
+        {
+          "denom": "bitmos",
+          "exponent": 6
+        }
+      ],
+      "base": "cw20:terra1sxe8u2hjczlekwfkcq0rs28egt38pg3wqzfx4zcrese4fnvzzupsk9gjkq",
+      "name": "Bitmos",
+      "display": "bitmos",
+      "symbol": "BMOS",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/bitmos.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/bitmos.png",
+          "theme": {
+            "primary_color_hex": "#0c0704"
+          }
+        }
+      ]
+    },
+    {
+      "type_asset": "cw20",
+      "address": "terra1eh8eq60cjy997w5dc3a6exfzanlaurupav8klx7m9u9ddfgh25mqjwl5vj",
+      "denom_units": [
+        {
+          "denom": "cw20:terra1eh8eq60cjy997w5dc3a6exfzanlaurupav8klx7m9u9ddfgh25mqjwl5vj",
+          "exponent": 0
+        },
+        {
+          "denom": "lads",
+          "exponent": 6
+        }
+      ],
+      "base": "cw20:terra1eh8eq60cjy997w5dc3a6exfzanlaurupav8klx7m9u9ddfgh25mqjwl5vj",
+      "name": "LADS",
+      "display": "lads",
+      "symbol": "LADS",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/LADS.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/LADS.png",
+          "theme": {
+            "primary_color_hex": "#040507"
+          }
+        }
+      ]
+    },
+    {
+      "denom_units": [
+        {
+          "denom": "ibc/F709DF4969CD26174C1A53AA95F3D98BE643C1A52C9981487766F96A1811F6A4",
+          "exponent": 0,
+          "aliases": [
+            "factory/migaloo1d0uma9qzcts4fzt7ml39xp44aut5k6qyjfzz4asalnecppppr3rsl52vvv/rstk"
+          ]
+        },
+        {
+          "denom": "rstk",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/F709DF4969CD26174C1A53AA95F3D98BE643C1A52C9981487766F96A1811F6A4",
+      "name": "Restake DAO Token",
+      "display": "rstk",
+      "symbol": "RSTK",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "migaloo",
+            "base_denom": "factory/migaloo1d0uma9qzcts4fzt7ml39xp44aut5k6qyjfzz4asalnecppppr3rsl52vvv/rstk",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "channel-86",
+            "path": "transfer/channel-86/factory/migaloo1d0uma9qzcts4fzt7ml39xp44aut5k6qyjfzz4asalnecppppr3rsl52vvv/rstk"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "migaloo",
+            "base_denom": "factory/migaloo1d0uma9qzcts4fzt7ml39xp44aut5k6qyjfzz4asalnecppppr3rsl52vvv/rstk"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/rstk.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/rstk.svg",
+          "theme": {
+            "primary_color_hex": "#3ccc64"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/rstk.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/rstk.svg"
+      }
+    },
+    {
+      "description": "ClonEliteFund invests in Cosmos ecosystem projects, focusing on scalability, security, and interoperability to maximize returns.",
+      "type_asset": "cw20",
+      "address": "terra164ssz60yvsxey0ku9mtcaegdeyxwzuwwqyrp238nvflwqve0pvxsra7fa2",
+      "denom_units": [
+        {
+          "denom": "cw20:terra164ssz60yvsxey0ku9mtcaegdeyxwzuwwqyrp238nvflwqve0pvxsra7fa2",
+          "exponent": 0
+        },
+        {
+          "denom": "CLON",
+          "exponent": 6
+        }
+      ],
+      "base": "cw20:terra164ssz60yvsxey0ku9mtcaegdeyxwzuwwqyrp238nvflwqve0pvxsra7fa2",
+      "name": "CLON",
+      "display": "CLON",
+      "symbol": "CLON",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/clon1.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/clon1.png",
+          "theme": {
+            "primary_color_hex": "#c7cbcf"
+          }
+        }
+      ]
+    },
+    {
+      "description": "ERIS Liquid Alliance Staked ampROAR",
+      "denom_units": [
+        {
+          "denom": "factory/terra1dndhtdr2v7ca8rrn67chlqw3cl3xhm3m2uxls62vghcg3fsh5tpss5xmcu/MOAR",
+          "exponent": 0
+        },
+        {
+          "denom": "MOAR",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/terra1dndhtdr2v7ca8rrn67chlqw3cl3xhm3m2uxls62vghcg3fsh5tpss5xmcu/MOAR",
+      "name": "ERIS MOAR",
+      "display": "MOAR",
+      "symbol": "MOAR",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/moar.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/moar.png",
+          "theme": {
+            "primary_color_hex": "#9363b3"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Tether USDt on Terra",
+      "denom_units": [
+        {
+          "denom": "ibc/9B19062D46CAB50361CE9B0A3E6D0A7A53AC9E7CB361F32A73CC733144A9A9E5",
+          "exponent": 0
+        },
+        {
+          "denom": "usdt",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/9B19062D46CAB50361CE9B0A3E6D0A7A53AC9E7CB361F32A73CC733144A9A9E5",
+      "name": "Tether USDt",
+      "display": "usdt",
+      "symbol": "USDt",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "kava",
+            "base_denom": "erc20/tether/usdt",
+            "channel_id": "channel-138"
+          },
+          "chain": {
+            "channel_id": "channel-272",
+            "path": "transfer/channel-272/erc20/tether/usdt"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "kava",
+            "base_denom": "erc20/tether/usdt"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#009393",
+            "background_color_hex": "#009393"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+      }
+    },
+    {
+      "description": "ATOM-LUNA liquidity pool token on URA",
+      "denom_units": [
+        {
+          "denom": "factory/terra1djk2zl83dspt696ex5crhfacu8vm6934576t4zdd2592fzyahr2qma6guq/ULUN-IBC/-LP",
+          "exponent": 0
+        },
+        {
+          "denom": "atom-luna-lp",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/terra1djk2zl83dspt696ex5crhfacu8vm6934576t4zdd2592fzyahr2qma6guq/ULUN-IBC/-LP",
+      "name": "ATOM-LUNA LP Token URA",
+      "display": "atom-luna-lp",
+      "symbol": "ATOM-LUNA-LP",
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/ura.svg"
+        }
+      ]
+    },
+    {
+      "description": "LUNA-USDC liquidity pool token on URA",
+      "denom_units": [
+        {
+          "denom": "factory/terra12jxfw2vg4cu6mxlgf39dp5ccxtuwm468w8eh9cnh2qsxc9t0sffs7ekhft/ULUN-IBC/-LP",
+          "exponent": 0
+        },
+        {
+          "denom": "luna-usdc-lp",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/terra12jxfw2vg4cu6mxlgf39dp5ccxtuwm468w8eh9cnh2qsxc9t0sffs7ekhft/ULUN-IBC/-LP",
+      "name": "LUNA-USDC LP Token URA",
+      "display": "luna-usdc-lp",
+      "symbol": "LUNA-USDC-LP",
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/ura.svg"
+        }
+      ]
+    },
+    {
+      "description": "LUNA-USDT liquidity pool token on URA",
+      "denom_units": [
+        {
+          "denom": "factory/terra1w9spejtuac5dt0gympq576uhwde39exhh7hdxwl99rjvaphfukkq6y4cv7/ULUN-IBC/-LP",
+          "exponent": 0
+        },
+        {
+          "denom": "luna-usdt-lp",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/terra1w9spejtuac5dt0gympq576uhwde39exhh7hdxwl99rjvaphfukkq6y4cv7/ULUN-IBC/-LP",
+      "name": "LUNA-USDT LP Token URA",
+      "display": "luna-usdt-lp",
+      "symbol": "LUNA-USDT-LP",
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/ura.svg"
+        }
+      ]
+    },
+    {
+      "description": "ashLUNA",
+      "denom_units": [
+        {
+          "denom": "factory/terra1f5cfm48gcezl3cx25l64ngc4yktnmx7rcpj3kggu6v273742sqqs5yn5ks/luna.ash",
+          "exponent": 0
+        },
+        {
+          "denom": "ashLUNA",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/terra1f5cfm48gcezl3cx25l64ngc4yktnmx7rcpj3kggu6v273742sqqs5yn5ks/luna.ash",
+      "name": "ashLUNA",
+      "display": "ashLUNA",
+      "symbol": "ashLUNA",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.ash.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.ash.png",
+          "theme": {
+            "primary_color_hex": "#66bcf2"
+          }
+        }
+      ]
+    },
+    {
+      "description": "USDC is a fully collateralized US Dollar stablecoin developed by CENTRE, the open source project with Circle being the first of several forthcoming issuers.",
+      "denom_units": [
+        {
+          "denom": "ibc/2C962DAB9F57FE0921435426AE75196009FAA1981BF86991203C8411F8980FDB",
+          "exponent": 0,
+          "aliases": [
+            "microusdc",
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/2C962DAB9F57FE0921435426AE75196009FAA1981BF86991203C8411F8980FDB",
+      "name": "USDC",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "USD"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-30"
+          },
+          "chain": {
+            "channel_id": "channel-253",
+            "path": "transfer/channel-253/uusdc"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "noble",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.svg",
+          "theme": {
+            "primary_color_hex": "#2474cc"
+          }
+        },
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+        }
+      ]
+    },
+    {
+      "description": "Cosmo is the best currency in the universe.",
+      "denom_units": [
+        {
+          "denom": "ibc/7DD1E57984A26E7B6CBA0D93032DC24AD5274536184DFA999D166EBF6E4AA469",
+          "exponent": 0,
+          "aliases": [
+            "factory/inj1je6n5sr4qtx2lhpldfxndntmgls9hf38ncmcez/COSMO"
+          ]
+        },
+        {
+          "denom": "COSMO",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/7DD1E57984A26E7B6CBA0D93032DC24AD5274536184DFA999D166EBF6E4AA469",
+      "name": "Cosmo",
+      "display": "COSMO",
+      "symbol": "COSMO",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "injective",
+            "base_denom": "factory/inj1je6n5sr4qtx2lhpldfxndntmgls9hf38ncmcez/COSMO",
+            "channel_id": "channel-8"
+          },
+          "chain": {
+            "channel_id": "channel-122",
+            "path": "transfer/channel-122/factory/inj1je6n5sr4qtx2lhpldfxndntmgls9hf38ncmcez/COSMO"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/cosmo.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/cosmo.png",
+          "theme": {
+            "primary_color_hex": "#343169"
+          }
+        }
+      ],
+      "socials": {
+        "website": "https://github.com/raphaellafar/Cosmo",
+        "twitter": "https://x.com/CosmoClub84"
       }
     }
   ]

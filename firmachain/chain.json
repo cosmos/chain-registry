@@ -4,7 +4,8 @@
   "status": "live",
   "network_type": "mainnet",
   "website": "https://firmachain.org/",
-  "pretty_name": "FirmaChain",
+  "pretty_name": "FIRMACHAIN",
+  "chain_type": "cosmos",
   "chain_id": "colosseum-1",
   "bech32_prefix": "firma",
   "slip44": 7777777,
@@ -17,7 +18,10 @@
     "fee_tokens": [
       {
         "denom": "ufct",
-        "fixed_min_gas_price": 0.1
+        "fixed_min_gas_price": 0.1,
+        "low_gas_price": 0.1,
+        "average_gas_price": 0.15,
+        "high_gas_price": 0.2
       }
     ]
   },
@@ -77,6 +81,11 @@
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:24156",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -84,6 +93,16 @@
         "id": "931a7c680d28c84a8a53e4017a6eae0788ee7cf2",
         "address": "firmachain.ramuchi.tech:57656",
         "provider": "ramuchi.tech"
+      },
+      {
+        "id": "35b9e0a0818d2c5e9ef187984872c0ad2dbd447c",
+        "address": "firma.peer.stavr.tech:1036",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "id": "637077d431f618181597706810a65c826524fd74",
+        "address": "firmachain.rpc.nodeshub.online:16456",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
       }
     ]
   },
@@ -92,6 +111,10 @@
       {
         "address": "https://lcd-mainnet.firmachain.dev:26657",
         "provider": "FirmaChain"
+      },
+      {
+        "address": "https://firma.rpc.m.stavr.tech:443",
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "https://rpc.firmachain.chaintools.tech/",
@@ -104,12 +127,20 @@
       {
         "address": "https://firmachain-rpc.ramuchi.tech",
         "provider": "ramuchi.tech"
+      },
+      {
+        "address": "https://firmachain.rpc.nodeshub.online:443",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
       }
     ],
     "rest": [
       {
         "address": "https://lcd-mainnet.firmachain.dev:1317",
         "provider": "FirmaChain"
+      },
+      {
+        "address": "https://firma.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "https://api.firmachain.chaintools.tech/",
@@ -122,6 +153,10 @@
       {
         "address": "https://firmachain-api.ramuchi.tech",
         "provider": "ramuchi.tech"
+      },
+      {
+        "address": "https://firmachain.api.nodeshub.online:443",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
       }
     ],
     "grpc": [
@@ -130,17 +165,31 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
+        "address": "firma.grpc.m.stavr.tech:2030",
+        "provider": "🔥STAVR🔥"
+      },
+      {
         "address": "https://firmachain-grpc.ramuchi.tech:1390",
         "provider": "ramuchi.tech"
+      },
+      {
+        "address": "firmachain.grpc.nodeshub.online",
+        "provider": "Nodes Hub"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking",
-      "url": "https://app.ezstaking.io/firmachain",
-      "tx_page": "https://app.ezstaking.io/firmachain/txs/${txHash}",
-      "account_page": "https://app.ezstaking.io/firmachain/account/${accountAddress}"
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/firmachain",
+      "tx_page": "https://ezstaking.app/firmachain/txs/${txHash}",
+      "account_page": "https://ezstaking.app/firmachain/account/${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Firmachain-M",
+      "tx_page": "https://explorer.stavr.tech/Firmachain-M/txs/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Firmachain-M/account/${accountAddress}"
     },
     {
       "kind": "bigdipper",
@@ -157,12 +206,21 @@
       "url": "https://atomscan.com/firmachain",
       "tx_page": "https://atomscan.com/firmachain/transactions/${txHash}",
       "account_page": "https://atomscan.com/firmachain/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅",
+      "url": "https://explorer.nodeshub.online/firmachain/",
+      "tx_page": "https://explorer.nodeshub.online/firmachain/tx/${txHash}",
+      "account_page": "https://explorer.nodeshub.online/firmachain/accounts/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/firmachain/images/fct.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/firmachain/images/fct.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/firmachain/images/fct.svg",
+      "theme": {
+        "primary_color_hex": "#1c1c1c"
+      }
     }
   ]
 }

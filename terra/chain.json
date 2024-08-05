@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "pretty_name": "Terra Classic",
+  "chain_type": "cosmos",
   "chain_id": "columbus-5",
   "daemon_name": "terrad",
   "node_home": "$HOME/.terra",
@@ -273,10 +274,6 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.terrarebels.net",
-        "provider": "Terra Rebels"
-      },
-      {
         "address": "https://terra-classic-rpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
@@ -294,10 +291,6 @@
       }
     ],
     "rest": [
-      {
-        "address": "https://lcd.terrarebels.net",
-        "provider": "Terra Rebels"
-      },
       {
         "address": "https://terra-classic-lcd.publicnode.com",
         "provider": "Allnodes ⚡️ Nodes & Staking"
@@ -336,6 +329,12 @@
   },
   "explorers": [
     {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/terra",
+      "tx_page": "https://ezstaking.app/terra/txs/${txHash}",
+      "account_page": "https://ezstaking.app/terra/account/${accountAddress}"
+    },
+    {
       "kind": "ping.pub",
       "url": "https://ping.pub/terra-luna",
       "tx_page": "https://ping.pub/terra-luna/tx/${txHash}"
@@ -362,7 +361,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra/images/luna.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra/images/luna.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra/images/luna.svg",
+      "theme": {
+        "primary_color_hex": "#fcdb5b"
+      }
     }
   ]
 }
