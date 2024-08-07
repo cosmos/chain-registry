@@ -1,7 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "lava",
-  "status": "upcoming",
+  "status": "live",
   "network_type": "mainnet",
   "website": "https://lavanet.xyz/",
   "update_link": "https://raw.githubusercontent.com/lavanet/lava/main/chain.schema.json",
@@ -19,10 +19,10 @@
     "fee_tokens": [
       {
         "denom": "ulava",
-        "fixed_min_gas_price": 1e-09,
-        "low_gas_price": 1e-09,
-        "average_gas_price": 5e-05,
-        "high_gas_price": 0.0001
+        "fixed_min_gas_price": 0.00002,
+        "low_gas_price": 0.00002,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.05
       }
     ]
   },
@@ -226,10 +226,41 @@
         "address": "lava.seed.stavr.tech:197",
         "provider": "🔥STAVR🔥"
       },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:29956",
+        "provider": "BlueStake 🚀"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "lava-mainnet-seed.autostake.com:27066",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "6086779c98b6864aea1ae595b96a412aa11ec6c7",
+        "address": "lava.seed.stakevillage.net:17760",
+        "provider": "Stake Village"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "lava-mainnet-peer.autostake.com:27066",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "8a83d4bdd4b26ebe9893efd4609d4be6d82c3527",
+        "address": "lava.peer.stakevillage.net:17756",
+        "provider": "Stake Village"
+      }
     ]
   },
   "apis": {
     "rpc": [
+      {
+        "address": "https://lava.tendermintrpc.lava.build",
+        "provider": "Lava Over Lava"
+      },
       {
         "address": "https://lava-rpc.w3coins.io:443",
         "provider": "w3coins"
@@ -265,9 +296,29 @@
       {
         "address": "https://lava-rpc.stake-town.com:443",
         "provider": "StakeTown"
+      },
+      {
+        "address": "https://lava.rpc.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://lava-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://lava-rpc.bluestake.net:443",
+        "provider": "BlueStake 🚀"
+      },
+      {
+        "address": "https://lava.rpc.stakevillage.net:443",
+        "provider": "Stake Village"
       }
     ],
     "rest": [
+      {
+        "address": "https://lava.rest.lava.build",
+        "provider": "Lava Over Lava"
+      },
       {
         "address": "https://lava-api.w3coins.io:443",
         "provider": "w3coins"
@@ -295,9 +346,29 @@
       {
         "address": "https://lava-api.stake-town.com:443",
         "provider": "StakeTown"
+      },
+      {
+        "address": "https://lava.api.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://lava-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://lava-api.bluestake.net",
+        "provider": "BlueStake 🚀"
+      },
+      {
+        "address": "https://lava.api.stakevillage.net:443",
+        "provider": "Stake Village"
       }
     ],
     "grpc": [
+      {
+        "address": "lava.grpc.lava.build:443",
+        "provider": "Lava Over Lava"
+      },
       {
         "address": "lava-grpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
@@ -315,6 +386,18 @@
         "provider": "StakeTown"
       },
       {
+        "address": "lava.grpc.liveraven.net:443",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "lava-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "lava.grpc.stakevillage.net:443",
+        "provider": "Stake Village"
+      },
+      {
         "address": "grpc.lava-mainnet-1.lava.aviaone.com:9104/",
         "provider": "AVIAONE 🟢"
       }
@@ -322,10 +405,22 @@
   },
   "explorers": [
     {
+      "kind": "guru",
+      "url": "https://lava.explorers.guru/",
+      "tx_page": "https://lava.explorers.guru/transaction/${txHash}",
+      "account_page": "https://lava.explorers.guru/account/${accountAddress}"
+    },
+    {
       "kind": "w3coins",
       "url": "https://lava-explorer.w3coins.io/Lava",
       "tx_page": "https://lava-explorer.w3coins.io/Lava/tx/${txHash}",
       "account_page": "https://lava-explorer.w3coins.io/Lava/account/${accountAddress}"
+    },
+    {
+      "kind": "Stake Village",
+      "url": "https://exp.stakevillage.net/lava-mainnet",
+      "tx_page": "https://exp.stakevillage.net/lava-mainnet/tx/${txHash}",
+      "account_page": "https://exp.stakevillage.net/lava-mainnet/account/${accountAddress}"
     },
     {
       "kind": "AVIAONE 🟢",
