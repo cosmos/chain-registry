@@ -33,18 +33,23 @@
     ]
   },
   "codebase": {
-    "recommended_version": "v2.1.1",
+    "recommended_version": "v2.1.6",
     "compatible_versions": [
-      "v2.1.1"
+      "v2.1.6"
     ],
     "cosmos_sdk_version": "v0.47.10",
     "consensus": {
       "type": "cometbft",
       "version": "v0.37.5"
     },
-    "ibc_go_version": "v7.4.0",
     "cosmwasm_version": "v0.45.0",
     "cosmwasm_enabled": true,
+    "cosmwasm_path": "$HOME/.routerd/wasm",
+    "ibc_go_version": "v7.4.0",
+    "binaries": {
+      "linux/amd64": "https://raw.githubusercontent.com/router-protocol/router-chain-binary-release/v2.1.6/linux/routerd.tar.gz",
+      "darwin/amd64": "https://raw.githubusercontent.com/router-protocol/router-chain-binary-release/v2.1.6/debian/routerd.tar.gz"
+    },
     "genesis": {
       "genesis_url": "https://sentry.tm.rpc.routerprotocol.com/genesis"
     },
@@ -61,7 +66,31 @@
         },
         "ibc_go_version": "v7.4.0",
         "cosmwasm_version": "v0.45.0",
-        "cosmwasm_enabled": true
+        "cosmwasm_enabled": true,
+        "next_version_name": "2.1.1-nitro-to-2.1.6"
+      },
+      {
+        "name": "2.1.1-nitro-to-2.1.6",
+        "tag": "v2.1.6",
+        "height": 8649000,
+        "proposal": 169,
+        "recommended_version": "v2.1.6",
+        "compatible_versions": [
+          "v2.1.6"
+        ],
+        "cosmos_sdk_version": "v0.47.10",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.5"
+        },
+        "cosmwasm_version": "v0.45.0",
+        "cosmwasm_enabled": true,
+        "cosmwasm_path": "$HOME/.routerd/wasm",
+        "ibc_go_version": "v7.4.0",
+        "binaries": {
+          "linux/amd64": "https://raw.githubusercontent.com/router-protocol/router-chain-binary-release/v2.1.6/linux/routerd.tar.gz",
+          "darwin/amd64": "https://raw.githubusercontent.com/router-protocol/router-chain-binary-release/v2.1.6/debian/routerd.tar.gz"
+        }
       }
     ]
   },
@@ -149,6 +178,16 @@
       },
       {
         "address": "router-grpc.genznodes.dev:3090",
+        "provider": "genznodes"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://sentry.evm.rpc.routerprotocol.com",
+        "provider": "Router"
+      },
+      {
+        "address": "https://router-rpc-evm.genznodes.dev",
         "provider": "genznodes"
       }
     ]
