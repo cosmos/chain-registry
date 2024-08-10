@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.saga.xyz/",
   "pretty_name": "Saga",
+  "chain_type": "cosmos",
   "chain_id": "ssc-1",
   "bech32_prefix": "saga",
   "daemon_name": "sscd",
@@ -16,7 +17,7 @@
   "staking": {
     "staking_tokens": [
       {
-        "denom": "saga"
+        "denom": "usaga"
       }
     ],
     "lock_duration": {
@@ -61,18 +62,32 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "saga-mainnet-seed.autostake.com:27426",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:24956",
+        "provider": "Lavender.Five Nodes 🐝"
       }
     ],
     "persistent_peers": [
       {
         "id": "9e22163e2bf159883557ea36d1025ca3468f0d71",
-        "address": "211.216.47.211:26656",
-        "provider": ""
+        "address": "211.216.47.211:26656"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "saga-mainnet-peer.autostake.com:27426",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "saga.rpc.kjnodes.com:17659",
+        "provider": "kjnodes"
       }
     ]
   },
@@ -85,18 +100,98 @@
       {
         "address": "https://saga-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://saga-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://rpc.saga.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://saga.rpc.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://rpc.saga.goldenratiostaking.net",
+        "provider": "Golden Ratio Staking"
+      },
+      {
+        "address": "https://rpc.saga.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://saga-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://saga-rpc.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
       }
     ],
     "rest": [
       {
         "address": "https://saga-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://saga-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://rest.saga.goldenratiostaking.net",
+        "provider": "Golden Ratio Staking"
+      },
+      {
+        "address": "https://api.saga.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://saga.api.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://lcd.saga.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://saga-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://saga-api.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
       }
     ],
     "grpc": [
       {
         "address": "saga-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "saga-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "grpc.saga.nodestake.org:443",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "saga.grpc.kjnodes.com:443",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "grpc.saga.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://saga-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "http://saga-grpc.stakeandrelax.net:24990",
+        "provider": "Stake&Relax 🦥"
       }
     ]
   },
@@ -104,19 +199,34 @@
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/saga/images/saga.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/saga/images/saga.svg"
   },
+  "description": "Saga is a Layer 1 protocol that allows developers to automatically spin up VM-agnostic, parallelized and interoperable dedicated chains, or “Chainlets,” that provide applications with infinite horizontal scalability. Each Chainlet is a replica of the Saga Mainnet, with the same validator set and security model.\n\nSaga’s mission is to enable the next 1000 chains in gaming and entertainment as part of the growing Saga Multiverse. ",
   "explorers": [
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/saga",
       "tx_page": "https://www.mintscan.io/saga/transactions/${txHash}",
       "account_page": "https://www.mintscan.io/saga/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/saga",
+      "tx_page": "https://ezstaking.app/saga/txs/${txHash}",
+      "account_page": "https://ezstaking.app/saga/account/${accountAddress}"
+    },
+    {
+      "kind": "NodeStake",
+      "url": "https://explorer.nodestake.org/saga",
+      "tx_page": "https://explorer.nodestake.org/saga/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.org/saga/account/${accountAddress}"
     }
   ],
-  "keywords": [],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/saga/images/saga.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/saga/images/saga.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/saga/images/saga.svg",
+      "theme": {
+        "primary_color_hex": "#040404"
+      }
     }
   ]
 }
