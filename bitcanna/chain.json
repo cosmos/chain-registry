@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.bitcanna.io/",
   "pretty_name": "BitCanna",
+  "chain_type": "cosmos",
   "chain_id": "bitcanna-1",
   "bech32_prefix": "bcna",
   "daemon_name": "bcnad",
@@ -119,7 +120,15 @@
           "type": "cometbft",
           "version": "v0.37.4"
         },
-        "next_version_name": "ganjarevolutionburn"
+        "next_version_name": "ganjarevolutionburn",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.9"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.1"
+        }
       },
       {
         "name": "ganjarevolutionburn",
@@ -140,9 +149,25 @@
           "type": "cometbft",
           "version": "v0.37.5"
         },
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.11"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.11"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitcanna/images/bcna.png",
@@ -242,11 +267,6 @@
       }
     ],
     "persistent_peers": [
-      {
-        "id": "a4c1e46441164c350f721cf142d52c136215e05c",
-        "address": "65.108.43.170:26656",
-        "provider": "BitCanna"
-      },
       {
         "id": "0a658df9d9fab096983a12e6f878e87281a15ce6",
         "address": "bitcanna-peer.panthea.eu:27656",
@@ -458,6 +478,10 @@
       {
         "address": "https://bitcanna.rpc.nodeshub.online:443",
         "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️"
+      },
+      {
+        "address": "https://bitcanna_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "grpc": [
@@ -474,7 +498,7 @@
         "provider": "HexNodes"
       },
       {
-        "address": "grpc.bitcanna-1.bitcanna.aviaone.com:9092",
+        "address": "grpc.bitcanna-1.bitcanna.aviaone.com:9102",
         "provider": "AVIAONE 🟢"
       },
       {
@@ -584,7 +608,7 @@
         "provider": "genznodes"
       },
       {
-        "address": "https://api.bitcanna-1.bitcanna.aviaone.com/",
+        "address": "https://api.bitcanna-1.bitcanna.aviaone.com",
         "provider": "AVIAONE 🟢"
       },
       {
@@ -650,6 +674,10 @@
       {
         "address": "https://bitcanna.api.nodeshub.online",
         "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️"
+      },
+      {
+        "address": "https://bitcanna_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ]
   },
@@ -745,7 +773,7 @@
       "account_page": "https://explorer.kalia.network/bitcanna/account/${accountAddress}"
     },
     {
-      "kind": "AVIAONE",
+      "kind": "AviaOne Explorer 🟢",
       "url": "https://mainnet.explorer.aviaone.com/bitcanna",
       "tx_page": "https://mainnet.explorer.aviaone.com/bitcanna/tx/${txHash}",
       "account_page": "https://mainnet.explorer.aviaone.com/bitcanna/account/${accountAddress}"
@@ -755,12 +783,27 @@
       "url": "https://explorer.nodeshub.online/bitcanna/",
       "tx_page": "https://explorer.nodeshub.online/bitcanna/tx/${txHash}",
       "account_page": "https://explorer.nodeshub.online/bitcanna/accounts/${accountAddress}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/bitcanna",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/bitcanna/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/bitcanna/account/${accountAddress}"
+    },
+    {
+      "kind": "AviaOne Explorer 🟢",
+      "url": "https://mainnet.explorer.aviaone.com/bitcanna",
+      "tx_page": "https://mainnet.explorer.aviaone.com/bitcanna/tx/${txHash}",
+      "account_page": "https://mainnet.explorer.aviaone.com/bitcanna/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitcanna/images/bcna.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitcanna/images/bcna.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitcanna/images/bcna.svg",
+      "theme": {
+        "primary_color_hex": "#3cc494"
+      }
     }
   ]
 }

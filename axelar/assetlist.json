@@ -3,7 +3,8 @@
   "chain_name": "axelar",
   "assets": [
     {
-      "description": "The native token of Axelar",
+      "description": "Axelar is a decentralized interoperability network connecting multiple blockchain ecosystems, enabling seamless cross-chain communication and value transfer.",
+      "extended_description": "Axelar is a decentralized interoperability network connecting diverse blockchain ecosystems, facilitating seamless cross-chain communication and value transfer. By providing a unified platform for different blockchains to interact, Axelar enhances the connectivity and functionality of the blockchain space. The network employs advanced cryptographic protocols and consensus mechanisms to ensure the security and reliability of cross-chain transactions.\n\nThe Axelar Network's native token, AXL, is used for transaction fees, incentivizing network validators, and governance. By staking AXL, users can secure the network and earn rewards while influencing key decisions regarding the platform's development. Axelar's focus on interoperability extends to supporting various blockchain protocols, enabling developers to build applications operating across multiple chains. This capability is crucial for the growth of decentralized finance (DeFi) and other blockchain-based solutions, making Axelar vital to the evolving blockchain ecosystem.",
       "denom_units": [
         {
           "denom": "uaxl",
@@ -1445,6 +1446,7 @@
       }
     },
     {
+      "type_asset": "sdk.coin",
       "denom_units": [
         {
           "denom": "yum-wei",
@@ -1489,6 +1491,7 @@
       }
     },
     {
+      "type_asset": "sdk.coin",
       "denom_units": [
         {
           "denom": "arbitrum-weth-wei",
@@ -1524,6 +1527,7 @@
       ]
     },
     {
+      "type_asset": "sdk.coin",
       "denom_units": [
         {
           "denom": "base-weth-wei",
@@ -1559,6 +1563,7 @@
       ]
     },
     {
+      "type_asset": "sdk.coin",
       "denom_units": [
         {
           "denom": "polygon-weth-wei",
@@ -1590,6 +1595,49 @@
             "base_denom": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619"
           },
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/weth.svg"
+        }
+      ]
+    },
+    {
+      "type_asset": "sdk.coin",
+      "denom_units": [
+        {
+          "denom": "op-wei",
+          "exponent": 0,
+          "aliases": [
+            "0x4200000000000000000000000000000000000042"
+          ]
+        },
+        {
+          "denom": "op",
+          "exponent": 18
+        }
+      ],
+      "base": "op-wei",
+      "name": "Optimism",
+      "display": "op",
+      "symbol": "OP",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "optimism",
+            "base_denom": "0x4200000000000000000000000000000000000042"
+          },
+          "provider": "Axelar"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "optimism",
+            "base_denom": "0x4200000000000000000000000000000000000042"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/optimism/images/op.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/optimism/images/op.png",
+          "theme": {
+            "primary_color_hex": "#fc0424"
+          }
         }
       ]
     }

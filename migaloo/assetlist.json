@@ -3,7 +3,8 @@
   "chain_name": "migaloo",
   "assets": [
     {
-      "description": "The native token of Migaloo Chain",
+      "description": "Migaloo is a cosmwasm-powered, permissionless blockchain designed to build decentralized applications with a focus on interchain liquidity solutions.",
+      "extended_description": "Migaloo originated as part of the Terra ecosystem but has since transitioned to the Cosmos ecosystem, focusing on creating a decentralized platform that balances and distributes liquidity across various zones. Key features include its permissionless nature and the Alliance module, which facilitates cross-chain staking and enhances blockchain security. Migaloo's flagship application is the White Whale Protocol, an interchain liquidity protocol that uses trading and flash loans to generate yield for stakers. The platform emphasizes interoperability, scalability, and community engagement, aiming to be a pivotal player in the Cosmos ecosystem.",
       "denom_units": [
         {
           "denom": "uwhale",
@@ -171,7 +172,7 @@
         }
       ],
       "base": "factory/migaloo1eqntnl6tzcj9h86psg4y4h6hh05g2h9nj8e09l/urac",
-      "name": "RAC",
+      "name": "Racoon",
       "display": "RAC",
       "symbol": "RAC",
       "logo_URIs": {
@@ -789,6 +790,52 @@
           }
         }
       ]
+    },
+    {
+      "denom_units": [
+        {
+          "denom": "ibc/33E97105B5C1F48CB7D6400F4673F9B3699AC59EDB621CCCD57D5D480E0C83B6",
+          "exponent": 0,
+          "aliases": [
+            "factory/inj1a6xdezq7a94qwamec6n6cnup02nvewvjtz6h6e/SYN"
+          ]
+        },
+        {
+          "denom": "SYN",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/33E97105B5C1F48CB7D6400F4673F9B3699AC59EDB621CCCD57D5D480E0C83B6",
+      "name": "SYN",
+      "display": "SYN",
+      "symbol": "SYN",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "injective",
+            "base_denom": "factory/inj1a6xdezq7a94qwamec6n6cnup02nvewvjtz6h6e/SYN",
+            "channel_id": "channel-102"
+          },
+          "chain": {
+            "channel_id": "channel-3",
+            "path": "transfer/channel-3/factory/inj1a6xdezq7a94qwamec6n6cnup02nvewvjtz6h6e/SYN"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "injective",
+            "base_denom": "factory/inj1a6xdezq7a94qwamec6n6cnup02nvewvjtz6h6e/SYN"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/syn.png"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/syn.png"
+      }
     }
   ]
 }
