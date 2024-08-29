@@ -178,11 +178,13 @@ function checkVersionForReplacementProperties(chain_name, versionObject) {
   const tagRegexPattern = /^(?=.*-).+$/;
   const versionRegexPattern = /^([^ -]+)/;
 
+  const name = versionObject.name;
+
   for (const [deprecated, replacement] of replacementPropertiesMap) {
 
     const deprecatedValue = versionObject[deprecated];
     const replacementValue = versionObject[replacement];
-    const name = versionObject.name;
+    
 
     if (deprecatedValue) {
 
@@ -191,9 +193,7 @@ function checkVersionForReplacementProperties(chain_name, versionObject) {
         throw new Error(`Missing replacement property (${replacement}) for deprecated proerty (${deprecated}) for: ${chain_name}::${name}`);
       }
 
-      //replacement value must match
-      //split the value into repo, version, and tag
-
+      //split the value into repo, version, and tag, then check that they match
       let repo = deprecatedValue;
       repo = repo.match(splitRegexPattern)?.[1];
       repo = repo?.match(repoRegexPattern)?.[1];
@@ -207,9 +207,6 @@ function checkVersionForReplacementProperties(chain_name, versionObject) {
       let tag = deprecatedValue;
       tag = tag.match(splitRegexPattern)?.[2];
       let version = tag;
-      if (chain_name === "nibirudevnet3") {
-        console.log(version);
-      }
       tag = tag?.match(tagRegexPattern)?.[1];
       if (tag) {
         //console.log(tag);
@@ -219,27 +216,66 @@ function checkVersionForReplacementProperties(chain_name, versionObject) {
       }
 
       version = version?.match(versionRegexPattern)?.[1];
-      if(chain_name === "nibirudevnet3") {
-        console.log(version);
-        console.log(deprecatedValue);
-        console.log(replacementValue);
-      }
       if (version) {
         //console.log(version);
-        if (chain_name === "nibirudevnet3") {
-          console.log(version);
-        }
         if (version != replacementValue.version) {
           throw new Error(`Replacement property (${replacement}.version) value (${replacementValue.version}) does not match computed value (${version}) in deprecated property (${deprecatedValue}) for: ${chain_name}::${name}`);
         }
       }
 
-      //check that repo, version, and tag, are all correct in the replacement
+      if (deprecated === "ibc_go_version") {
+        const expectedValue = "go";
+        if (!replacementValue.type || (replacementValue.type !== expectedValue)) {
+          throw new Error(`Replacement property (${replacement}.type) value (${replacementValue.type}) does not match expected value (${expectedValue}) in deprecated property (${deprecatedValue}) for: ${chain_name}::${name}`);
+        }
+      }
+
+      if (deprecated === "go_version") {
+        const expectedValue = "go";
+        if (!replacementValue.type || (replacementValue.type !== expectedValue)) {
+          throw new Error(`Replacement property (${replacement}.type) value (${replacementValue.type}) does not match expected value (${expectedValue}) in deprecated property (${deprecatedValue}) for: ${chain_name}::${name}`);
+        }
+      }
+
+      if (deprecated === "cosmos_sdk_version") {
+        const expectedValue = "cosmos";
+        if (!replacementValue.type || (replacementValue.type !== expectedValue)) {
+          throw new Error(`Replacement property (${replacement}.type) value (${replacementValue.type}) does not match expected value (${expectedValue}) in deprecated property (${deprecatedValue}) for: ${chain_name}::${name}`);
+        }
+      }
 
     }
 
   }
 
+  if (versionObject.cosmwasm_enabled) {
+    if (versionObject.cosmwasm_enabled != versionObject.cosmwasm.enabled) {
+      throw new Error(`Replacement property (versionObject.cosmwasm.enabled) value (${versionObject.cosmwasm.enabled}) does not match deprecated property (versionObject.cosmwasm_enabled) value (${versionObject.cosmwasm_enabled}) for: ${chain_name}::${name}`);
+    }
+  }
+
+  if (versionObject.cosmwasm_path) {
+    if (versionObject.cosmwasm_path != versionObject.cosmwasm.path) {
+      throw new Error(`Replacement property (versionObject.cosmwasm.path) value (${versionObject.cosmwasm.path}) does not match deprecated proerty (versionObject.cosmwasm_path) value (${versionObject.cosmwasm_path}) for: ${chain_name}::${name}`);
+    }
+  }
+
+  if (versionObject.ics_enabled) {
+    if (!(arraysEqual(versionObject.ics_enabled, versionObject.ibc.ics_enabled))) {
+      throw new Error(`Replacement property (versionObject.ibc.ics_enabled) value (${versionObject.ibc.ics_enabled}) does not match deprecated property (versionObject.ics_enabled) value (${versionObject.ics_enabled}) for: ${chain_name}::${name}`);
+    }
+  }
+
+}
+
+function arraysEqual(arr1, arr2) {
+  if (arr1.length !== arr2.length) return false;
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) return false;
+  }
+
+  return true;
 }
 
 
