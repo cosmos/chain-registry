@@ -1,11 +1,12 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "lava",
-  "status": "upcoming",
+  "status": "live",
   "network_type": "mainnet",
   "website": "https://lavanet.xyz/",
   "update_link": "https://raw.githubusercontent.com/lavanet/lava/main/chain.schema.json",
   "pretty_name": "Lava",
+  "chain_type": "cosmos",
   "chain_id": "lava-mainnet-1",
   "bech32_prefix": "lava@",
   "daemon_name": "lavad",
@@ -18,10 +19,10 @@
     "fee_tokens": [
       {
         "denom": "ulava",
-        "fixed_min_gas_price": 1e-09,
-        "low_gas_price": 1e-09,
-        "average_gas_price": 5e-05,
-        "high_gas_price": 0.0001
+        "fixed_min_gas_price": 2e-05,
+        "low_gas_price": 2e-05,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.05
       }
     ]
   },
@@ -77,7 +78,27 @@
         "ics_enabled": [
           "ics20-1"
         ],
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/lavanet/cosmos-sdk",
+          "version": "v0.47.7",
+          "tag": "v0.47.7-0.20231211141641-2a9ea55b724d"
+        },
+        "language": {
+          "type": "go",
+          "version": "1.20"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.2.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v0.34.0",
@@ -102,7 +123,27 @@
         "ics_enabled": [
           "ics20-1"
         ],
-        "next_version_name": "v0.35.0"
+        "next_version_name": "v0.35.0",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/lavanet/cosmos-sdk",
+          "version": "v0.47.7",
+          "tag": "v0.47.7-0.20231211141641-2a9ea55b724d"
+        },
+        "language": {
+          "type": "go",
+          "version": "1.20"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.2.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v0.35.0",
@@ -127,7 +168,27 @@
         "ics_enabled": [
           "ics20-1"
         ],
-        "next_version_name": "v1.0.1"
+        "next_version_name": "v1.0.1",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/lavanet/cosmos-sdk",
+          "version": "v0.47.7",
+          "tag": "v0.47.7-0.20231211141641-2a9ea55b724d"
+        },
+        "language": {
+          "type": "go",
+          "version": "1.20"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.2.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v1.0.1",
@@ -152,7 +213,27 @@
         "ics_enabled": [
           "ics20-1"
         ],
-        "next_version_name": "v2.2.0"
+        "next_version_name": "v2.2.0",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/lavanet/cosmos-sdk",
+          "version": "v0.47.7",
+          "tag": "v0.47.7-0.20231211141641-2a9ea55b724d"
+        },
+        "language": {
+          "type": "go",
+          "version": "1.20"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.2.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v2.2.0",
@@ -177,9 +258,49 @@
         "ics_enabled": [
           "ics20-1"
         ],
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/lavanet/cosmos-sdk",
+          "version": "v0.47.10",
+          "tag": "v0.47.10-lava-cosmos"
+        },
+        "language": {
+          "type": "go",
+          "version": "1.20"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       }
-    ]
+    ],
+    "language": {
+      "type": "go",
+      "version": "1.20"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/lavanet/cosmos-sdk",
+      "version": "v0.47.10",
+      "tag": "v0.47.10-lava-cosmos"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.3.1",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "enabled": false
+    }
   },
   "images": [
     {
@@ -213,7 +334,7 @@
       {
         "id": "258f523c96efde50d5fe0a9faeea8a3e83be22ca",
         "address": "seed.lava-mainnet-1.lava.aviaone.com:10291",
-        "provider": "AVIAONE"
+        "provider": "AVIAONE 🟢"
       },
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
@@ -224,11 +345,42 @@
         "id": "b9dfd3f222e65ae605efc29dc9e3faecdc3b71d0",
         "address": "lava.seed.stavr.tech:197",
         "provider": "🔥STAVR🔥"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:29956",
+        "provider": "BlueStake 🚀"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "lava-mainnet-seed.autostake.com:27066",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "6086779c98b6864aea1ae595b96a412aa11ec6c7",
+        "address": "lava.seed.stakevillage.net:17760",
+        "provider": "Stake Village"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "lava-mainnet-peer.autostake.com:27066",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "8a83d4bdd4b26ebe9893efd4609d4be6d82c3527",
+        "address": "lava.peer.stakevillage.net:17756",
+        "provider": "Stake Village"
       }
     ]
   },
   "apis": {
     "rpc": [
+      {
+        "address": "https://lava.tendermintrpc.lava.build",
+        "provider": "Lava Over Lava"
+      },
       {
         "address": "https://lava-rpc.w3coins.io:443",
         "provider": "w3coins"
@@ -247,7 +399,7 @@
       },
       {
         "address": "https://rpc.lava-mainnet-1.lava.aviaone.com:443",
-        "provider": "AVIAONE"
+        "provider": "AVIAONE 🟢"
       },
       {
         "address": "https://lava-rpc.publicnode.com:443",
@@ -260,9 +412,33 @@
       {
         "address": "https://lava.rpc-archive.m.stavr.tech:443",
         "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://lava-rpc.stake-town.com:443",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "https://lava.rpc.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://lava-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://lava-rpc.bluestake.net:443",
+        "provider": "BlueStake 🚀"
+      },
+      {
+        "address": "https://lava.rpc.stakevillage.net:443",
+        "provider": "Stake Village"
       }
     ],
     "rest": [
+      {
+        "address": "https://lava.rest.lava.build",
+        "provider": "Lava Over Lava"
+      },
       {
         "address": "https://lava-api.w3coins.io:443",
         "provider": "w3coins"
@@ -273,7 +449,7 @@
       },
       {
         "address": "https://api.lava-mainnet-1.lava.aviaone.com",
-        "provider": "AVIAONE"
+        "provider": "AVIAONE 🟢"
       },
       {
         "address": "https://lava-rest.publicnode.com",
@@ -286,9 +462,33 @@
       {
         "address": "https://lava.api-archive.m.stavr.tech",
         "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://lava-api.stake-town.com:443",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "https://lava.api.liveraven.net",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "https://lava-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://lava-api.bluestake.net",
+        "provider": "BlueStake 🚀"
+      },
+      {
+        "address": "https://lava.api.stakevillage.net:443",
+        "provider": "Stake Village"
       }
     ],
     "grpc": [
+      {
+        "address": "lava.grpc.lava.build:443",
+        "provider": "Lava Over Lava"
+      },
       {
         "address": "lava-grpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
@@ -300,15 +500,53 @@
       {
         "address": "lava.grpc-archive.m.stavr.tech:443",
         "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "lava-grpc.stake-town.com:443",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "lava.grpc.liveraven.net:443",
+        "provider": "LiveRaveN"
+      },
+      {
+        "address": "lava-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "lava.grpc.stakevillage.net:443",
+        "provider": "Stake Village"
+      },
+      {
+        "address": "grpc.lava-mainnet-1.lava.aviaone.com:9104/",
+        "provider": "AVIAONE 🟢"
       }
     ]
   },
   "explorers": [
     {
+      "kind": "guru",
+      "url": "https://lava.explorers.guru/",
+      "tx_page": "https://lava.explorers.guru/transaction/${txHash}",
+      "account_page": "https://lava.explorers.guru/account/${accountAddress}"
+    },
+    {
       "kind": "w3coins",
       "url": "https://lava-explorer.w3coins.io/Lava",
       "tx_page": "https://lava-explorer.w3coins.io/Lava/tx/${txHash}",
       "account_page": "https://lava-explorer.w3coins.io/Lava/account/${accountAddress}"
+    },
+    {
+      "kind": "Stake Village",
+      "url": "https://exp.stakevillage.net/lava-mainnet",
+      "tx_page": "https://exp.stakevillage.net/lava-mainnet/tx/${txHash}",
+      "account_page": "https://exp.stakevillage.net/lava-mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "AVIAONE 🟢",
+      "url": "https://mainnet.explorer.aviaone.com/lava/",
+      "tx_page": "https://mainnet.explorer.aviaone.com/lava/tx/${txHash}",
+      "account_page": "https://mainnet.explorer.aviaone.com/lava/account/${accountAddress}"
     }
   ],
   "keywords": [

@@ -5,11 +5,14 @@
   "website": "https://airchains.io/",
   "network_type": "testnet",
   "pretty_name": "Airchains Switchyard Testnet",
+  "chain_type": "cosmos",
   "chain_id": "junction",
   "bech32_prefix": "air",
   "daemon_name": "junctiond",
   "node_home": "$HOME/.junctiond",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -44,7 +47,11 @@
           "v1.0.0"
         ]
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50.3"
+    }
   },
   "images": [
     {
@@ -292,14 +299,12 @@
       "url": "https://testnet.airchains.io",
       "tx_page": "https://testnet.airchains.io/transaction/${txHash}",
       "account_page": "https://testnet.airchains.io/address/${accountAddress}"
-
     },
     {
       "kind": "NodesGuru",
       "url": "https://testnet.junction.explorers.guru/",
       "tx_page": "https://testnet.junction.explorers.guru/transaction/${txHash}",
       "account_page": "https://testnet.junction.explorers.guru/account/${accountAddress}"
-
     },
     {
       "kind": "Nodejumper",

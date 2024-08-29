@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.saga.xyz/",
   "pretty_name": "Saga",
+  "chain_type": "cosmos",
   "chain_id": "ssc-1",
   "bech32_prefix": "saga",
   "daemon_name": "sscd",
@@ -53,7 +54,26 @@
     "ics_enabled": [
       "ics20-1"
     ],
-    "go_version": "1.21"
+    "go_version": "1.21",
+    "language": {
+      "type": "go",
+      "version": "1.21"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/osmosis-labs/cosmos-sdk",
+      "version": "v0.47.5"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.3.1",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "enabled": false
+    }
   },
   "peers": {
     "seeds": [
@@ -123,6 +143,10 @@
       {
         "address": "https://saga-rpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://saga-rpc.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
       }
     ],
     "rest": [
@@ -153,6 +177,10 @@
       {
         "address": "https://saga-api.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://saga-api.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
       }
     ],
     "grpc": [
@@ -179,6 +207,10 @@
       {
         "address": "https://saga-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "http://saga-grpc.stakeandrelax.net:24990",
+        "provider": "Stake&Relax 🦥"
       }
     ]
   },

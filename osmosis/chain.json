@@ -6,6 +6,7 @@
   "website": "https://osmosis.zone/",
   "update_link": "https://raw.githubusercontent.com/osmosis-labs/osmosis/main/chain.schema.json",
   "pretty_name": "Osmosis",
+  "chain_type": "cosmos",
   "chain_id": "osmosis-1",
   "bech32_prefix": "osmo",
   "daemon_name": "osmosisd",
@@ -60,6 +61,29 @@
     "binaries": {
       "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-amd64",
       "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-arm64"
+    },
+    "language": {
+      "type": "go",
+      "version": "1.21.4"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/osmosis-labs/cosmos-sdk",
+      "version": "v0.47.5",
+      "tag": "v0.47.5-v25-osmo-1"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "v0.45.0",
+      "repo": "https://github.com/osmosis-labs/wasmd",
+      "tag": "v0.45.0-osmo",
+      "enabled": true
     }
   },
   "images": [

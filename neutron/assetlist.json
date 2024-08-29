@@ -242,12 +242,12 @@
       "symbol": "wstETH",
       "traces": [
         {
-          "type": "additional-mintage",
+          "type": "bridge",
           "counterparty": {
             "chain_name": "ethereum",
             "base_denom": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
           },
-          "provider": "Lido"
+          "provider": "Lido wstETH Cosmos Bridge"
         }
       ],
       "images": [
@@ -1242,6 +1242,84 @@
           }
         }
       ]
+    },
+    {
+      "description": "Mars Protocol is a cross-collateralized Money Market Protocol on Neutron and Osmosis.",
+      "extended_description": "Lend, borrow and earn with an autonomous credit protocol in the Cosmos universe. Open to all, closed to none.",
+      "denom_units": [
+        {
+          "denom": "factory/neutron1ndu2wvkrxtane8se2tr48gv7nsm46y5gcqjhux/MARS",
+          "exponent": 0,
+          "aliases": ["umars"]
+        },
+        {
+          "denom": "MARS",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron1ndu2wvkrxtane8se2tr48gv7nsm46y5gcqjhux/MARS",
+      "name": "Mars Protocol token",
+      "display": "MARS",
+      "symbol": "MARS",
+      "coingecko_id": "mars-protocol-a7fcbcfb-fd61-4017-92f0-7ee9f9cc6da3",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/mars-token.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/mars-token.svg",
+          "theme": {
+            "primary_color_hex": "#ef4136"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/mars-token.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/mars-token.svg"
+      },
+      "socials": {
+        "website": "https://marsprotocol.io/",
+        "twitter": "https://x.com/mars_protocol"
+      }
+    },
+    {
+      "description": "Drop staked ATOM",
+      "extended_description": "Drop protocol token for the interchain liquidity",
+      "denom_units": [
+        {
+          "denom": "factory/neutron1k6hr0f83e7un2wjf29cspk7j69jrnskk65k3ek2nj9dztrlzpj6q00rtsa/udatom",
+          "exponent": 0
+        },
+        {
+          "denom": "dATOM",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron1k6hr0f83e7un2wjf29cspk7j69jrnskk65k3ek2nj9dztrlzpj6q00rtsa/udatom",
+      "name": "dATOM",
+      "display": "dATOM",
+      "symbol": "dATOM",
+      "coingecko_id": "drop-staked-atom",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom"
+          },
+          "provider": "Drop Protocol"
+        }
+      ],
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/dATOM.svg"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/dATOM.svg"
+      },
+      "socials": {
+        "website": "https://www.drop.money/",
+        "twitter": "https://x.com/Dropdotmoney"
+      }
     }
   ]
 }

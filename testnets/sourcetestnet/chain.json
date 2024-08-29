@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Source Testnet",
+  "chain_type": "cosmos",
   "chain_id": "sourcetest-1",
   "bech32_prefix": "source",
   "daemon_name": "sourced",
@@ -59,7 +60,15 @@
           "version": "0.34"
         },
         "cosmwasm_version": "0.30",
-        "cosmwasm_enabled": true
+        "cosmwasm_enabled": true,
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "version": "0.30",
+          "enabled": true
+        }
       },
       {
         "name": "v3.0.1",
@@ -73,9 +82,25 @@
           "version": "0.34"
         },
         "cosmwasm_version": "0.30",
-        "cosmwasm_enabled": true
+        "cosmwasm_enabled": true,
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "version": "0.30",
+          "enabled": true
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.45"
+    },
+    "cosmwasm": {
+      "version": "0.30",
+      "enabled": true
+    }
   },
   "peers": {
     "seeds": [
@@ -110,6 +135,14 @@
   "apis": {
     "rpc": [
       {
+        "address": "https://source-testnet-rpc.itrocket.net/",
+        "provider": "ITRocket"
+      },
+      {
+        "address": "https://source-test.rpc.moonbridge.team/",
+        "provider": "MoonBridge"
+      },
+      {
         "address": "https://source-testnet-rpc.stake-town.com:443",
         "provider": "StakeTown"
       },
@@ -120,9 +153,21 @@
       {
         "address": "https://source-testnet.rpc.kjnodes.com",
         "provider": "kjnodes"
+      },
+      {
+        "address": "https://source_testnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "rest": [
+      {
+        "address": "https://source-testnet-api.itrocket.net/",
+        "provider": "ITRocket"
+      },
+      {
+        "address": "https://source-test.api.moonbridge.team/",
+        "provider": "MoonBridge"
+      },
       {
         "address": "https://source-testnet-api.stake-town.com:443",
         "provider": "StakeTown"
@@ -134,6 +179,10 @@
       {
         "address": "https://source.api.t.stavr.tech",
         "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://source_testnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "grpc": [
@@ -162,6 +211,12 @@
       "kind": "SR20DE",
       "url": "https://explorer.sr20de.xyz/Source-testnet",
       "tx_page": "https://explorer.sr20de.xyz/Source-testnet/txs/${txHash}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/source-testnet",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/source-testnet/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/source-testnet/account/${accountAddress}"
     }
   ]
 }

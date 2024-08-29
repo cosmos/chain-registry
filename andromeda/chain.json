@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "andromeda",
+  "chain_type": "cosmos",
   "chain_id": "andromeda-1",
   "pre_fork_chain_name": "andromeda1",
   "pretty_name": "Andromeda",
@@ -67,7 +68,19 @@
         },
         "cosmwasm_version": "v0.41.0",
         "cosmwasm_enabled": true,
-        "next_version_name": "v0.1.1"
+        "next_version_name": "v0.1.1",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.5"
+        },
+        "cosmwasm": {
+          "version": "v0.41.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.0"
+        }
       },
       {
         "name": "v0.1.1",
@@ -85,9 +98,33 @@
           "version": "v0.37.4"
         },
         "cosmwasm_version": "v0.41.0",
-        "cosmwasm_enabled": true
+        "cosmwasm_enabled": true,
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.8"
+        },
+        "cosmwasm": {
+          "version": "v0.41.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.8"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0"
+    },
+    "cosmwasm": {
+      "version": "v0.41.0",
+      "enabled": true
+    }
   },
   "peers": {
     "seeds": [
@@ -105,6 +142,11 @@
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
         "address": "andromeda.rpc.kjnodes.com:14759",
         "provider": "kjnodes.com 🦄"
+      },
+      {
+        "id": "258f523c96efde50d5fe0a9faeea8a3e83be22ca",
+        "address": "seed.andromeda-1.andromeda.aviaone.com:10280",
+        "provider": "AviaOne 🟢"
       }
     ],
     "persistent_peers": [
@@ -144,14 +186,9 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "id": "28876b3094518bef97a1250ef641c26b7d4a658d",
-        "address": "138.201.21.197:39656",
-        "provider": "StakeTown"
-      },
-      {
         "id": "1652b0e25ac00834292624db10fef408155686e5",
         "address": "peer-comdex.blockval.io:39656",
-        "provider": "StakeTown"
+        "provider": "blockval"
       }
     ]
   },
@@ -159,7 +196,7 @@
     "rpc": [
       {
         "address": "https://rpc.andromeda-1.andromeda.aviaone.com",
-        "provider": "AVIAONE"
+        "provider": "AviaOne 🟢"
       },
       {
         "address": "https://andromeda.rpc.kjnodes.com",
@@ -180,10 +217,6 @@
       {
         "address": "https://andromeda-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://andromeda-rpc.stake-town.com:443",
-        "provider": "StakeTown"
       },
       {
         "address": "https://andromeda-rpc.stakerhouse.com:443",
@@ -216,8 +249,8 @@
     ],
     "rest": [
       {
-        "address": "https://api.andromeda-1.andromeda.aviaone.com/",
-        "provider": "AVIAONE"
+        "address": "https://api.andromeda-1.andromeda.aviaone.com",
+        "provider": "AviaOne 🟢"
       },
       {
         "address": "https://andromeda.api.kjnodes.com",
@@ -238,10 +271,6 @@
       {
         "address": "https://andromeda-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://andromeda-api.stake-town.com:443",
-        "provider": "StakeTown"
       },
       {
         "address": "https://andromeda-rest.stakerhouse.com:443",
@@ -278,8 +307,8 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://grpc.andromeda-1.andromeda.aviaone.com:9094",
-        "provider": "AVIAONE"
+        "address": "https://grpc.andromeda-1.andromeda.aviaone.com:9108",
+        "provider": "AviaOne 🟢"
       },
       {
         "address": "andromeda.grpc.kjnodes.com:443",
@@ -296,10 +325,6 @@
       {
         "address": "http://andromedad.grpc.t.stavr.tech:132",
         "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "andromeda-grpc.stake-town.com:443",
-        "provider": "StakeTown"
       },
       {
         "address": "andromeda-grpc.stakerhouse.com:443",
@@ -350,6 +375,11 @@
       "kind": "ping.pub",
       "url": "https://ping.pub/andromeda",
       "tx_page": "https://ping.pub/andromeda/tx/${txHash}"
+    },
+    {
+      "kind": "AviaOne Explorer 🟢",
+      "url": "https://mainnet.explorer.aviaone.com/andromeda",
+      "tx_page": "https://mainnet.explorer.aviaone.com/andromeda/tx/${txHash}"
     }
   ],
   "logo_URIs": {
