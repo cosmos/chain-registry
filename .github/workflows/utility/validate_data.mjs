@@ -150,6 +150,88 @@ function checkImageSyncIsValid(chain_name, asset) {
 }
 
 
+function checkReplacementVersionProperties(chain_name) {
+
+  const codebase = chain_reg.getFileProperty(chain_name, "chain", "codebase");
+  const versions = codebase?.versions;
+
+  if (codebase) {
+    versions?.forEach((version) => {
+      checkVersionForReplacementProperties(chain_name, version);
+    });
+    //checkVersionForReplacementProperties(codebase);
+  }
+
+}
+
+function checkVersionForReplacementProperties(chain_name, versionObject) {
+
+  const replacementPropertiesMap = new Map([
+    ["cosmos_sdk_version", "sdk"],
+    ["ibc_go_version", "ibc"],
+    ["go_version", "language"],
+    ["cosmwasm_version", "cosmwasm"]
+  ]);
+
+  const splitRegexPattern = /^([^@]+)@(.+)$/;
+  const repoRegexPattern = /(?:.*\/)?([^\/]+\/[^\/]+)$/;
+  const tagRegexPattern = /^(?=.*-).+$/;
+  const versionRegexPattern = /^([^ -]+)/;
+
+  for (const [deprecated, replacement] of replacementPropertiesMap) {
+
+    const deprecatedValue = versionObject[deprecated];
+    const replacementValue = versionObject[replacement];
+    const name = versionObject.name;
+
+    if (deprecatedValue) {
+
+      //replacement must exist
+      if (!replacementValue) {
+        throw new Error(`Missing replacement property (${replacement}) for deprecated proerty (${deprecated}) for: ${chain_name}::${name}`);
+      }
+
+      //replacement value must match
+      //split the value into repo, version, and tag
+
+      let repo = deprecatedValue;
+      repo = repo.match(splitRegexPattern)?.[1];
+      repo = repo?.match(repoRegexPattern)?.[1];
+      if (repo) {
+        repo = "https://github.com/" + repo;
+        if (repo != replacementValue.repo) {
+          throw new Error(`Replacement property (${replacement}.repo) value (${replacementValue.repo}) does not match computed value (${repo}) in deprecated property (${deprecatedValue}) for: ${chain_name}::${name}`);
+        }
+      }
+      
+      let tag = deprecatedValue;
+      tag = tag.match(splitRegexPattern)?.[2];
+      let version = tag;
+      tag = tag?.match(tagRegexPattern)?.[1];
+      if (tag) {
+        //console.log(tag);
+        if (repo != replacementValue.tag) {
+          throw new Error(`Replacement property (${replacement}.tag) value (${replacementValue.tag}) does not match computed value (${tag}) in deprecated property (${deprecatedValue}) for: ${chain_name}::${name}`);
+        }
+      }
+
+      version = version?.match(versionRegexPattern)?.[1];
+      if (version) {
+        //console.log(version);
+        if (version != replacementValue.version) {
+          throw new Error(`Replacement property (${replacement}.version) value (${replacementValue.version}) does not match computed value (${version}) in deprecated property (${deprecatedValue}) for: ${chain_name}::${name}`);
+        }
+      }
+
+      //check that repo, version, and tag, are all correct in the replacement
+
+    }
+
+  }
+
+}
+
+
 export function validate_chain_files() {
 
   //get Chain Names
@@ -168,6 +250,9 @@ export function validate_chain_files() {
 
     //check if all staking tokens are registered
     checkStakingTokensAreRegistered(chain_name);
+
+    //check if all old version properties' data are added into the new replacement version properties
+    checkReplacementVersionProperties(chain_name);
 
     //get chain's assets
     const chainAssets = chain_reg.getFileProperty(chain_name, "assetlist", "assets");
