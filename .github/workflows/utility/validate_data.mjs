@@ -173,7 +173,7 @@ function checkVersionForReplacementProperties(chain_name, versionObject) {
     ["cosmwasm_version", "cosmwasm"]
   ]);
 
-  const splitRegexPattern = /^([^@]+)@(.+)$/;
+  const splitRegexPattern = /^(?:([^ \@]*)[ \@])?(.*)$/;
   const repoRegexPattern = /(?:.*\/)?([^\/]+\/[^\/]+)$/;
   const tagRegexPattern = /^(?=.*-).+$/;
   const versionRegexPattern = /^([^ -]+)/;
@@ -207,6 +207,9 @@ function checkVersionForReplacementProperties(chain_name, versionObject) {
       let tag = deprecatedValue;
       tag = tag.match(splitRegexPattern)?.[2];
       let version = tag;
+      if (chain_name === "nibirudevnet3") {
+        console.log(version);
+      }
       tag = tag?.match(tagRegexPattern)?.[1];
       if (tag) {
         //console.log(tag);
@@ -216,8 +219,16 @@ function checkVersionForReplacementProperties(chain_name, versionObject) {
       }
 
       version = version?.match(versionRegexPattern)?.[1];
+      if(chain_name === "nibirudevnet3") {
+        console.log(version);
+        console.log(deprecatedValue);
+        console.log(replacementValue);
+      }
       if (version) {
         //console.log(version);
+        if (chain_name === "nibirudevnet3") {
+          console.log(version);
+        }
         if (version != replacementValue.version) {
           throw new Error(`Replacement property (${replacement}.version) value (${replacementValue.version}) does not match computed value (${version}) in deprecated property (${deprecatedValue}) for: ${chain_name}::${name}`);
         }
