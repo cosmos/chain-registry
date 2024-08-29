@@ -159,7 +159,7 @@ function checkReplacementVersionProperties(chain_name) {
     versions?.forEach((version) => {
       checkVersionForReplacementProperties(chain_name, version);
     });
-    //checkVersionForReplacementProperties(codebase);
+    checkVersionForReplacementProperties(chain_name, codebase);
   }
 
 }
