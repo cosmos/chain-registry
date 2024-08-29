@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Osmosis Testnet",
+  "chain_type": "cosmos",
   "chain_id": "osmo-test-5",
   "bech32_prefix": "osmo",
   "daemon_name": "osmosisd",
@@ -59,7 +60,15 @@
           "version": "0.34"
         },
         "cosmwasm_version": "0.29",
-        "cosmwasm_enabled": true
+        "cosmwasm_enabled": true,
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "version": "0.29",
+          "enabled": true
+        }
       },
       {
         "name": "v15.0.0-rc3",
@@ -73,7 +82,15 @@
           "version": "0.34"
         },
         "cosmwasm_version": "0.29",
-        "cosmwasm_enabled": true
+        "cosmwasm_enabled": true,
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "version": "0.29",
+          "enabled": true
+        }
       },
       {
         "name": "v15.0.0",
@@ -87,33 +104,45 @@
           "version": "0.34"
         },
         "cosmwasm_version": "0.30",
-        "cosmwasm_enabled": true
+        "cosmwasm_enabled": true,
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "version": "0.30",
+          "enabled": true
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.45"
+    },
+    "cosmwasm": {
+      "version": "0.30",
+      "enabled": true
+    }
   },
   "peers": {
     "seeds": [
       {
         "id": "bb197876fd952d245ef6377e3651c157e3d7ed81",
-        "address": "157.245.26.231:26656",
-        "provider": ""
+        "address": "157.245.26.231:26656"
       },
       {
         "id": "7c2b9e76be5c2142c76b429d9c29e902599ceb44",
-        "address": "157.245.21.183:26656",
-        "provider": ""
+        "address": "157.245.21.183:26656"
       }
     ],
     "persistent_peers": [
       {
         "id": "51084fccec1c309a415e89d39e6f0881c49493ed",
-        "address": "95.217.144.107:12556",
-        "provider": ""
+        "address": "95.217.144.107:12556"
       },
       {
         "id": "a5c34bdd777dd418ff7152a8646fd2f31f53f8a5",
-        "address": "46.232.248.117:2000",
-        "provider": ""
+        "address": "46.232.248.117:2000"
       }
     ]
   },
@@ -122,10 +151,6 @@
       {
         "address": "https://rpc.osmotest5.osmosis.zone/",
         "provider": "Osmosis"
-      },
-      {
-        "address": "https://rpc.testnet.osl.zone/",
-        "provider": "OSL"
       }
     ],
     "rest": [
@@ -147,9 +172,9 @@
   "explorers": [
     {
       "kind": "mintscan",
-      "url": "https://testnet.mintscan.io/osmosis-testnet",
-      "tx_page": "https://testnet.mintscan.io/osmosis-testnet/txs/${txHash}",
-      "account_page": "https://testnet.mintscan.io/osmosis-testnet/account/${accountAddress}"
+      "url": "https://mintscan.io/osmosis-testnet",
+      "tx_page": "https://mintscan.io/osmosis-testnet/txs/${txHash}",
+      "account_page": "https://mintscan.io/osmosis-testnet/account/${accountAddress}"
     },
     {
       "kind": "ping.pub",

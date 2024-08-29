@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "nobletestnet",
+  "chain_type": "cosmos",
   "chain_id": "grand-1",
   "website": "https://nobleassets.xyz/",
   "pretty_name": "Noble",
@@ -85,7 +86,21 @@
         "ics_enabled": [
           "ics20-1"
         ],
-        "next_version_name": "radon"
+        "next_version_name": "radon",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.4.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "radon",
@@ -93,7 +108,8 @@
         "height": 645000,
         "recommended_version": "v0.5.1",
         "compatible_versions": [
-          "v0.5.0", "v0.5.1"
+          "v0.5.0",
+          "v0.5.1"
         ],
         "cosmos_sdk_version": "v0.45",
         "consensus": {
@@ -101,10 +117,24 @@
           "version": "0.34"
         },
         "cosmwasm_enabled": false,
-        "ibc_go_version": "v3.4.0 (fork)",
+        "ibc_go_version": "v3.4.0",
         "ics_enabled": [
           "ics20-1"
-        ]
+        ],
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.4.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v3.0.0",
@@ -117,12 +147,40 @@
           "version": "0.34"
         },
         "cosmwasm_enabled": false,
-        "ibc_go_version": "v3.4.0 (fork)",
+        "ibc_go_version": "v3.4.0",
         "ics_enabled": [
           "ics20-1"
-        ]
+        ],
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.4.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.45"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v3.4.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "enabled": false
+    }
   },
   "peers": {
     "persistent_peers": [
@@ -184,8 +242,8 @@
   "explorers": [
     {
       "kind": "mintscan",
-      "url": "https://testnet.mintscan.io/noble-testnet",
-      "tx_page": "https://testnet.mintscan.io/noble-testnet/txs/${txHash}"
+      "url": "https://mintscan.io/noble-testnet",
+      "tx_page": "https://mintscan.io/noble-testnet/txs/${txHash}"
     },
     {
       "kind": "ping.pub",

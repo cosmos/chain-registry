@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://agoric.com/",
   "pretty_name": "Agoric",
+  "chain_type": "cosmos",
   "chain_id": "agoric-3",
   "bech32_prefix": "agoric",
   "daemon_name": "agd",
@@ -38,22 +39,44 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Agoric/agoric-sdk/",
-    "recommended_version": "agoric-upgrade-8",
-    "compatible_versions": [
-      "agoric-upgrade-8"
-    ],
     "genesis": {
       "genesis_url": "https://main.agoric.net/genesis.json"
     },
-    "versions": [
-      {
-        "name": "agoric-upgrade-8",
-        "recommended_version": "agoric-upgrade-8",
-        "compatible_versions": [
-          "agoric-upgrade-8"
-        ]
-      }
-    ]
+    "recommended_version": "agoric-upgrade-16",
+    "compatible_versions": [
+      "agoric-upgrade-16"
+    ],
+    "cosmos_sdk_version": "agoric-labs/cosmos-sdk v0.46.16-alpha.agoric.2.4",
+    "consensus": {
+      "type": "cometbft",
+      "version": "agoric-labs/cometbft v0.34.30-alpha.agoric.1"
+    },
+    "cosmwasm_enabled": false,
+    "ibc_go_version": "v7.4.0",
+    "ics_enabled": [
+      "ics20-1"
+    ],
+    "go_version": "1.20.2",
+    "language": {
+      "type": "go",
+      "version": "1.20.2"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/agoric-labs/cosmos-sdk",
+      "version": "v0.46.16",
+      "tag": "v0.46.16-alpha.agoric.2.4"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "enabled": false
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.png",
@@ -162,7 +185,7 @@
       {
         "address": "https://rpc.agoric.bronbro.io:443",
         "provider": "Bro_n_Bro"
-      } 
+      }
     ],
     "rest": [
       {
@@ -197,6 +220,10 @@
         "provider": "w3coins"
       },
       {
+        "address": "https://agoric.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      },
+      {
         "address": "https://api.agoric.stakewith.us",
         "provider": "StakeWithUs"
       },
@@ -211,7 +238,7 @@
       {
         "address": "https://lcd.agoric.bronbro.io:443",
         "provider": "Bro_n_Bro"
-      }   
+      }
     ],
     "grpc": [
       {
@@ -257,16 +284,10 @@
       {
         "address": "https://grpc.agoric.bronbro.io:443",
         "provider": "Bro_n_Bro"
-      }   
+      }
     ]
   },
   "explorers": [
-    {
-      "kind": "bigdipper",
-      "url": "https://agoric.bigdipper.live/",
-      "tx_page": "https://agoric.bigdipper.live/transactions/${txHash}",
-      "account_page": "https://agoric.bigdipper.live/accounts/${accountAddress}"
-    },
     {
       "kind": "explorers.guru",
       "url": "https://agoric.explorers.guru",
@@ -283,12 +304,21 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/agoric",
       "account_page": "https://stakeflow.io/agoric/accounts/${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Agoric",
+      "tx_page": "https://explorer.stavr.tech/Agoric/tx/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Agoric/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.svg",
+      "theme": {
+        "primary_color_hex": "#bc2c44"
+      }
     }
   ]
 }

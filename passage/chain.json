@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "passage",
+  "chain_type": "cosmos",
   "chain_id": "passage-2",
   "pre_fork_chain_name": "passage1",
   "pretty_name": "Passage",
@@ -61,7 +62,15 @@
           "type": "cometbft",
           "version": "v0.34.27"
         },
-        "next_version_name": "v2.2.0"
+        "next_version_name": "v2.2.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.16"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.4.2"
+        }
       },
       {
         "name": "v2.2.0",
@@ -75,7 +84,15 @@
           "type": "cometbft",
           "version": "v0.34.27"
         },
-        "next_version_name": "v2.4.0"
+        "next_version_name": "v2.4.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.16"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.4.2"
+        }
       },
       {
         "name": "v2.4.0",
@@ -90,9 +107,31 @@
           "version": "v0.34.27"
         },
         "cosmwasm_version": "v0.31.0",
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.16"
+        },
+        "cosmwasm": {
+          "version": "v0.31.0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.4.2"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.45.16"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v4.4.2"
+    },
+    "cosmwasm": {
+      "version": "v0.31.0"
+    }
   },
   "peers": {
     "seeds": [
@@ -147,6 +186,11 @@
         "id": "526d07b882df4cb820a8b9df819e14532d1811b0",
         "address": "seed-passage.ibs.team:16666",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:23356",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -244,6 +288,10 @@
       {
         "address": "https://rpc.passage.silentvalidator.com",
         "provider": "silent"
+      },
+      {
+        "address": "https://passage-rpc.bluestake.net:443",
+        "provider": "BlueStake 🚀"
       }
     ],
     "rest": [
@@ -314,6 +362,10 @@
       {
         "address": "https://api.passage.silentvalidator.com",
         "provider": "silent"
+      },
+      {
+        "address": "https://passage-api.bluestake.net",
+        "provider": "BlueStake 🚀"
       }
     ],
     "grpc": [
@@ -397,6 +449,12 @@
       "url": "https://cosmotracker.com/passage",
       "tx_page": "https://cosmotracker.com/passage/tx/${txHash}",
       "account_page": "https://cosmotracker.com/passage/account/${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/passage",
+      "tx_page": "https://mainnet.whispernode.com/passage/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/passage/account/${accountAddress}"
     }
   ],
   "logo_URIs": {
@@ -404,7 +462,10 @@
   },
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/passage/images/pasg.png"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/passage/images/pasg.png",
+      "theme": {
+        "primary_color_hex": "#05050c"
+      }
     }
   ]
 }

@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://tenet.org/",
   "pretty_name": "Tenet",
+  "chain_type": "cosmos",
   "chain_id": "tenet_1559-1",
   "bech32_prefix": "tenet",
   "node_home": "$HOME/.tenetd",
@@ -76,7 +77,15 @@
           "darwin/arm64": "https://github.com/tenet-org/tenet-mainnet/releases/download/v11.0.6/tenet-mainnet_11.0.6_Darwin_arm64.tar.gz",
           "windows/amd64": "https://github.com/tenet-org/tenet-mainnet/releases/download/v11.0.6/tenet-mainnet_11.0.6_Windows_amd64.zip"
         },
-        "next_version_name": "multichain"
+        "next_version_name": "multichain",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "6.1.0"
+        }
       },
       {
         "name": "multichain",
@@ -100,9 +109,25 @@
           "darwin/arm64": "https://github.com/tenet-org/tenet-mainnet/releases/download/v11.2.1/tenet-mainnet_11.2.1_Darwin_arm64.tar.gz",
           "windows/amd64": "https://github.com/tenet-org/tenet-mainnet/releases/download/v11.2.1/tenet-mainnet_11.2.1_Windows_amd64.zip"
         },
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "6.1.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "6.1.0"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tenet/images/tenet.png",
@@ -114,6 +139,11 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "tenet-mainnet-seed.autostake.com:27386",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -143,6 +173,10 @@
       {
         "address": "https://tenet-rpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://tenet_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "rest": [
@@ -153,6 +187,10 @@
       {
         "address": "https://tenet-rest.publicnode.com",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://tenet_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "grpc": [
@@ -192,12 +230,21 @@
       "url": "https://explorer.tcnetwork.io/tenet",
       "tx_page": "https://explorer.tcnetwork.io/tenet/transaction/${txHash}",
       "account_page": "https://explorer.tcnetwork.io/tenet/account/${accountAddress}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/tenet",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/tenet/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/tenet/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tenet/images/tenet.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tenet/images/tenet.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tenet/images/tenet.svg",
+      "theme": {
+        "primary_color_hex": "#040404"
+      }
     }
   ]
 }

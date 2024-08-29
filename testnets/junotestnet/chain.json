@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Juno Testnet",
+  "chain_type": "cosmos",
   "chain_id": "uni-6",
   "bech32_prefix": "juno",
   "daemon_name": "junod",
@@ -61,7 +62,19 @@
         },
         "cosmwasm_version": "0.30",
         "cosmwasm_enabled": true,
-        "ibc_go_version": "4.3.0"
+        "ibc_go_version": "4.3.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "version": "0.30",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "4.3.0"
+        }
       },
       {
         "name": "v14.0.0-alpha.1",
@@ -76,9 +89,33 @@
         },
         "cosmwasm_version": "0.30",
         "cosmwasm_enabled": true,
-        "ibc_go_version": "4.3.0"
+        "ibc_go_version": "4.3.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "version": "0.30",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "4.3.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.45"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "4.3.1"
+    },
+    "cosmwasm": {
+      "version": "0.31",
+      "enabled": true
+    }
   },
   "peers": {
     "seeds": [
@@ -99,23 +136,11 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.uni.junonetwork.io",
-        "provider": "Juno"
-      },
-      {
         "address": "https://juno-testnet-rpc.polkachu.com",
         "provider": "Polkachu"
-      },
-      {
-        "address": "https://uni-rpc.reece.sh",
-        "provider": "Reecepbcups"
       }
     ],
     "rest": [
-      {
-        "address": "https://api.uni.junonetwork.io",
-        "provider": "Juno"
-      },
       {
         "address": "https://juno-testnet-api.polkachu.com",
         "provider": "Polkachu"
@@ -123,10 +148,6 @@
       {
         "address": "https://juno.api.t.stavr.tech",
         "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "https://uni-api.reece.sh",
-        "provider": "Reecepbcups"
       }
     ],
     "grpc": [
@@ -138,26 +159,10 @@
   },
   "explorers": [
     {
-      "kind": "ezstaking",
-      "url": "https://testnet.app.ezstaking.io/juno-testnet",
-      "tx_page": "https://testnet.app.ezstaking.io/juno-testnet/txs/${txHash}",
-      "account_page": "https://testnet.app.ezstaking.io/juno-testnet/account/${accountAddress}"
-    },
-    {
       "kind": "🔥STAVR🔥",
       "url": "https://explorer.stavr.tech/Juno-Testnet",
       "tx_page": "https://explorer.stavr.tech/Juno-Testnet/txs/${txHash}",
       "account_page": "https://explorer.stavr.tech/Juno-Testnet/account/${accountAddress}"
-    },
-    {
-      "kind": "Mintscan",
-      "url": "https://testnet.mintscan.io/juno-testnet",
-      "tx_page": "https://testnet.mintscan.io/juno-testnet/txs/${txHash}"
-    },
-    {
-      "kind": "NodesGuru",
-      "url": "https://testnet.juno.explorers.guru/",
-      "tx_page": "https://testnet.juno.explorers.guru/transaction/${txHash}"
     }
   ]
 }

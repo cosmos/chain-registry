@@ -5,10 +5,12 @@
   "network_type": "mainnet",
   "website": "https://aura.network/",
   "pretty_name": "Aura Network",
-  "chain_id": "xstaxy-1",
+  "chain_type": "cosmos",
+  "chain_id": "aura_6322-2",
   "bech32_prefix": "aura",
   "daemon_name": "aurad",
   "node_home": "$HOME/.aura",
+  "pre_fork_chain_name": "aura1",
   "key_algos": [
     "secp256k1"
   ],
@@ -36,94 +38,125 @@
   },
   "codebase": {
     "git_repo": "https://github.com/aura-nw/aura",
-    "recommended_version": "v0.7.3",
+    "recommended_version": "v0.9.3",
     "compatible_versions": [
-      "v0.7.3"
+      "v0.9.3"
     ],
-    "cosmos_sdk_version": "0.47.5",
-    "ibc_go_version": "v7.3.0",
+    "cosmos_sdk_version": "evmos/cosmos-sdk v0.47.12-evmos",
+    "ibc_go_version": "v7.6.0",
     "consensus": {
       "type": "cometbft",
-      "version": "0.37.2"
+      "version": "aura-nw/cometbft v0.37.4-aura.2"
     },
-    "cosmwasm_version": "0.42.0",
+    "cosmwasm_version": "v0.42.0",
     "cosmwasm_enabled": true,
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/aura-nw/mainnet-artifacts/main/xstaxy-1/genesis.json"
+      "genesis_url": "https://images.aura.network/aura_6322-2-genesis.tar.gz"
     },
     "versions": [
       {
-        "name": "aura_v0.4.4",
-        "recommended_version": "aura_v0.4.4",
+        "name": "v0.8.2",
+        "recommended_version": "v0.8.2",
         "compatible_versions": [
-          "aura_v0.4.4"
+          "v0.8.2"
         ],
-        "next_version_name": "v0.4.5"
-      },
-      {
-        "name": "v0.4.5",
-        "proposal": 4,
-        "height": 1292226,
-        "recommended_version": "aura_v0.4.5",
-        "compatible_versions": [
-          "aura_v0.4.5"
-        ],
-        "next_version_name": "v0.7.1"
-      },
-      {
-        "name": "v0.7.1",
-        "proposal": 7,
-        "height": 3666129,
-        "recommended_version": "v0.7.1",
-        "compatible_versions": [
-          "v0.7.1"
-        ],
-        "cosmos_sdk_version": "0.47.4",
+        "cosmos_sdk_version": "v0.47.8",
+        "ibc_go_version": "v7.3.1",
         "consensus": {
           "type": "cometbft",
-          "version": "0.37.2"
-        },
-        "cosmwasm_version": "0.41.0",
-        "cosmwasm_enabled": true,
-        "next_version_name": "v0.7.2"
-      },
-      {
-        "name": "v0.7.2",
-        "proposal": 8,
-        "height": 5329503,
-        "recommended_version": "v0.7.2",
-        "compatible_versions": [
-          "v0.7.2"
-        ],
-        "cosmos_sdk_version": "0.47.4",
-        "ibc_go_version": "v7.2.0",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        },
-        "cosmwasm_version": "0.41.0",
-        "cosmwasm_enabled": true,
-        "next_version_name": "v0.7.3"
-      },
-      {
-        "name": "v0.7.3",
-        "proposal": 9,
-        "height": 4083908,
-        "recommended_version": "v0.7.3",
-        "compatible_versions": [
-          "v0.7.3"
-        ],
-        "cosmos_sdk_version": "0.47.5",
-        "ibc_go_version": "v7.3.0",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
+          "version": "0.37.4"
         },
         "cosmwasm_version": "0.42.0",
         "cosmwasm_enabled": true,
-        "next_version_name": ""
+        "next_version_name": "ibcupgrade",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.8"
+        },
+        "cosmwasm": {
+          "version": "0.42.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.1"
+        }
+      },
+      {
+        "name": "ibcupgrade",
+        "recommended_version": "v0.8.3",
+        "compatible_versions": [
+          "v0.8.3"
+        ],
+        "cosmos_sdk_version": "evmos/cosmos-sdk v0.47.8-evmos",
+        "ibc_go_version": "v7.3.1",
+        "consensus": {
+          "type": "cometbft",
+          "version": "aura-nw/cometbft v0.37.4-aura.2"
+        },
+        "cosmwasm_version": "v0.42.0",
+        "cosmwasm_enabled": true,
+        "next_version_name": "v0.9.3",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/evmos/cosmos-sdk",
+          "version": "v0.47.8",
+          "tag": "v0.47.8-evmos"
+        },
+        "cosmwasm": {
+          "version": "v0.42.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.1"
+        }
+      },
+      {
+        "name": "v0.9.3",
+        "recommended_version": "v0.9.3",
+        "compatible_versions": [
+          "v0.9.3"
+        ],
+        "cosmos_sdk_version": "evmos/cosmos-sdk v0.47.12-evmos",
+        "ibc_go_version": "v7.6.0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "aura-nw/cometbft v0.37.4-aura.2"
+        },
+        "cosmwasm_version": "v0.42.0",
+        "cosmwasm_enabled": true,
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/evmos/cosmos-sdk",
+          "version": "v0.47.12",
+          "tag": "v0.47.12-evmos"
+        },
+        "cosmwasm": {
+          "version": "v0.42.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.6.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/evmos/cosmos-sdk",
+      "version": "v0.47.12",
+      "tag": "v0.47.12-evmos"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.6.0"
+    },
+    "cosmwasm": {
+      "version": "v0.42.0",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/aura/images/Aura-logo-2.2.png",
@@ -245,10 +278,6 @@
         "provider": "KonsorTech"
       },
       {
-        "address": "https://aura-rpc.tienthuattoan.ventures",
-        "provider": "TienThuatToan"
-      },
-      {
         "address": "https://aura-rpc.lavenderfive.com",
         "provider": "Lavender.Five Nodes 🐝"
       },
@@ -283,6 +312,10 @@
       {
         "address": "https://aura-rpc.highstakes.ch",
         "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://aura-rpc.noders.services",
+        "provider": "[NODERS]TEAM"
       }
     ],
     "rest": [
@@ -346,9 +379,13 @@
         "address": "https://aura.api.srv.stakr.space",
         "provider": "STAKR.space"
       },
-       {
+      {
         "address": "https://aura-api.highstakes.ch",
         "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://aura-api.noders.services",
+        "provider": "[NODERS]TEAM"
       }
     ],
     "grpc": [
@@ -415,6 +452,10 @@
       {
         "address": "aura.grpc.srv.stakr.space:19090",
         "provider": "STAKR.space"
+      },
+      {
+        "address": "aura-grpc.noders.services:17090",
+        "provider": "[NODERS]TEAM"
       }
     ]
   },
@@ -422,8 +463,8 @@
     {
       "kind": "aurascan",
       "url": "https://aurascan.io",
-      "tx_page": "https://aurascan.io/transaction/${txHash}",
-      "account_page": "https://aurascan.io/account/${accountAddress}"
+      "tx_page": "https://aurascan.io/tx/${txHash}",
+      "account_page": "https://aurascan.io/address/${accountAddress}"
     },
     {
       "kind": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀 Explorer",
@@ -471,7 +512,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/aura/images/Aura-logo-2.2.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/aura/images/Aura-logo-2.2.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/aura/images/Aura-logo-2.2.svg",
+      "theme": {
+        "primary_color_hex": "#a7c8d4"
+      }
     }
   ]
 }

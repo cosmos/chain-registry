@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Osmosis Testnet",
+  "chain_type": "cosmos",
   "chain_id": "osmo-test-4",
   "bech32_prefix": "osmo",
   "daemon_name": "osmosisd",
@@ -59,7 +60,15 @@
           "version": "0.34"
         },
         "cosmwasm_version": "0.29",
-        "cosmwasm_enabled": true
+        "cosmwasm_enabled": true,
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "version": "0.29",
+          "enabled": true
+        }
       },
       {
         "name": "v15.0.0-rc3",
@@ -73,28 +82,41 @@
           "version": "0.34"
         },
         "cosmwasm_version": "0.29",
-        "cosmwasm_enabled": true
+        "cosmwasm_enabled": true,
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "version": "0.29",
+          "enabled": true
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.45"
+    },
+    "cosmwasm": {
+      "version": "0.29",
+      "enabled": true
+    }
   },
   "peers": {
     "seeds": [
       {
         "id": "0f9a9c694c46bd28ad9ad6126e923993fc6c56b1",
-        "address": "137.184.181.105:26656",
-        "provider": ""
+        "address": "137.184.181.105:26656"
       }
     ],
     "persistent_peers": [
       {
         "id": "4ab030b7fd75ed895c48bcc899b99c17a396736b",
-        "address": "137.184.190.127:26656",
-        "provider": ""
+        "address": "137.184.190.127:26656"
       },
       {
         "id": "3dbffa30baab16cc8597df02945dcee0aa0a4581",
-        "address": "143.198.139.33:26656",
-        "provider": ""
+        "address": "143.198.139.33:26656"
       }
     ]
   },
@@ -123,8 +145,7 @@
         "provider": "ChainLayer"
       },
       {
-        "address": "https://testnet-rest.osmosis.zone/",
-        "provider": ""
+        "address": "https://testnet-rest.osmosis.zone/"
       }
     ],
     "grpc": [
