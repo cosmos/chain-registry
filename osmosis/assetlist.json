@@ -5647,6 +5647,54 @@
       ]
     },
     {
+      "description": "The native token of TON",
+      "denom_units": [
+        {
+          "denom": "ibc/905889A7F0B94F1CE1506D9BADF13AE9141E4CBDBCD565E1DFC7AE418B3E3E98",
+          "exponent": 0,
+          "aliases": [
+            "nanoTon"
+          ]
+        },
+        {
+          "denom": "ton",
+          "exponent": 9
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/905889A7F0B94F1CE1506D9BADF13AE9141E4CBDBCD565E1DFC7AE418B3E3E98",
+      "name": "Toncoin",
+      "display": "ton",
+      "symbol": "TON",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "oraichain",
+            "base_denom": "factory/orai1wuvhex9xqs3r539mvc6mtm7n20fcj3qr2m0y9khx6n5vtlngfzes3k0rq9/ton",
+            "channel_id": "channel-13"
+          },
+          "chain": {
+            "channel_id": "channel-216",
+            "path": "transfer/channel-216/factory/orai1wuvhex9xqs3r539mvc6mtm7n20fcj3qr2m0y9khx6n5vtlngfzes3k0rq9/ton"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ton/images/ton.png"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "oraichain",
+            "base_denom": "factory/orai1wuvhex9xqs3r539mvc6mtm7n20fcj3qr2m0y9khx6n5vtlngfzes3k0rq9/ton"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ton/images/ton.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ton/images/ton.png"
+        }
+      ]
+    },
+    {
       "description": "The native token of the Cudos blockchain",
       "denom_units": [
         {
@@ -8177,66 +8225,12 @@
       ]
     },
     {
-      "description": "Mars protocol token",
-      "denom_units": [
-        {
-          "denom": "ibc/573FCD90FACEE750F55A8864EF7D38265F07E5A9273FA0E8DAFD39951332B580",
-          "exponent": 0,
-          "aliases": [
-            "umars"
-          ]
-        },
-        {
-          "denom": "mars",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/573FCD90FACEE750F55A8864EF7D38265F07E5A9273FA0E8DAFD39951332B580",
-      "name": "Mars Hub",
-      "display": "mars",
-      "symbol": "MARS",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "mars",
-            "base_denom": "umars",
-            "channel_id": "channel-1"
-          },
-          "chain": {
-            "channel_id": "channel-557",
-            "path": "transfer/channel-557/umars"
-          }
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token.svg"
-      },
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "mars",
-            "base_denom": "umars"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token.svg",
-          "theme": {
-            "primary_color_hex": "#d43c3f"
-          }
-        }
-      ]
-    },
-    {
       "description": "Ciento Exchange Token",
       "denom_units": [
         {
           "denom": "ibc/D38BB3DD46864694F009AF01DA5A815B3A875F8CC52FF5679BFFCC35DC7451D5",
           "exponent": 0,
-          "aliases": [
-            "erc20/0xAE6D3334989a22A65228732446731438672418F2"
-          ]
+          "aliases": ["erc20/0xAE6D3334989a22A65228732446731438672418F2"]
         },
         {
           "denom": "cnto",
@@ -21400,10 +21394,7 @@
       "denom_units": [
         {
           "denom": "factory/osmo1myv2g72h8dan7n4hx7stt3mmust6ws03zh6gxc7vz4hpmgp5z3lq9aunm9/TRX.rt",
-          "exponent": 0,
-          "aliases": [
-            "sun"
-          ]
+          "exponent": 0
         },
         {
           "denom": "trx",
@@ -21443,14 +21434,11 @@
       ]
     },
     {
-      "description": "USDT is the official stablecoin issued by Tether on the TRON network.",
+      "description": "A synthetic version of USDT issued by Router, which can be unwrapped to USDT on several chains.",
       "denom_units": [
         {
           "denom": "factory/osmo1myv2g72h8dan7n4hx7stt3mmust6ws03zh6gxc7vz4hpmgp5z3lq9aunm9/USDT.rt",
-          "exponent": 0,
-          "aliases": [
-            "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t"
-          ]
+          "exponent": 0
         },
         {
           "denom": "usdt",
@@ -21465,18 +21453,10 @@
       "symbol": "USDT",
       "traces": [
         {
-          "type": "additional-mintage",
+          "type": "synthetic",
           "counterparty": {
             "chain_name": "ethereum",
             "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
-          },
-          "provider": "Tether"
-        },
-        {
-          "type": "bridge",
-          "counterparty": {
-            "chain_name": "tron",
-            "base_denom": "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t"
           },
           "provider": "Router"
         }
@@ -21484,8 +21464,8 @@
       "images": [
         {
           "image_sync": {
-            "chain_name": "tron",
-            "base_denom": "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t"
+            "chain_name": "ethereum",
+            "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
           },
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
@@ -21632,6 +21612,583 @@
           }
         }
       ]
+    },
+    {
+      "description": "An alloy of OP asset variants on Osmosis.",
+      "denom_units": [
+        {
+          "denom": "factory/osmo1nufyzqlm8qhu2w7lm0l4rrax0ec8rsk69mga4tel8eare7c7ljaqpk2lyg/alloyed/allOP",
+          "exponent": 0
+        },
+        {
+          "denom": "op",
+          "exponent": 12
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo1nufyzqlm8qhu2w7lm0l4rrax0ec8rsk69mga4tel8eare7c7ljaqpk2lyg",
+      "base": "factory/osmo1nufyzqlm8qhu2w7lm0l4rrax0ec8rsk69mga4tel8eare7c7ljaqpk2lyg/alloyed/allOP",
+      "name": "Alloyed OP",
+      "display": "op",
+      "symbol": "allOP",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "optimism",
+            "base_denom": "0x4200000000000000000000000000000000000042"
+          },
+          "provider": "Osmosis"
+        }
+      ],
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/allOP.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/allOP.png",
+          "theme": {
+            "primary_color_hex": "#fc0424"
+          }
+        },
+        {
+          "image_sync": {
+            "chain_name": "optimism",
+            "base_denom": "0x4200000000000000000000000000000000000042"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/optimism/images/op.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/optimism/images/op.png",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#fc0424",
+            "background_color_hex": "#fc0424"
+          }
+        }
+      ]
+    },
+    {
+      "description": "CosmoUSD",
+      "denom_units": [
+        {
+          "denom": "factory/osmo104jtrwcljnxfljhml8mxrw7qetcsdmqvy3sprw/ucosmousd",
+          "exponent": 0,
+          "aliases": ["ucosmousd"]
+        },
+        {
+          "denom": "CosmoUSD",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/osmo104jtrwcljnxfljhml8mxrw7qetcsdmqvy3sprw/ucosmousd",
+      "name": "CosmoUSD",
+      "display": "CosmoUSD",
+      "symbol": "COSMOUSD",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/CosmoUSD.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/CosmoUSD.png",
+          "theme": {
+            "primary_color_hex": "#343169"
+          }
+        }
+      ],
+      "socials": {
+        "website": "https://github.com/raphaellafar/Cosmo",
+        "twitter": "https://x.com/CosmoClub84"
+      }
+    },
+    {
+      "description": "An alloy of SHIB asset variants on Osmosis.",
+      "denom_units": [
+        {
+          "denom": "factory/osmo1f588gk9dazpsueevdl2w6wfkmfmhg5gdvg2uerdlzl0atkasqhsq59qc6a/alloyed/allSHIB",
+          "exponent": 0
+        },
+        {
+          "denom": "shib",
+          "exponent": 12
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo1f588gk9dazpsueevdl2w6wfkmfmhg5gdvg2uerdlzl0atkasqhsq59qc6a",
+      "base": "factory/osmo1f588gk9dazpsueevdl2w6wfkmfmhg5gdvg2uerdlzl0atkasqhsq59qc6a/alloyed/allSHIB",
+      "name": "Alloyed SHIB",
+      "display": "shib",
+      "symbol": "allSHIB",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce"
+          },
+          "provider": "Osmosis"
+        }
+      ],
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/allSHIB.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/allSHIB.png",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#FFA409"
+          }
+        },
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/shib.svg",
+          "theme": {
+            "primary_color_hex": "#FFA409",
+            "background_color_hex": "#00000000"
+          }
+        }
+      ]
+    },
+    {
+      "description": "An alloy of LINK asset variants on Osmosis.",
+      "denom_units": [
+        {
+          "denom": "factory/osmo18zdw5yvs6gfp95rp74qqwug9yduw2fyr8kplk2xgs726s9axc5usa2vpgw/alloyed/allLINK",
+          "exponent": 0
+        },
+        {
+          "denom": "link",
+          "exponent": 12
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo18zdw5yvs6gfp95rp74qqwug9yduw2fyr8kplk2xgs726s9axc5usa2vpgw",
+      "base": "factory/osmo18zdw5yvs6gfp95rp74qqwug9yduw2fyr8kplk2xgs726s9axc5usa2vpgw/alloyed/allLINK",
+      "name": "Alloyed LINK",
+      "display": "link",
+      "symbol": "allLINK",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x514910771af9ca656af840dff83e8264ecf986ca"
+          },
+          "provider": "Osmosis"
+        }
+      ],
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/allLINK.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/allLINK.png",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#2A5ADA"
+          }
+        },
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0x514910771af9ca656af840dff83e8264ecf986ca"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/link.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/link.png",
+          "theme": {
+            "primary_color_hex": "#2c5cdc"
+          }
+        }
+      ]
+    },
+    {
+      "description": "An alloy of PEPE asset variants on Osmosis.",
+      "denom_units": [
+        {
+          "denom": "factory/osmo1nnlxegt0scm9qkzys9c874t0ntapv4epfjy2w49c0xdrp3dr0v4ssmelzx/alloyed/allPEPE",
+          "exponent": 0
+        },
+        {
+          "denom": "pepe",
+          "exponent": 12
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo1nnlxegt0scm9qkzys9c874t0ntapv4epfjy2w49c0xdrp3dr0v4ssmelzx",
+      "base": "factory/osmo1nnlxegt0scm9qkzys9c874t0ntapv4epfjy2w49c0xdrp3dr0v4ssmelzx/alloyed/allPEPE",
+      "name": "Alloyed PEPE",
+      "display": "pepe",
+      "symbol": "allPEPE",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x6982508145454Ce325dDbE47a25d4ec3d2311933"
+          },
+          "provider": "Osmosis"
+        }
+      ],
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/allPEPE.png",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#549C44"
+          }
+        },
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0x6982508145454Ce325dDbE47a25d4ec3d2311933"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pepe.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pepe.svg",
+          "theme": {
+            "primary_color_hex": "#cc3233"
+          }
+        }
+      ]
+    },
+    {
+      "description": "An alloy of ARB asset variants on Osmosis.",
+      "denom_units": [
+        {
+          "denom": "factory/osmo1p7x454ex08s4f9ztmm7wfv7lvtgdkfztj2u7v7fezfcauy85q35qmqrdpk/alloyed/allARB",
+          "exponent": 0
+        },
+        {
+          "denom": "arb",
+          "exponent": 12
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo1p7x454ex08s4f9ztmm7wfv7lvtgdkfztj2u7v7fezfcauy85q35qmqrdpk",
+      "base": "factory/osmo1p7x454ex08s4f9ztmm7wfv7lvtgdkfztj2u7v7fezfcauy85q35qmqrdpk/alloyed/allARB",
+      "name": "Alloyed ARB",
+      "display": "arb",
+      "symbol": "allARB",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "arbitrum",
+            "base_denom": "0x912CE59144191C1204E64559FE8253a0e49E6548"
+          },
+          "provider": "Osmosis"
+        }
+      ],
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/allARB.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/allARB.png",
+          "theme": {
+            "primary_color_hex": "#9DCCED"
+          }
+        },
+        {
+          "image_sync": {
+            "chain_name": "arbitrum",
+            "base_denom": "0x912CE59144191C1204E64559FE8253a0e49E6548"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/arbitrum/images/arb.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/arbitrum/images/arb.png",
+          "theme": {
+            "primary_color_hex": "#253545"
+          }
+        }
+      ]
+    },
+    {
+      "description": "An alloy of DOT asset variants on Osmosis.",
+      "denom_units": [
+        {
+          "denom": "factory/osmo1r53fx9fvcdzncrs7zkn4gw5vfelx5gk8k5wc6wqha2jpkh992rusr5tk02/alloyed/allDOT",
+          "exponent": 0
+        },
+        {
+          "denom": "dot",
+          "exponent": 10
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo1r53fx9fvcdzncrs7zkn4gw5vfelx5gk8k5wc6wqha2jpkh992rusr5tk02",
+      "base": "factory/osmo1r53fx9fvcdzncrs7zkn4gw5vfelx5gk8k5wc6wqha2jpkh992rusr5tk02/alloyed/allDOT",
+      "name": "Alloyed DOT",
+      "display": "dot",
+      "symbol": "allDOT",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "polkadot",
+            "base_denom": "Planck"
+          },
+          "provider": "Osmosis"
+        }
+      ],
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/allDOT.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/allDOT.png",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#E6007A"
+          }
+        },
+        {
+          "image_sync": {
+            "chain_name": "polkadot",
+            "base_denom": "Planck"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/optimism/images/dot.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/optimism/images/dot.png",
+          "theme": {
+            "primary_color_hex": "#e4047c",
+            "background_color_hex": "#000000"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Mars Protocol token (pre-migration)",
+      "denom_units": [
+        {
+          "denom": "ibc/573FCD90FACEE750F55A8864EF7D38265F07E5A9273FA0E8DAFD39951332B580",
+          "exponent": 0,
+          "aliases": ["umars"]
+        },
+        {
+          "denom": "MARS.old",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/573FCD90FACEE750F55A8864EF7D38265F07E5A9273FA0E8DAFD39951332B580",
+      "name": "Mars Hub",
+      "display": "MARS.old",
+      "symbol": "MARS.old",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "mars",
+            "base_denom": "umars",
+            "channel_id": "channel-1"
+          },
+          "chain": {
+            "channel_id": "channel-557",
+            "path": "transfer/channel-557/umars"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token-ibc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token-ibc.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "mars",
+            "base_denom": "umars"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token-ibc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token-ibc.svg",
+          "theme": {
+            "primary_color_hex": "#FFFFFF"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Mars Protocol is a cross-collateralized Money Market Protocol on Neutron and Osmosis",
+      "denom_units": [
+        {
+          "denom": "ibc/B67DF59507B3755EEDE0866C449445BD54B4DA82CCEBA89D775E53DC35664255",
+          "exponent": 0,
+          "aliases": ["umars"]
+        },
+        {
+          "denom": "MARS",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/B67DF59507B3755EEDE0866C449445BD54B4DA82CCEBA89D775E53DC35664255",
+      "name": "Mars Hub",
+      "display": "MARS",
+      "symbol": "MARS",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "neutron",
+            "base_denom": "factory/neutron1ndu2wvkrxtane8se2tr48gv7nsm46y5gcqjhux/MARS",
+            "channel_id": "channel-10"
+          },
+          "chain": {
+            "channel_id": "channel-874",
+            "path": "transfer/channel-874/factory/neutron1ndu2wvkrxtane8se2tr48gv7nsm46y5gcqjhux/MARS"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/mars-token.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/mars-token.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "neutron",
+            "base_denom": "factory/neutron1ndu2wvkrxtane8se2tr48gv7nsm46y5gcqjhux/MARS"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/mars-token.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/mars-token.svg",
+          "theme": {
+            "primary_color_hex": "#ef4136"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Fractionalized Bad Kids",
+      "extended_description": "Fractionalized Bad Kids NFT Via Fractal.fun",
+      "denom_units": [
+        {
+          "denom": "factory/osmo1dywfmhyc8y0wga7qpzej0x0mgwqg25fj4eccp494w8yafzdpgamsx9ryyv/fBAD",
+          "exponent": 0
+        },
+        {
+          "denom": "fBAD",
+          "exponent": 9
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo1dywfmhyc8y0wga7qpzej0x0mgwqg25fj4eccp494w8yafzdpgamsx9ryyv",
+      "base": "factory/osmo1dywfmhyc8y0wga7qpzej0x0mgwqg25fj4eccp494w8yafzdpgamsx9ryyv/fBAD",
+      "name": "fBAD",
+      "display": "fBAD",
+      "symbol": "fBAD",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/fBAD.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/fBAD.png",
+          "theme": {
+            "primary_color_hex": "#639BFF"
+          }
+        }
+      ],
+      "keywords": ["nft"],
+      "socials": {
+        "website": "https://fractal.fun",
+        "twitter": "https://twitter.com/fractaldotfun"
+      }
+    },
+    {
+      "description": "Fractionalized Mad Scientists",
+      "extended_description": "Fractionalized Mad Scientists NFT Via Fractal.fun",
+      "denom_units": [
+        {
+          "denom": "factory/osmo1dywfmhyc8y0wga7qpzej0x0mgwqg25fj4eccp494w8yafzdpgamsx9ryyv/fMAD",
+          "exponent": 0
+        },
+        {
+          "denom": "fMAD",
+          "exponent": 9
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo1dywfmhyc8y0wga7qpzej0x0mgwqg25fj4eccp494w8yafzdpgamsx9ryyv",
+      "base": "factory/osmo1dywfmhyc8y0wga7qpzej0x0mgwqg25fj4eccp494w8yafzdpgamsx9ryyv/fMAD",
+      "name": "fMAD",
+      "display": "fMAD",
+      "symbol": "fMAD",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/fMAD.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/fMAD.png",
+          "theme": {
+            "primary_color_hex": "#639BFF"
+          }
+        }
+      ],
+      "keywords": ["nft"],
+      "socials": {
+        "website": "https://fractal.fun",
+        "twitter": "https://twitter.com/fractaldotfun"
+      }
+    },
+    {
+      "description": "Fractionalized Celestine Sloth Society",
+      "extended_description": "Fractionalized Celestine Sloth Society NFT Via Fractal.fun",
+      "denom_units": [
+        {
+          "denom": "factory/osmo1dywfmhyc8y0wga7qpzej0x0mgwqg25fj4eccp494w8yafzdpgamsx9ryyv/fSLOTH",
+          "exponent": 0
+        },
+        {
+          "denom": "fSLOTH",
+          "exponent": 9
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo1dywfmhyc8y0wga7qpzej0x0mgwqg25fj4eccp494w8yafzdpgamsx9ryyv",
+      "base": "factory/osmo1dywfmhyc8y0wga7qpzej0x0mgwqg25fj4eccp494w8yafzdpgamsx9ryyv/fSLOTH",
+      "name": "fSLOTH",
+      "display": "fSLOTH",
+      "symbol": "fSLOTH",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/fSLOTH.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/fSLOTH.png",
+          "theme": {
+            "primary_color_hex": "#639BFF"
+          }
+        }
+      ],
+      "keywords": ["nft"],
+      "socials": {
+        "website": "https://fractal.fun",
+        "twitter": "https://twitter.com/fractaldotfun"
+      }
+    },
+    {
+      "description": "Fractionalized DAONuts",
+      "extended_description": "Fractionalized DAONuts NFT Via Fractal.fun",
+      "denom_units": [
+        {
+          "denom": "factory/osmo1dywfmhyc8y0wga7qpzej0x0mgwqg25fj4eccp494w8yafzdpgamsx9ryyv/fNUT",
+          "exponent": 0
+        },
+        {
+          "denom": "fNUT",
+          "exponent": 9
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo1dywfmhyc8y0wga7qpzej0x0mgwqg25fj4eccp494w8yafzdpgamsx9ryyv",
+      "base": "factory/osmo1dywfmhyc8y0wga7qpzej0x0mgwqg25fj4eccp494w8yafzdpgamsx9ryyv/fNUT",
+      "name": "fNUT",
+      "display": "fNUT",
+      "symbol": "fNUT",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/fNUT.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/fNUT.png",
+          "theme": {
+            "primary_color_hex": "#639BFF"
+          }
+        }
+      ],
+      "keywords": ["nft"],
+      "socials": {
+        "website": "https://fractal.fun",
+        "twitter": "https://twitter.com/fractaldotfun"
+      }
     }
   ]
 }
