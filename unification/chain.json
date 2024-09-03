@@ -37,23 +37,23 @@
   },
   "codebase": {
     "git_repo": "https://github.com/unification-com/mainchain",
-    "recommended_version": "v1.8.2",
+    "recommended_version": "v1.10.1",
     "compatible_versions": [
-      "v1.8.1",
-      "v1.8.0"
+      "v1.10.0",
+      "v1.10.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/unification-com/mainchain/releases/download/v1.8.2/und_v1.8.2_linux_x86_64.tar.gz",
-      "darwin/amd64": "https://github.com/unification-com/mainchain/releases/download/v1.8.2/und_v1.8.2_darwin_x86_64.tar.gz",
-      "windows/amd64": "https://github.com/unification-com/mainchain/releases/download/v1.8.2/und_v1.8.2_windows_x86_64.tar.gz"
+      "linux/amd64": "https://github.com/unification-com/mainchain/releases/download/v1.10.1/und_v1.10.1_linux_x86_64.tar.gz",
+      "darwin/amd64": "https://github.com/unification-com/mainchain/releases/download/v1.10.1/und_v1.10.1_darwin_x86_64.tar.gz",
+      "windows/amd64": "https://github.com/unification-com/mainchain/releases/download/v1.10.1/und_v1.10.1_windows_x86_64.tar.gz"
     },
-    "cosmos_sdk_version": "0.46.15",
+    "cosmos_sdk_version": "0.47.13",
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34.29"
+      "type": "cometbft",
+      "version": "0.37.5"
     },
     "cosmwasm_enabled": false,
-    "ibc_go_version": "5.3.1",
+    "ibc_go_version": "7.7.0",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/unification-com/mainnet/master/latest/genesis.json"
     },
@@ -104,7 +104,7 @@
           "ics20-1"
         ],
         "cosmwasm_enabled": false,
-        "next_version_name": "v1.8.0",
+        "next_version_name": "v1.8.2",
         "sdk": {
           "type": "cosmos",
           "version": "0.45.14"
@@ -136,9 +136,9 @@
         ],
         "cosmwasm_enabled": false,
         "recommended_version": "v1.8.2",
+        "next_version_name": "v1.9.0",
         "compatible_versions": [
-          "v1.8.1",
-          "v1.8.0"
+          "v1.8.2"
         ],
         "sdk": {
           "type": "cosmos",
@@ -154,15 +154,85 @@
             "ics20-1"
           ]
         }
+      },
+      {
+        "name": "4-percival",
+        "tag": "v1.9.0",
+        "proposal": 21,
+        "height": 9577300,
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34.29"
+        },
+        "cosmos_sdk_version": "0.46.16",
+        "ibc_go_version": "5.3.1",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "cosmwasm_enabled": false,
+        "next_version_name": "v1.10.1",
+        "recommended_version": "v1.9.0",
+        "compatible_versions": [
+          "v1.9.0"
+        ],
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46.16"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "5.3.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
+      },
+      {
+        "name": "5-pike",
+        "tag": "v1.10.1",
+        "proposal": 25,
+        "height": 12210000,
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.5"
+        },
+        "cosmos_sdk_version": "0.47.13",
+        "ibc_go_version": "7.7.0",
+        "ics_enabled": [
+          "ics20-1"
+        ],
+        "cosmwasm_enabled": false,
+        "recommended_version": "v1.10.1",
+        "compatible_versions": [
+          "v1.10.0",
+          "v1.10.1"
+        ],
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.47.13"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "7.7.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       }
     ],
     "sdk": {
       "type": "cosmos",
-      "version": "0.46.15"
+      "version": "0.47.13"
     },
     "ibc": {
       "type": "go",
-      "version": "5.3.1"
+      "version": "7.7.0"
     },
     "cosmwasm": {
       "enabled": false
@@ -211,7 +281,7 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc1.unification.io:443",
+        "address": "https://rpc.unification.io:443",
         "provider": "Unification"
       },
       {
@@ -242,10 +312,10 @@
   },
   "explorers": [
     {
-      "kind": "bigdipper",
-      "url": "https://explorer.unification.io/",
-      "tx_page": "https://explorer.unification.io/transactions/${txHash}",
-      "account_page": "https://explorer.unification.io/accounts/${accountAddress}"
+      "kind": "ping.pub",
+      "url": "https://explorer.unification.io/u",
+      "tx_page": "https://explorer.unification.io/u/tx/${txHash}",
+      "account_page": "https://explorer.unification.io/u/account/${accountAddress}"
     },
     {
       "kind": "ping.pub",
