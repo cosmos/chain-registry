@@ -26,6 +26,7 @@ const domains = Array.from(domainToDirectoryNameMap.keys());
 const fileToFileNameMap = new Map();
 fileToFileNameMap.set("chain", "chain.json");
 fileToFileNameMap.set("assetlist", "assetlist.json");
+fileToFileNameMap.set("versions", "versions.json");
 const files = Array.from(domainToDirectoryNameMap.keys());
 
 export const nonChainDirectories = [
