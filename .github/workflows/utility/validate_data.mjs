@@ -150,6 +150,18 @@ function checkImageSyncIsValid(chain_name, asset) {
 }
 
 
+function checkVersionsFileAndVersionsArray(chain_name) {
+
+  const versionsFile = chain_reg.getFileProperty(chain_name, "versions", "versions");
+  const versionsArray = chain_reg.getFileProperty(chain_name, "chain", "codebase")?.versions;
+
+  if (versionsFile && versionsArray) {
+    throw new Error(`Invalid versions array detected in chain.json for ${chain_name}. versions.json already used.`);
+  }
+
+}
+
+
 function checkReplacementVersionProperties(chain_name) {
 
   const codebase = chain_reg.getFileProperty(chain_name, "chain", "codebase");
@@ -300,6 +312,9 @@ export function validate_chain_files() {
 
     //check if all old version properties' data are added into the new replacement version properties
     checkReplacementVersionProperties(chain_name);
+
+    //check that versions[] cannot be defined in chain.json when versions.json exists
+    checkVersionsFileAndVersionsArray(chain_name);
 
     //get chain's assets
     const chainAssets = chain_reg.getFileProperty(chain_name, "assetlist", "assets");
