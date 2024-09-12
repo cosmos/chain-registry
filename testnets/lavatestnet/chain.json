@@ -6,6 +6,7 @@
   "network_type": "testnet",
   "website": "https://www.lavanet.xyz/",
   "pretty_name": "Lava Testnet",
+  "chain_type": "cosmos",
   "chain_id": "lava-testnet-2",
   "bech32_prefix": "lava@",
   "daemon_name": "lavad",
@@ -164,9 +165,38 @@
         ],
         "binaries": {
           "linux/amd64": "https://github.com/lavanet/lava/releases/download/v1.0.1/lavad-v1.0.1-linux-amd64"
+        },
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.47.7"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "3.0.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
         }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.47.7"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "7.2.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "0.30",
+      "enabled": false
+    }
   },
   "images": [
     {
@@ -210,7 +240,7 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://public-rpc-testnet2.lavanet.xyz:443/rpc/",
+        "address": "https://lav1.tendermintrpc.lava.build:443",
         "provider": "Lava"
       },
       {
@@ -228,7 +258,7 @@
     ],
     "rest": [
       {
-        "address": "https://public-rpc-testnet2.lavanet.xyz:443/rest/",
+        "address": "https://lav1.lava.build/",
         "provider": "Lava"
       },
       {

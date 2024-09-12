@@ -3,7 +3,8 @@
   "chain_name": "injective",
   "assets": [
     {
-      "description": "The INJ token is the native governance token for the Injective chain.",
+      "description": "Injective is a decentralized exchange protocol that enables fast, secure, and fully decentralized trading of derivatives, futures, and spot markets.",
+      "extended_description": "Injective Protocol is a cutting-edge decentralized exchange (DEX) platform facilitating fully decentralized trading of derivatives, futures, and spot markets. Built on the Cosmos SDK, Injective leverages layer-2 scaling solutions for high-speed transactions with low fees, ensuring an efficient trading experience. The platform's design eliminates intermediaries, giving users complete control over their assets and trades.\n\nThe Injective ecosystem is powered by its native token, INJ, used for governance, staking, and fee reduction. By staking INJ, users can participate in network governance, influencing key decisions and protocol upgrades. Injective's features include cross-chain trading, allowing seamless asset trading across different blockchains, and a decentralized order book for transparency and security. Injective transforms the DeFi space with a comprehensive, decentralized solution for trading various financial instruments.",
       "denom_units": [
         {
           "denom": "inj",
@@ -26,7 +27,10 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg",
+          "theme": {
+            "primary_color_hex": "#04a2fc"
+          }
         }
       ],
       "socials": {
@@ -50,7 +54,7 @@
       "base": "ibc/4ABBEF4C8926DDDB320AE5188CFD63267ABBCEFC0583E4AE05D6E5AA2401DDAB",
       "name": "Tether USDt",
       "display": "usdt",
-      "symbol": "USDt",
+      "symbol": "USDTkv",
       "traces": [
         {
           "type": "ibc",
@@ -71,10 +75,64 @@
             "chain_name": "kava",
             "base_denom": "erc20/tether/usdt"
           },
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#009393",
+            "background_color_hex": "#009393"
+          }
         }
       ],
       "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+      }
+    },
+    {
+      "description": "Tether USDt from Ethereum via Peggy bridge.",
+      "denom_units": [
+        {
+          "denom": "peggy0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "exponent": 0
+        },
+        {
+          "denom": "usdt",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "peggy0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      "name": "Tether USDT",
+      "display": "usdt",
+      "symbol": "USDT",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+          },
+          "provider": "Peggy"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#009393",
+            "background_color_hex": "#009393"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
       }
     },
@@ -99,7 +157,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ampinj.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ampinj.png",
+          "theme": {
+            "primary_color_hex": "#5480cc"
+          }
         }
       ]
     },
@@ -125,7 +186,38 @@
       "coingecko_id": "autism",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/autism.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/autism.png",
+          "theme": {
+            "primary_color_hex": "#040404"
+          }
+        }
+      ]
+    },
+    {
+      "description": "BackBone Labs Liquid Staked Injective",
+      "denom_units": [
+        {
+          "denom": "factory/inj1dxp690rd86xltejgfq2fa7f2nxtgmm5cer3hvu/bINJ",
+          "exponent": 0
+        },
+        {
+          "denom": "bINJ",
+          "exponent": 18
+        }
+      ],
+      "base": "factory/inj1dxp690rd86xltejgfq2fa7f2nxtgmm5cer3hvu/bINJ",
+      "name": "BackBone Labs Liquid Staked Injective",
+      "display": "bINJ",
+      "symbol": "bINJ",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/binj.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/binj.png",
+          "theme": {
+            "primary_color_hex": "#04a2fc"
+          }
         }
       ]
     },
@@ -186,7 +278,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/wgmi.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/wgmi.png",
+          "theme": {
+            "primary_color_hex": "#040404"
+          }
         }
       ]
     },
@@ -227,7 +322,10 @@
             "chain_name": "osmosis",
             "base_denom": "factory/osmo1pfyxruwvtwk00y8z06dh2lqjdj82ldvy74wzm3/WOSMO"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/wosmo.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/wosmo.png",
+          "theme": {
+            "primary_color_hex": "#edd5ee"
+          }
         }
       ],
       "logo_URIs": {
@@ -266,13 +364,16 @@
             "chain_name": "ethereum",
             "base_denom": "0xd73175f9eb15eee81745d367ae59309Ca2ceb5e2"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/glto.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/glto.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/glto.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/glto.svg",
+          "theme": {
+            "primary_color_hex": "#501cad"
+          }
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/glto.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/glto.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/glto.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/glto.svg"
       },
       "socials": {
         "website": "https://gelotto.io/",
@@ -301,7 +402,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/hava.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/hava.png",
+          "theme": {
+            "primary_color_hex": "#eacea5"
+          }
         }
       ],
       "socials": {
@@ -346,7 +450,10 @@
             "chain_name": "osmosis",
             "base_denom": "factory/osmo10n8rv8npx870l69248hnp6djy6pll2yuzzn9x8/BADKID"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/badkid.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/badkid.png",
+          "theme": {
+            "primary_color_hex": "#57443f"
+          }
         }
       ],
       "logo_URIs": {
@@ -374,7 +481,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ninpo.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ninpo.png",
+          "theme": {
+            "primary_color_hex": "#31292a"
+          }
         }
       ]
     },
@@ -399,7 +509,10 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/judo.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/judo.png",
+          "theme": {
+            "primary_color_hex": "#18120f"
+          }
         }
       ]
     },
@@ -435,7 +548,10 @@
             "chain_name": "ethereum",
             "base_denom": "0xA4426666addBE8c4985377d36683D17FB40c31Be"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/beast.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/beast.png",
+          "theme": {
+            "primary_color_hex": "#21172b"
+          }
         }
       ],
       "logo_URIs": {
@@ -487,7 +603,10 @@
             "base_denom": "factory/neutron1ffus553eet978k024lmssw0czsxwr97mggyv85lpcsdkft8v9ufsz3sa07/astro"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.svg",
+          "theme": {
+            "primary_color_hex": "#4056e9"
+          }
         }
       ],
       "logo_URIs": {
@@ -513,7 +632,10 @@
       "symbol": "nINJ",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ninj.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ninj.png",
+          "theme": {
+            "primary_color_hex": "#293a6f"
+          }
         }
       ]
     },
@@ -535,7 +657,10 @@
       "symbol": "nATOM",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/natom.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/natom.png",
+          "theme": {
+            "primary_color_hex": "#272f4b"
+          }
         }
       ]
     },
@@ -557,7 +682,10 @@
       "symbol": "nWETH",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/nweth.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/nweth.png",
+          "theme": {
+            "primary_color_hex": "#2a303f"
+          }
         }
       ]
     },
@@ -579,7 +707,10 @@
       "symbol": "nUSDT",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/nusdt.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/nusdt.png",
+          "theme": {
+            "primary_color_hex": "#54ac94"
+          }
         }
       ]
     },
@@ -601,7 +732,10 @@
       "symbol": "nTIA",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ntia.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ntia.png",
+          "theme": {
+            "primary_color_hex": "#7931f9"
+          }
         }
       ]
     },
@@ -645,7 +779,10 @@
             "chain_name": "neutron",
             "base_denom": "factory/neutron1a6ydq8urdj0gkvjw9e9e5y9r5ce2qegm9m4xufpt96kcm60kmuass0mqq4/nbz"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/NBZ.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/NBZ.png",
+          "theme": {
+            "primary_color_hex": "#9890f9"
+          }
         }
       ],
       "logo_URIs": {
@@ -670,7 +807,10 @@
       "symbol": "TALIS",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/talis.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/talis.png",
+          "theme": {
+            "primary_color_hex": "#0c0f17"
+          }
         }
       ],
       "socials": {
@@ -696,13 +836,249 @@
       "symbol": "XTALIS",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/xtalis.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/xtalis.png",
+          "theme": {
+            "primary_color_hex": "#eaf0df"
+          }
         }
       ],
       "socials": {
         "website": "https://talis.art/",
         "twitter": "https://twitter.com/ProtocolTalis"
       }
+    },
+    {
+      "description": "USDC is a fully collateralized US Dollar stablecoin developed by CENTRE, the open source project with Circle being the first of several forthcoming issuers.",
+      "denom_units": [
+        {
+          "denom": "ibc/2CBC2EA121AE42563B08028466F37B600F2D7D4282342DE938283CC3FB2BC00E",
+          "exponent": 0,
+          "aliases": [
+            "microusdc",
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/2CBC2EA121AE42563B08028466F37B600F2D7D4282342DE938283CC3FB2BC00E",
+      "name": "USDC",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "USD"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-31"
+          },
+          "chain": {
+            "channel_id": "channel-148",
+            "path": "transfer/channel-148/uusdc"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "noble",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#2775CA"
+          }
+        },
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+        }
+      ]
+    },
+    {
+      "description": "The most degenerate NFT on Injective. Gravedigger collection for $bINJ. Giving power back to the community.",
+      "denom_units": [
+        {
+          "denom": "factory/inj1a6xdezq7a94qwamec6n6cnup02nvewvjtz6h6e/SYN",
+          "exponent": 0
+        },
+        {
+          "denom": "SYN",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1a6xdezq7a94qwamec6n6cnup02nvewvjtz6h6e/SYN",
+      "name": "Syndicate",
+      "display": "SYN",
+      "symbol": "SYN",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/syn.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/syn.png",
+          "theme": {
+            "primary_color_hex": "#04a2fc"
+          }
+        }
+      ]
+    },
+    {
+      "description": "SYN burn Derivative; minted when SYN is burned via The Furnace",
+      "denom_units": [
+        {
+          "denom": "factory/inj1ej2f3lmpxj4djsmmuxvnfuvplrut7zmwrq7zj8/syn.ash",
+          "exponent": 0
+        },
+        {
+          "denom": "ashSYN",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1ej2f3lmpxj4djsmmuxvnfuvplrut7zmwrq7zj8/syn.ash",
+      "name": "ASH Syndicate",
+      "display": "ashSYN",
+      "symbol": "ashSYN",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/syn.ash.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/syn.ash.png"
+        }
+      ]
+    },
+    {
+      "description": "Cosmo is the best currency in the universe.",
+      "extended_description": "We aim to build a decentralized community by leveraging cutting-edge technologies.",
+      "denom_units": [
+        {
+          "denom": "factory/inj1je6n5sr4qtx2lhpldfxndntmgls9hf38ncmcez/COSMO",
+          "exponent": 0
+        },
+        {
+          "denom": "COSMO",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1je6n5sr4qtx2lhpldfxndntmgls9hf38ncmcez/COSMO",
+      "name": "Cosmo",
+      "display": "COSMO",
+      "symbol": "COSMO",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/cosmo.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/cosmo.png",
+          "theme": {
+            "primary_color_hex": "#343169"
+          }
+        }
+      ],
+      "socials": {
+        "website": "https://github.com/raphaellafar/Cosmo",
+        "twitter": "https://x.com/CosmoClub84"
+      }
+    },
+    {
+      "description": "The Representative factory token for Trump Kemistry",
+      "denom_units": [
+        {
+          "denom": "ibc/5339B0D20986A7C20C2548ED9D6B8DE47BB64E03ABFD051B7792E713036EA20C",
+          "exponent": 0
+        },
+        {
+          "denom": "XTRUMP",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/5339B0D20986A7C20C2548ED9D6B8DE47BB64E03ABFD051B7792E713036EA20C",
+      "name": "XTRUMP",
+      "display": "XTRUMP",
+      "symbol": "XTRUMP",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "factory/osmo1hg0zf0c9can4tvtulh5gmmxe4jpflre3yewxjl/XTRUMP",
+            "channel_id": "channel-122"
+          },
+          "chain": {
+            "channel_id": "channel-8",
+            "path": "transfer/channel-8/factory/osmo1hg0zf0c9can4tvtulh5gmmxe4jpflre3yewxjl/XTRUMP"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "osmosis",
+            "base_denom": "factory/osmo1hg0zf0c9can4tvtulh5gmmxe4jpflre3yewxjl/XTRUMP"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/XTRUMP.png",
+          "theme": {
+            "primary_color_hex": "#b02b27"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/XTRUMP.png"
+      }
+    },
+    {
+      "description": "DRUGS meme coin",
+      "denom_units": [
+        {
+          "denom": "cw20:inj19vy83ne9tzta2yqynj8yg7dq9ghca6yqn9hyej",
+          "exponent": 0
+        },
+        {
+          "denom": "DRUGS",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "cw20",
+      "address": "inj19vy83ne9tzta2yqynj8yg7dq9ghca6yqn9hyej",
+      "base": "cw20:inj19vy83ne9tzta2yqynj8yg7dq9ghca6yqn9hyej",
+      "name": "DRUGS",
+      "display": "DRUGS",
+      "symbol": "DRUGS",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/drugs.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/drugs.png"
+        }
+      ]
     }
   ]
 }

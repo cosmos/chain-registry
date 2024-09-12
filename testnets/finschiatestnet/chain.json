@@ -1,6 +1,7 @@
 {
   "$schema": "../../chain.schema.json",
   "chain_name": "finschiatestnet",
+  "chain_type": "cosmos",
   "chain_id": "ebony-2",
   "website": "https://www.finschia.io/",
   "pretty_name": "Ebony",
@@ -84,7 +85,29 @@
         "ics_enabled": [
           "ics20-1"
         ],
-        "next_version_name": "v2"
+        "next_version_name": "v2",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.3",
+          "repo": "https://github.com/Finschia/finschia-sdk"
+        },
+        "language": {
+          "type": "go",
+          "version": "1.18"
+        },
+        "cosmwasm": {
+          "version": "v0.1.5",
+          "path": "$HOME/.finschia/wasm/wasm",
+          "enabled": true,
+          "repo": "https://github.com/Finschia/wasmd"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.3.3",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v2",
@@ -112,9 +135,53 @@
           "ics20-1"
         ],
         "previous_version_name": "v1",
-        "next_version_name": "v3"
+        "next_version_name": "v3",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.48.1",
+          "repo": "https://github.com/Finschia/finschia-sdk"
+        },
+        "language": {
+          "type": "go",
+          "version": "1.20"
+        },
+        "cosmwasm": {
+          "version": "v0.2.0",
+          "path": "$HOME/.finschia/wasm/wasm",
+          "enabled": true,
+          "repo": "https://github.com/Finschia/wasmd"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.3.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       }
-    ]
+    ],
+    "language": {
+      "type": "go",
+      "version": "1.20"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/Finschia/finschia-sdk",
+      "version": "v0.48.1"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v4.3.1",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "v0.2.0",
+      "path": "$HOME/.finschia/wasm/wasm",
+      "enabled": true,
+      "repo": "https://github.com/Finschia/wasmd"
+    }
   },
   "peers": {
     "seeds": [],

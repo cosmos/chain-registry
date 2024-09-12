@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.sourceprotocol.io/",
   "pretty_name": "Source",
+  "chain_type": "cosmos",
   "chain_id": "source-1",
   "bech32_prefix": "source",
   "daemon_name": "sourced",
@@ -33,9 +34,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Source-Protocol-Cosmos/source",
-    "recommended_version": "v3.0.1",
+    "recommended_version": "v3.0.3",
     "compatible_versions": [
-      "v3.0.1"
+      "v3.0.3"
     ],
     "cosmos_sdk_version": "0.45",
     "consensus": {
@@ -50,9 +51,9 @@
     "versions": [
       {
         "name": "v3.0.0",
-        "recommended_version": "v3.0.1",
+        "recommended_version": "v3.0.3",
         "compatible_versions": [
-          "v3.0.1"
+          "v3.0.3"
         ],
         "cosmos_sdk_version": "0.45",
         "consensus": {
@@ -60,9 +61,25 @@
           "version": "0.34"
         },
         "cosmwasm_version": "0.30",
-        "cosmwasm_enabled": true
+        "cosmwasm_enabled": true,
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "version": "0.30",
+          "enabled": true
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.45"
+    },
+    "cosmwasm": {
+      "version": "0.30",
+      "enabled": true
+    }
   },
   "peers": {
     "seeds": [
@@ -105,6 +122,16 @@
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:23256",
+        "provider": "BlueStake 🚀"
+      },
+      {
+        "id": "08bc9afd0cac4ae6cf8f1877920b0cc7e58a6f42",
+        "address": "seeds.tendermint.roomit.xyz:40002",
+        "provider": "Roomit"
       }
     ],
     "persistent_peers": [
@@ -149,8 +176,8 @@
       },
       {
         "id": "47b858cda8717aef908f2567b05ef312d18bb6f3",
-        "address": "p2p-pve01.roomit.xyz:16602",
-        "provider": "RoomIT"
+        "address": "p2p.tendermint.roomit.xyz:16602",
+        "provider": "Roomit"
       },
       {
         "id": "73ef1c0f9bc77fd925decf7fa41f22a35b5dc76d",
@@ -215,7 +242,7 @@
       },
       {
         "address": "https://rpc.source.roomit.xyz/",
-        "provider": "RoomIT"
+        "provider": "Roomit"
       },
       {
         "address": "https://rpc.source.posthuman.digital",
@@ -232,6 +259,10 @@
       {
         "address": "https://source_mainnet_rpc.chain.whenmoonwhenlambo.money",
         "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+      },
+      {
+        "address": "https://source-rpc.bluestake.net:443",
+        "provider": "BlueStake 🚀"
       }
     ],
     "rest": [
@@ -289,7 +320,7 @@
       },
       {
         "address": "https://api.source.roomit.xyz",
-        "provider": "RoomIT"
+        "provider": "Roomit"
       },
       {
         "address": "https://rest.source.posthuman.digital",
@@ -310,6 +341,10 @@
       {
         "address": "https://source_mainnet_api.chain.whenmoonwhenlambo.money",
         "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+      },
+      {
+        "address": "https://source-api.bluestake.net",
+        "provider": "BlueStake 🚀"
       }
     ],
     "grpc": [
@@ -359,7 +394,7 @@
       },
       {
         "address": "grpc.source.roomit.xyz:8443",
-        "provider": "RoomIT"
+        "provider": "Roomit"
       },
       {
         "address": "https://source.declab.pro:9003",
@@ -409,7 +444,7 @@
       "tx_page": "https://explorer.indonode.net/source/tx/${txHash}"
     },
     {
-      "kind": "RoomIT",
+      "kind": "Roomit",
       "url": "https://explorer.tendermint.roomit.xyz/source-mainnet/",
       "tx_page": "https://explorer.tendermint.roomit.xyz/source-mainnet/tx/${txHash}"
     },
@@ -441,7 +476,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/source/images/source.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/source/images/source.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/source/images/source.svg",
+      "theme": {
+        "primary_color_hex": "#39a5fc"
+      }
     }
   ],
   "logo_URIs": {

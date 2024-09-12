@@ -1,10 +1,11 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "8ball",
-  "status": "live",
+  "status": "killed",
   "website": "https://8ball.info/",
   "network_type": "mainnet",
   "pretty_name": "8ball",
+  "chain_type": "cosmos",
   "chain_id": "eightball-1",
   "bech32_prefix": "8ball",
   "daemon_name": "8ball",
@@ -56,9 +57,23 @@
         "cosmwasm_enabled": true,
         "binaries": {
           "linux/amd64": "https://8ball.info/8ball.tar.gz"
+        },
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46.7"
+        },
+        "cosmwasm": {
+          "enabled": true
         }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46.7"
+    },
+    "cosmwasm": {
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/8ball/images/8ball.png",
@@ -154,7 +169,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/8ball/images/8ball.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/8ball/images/8ball.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/8ball/images/8ball.svg",
+      "theme": {
+        "primary_color_hex": "#dbdbdb"
+      }
     }
   ]
 }
