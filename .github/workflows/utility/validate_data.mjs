@@ -133,6 +133,28 @@ function checkTraceCounterpartyIsValid(chain_name, asset) {
 
 }
 
+
+async function checkIbcDenomAccuracy(chain_name, asset) {
+
+  if (!asset.base) { return; }
+  if (asset.type_asset === "ics20") {
+
+    if (!asset.traces) {
+      throw new Error(`Trace of ${chain_name}, ${asset.base} not found for ics20 asset (where it is required).`);
+    }
+    const path = asset.traces[asset.traces.length - 1]?.chain?.path;
+    if (!path) {
+      throw new Error(`Path not defined for ${chain_name}, ${asset.base}.`);
+    }
+    const ibcHash = await chain_reg.calculateIbcHash(path);
+    if (ibcHash !== asset.base) {
+      throw new Error(`IBC Denom (SHA256 Hash) of ${path} does not match ${chain_name}, ${asset.base}.`);
+    }
+  }
+
+}
+
+
 function checkImageSyncIsValid(chain_name, asset) {
 
   if (!asset.base) { return; }
@@ -327,6 +349,9 @@ export function validate_chain_files() {
 
       //check counterparty pointers of traces
       checkTraceCounterpartyIsValid(chain_name, asset);
+
+      //check ibc denom accuracy
+      checkIbcDenomAccuracy(chain_name, asset);
 
       //check image_sync pointers of images
       checkImageSyncIsValid(chain_name, asset);
