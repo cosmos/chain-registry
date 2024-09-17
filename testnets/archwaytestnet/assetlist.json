@@ -1,5 +1,5 @@
 {
-  "$schema": "../assetlist.schema.json",
+  "$schema": "../../assetlist.schema.json",
   "chain_name": "archwaytestnet",
   "assets": [
     {
@@ -33,8 +33,8 @@
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.svg"
       },
       "images": [
         {
@@ -42,8 +42,8 @@
             "chain_name": "archway",
             "base_denom": "aarch"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.svg",
           "theme": {
             "primary_color_hex": "#fc4c04"
           }
@@ -53,6 +53,135 @@
         "website": "https://archway.io/",
         "twitter": "https://twitter.com/archwayHQ"
       }
+    },
+    {
+      "description": "Wrapped CONST (Archway Testnet token)",
+      "type_asset": "cw20",
+      "address": "archway1dz6h2smr432gvzruklk3lps7ak2ca7cngdge4vym93wehkkypwpqgwr2q2",
+      "denom_units": [
+        {
+          "denom": "cw20:archway1dz6h2smr432gvzruklk3lps7ak2ca7cngdge4vym93wehkkypwpqgwr2q2",
+          "exponent": 0
+        },
+        {
+          "denom": "wARCH",
+          "exponent": 18
+        }
+      ],
+      "base": "cw20:archway1dz6h2smr432gvzruklk3lps7ak2ca7cngdge4vym93wehkkypwpqgwr2q2",
+      "name": "Wrapped ARCH",
+      "display": "wCONST",
+      "symbol": "wARCH",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wArch.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wArch.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wArch.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wArch.svg",
+          "theme": {
+            "primary_color_hex": "#000000"
+          }
+        }
+      ],
+      "coingecko_id": "archway"
+    },
+    {
+      "description": "Circle's USDC Noble Testnet (Grand) on Archway Testnet",
+      "denom_units": [
+        {
+          "denom": "ibc/CE6B3F114B3B6EAEC14E9221A7E799B16D394C9D5D7CF644156F481A9E69EC5D",
+          "exponent": 0,
+          "aliases": ["uusdc"]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/CE6B3F114B3B6EAEC14E9221A7E799B16D394C9D5D7CF644156F481A9E69EC5D",
+      "name": "USDC (Noble)",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "USD"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-215"
+          },
+          "chain": {
+            "channel_id": "channel-500",
+            "path": "transfer/channel-500/uusdc"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/usdc.noble.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/usdc.noble.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/usdc.noble.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/usdc.noble.svg",
+          "theme": {
+            "primary_color_hex": "#2474cc"
+          }
+        }
+      ],
+      "coingecko_id": "usd-coin"
+    },
+    {
+      "description": "Wrapped USDC (Noble Testnet Grand)",
+      "type_asset": "cw20",
+      "address": "archway1r8kepegwhldwqanuurc769l2g0qxlsm2sm6t5rhqjzcerxsgshls267f7a",
+      "denom_units": [
+        {
+          "denom": "cw20:archway1r8kepegwhldwqanuurc769l2g0qxlsm2sm6t5rhqjzcerxsgshls267f7a",
+          "exponent": 0
+        },
+        {
+          "denom": "wUSDC",
+          "exponent": 6
+        }
+      ],
+      "base": "cw20:archway1r8kepegwhldwqanuurc769l2g0qxlsm2sm6t5rhqjzcerxsgshls267f7a",
+      "name": "Wrapped USDC",
+      "display": "wUSDC",
+      "symbol": "wUSDC",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wUsdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wUsdc.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wUsdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wUsdc.svg",
+          "theme": {
+            "primary_color_hex": "#000000"
+          }
+        }
+      ],
+      "coingecko_id": "usd-coin"
     }
   ]
 }
