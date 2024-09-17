@@ -311,8 +311,6 @@ function checkFileSchemaReference(fileLocation, fileName, extraParentDirectories
     chain_reg.schemas.get(schema)
   );
 
-  //console.log(`${calculatedSchemaLocation}`);
-
   const file = path.join(fileLocation, fileName);
   const jsonFileContents = chain_reg.readJsonFile(file);
 
@@ -388,7 +386,7 @@ function checkFileSchemaReferences() {
 
         if (chain_reg.nonChainDirectories.includes(chain)) { return; }
 
-        console.log(`${chain}`);
+        //console.log(`${chain}`);
 
         extraParentDirectories += "../";
 
@@ -399,7 +397,7 @@ function checkFileSchemaReferences() {
         chainFiles.forEach((chainFile) => {
 
           let fileName = chain_reg.fileToFileNameMap.get(chainFile);
-          if (files.includes(chainFile)) {
+          if (files.includes(fileName)) {
             checkFileSchemaReference(fileLocation, fileName, extraParentDirectories, chainFile);
           }
 
