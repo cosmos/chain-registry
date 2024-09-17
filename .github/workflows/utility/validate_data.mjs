@@ -302,6 +302,127 @@ function checkVersionForReplacementProperties(chain_name, versionObject) {
 
 }
 
+function checkFileSchemaReference(fileLocation, fileName, extraParentDirectories, schema) {
+
+  //console.log(`${extraParentDirectories}`);
+
+  let calculatedSchemaLocation = path.join(
+    extraParentDirectories,
+    chain_reg.schemas.get(schema)
+  );
+
+  //console.log(`${calculatedSchemaLocation}`);
+
+  const file = path.join(fileLocation, fileName);
+  const jsonFileContents = chain_reg.readJsonFile(file);
+
+  if (!jsonFileContents) {
+    console.log("Err: No JSON Contents");
+    console.log(`${jsonFileContents}`);
+    console.log(`${fileLocation}`);
+    console.log(`${fileName}`);
+  }
+
+  const schemaValue = jsonFileContents?.$schema;
+
+  if (!schemaValue) {
+    console.log("Err: No Schema Value");
+    console.log(`${schemaValue}`);
+    console.log(`${jsonFileContents}`);
+  }
+
+  if (schemaValue !== calculatedSchemaLocation) {
+    console.log("Err: Schema Value and Schema Location do not match");
+    console.log(`${file}`);
+    console.log(`${schemaValue}`);
+    console.log(`${calculatedSchemaLocation}`);
+  }
+
+}
+
+function checkFileSchemaReferences() {
+
+  const root = chain_reg.chainRegistryRoot;
+
+  //Directories (from Root--will join later)
+
+  const ibcDirectory = "_IBC";
+
+  //mainnets vs testnets/devnets
+  const networkTypes = [...chain_reg.networkTypeToDirectoryNameMap.values()];
+
+  const chainTypes = [...chain_reg.domainToDirectoryNameMap.values()];
+
+  const chainFiles = [...chain_reg.fileToFileNameMap.keys()];
+
+  let extraParentDirectories = "";
+
+  networkTypes.forEach((networkType) => {
+
+    if (networkType !== "") {
+      extraParentDirectories += "../";
+    }
+
+    //remember to look at IBC
+    let fileLocation = path.join(root, networkType, ibcDirectory);
+    let files = chain_reg.getDirectoryContents(fileLocation);
+    extraParentDirectories += "../";
+    console.log(extraParentDirectories);
+    files.forEach((file) => {
+
+      checkFileSchemaReference(fileLocation, file, extraParentDirectories, "ibc");
+
+    });
+    extraParentDirectories = extraParentDirectories.slice(0,-3);
+
+    //cosmos vs non_cosmos
+    chainTypes.forEach((chainType) => {
+
+      if (chainType !== "") {
+        extraParentDirectories += "../";
+      }
+
+      //look at each chain
+      let chains = chain_reg.getDirectoryContents(path.join(root, networkType, chainType));
+      chains.forEach((chain) => {
+
+        if (chain_reg.nonChainDirectories.includes(chain)) { return; }
+
+        console.log(`${chain}`);
+
+        extraParentDirectories += "../";
+
+        let fileLocation = path.join(root, networkType, chainType, chain);
+        let files = chain_reg.getDirectoryContents(fileLocation);
+
+        //chain.json vs assetlist.json vs ...
+        chainFiles.forEach((chainFile) => {
+
+          let fileName = chain_reg.fileToFileNameMap.get(chainFile);
+          if (files.includes(chainFile)) {
+            checkFileSchemaReference(fileLocation, fileName, extraParentDirectories, chainFile);
+          }
+
+        });
+
+        extraParentDirectories = extraParentDirectories.slice(0, -3);
+
+      });
+
+      if (chainType !== "") {
+        extraParentDirectories = extraParentDirectories.slice(0, -3);
+      }
+
+    });
+
+    if (networkType !== "") {
+      extraParentDirectories = extraParentDirectories.slice(0, -3);
+    }
+
+  });
+
+}
+
 function arraysEqual(arr1, arr2) {
   if (arr1.length !== arr2.length) return false;
 
@@ -364,7 +485,12 @@ export function validate_chain_files() {
 }
 
 function main() {
+
+  //check all chains
   validate_chain_files();
+
+  //check file schema references
+  checkFileSchemaReferences();
 }
 
 main();
