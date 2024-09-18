@@ -72,6 +72,16 @@
       "name": "Wrapped ARCH",
       "display": "wCONST",
       "symbol": "wARCH",
+      "traces": [
+        {
+          "type": "wrapped",
+          "counterparty": {
+            "chain_name": "archwaytestnet",
+            "base_denom": "aconst"
+          },
+          "provider": "Archway"
+        }
+      ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wArch.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wArch.svg"
@@ -84,8 +94,7 @@
             "primary_color_hex": "#000000"
           }
         }
-      ],
-      "coingecko_id": "archway"
+      ]
     },
     {
       "description": "Circle's USDC Noble Testnet (Grand) on Archway Testnet",
@@ -136,19 +145,22 @@
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/usdc.noble.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/usdc.noble.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.svg"
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/usdc.noble.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/usdc.noble.svg",
+          "image_sync": {
+            "chain_name": "noble",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.svg",
           "theme": {
             "primary_color_hex": "#2474cc"
           }
         }
-      ],
-      "coingecko_id": "usd-coin"
+      ]
     },
     {
       "description": "Wrapped USDC (Noble Testnet Grand)",
@@ -168,20 +180,57 @@
       "name": "Wrapped USDC",
       "display": "wUSDC",
       "symbol": "wUSDC",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "USD"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-215"
+          },
+          "chain": {
+            "channel_id": "channel-500",
+            "path": "transfer/channel-500/uusdc"
+          }
+        },
+        {
+          "type": "wrapped",
+          "counterparty": {
+            "chain_name": "archwaytestnet",
+            "base_denom": "ibc/CE6B3F114B3B6EAEC14E9221A7E799B16D394C9D5D7CF644156F481A9E69EC5D"
+          },
+          "provider": "Archway"
+        }
+      ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wUsdc.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wUsdc.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wUsdc.noble.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wUsdc.noble.svg"
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wUsdc.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wUsdc.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wUsdc.noble.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wUsdc.noble.svg",
           "theme": {
             "primary_color_hex": "#000000"
           }
         }
-      ],
-      "coingecko_id": "usd-coin"
+      ]
     }
   ]
 }
