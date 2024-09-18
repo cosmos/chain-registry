@@ -158,10 +158,7 @@
       "denom_units": [
         {
           "denom": "ibc/49D820DFDE9F885D7081725A58202ABA2F465CAEE4AFBC683DFB79A8E013E83E",
-          "exponent": 0,
-          "aliases": [
-            "cw20:orai19rtmkk6sn4tppvjmp5d5zj6gfsdykrl5rw2euu5gwur3luheuuusesqn49"
-          ]
+          "exponent": 0
         },
         {
           "denom": "inj",
@@ -169,8 +166,7 @@
         }
       ],
       "type_asset": "ics20",
-      "address": "orai19rtmkk6sn4tppvjmp5d5zj6gfsdykrl5rw2euu5gwur3luheuuusesqn49",
-      "base": "cw20:orai19rtmkk6sn4tppvjmp5d5zj6gfsdykrl5rw2euu5gwur3luheuuusesqn49",
+      "base": "ibc/49D820DFDE9F885D7081725A58202ABA2F465CAEE4AFBC683DFB79A8E013E83E",
       "traces": [
         {
           "type": "ibc",
@@ -197,6 +193,48 @@
           "image_sync": {
             "chain_name": "injective",
             "base_denom": "inj"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg",
+          "theme": {
+            "primary_color_hex": "#04a2fc"
+          }
+        }
+      ]
+    },
+    {
+      "description": "The Wrapped INJ token for the Oraichain.",
+      "type_asset": "sdk.coin",
+      "address": "orai19rtmkk6sn4tppvjmp5d5zj6gfsdykrl5rw2euu5gwur3luheuuusesqn49",
+      "denom_units": [
+        {
+          "denom": "cw20:orai19rtmkk6sn4tppvjmp5d5zj6gfsdykrl5rw2euu5gwur3luheuuusesqn49",
+          "exponent": 0
+        },
+        {
+          "denom": "inj",
+          "exponent": 6
+        }
+      ],
+      "base": "cw20:orai19rtmkk6sn4tppvjmp5d5zj6gfsdykrl5rw2euu5gwur3luheuuusesqn49",
+      "name": "Injective",
+      "display": "inj",
+      "symbol": "INJ",
+      "traces": [
+        {
+          "type": "wrapped",
+          "counterparty": {
+            "chain_name": "oraichain",
+            "base_denom": "ibc/49D820DFDE9F885D7081725A58202ABA2F465CAEE4AFBC683DFB79A8E013E83E"
+          },
+          "provider": "Oraichain"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "oraichain",
+            "base_denom": "ibc/49D820DFDE9F885D7081725A58202ABA2F465CAEE4AFBC683DFB79A8E013E83E"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg",
