@@ -24,14 +24,14 @@
       "display": "arch",
       "symbol": "ARCH",
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.svg"
       },
       "coingecko_id": "archway",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.svg",
           "theme": {
             "primary_color_hex": "#fc4c04"
           }
@@ -125,9 +125,7 @@
         {
           "denom": "ibc/1BCF1FCAFE3568E234787EDFDA12460BD8931B17FE6A729DCD60FAD845558DA1",
           "exponent": 0,
-          "aliases": [
-            "uvdl"
-          ]
+          "aliases": ["uvdl"]
         },
         {
           "denom": "vdl",
@@ -203,6 +201,98 @@
         }
       ],
       "coingecko_id": "astrovault"
+    },
+    {
+      "description": "Wrapped ARCH",
+      "type_asset": "cw20",
+      "address": "archway1msc3fa4e2mh73y760qmjd3wfkzr98nl26f36xgt2xnhuw6ay3scs42zeue",
+      "denom_units": [
+        {
+          "denom": "cw20:archway1msc3fa4e2mh73y760qmjd3wfkzr98nl26f36xgt2xnhuw6ay3scs42zeue",
+          "exponent": 0
+        },
+        {
+          "denom": "wARCH",
+          "exponent": 18
+        }
+      ],
+      "base": "cw20:archway1msc3fa4e2mh73y760qmjd3wfkzr98nl26f36xgt2xnhuw6ay3scs42zeue",
+      "name": "Wrapped ARCH",
+      "display": "wARCH",
+      "symbol": "wARCH",
+      "traces": [
+        {
+          "type": "wrapped",
+          "counterparty": {
+            "chain_name": "archway",
+            "base_denom": "aarch"
+          },
+          "provider": "Archway"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wArch.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wArch.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wArch.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wArch.svg",
+          "theme": {
+            "primary_color_hex": "#000000"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Circle's USDC Noble on Archway ",
+      "denom_units": [
+        {
+          "denom": "ibc/43897B9739BD63E3A08A88191999C632E052724AB96BD4C74AE31375C991F48D",
+          "exponent": 0,
+          "aliases": ["uusdc"]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/43897B9739BD63E3A08A88191999C632E052724AB96BD4C74AE31375C991F48D",
+      "name": "USDC (Noble)",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-12"
+          },
+          "chain": {
+            "channel_id": "channel-29",
+            "path": "transfer/channel-29/uusdc"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "noble",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.svg",
+          "theme": {
+            "primary_color_hex": "#2474cc"
+          }
+        }
+      ]
     }
   ]
 }
