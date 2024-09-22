@@ -88,7 +88,7 @@ export const bech32ConfigSuffixMap = new Map([
 ]);
 
 
-const networkTypeToDirectoryMap = new Map();
+export const networkTypeToDirectoryMap = new Map();
 networkTypeToDirectoryMap.set("mainnet", "");
 networkTypeToDirectoryMap.set("testnet", "testnets");
 for (const [networkType, directory] of networkTypeToDirectoryMap.entries()) {
