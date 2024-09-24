@@ -1837,7 +1837,7 @@
       "name": "Avail",
       "display": "AVAIL",
       "symbol": "AVAIL",
-       "traces": [
+      "traces": [
         {
           "type": "bridge",
           "counterparty": {
@@ -1861,6 +1861,56 @@
           }
         }
       ]
+    },
+    {
+      "description": "EURe is a Euro-backed stablecoin issued by Monerium.",
+      "extended_description": "EURe is the first authorized and regulated stablecoin in Europe. It is collateralized by Euro-denominated deposits held in segregated accounts. EURe is issued by Monerium, the first Electronic Money Institution (EMI) to become compliant under the EU's MiCA regulations.",
+      "type_asset": "erc20",
+      "address": "0x3231Cb76718CDeF2155FC47b5286d82e6eDA273f",
+      "denom_units": [
+        {
+          "denom": "0x3231Cb76718CDeF2155FC47b5286d82e6eDA273f",
+          "exponent": 0,
+          "aliases": [
+            "eure-wei",
+            "ueure"
+          ]
+        },
+        {
+          "denom": "eure",
+          "exponent": 18
+        }
+      ],
+      "base": "0x3231Cb76718CDeF2155FC47b5286d82e6eDA273f",
+      "name": "Monerium EUR emoney",
+      "display": "eure",
+      "symbol": "EURe",
+      "coingecko_id": "monerium-eur-money",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "EUR"
+          },
+          "provider": "Monerium"
+        }
+      ],
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eure.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eure.svg",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#0095D7",
+            "background_color_hex": "#FFFFFF"
+          }
+        }
+      ],
+      "socials": {
+        "webiste": "https://monerium.com/",
+        "twitter": "https://x.com/monerium"
+      }
     }
   ]
 }
