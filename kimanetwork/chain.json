@@ -1,15 +1,15 @@
 {
   "$schema": "../chain.schema.json",
-  "chain_name": "kima",
+  "chain_name": "kima_network",
   "status": "live",
   "website": "https://www.kima.network/",
   "network_type": "mainnet",
-  "pretty_name": "Kima",
+  "pretty_name": "Kima Network",
   "chain_type": "cosmos",
-  "chain_id": "kima_mainnet",
+  "chain_id": "kima_network",
   "bech32_prefix": "kima",
   "daemon_name": "uKIMA",
-  "node_home": "$HOME/",
+  "node_home": "$HOME/.kimad",
   "key_algos": ["secp256k1"],
   "slip44": 118,
   "fees": {
@@ -17,9 +17,9 @@
       {
         "denom": "uKIMA",
         "fixed_min_gas_price": 0,
-        "low_gas_price": 0.001,
-        "average_gas_price": 0.0024,
-        "high_gas_price": 0.01
+        "low_gas_price": 0.0025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
       }
     ]
   },
@@ -31,24 +31,25 @@
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/organization/repository",
-    "recommended_version": "v0.4.2",
-    "compatible_versions": ["v0.4.2"],
+    "git_repo": "https://github.com/kima-finance/kima-blockchain",
+    "recommended_version": "v0.4.3",
+    "compatible_versions": ["v0.4.3"],
+    "cosmos_sdk_version": "v0.47.4",
     "genesis": {
       "genesis_url": "https://archive.kima.network/genesis.json"
     },
     "versions": [
       {
-        "name": "v0.4.2",
-        "recommended_version": "v0.4.2",
-        "compatible_versions": ["v0.4.2"]
+        "name": "v0.4.3",
+        "recommended_version": "v0.4.3",
+        "compatible_versions": ["v0.4.3"]
       }
     ]
   },
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/kimatestnet/images/kima.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/kimatestnet/images/kima.svg"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kimanetwork/images/kima.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kimanetwork/images/kima.svg"
     }
   ],
   "peers": {
@@ -56,19 +57,19 @@
       {
         "id": "03e46f5146de1d8049e2636a60994a0be96090d6",
         "address": "sentry-0.kima.network:26656",
-        "provider": "Kima Foundation"
+        "provider": "Kima Network"
       }
     ],
     "persistent_peers": [
       {
         "id": "03e46f5146de1d8049e2636a60994a0be96090d6",
         "address": "sentry-0.kima.network:26656",
-        "provider": "Kima Foundation"
+        "provider": "Kima Network"
       },
       {
         "id": "4645f25ba7c5253c7fb8836656e34d698f4baf8c",
         "address": "sentry-1.kima.network:26656",
-        "provider": "Kima Foundation"
+        "provider": "Kima Network"
       }
     ]
   },
@@ -76,31 +77,31 @@
     "wss": [
       {
         "address": "wss://rpc.kima.network/query",
-        "provider": "Kima Foundation"
+        "provider": "Kima Network"
       }
     ],
     "rpc": [
       {
         "address": "https://rpc.kima.network/",
-        "provider": "Kima Foundation"
+        "provider": "Kima Network"
       }
     ],
     "rest": [
       {
         "address": "https://api.kima.network",
-        "provider": "Kima Foundation"
+        "provider": "Kima Network"
       }
     ],
     "grpc": [
       {
         "address": "https://grpc.kima.network",
-        "provider": "Kima Foundation"
+        "provider": "Kima Network"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "kima",
+      "kind": "Kima Network Explorer",
       "url": "https://explorer.kima.network/",
       "tx_page": "https://explorer.kima.network/transactions/${txHash}"
     }
