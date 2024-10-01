@@ -1,115 +1,126 @@
 {
-  "$schema": "https://raw.githubusercontent.com/cosmos/chain-registry/master/chain.schema.json",
-  "chain_name": "bouachain",
-  "chain_type": "cosmos",
-  "status": "live",
-  "website": "https://bouachain.com",
-  "network_type": "mainnet",
-  "pretty_name": "Bouachain",
-  "chain_id": "bouachain",
-  "bech32_prefix": "boua",
-  "daemon_name": "bouachain",
-  "node_home": "$HOME/.bouachain",
-  "key_algos": [
-    "secp256k1"
-  ],
-  "slip44": 118,
-  "fees": {
-    "fee_tokens": [
-      {
-        "denom": "bouacoin",
-        "fixed_min_gas_price": 0,
-        "low_gas_price": 0.0006,
-        "average_gas_price": 0.012,
-        "high_gas_price": 0.04
-      }
-    ]
-  },
-  "staking": {
-    "staking_tokens": [
-      {
-        "denom": "bouacoin"
-      }
+    "$schema": "../chain.schema.json",
+    "chain_name": "bouachain",
+    "chain_type": "cosmos",
+    "status": "live",
+    "website": "https://bouachain.com",
+    "network_type": "mainnet",
+    "pretty_name": "Bouachain",
+    "chain_id": "bouachain",
+    "bech32_prefix": "boua",
+    "daemon_name": "bouachain",
+    "node_home": "$HOME/.bouachain",
+    "key_algos": [
+      "secp256k1"
     ],
-    "lock_duration": {
-      "time": "1814400s"
-    }
-  },
-  "codebase": {
-    "git_repo": "https://github.com/Bouachain/bouachain.git",
-    "recommended_version": "v1.0.0",
-    "compatible_versions": [
-      "v0.9.0"
-    ],
-    "cosmos_sdk_version": "0.50.8",
-    "consensus": {
-      "type": "tendermint",
-      "version": "0.38"
+    "slip44": 118,
+    "fees": {
+      "fee_tokens": [
+        {
+          "denom": "bouacoin",
+          "fixed_min_gas_price": 0,
+          "low_gas_price": 0.0006,
+          "average_gas_price": 0.012,
+          "high_gas_price": 0.04
+        }
+      ]
     },
-    "cosmwasm_version": "0.50",
-    "cosmwasm_enabled": true,
-    "ibc_go_version": "8",
-    "ics_enabled": [
-      "ics20-1"
-    ],
-    "genesis": {
-      "name": "v1",
-      "genesis_url": "https://github.com/Bouachain/bouachain/raw/master/genesis.json"
+    "staking": {
+      "staking_tokens": [
+        {
+          "denom": "bouacoin"
+        }
+      ],
+      "lock_duration": {
+        "time": "1814400s"
+      }
     },
-    "versions": [
+    "codebase": {
+      "git_repo": "https://github.com/Bouachain/bouachain.git",
+      "recommended_version": "v1.0.0",
+      "compatible_versions": [
+        "v0.9.0"
+      ],
+      "cosmos_sdk_version": "0.50.8",
+      "consensus": {
+        "type": "tendermint",
+        "version": "0.38.10"
+      },
+      "cosmwasm_version": "0.50.0",
+      "cosmwasm_enabled": true,
+      "ibc_go_version": "8.4.0",
+      "ics_enabled": [
+        "ics20-1"
+      ],
+      "genesis": {
+        "name": "v1",
+        "genesis_url": "https://github.com/Bouachain/bouachain/raw/master/genesis.json"
+      },
+     "versions": [
       {
         "name": "v1.0.0",
         "tag": "v1.0.0",
         "height": 0,
         "next_version_name": "v2",
-        "consensus": {}
-      }
-    ]
-  },
-  "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bouachain/images/bouachain.png",
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bouachain/images/bouachain.svg"
-  },
-  "peers": {},
-  "apis": {
-    "rpc": [
-      {
-        "address": "https://rpc.bouachain.com",
-        "provider": "BouaValidator"
+        "cosmos_sdk_version": "0.50.8",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.38.10"
+        },
+        "cosmwasm_version": "0.50.0",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "8.4.0",
+        "ics_enabled": [
+          "ics20-1"
+        ]
       }
     ],
-    "rest": [
-      {
-        "address": "https://lcd.bouachain.com",
-        "provider": "BouaValidator"
-      }
-    ]
-  },
-  "grpc": [
-      {
-        "address": "https://grpc.bouachain.com",
-        "provider": "BouaValidator"
-      }
-    ]
-  },
-  "explorers": [
-    {
-      "kind": "bouachain",
-      "url": "https://bouascan.com",
-      "tx_page": "https://bouascan.com/bouachain/tx/${txHash}",
-      "account_page": "https://bouascan.com/bouachain/${accountAddress}"
-    }
-  ],
-  "images": [
-    {
+    "logo_URIs": {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bouachain/images/bouachain.png",
-      "theme": {
-        "primary_color_hex": "#FF00C1"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bouachain/images/bouachain.svg"
+    },
+    "peers": {},
+    "apis": {
+      "rpc": [
+        {
+          "address": "https://rpc.bouachain.com",
+          "provider": "BouaValidator"
+        }
+      ],
+      "rest": [
+        {
+          "address": "https://lcd.bouachain.com",
+          "provider": "BouaValidator"
+        }
+      ]
+    },
+    "grpc": [
+        {
+          "address": "https://grpc.bouachain.com",
+          "provider": "BouaValidator"
+        }
+      ]
+    },
+    "explorers": [
+      {
+        "kind": "bouachain",
+        "url": "https://bouascan.com",
+        "tx_page": "https://bouascan.com/bouachain/tx/${txHash}",
+        "account_page": "https://bouascan.com/bouachain/${accountAddress}"
       }
-    }
-  ],
-  "keywords": [
-    "bouachain",
-    "spawn"
-  ]
-}
+    ],
+  "images": [
+          {
+            "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bouachain/images/bouachain.png",
+            "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bouachain/images/bouachain.svg",
+            "theme": {
+          "primary_color_hex": "#FF00C1"
+        }
+      }
+    ],
+   "keywords": [
+      "bouachain",
+      "spawn"
+    ]
+  }
+  
