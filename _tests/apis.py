@@ -19,32 +19,32 @@ use_whitelist = True
 # Whitelist for specific chains and providers
 whitelist = {
     "chains": [
-        "axelar",
-        "celestia",
-        "composable",
-        "cosmoshub",
-        "dydx",
-        "dymension",
-        "evmos",
-        "injective",
-        "neutron",
-        "noble",
-        "osmosis",
-        "stargaze",
-        "stride"
+        # "axelar",
+        # "celestia",
+        # "composable",
+        # "cosmoshub",
+        # "dydx",
+        # "dymension",
+        # "evmos",
+        # "injective",
+        # "neutron",
+        # "noble",
+        # "osmosis",
+        # "stargaze",
+        # "stride"
     ],
     "providers": [
         "Osmosis Foundation",
         "Polkachu",
         "CryptoCrew",
-        "forbole",
+        # "forbole",
         "Imperator.co",
-        "WhisperNode 🤐",
+        # "WhisperNode 🤐",
         "chainlayer",
         "Numia",
-        "Enigma",
-        "kjnodes",
-        "Stake&Relax 🦥",
+        # "Enigma",
+        # "kjnodes",
+        # "Stake&Relax 🦥",
         "Allnodes ⚡️ Nodes & Staking",
         "Lava",
         "Golden Ratio Staking",
@@ -61,7 +61,7 @@ def log_request_details(test_case, response):
 def generate_endpoint_tests():
     test_cases = []
     logging.info(f"Current working directory: {os.getcwd()}")
-    files_found = glob.glob('**/chain.json', recursive=True)
+    files_found = glob.glob('*/chain.json', recursive=True)
     for filename in files_found:
         with open(filename) as f:
             data = json.load(f)
@@ -69,7 +69,11 @@ def generate_endpoint_tests():
             if 'apis' in data:
                 for api_type in ['rpc', 'rest']:
                     for api in data['apis'].get(api_type, []):
-                        if 'provider' in api and (not use_whitelist or (chain_name in whitelist['chains'] and api['provider'] in whitelist['providers'])):
+                        if 'provider' in api and (
+                            not use_whitelist or
+                            (not whitelist['chains'] or chain_name in whitelist['chains']) and
+                            (not whitelist['providers'] or api['provider'] in whitelist['providers'])
+                        ):
                             address = api['address']
                             if api_type == 'rpc':
                                 address += '/status'
