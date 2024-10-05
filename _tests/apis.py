@@ -7,6 +7,7 @@ import os
 import json
 import logging
 import re
+import warnings
 
 # Setup basic configuration for logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -18,6 +19,7 @@ use_whitelist = True
 
 # Whitelist for specific chains and providers
 whitelist = {
+    # If chains whitelist empty, all chains will be evaluated.
     "chains": [
         # "axelar",
         # "celestia",
@@ -39,6 +41,7 @@ whitelist = {
         "CryptoCrew",
         # "forbole",
         "Imperator.co",
+        # "Lavender.Five Nodes 🐝",
         # "WhisperNode 🤐",
         "chainlayer",
         "Numia",
@@ -54,26 +57,55 @@ whitelist = {
 
 def generate_endpoint_tests():
     test_cases = []
-    logging.info(f"Current working directory: {os.getcwd()}")
     files_found = glob.glob('*/chain.json', recursive=True)
+
+    if not files_found:
+        warnings.warn("No chain.json files found in the current directory or its subdirectories.")
+
     for filename in files_found:
-        with open(filename) as f:
-            data = json.load(f)
-            chain_name = data.get('chain_name', 'unknown')
-            if 'apis' in data:
-                for api_type in ['rpc', 'rest']:
-                    for api in data['apis'].get(api_type, []):
-                        if 'provider' in api and (
-                            not use_whitelist or
-                            (not whitelist['chains'] or chain_name in whitelist['chains']) and
-                            (not whitelist['providers'] or api['provider'] in whitelist['providers'])
-                        ):
-                            address = api['address']
-                            if api_type == 'rpc':
-                                address += '/status'
-                            elif api_type == 'rest':
-                                address += '/cosmos/base/tendermint/v1beta1/syncing'
-                            test_cases.append(EndpointTest(chain=chain_name, endpoint=api_type, provider=api['provider'], address=address))
+        try:
+            with open(filename) as f:
+                data = json.load(f)
+                chain_name = data.get('chain_name', 'unknown')
+                if 'apis' in data:
+                    if not isinstance(data['apis'], dict):
+                        warnings.warn(f"Invalid 'apis' format in file '{filename}'. Expected a dictionary.")
+                        continue
+                    for api_type in ['rpc', 'rest']:
+                        if api_type not in data['apis']:
+                            warnings.warn(f"Missing '{api_type}' key in 'apis' of file '{filename}'.")
+                            continue
+                        if not isinstance(data['apis'][api_type], list):
+                            warnings.warn(f"Invalid '{api_type}' format in 'apis' of file '{filename}'. Expected a list.")
+                            continue
+                        for api in data['apis'].get(api_type, []):
+                            if 'provider' not in api:
+                                warnings.warn(f"Missing 'provider' key in '{api_type}' of file '{filename}'.")
+                                continue
+                            if not isinstance(api['provider'], str):
+                                warnings.warn(f"Invalid 'provider' format in '{api_type}' of file '{filename}'. Expected a string.")
+                                continue
+                            if (
+                                not use_whitelist or
+                                (not whitelist['chains'] or chain_name in whitelist['chains']) and
+                                (not whitelist['providers'] or api['provider'] in whitelist['providers'])
+                            ):
+                                address = api.get('address')
+                                if not address:
+                                    warnings.warn(f"Missing 'address' key in '{api_type}' of file '{filename}'.")
+                                    continue
+                                if api_type == 'rpc':
+                                    address += '/status'
+                                elif api_type == 'rest':
+                                    address += '/cosmos/base/tendermint/v1beta1/syncing'
+                                test_cases.append(EndpointTest(chain=chain_name, endpoint=api_type, provider=api['provider'], address=address))
+                else:
+                    warnings.warn(f"Missing 'apis' key in file '{filename}'.")
+        except json.JSONDecodeError as e:
+            warnings.warn(f"Failed to decode JSON file '{filename}': {str(e)}")
+        except Exception as e:
+            warnings.warn(f"An error occurred while processing file '{filename}': {str(e)}")
+
     return test_cases
 
 test_cases = generate_endpoint_tests()
