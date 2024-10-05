@@ -52,12 +52,6 @@ whitelist = {
     ]
 } if use_whitelist else {'chains': [], 'providers': []}
 
-def log_request_details(test_case, response):
-    logging.info(f"Testing {test_case.chain}-{test_case.endpoint.upper()}-{test_case.provider}")
-    logging.info(f"Request URL: {response.url}")
-    logging.info(f"Response Status Code: {response.status_code}")
-    logging.info(f"Response Body: {response.text}")
-
 def generate_endpoint_tests():
     test_cases = []
     logging.info(f"Current working directory: {os.getcwd()}")
@@ -88,18 +82,17 @@ def generate_test_function(test_case):
     def test(self):
         try:
             response = requests.get(test_case.address, timeout=2)
-            log_request_details(test_case, response)
             assert response.status_code == 200, f"{test_case.chain.upper()}-{test_case.endpoint.upper()}-{test_case.provider} endpoint not reachable"
         except requests.exceptions.Timeout:
             logging.error(f"{test_case.chain.upper()}-{test_case.endpoint.upper()}-{test_case.provider} endpoint timed out after 2 seconds")
             pytest.fail(f"{test_case.chain.upper()}-{test_case.endpoint.upper()}-{test_case.provider} endpoint timed out after 2 seconds")
     return test
 
-class Testing:
+class Test:
     pass
 
 for test_case in test_cases:
-    test_name = f"Chain: {test_case.chain.capitalize()} - {test_case.endpoint.upper()} - {re.sub(r'[^a-zA-Z0-9]+', ' ', test_case.provider)}"
+    test_name = f"chain: {test_case.chain.capitalize()[:15].ljust(15)} ▌ {test_case.endpoint.upper()[:4].ljust(4)} ▌ {re.sub(r'[^a-zA-Z0-9]+', ' ', test_case.provider)[:30].ljust(30)}"
     generate_tests = generate_test_function(test_case)
-    setattr(Testing, test_name, generate_tests)
+    setattr(Test, test_name, generate_tests)
 
