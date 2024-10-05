@@ -6,6 +6,7 @@ import glob
 import os
 import json
 import logging
+import re
 
 # Setup basic configuration for logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -33,7 +34,7 @@ whitelist = {
         "stride"
     ],
     "providers": [
-        "Osmosis Foundation", 
+        "Osmosis Foundation",
         "Polkachu",
         "CryptoCrew",
         "forbole",
@@ -78,9 +79,9 @@ def generate_endpoint_tests():
     return test_cases
 
 test_cases = generate_endpoint_tests()
-if test_cases:
-    @pytest.mark.parametrize("test_case", test_cases, ids=lambda test_case: f"{test_case.chain.upper()}-{test_case.endpoint.upper()}-{test_case.provider}")
-    def test_endpoint_availability(test_case):
+
+def generate_test_function(test_case):
+    def test(self):
         try:
             response = requests.get(test_case.address, timeout=2)
             log_request_details(test_case, response)
@@ -88,5 +89,13 @@ if test_cases:
         except requests.exceptions.Timeout:
             logging.error(f"{test_case.chain.upper()}-{test_case.endpoint.upper()}-{test_case.provider} endpoint timed out after 2 seconds")
             pytest.fail(f"{test_case.chain.upper()}-{test_case.endpoint.upper()}-{test_case.provider} endpoint timed out after 2 seconds")
-else:
-    logging.error("Skipping tests due to no valid test cases.")
+    return test
+
+class Testing:
+    pass
+
+for test_case in test_cases:
+    test_name = f"Chain: {test_case.chain.capitalize()} - {test_case.endpoint.upper()} - {re.sub(r'[^a-zA-Z0-9]+', ' ', test_case.provider)}"
+    generate_tests = generate_test_function(test_case)
+    setattr(Testing, test_name, generate_tests)
+
