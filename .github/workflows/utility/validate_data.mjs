@@ -395,6 +395,45 @@ function arraysEqual(arr1, arr2) {
   return true;
 }
 
+function checkTypeAsset(chain_name, asset) {
+
+  let type_asset = "ics20";
+  if (asset.base.startsWith("ibc/") && asset.type_asset !== type_asset) {
+    throw new Error(`Type_asset not specified as ${type_asset}: ${chain_name}, ${asset.base}, ${asset.symbol}.`);
+  }
+
+  if (
+    asset.base.startsWith("cw20")
+  ) {
+    if (chain_name.startsWith("secret")) {
+      type_asset = "snip20";
+      if (asset.type_asset !== type_asset && asset.type_asset !== "snip25") {
+        throw new Error(`Type_asset not specified as ${type_asset}: ${chain_name}, ${asset.base}, ${asset.symbol}.`);
+      }
+    } else {
+      type_asset = "cw20";
+      if (asset.type_asset !== "cw20") {
+        throw new Error(`Type_asset not specified as ${type_asset}: ${chain_name}, ${asset.base}, ${asset.symbol}.`);
+      }
+    }
+  }
+
+  type_asset = "erc20";
+  if (
+    asset.base.startsWith("0x") &&
+    !asset.base.includes("::") &&
+    !asset.base.includes("00000") &&
+    asset.type_asset !== type_asset
+  ) {
+    throw new Error(`Type_asset not specified as ${type_asset}: ${chain_name}, ${asset.base}, ${asset.symbol}.`);
+  }
+
+  if (!asset.type_asset) {
+    throw new Error(`Type_asset not specified: ${chain_name}, ${asset.base}, ${asset.symbol}.`);
+  }
+
+}
+
 
 export function validate_chain_files() {
 
@@ -426,6 +465,9 @@ export function validate_chain_files() {
     
     //iterate each asset
     chainAssets?.forEach((asset) => {
+
+      //require type_asset
+      checkTypeAsset(chain_name, asset);
     
       //check denom units
       checkDenomUnits(asset);
