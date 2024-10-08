@@ -38,6 +38,7 @@
         "name",
         "symbol"
       ],
+      "additionalProperties": false,
       "properties": {
         "deprecated": {
           "type": "boolean",
@@ -221,6 +222,7 @@
         "socials": {
           "type": "object",
           "minProperties": 1,
+          "additionalProperties": false,
           "properties": {
             "website": {
               "type": "string",
@@ -231,11 +233,35 @@
               "type": "string",
               "minLength": 1,
               "format": "uri"
+            },
+            "telegram": {
+              "type": "string",
+              "minLength": 1,
+              "format": "uri"
+            },
+            "discord": {
+              "type": "string",
+              "minLength": 1,
+              "format": "uri"
+            },
+            "github": {
+              "type": "string",
+              "minLength": 1,
+              "format": "uri"
+            },
+            "medium": {
+              "type": "string",
+              "minLength": 1,
+              "format": "uri"
+            },
+            "reddit": {
+              "type": "string",
+              "minLength": 1,
+              "format": "uri"
             }
           }
         }
       },
-      "additionalProperties": false,
       "if": {
         "required": [
           "type_asset"
