@@ -5,6 +5,7 @@
   "website": "https://examplechain.io/",
   "network_type": "mainnet",
   "pretty_name": "Example Chain",
+  "chain_type": "cosmos",
   "chain_id": "example-1",
   "bech32_prefix": "xmpl",
   "daemon_name": "exampled",
@@ -36,9 +37,34 @@
       "v2.0.2",
       "v2.0.0"
     ],
-    "cosmos_sdk_version": "0.50",
-    "cosmwasm_enabled": true,
-    "cosmwasm_path": "$HOME/.example/data/wasm",
+    "consensus": {
+      "type": "cometbft",
+      "version": "osmosis-labs/cometbft v0.37.4-v25-osmo-2"
+    },
+    "language": {
+      "type": "go",
+      "version": "1.21.4"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/osmosis-labs/cosmos-sdk",
+      "version": "v0.47.5",
+      "tag": "v0.47.5-v25-osmo-1"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "v0.45.0",
+      "repo": "https://github.com/osmosis-labs/wasmd",
+      "tag": "v0.45.0-osmo",
+      "path": "$HOME/.example/data/wasm",
+      "enabled": true
+    },
     "binaries": {
       "linux/amd64": "OPTIONAL, REMOVE IF NOT NEEDED"
     },
@@ -52,9 +78,6 @@
         "compatible_versions": [
           "v1.0.0"
         ],
-        "cosmos_sdk_version": "0.50",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.example/data/wasm",
         "binaries": {
           "linux/amd64": "OPTIONAL, REMOVE IF NOT NEEDED"
         },
@@ -67,9 +90,34 @@
           "v2.0.2",
           "v2.0.0"
         ],
-        "cosmos_sdk_version": "0.50",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.example/data/wasm",
+        "consensus": {
+          "type": "cometbft",
+          "version": "osmosis-labs/cometbft v0.37.4-v25-osmo-2"
+        },
+        "language": {
+          "type": "go",
+          "version": "1.21.4"
+        },
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/osmosis-labs/cosmos-sdk",
+          "version": "v0.47.5",
+          "tag": "v0.47.5-v25-osmo-1"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "repo": "https://github.com/osmosis-labs/wasmd",
+          "tag": "v0.45.0-osmo",
+          "path": "$HOME/.example/data/wasm",
+          "enabled": true
+        },
         "binaries": {
           "linux/amd64": "OPTIONAL, REMOVE IF NOT NEEDED"
         },

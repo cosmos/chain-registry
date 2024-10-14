@@ -5,6 +5,7 @@
   "website": "https://xpla.io",
   "network_type": "mainnet",
   "pretty_name": "XPLA",
+  "chain_type": "cosmos",
   "chain_id": "dimension_37-1",
   "bech32_prefix": "xpla",
   "daemon_name": "xplad",
@@ -37,13 +38,12 @@
     "compatible_versions": [
       "v1.4.0"
     ],
-    "cosmos_sdk_version": "xpladev/cosmos-sdk v0.45.20-xpla",
+    "cosmos_sdk_version": "v0.47.13-xpla",
     "consensus": {
       "type": "cometbft",
-      "version": "0.34.29"
+      "version": "v0.37.5"
     },
-    "ibc_go_version": "v4.5.1",
-    "cosmwasm_version": "v0.33.0",
+    "cosmwasm_version": "v0.46.0",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/xpladev/mainnet/main/dimension_37-1/genesis.json"
     },
@@ -60,7 +60,14 @@
           "version": "0.34.21"
         },
         "cosmwasm_version": "0.28.0",
-        "next_version_name": "Volunteer"
+        "next_version_name": "Volunteer",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45.9"
+        },
+        "cosmwasm": {
+          "version": "0.28.0"
+        }
       },
       {
         "name": "volunteer",
@@ -74,7 +81,14 @@
           "version": "0.34.27"
         },
         "cosmwasm_version": "0.33.0",
-        "next_version_name": "v1_4"
+        "next_version_name": "v1_4",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45.16"
+        },
+        "cosmwasm": {
+          "version": "0.33.0"
+        }
       },
       {
         "name": "v1_4",
@@ -87,11 +101,94 @@
           "type": "cometbft",
           "version": "0.34.29"
         },
-        "ibc_go_version": "v4.5.1",
         "cosmwasm_version": "v0.33.0",
-        "next_version_name": ""
+        "next_version_name": "v1_5",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/xpladev/cosmos-sdk",
+          "version": "v0.45.20",
+          "tag": "v0.45.20-xpla"
+        },
+        "cosmwasm": {
+          "version": "v0.33.0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.5.1"
+        }
+      },
+      {
+        "name": "v1_5",
+        "recommended_version": "v1.5.0",
+        "compatible_versions": [
+          "v1.5.0"
+        ],
+        "proposal": 65,
+        "height": 10085200,
+        "cosmos_sdk_version": "v0.47.10-xpla",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.5"
+        },
+        "cosmwasm_version": "v0.45.0",
+        "next_version_name": "v1_6",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/xpladev/cosmos-sdk",
+          "version": "v0.47.10",
+          "tag": "v0.47.10-xpla"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0"
+        }
+      },
+      {
+        "name": "v1_6",
+        "recommended_version": "v1.6.0",
+        "compatible_versions": [
+          "v1.6.0"
+        ],
+        "proposal": 66,
+        "height": 10491710,
+        "cosmos_sdk_version": "v0.47.13-xpla",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.5"
+        },
+        "cosmwasm_version": "v0.46.0",
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/xpladev/cosmos-sdk",
+          "version": "v0.47.13",
+          "tag": "v0.47.13-xplaa"
+        },
+        "cosmwasm": {
+          "version": "v0.46.0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.7.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/xpladev/cosmos-sdk",
+      "version": "v0.47.13",
+      "tag": "v0.47.13-xpla"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.7.0"
+    },
+    "cosmwasm": {
+      "version": "v0.46.0"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.png",
@@ -118,6 +215,11 @@
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:25156",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -174,7 +276,7 @@
         "provider": "🔥STAVR🔥"
       },
       {
-        "address": "https://xpla-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/xpla",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -196,7 +298,7 @@
         "provider": "🔥STAVR🔥"
       },
       {
-        "address": "https://xpla-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/xpla",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -253,7 +355,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.svg",
+      "theme": {
+        "primary_color_hex": "#04b4fc"
+      }
     }
   ]
 }

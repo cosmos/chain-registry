@@ -5,9 +5,10 @@
   "network_type": "mainnet",
   "website": "https://www.quasar.fi/",
   "pretty_name": "Quasar",
+  "chain_type": "cosmos",
   "chain_id": "quasar-1",
   "bech32_prefix": "quasar",
-  "daemon_name": "quasarnoded",
+  "daemon_name": "quasard",
   "node_home": "$HOME/.quasarnode",
   "key_algos": [
     "secp256k1"
@@ -53,17 +54,17 @@
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/quasar-finance/quasar-preview",
-    "recommended_version": "v1.0.1",
+    "git_repo": "https://github.com/quasar-finance/quasar",
+    "recommended_version": "v3.0.0",
     "compatible_versions": [
-      "v1.0.1"
+      "v3.0.0"
     ],
-    "cosmos_sdk_version": "v0.45.16",
+    "cosmos_sdk_version": "v0.50.9",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.34.27"
+      "version": "v0.37.6"
     },
-    "cosmwasm_version": "v0.31.0",
+    "cosmwasm_version": "v0.53.0",
     "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/quasar-finance/networks/main/quasar-1/definitive-genesis.json"
@@ -83,7 +84,15 @@
         },
         "cosmwasm_version": "0.27",
         "cosmwasm_enabled": true,
-        "next_version_name": "v1"
+        "next_version_name": "v1",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.14"
+        },
+        "cosmwasm": {
+          "version": "0.27",
+          "enabled": true
+        }
       },
       {
         "name": "v1",
@@ -100,9 +109,75 @@
         },
         "cosmwasm_version": "0.31.0",
         "cosmwasm_enabled": true,
-        "next_version_name": ""
+        "next_version_name": "v2",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.16"
+        },
+        "cosmwasm": {
+          "version": "0.31.0",
+          "enabled": true
+        }
+      },
+      {
+        "name": "v2",
+        "proposal": 42,
+        "height": 7480400,
+        "recommended_version": "v2.0.1",
+        "compatible_versions": [
+          "v2.0.1"
+        ],
+        "cosmos_sdk_version": "v0.47.12",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.6"
+        },
+        "cosmwasm_version": "0.45.0",
+        "cosmwasm_enabled": true,
+        "next_version_name": "v3",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.12"
+        },
+        "cosmwasm": {
+          "version": "0.45.0",
+          "enabled": true
+        }
+      },
+      {
+        "name": "v3",
+        "proposal": 45,
+        "height": 7982200,
+        "recommended_version": "v3.0.0",
+        "compatible_versions": [
+          "v3.0.0"
+        ],
+        "cosmos_sdk_version": "v0.50.9",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.38.11"
+        },
+        "cosmwasm_version": "v0.53.0",
+        "cosmwasm_enabled": true,
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.50.9"
+        },
+        "cosmwasm": {
+          "version": "v0.53.0",
+          "enabled": true
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.9"
+    },
+    "cosmwasm": {
+      "version": "v0.53.0",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quasar/images/quasar.png"
@@ -136,11 +211,6 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
-        "address": "seeds.whispernode.com:18256",
-        "provider": "WhisperNode 🤐"
-      },
-      {
         "id": "86fd17151eec60145e6c1a635e8365aff70a77d7",
         "address": "seed-quasar.ibs.team:16667",
         "provider": "Inter Blockchain Services"
@@ -166,16 +236,12 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://quasar-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/quasar",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://quasar-rpc.polkachu.com",
         "provider": "polkachu"
-      },
-      {
-        "address": "https://rpc-quasar.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://quasar-rpc.enigma-validator.com",
@@ -220,16 +286,12 @@
     ],
     "rest": [
       {
-        "address": "https://quasar-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/quasar",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://quasar-api.polkachu.com",
         "provider": "polkachu"
-      },
-      {
-        "address": "https://lcd-quasar.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://api-quasar.cosmos-spaces.cloud",
@@ -274,7 +336,7 @@
     ],
     "grpc": [
       {
-        "address": "https://quasar-grpc.lavenderfive.com:443",
+        "address": "quasar.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -336,7 +398,10 @@
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quasar/images/quasar.png"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quasar/images/quasar.png",
+      "theme": {
+        "primary_color_hex": "#a493e4"
+      }
     }
   ]
 }

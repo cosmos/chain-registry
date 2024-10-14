@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "kyve",
+  "chain_type": "cosmos",
   "chain_id": "kyve-1",
   "pretty_name": "KYVE",
   "status": "live",
@@ -33,21 +34,21 @@
   },
   "codebase": {
     "git_repo": "https://github.com/KYVENetwork/chain",
-    "recommended_version": "v1.4.0",
+    "recommended_version": "v1.5.0",
     "compatible_versions": [
-      "v1.4.0"
+      "v1.5.0"
     ],
-    "cosmos_sdk_version": "v0.47.6-kyve-rc0",
-    "ibc_go_version": "v7.3.0",
+    "cosmos_sdk_version": "v0.50.7-kyve-rc0",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.2"
+      "version": "v0.38.7",
+      "tag": "v0.38.7-kyve-rpc-fix-rc0"
     },
     "binaries": {
-      "linux/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.4.0/kyved_mainnet_linux_amd64.tar.gz",
-      "linux/arm64": "https://github.com/KYVENetwork/chain/releases/download/v1.4.0/kyved_mainnet_linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.4.0/kyved_mainnet_darwin_amd64.tar.gz",
-      "darwin/arm64": "https://github.com/KYVENetwork/chain/releases/download/v1.4.0/kyved_mainnet_darwin_arm64.tar.gz"
+      "linux/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.5.0/kyved_mainnet_linux_amd64.tar.gz",
+      "linux/arm64": "https://github.com/KYVENetwork/chain/releases/download/v1.5.0/kyved_mainnet_linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.5.0/kyved_mainnet_darwin_amd64.tar.gz",
+      "darwin/arm64": "https://github.com/KYVENetwork/chain/releases/download/v1.5.0/kyved_mainnet_darwin_arm64.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/KYVENetwork/networks/main/kyve-1/genesis.json"
@@ -107,7 +108,6 @@
           "v1.4.0"
         ],
         "cosmos_sdk_version": "v0.47.6-kyve-rc0",
-        "ibc_go_version": "v7.3.0",
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.2"
@@ -118,9 +118,58 @@
           "darwin/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.4.0/kyved_mainnet_darwin_amd64.tar.gz",
           "darwin/arm64": "https://github.com/KYVENetwork/chain/releases/download/v1.4.0/kyved_mainnet_darwin_arm64.tar.gz"
         },
-        "next_version_name": ""
+        "next_version_name": "v1.5.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.6",
+          "tag": "v0.47.6-kyve-rc0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.0"
+        }
+      },
+      {
+        "name": "v1.4.0",
+        "proposal": 37,
+        "height": 7254527,
+        "recommended_version": "v1.5.0",
+        "compatible_versions": [
+          "v1.5.0"
+        ],
+        "cosmos_sdk_version": "v0.50.7-kyve-rc0",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.38.7",
+          "tag": "v0.38.7-kyve-rpc-fix-rc0"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.5.0/kyved_mainnet_linux_amd64.tar.gz",
+          "linux/arm64": "https://github.com/KYVENetwork/chain/releases/download/v1.5.0/kyved_mainnet_linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.5.0/kyved_mainnet_darwin_amd64.tar.gz",
+          "darwin/arm64": "https://github.com/KYVENetwork/chain/releases/download/v1.5.0/kyved_mainnet_darwin_arm64.tar.gz"
+        },
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.50.7",
+          "tag": "v0.50.7-kyve-rc0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v8.3.1"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.7",
+      "tag": "v0.50.7-kyve-rc0"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.3.1"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kyve/images/kyve.png",
@@ -214,7 +263,7 @@
         "provider": "ecostake"
       },
       {
-        "address": "https://kyve-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/kyve",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -264,7 +313,7 @@
         "provider": "kyve"
       },
       {
-        "address": "https://kyve-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/kyve",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -318,7 +367,7 @@
         "provider": "NodeStake"
       },
       {
-        "address": "https://kyve-grpc.lavenderfive.com:443",
+        "address": "kyve.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -398,7 +447,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kyve/images/kyve.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kyve/images/kyve.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kyve/images/kyve.svg",
+      "theme": {
+        "primary_color_hex": "#325350"
+      }
     }
   ]
 }

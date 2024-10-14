@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "kujira",
+  "chain_type": "cosmos",
   "chain_id": "kaiyo-1",
   "pretty_name": "Kujira",
   "status": "live",
@@ -138,20 +139,17 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Team-Kujira/core",
-    "recommended_version": "v1.0.2",
+    "recommended_version": "v1.1.0",
     "compatible_versions": [
-      "v1.0.2"
+      "v1.1.0"
     ],
-    "cosmos_sdk_version": "v0.47.8",
+    "cosmos_sdk_version": "v0.47.12",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.4"
+      "version": "v0.37.5"
     },
     "cosmwasm_version": "v0.45.0",
     "cosmwasm_enabled": true,
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
       "genesis_url": "https://github.com/Team-Kujira/networks/raw/master/mainnet/kaiyo-1.json"
     },
@@ -171,10 +169,17 @@
           "type": "cometbft",
           "version": "v0.34.27"
         },
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "v0.8.7"
+        "next_version_name": "v0.8.7",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46.11"
+        },
+        "ibc": {
+          "type": "go",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v0.8.7",
@@ -198,7 +203,11 @@
           "type": "cometbft",
           "version": "v0.37.2"
         },
-        "next_version_name": "v0.9.1"
+        "next_version_name": "v0.9.1",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.5"
+        }
       },
       {
         "name": "v0.9.1",
@@ -213,7 +222,11 @@
           "type": "cometbft",
           "version": "v0.37.2"
         },
-        "next_version_name": "v0.9.3"
+        "next_version_name": "v0.9.3",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.5"
+        }
       },
       {
         "name": "v0.9.3",
@@ -230,7 +243,15 @@
         },
         "cosmwasm_version": "v0.45.0",
         "cosmwasm_enabled": true,
-        "next_version_name": "v1.0.2"
+        "next_version_name": "v1.0.2",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.5"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "enabled": true
+        }
       },
       {
         "name": "v1.0.2",
@@ -247,9 +268,56 @@
         },
         "cosmwasm_version": "v0.45.0",
         "cosmwasm_enabled": true,
-        "next_version_name": ""
+        "next_version_name": "v1.1.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.8"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "enabled": true
+        }
+      },
+      {
+        "name": "v1.1.0",
+        "proposal": 645,
+        "height": 19855000,
+        "recommended_version": "v1.1.0",
+        "compatible_versions": [
+          "v1.1.0"
+        ],
+        "cosmos_sdk_version": "v0.47.12",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.5"
+        },
+        "cosmwasm_version": "v0.45.0",
+        "cosmwasm_enabled": true,
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.12"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "enabled": true
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.12"
+    },
+    "ibc": {
+      "type": "go",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "v0.45.0",
+      "enabled": true
+    }
   },
   "description": "A decentralized ecosystem for protocols, builders and web3 users seeking sustainable FinTech.",
   "peers": {
@@ -290,11 +358,6 @@
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
-        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
-        "address": "seeds.whispernode.com:11856",
-        "provider": "WhisperNode 🤐"
-      },
-      {
         "id": "654ba97f74254965a80c0fac0f277f6f6e5506b6",
         "address": "seed-node.mms.team:29656",
         "provider": "MMS"
@@ -321,10 +384,6 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-kujira.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
-      },
-      {
         "address": "https://rpc.kaiyo.kujira.setten.io",
         "provider": "setten.io"
       },
@@ -337,7 +396,7 @@
         "provider": "ecostake"
       },
       {
-        "address": "https://kujira-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/kujira",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -399,15 +458,11 @@
     ],
     "rest": [
       {
-        "address": "https://lcd-kujira.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
-      },
-      {
         "address": "https://lcd.kaiyo.kujira.setten.io",
         "provider": "setten.io"
       },
       {
-        "address": "https://kujira-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/kujira",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -481,7 +536,7 @@
         "provider": "Notional"
       },
       {
-        "address": "kujira-grpc.lavenderfive.com:443",
+        "address": "kujira.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -507,10 +562,6 @@
       {
         "address": "kujira-grpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
-      },
-      {
-        "address": "grpc-kujira.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       }
     ]
   },
@@ -551,7 +602,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kujira/images/kujira-chain-logo.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kujira/images/kuji.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kujira/images/kuji.svg",
+      "theme": {
+        "primary_color_hex": "#e33b34"
+      }
     }
   ]
 }

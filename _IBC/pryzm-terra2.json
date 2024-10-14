@@ -1,31 +1,95 @@
 {
-    "$schema": "../ibc_data.schema.json",
-    "chain_1": {
-        "chain_name": "pryzm",
-        "client_id": "07-tendermint-4",
-        "connection_id": "connection-4"
-    },
-    "chain_2": {
-      "chain_name": "terra2",
-      "client_id": "07-tendermint-410",
-      "connection_id": "connection-414"
-    },
-    "channels": [
-      {
-        "chain_1": {
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "pryzm",
+    "client_id": "07-tendermint-4",
+    "connection_id": "connection-4"
+  },
+  "chain_2": {
+    "chain_name": "terra2",
+    "client_id": "07-tendermint-410",
+    "connection_id": "connection-414"
+  },
+  "channels": [
+    {
+      "chain_1": {
         "channel_id": "channel-4",
         "port_id": "transfer"
-        },
-        "chain_2": {
-          "channel_id": "channel-473",
-          "port_id": "transfer"
-        },
-        "ordering": "unordered",
-        "version": "ics20-1",
-        "tags": {
-          "status": "live",
-          "preferred": true
-        }
+      },
+      "chain_2": {
+        "channel_id": "channel-473",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "status": "live",
+        "preferred": true
       }
-    ]
-  }
+    },
+    {
+      "chain_1": {
+        "channel_id": "channel-17",
+        "port_id": "icacontroller-delegation-uluna"
+      },
+      "chain_2": {
+        "channel_id": "channel-478",
+        "port_id": "icahost"
+      },
+      "ordering": "ordered",
+      "version": "ics27-1",
+      "tags": {
+        "status": "killed",
+        "preferred": false
+      }
+    },
+    {
+      "chain_1": {
+        "channel_id": "channel-18",
+        "port_id": "icacontroller-reward-uluna"
+      },
+      "chain_2": {
+        "channel_id": "channel-479",
+        "port_id": "icahost"
+      },
+      "ordering": "ordered",
+      "version": "ics27-1",
+      "tags": {
+        "status": "live",
+        "preferred": true
+      }
+    },
+    {
+      "chain_1": {
+        "channel_id": "channel-19",
+        "port_id": "icacontroller-sweep-uluna"
+      },
+      "chain_2": {
+        "channel_id": "channel-480",
+        "port_id": "icahost"
+      },
+      "ordering": "ordered",
+      "version": "ics27-1",
+      "tags": {
+        "status": "live",
+        "preferred": true
+      }
+    },
+    {
+      "chain_1": {
+        "channel_id": "channel-25",
+        "port_id": "icacontroller-delegation-uluna"
+      },
+      "chain_2": {
+        "channel_id": "channel-526",
+        "port_id": "icahost"
+      },
+      "ordering": "ordered",
+      "version": "ics27-1",
+      "tags": {
+        "status": "live",
+        "preferred": true
+      }
+    }
+  ]
+}

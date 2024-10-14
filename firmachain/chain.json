@@ -4,7 +4,8 @@
   "status": "live",
   "network_type": "mainnet",
   "website": "https://firmachain.org/",
-  "pretty_name": "FirmaChain",
+  "pretty_name": "FIRMACHAIN",
+  "chain_type": "cosmos",
   "chain_id": "colosseum-1",
   "bech32_prefix": "firma",
   "slip44": 7777777,
@@ -17,7 +18,10 @@
     "fee_tokens": [
       {
         "denom": "ufct",
-        "fixed_min_gas_price": 0.1
+        "fixed_min_gas_price": 0.1,
+        "low_gas_price": 0.1,
+        "average_gas_price": 0.15,
+        "high_gas_price": 0.2
       }
     ]
   },
@@ -77,6 +81,11 @@
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:24156",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -112,7 +121,7 @@
         "provider": "ChainTools"
       },
       {
-        "address": "https://firmachain-rpc.lavenderfive.com/",
+        "address": "https://rpc.lavenderfive.com:443/firmachain",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -122,6 +131,10 @@
       {
         "address": "https://firmachain.rpc.nodeshub.online:443",
         "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+      },
+      {
+        "address": "https://firmachain_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "rest": [
@@ -138,7 +151,7 @@
         "provider": "ChainTools"
       },
       {
-        "address": "https://firmachain-api.lavenderfive.com/",
+        "address": "https://rest.lavenderfive.com:443/firmachain",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -148,11 +161,15 @@
       {
         "address": "https://firmachain.api.nodeshub.online:443",
         "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+      },
+      {
+        "address": "https://firmachain_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "grpc": [
       {
-        "address": "firmachain-grpc.lavenderfive.com:443",
+        "address": "firmachain.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -203,12 +220,21 @@
       "url": "https://explorer.nodeshub.online/firmachain/",
       "tx_page": "https://explorer.nodeshub.online/firmachain/tx/${txHash}",
       "account_page": "https://explorer.nodeshub.online/firmachain/accounts/${accountAddress}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/firmachain",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/firmachain/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/firmachain/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/firmachain/images/fct.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/firmachain/images/fct.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/firmachain/images/fct.svg",
+      "theme": {
+        "primary_color_hex": "#1c1c1c"
+      }
     }
   ]
 }

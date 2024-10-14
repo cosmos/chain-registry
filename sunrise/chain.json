@@ -1,10 +1,11 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "sunrise",
-  "status": "live",
+  "status": "upcoming",
   "network_type": "mainnet",
   "website": "https://sunriselayer.io/",
   "pretty_name": "Sunrise",
+  "chain_type": "cosmos",
   "chain_id": "sunrise-1",
   "bech32_prefix": "sunrise",
   "daemon_name": "sunrised",
@@ -16,7 +17,7 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "usr",
+        "denom": "urise",
         "fixed_min_gas_price": 0.002,
         "low_gas_price": 0.01,
         "average_gas_price": 0.02,
@@ -27,7 +28,7 @@
   "staking": {
     "staking_tokens": [
       {
-        "denom": "usr"
+        "denom": "uvrise"
       }
     ],
     "lock_duration": {
@@ -36,19 +37,20 @@
   },
   "codebase": {
     "git_repo": "https://github.com/sunriselayer/sunrise",
-    "recommended_version": "v0.0.7",
+    "recommended_version": "v0.1.1",
     "compatible_versions": [
-      "v0.0.7"
+      "v0.1.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.0.7/sunrised"
+      "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.1.1/sunrised"
     },
     "cosmos_sdk_version": "0.50.2",
     "consensus": {
       "type": "cometbft",
-      "version": "sunriselayer/sunrise-core v0.0.5-cmt-v0.38.2"
+      "version": "v0.0.5",
+      "repo": "https://github.com/sunriselayer/sunrise-core",
+      "tag": "v0.0.5-cmt-v0.38.2"
     },
-    "ibc_go_version": "8.0.0",
     "versions": [
       {
         "name": "v0.0.7",
@@ -62,14 +64,87 @@
         "cosmos_sdk_version": "0.50.2",
         "consensus": {
           "type": "cometbft",
-          "version": "sunriselayer/sunrise-core v0.0.5-cmt-v0.38.2"
+          "version": "v0.0.5",
+          "repo": "https://github.com/sunriselayer/sunrise-core",
+          "tag": "v0.0.5-cmt-v0.38.2"
         },
-        "ibc_go_version": "8.0.0",
-        "ics_enabled": [
-          "ics20-1"
-        ]
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.50.2"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "8.0.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
+      },
+      {
+        "name": "v0.0.8",
+        "recommended_version": "v0.0.8",
+        "compatible_versions": [
+          "v0.0.8"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.0.8/sunrised"
+        },
+        "cosmos_sdk_version": "0.50.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.0.5",
+          "repo": "https://github.com/sunriselayer/sunrise-core",
+          "tag": "v0.0.5-cmt-v0.38.2"
+        },
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.50.2"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "8.0.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
+      },
+      {
+        "name": "v0.1.1",
+        "recommended_version": "v0.1.1",
+        "compatible_versions": [
+          "v0.1.1"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.1.1/sunrised"
+        },
+        "cosmos_sdk_version": "0.50.2",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.0.5",
+          "repo": "https://github.com/sunriselayer/sunrise-core",
+          "tag": "v0.0.5-cmt-v0.38.2"
+        },
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.50.2"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "8.0.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50.2"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "8.0.0"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sunrise/images/sunrise.png",
@@ -88,7 +163,10 @@
   "images": [
     {
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sunrise/images/sunrise.svg",
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sunrise/images/sunrise.png"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sunrise/images/sunrise.png",
+      "theme": {
+        "primary_color_hex": "#ecbc64"
+      }
     }
   ]
 }

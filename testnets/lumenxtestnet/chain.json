@@ -1,9 +1,10 @@
 {
-  "$schema": "../chain.schema.json",
+  "$schema": "../../chain.schema.json",
   "chain_name": "lumenxtestnet",
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "LumenX-Test",
+  "chain_type": "cosmos",
   "chain_id": "lumenx-test",
   "bech32_prefix": "lumen",
   "daemon_name": "lumenxd",
@@ -31,9 +32,12 @@
     ]
   },
   "codebase": {
-    "ics_enabled": [
-      "ics20-1"
-    ]
+    "ibc": {
+      "type": "go",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    }
   },
   "peers": {
     "seeds": [],
@@ -56,7 +60,7 @@
       },
       {
         "address": "https://testrpc-lumenx.cryptonet.pl/",
-        "provider": "CryptoNet"        
+        "provider": "CryptoNet"
       }
     ],
     "rest": [

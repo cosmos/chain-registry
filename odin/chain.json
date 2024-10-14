@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://odinprotocol.io/",
   "pretty_name": "Odin Protocol",
+  "chain_type": "cosmos",
   "chain_id": "odin-mainnet-freya",
   "pre_fork_chain_name": "odin1",
   "bech32_prefix": "odin",
@@ -34,16 +35,15 @@
   },
   "codebase": {
     "git_repo": "https://github.com/ODIN-PROTOCOL/odin-core",
-    "recommended_version": "v0.7.12",
+    "recommended_version": "v0.9.4",
     "compatible_versions": [
-      "v0.7.12"
+      "v0.9.4"
     ],
-    "cosmos_sdk_version": "v0.47.7",
+    "cosmos_sdk_version": "v0.50.7",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.4"
+      "version": "v0.38.10"
     },
-    "ibc_go_version": "v7.3.0",
     "genesis": {
       "genesis_url": "https://snapshots.polkachu.com/genesis/odin/genesis.json"
     },
@@ -59,8 +59,15 @@
           "type": "cometbft",
           "version": "v0.37.4"
         },
-        "ibc_go_version": "v7.3.0",
-        "next_version_name": "v0.7.11"
+        "next_version_name": "v0.7.11",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.7"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.0"
+        }
       },
       {
         "name": "v0.7.11",
@@ -75,8 +82,15 @@
           "type": "cometbft",
           "version": "v0.37.4"
         },
-        "ibc_go_version": "v7.3.0",
-        "next_version_name": "v0.7.12"
+        "next_version_name": "v0.7.12",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.7"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.0"
+        }
       },
       {
         "name": "v0.7.12",
@@ -91,10 +105,71 @@
           "type": "cometbft",
           "version": "v0.37.4"
         },
-        "ibc_go_version": "v7.3.0",
-        "next_version_name": ""
+        "next_version_name": "v0.8.3",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.7"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.0"
+        }
+      },
+      {
+        "name": "v0.8.3",
+        "proposal": 25,
+        "height": 15076000,
+        "recommended_version": "v0.8.3",
+        "compatible_versions": [
+          "v0.8.3"
+        ],
+        "cosmos_sdk_version": "v0.50.7",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.38.7"
+        },
+        "next_version_name": "v0.9.3",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.50.7"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v8.2.0"
+        }
+      },
+      {
+        "name": "v0.9.3",
+        "proposal": 26,
+        "height": 15639500,
+        "recommended_version": "v0.9.4",
+        "compatible_versions": [
+          "v0.9.4"
+        ],
+        "cosmos_sdk_version": "v0.50.7",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.38.10"
+        },
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.50.7"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v8.3.1"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.7"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.3.1"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/odin/images/odin.png",
@@ -121,6 +196,11 @@
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:24756",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -162,7 +242,7 @@
         "provider": "🔥STAVR🔥"
       },
       {
-        "address": "https://odin-rpc.lavenderfive.com/",
+        "address": "https://rpc.lavenderfive.com:443/odin",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -180,7 +260,7 @@
         "provider": "🔥STAVR🔥"
       },
       {
-        "address": "https://odin-api.lavenderfive.com/",
+        "address": "https://rest.lavenderfive.com:443/odin",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -190,7 +270,7 @@
     ],
     "grpc": [
       {
-        "address": "odin-grpc.lavenderfive.com:443",
+        "address": "odin.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {

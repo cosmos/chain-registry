@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "doravota",
+  "chain_type": "cosmos",
   "chain_id": "vota-ash",
   "pretty_name": "Dora Vota",
   "status": "live",
@@ -8,7 +9,9 @@
   "bech32_prefix": "dora",
   "daemon_name": "dorad",
   "node_home": "$HOME/.dora",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -31,8 +34,9 @@
   "codebase": {
     "git_repo": "https://github.com/dorafactory/doravota",
     "recommended_version": "v11.0.0",
-    "compatible_versions": ["v11.0.0"],
-    "binaries": {},
+    "compatible_versions": [
+      "v11.0.0"
+    ],
     "genesis": {
       "genesis_url": "https://github.com/DoraFactory/doravota/blob/main/config/mainnet/genesis.json"
     },
@@ -40,20 +44,23 @@
       {
         "name": "v9.0.1",
         "recommended_version": "v9.0.1",
-        "compatible_versions": ["v9.0.1"],
-        "binaries": {}
+        "compatible_versions": [
+          "v9.0.1"
+        ]
       },
       {
         "name": "v10.0.1",
         "recommended_version": "v10.0.1",
-        "compatible_versions": ["v10.0.1"],
-        "binaries": {}
+        "compatible_versions": [
+          "v10.0.1"
+        ]
       },
       {
         "name": "v11",
         "recommended_version": "v11.0.0",
-        "compatible_versions": ["v11.0.0"],
-        "binaries": {}
+        "compatible_versions": [
+          "v11.0.0"
+        ]
       }
     ]
   },
@@ -63,9 +70,20 @@
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
-      }      
+      },
+      {
+        "id": "4ec0eb59ae35418a9bfa3df3783bad4f372b49c0",
+        "address": "doravota-mainnet-seed.itrocket.net:42656",
+        "provider": "ITRocket"
+      }
     ],
-    "persistent_peers": []
+    "persistent_peers": [
+      {
+        "id": "d6edfdb5eae3565a4af1ce35fd2c03084b8c3ef1",
+        "address": "doravota-mainnet-peer.itrocket.net:42656",
+        "provider": "ITRocket"
+      }
+    ]
   },
   "apis": {
     "rpc": [
@@ -80,6 +98,10 @@
       {
         "address": "https://dora-rpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://doravota-mainnet-rpc.itrocket.net:443",
+        "provider": "ITRocket"
       }
     ],
     "rest": [
@@ -94,6 +116,10 @@
       {
         "address": "https://dora-rest.publicnode.com",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://doravota-mainnet-api.itrocket.net",
+        "provider": "ITRocket"
       }
     ],
     "grpc": [
@@ -104,6 +130,10 @@
       {
         "address": "dora-grpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "doravota-mainnet-grpc.itrocket.net:443",
+        "provider": "ITRocket"
       }
     ]
   },
@@ -117,6 +147,16 @@
       "kind": "lesnik | UTSA Ping Pub",
       "url": "https://exp.utsa.tech/dora/staking",
       "tx_page": "https://exp.utsa.tech/dora/tx/${txHash}"
+    },
+    {
+      "kind": "ITRocket Ping Pub",
+      "url": "https://mainnet.itrocket.net/doravota/staking",
+      "tx_page": "https://mainnet.itrocket.net/doravota/tx/${txHash}"
+    },
+    {
+      "kind": "Explorers",
+      "url": "https://dora.explorers.guru",
+      "tx_page": "https://dora.explorers.guru/transaction/${txHash}"
     }
   ]
 }

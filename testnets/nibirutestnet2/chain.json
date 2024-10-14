@@ -1,10 +1,11 @@
 {
-  "$schema": "../chain.schema.json",
+  "$schema": "../../chain.schema.json",
   "chain_name": "nibirutestnet2",
   "status": "live",
   "network_type": "testnet",
   "website": "https://nibiru.fi/",
   "pretty_name": "Nibiru",
+  "chain_type": "cosmos",
   "chain_id": "nibiru-testnet-2",
   "bech32_prefix": "nibi",
   "daemon_name": "nibid",
@@ -53,7 +54,6 @@
     },
     "cosmwasm_version": "v0.44.0",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "v7.3.1",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/NibiruChain/Networks/main/Testnet/nibiru-testnet-2/genesis.json"
     },
@@ -73,13 +73,25 @@
         "cosmos_sdk_version": "v0.45.5",
         "cosmwasm_version": "v0.44.0",
         "cosmwasm_enabled": true,
-        "ibc_go_version": "v7.3.1",
         "cosmwasm_path": "$HOME/.nibid/data/wasm",
         "binaries": {
           "linux/amd64": "https://github.com/NibiruChain/nibiru/releases/download/v1.0.0/nibid_1.0.0_linux_amd64.tar.gz",
           "linux/arm64": "https://github.com/NibiruChain/nibiru/releases/download/v1.0.0/nibid_1.0.0_linux_arm64.tar.gz"
         },
-        "next_version_name": "v1.0.1"
+        "next_version_name": "v1.0.1",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.5"
+        },
+        "cosmwasm": {
+          "version": "v0.44.0",
+          "path": "$HOME/.nibid/data/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.1"
+        }
       },
       {
         "name": "v1.0.1",
@@ -103,10 +115,33 @@
         },
         "cosmwasm_version": "v0.44.0",
         "cosmwasm_enabled": true,
-        "ibc_go_version": "v7.3.1",
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.7"
+        },
+        "cosmwasm": {
+          "version": "v0.44.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.1"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.7"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.3.1"
+    },
+    "cosmwasm": {
+      "version": "v0.44.0",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nibiru/images/nibiru.png",
@@ -116,7 +151,7 @@
   "apis": {
     "wss": [
       {
-        "address": "wss://hm-graphql.testnet-2.nibiru.fi/query",
+        "address": "wss://rpc.testnet-2.nibiru.fi/websocket",
         "provider": "Nibiru Foundation"
       }
     ],

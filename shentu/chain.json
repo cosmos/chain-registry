@@ -3,8 +3,9 @@
   "chain_name": "shentu",
   "status": "live",
   "network_type": "mainnet",
-  "website": "https://www.shentu.technology/",
+  "website": "https://www.shentu.org/",
   "pretty_name": "Shentu",
+  "chain_type": "cosmos",
   "chain_id": "shentu-2.2",
   "bech32_prefix": "shentu",
   "daemon_name": "shentud",
@@ -35,18 +36,14 @@
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/ShentuChain/mainnet/main/shentu-2.2/genesis.json"
     },
-    "recommended_version": "v2.8.0",
+    "recommended_version": "v2.11.0",
     "compatible_versions": [
-      "v2.8.0"
-    ],
-    "ibc_go_version": "v4.2.1",
-    "ics_enabled": [
-      "ics20-1"
+      "v2.11.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.8.0/shentud_2.8.0_linux_amd64",
-      "darwin/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.8.0/shentud_2.8.0_arm64_macos",
-      "windows/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.8.0/shentud_2.8.0_win_x86_64.exe"
+      "linux/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.11.0/shentud_2.11.0_linux_amd64",
+      "darwin/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.11.0/shentud_2.11.0_arm64_macos",
+      "windows/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.11.0/shentud_2.11.0_win_x86_64.exe"
     },
     "versions": [
       {
@@ -54,7 +51,6 @@
         "height": 10485430,
         "proposal": 14,
         "tag": "v2.6.0",
-        "ibc_go_version": "v4.2.0",
         "recommended_version": "v2.6.0",
         "compatible_versions": [
           "v2.6.0"
@@ -64,17 +60,17 @@
           "darwin/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.6.0/shentud_2.6.0_arm64_macos",
           "windows/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.6.0/shentud_2.6.0_win_x86_64.exe"
         },
-        "next_version_name": "v2.7.0"
+        "next_version_name": "v2.7.0",
+        "ibc": {
+          "type": "go",
+          "version": "v4.2.0"
+        }
       },
       {
         "name": "v2.7.0",
         "height": 12926000,
         "proposal": 17,
         "tag": "v2.7.0",
-        "ibc_go_version": "v4.2.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
         "recommended_version": "v2.7.0",
         "compatible_versions": [
           "v2.7.0"
@@ -84,17 +80,20 @@
           "darwin/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.7.1/shentud_2.7.1_arm64_macos",
           "windows/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.7.1/shentud_2.7.1_win_x86_64.exe"
         },
-        "next_version_name": "v2.7.2"
+        "next_version_name": "v2.7.2",
+        "ibc": {
+          "type": "go",
+          "version": "v4.2.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v2.7.2",
         "height": 14875800,
         "proposal": 21,
         "tag": "v2.7.2",
-        "ibc_go_version": "v4.2.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
         "recommended_version": "v2.7.2",
         "compatible_versions": [
           "v2.7.2"
@@ -104,17 +103,20 @@
           "darwin/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.7.2/shentud_2.7.2_arm64_macos",
           "windows/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.7.2/shentud_2.7.2_win_x86_64.exe"
         },
-        "next_version_name": "v2.8.0"
+        "next_version_name": "v2.8.0",
+        "ibc": {
+          "type": "go",
+          "version": "v4.2.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v2.8.0",
         "height": 15094300,
         "proposal": 23,
         "tag": "v2.8.0",
-        "ibc_go_version": "v4.2.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
         "recommended_version": "v2.8.0",
         "compatible_versions": [
           "v2.8.0"
@@ -124,9 +126,92 @@
           "darwin/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.8.0/shentud_2.8.0_arm64_macos",
           "windows/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.8.0/shentud_2.8.0_win_x86_64.exe"
         },
-        "next_version_name": ""
+        "next_version_name": "",
+        "ibc": {
+          "type": "go",
+          "version": "v4.2.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
+      },
+      {
+        "name": "v2.9.0",
+        "height": 16084500,
+        "proposal": 23,
+        "tag": "v2.9.0",
+        "recommended_version": "v2.9.0",
+        "compatible_versions": [
+          "v2.9.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.9.0/shentud_2.9.0_linux_amd64",
+          "darwin/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.9.0/shentud_2.9.0_arm64_macos",
+          "windows/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.9.0/shentud_2.9.0_win_x86_64.exe"
+        },
+        "next_version_name": "",
+        "ibc": {
+          "type": "go",
+          "version": "v4.2.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
+      },
+      {
+        "name": "v2.10.0",
+        "height": 18737000,
+        "proposal": 23,
+        "tag": "v2.10.0",
+        "recommended_version": "v2.10.0",
+        "compatible_versions": [
+          "v2.10.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.10.0/shentud_2.10.0_linux_amd64",
+          "darwin/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.10.0/shentud_2.10.0_arm64_macos",
+          "windows/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.10.0/shentud_2.10.0_win_x86_64.exe"
+        },
+        "next_version_name": "",
+        "ibc": {
+          "type": "go",
+          "version": "v6.3.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
+      },
+      {
+        "name": "v2.11.0",
+        "height": 19525000,
+        "proposal": 23,
+        "tag": "v2.11.0",
+        "recommended_version": "v2.11.0",
+        "compatible_versions": [
+          "v2.11.0"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.11.0/shentud_2.11.0_linux_amd64",
+          "darwin/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.11.0/shentud_2.11.0_arm64_macos",
+          "windows/amd64": "https://github.com/shentufoundation/shentu/releases/download/v2.11.0/shentud_2.11.0_win_x86_64.exe"
+        },
+        "next_version_name": "",
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       }
-    ]
+    ],
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/shentu/images/ctk.png",
@@ -153,6 +238,11 @@
         "id": "3edd4e16b791218b623f883d04f8aa5c3ff2cca6",
         "address": "shentu-seed.panthea.eu:36656",
         "provider": "Panthea EU"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:26956",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -181,7 +271,7 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://shenturpc.noopsbycertik.com/",
+        "address": "https://rpc.shentu.org:443",
         "provider": "Shentu"
       },
       {
@@ -199,10 +289,6 @@
       {
         "address": "https://rpc-shentu-01.stakeflow.io",
         "provider": "Stakeflow"
-      },
-      {
-        "address": "https://shentu-rpc.tienthuattoan.ventures",
-        "provider": "TienThuatToan"
       },
       {
         "address": "https://shentu-rpc.publicnode.com:443",
@@ -223,7 +309,7 @@
     ],
     "rest": [
       {
-        "address": "https://rest.noopsbycertik.com/",
+        "address": "https://rest.shentu.org/",
         "provider": "Shentu"
       },
       {
@@ -264,6 +350,10 @@
       }
     ],
     "grpc": [
+      {
+        "address": "grpc.shentu.org:443",
+        "provider": "Shentu"
+      },
       {
         "address": "shentu-grpc.polkachu.com:14090",
         "provider": "Polkachu"
@@ -315,8 +405,8 @@
     },
     {
       "kind": "Shentu Explorer",
-      "url": "https://explorer.shentu.technology/?net=shentu-2.2",
-      "tx_page": "https://explorer.shentu.technology/transactions/${txHash}?net=shentu-2.2"
+      "url": "https://explorer.shentu.org/?chain=shentu-2.2",
+      "tx_page": "https://explorer.shentu.org/transactions/${txHash}?chain=shentu-2.2"
     },
     {
       "kind": "ping.pub",
@@ -344,7 +434,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/shentu/images/ctk.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/shentu/images/ctk.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/shentu/images/ctk.svg",
+      "theme": {
+        "primary_color_hex": "#e4ac4c"
+      }
     }
   ]
 }

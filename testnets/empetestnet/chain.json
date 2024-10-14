@@ -1,0 +1,136 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "empetestnet",
+  "chain_type": "cosmos",
+  "chain_id": "empe-testnet-2",
+  "website": "https://empe.io",
+  "pretty_name": "Empe",
+  "status": "live",
+  "network_type": "testnet",
+  "bech32_prefix": "empe",
+  "daemon_name": "emped",
+  "node_home": "$HOME/.emped",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uempe",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.03
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uempe"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/empe-io/empe-chain",
+    "recommended_version": "v0.1.0",
+    "compatible_versions": [
+      "v0.1.0"
+    ],
+    "cosmos_sdk_version": "v0.47",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "cosmwasm_enabled": false,
+    "genesis": {
+      "name": "v0.1.0",
+      "genesis_url": "https://raw.githubusercontent.com/empe-io/empe-chain/main/testnet-2/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v0.1.0",
+        "tag": "v0.1.0",
+        "height": 0,
+        "recommended_version": "v0.1.0",
+        "compatible_versions": [
+          "v0.1.0"
+        ],
+        "cosmos_sdk_version": "v0.47",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34"
+        },
+        "cosmwasm_enabled": false,
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47"
+        },
+        "cosmwasm": {
+          "enabled": false
+        }
+      }
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47"
+    },
+    "cosmwasm": {
+      "enabled": false
+    }
+  },
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "edfc10bbf28b5052658b3b8b901d7d0fc25812a0",
+        "address": "193.70.45.145:26656",
+        "provider": "empe-1"
+      },
+      {
+        "id": "4bd60dee1cb81cb544f545589b8dd286a7b3fd65",
+        "address": "149.202.73.140:26656",
+        "provider": "empe-2"
+      },
+      {
+        "id": "149383fab60d8845c408dce7bb93c05aa1fd115e",
+        "address": "54.37.80.141:26656",
+        "provider": "empe-3"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-testnet.empe.io/",
+        "provider": "empe"
+      },
+      {
+        "address": "https://rpc-archive-testnet.empe.io/",
+        "provider": "empe-archive"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lcd-testnet.empe.io/",
+        "provider": "empe"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc-testnet.empe.io:8443",
+        "provider": "empe"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "empe",
+      "url": "https://explorer-testnet.empe.io",
+      "tx_page": "https://explorer-testnet.empe.io/transactions/${txHash}"
+    }
+  ]
+}

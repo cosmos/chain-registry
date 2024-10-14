@@ -1,9 +1,10 @@
 {
-  "$schema": "../chain.schema.json",
+  "$schema": "../../chain.schema.json",
   "chain_name": "quicksilvertestnet",
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Quicksilver Testnet",
+  "chain_type": "cosmos",
   "chain_id": "rhye-2",
   "bech32_prefix": "quick",
   "daemon_name": "quicksilverd",
@@ -42,7 +43,6 @@
     },
     "cosmwasm_version": "0.29",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "5.3.2",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/ingenuity-build/testnets/main/rhye-2/genesis.json"
     },
@@ -60,9 +60,32 @@
         },
         "cosmwasm_version": "0.29",
         "cosmwasm_enabled": true,
-        "ibc_go_version": "5.3.2"
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46"
+        },
+        "cosmwasm": {
+          "version": "0.29",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "5.3.2"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "5.3.2"
+    },
+    "cosmwasm": {
+      "version": "0.29",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quicksilver/images/qck.svg"

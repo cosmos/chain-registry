@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://tenet.org/",
   "pretty_name": "Tenet",
+  "chain_type": "cosmos",
   "chain_id": "tenet_1559-1",
   "bech32_prefix": "tenet",
   "node_home": "$HOME/.tenetd",
@@ -52,7 +53,6 @@
       "type": "tendermint",
       "version": "0.34"
     },
-    "ibc_go_version": "6.1.0",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/tenet-org/tenet-mainnet/master/config/genesis.json"
     },
@@ -68,7 +68,6 @@
           "type": "tendermint",
           "version": "0.34"
         },
-        "ibc_go_version": "6.1.0",
         "binaries": {
           "linux/amd64": "https://github.com/tenet-org/tenet-mainnet/releases/download/v11.0.6/tenet-mainnet_11.0.6_Linux_amd64.tar.gz",
           "linux/arm64": "https://github.com/tenet-org/tenet-mainnet/releases/download/v11.0.6/tenet-mainnet_11.0.6_Darwin_arm64.tar.gz",
@@ -76,7 +75,15 @@
           "darwin/arm64": "https://github.com/tenet-org/tenet-mainnet/releases/download/v11.0.6/tenet-mainnet_11.0.6_Darwin_arm64.tar.gz",
           "windows/amd64": "https://github.com/tenet-org/tenet-mainnet/releases/download/v11.0.6/tenet-mainnet_11.0.6_Windows_amd64.zip"
         },
-        "next_version_name": "multichain"
+        "next_version_name": "multichain",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "6.1.0"
+        }
       },
       {
         "name": "multichain",
@@ -92,7 +99,6 @@
           "type": "tendermint",
           "version": "0.34"
         },
-        "ibc_go_version": "6.1.0",
         "binaries": {
           "linux/amd64": "https://github.com/tenet-org/tenet-mainnet/releases/download/v11.2.1/tenet-mainnet_11.2.1_Linux_amd64.tar.gz",
           "linux/arm64": "https://github.com/tenet-org/tenet-mainnet/releases/download/v11.2.1/tenet-mainnet_11.2.1_Linux_arm64.tar.gz",
@@ -100,9 +106,25 @@
           "darwin/arm64": "https://github.com/tenet-org/tenet-mainnet/releases/download/v11.2.1/tenet-mainnet_11.2.1_Darwin_arm64.tar.gz",
           "windows/amd64": "https://github.com/tenet-org/tenet-mainnet/releases/download/v11.2.1/tenet-mainnet_11.2.1_Windows_amd64.zip"
         },
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "6.1.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "6.1.0"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tenet/images/tenet.png",
@@ -216,7 +238,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tenet/images/tenet.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tenet/images/tenet.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tenet/images/tenet.svg",
+      "theme": {
+        "primary_color_hex": "#040404"
+      }
     }
   ]
 }

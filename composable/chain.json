@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "composable",
+  "chain_type": "cosmos",
   "chain_id": "centauri-1",
   "website": "https://www.picasso.xyz/",
   "pretty_name": "Picasso",
@@ -38,10 +39,11 @@
       "v6.5.3"
     ],
     "cosmos_sdk_version": "rust-ninja/cosmos-sdk v0.47.5-patch-validators-trim-tag",
-    "ibc_go_version": "notional-labs/ibc-go/v7 v7.2.1-0.20231010040541-6cf43006971f",
     "consensus": {
       "type": "cometbft",
-      "version": "composablefi/cometbft v0.37.2-fixed-len-vote-time-tag"
+      "version": "v0.37.2",
+      "repo": "https://github.com/composablefi/cometbft",
+      "tag": "v0.37.2-fixed-len-vote-time-tag"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/notional-labs/composable-networks/main/mainnet/genesis.json"
@@ -55,7 +57,6 @@
           "v2.3.5"
         ],
         "cosmos_sdk_version": "v0.47.1",
-        "ibc_go_version": "v7.0.0",
         "consensus": {
           "type": "cometbft",
           "version": "0.37.0"
@@ -64,7 +65,15 @@
         "binaries": {
           "linux/amd64": "https://github.com/notional-labs/composable-centauri/releases/download/v2.3.5/banksyd"
         },
-        "next_version_name": "centauri"
+        "next_version_name": "centauri",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.1"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.0.0"
+        }
       },
       {
         "name": "centauri",
@@ -76,7 +85,6 @@
           "v3.1.2"
         ],
         "cosmos_sdk_version": "v0.47.3",
-        "ibc_go_version": "v7.0.0",
         "consensus": {
           "type": "cometbft",
           "version": "0.37.0"
@@ -86,7 +94,15 @@
         "binaries": {
           "linux/amd64": "https://github.com/notional-labs/composable-centauri/releases/download/v3.1.2/centaurid"
         },
-        "next_version_name": "reward"
+        "next_version_name": "reward",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.3"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.0.0"
+        }
       },
       {
         "name": "reward",
@@ -96,14 +112,21 @@
           "v3.2.2"
         ],
         "cosmos_sdk_version": "v0.47.3",
-        "ibc_go_version": "v7.0.0",
         "consensus": {
           "type": "cometbft",
           "version": "0.37.1"
         },
         "height": 420000,
         "proposal": 4,
-        "next_version_name": "v4"
+        "next_version_name": "v4",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.3"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.0.0"
+        }
       },
       {
         "name": "v4",
@@ -113,14 +136,21 @@
           "v4.5.0"
         ],
         "cosmos_sdk_version": "v0.47.3",
-        "ibc_go_version": "v7.0.1",
         "consensus": {
           "type": "cometbft",
           "version": "0.37.1"
         },
         "height": 792909,
         "proposal": 5,
-        "next_version_name": "v5"
+        "next_version_name": "v5",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.3"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.0.1"
+        }
       },
       {
         "name": "v5",
@@ -131,14 +161,21 @@
           "v5.2.0"
         ],
         "cosmos_sdk_version": "v0.47.3",
-        "ibc_go_version": "v7.0.1",
         "consensus": {
           "type": "cometbft",
           "version": "0.37.1"
         },
         "height": 1515288,
         "proposal": 10,
-        "next_version_name": "v6"
+        "next_version_name": "v6",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.3"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.0.1"
+        }
       },
       {
         "name": "v6",
@@ -148,14 +185,21 @@
           "v6.3.6"
         ],
         "cosmos_sdk_version": "v0.47.5",
-        "ibc_go_version": "v7.3.1",
         "consensus": {
           "type": "cometbft",
           "version": "0.37.2"
         },
         "height": 2301070,
         "proposal": 12,
-        "next_version_name": "v6_4"
+        "next_version_name": "v6_4",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.5"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.1"
+        }
       },
       {
         "name": "v6_4",
@@ -165,14 +209,25 @@
           "v6.4.3"
         ],
         "cosmos_sdk_version": "v0.47.5",
-        "ibc_go_version": "notional-labs/ibc-go/v7 v7.2.1-0.20231010040541-6cf43006971f",
         "consensus": {
           "type": "cometbft",
-          "version": "composablefi/cometbft v0.37.2-fixed-len-vote-time-tag"
+          "version": "v0.37.2",
+          "repo": "https://github.com/composablefi/cometbft",
+          "tag": "v0.37.2-fixed-len-vote-time-tag"
         },
         "height": 3486739,
         "proposal": 14,
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.5"
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/notional-labs/ibc-go",
+          "version": "v7.2.1",
+          "tag": "v7.2.1-0.20231010040541-6cf43006971f"
+        }
       },
       {
         "name": "v6_5_0",
@@ -184,12 +239,21 @@
           "v6.5.2"
         ],
         "cosmos_sdk_version": "v0.47.6",
-        "ibc_go_version": "notional-labs/ibc-go/v7 v7.2.1-0.20231010040541-6cf43006971f",
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.2"
         },
-        "next_version_name": "v6_5_3"
+        "next_version_name": "v6_5_3",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.6"
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/notional-labs/ibc-go",
+          "version": "v7.2.1",
+          "tag": "v7.2.1-0.20231010040541-6cf43006971f"
+        }
       },
       {
         "name": "v6_5_3",
@@ -201,14 +265,39 @@
           "v6.5.3"
         ],
         "cosmos_sdk_version": "rust-ninja/cosmos-sdk v0.47.5-patch-validators-trim-tag",
-        "ibc_go_version": "notional-labs/ibc-go/v7 v7.2.1-0.20231010040541-6cf43006971f",
         "consensus": {
           "type": "cometbft",
-          "version": "composablefi/cometbft v0.37.2-fixed-len-vote-time-tag"
+          "version": "v0.37.2",
+          "repo": "https://github.com/composablefi/cometbft",
+          "tag": "v0.37.2-fixed-len-vote-time-tag"
         },
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/rust-ninja/cosmos-sdk",
+          "version": "v0.47.5",
+          "tag": "v0.47.5-patch-validators-trim-tag"
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/notional-labs/ibc-go",
+          "version": "v7.2.1",
+          "tag": "v7.2.1-0.20231010040541-6cf43006971f"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/rust-ninja/cosmos-sdk",
+      "version": "v0.47.5",
+      "tag": "v0.47.5-patch-validators-trim-tag"
+    },
+    "ibc": {
+      "type": "go",
+      "repo": "https://github.com/notional-labs/ibc-go",
+      "version": "v7.2.1",
+      "tag": "v7.2.1-0.20231010040541-6cf43006971f"
+    }
   },
   "logo_URIs": {
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/composable/images/pica.svg"
@@ -225,11 +314,6 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:22256",
         "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
-        "address": "seeds.whispernode.com:22256",
-        "provider": "WhisperNode 🤐"
       },
       {
         "id": "a3910d1bf22b4dacf66979d6ea75fd134aee00db",
@@ -290,16 +374,12 @@
         "provider": "Cogwheel ⚙️"
       },
       {
-        "address": "https://picasso-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/picasso",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://composable-rpc.genznodes.dev",
         "provider": "genznodes"
-      },
-      {
-        "address": "https://rpc-picasso.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://picasso-rpc.stake-town.com",
@@ -310,7 +390,7 @@
         "provider": "Stake Village"
       },
       {
-        "address": "https://composable-rpc.stakeandrelax.net",
+        "address": "https://picasso-rpc.stakeandrelax.net",
         "provider": "Stake&Relax 🦥"
       },
       {
@@ -344,16 +424,12 @@
         "provider": "Cogwheel ⚙️"
       },
       {
-        "address": "https://picasso-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/picasso",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://composable-api.genznodes.dev",
         "provider": "genznodes"
-      },
-      {
-        "address": "https://api-picasso.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://picasso-api.stake-town.com",
@@ -364,7 +440,7 @@
         "provider": "Stake Village"
       },
       {
-        "address": "https://composable-api.stakeandrelax.net",
+        "address": "https://picasso-api.stakeandrelax.net",
         "provider": "Stake&Relax 🦥"
       },
       {
@@ -402,7 +478,7 @@
         "provider": "Cogwheel ⚙️"
       },
       {
-        "address": "https://picasso-grpc.lavenderfive.com:443",
+        "address": "picasso.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -426,7 +502,7 @@
         "provider": "Stake Village"
       },
       {
-        "address": "composable-rpc.stakeandrelax.net:22290",
+        "address": "picasso-rpc.stakeandrelax.net:22290",
         "provider": "Stake&Relax 🦥"
       },
       {
@@ -444,10 +520,6 @@
       {
         "address": "composable.grpc.m.stavr.tech:9907",
         "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "grpc-picasso.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       }
     ]
   },

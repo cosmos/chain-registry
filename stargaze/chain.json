@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://stargaze.zone/",
   "pretty_name": "Stargaze",
+  "chain_type": "cosmos",
   "chain_id": "stargaze-1",
   "bech32_prefix": "stars",
   "daemon_name": "starsd",
@@ -30,15 +31,14 @@
   },
   "codebase": {
     "git_repo": "https://github.com/public-awesome/stargaze",
-    "recommended_version": "v13.0.0",
+    "recommended_version": "v14.0.0",
     "compatible_versions": [
-      "v13.0.0"
+      "v14.0.0"
     ],
-    "cosmos_sdk_version": "v0.47.10",
-    "ibc_go_version": "v7.3.2",
+    "cosmos_sdk_version": "v0.47.12",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.4"
+      "version": "v0.37.6"
     },
     "cosmwasm_version": "v0.45.0",
     "cosmwasm_enabled": true,
@@ -89,16 +89,68 @@
           "v13.0.0"
         ],
         "cosmos_sdk_version": "v0.47.10",
-        "ibc_go_version": "v7.3.2",
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.4"
         },
         "cosmwasm_version": "v0.45.0",
         "cosmwasm_enabled": true,
-        "next_version_name": ""
+        "next_version_name": "v14",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.10"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.2"
+        }
+      },
+      {
+        "name": "v14",
+        "proposal": 279,
+        "height": 14252867,
+        "recommended_version": "v14.0.0",
+        "compatible_versions": [
+          "v14.0.0"
+        ],
+        "cosmos_sdk_version": "v0.47.12",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.6"
+        },
+        "cosmwasm_version": "v0.45.0",
+        "cosmwasm_enabled": true,
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.12"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.6.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.12"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.6.0"
+    },
+    "cosmwasm": {
+      "version": "v0.45.0",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
@@ -141,11 +193,6 @@
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
-        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
-        "address": "seeds.whispernode.com:13756",
-        "provider": "WhisperNode 🤐"
-      },
-      {
         "id": "96e0040d44a2f0b59d2a07e128369363d8535b67",
         "address": "seed-stargaze.ibs.team:16669",
         "provider": "Inter Blockchain Services"
@@ -154,6 +201,11 @@
         "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
         "address": "seeds.stakerhouse.com:10356",
         "provider": "StakerHouse"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:26356",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -215,10 +267,6 @@
       {
         "address": "https://rpc.stargaze.silentvalidator.com/",
         "provider": "silent"
-      },
-      {
-        "address": "https://rpc-stargaze.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://stargaze-mainnet-rpc.autostake.com:443",
@@ -301,10 +349,6 @@
       {
         "address": "https://stargaze-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://lcd-stargaze.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://stargaze-api.ramuchi.tech",
@@ -422,7 +466,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg",
+      "theme": {
+        "primary_color_hex": "#db2777"
+      }
     }
   ]
 }

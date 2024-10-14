@@ -4,8 +4,8 @@
   "status": "live",
   "network_type": "mainnet",
   "website": "https://osmosis.zone/",
-  "update_link": "https://raw.githubusercontent.com/osmosis-labs/osmosis/main/chain.schema.json",
   "pretty_name": "Osmosis",
+  "chain_type": "cosmos",
   "chain_id": "osmosis-1",
   "bech32_prefix": "osmo",
   "daemon_name": "osmosisd",
@@ -48,36 +48,56 @@
     "cosmos_sdk_version": "osmosis-labs/cosmos-sdk v0.47.5-v25-osmo-1",
     "consensus": {
       "type": "cometbft",
-      "version": "osmosis-labs/cometbft v0.37.4-v25-osmo-2"
+      "version": "v0.37.4",
+      "repo": "https://github.com/osmosis-labs/cometbft",
+      "tag": "v25-osmo-2"
     },
     "cosmwasm_version": "osmosis-labs/wasmd v0.45.0-osmo",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "v7.4.0",
-    "ics_enabled": [
-      "ics20-1"
-    ],
-    "go_version": "1.21.4",
     "binaries": {
       "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-amd64",
       "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-arm64"
+    },
+    "language": {
+      "type": "go",
+      "version": "1.21.4"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/osmosis-labs/cosmos-sdk",
+      "version": "v0.47.5",
+      "tag": "v0.47.5-v25-osmo-1"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "v0.45.0",
+      "repo": "https://github.com/osmosis-labs/wasmd",
+      "tag": "v0.45.0-osmo",
+      "enabled": true
     }
   },
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
-      "theme": {
-        "primary_color_hex": "#231D4B"
+      "image_sync": {
+        "chain_name": "osmosis",
+        "base_denom": "uosmo"
       },
-      "layout": "logo",
-      "text_position": "right"
-    },
-    {
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg",
-      "layout": "logomark"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
+      "theme": {
+        "primary_color_hex": "#760dbb"
+      }
     }
   ],
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
   },
   "description": "Osmosis (OSMO) is the premier DEX and cross-chain DeFi hub within the Cosmos ecosystem, a network of over 50 sovereign, interoperable blockchains seamlessly connected through the Inter-Blockchain Communication Protocol (IBC). Pioneering in its approach, Osmosis offers a dynamic trading and liquidity provision experience, integrating non-IBC assets from other ecosystems, including Ethereum, Solana, Avalanche, and Polkadot. Initially adopting Balancer-style pools, Osmosis now also features a concentrated liquidity model that is orders of magnitude more capital efficient, meaning that significantly less liquidity is required to handle the same amount of trading volume with minimal slippage.\n\nAs a true appchain, Osmosis has greater control over the full blockchain stack than traditional smart contract DEXs, which must follow the code of the parent chain that it is built on. This fine-grained control has enabled, for example, the development of Superfluid Staking, an extension of Proof of Stake that allows assets at the application layer to be staked to secure the chain. The customizability of appchains also allows implementing features like the Protocol Revenue module, which enables Osmosis to conduct on-chain arbitrage on behalf of OSMO stakers, balancing prices across pools while generating real yield revenue from this volume. Additionally, as a sovereign appchain, Osmosis governance can vote on upgrades to the protocol. One example of this was the introduction of a Taker Fee, which switched on the collection of exchange fees to generate diverse yield from Osmosis volume and distribute it to OSMO stakers.\n\nOsmosis is bringing the full centralized exchange experience to the decentralized world by building a cross-chain native DEX and trading suite that connects all chains over IBC, including Ethereum and Bitcoin. To reach this goal, Osmosis hosts an ever-expanding suite of DeFi applications aimed at providing a one-stop experience that includes lending, credit, margin, DeFi strategy vaults, power perps, fiat on-ramps, NFTs, stablecoins, and more — all of the functionalities that centralized exchange offer and more, in the trust-minimized environment of decentralized finance.",
   "peers": {
@@ -136,6 +156,11 @@
         "id": "2cb8dd6195c65458e3c18505bb70ce2ff624f85c",
         "address": "seed.osmosis.validatus.com:2000",
         "provider": "Validatus"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:24856",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -209,7 +234,7 @@
         "provider": "WhisperNode 🤐"
       },
       {
-        "address": "https://osmosis-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/osmosis",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -303,6 +328,10 @@
       {
         "address": "https://osmosis-rpc.noders.services",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://osmosis.drpc.org",
+        "provider": "dRPC"
       }
     ],
     "rest": [
@@ -323,7 +352,7 @@
         "provider": "chainapsis"
       },
       {
-        "address": "https://osmosis-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/osmosis",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -409,7 +438,7 @@
     ],
     "grpc": [
       {
-        "address": "osmosis-grpc.lavenderfive.com:443",
+        "address": "osmosis.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {

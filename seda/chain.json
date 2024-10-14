@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.seda.xyz/",
   "pretty_name": "SEDA",
+  "chain_type": "cosmos",
   "chain_id": "seda-1",
   "bech32_prefix": "seda",
   "daemon_name": "sedad",
@@ -46,9 +47,16 @@
       "type": "cometbft",
       "version": "v0.38.6"
     },
-    "ibc_go_version": "v8.2.0",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/sedaprotocol/seda-networks/main/mainnet/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.5"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.2.0"
     }
   },
   "logo_URIs": {
@@ -96,6 +104,11 @@
         "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:25856",
         "provider": "WhisperNode 🤐"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:24656",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -129,7 +142,7 @@
         "provider": "Synergy Nodes"
       },
       {
-        "address": "https://seda-rpc.lavenderfive.com/",
+        "address": "https://rpc.lavenderfive.com:443/seda",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -159,6 +172,14 @@
       {
         "address": "https://seda-rpc.bluestake.net:443",
         "provider": "BlueStake 🚀"
+      },
+      {
+        "address": "https://seda_mainnet_rpc.chain.whenmoonwhenlambo.money:443",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+      },
+      {
+        "address": "https://rpc-seda-mainnet.keepitstaked.com:443",
+        "provider": "KeepItStaked.com"
       }
     ],
     "rest": [
@@ -179,7 +200,7 @@
         "provider": "Synergy Nodes"
       },
       {
-        "address": "https://seda-api.lavenderfive.com/",
+        "address": "https://rest.lavenderfive.com:443/seda",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -209,6 +230,14 @@
       {
         "address": "https://seda-api.bluestake.net",
         "provider": "BlueStake 🚀"
+      },
+      {
+        "address": "https://seda_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+      },
+      {
+        "address": "https://api-seda-mainnet.keepitstaked.com:443",
+        "provider": "KeepItStaked.com"
       }
     ],
     "grpc": [
@@ -225,7 +254,7 @@
         "provider": "kjnodes"
       },
       {
-        "address": "https://seda-grpc.lavenderfive.com",
+        "address": "seda.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -266,12 +295,21 @@
       "url": "https://explorer.256x25.tech/seda-mainnet",
       "tx_page": "https://explorer.256x25.tech/seda-mainnet/tx/${txHash}",
       "account_page": "https://explorer.256x25.tech/seda-mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/seda",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/seda/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/seda/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/seda/images/seda.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/seda/images/seda.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/seda/images/seda.svg",
+      "theme": {
+        "primary_color_hex": "#8178d1"
+      }
     }
   ]
 }

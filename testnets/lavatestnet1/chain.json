@@ -5,6 +5,7 @@
   "network_type": "testnet",
   "website": "https://www.lavanet.xyz/",
   "pretty_name": "Lava",
+  "chain_type": "cosmos",
   "chain_id": "lava-testnet-1",
   "bech32_prefix": "lava@",
   "daemon_name": "lavad",
@@ -47,10 +48,6 @@
     },
     "cosmwasm_version": "0.30",
     "cosmwasm_enabled": false,
-    "ibc_go_version": "v7.2.0",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
       "name": "v0.3.0",
       "genesis_url": "https://raw.githubusercontent.com/lavanet/lava-config/main/testnet-1/genesis_json/genesis.json"
@@ -133,12 +130,37 @@
           "version": "0.34"
         },
         "cosmwasm_enabled": false,
-        "ibc_go_version": "v7.2.0",
-        "ics_enabled": [
-          "ics20-1"
-        ]
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.2.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.45"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.2.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "0.30",
+      "enabled": false
+    }
   },
   "images": [
     {

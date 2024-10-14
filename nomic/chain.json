@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "pretty_name": "Nomic",
   "website": "https://nomic.io/",
+  "chain_type": "cosmos",
   "chain_id": "nomic-stakenet-3",
   "bech32_prefix": "nomic",
   "daemon_name": "nomic",
@@ -17,6 +18,12 @@
     "fee_tokens": [
       {
         "denom": "unom",
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0
+      },
+      {
+        "denom": "usat",
         "low_gas_price": 0,
         "average_gas_price": 0,
         "high_gas_price": 0
@@ -35,13 +42,14 @@
   },
   "codebase": {
     "git_repo": "https://github.com/nomic-io/nomic",
-    "recommended_version": "v8.0.0",
+    "recommended_version": "v9.0.0",
     "compatible_versions": [
+      "v9.0.0",
       "v8.0.0"
     ],
     "consensus": {
       "type": "tendermint",
-      "version": "v0.32.0"
+      "version": "v0.34.0"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/nomic-io/nomic/develop/genesis/stakenet-3.json"
@@ -57,13 +65,25 @@
           "type": "tendermint",
           "version": "v0.32.0"
         },
+        "next_version_name": "v9.0.0"
+      },
+      {
+        "name": "v9.0.0",
+        "recommended_version": "v9.0.0",
+        "compatible_versions": [
+          "v9.0.0"
+        ],
+        "consensus": {
+          "type": "tendermint",
+          "version": "v0.34.0"
+        },
         "next_version_name": ""
       }
     ]
   },
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nomic.png",
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nomic.svg"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nom.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nom.svg"
   },
   "description": "The superior way to use Bitcoin in Cosmos DeFi. Use IBC to securely and efficiently bridge your BTC to Osmosis and more.",
   "peers": {
@@ -154,8 +174,15 @@
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nomic.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nomic.svg"
+      "image_sync": {
+        "chain_name": "nomic",
+        "base_denom": "unom"
+      },
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nom.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nom.svg",
+      "theme": {
+        "primary_color_hex": "#6404fc"
+      }
     }
   ],
   "bech32_config": {

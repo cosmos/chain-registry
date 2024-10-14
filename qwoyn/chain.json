@@ -6,6 +6,7 @@
   "website": "https://qwoyn.studio/",
   "description": "The Qwoyn Network stands as a cutting-edge gaming hub that embeds Web3 technologies into the core of interactive entertainment. It revolutionizes the gaming industry by ensuring true ownership of in-game assets for players, facilitated through blockchain. This approach not only enhances gameplay but also fosters a unique ecosystem of interoperability and innovation. As a beacon in the gaming world, Qwoyn Network is dedicated to merging the excitement of traditional gaming with the transformative potential of Web3, creating a seamless and enriched gaming experience.",
   "pretty_name": "Qwoyn",
+  "chain_type": "cosmos",
   "chain_id": "qwoyn-1",
   "bech32_prefix": "qwoyn",
   "daemon_name": "qwoynd",
@@ -39,11 +40,6 @@
       "v5.4.1"
     ],
     "cosmos_sdk_version": "0.47.6",
-    "ibc_go_version": "7.3.1",
-    "ics_enabled": [
-      "ics20-1",
-      "ics27-1"
-    ],
     "consensus": {
       "type": "cometbft",
       "version": "v0.37.2"
@@ -61,7 +57,6 @@
           "v5.0.2"
         ],
         "cosmos_sdk_version": "0.47.3",
-        "ibc_go_version": "7.0.1",
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.1"
@@ -69,7 +64,15 @@
         "binaries": {
           "linux/amd64": "https://github.com/cosmic-horizon/QWOYN/releases/download/v5.0.2/qwoynd_5.0.2_linux_amd64.zip"
         },
-        "next_version_name": "v5.1.0"
+        "next_version_name": "v5.1.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.47.3"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "7.0.1"
+        }
       },
       {
         "name": "v5.1.0",
@@ -81,12 +84,19 @@
           "v5.1.0"
         ],
         "cosmos_sdk_version": "0.47.3",
-        "ibc_go_version": "7.0.1",
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.1"
         },
-        "next_version_name": "v5.2.0"
+        "next_version_name": "v5.2.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.47.3"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "7.0.1"
+        }
       },
       {
         "name": "v5.2.0",
@@ -98,12 +108,19 @@
           "v5.2.0"
         ],
         "cosmos_sdk_version": "0.47.3",
-        "ibc_go_version": "7.0.1",
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.1"
         },
-        "next_version_name": "v5.3.0"
+        "next_version_name": "v5.3.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.47.3"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "7.0.1"
+        }
       },
       {
         "name": "v5.3.0",
@@ -115,17 +132,27 @@
           "v5.3.0"
         ],
         "cosmos_sdk_version": "0.47.6",
-        "ibc_go_version": "7.0.1",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.2"
         },
         "cosmwasm_version": "0.40.0",
-        "next_version_name": "v5.4.1"
+        "next_version_name": "v5.4.1",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.47.6"
+        },
+        "cosmwasm": {
+          "version": "0.40.0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "7.0.1",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ]
+        }
       },
       {
         "name": "v5.4.1",
@@ -137,19 +164,44 @@
           "v5.4.1"
         ],
         "cosmos_sdk_version": "0.47.6",
-        "ibc_go_version": "7.3.1",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.2"
         },
         "cosmwasm_version": "0.40.0",
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.47.6"
+        },
+        "cosmwasm": {
+          "version": "0.40.0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "7.3.1",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ]
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.47.6"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "7.3.1",
+      "ics_enabled": [
+        "ics20-1",
+        "ics27-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "0.40.0"
+    }
   },
   "peers": {
     "seeds": [
@@ -218,7 +270,7 @@
         "provider": "Staketab archive"
       },
       {
-        "address": "https://qwoyn-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/qwoyn",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -248,7 +300,7 @@
         "provider": "AM Solutions"
       },
       {
-        "address": "https://qwoyn-grpc.lavenderfive.com:443",
+        "address": "qwoyn.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -278,7 +330,7 @@
         "provider": "Staketab archive"
       },
       {
-        "address": "https://qwoyn-api.lavenderfive.com",
+        "address": "https://rest.lavenderfive.com:443/qwoyn",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -316,7 +368,10 @@
   },
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/qwoyn/images/qwoyn.png"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/qwoyn/images/qwoyn.png",
+      "theme": {
+        "primary_color_hex": "#04e4fc"
+      }
     }
   ]
 }

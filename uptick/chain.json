@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://uptick.network/",
   "pretty_name": "Uptick",
+  "chain_type": "cosmos",
   "chain_id": "uptick_117-1",
   "bech32_prefix": "uptick",
   "daemon_name": "uptickd",
@@ -43,11 +44,11 @@
     "cosmos_sdk_version": "v0.47.5",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.3-0.20230920093934-46df7b597e3c"
+      "version": "v0.37.3",
+      "tag": "v0.37.3-0.20230920093934-46df7b597e3c"
     },
     "cosmwasm_version": "v0.45.0",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "7.3.0",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/uptick-network/mainnet/main/genesis.json"
     },
@@ -66,10 +67,19 @@
           "type": "tendermint",
           "version": "0.34"
         },
-        "cosmwasm_version": "",
         "cosmwasm_enabled": false,
-        "ibc_go_version": "5.0.1",
-        "next_version_name": "v0.2.8"
+        "next_version_name": "v0.2.8",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.47.5"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "5.0.1"
+        }
       },
       {
         "name": "v0.2.8",
@@ -135,13 +145,37 @@
         "cosmos_sdk_version": "0.47.5",
         "consensus": {
           "type": "cometbft",
-          "version": "v0.37.3-0.20230920093934-46df7b597e3c"
+          "version": "v0.37.3",
+          "tag": "v0.37.3-0.20230920093934-46df7b597e3c"
         },
         "cosmwasm_version": "v0.45.0",
         "cosmwasm_enabled": true,
-        "ibc_go_version": "v7.3.0"
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.47.5"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.5"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "7.3.0"
+    },
+    "cosmwasm": {
+      "version": "v0.45.0",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/uptick/images/uptick.png",
@@ -432,7 +466,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/uptick/images/uptick.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/uptick/images/uptick.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/uptick/images/uptick.svg",
+      "theme": {
+        "primary_color_hex": "#1f182f"
+      }
     }
   ]
 }

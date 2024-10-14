@@ -1,6 +1,7 @@
 {
   "$schema": "../../chain.schema.json",
   "chain_name": "neuratestnet",
+  "chain_type": "cosmos",
   "chain_id": "neura_267-1",
   "bech32_prefix": "neura",
   "pretty_name": "Neura Testnet",
@@ -19,34 +20,36 @@
   "slip44": 1,
   "fees": {
     "fee_tokens": [
-        {
-            "denom": "atankr"
-        }
+      {
+        "denom": "atankr"
+      }
     ]
   },
   "staking": {
     "staking_tokens": [
-        {
-            "denom": "atankr"
-        }
+      {
+        "denom": "atankr"
+      }
     ]
   },
   "apis": {
-    "rpc": [{
+    "rpc": [
+      {
         "address": "https://rpc.ankr.com/neura_testnet",
         "provider": "ankr"
-    }]
+      }
+    ]
   },
   "explorers": [
     {
-        "kind": "ankrscan-neura",
-        "url": "https://testnet.explorer.neuraprotocol.io",
-        "tx_page": "https://testnet.explorer.neuraprotocol.io/tx/${txHash}"
+      "kind": "ankrscan-neura",
+      "url": "https://testnet.explorer.neuraprotocol.io",
+      "tx_page": "https://testnet.explorer.neuraprotocol.io/tx/${txHash}"
     },
     {
-        "kind": "blockscout",
-        "url": "https://explorer.neura-testnet.ankr.com",
-        "tx_page": "https://explorer.neura-testnet.ankr.com/tx/${txHash}"
+      "kind": "blockscout",
+      "url": "https://explorer.neura-testnet.ankr.com",
+      "tx_page": "https://explorer.neura-testnet.ankr.com/tx/${txHash}"
     }
   ],
   "codebase": {
@@ -62,7 +65,10 @@
       "image_sync": {
         "chain_name": "neura"
       },
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neura/images/neura.png"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neura/images/neura.png",
+      "theme": {
+        "primary_color_hex": "#4e5afc"
+      }
     }
   ]
 }
