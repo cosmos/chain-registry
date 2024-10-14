@@ -3,7 +3,7 @@
   "chain_name": "mars",
   "assets": [
     {
-      "description": "Mars protocol token",
+      "description": "Mars Protocol token (pre-migration)",
       "denom_units": [
         {
           "denom": "umars",
@@ -17,22 +17,35 @@
       "base": "umars",
       "name": "Mars",
       "display": "mars",
-      "symbol": "MARS",
+      "symbol": "MARS.old",
+      "traces": [
+        {
+          "type": "legacy-mintage",
+          "counterparty": {
+            "chain_name": "neutron",
+            "base_denom": "factory/neutron1ndu2wvkrxtane8se2tr48gv7nsm46y5gcqjhux/MARS"
+          },
+          "provider": "Mars Hub"
+        }
+      ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token-ibc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token-ibc.svg"
       },
-      "coingecko_id": "mars-protocol-a7fcbcfb-fd61-4017-92f0-7ee9f9cc6da3",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token-ibc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token-ibc.svg",
+          "theme": {
+            "primary_color_hex": "#000000"
+          }
         }
       ],
       "socials": {
         "website": "https://www.marsprotocol.io/",
         "twitter": "https://twitter.com/mars_protocol"
-      }
+      },
+      "type_asset": "sdk.coin"
     }
   ]
 }

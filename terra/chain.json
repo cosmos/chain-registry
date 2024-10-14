@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "pretty_name": "Terra Classic",
+  "chain_type": "cosmos",
   "chain_id": "columbus-5",
   "daemon_name": "terrad",
   "node_home": "$HOME/.terra",
@@ -198,13 +199,24 @@
         "cosmos_sdk_version": "0.45.13",
         "cosmwasm_enabled": true,
         "cosmwasm_version": "0.16.7",
-        "ibc_go_version": "1.3.1",
         "consensus": {
           "type": "tendermint",
           "version": "0.34.24"
         },
         "binaries": {
           "linux/amd64": "https://github.com/terra-money/classic-core/releases/download/v2.0.1/terra_2.0.1_Linux_x86_64.tar.gz?checksum=sha256:b9edfd51080c9c9ae16b30afd1b8490d7278e51d521ccc0f2afcbb7e3b389b8d"
+        },
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45.13"
+        },
+        "cosmwasm": {
+          "version": "0.16.7",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "1.3.1"
         }
       },
       {
@@ -214,13 +226,24 @@
         "cosmos_sdk_version": "0.45.14",
         "cosmwasm_enabled": true,
         "cosmwasm_version": "0.30.0",
-        "ibc_go_version": "4.3.1",
         "consensus": {
           "type": "tendermint",
           "version": "0.34.24"
         },
         "binaries": {
           "linux/amd64": "https://github.com/terra-money/classic-core/releases/download/v2.1.1/terra_2.1.1_Linux_x86_64.tar.gz?checksum=sha256:9bf91be244af95f1afcf7fc1ddb1852aa96651adf94e9668c16c7df5596100d6"
+        },
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45.14"
+        },
+        "cosmwasm": {
+          "version": "0.30.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "4.3.1"
         }
       }
     ]
@@ -360,7 +383,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra/images/luna.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra/images/luna.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra/images/luna.svg",
+      "theme": {
+        "primary_color_hex": "#fcdb5b"
+      }
     }
   ]
 }

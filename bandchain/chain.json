@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://bandprotocol.com/",
   "pretty_name": "Band Protocol",
+  "chain_type": "cosmos",
   "chain_id": "laozi-mainnet",
   "daemon_name": "bandd",
   "node_home": "$HOME/.band",
@@ -43,7 +44,6 @@
       "v2.5.4"
     ],
     "cosmos_sdk_version": "0.45.16",
-    "ibc_go_version": "v4.3.1",
     "consensus": {
       "type": "cometbft",
       "version": "v0.34.29"
@@ -63,12 +63,19 @@
           "v2.4.1"
         ],
         "cosmos_sdk_version": "v0.45.10",
-        "ibc_go_version": "v3.3.1",
         "consensus": {
           "type": "tendermint",
           "version": "v0.34.22"
         },
-        "next_version_name": "v2_5"
+        "next_version_name": "v2_5",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.10"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.3.1"
+        }
       },
       {
         "name": "v2_5",
@@ -82,14 +89,29 @@
           "v2.5.4"
         ],
         "cosmos_sdk_version": "0.45.16",
-        "ibc_go_version": "v4.3.1",
         "consensus": {
           "type": "cometbft",
           "version": "v0.34.29"
         },
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45.16"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.3.1"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.45.16"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v4.3.1"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.png",
@@ -105,6 +127,10 @@
       {
         "id": "543e0cab9c3016a0e99775443a17bcf163038912",
         "address": "34.150.156.78:26656"
+      },
+      {
+        "id": "2c884e60a0944958a2a9389f07f2f66dcfc3add0",
+        "address": "seeds-bandprotocol.activenodes.io:36656"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
@@ -125,6 +151,11 @@
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "08bc9afd0cac4ae6cf8f1877920b0cc7e58a6f42",
+        "address": "seeds.tendermint.roomit.xyz:40000",
+        "provider": "Roomit"
       },
       {
         "id": "10ed1e176d874c8bb3c7c065685d2da6a4b86475",
@@ -152,6 +183,11 @@
         "provider": "🔥STAVR🔥"
       },
       {
+        "id": "420994846f175d0413796be9caea49e07ad3a503",
+        "address": "p2p.tendermint.roomit.xyz:166006",
+        "provider": "Roomit"
+      },
+      {
         "id": "4ded49b3a718828eb64cf35da1ed791ecb201bc1",
         "address": "peer-band-01.stakeflow.io:25017",
         "provider": "Stakeflow"
@@ -160,11 +196,6 @@
         "id": "d3fe7586b604196461db92c2c7cf72eb354af1fc",
         "address": "rpc.band.indonode.net:12656",
         "provider": "Indonode"
-      },
-      {
-        "id": "c6f9e1309055eedbcd58d018b54247f13e9f878b",
-        "address": "65.108.195.213:44656",
-        "provider": "StakeTown"
       }
     ]
   },
@@ -207,16 +238,16 @@
         "provider": "High Stakes 🇨🇭"
       },
       {
-        "address": "https://band-rpc.stake-town.com",
-        "provider": "StakeTown"
-      },
-      {
         "address": "https://public.stakewolle.com/cosmos/bandchain/rpc",
         "provider": "Stakewolle"
       },
       {
         "address": "https://rpc.band.bronbro.io/",
         "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://rpc.band.roomit.xyz/",
+        "provider": "Roomit"
       },
       {
         "address": "https://band-rpc.noders.services",
@@ -261,16 +292,16 @@
         "provider": "High Stakes 🇨🇭"
       },
       {
-        "address": "https://band-api.stake-town.com",
-        "provider": "StakeTown"
-      },
-      {
         "address": "https://public.stakewolle.com/cosmos/bandchain/rest",
         "provider": "Stakewolle"
       },
       {
         "address": "https://lcd.band.bronbro.io/",
         "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://api.band.roomit.xyz/",
+        "provider": "Roomit"
       },
       {
         "address": "https://band-api.noders.services",
@@ -311,12 +342,12 @@
         "provider": "kjnodes"
       },
       {
-        "address": "band-grpc.stake-town.com:443",
-        "provider": "StakeTown"
-      },
-      {
         "address": "grpc.band.bronbro.io:443",
         "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "grpc.band.roomit.xyz:8443",
+        "provider": "Roomit"
       },
       {
         "address": "band-grpc.noders.services:30090",
@@ -363,6 +394,11 @@
       "account_page": "https://stakeflow.io/band-protocol/accounts/${accountAddress}"
     },
     {
+      "kind": "Roomit Explorer",
+      "url": "https://explorer.tendermint.roomit.xyz/band-mainnet",
+      "account_page": "https://explorer.tendermint.roomit.xyz/band-mainnet/accounts/${accountAddress}"
+    },
+    {
       "kind": "kjnodes Explorer",
       "url": "https://explorer.kjnodes.com/band",
       "tx_page": "https://explorer.kjnodes.com/band/tx/${txHash}"
@@ -371,7 +407,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.svg",
+      "theme": {
+        "primary_color_hex": "#4424e4"
+      }
     }
   ]
 }

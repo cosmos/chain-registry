@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.marsprotocol.io/",
   "pretty_name": "Mars Hub",
+  "chain_type": "cosmos",
   "chain_id": "mars-1",
   "bech32_prefix": "mars",
   "daemon_name": "marsd",
@@ -48,10 +49,6 @@
     },
     "cosmwasm_version": "0.30.0",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "6.1.0",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
       "genesis_url": "https://github.com/mars-protocol/networks/raw/main/mars-1/genesis.json"
     },
@@ -72,12 +69,38 @@
         },
         "cosmwasm_version": "0.30.0",
         "cosmwasm_enabled": true,
-        "ibc_go_version": "6.1.0",
-        "ics_enabled": [
-          "ics20-1"
-        ]
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46.7"
+        },
+        "cosmwasm": {
+          "version": "0.30.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "6.1.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46.7"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "6.1.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "0.30.0",
+      "enabled": true
+    }
   },
   "description": "Lend, borrow and earn with an autonomous credit protocol in the Cosmos universe. Open to all, closed to none.",
   "peers": {
@@ -123,7 +146,7 @@
         "provider": "Delphi Labs"
       },
       {
-        "address": "https://mars-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/mars",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -161,7 +184,7 @@
         "provider": "Delphi Labs"
       },
       {
-        "address": "https://mars-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/mars",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -199,7 +222,7 @@
         "provider": "Delphi Labs"
       },
       {
-        "address": "mars-grpc.lavenderfive.com:443",
+        "address": "mars.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -235,9 +258,9 @@
   "explorers": [
     {
       "kind": "ezstaking",
-      "url": "https://ezstaking.app/mars",
-      "tx_page": "https://ezstaking.app/mars/txs/${txHash}",
-      "account_page": "https://ezstaking.app/mars/account/${accountAddress}"
+      "url": "https://ezstaking.app/mars-protocol",
+      "tx_page": "https://ezstaking.app/mars-protocol/txs/${txHash}",
+      "account_page": "https://ezstaking.app/mars-protocol/account/${accountAddress}"
     },
     {
       "kind": "BigDipper",
@@ -277,7 +300,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-protocol.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-protocol.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-protocol.svg",
+      "theme": {
+        "primary_color_hex": "#040404"
+      }
     }
   ]
 }

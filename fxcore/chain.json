@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "fxcore",
+  "chain_type": "cosmos",
   "chain_id": "fxcore",
   "website": "https://functionx.io",
   "pretty_name": "f(x)Core",
@@ -36,27 +37,26 @@
   },
   "codebase": {
     "git_repo": "https://github.com/functionx/fx-core",
-    "recommended_version": "v4.2.1",
+    "recommended_version": "v7.5.0",
     "compatible_versions": [
-      "v4.2.1"
+      "v7.5.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Linux_x86_64.tar.gz",
-      "linux/arm64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Darwin_x86_64.tar.gz",
-      "darwin/arm64": "https://github.com/FunctionX/fx-core/releases/download/v4.2.1/fx-core_Darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Windows_x86_64.zip"
+      "linux/amd64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-linux-amd64",
+      "linux/arm64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-linux-arm64",
+      "darwin/amd64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-darwin-amd64",
+      "darwin/arm64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-darwin-amd64",
+      "windows/amd64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-windows-amd64.exe"
     },
     "genesis": {
       "name": "fxv1",
       "genesis_url": "https://github.com/functionx/fx-core/raw/main/public/mainnet/genesis.json"
     },
-    "cosmos_sdk_version": "0.46",
+    "cosmos_sdk_version": "v0.47.13",
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
+      "type": "cometbft",
+      "version": "v0.37.6"
     },
-    "ibc_go_version": "6.1.0",
     "versions": [
       {
         "name": "fxv1",
@@ -131,9 +131,119 @@
         "consensus": {
           "type": "tendermint",
           "version": "0.34"
+        },
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46"
+        }
+      },
+      {
+        "name": "v5.0.x",
+        "tag": "v5.0.0",
+        "height": 11601700,
+        "proposal": 41,
+        "previous_version_name": "v4.2.x",
+        "next_version_name": "v6.0.x",
+        "recommended_version": "v5.0.0",
+        "compatible_versions": [
+          "v5.0.0"
+        ],
+        "cosmos_sdk_version": "v0.46.13",
+        "consensus": {
+          "type": "tendermint",
+          "version": "v0.34.28"
+        },
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.13"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v6.1.1"
+        },
+        "binaries": {
+          "darwin/arm64": "https://github.com/functionX/fx-core/releases/download/v5.0.0/fx-core_Darwin_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/functionX/fx-core/releases/download/v5.0.0/fx-core_Darwin_amd64.tar.gz",
+          "linux/arm64": "https://github.com/functionX/fx-core/releases/download/v5.0.0/fx-core_Linux_arm64.tar.gz",
+          "linux/amd64": "https://github.com/functionX/fx-core/releases/download/v5.0.0/fx-core_Linux_amd64.tar.gz",
+          "windows/amd64": "https://github.com/functionX/fx-core/releases/download/v5.0.0/fx-core_Windows_x86_64.zip"
+        }
+      },
+      {
+        "name": "v6.0.x",
+        "tag": "v6.1.0",
+        "height": 13598000,
+        "proposal": 47,
+        "previous_version_name": "v5.0.x",
+        "next_version_name": "v7.5.x",
+        "recommended_version": "v6.1.0",
+        "compatible_versions": [
+          "v6.1.0"
+        ],
+        "cosmos_sdk_version": "v0.46.13",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.13"
+        },
+        "consensus": {
+          "type": "tendermint",
+          "version": "v0.34.28"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v6.1.1"
+        },
+        "binaries": {
+          "darwin/arm64": "https://github.com/functionX/fx-core/releases/download/v6.1.0/fx-core_Darwin_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/functionX/fx-core/releases/download/v6.1.0/fx-core_Darwin_amd64.tar.gz",
+          "linux/arm64": "https://github.com/functionX/fx-core/releases/download/v6.1.0/fx-core_Linux_arm64.tar.gz",
+          "linux/amd64": "https://github.com/functionX/fx-core/releases/download/v6.1.0/fx-core_Linux_amd64.tar.gz",
+          "windows/amd64": "https://github.com/functionX/fx-core/releases/download/v6.1.0/fx-core_Windows_x86_64.zip"
+        }
+      },
+      {
+        "name": "v7.5.x",
+        "tag": "v7.5.0",
+        "height": 16838000,
+        "proposal": 63,
+        "previous_version_name": "v6.0.x",
+        "next_version_name": "",
+        "recommended_version": "v7.5.0",
+        "compatible_versions": [
+          "v7.5.0"
+        ],
+        "cosmos_sdk_version": "v0.47.13",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.13",
+          "tag": "v0.47.13"
+        },
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.9"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.6.0"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-linux-amd64",
+          "linux/arm64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-linux-arm64",
+          "darwin/amd64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-darwin-amd64",
+          "darwin/arm64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-darwin-amd64",
+          "windows/amd64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-windows-amd64.exe"
         }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.13",
+      "tag": "v0.47.13"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.6.0"
+    }
   },
   "peers": {
     "seeds": [

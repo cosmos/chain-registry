@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://wormhole.com",
   "pretty_name": "Wormhole Gateway",
+  "chain_type": "cosmos",
   "chain_id": "wormchain",
   "bech32_prefix": "wormhole",
   "daemon_name": "wormchaind",
@@ -24,46 +25,62 @@
       }
     ]
   },
-  "staking": {
-    "staking_tokens": [
-      {
-        "denom": "uworm"
-      }
-    ]
-  },
   "codebase": {
     "git_repo": "https://github.com/wormhole-foundation/wormhole",
     "recommended_version": "v2.23.0",
     "cosmos_sdk_version": "github.com/wormhole-foundation/cosmos-sdk@v0.45.9-wormhole-2",
     "consensus": {
       "type": "tendermint",
-      "version": "github.com/tendermint/tendermint@v0.34.24"
+      "version": "v0.34.24",
+      "repo": "https://github.com/tendermint/tendermint"
     },
     "cosmwasm_version": "github.com/wormhole-foundation/wasmd@v0.30.0-wormchain-2",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "4.2.2",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
       "name": "v1",
       "genesis_url": "https://github.com/wormhole-foundation/wormhole/blob/main/wormchain/mainnet/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/wormhole-foundation/cosmos-sdk",
+      "version": "v0.45.9",
+      "tag": "v0.45.9-wormhole-2"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "4.2.2",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "repo": "https://github.com/wormhole-foundation/wasmd",
+      "version": "v0.30.0",
+      "tag": "v0.30.0-wormchain-2",
+      "enabled": true
     }
   },
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gateway/images/gateway_logo.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gateway/images/wormhole_icon.svg",
       "theme": {
-        "primary_color_hex": "#0F0C48"
+        "background_color_hex": "#231b3b",
+        "primary_color_hex": "#231b3b",
+        "circle": false
       }
     },
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gateway/images/gateway_logo.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gateway/images/wormhole_logo.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gateway/images/wormhole_circle.svg",
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gateway/images/wormhole_circle.png",
+      "theme": {
+        "background_color_hex": "#231b3b",
+        "primary_color_hex": "#231b3b",
+        "circle": true
+      }
     }
   ],
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gateway/images/gateway_logo.png"
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gateway/images/wormhole_icon.svg"
   },
   "peers": {
     "seeds": [

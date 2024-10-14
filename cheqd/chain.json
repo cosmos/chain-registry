@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.cheqd.io/",
   "pretty_name": "Cheqd",
+  "chain_type": "cosmos",
   "chain_id": "cheqd-mainnet-1",
   "bech32_prefix": "cheqd",
   "daemon_name": "cheqd-noded",
@@ -32,6 +33,7 @@
     "git_repo": "https://github.com/cheqd/cheqd-node",
     "recommended_version": "v2.0.1",
     "compatible_versions": [
+      "v2.0.0",
       "v2.0.1"
     ],
     "binaries": {
@@ -45,37 +47,169 @@
       "type": "cometbft",
       "version": "0.37.5"
     },
-    "ibc_go_version": "v7.4.0",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/cheqd/cheqd-node/main/networks/mainnet/genesis.json"
     },
     "versions": [
       {
+        "name": "v0.3",
+        "recommended_version": "v0.3.1",
+        "compatible_versions": [
+          "v0.3.1"
+        ],
+        "cosmos_sdk_version": "0.44.3",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34.14"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v0.3.1/cheqd-node_0.3.1_amd64.deb"
+        },
+        "next_version_name": "v0.4",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.44.3"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v1.2.3"
+        }
+      },
+      {
+        "name": "v0.4",
+        "recommended_version": "v0.4.1",
+        "compatible_versions": [
+          "v0.4.0",
+          "v0.4.1"
+        ],
+        "cosmos_sdk_version": "cheqd/cosmos-sdk v0.44.5-cheqd",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34.14"
+        },
+        "proposal": 2,
+        "height": 1171198,
+        "binaries": {
+          "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v0.4.1/cheqd-node_0.4.1_amd64.deb"
+        },
+        "previous_version_name": "v0.3",
+        "next_version_name": "v0.5",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/cheqd/cosmos-sdk",
+          "version": "v0.44.5",
+          "tag": "v0.44.5-cheqd"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v1.2.3"
+        }
+      },
+      {
+        "name": "v0.5",
+        "recommended_version": "v0.5.0",
+        "compatible_versions": [
+          "v0.5.0"
+        ],
+        "cosmos_sdk_version": "cheqd/cosmos-sdk v0.44.5-cheqd",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34.15"
+        },
+        "proposal": 3,
+        "height": 1971324,
+        "binaries": {
+          "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v0.5.0/cheqd-node_0.5.0_amd64.deb"
+        },
+        "previous_version_name": "v0.4",
+        "next_version_name": "v0.6",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/cheqd/cosmos-sdk",
+          "version": "v0.44.5",
+          "tag": "v0.44.5-cheqd"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v1.4.0"
+        }
+      },
+      {
+        "name": "v0.6",
+        "recommended_version": "v0.6.10",
+        "compatible_versions": [
+          "v0.6.0",
+          "v0.6.1",
+          "v0.6.7",
+          "v0.6.9",
+          "v0.6.10"
+        ],
+        "cosmos_sdk_version": "cheqd/cosmos-sdk v0.45.9-cheqd-tag",
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34.21"
+        },
+        "proposal": 6,
+        "height": 3561652,
+        "binaries": {
+          "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v0.6.10/cheqd-noded-0.6.10-linux-x86_64.tar.gz",
+          "linux/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v0.6.10/cheqd-noded-0.6.10-linux-arm64.tar.gz"
+        },
+        "previous_version_name": "v0.5",
+        "next_version_name": "v1",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/cheqd/cosmos-sdk",
+          "version": "v0.45.9",
+          "tag": "v0.45.9-cheqd-tag"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.3.0"
+        }
+      },
+      {
         "name": "v1",
-        "recommended_version": "v1.4.4",
+        "recommended_version": "v1.4.5",
         "compatible_versions": [
           "v1.2.5",
           "v1.3.0",
           "v1.4.0",
-          "v1.4.4"
+          "v1.4.2",
+          "v1.4.4",
+          "v1.4.5"
         ],
-        "cosmos_sdk_version": "0.46.10",
+        "cosmos_sdk_version": "cheqd/cosmos-sdk v0.46.10-barberry",
         "consensus": {
           "type": "tendermint",
           "version": "0.34.26"
         },
+        "proposal": 12,
+        "height": 6427280,
         "binaries": {
-          "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-linux-amd64.tar.gz",
-          "linux/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-linux-arm64.tar.gz",
-          "darwin/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-darwin-amd64.tar.gz",
-          "darwin/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-darwin-arm64.tar.gz"
+          "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.5/cheqd-noded-1.4.5-linux-amd64.tar.gz",
+          "linux/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.5/cheqd-noded-1.4.5-linux-arm64.tar.gz",
+          "darwin/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.5/cheqd-noded-1.4.5-darwin-amd64.tar.gz",
+          "darwin/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.5/cheqd-noded-1.4.5-darwin-arm64.tar.gz"
         },
-        "next_version_name": "v2"
+        "previous_version_name": "v0.6",
+        "next_version_name": "v2",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/cheqd/cosmos-sdk",
+          "version": "v0.46.10",
+          "tag": "v0.46.10-barberry"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v6.1.1"
+        }
       },
       {
         "name": "v2",
         "recommended_version": "v2.0.1",
         "compatible_versions": [
+          "v2.0.0",
           "v2.0.1"
         ],
         "cosmos_sdk_version": "cheqd/cosmos-sdk v0.47.10-height-mismatch",
@@ -83,16 +217,38 @@
           "type": "cometbft",
           "version": "0.37.5"
         },
-        "ibc_go_version": "v7.4.0",
+        "proposal": 48,
+        "height": 13024570,
         "binaries": {
           "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v2.0.1/cheqd-noded-2.0.1-linux-amd64.tar.gz",
           "linux/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v2.0.1/cheqd-noded-2.0.1-linux-arm64.tar.gz",
           "darwin/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v2.0.1/cheqd-noded-2.0.1-darwin-amd64.tar.gz",
           "darwin/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v2.0.1/cheqd-noded-2.0.1-darwin-arm64.tar.gz"
         },
-        "next_version_name": ""
+        "previous_version_name": "v1",
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/cheqd/cosmos-sdk",
+          "version": "v0.47.10",
+          "tag": "v0.47.10-height-mismatch"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/cheqd/cosmos-sdk",
+      "version": "v0.47.10",
+      "tag": "v0.47.10-height-mismatch"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0"
+    }
   },
   "peers": {
     "seeds": [
@@ -172,7 +328,7 @@
         "provider": "cheqd"
       },
       {
-        "address": "https://cheqd-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/cheqd",
         "provider": "Lavender.Five Nodes"
       },
       {
@@ -206,6 +362,10 @@
       {
         "address": "https://cheq-rpc.kleomedes.network",
         "provider": "Kleomedes"
+      },
+      {
+        "address": "https://cheqd-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "rest": [
@@ -214,7 +374,7 @@
         "provider": "cheqd"
       },
       {
-        "address": "https://cheqd-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/cheqd",
         "provider": "Lavender.Five Nodes"
       },
       {
@@ -248,6 +408,10 @@
       {
         "address": "https://cheq-api.kleomedes.network",
         "provider": "Kleomedes"
+      },
+      {
+        "address": "https://cheqd-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "grpc": [
@@ -260,7 +424,7 @@
         "provider": "🔥STAVR🔥"
       },
       {
-        "address": "cheqd-grpc.lavenderfive.com:443",
+        "address": "cheqd.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -278,15 +442,19 @@
       {
         "address": "grpc-cheqd.blockval.io:9290",
         "provider": "Blockval"
+      },
+      {
+        "address": "cheqd-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ]
   },
   "explorers": [
     {
       "kind": "bigdipper",
-      "url": "https://bigdipper.live/cheqd",
-      "tx_page": "https://bigdipper.live/cheqd/transactions/${txHash}",
-      "account_page": "https://bigdipper.live/cheqd/accounts/${accountAddress}"
+      "url": "https://explorer.cheqd.io",
+      "tx_page": "https://explorer.cheqd.io/transactions/${txHash}",
+      "account_page": "https://explorer.cheqd.io/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -319,6 +487,12 @@
       "kind": "ping.pub",
       "url": "https://ping.wildsage.io/cheqd",
       "tx_page": "https://ping.wildsage.io/cheqd/tx/${txHash}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/cheqd",
+      "tx_page": "https://mainnet.whispernode.com/cheqd/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/cheqd/account/${accountAddress}"
     }
   ],
   "logo_URIs": {
@@ -328,7 +502,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cheqd/images/cheq.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cheqd/images/cheq.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cheqd/images/cheq.svg",
+      "theme": {
+        "primary_color_hex": "#fc5f04"
+      }
     }
   ]
 }

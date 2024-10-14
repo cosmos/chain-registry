@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "stafihub",
+  "chain_type": "cosmos",
   "chain_id": "stafihub-1",
   "website": "https://stafihub.io/",
   "pretty_name": "StaFi Hub",
@@ -45,10 +46,6 @@
       "type": "tendermint",
       "version": "0.34"
     },
-    "ibc_go_version": "5.2.1",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/stafihub/network/main/mainnets/stafihub-1(dragonberry)/genesis.json"
     },
@@ -87,13 +84,31 @@
           "type": "tendermint",
           "version": "0.34"
         },
-        "ibc_go_version": "5.2.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "v060"
+        "next_version_name": "v060",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "5.2.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "5.2.1",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    }
   },
   "peers": {
     "seeds": [
@@ -207,7 +222,10 @@
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stafihub/images/stafihub-chain-logo.png"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stafihub/images/stafihub-chain-logo.png",
+      "theme": {
+        "primary_color_hex": "#100d10"
+      }
     }
   ]
 }

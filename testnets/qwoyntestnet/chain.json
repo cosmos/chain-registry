@@ -1,10 +1,11 @@
 {
-  "$schema": "../chain.schema.json",
+  "$schema": "../../chain.schema.json",
   "chain_name": "qwoyntestnet",
   "status": "live",
   "network_type": "testnet",
   "website": "https://qwoyn.studio/",
   "pretty_name": "Qwoyn",
+  "chain_type": "cosmos",
   "chain_id": "earendel-1",
   "bech32_prefix": "qwoyn",
   "daemon_name": "qwoynd",
@@ -41,11 +42,6 @@
       "type": "tendermint",
       "version": "0.34"
     },
-    "ibc_go_version": "7.0.1",
-    "ics_enabled": [
-      "ics20-1",
-      "ics27-1"
-    ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/cosmic-horizon/testnets/main/higgs-boson-1/genesis.json"
     },
@@ -61,16 +57,35 @@
           "type": "tendermint",
           "version": "0.34"
         },
-        "ibc_go_version": "3.0.0",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
         "binaries": {
           "linux/amd64": "https://github.com/cosmic-horizon/QWOYN/releases/download/v1.0.0/qwoynd_1.0.0_linux_amd64.zip"
+        },
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.42.10"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "3.0.0",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ]
         }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.47.3"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "7.0.1",
+      "ics_enabled": [
+        "ics20-1",
+        "ics27-1"
+      ]
+    }
   },
   "peers": {
     "seeds": [],

@@ -27,13 +27,17 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/planq/images/planq.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/planq/images/planq.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/planq/images/planq.svg",
+          "theme": {
+            "primary_color_hex": "#d4f3fb"
+          }
         }
       ],
       "socials": {
         "website": "https://planq.network",
         "twitter": "https://twitter.com/planqfoundation"
-      }
+      },
+      "type_asset": "sdk.coin"
     },
     {
       "description": "The token of Source Protocol bridged from BSC.",
@@ -71,12 +75,65 @@
             "chain_name": "binancesmartchain",
             "base_denom": "0x454b90716a9435e7161a9aea5cf00e0acbe565ae"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/binancesmartchain/images/srcx.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/binancesmartchain/images/srcx.png",
+          "theme": {
+            "primary_color_hex": "#7f22bc"
+          }
         }
       ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/binancesmartchain/images/srcx.png"
-      }
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "MEME Token (MEME) is the native staking token of the MEME Chain",
+      "denom_units": [
+        {
+          "denom": "ibc/747FF58D3F211497581252CEBE11D7E785FC1E53AC5C29497A361E3830F1AF4A",
+          "exponent": 0
+        },
+        {
+          "denom": "meme",
+          "exponent": 6
+        }
+      ],
+      "base": "ibc/747FF58D3F211497581252CEBE11D7E785FC1E53AC5C29497A361E3830F1AF4A",
+      "name": "MEME",
+      "display": "meme",
+      "symbol": "MEME",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/meme/images/meme.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/meme/images/meme.svg"
+      },
+      "type_asset": "ics20",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "meme",
+            "base_denom": "umeme",
+            "channel_id": "channel-11"
+          },
+          "chain": {
+            "channel_id": "channel-64",
+            "path": "transfer/channel-64/umeme"
+          }
+        }
+      ],
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/meme/images/meme.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/meme/images/meme.svg",
+          "image_sync": {
+            "chain_name": "meme",
+            "base_denom": "umeme"
+          },
+          "theme": {
+            "primary_color_hex": "#b7dcd8"
+          }
+        }
+      ]
     }
   ]
 }

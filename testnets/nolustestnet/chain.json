@@ -5,6 +5,7 @@
   "website": "https://nolus.io/",
   "network_type": "testnet",
   "pretty_name": "Nolus Testnet",
+  "chain_type": "cosmos",
   "chain_id": "rila-1",
   "bech32_prefix": "nolus",
   "daemon_name": "nolusd",
@@ -44,11 +45,6 @@
     },
     "cosmwasm_version": "0.31",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "4.3.0",
-    "ics_enabled": [
-      "ics20-1",
-      "ics27-1"
-    ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/nolus-protocol/nolus-networks/main/testnet/rila-1/genesis.json"
     },
@@ -60,13 +56,40 @@
         "cosmos_sdk_version": "0.45",
         "cosmwasm_version": "0.31",
         "cosmwasm_enabled": true,
-        "ibc_go_version": "4.3.0",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ]
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "version": "0.31",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "4.3.0",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ]
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.45"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "4.3.0",
+      "ics_enabled": [
+        "ics20-1",
+        "ics27-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "0.31",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/nolustestnet/images/nolus.png",

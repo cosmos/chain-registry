@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://realio.network/",
   "pretty_name": "Realio Network",
+  "chain_type": "cosmos",
   "chain_id": "realionetwork_3301-1",
   "bech32_prefix": "realio",
   "node_home": "$HOME/.realio-network",
@@ -36,23 +37,22 @@
   },
   "codebase": {
     "git_repo": "https://github.com/realiotech/realio-network",
-    "recommended_version": "v0.9.2",
+    "recommended_version": "v0.9.3",
     "compatible_versions": [
-      "v0.9.2"
+      "v0.9.3"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.9.2/realio-network_Linux_x86_64.tar.gz",
-      "linux/arm64": "https://github.com/realiotech/realio-network/releases/download/v0.9.2/realio-network_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.9.2/realio-network_Darwin_x86_64.tar.gz",
-      "darwin/arm64": "https://github.com/realiotech/realio-network/releases/download/v0.9.2/realio-network_Darwin_arm64.tar.gz",
-      "windows/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.9.2/realio-network_Windows_x86_64.zip"
+      "linux/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.9.3/realio-network_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/realiotech/realio-network/releases/download/v0.9.3/realio-network_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.9.3/realio-network_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/realiotech/realio-network/releases/download/v0.9.3/realio-network_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.9.3/realio-network_Windows_x86_64.zip"
     },
     "cosmos_sdk_version": "v0.46.12",
     "consensus": {
       "type": "cometbft",
       "version": "v0.34.27"
     },
-    "ibc_go_version": "v6.1.1",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/realiotech/mainnet/main/realionetwork_3301-1/genesis.json"
     },
@@ -68,27 +68,21 @@
           "type": "tendermint",
           "version": "0.34"
         },
-        "ibc_go_version": "6.1.0",
-        "next_version_name": "v0.8.1"
-      },
-      {
-        "name": "v0.8.1",
-        "recommended_version": "v0.8.1",
-        "compatible_versions": [
-          "v0.8.1"
-        ],
-        "cosmos_sdk_version": "0.46",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
+        "next_version_name": "v0.8.3",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46"
         },
-        "ibc_go_version": "6.1.1",
-        "next_version_name": "v0.8.3"
+        "ibc": {
+          "type": "go",
+          "version": "6.1.0"
+        }
       },
       {
         "name": "v0.8.3",
         "recommended_version": "v0.8.3",
         "compatible_versions": [
+          "v0.8.1",
           "v0.8.2",
           "v0.8.3"
         ],
@@ -97,7 +91,6 @@
           "type": "cometbft",
           "version": "0.34.27"
         },
-        "ibc_go_version": "6.1.1",
         "binaries": {
           "linux/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.8.3/realio-network_Linux_x86_64.tar.gz",
           "linux/arm64": "https://github.com/realiotech/realio-network/releases/download/v0.8.3/realio-network_Linux_arm64.tar.gz",
@@ -105,7 +98,15 @@
           "darwin/arm64": "https://github.com/realiotech/realio-network/releases/download/v0.8.3/realio-network_Darwin_arm64.tar.gz",
           "windows/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.8.3/realio-network_Windows_x86_64.zip"
         },
-        "next_version_name": "multistaking"
+        "next_version_name": "multistaking",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "6.1.1"
+        }
       },
       {
         "name": "multistaking",
@@ -120,7 +121,6 @@
           "type": "cometbft",
           "version": "v0.34.27"
         },
-        "ibc_go_version": "v6.1.1",
         "binaries": {
           "linux/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.9.2/realio-network_Linux_x86_64.tar.gz",
           "linux/arm64": "https://github.com/realiotech/realio-network/releases/download/v0.9.2/realio-network_Linux_arm64.tar.gz",
@@ -128,9 +128,55 @@
           "darwin/arm64": "https://github.com/realiotech/realio-network/releases/download/v0.9.2/realio-network_Darwin_arm64.tar.gz",
           "windows/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.9.2/realio-network_Windows_x86_64.zip"
         },
-        "next_version_name": ""
+        "next_version_name": "Commission",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.12"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v6.1.1"
+        }
+      },
+      {
+        "name": "Commission",
+        "proposal": 9,
+        "height": 7526754,
+        "recommended_version": "v0.9.3",
+        "compatible_versions": [
+          "v0.9.3"
+        ],
+        "cosmos_sdk_version": "v0.46.12",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.27"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.9.3/realio-network_Linux_x86_64.tar.gz",
+          "linux/arm64": "https://github.com/realiotech/realio-network/releases/download/v0.9.3/realio-network_Linux_arm64.tar.gz",
+          "darwin/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.9.3/realio-network_Darwin_x86_64.tar.gz",
+          "darwin/arm64": "https://github.com/realiotech/realio-network/releases/download/v0.9.3/realio-network_Darwin_arm64.tar.gz",
+          "windows/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.9.3/realio-network_Windows_x86_64.zip"
+        },
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.12"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v6.1.1"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.46.12"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v6.1.1"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/realio/images/rio.png"
@@ -139,7 +185,7 @@
     "seeds": [
       {
         "id": "09ba537d6563018b97c502979c3478df4decf426",
-        "address": "realio-seed.genznodes.dev:21656",
+        "address": "seeds-node.genznodes.dev:1656",
         "provider": "genznodes"
       },
       {
@@ -155,8 +201,8 @@
     ],
     "persistent_peers": [
       {
-        "id": "96ab7d2dafe2039cbb55e59cb99bcb7e1369c9a0",
-        "address": "95.214.55.138:30656",
+        "id": "c985bbffca9632f695c4be831ce35d2079aff248",
+        "address": "213.246.39.138:30656",
         "provider": "genznodes"
       },
       {
@@ -236,6 +282,10 @@
       {
         "address": "https://rpc-realio.blockval.io",
         "provider": "Blockval"
+      },
+      {
+        "address": "https://realio_rio_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "rest": [
@@ -282,6 +332,10 @@
       {
         "address": "https://api-realio.blockval.io",
         "provider": "Blockval"
+      },
+      {
+        "address": "https://realio_rio_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "grpc": [
@@ -350,6 +404,10 @@
       {
         "address": "https://realio-jsonrpc.noders.services",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://realio_rio_mainnet_evm.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ]
   },
@@ -389,11 +447,20 @@
       "url": "https://explorer.declab.pro/realio",
       "tx_page": "https://explorer.declab.pro/realio/tx/${txHash}",
       "account_page": "https://explorer.declab.pro/realio/account/{$accountAddress}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/realio",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/realio/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/realio/account/${accountAddress}"
     }
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/realio/images/rio.png"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/realio/images/rio.png",
+      "theme": {
+        "primary_color_hex": "#181818"
+      }
     }
   ]
 }

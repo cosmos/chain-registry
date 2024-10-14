@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://dhealth.com/",
   "pretty_name": "dHealth",
+  "chain_type": "cosmos",
   "chain_id": "dhealth",
   "bech32_prefix": "dh",
   "daemon_name": "dhealthd",
@@ -41,7 +42,6 @@
       "linux/amd64": "https://github.com/dhealthproject/dhealth/releases/download/v1.0.0/dhealthd-1.0.0-linux-amd64"
     },
     "cosmos_sdk_version": "cosmos/cosmos-sdk v0.47.4",
-    "ibc_go_version": "v7.2.0",
     "consensus": {
       "type": "cometbft",
       "version": "v0.37.2"
@@ -63,7 +63,6 @@
           "linux/amd64": "https://github.com/dhealthproject/dhealth/releases/download/v1.0.0/dhealthd-1.0.0-linux-amd64"
         },
         "cosmos_sdk_version": "cosmos/cosmos-sdk v0.47.4",
-        "ibc_go_version": "v7.2.0",
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.2"
@@ -71,9 +70,37 @@
         "cosmwasm_version": "v0.41.0",
         "cosmwasm_enabled": true,
         "cosmwasm_path": "$HOME/.dhealth/wasm",
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/cosmos/cosmos-sdk",
+          "version": "v0.47.4"
+        },
+        "cosmwasm": {
+          "version": "v0.41.0",
+          "path": "$HOME/.dhealth/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.2.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/cosmos/cosmos-sdk",
+      "version": "v0.47.4"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.2.0"
+    },
+    "cosmwasm": {
+      "version": "v0.41.0",
+      "path": "$HOME/.dhealth/wasm",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dhealth/images/dhp.png",
@@ -90,6 +117,11 @@
         "id": "052ab696b79fbcf24bfb0e5cf2e6b9d7e4efe8f8",
         "address": "rpc.dhealth.nodestake.org:26656",
         "provider": "NodeStake"
+      },
+      {
+        "id": "6f6a3a908634b79b6fe7c4988efec2553f188234",
+        "address": "dhealth.seed.nodeshub.online:28256",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️"
       }
     ],
     "persistent_peers": [
@@ -102,6 +134,11 @@
         "id": "69d16d1147e90cdfb8ed066331a0abb9c71c3ae2",
         "address": "162.19.223.89:26656",
         "provider": "NodeStake"
+      },
+      {
+        "id": "637077d431f618181597706810a65c826524fd74",
+        "address": "dhealth.rpc.nodeshub.online:28256",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️"
       }
     ]
   },
@@ -114,6 +151,10 @@
       {
         "address": "https://rpc.dhealth.nodestake.org",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://dhealth.rpc.nodeshub.online:443",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️"
       }
     ],
     "rest": [
@@ -124,6 +165,10 @@
       {
         "address": "https://api.dhealth.nodestake.org",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://dhealth.api.nodeshub.online",
+        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️"
       }
     ],
     "grpc": [
@@ -134,6 +179,10 @@
       {
         "address": "https://grpc.dhealth.nodestake.org:443",
         "provider": "NodeStake"
+      },
+      {
+        "address": "dhealth.grpc.nodeshub.online",
+        "provider": "Nodes Hub"
       }
     ]
   },
@@ -143,12 +192,21 @@
       "url": "https://explorer.nodestake.org/dhealth",
       "tx_page": "https://explorer.nodestake.org/dhealth/tx/${txHash}",
       "account_page": "https://explorer.nodestake.org/dhealth/account/${accountAddress}"
+    },
+    {
+      "kind": "Nodes Hub 🛡️ 100% Slash Protected 🛡️",
+      "url": "https://explorer.nodeshub.online/dhealth/",
+      "tx_page": "https://explorer.nodeshub.online/dhealth/tx/${txHash}",
+      "account_page": "https://explorer.nodeshub.online/dhealth/accounts/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dhealth/images/dhp.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dhealth/images/dhp.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dhealth/images/dhp.svg",
+      "theme": {
+        "primary_color_hex": "#140c7c"
+      }
     }
   ]
 }

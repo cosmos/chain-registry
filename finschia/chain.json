@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "finschia",
+  "chain_type": "cosmos",
   "chain_id": "finschia-2",
   "website": "https://www.finschia.io/",
   "pretty_name": "Finschia",
@@ -41,7 +42,6 @@
       "v2.0.0",
       "v2.0.1"
     ],
-    "go_version": "1.20",
     "binaries": {
       "linux/amd64": "https://github.com/Finschia/finschia/releases/download/v2.0.1/fnsad-2.0.1-linux-amd64",
       "linux/arm64": "https://github.com/Finschia/finschia/releases/download/v2.0.1/fnsad-2.0.1-linux-arm64",
@@ -52,10 +52,6 @@
     "cosmwasm_version": "github.com/Finschia/wasmd@v0.2.0",
     "cosmwasm_enabled": true,
     "cosmwasm_path": "$HOME/.finschia/wasm/wasm",
-    "ibc_go_version": "v4.3.1",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
       "name": "v2",
       "genesis_url": "https://vos.line-scdn.net/finschia-2-fileshare/datafile/finschia-prod-2/finschia-2-genesis.tgz"
@@ -69,7 +65,6 @@
         "compatible_versions": [
           "v1.1.1"
         ],
-        "go_version": "1.18",
         "binaries": {
           "linux/amd64": "https://github.com/Finschia/finschia/releases/download/v1.1.1/finschia-v1.1.1-linux-amd64.tgz",
           "linux/arm64": "https://github.com/Finschia/finschia/releases/download/v1.1.1/finschia-v1.1.1-linux-arm64.tgz",
@@ -80,11 +75,29 @@
         "cosmwasm_version": "github.com/Finschia/wasmd@v0.1.5",
         "cosmwasm_enabled": true,
         "cosmwasm_path": "$HOME/.finschia/wasm/wasm",
-        "ibc_go_version": "v3.3.3",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "v2"
+        "next_version_name": "v2",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.3",
+          "repo": "https://github.com/Finschia/finschia-sdk"
+        },
+        "language": {
+          "type": "go",
+          "version": "1.18"
+        },
+        "cosmwasm": {
+          "version": "v0.1.5",
+          "path": "$HOME/.finschia/wasm/wasm",
+          "enabled": true,
+          "repo": "https://github.com/Finschia/wasmd"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.3.3",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v2",
@@ -96,7 +109,6 @@
           "v2.0.0",
           "v2.0.1"
         ],
-        "go_version": "1.20",
         "binaries": {
           "linux/amd64": "https://github.com/Finschia/finschia/releases/download/v2.0.1/fnsad-2.0.1-linux-amd64",
           "linux/arm64": "https://github.com/Finschia/finschia/releases/download/v2.0.1/fnsad-2.0.1-linux-arm64",
@@ -107,14 +119,54 @@
         "cosmwasm_version": "github.com/Finschia/wasmd@v0.2.0",
         "cosmwasm_enabled": true,
         "cosmwasm_path": "$HOME/.finschia/wasm/wasm",
-        "ibc_go_version": "v4.3.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
         "previous_version_name": "v1",
-        "next_version_name": "v3"
+        "next_version_name": "v3",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.48.1",
+          "repo": "https://github.com/Finschia/finschia-sdk"
+        },
+        "language": {
+          "type": "go",
+          "version": "1.20"
+        },
+        "cosmwasm": {
+          "version": "v0.2.0",
+          "path": "$HOME/.finschia/wasm/wasm",
+          "enabled": true,
+          "repo": "https://github.com/Finschia/wasmd"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.3.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       }
-    ]
+    ],
+    "language": {
+      "type": "go",
+      "version": "1.20"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/Finschia/finschia-sdk",
+      "version": "v0.48.1"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v4.3.1",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "v0.2.0",
+      "path": "$HOME/.finschia/wasm/wasm",
+      "enabled": true,
+      "repo": "https://github.com/Finschia/wasmd"
+    }
   },
   "description": "Finschia (formerly LINE Blockchain Mainnet) aims to build a sustainable token model and create token demand to become a blockchain with 1 billion users.",
   "peers": {
@@ -172,7 +224,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/finschia/images/fnsa.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/finschia/images/fnsa.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/finschia/images/fnsa.svg",
+      "theme": {
+        "primary_color_hex": "#040404"
+      }
     }
   ],
   "logo_URIs": {

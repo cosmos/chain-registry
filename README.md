@@ -51,6 +51,7 @@ A sample `chain.json` includes the following information.
   "status": "live",
   "website": "https://osmosis.zone/",
   "network_type": "mainnet",
+  "chain_type": "cosmos"
   "pretty_name": "Osmosis",
   "chain_id": "osmosis-1",
   "bech32_prefix": "osmo",
@@ -83,26 +84,45 @@ A sample `chain.json` includes the following information.
   },
   "codebase": {
     "git_repo": "https://github.com/osmosis-labs/osmosis",
-    "recommended_version": "v12.2.0",
-    "compatible_versions": [
-      "v12.1.0"
-      "v12.2.0"
-    ],
-    "cosmos_sdk_version": "0.46",
-    "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
-    },
-    "cosmwasm_version": "0.28",
-    "cosmwasm_enabled": true,
-    "ibc_go_version": "3.0.0",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
       "name": "v3",
       "genesis_url": "https://github.com/osmosis-labs/networks/raw/main/osmosis-1/genesis.json"
     },
+    "recommended_version": "v25.0.0",
+    "compatible_versions": [
+      "v25.0.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-amd64",
+      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-arm64"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "osmosis-labs/cometbft v0.37.4-v25-osmo-2"
+    },
+    "language": {
+      "type": "go",
+      "version": "1.21.4"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/osmosis-labs/cosmos-sdk",
+      "version": "v0.47.5",
+      "tag": "v0.47.5-v25-osmo-1"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "v0.45.0",
+      "repo": "https://github.com/osmosis-labs/wasmd",
+      "tag": "v0.45.0-osmo",
+      "enabled": true
+    }
     "versions": [
       {
         "name": "v3",
@@ -110,70 +130,58 @@ A sample `chain.json` includes the following information.
         "height": 0,
         "next_version_name": "v4"
       },
+      ...//version history can alternatively go into 'versions.json'
       {
-        "name": "v4",
-        "tag": "v4.2.0",
-        "height": 1314500,
-        "proposal": 38,
-        "next_version_name": "v5"
-      },
-      {
-        "name": "v5",
-        "tag": "v6.4.1",
-        "height": 2383300,
-        "proposal": 95,
-        "next_version_name": "v7"
-      },
-      {
-        "name": "v7",
-        "tag": "v8.0.0",
-        "height": 3401000,
-        "proposal": 157,
-        "next_version_name": "v9"
-      },
-      {
-        "name": "v9",
-        "tag": "v10.0.1",
-        "height": 4707300,
-        "proposal": 252,
-        "next_version_name": "v11"
-      },
-      {
-        "name": "v11",
-        "tag": "v11.0.0",
-        "height": 5432450,
-        "proposal": 296,
-        "next_version_name": "v12"
-      },
-      {
-        "name": "v12",
-        "tag": "v12.1.0",
-        "height": 6246000,
-        "proposal": 335,
-        "recommended_version": "v12.2.0",
+        "name": "v25",
+        "tag": "v25.0.0",
+        "proposal": 782,
+        "height": 15753500,
+        "recommended_version": "v25.0.0",
         "compatible_versions": [
-          "v12.1.0"
-          "v12.2.0"
+          "v25.0.0"
         ],
-        "cosmos_sdk_version": "0.46",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
+        "binaries": {
+          "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-amd64",
+          "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-arm64"
         },
-        "cosmwasm_version": "0.28",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "3.0.0",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "v13"
+        "previous_version_name": "v24",
+        "next_version_name": "v26",
+        "consensus": {
+          "type": "cometbft",
+          "version": "osmosis-labs/cometbft v0.37.4-v25-osmo-2"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "repo": "https://github.com/osmosis-labs/wasmd",
+          "tag": "v0.45.0-osmo",
+          "enabled": true
+        },
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.5",
+          "repo": "https://github.com/osmosis-labs/cosmos-sdk",
+          "tag": "v0.47.5-v25-osmo-1"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        },
+        "language": {
+          "type": "go",
+          "version": "1.21.4"
+        }
       }
     ]
   },
   "images": [
     {
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg",
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
       "theme": {
+        "circle": true,
         "primary_color_hex": "#231D4B"
       }
     }
@@ -185,10 +193,9 @@ A sample `chain.json` includes the following information.
         "address": "ec2-44-234-84-104.us-west-2.compute.amazonaws.com:26656",
         "provider": "notional"
       },
+      ...
       {
-        "id": "f515a8599b40f0e84dfad935ba414674ab11a668",
-        "address": "osmosis.blockpane.com:26656",
-        "provider": "blockpane"
+        //another peer
       }
     ],
     "persistent_peers": [
@@ -197,22 +204,9 @@ A sample `chain.json` includes the following information.
         "address": "52.79.199.137:26656",
         "provider": "cosmostation"
       },
-      {
-        "id": "8d9967d5f865c68f6fe2630c0f725b0363554e77",
-        "address": "134.255.252.173:26656",
-        "provider": "divecrypto"
-      },
-      ...
       ...
       {
-        "id": "64d36f3a186a113c02db0cf7c588c7c85d946b5b",
-        "address": "209.97.132.170:26656",
-        "provider": "solidstake"
-      },
-      {
-        "id": "4d9ac3510d9f5cfc975a28eb2a7b8da866f7bc47",
-        "address": "37.187.38.191:26656",
-        "provider": "stakelab"
+        //another peer
       }
     ]
   },
@@ -222,21 +216,19 @@ A sample `chain.json` includes the following information.
         "address": "https://osmosis.validator.network/",
         "provider": "validatornetwork"
       },
+      ...
       {
-        "address": "https://rpc-osmosis.blockapsis.com",
-        "provider": "chainapsis"
+        //another rpc
       }
     ],
     "rest": [
       {
         "address": "https://lcd-osmosis.blockapsis.com",
         "provider": "chainapsis"
-      }
-    ],
-    "grpc": [
+      },
+      ...
       {
-        "address": "osmosis.strange.love:9090",
-        "provider": "strangelove"
+        //another rest
       }
     ]
   },
@@ -246,6 +238,10 @@ A sample `chain.json` includes the following information.
       "url": "https://www.mintscan.io/osmosis",
       "tx_page": "https://www.mintscan.io/osmosis/txs/${txHash}",
       "account_page": "https://www.mintscan.io/osmosis/account/${accountAddress}"
+    },
+    ...
+    {
+      //another explorer
     }
   ],
   "keywords": [
@@ -260,7 +256,7 @@ Asset Lists are inspired by the [Token Lists](https://tokenlists.org/) project o
 
 Asset lists are a similar mechanism to allow frontends and other UIs to fetch metadata associated with Cosmos SDK denoms, especially for assets sent over IBC.
 
-This standard is a work in progress.  You'll notice that the format of `assets` in the assetlist.json structure is a strict superset json representation of the [`banktypes.DenomMetadata`](https://docs.cosmos.network/master/architecture/adr-024-coin-metadata.html) from the Cosmos SDK.  This is purposefully done so that this standard may eventually be migrated into a Cosmos SDK module in the future, so it can be easily maintained on chain instead of on Github.
+This standard is a work in progress.  You'll notice that the format of `assets` in the assetlist.json structure is a strict superset json representation of the [`banktypes.DenomMetadata`](https://docs.cosmos.network/main/build/architecture/adr-024-coin-metadata) from the Cosmos SDK.  This is purposefully done so that this standard may eventually be migrated into a Cosmos SDK module in the future, so it can be easily maintained on chain instead of on Github.
 
 The assetlist JSON Schema can be found [here](/assetlist.schema.json).
 
@@ -283,6 +279,7 @@ An example assetlist json contains the following structure:
           "exponent": 6
         }
       ],
+      "type_asset": "sdk.coin",
       "base": "uosmo",
       "name": "Osmosis",
       "display": "osmo",
@@ -292,6 +289,7 @@ An example assetlist json contains the following structure:
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg",
           "theme": {
+            "circle": false,
             "primary_color_hex": "#5c09a0"
           }
         }
@@ -306,39 +304,54 @@ An example assetlist json contains the following structure:
         "twitter": "https://twitter.com/osmosiszone"
       }
     },
+    ..
     {
+      "description": "The native staking and governance token of the Cosmos Hub.",
       "denom_units": [
         {
-          "denom": "uion",
-          "exponent": 0
+          "denom": "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
+          "exponent": 0,
+          "aliases": [
+            "uatom"
+          ]
         },
         {
-          "denom": "ion",
+          "denom": "atom",
           "exponent": 6
         }
       ],
-      "base": "uion",
-      "name": "Ion",
-      "display": "ion",
-      "symbol": "ION",
-      "images": [
+      "type_asset": "ics20",
+      "base": "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
+      "name": "Cosmos Hub",
+      "display": "atom",
+      "symbol": "ATOM",
+      "traces": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.svg",
-          "theme": {
-            "primary_color_hex": "#3f97fc"
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom",
+            "channel_id": "channel-141"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/uatom"
           }
         }
       ],
-      "coingecko_id": "ion",
-      "keywords": [
-        "memecoin",
-        "defi"
-      ],
-      "socials": {
-        "website": "https://ion.wtf",
-        "twitter": "https://twitter.com/_IONDAO"
-      }
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg",
+          "theme": {
+            "primary_color_hex": "#272d45"
+          }
+        }
+      ]
     }
   ]
 }

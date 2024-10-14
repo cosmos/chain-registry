@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.ixo.world/",
   "pretty_name": "Impacts Hub",
+  "chain_type": "cosmos",
   "chain_id": "ixo-5",
   "bech32_prefix": "ixo",
   "daemon_name": "ixod",
@@ -39,7 +40,6 @@
       "v3.0.0"
     ],
     "cosmos_sdk_version": "v0.45.16",
-    "ibc_go_version": "v4.4.1",
     "consensus": {
       "type": "cometbft",
       "version": "v0.34.27"
@@ -58,12 +58,19 @@
           "v0.20.1"
         ],
         "cosmos_sdk_version": "v0.45.12",
-        "ibc_go_version": "v4.3.0",
         "consensus": {
           "type": "tendermint",
           "version": "v0.34.24"
         },
-        "next_version_name": "v2"
+        "next_version_name": "v2",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.12"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.3.0"
+        }
       },
       {
         "name": "v2",
@@ -74,12 +81,19 @@
           "v2.0.0"
         ],
         "cosmos_sdk_version": "v0.45.16",
-        "ibc_go_version": "v4.4.1",
         "consensus": {
           "type": "cometbft",
           "version": "v0.34.27"
         },
-        "next_version_name": "v3"
+        "next_version_name": "v3",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.16"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.4.1"
+        }
       },
       {
         "name": "v3",
@@ -90,14 +104,29 @@
           "v3.0.0"
         ],
         "cosmos_sdk_version": "v0.45.16",
-        "ibc_go_version": "v4.4.1",
         "consensus": {
           "type": "cometbft",
           "version": "v0.34.27"
         },
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.16"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.4.1"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.45.16"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v4.4.1"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/impacthub/images/ixo.png",
@@ -124,6 +153,11 @@
         "id": "9194ed56c5b93a0a7e3bdbcad8f62467f7137f56",
         "address": "seed-ixo.ibs.team:16662",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:28456",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -158,12 +192,20 @@
         "provider": "Notional"
       },
       {
-        "address": "https://impacthub-rpc.lavenderfive.com/",
+        "address": "https://rpc.lavenderfive.com:443/impacthub",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://ixo-rpc.ibs.team",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://ixo-rpc.bluestake.net:443",
+        "provider": "BlueStake 🚀"
+      },
+      {
+        "address": "https://impacthub_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "rest": [
@@ -184,12 +226,20 @@
         "provider": "Notional"
       },
       {
-        "address": "https://impacthub-api.lavenderfive.com/",
+        "address": "https://rest.lavenderfive.com:443/impacthub",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://ixo-api.ibs.team",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://ixo-api.bluestake.net",
+        "provider": "BlueStake 🚀"
+      },
+      {
+        "address": "https://impacthub_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "grpc": [
@@ -202,7 +252,7 @@
         "provider": "🔥STAVR🔥"
       },
       {
-        "address": "impacthub-grpc.lavenderfive.com:443",
+        "address": "impacthub.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       }
     ]
@@ -241,12 +291,21 @@
       "url": "https://www.mintscan.io/ixo",
       "tx_page": "https://www.mintscan.io/ixo/transactions/${txHash}",
       "account_page": "https://www.mintscan.io/ixo/accounts/${accountAddress}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/ixo",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/ixo/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/ixo/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/impacthub/images/ixo.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/impacthub/images/ixo.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/impacthub/images/ixo.svg",
+      "theme": {
+        "primary_color_hex": "#2c4484"
+      }
     }
   ]
 }

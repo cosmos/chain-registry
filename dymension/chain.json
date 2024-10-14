@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://portal.dymension.xyz",
   "pretty_name": "Dymension Hub",
+  "chain_type": "cosmos",
   "chain_id": "dymension_1100-1",
   "bech32_prefix": "dym",
   "slip44": 60,
@@ -14,6 +15,7 @@
     "fee_tokens": [
       {
         "denom": "adym",
+        "fixed_min_gas_price": 5000000000,
         "low_gas_price": 5000000000,
         "average_gas_price": 5000000000,
         "high_gas_price": 20000000000
@@ -35,7 +37,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.svg",
+      "theme": {
+        "primary_color_hex": "#f4e4d4"
+      }
     }
   ],
   "codebase": {
@@ -58,7 +63,7 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "dymension-mainnet-seed.autostake.com:27086",
-        "provider": "AutoStake | Delegate for StakeDrops"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
@@ -94,6 +99,16 @@
         "id": "86bd5cb6e762f673f1706e5889e039d5406b4b90",
         "address": "seed.dymension.node75.org:10956",
         "provider": "Pro-Nodes75"
+      },
+      {
+        "id": "258f523c96efde50d5fe0a9faeea8a3e83be22ca",
+        "address": "seed.mainnet.dymension.aviaone.com:10290",
+        "provider": "AVIAONE 🟢"
+      },
+      {
+        "id": "a413834999fa34ae17d6a32a36017bceb68783ca",
+        "address": "seed.dymension.mainnet.dteam.tech:29656",
+        "provider": "DTEAM"
       }
     ],
     "persistent_peers": [
@@ -112,12 +127,22 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "dymension-mainnet-peer.autostake.com:27086",
-        "provider": "AutoStake | Delegate for StakeDrops"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "babe3d67aa5570e65953a5253eaf36c7ebfbbb44",
         "address": "82.223.0.229:26646",
         "provider": "Cumulo"
+      },
+      {
+        "id": "c600039ef70040740ae130d455768c509d173b12",
+        "address": "peer.dymension.node75.org:23836",
+        "provider": "Pro-Nodes75"
+      },
+      {
+        "id": "e3522d6de016578ac0935c4c55e13e4aac6f0693",
+        "address": "peer.dymension.mainnet.dteam.tech:29656",
+        "provider": "DTEAM"
       }
     ]
   },
@@ -137,10 +162,10 @@
       },
       {
         "address": "https://dymension-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake | Delegate for StakeDrops"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://dymension-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/dymension",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -234,6 +259,18 @@
       {
         "address": "https://dymension-rpc.noders.services",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://rpc.mainnet.dymension.aviaone.com",
+        "provider": "AVIAONE 🟢"
+      },
+      {
+        "address": "https://rpc.archive.dymension.mainnet.dteam.tech:443",
+        "provider": "DTEAM"
+      },
+      {
+        "address": "https://dymension.drpc.org",
+        "provider": "dRPC"
       }
     ],
     "rest": [
@@ -251,10 +288,10 @@
       },
       {
         "address": "https://dymension-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake | Delegate for StakeDrops"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://dymension-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/dymension",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -348,6 +385,14 @@
       {
         "address": "https://dymension-api.noders.services",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://api.mainnet.dymension.aviaone.com",
+        "provider": "AVIAONE 🟢"
+      },
+      {
+        "address": "https://api.archive.dymension.mainnet.dteam.tech:443",
+        "provider": "DTEAM"
       }
     ],
     "grpc": [
@@ -361,14 +406,14 @@
       },
       {
         "address": "dymension-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake | Delegate for StakeDrops"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "dymension.mainnet.grpc.noders.team:42090",
         "provider": "[NODERS]TEAM"
       },
       {
-        "address": "https://dymension-grpc.lavenderfive.com:443",
+        "address": "dymension.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -434,6 +479,14 @@
       {
         "address": "dymension-grpc.noders.services:12090",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://grpc.mainnet.dymension.aviaone.com:9092",
+        "provider": "AVIAONE 🟢"
+      },
+      {
+        "address": "grpc.archive.dymension.mainnet.dteam.tech:29090",
+        "provider": "DTEAM"
       }
     ],
     "evm-http-jsonrpc": [
@@ -468,10 +521,20 @@
       {
         "address": "https://dymension-jsonrpc.noders.services",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://evm.archive.dymension.mainnet.dteam.tech:443",
+        "provider": "DTEAM"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/dymension",
+      "tx_page": "https://www.mintscan.io/dymension/tx/${txHash}",
+      "account_page": "https://www.mintscan.io/dymension/account/${accountAddress}"
+    },
     {
       "kind": "ezstaking",
       "url": "https://ezstaking.app/dymension",
@@ -513,6 +576,24 @@
       "url": "https://explorer.posthuman.digital/dymension",
       "tx_page": "https://explorer.posthuman.digital/dymension/tx/${txHash}",
       "account_page": "https://explorer.posthuman.digital/dymension/account/${accountAddress}"
+    },
+    {
+      "kind": "AVIAONE 🟢",
+      "url": "https://mainnet.explorer.aviaone.com/dymension",
+      "tx_page": "https://mainnet.explorer.aviaone.com/dymension/tx/${txHash}",
+      "account_page": "https://mainnet.explorer.aviaone.com/dymension/account/${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/dymension",
+      "tx_page": "https://mainnet.whispernode.com/dymension/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/dymension/account/${accountAddress}"
+    },
+    {
+      "kind": "DTEAM | Explorer",
+      "url": "https://explorer.mainnet.dteam.tech/dymension",
+      "tx_page": "https://explorer.mainnet.dteam.tech/dymension/tx/${txHash}",
+      "account_page": "https://explorer.mainnet.dteam.tech/dymension/account/${accountAddress}"
     }
   ]
 }

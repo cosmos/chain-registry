@@ -1,0 +1,171 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "synternet",
+  "chain_type": "cosmos",
+  "chain_id": "synternet-1",
+  "website": "https://www.synternet.com/",
+  "pretty_name": "Synternet",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "synt",
+  "daemon_name": "syntd",
+  "node_home": "$HOME/.amber",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "usynt",
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.03
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "usynt"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Synternet/synternet-chain-releases",
+    "recommended_version": "v0.14.0",
+    "compatible_versions": [
+      "v0.14.0"
+    ],
+    "cosmos_sdk_version": "v0.47.11",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.5"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/Synternet/synternet-chain-releases/blob/main/networks/mainnet/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v11",
+        "tag": "v0.11.0",
+        "recommended_version": "v0.11.0",
+        "compatible_versions": [
+          "v0.11.0"
+        ],
+        "cosmos_sdk_version": "v0.47.11",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.5"
+        },
+        "height": 1,
+        "next_version_name": "v14",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.11"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.1.0"
+        }
+      },
+      {
+        "name": "v14",
+        "tag": "v0.14.0",
+        "proposal": 1,
+        "height": 505094,
+        "recommended_version": "v0.14.0",
+        "compatible_versions": [
+          "v0.14.0"
+        ],
+        "cosmos_sdk_version": "v0.47.11",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.5"
+        },
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.11"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.1.0"
+        }
+      }
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.11"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.1.0"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/synternet/images/synt.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/synternet/images/synt.svg"
+  },
+  "description": "Synternet is the backbone of the Data Layer, a protocol serving as the customizable execution layer between all blockchains. It enables builders to See, Interpret and Act on any data from any chain, supercharging their applications.",
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "2eed7e175d204680af243e008e21950f81b8d455",
+        "address": "34.89.206.173:26656",
+        "provider": "synternet.com"
+      },
+      {
+        "id": "cab3e0b0538e900d57a83ad590a3d228004c63a4",
+        "address": "35.225.165.111:26656",
+        "provider": "Stakin"
+      },
+      {
+        "id": "6f76ec0b365da744e893b470eac72a87482359d5",
+        "address": "176.9.125.13:2220",
+        "provider": "Imperator"
+      },
+      {
+        "id": "ac6ec924a0501b55db82c6a76aab893aed9a8630",
+        "address": "65.109.122.249:26656",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "95b14ec701608044c261ebd15d0b3bd84e295acb",
+        "address": "72.46.84.135:26656",
+        "provider": "Restake"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.synternet.com/",
+        "provider": "Synternet"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.synternet.com/",
+        "provider": "Synternet"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Big Dipper",
+      "url": "https://explorer.synternet.com/",
+      "tx_page": "https://explorer.synternet.com/transactions/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/synternet/images/synt.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/synternet/images/synt.svg",
+      "theme": {
+        "primary_color_hex": "#272d45"
+      }
+    }
+  ]
+}

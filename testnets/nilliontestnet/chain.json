@@ -1,0 +1,143 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "nilliontestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Nillion Testnet",
+  "chain_type": "cosmos",
+  "chain_id": "nillion-chain-testnet-1",
+  "bech32_prefix": "nillion",
+  "daemon_name": "nilchaind",
+  "node_home": "$HOME/.nillionapp",
+  "key_algos": [
+    "ed25519"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "unil",
+        "low_gas_price": 0.0001,
+        "average_gas_price": 0.0001,
+        "high_gas_price": 0.00025
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "unil"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/NillionNetwork/nilchain",
+    "recommended_version": "v0.1.1",
+    "compatible_versions": [
+      "v0.1.1"
+    ],
+    "cosmos_sdk_version": "v0.50.6",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.6"
+    },
+    "cosmwasm_enabled": false,
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/NillionNetwork/networks/main/nillion-chain-testnet-1/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v0.1.1",
+        "recommended_version": "v0.1.1",
+        "compatible_versions": [
+          "v0.1.1"
+        ],
+        "cosmos_sdk_version": "v0.50.6",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.38.6"
+        },
+        "cosmwasm_enabled": false,
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.50.6"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v8.2.0"
+        }
+      }
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.6"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "5.3.2"
+    },
+    "cosmwasm": {
+      "enabled": false
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "22d03121ee7962f248cfa6db1babd69f44203cfe",
+        "address": "190.2.145.55:26656"
+      },
+      {
+        "id": "5270c2699afb4aa2daf947a97958ff0802be6c15",
+        "address": "129.213.101.84:26656"
+      },
+      {
+        "id": "a82a9f70707da1def94f26f423c30b18f2a87dd7",
+        "address": "65.109.59.22:28156"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://nillion-testnet-rpc.polkachu.com/",
+        "provider": "polkachu"
+      },
+      {
+        "address": "https://testnet-nillion-rpc.lavenderfive.com",
+        "provider": "lavenderfive"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://nillion-testnet-api.polkachu.com/",
+        "provider": "polkachu"
+      },
+      {
+        "address": "https://testnet-nillion-api.lavenderfive.com",
+        "provider": "lavenderfive"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://testnet-nillion-grpc.lavenderfive.com",
+        "provider": "lavenderfive"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "url": "https://testnet.nillion.explorers.guru",
+      "tx_page": "https://testnet.nillion.explorers.guru/transaction/${txHash}",
+      "account_page": "https://testnet.nillion.explorers.guru/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/nilliontestnet/images/nil.svg",
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/nilliontestnet/images/nil.png"
+    }
+  ]
+}

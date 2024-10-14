@@ -1,0 +1,114 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "kimanetwork",
+  "status": "live",
+  "website": "https://www.kima.network/",
+  "network_type": "mainnet",
+  "pretty_name": "Kima Network",
+  "chain_type": "cosmos",
+  "chain_id": "kima_network",
+  "bech32_prefix": "kima",
+  "daemon_name": "uKIMA",
+  "node_home": "$HOME/.kimad",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uKIMA",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.0025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uKIMA"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/kima-finance/kima-blockchain",
+    "recommended_version": "v0.4.3",
+    "compatible_versions": ["v0.4.3"],
+    "genesis": {
+      "genesis_url": "https://archive.kima.network/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v0.4.3",
+        "recommended_version": "v0.4.3",
+        "compatible_versions": ["v0.4.3"],
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/cosmos/cosmos-sdk",
+          "version": "v0.47.4",
+          "tag": "v0.47.4"
+        }
+      }      
+    ]
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kimanetwork/images/kima.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kimanetwork/images/kima.svg"
+    }
+  ],
+  "peers": {
+    "seeds": [
+      {
+        "id": "03e46f5146de1d8049e2636a60994a0be96090d6",
+        "address": "sentry-0.kima.network:26656",
+        "provider": "Kima Network"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "03e46f5146de1d8049e2636a60994a0be96090d6",
+        "address": "sentry-0.kima.network:26656",
+        "provider": "Kima Network"
+      },
+      {
+        "id": "4645f25ba7c5253c7fb8836656e34d698f4baf8c",
+        "address": "sentry-1.kima.network:26656",
+        "provider": "Kima Network"
+      }
+    ]
+  },
+  "apis": {
+    "wss": [
+      {
+        "address": "wss://rpc.kima.network/query",
+        "provider": "Kima Network"
+      }
+    ],
+    "rpc": [
+      {
+        "address": "https://rpc.kima.network/",
+        "provider": "Kima Network"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.kima.network",
+        "provider": "Kima Network"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.kima.network",
+        "provider": "Kima Network"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Kima Network Explorer",
+      "url": "https://explorer.kima.network/",
+      "tx_page": "https://explorer.kima.network/transactions/${txHash}"
+    }
+  ]
+}

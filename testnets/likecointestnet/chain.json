@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "LikeCoin Testnet",
+  "chain_type": "cosmos",
   "chain_id": "likecoin-public-testnet-5",
   "bech32_prefix": "like",
   "daemon_name": "liked",
@@ -52,12 +53,22 @@
       "version": "0.34"
     },
     "cosmwasm_enabled": false,
-    "ibc_go_version": "6.2.1",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/likecoin/testnets/aeba532ba9162a876a2180e925a49cbedba512e5/likecoin-public-testnet-5/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "6.2.1",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "enabled": false
     }
   },
   "peers": {

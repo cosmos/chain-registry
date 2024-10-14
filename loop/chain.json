@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.loop.fans/",
   "pretty_name": "Loop",
+  "chain_type": "cosmos",
   "chain_id": "loop-1",
   "bech32_prefix": "loop",
   "daemon_name": "loopd",
@@ -42,20 +43,31 @@
       "v1.0.0"
     ],
     "cosmwasm_enabled": true,
-    "ibc_go_version": "v7.3.1",
-    "ics_enabled": [
-      "ics20-1"
-    ],
-    "go_version": "1.21",
     "binaries": {
       "linux/amd64": "https://github.com/LoopFans/loop-chain/releases/download/v1.0.0/loopchain_1.0.0_linux_amd64.tar.gz"
+    },
+    "language": {
+      "type": "go",
+      "version": "1.21"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.3.1",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "enabled": true
     }
   },
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/loop/images/loop.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/loop/images/loop.svg",
-      "layout": "logomark"
+      "theme": {
+        "primary_color_hex": "#4991ee"
+      }
     }
   ],
   "logo_URIs": {

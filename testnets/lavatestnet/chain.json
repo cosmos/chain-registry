@@ -6,6 +6,7 @@
   "network_type": "testnet",
   "website": "https://www.lavanet.xyz/",
   "pretty_name": "Lava Testnet",
+  "chain_type": "cosmos",
   "chain_id": "lava-testnet-2",
   "bech32_prefix": "lava@",
   "daemon_name": "lavad",
@@ -18,8 +19,8 @@
     "fee_tokens": [
       {
         "denom": "ulava",
-        "fixed_min_gas_price": 0.000001,
-        "low_gas_price": 0.000001,
+        "fixed_min_gas_price": 1e-06,
+        "low_gas_price": 1e-06,
         "average_gas_price": 0.025,
         "high_gas_price": 0.04
       }
@@ -51,10 +52,6 @@
     },
     "cosmwasm_version": "0.30",
     "cosmwasm_enabled": false,
-    "ibc_go_version": "7.2.0",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
       "name": "v0.21.1.2",
       "genesis_url": "https://raw.githubusercontent.com/lavanet/lava-config/main/testnet-2/genesis_json/genesis.json"
@@ -158,15 +155,40 @@
           "version": "0.37"
         },
         "cosmwasm_enabled": false,
-        "ibc_go_version": "3.0.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
         "binaries": {
           "linux/amd64": "https://github.com/lavanet/lava/releases/download/v1.0.1/lavad-v1.0.1-linux-amd64"
+        },
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.47.7"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "3.0.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
         }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.47.7"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "7.2.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "0.30",
+      "enabled": false
+    }
   },
   "images": [
     {
@@ -210,7 +232,7 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://public-rpc-testnet2.lavanet.xyz:443/rpc/",
+        "address": "https://lav1.tendermintrpc.lava.build:443",
         "provider": "Lava"
       },
       {
@@ -228,7 +250,7 @@
     ],
     "rest": [
       {
-        "address": "https://public-rpc-testnet2.lavanet.xyz:443/rest/",
+        "address": "https://lav1.lava.build/",
         "provider": "Lava"
       },
       {

@@ -4,8 +4,9 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "MANTRA Hongbai Testnet",
+  "chain_type": "cosmos",
   "chain_id": "mantra-hongbai-1",
-  "bech32_prefix": "uom",
+  "bech32_prefix": "mantra",
   "daemon_name": "mantrachaind",
   "node_home": "$HOME/.mantrachain",
   "key_algos": [
@@ -32,9 +33,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/MANTRA-Finance",
-    "recommended_version": "3.0.0",
+    "recommended_version": "1.0.0",
     "compatible_versions": [
-      "3.0.0"
+      "1.0.0"
     ],
     "cosmos_sdk_version": "0.47.3",
     "consensus": {
@@ -56,9 +57,25 @@
           "version": "0.37"
         },
         "cosmwasm_version": "0.41",
-        "cosmwasm_enabled": true
+        "cosmwasm_enabled": true,
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.47.3"
+        },
+        "cosmwasm": {
+          "version": "0.41",
+          "enabled": true
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.47.3"
+    },
+    "cosmwasm": {
+      "version": "0.41",
+      "enabled": true
+    }
   },
   "peers": {
     "seeds": [
@@ -66,6 +83,11 @@
         "id": "d6016af7cb20cf1905bd61468f6a61decb3fd7c0",
         "address": "seed.hongbai.mantrachain.io:26656",
         "provider": "MANTRACHAIN"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -86,24 +108,32 @@
       {
         "address": "https://rpc.hongbai.mantrachain.io",
         "provider": "MANTRACHAIN"
+      },
+      {
+        "address": "https://mantra-testnet-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "rest": [
       {
         "address": "https://api.hongbai.mantrachain.io",
         "provider": "MANTRACHAIN"
+      },
+      {
+        "address": "https://mantra-testnet-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "grpc": [
       {
         "address": "https://grpc.hongbai.mantrachain.io",
         "provider": "MANTRACHAIN"
+      },
+      {
+        "address": "mantra-testnet-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ]
-  },
-  "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/mantrachaintestnet/images/mantra.png",
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/mantrachaintestnet/images/mantra.svg"
   },
   "keywords": [
     "dex",
@@ -111,8 +141,16 @@
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/mantrachaintestnet/images/mantra.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/mantrachaintestnet/images/mantra.svg"
+      "image_sync": {
+        "chain_name": "mantrachain",
+        "base_denom": "uom"
+      },
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Prim-Col.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Prim-Col.svg",
+      "theme": {
+        "circle": true,
+        "primary_color_hex": "#fba0c1"
+      }
     }
   ]
 }
