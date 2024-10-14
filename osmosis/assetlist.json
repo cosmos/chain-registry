@@ -24299,6 +24299,95 @@
           }
         }
       ]
+    },
+    {
+      "description": "Uniswap UNI on Osmosis via Axelar",
+      "denom_units": [
+        {
+          "denom": "ibc/AE2719773D6FCDD05AC17B1ED63F672F5F9D84144A61965F348C86C2A83AD161",
+          "exponent": 0,
+          "aliases": [
+            "uni-wei"
+          ]
+        },
+        {
+          "denom": "uni",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/AE2719773D6FCDD05AC17B1ED63F672F5F9D84144A61965F348C86C2A83AD161",
+      "name": "Uniswap (Axelar)",
+      "display": "uni",
+      "symbol": "UNI.axl",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "axelar",
+            "base_denom": "uni-wei",
+            "channel_id": "channel-3"
+          },
+          "chain": {
+            "channel_id": "channel-208",
+            "path": "transfer/channel-208/uni-wei"
+          }
+        }
+      ],
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/uni.axl.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/uni.axl.png",
+          "theme": {
+            "primary_color_hex": "#FF007A"
+          }
+        },
+        {
+          "image_sync": {
+            "chain_name": "axelar",
+            "base_denom": "uni-wei"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/uni.svg"
+        }
+      ]
+    },
+    {
+      "description": "An alloy of UNI asset variants on Osmosis.",
+      "denom_units": [
+        {
+          "denom": "factory/osmo1eqjda4pc6e09jtxzxggf6jl3jye2yn453ja58we5gxwzmf5ah28qvlnaz8/alloyed/allUNI",
+          "exponent": 0
+        },
+        {
+          "denom": "allUNI",
+          "exponent": 12
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo1em6xs47hd82806f5cxgyufguxrrc7l0aqx7nzzptjuqgswczk8csavdxek",
+      "base": "factory/osmo1eqjda4pc6e09jtxzxggf6jl3jye2yn453ja58we5gxwzmf5ah28qvlnaz8/alloyed/allUNI",
+      "name": "Uniswap",
+      "display": "allUNI",
+      "symbol": "UNI",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
+          },
+          "provider": "Osmosis"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/uni.svg"
+        }
+      ]
     }
   ]
 }
