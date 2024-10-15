@@ -34,14 +34,15 @@
   },
   "codebase": {
     "git_repo": "https://github.com/oraichain/orai",
-    "recommended_version": "v0.41.7",
+    "recommended_version": "v0.42.4",
     "compatible_versions": [
-      "v0.41.3",
-      "v0.41.4",
-      "v0.41.6",
-      "v0.41.7"
+      "v0.42.4"
     ],
-    "cosmwasm_version": "0.30.2",
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.45.16"
+    },
+    "cosmwasm_version": "0.33.0",
     "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/genesis.json"
@@ -49,32 +50,54 @@
     "versions": [
       {
         "name": "v0.40",
+        "height": 2098755,
+        "proposal": 32,
         "recommended_version": "v0.40.3",
         "compatible_versions": [
+          "v0.40.0",
+          "v0.40.1",
+          "v0.40.2",
           "v0.40.3"
         ],
-        "binaries": {
-          "linux/amd64": "https://orai.s3.us-east-2.amazonaws.com/v0.40.3/oraid"
-        },
         "next_version_name": "v0.41"
       },
       {
         "name": "v0.41",
-        "height": 12353514,
-        "proposal": 185,
-        "recommended_version": "v0.41.7",
+        "height": 9058418,
+        "proposal": 116,
+        "recommended_version": "v0.41.8",
         "compatible_versions": [
+          "v0.41.0",
+          "v0.41.1",
+          "v0.41.2",
           "v0.41.3",
           "v0.41.4",
           "v0.41.5",
-          "v0.41.7"
+          "v0.41.6",
+          "v0.41.7",
+          "v0.41.8"
         ],
         "previous_version_name": "v0.40",
+        "next_version_name": "v0.42"
+      },
+      {
+        "name": "v0.42",
+        "height": 21627705,
+        "proposal": 234,
+        "recommended_version": "v0.42.4",
+        "compatible_versions": [
+          "v0.42.0",
+          "v0.42.1",
+          "v0.42.2",
+          "v0.42.3",
+          "v0.42.4"
+        ],
+        "previous_version_name": "v0.41",
         "next_version_name": ""
       }
     ],
     "cosmwasm": {
-      "version": "0.30.2",
+      "version": "0.33.0",
       "enabled": true
     }
   },
@@ -85,23 +108,13 @@
   "peers": {
     "seeds": [
       {
-        "id": "8b346750e75fd584645192a65c62c7ab88741791",
-        "address": "134.209.106.91:26656",
+        "id": "e18f82a6da3a9842fa55769955d694f62f7f48bd",
+        "address": "seed1.orai.zone:26656",
         "provider": "oraichain-team"
       },
       {
-        "id": "4d0f2d042405abbcac5193206642e1456fe89963",
-        "address": "3.134.19.98:26656",
-        "provider": "oraichain-team"
-      },
-      {
-        "id": "d088d05d7689905819d4381ae30df4075dbb66e7",
-        "address": "34.75.13.200:26656",
-        "provider": "oraichain-team"
-      },
-      {
-        "id": "2c328c41e0ace21c6351265a5a935e1b3f37b62d",
-        "address": "35.237.59.125:26656",
+        "id": "defeea41a01b5afdb79ef2af155866e122797a9c",
+        "address": "seed4.orai.zone:26656",
         "provider": "oraichain-team"
       },
       {
@@ -143,29 +156,14 @@
         "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
         "address": "seeds.bluestake.net:25956",
         "provider": "BlueStake 🚀"
+      },
+      {
+        "id": "1c6e0f2b3317fefb772fb528269c151735a5f0cb",
+        "address": "seeds.owallet.io:10005",
+        "provider": "OWALLET"
       }
     ],
     "persistent_peers": [
-      {
-        "id": "8b346750e75fd584645192a65c62c7ab88741791",
-        "address": "134.209.106.91:26656",
-        "provider": "oraichain-team"
-      },
-      {
-        "id": "4d0f2d042405abbcac5193206642e1456fe89963",
-        "address": "3.134.19.98:26656",
-        "provider": "oraichain-team"
-      },
-      {
-        "id": "d088d05d7689905819d4381ae30df4075dbb66e7",
-        "address": "34.75.13.200:26656",
-        "provider": "oraichain-team"
-      },
-      {
-        "id": "2c328c41e0ace21c6351265a5a935e1b3f37b62d",
-        "address": "35.237.59.125:26656",
-        "provider": "oraichain-team"
-      },
       {
         "id": "49165f4ef94395897d435f144964bdd14413ea28",
         "address": "seed.orai.synergynodes.com:26656",
@@ -238,6 +236,10 @@
       {
         "address": "https://orai-rpc.imdev.app",
         "provider": "imORAI"
+      },
+      {
+        "address": "https://orai-rpc.owallet.io",
+        "provider": "OWALLET"
       }
     ],
     "rest": [
@@ -268,6 +270,10 @@
       {
         "address": "https://oraichain-rest.publicnode.com",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://orai-rest.owallet.io",
+        "provider": "OWALLET"
       }
     ],
     "grpc": [
@@ -298,6 +304,10 @@
       {
         "address": "oraichain-grpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "orai-grpc.owallet.io:9999",
+        "provider": "OWALLET"
       }
     ]
   },
