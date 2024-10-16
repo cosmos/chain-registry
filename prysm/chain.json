@@ -1,0 +1,86 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "prysm",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Prysm",
+  "chain_type": "cosmos",
+  "chain_id": "prysm-devnet-1",
+  "bech32_prefix": "prysm",
+  "daemon_name": "prysmd",
+  "node_home": "$HOME/.prysm",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uprysm"
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uprysm"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/kleomedes/prysm"
+    "recommended_version": "v0.1.0-devnet",
+    "cosmos_sdk_version": "0.50.8",
+    "genesis": {
+      "genesis_url": "https://github.com/kleomedes/prysm/blob/main/network/prysm-devnet-1/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v0.1.0-devnet",
+        "recommended_version": "v0.1.0-devnet",
+        "compatible_versions": [
+          "v0.1.0-devnet"
+        ]
+      }
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50.8"
+    }
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/prysm/images/prysm.png"
+    }
+  ],
+  "description": "Prysm",
+  "peers": {
+    "seeds": [
+      {
+        "id": "271fe43e9a393cc47e288e80aa5b1ec1452fa0e7",
+        "address": "88.99.149.170:29656"
+        "provider": "Vinjan.Inc"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-prysm.vinjan.xyz",
+        "provider": "Vinjan.Inc"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-prysm.vinjan.xyz",
+        "provider": "Vinjan.Inc"
+      }
+    ],
+    "grpc": []
+  },
+  "explorers": [
+    {
+      "url": "https://xplorer.vinjan.xyz/prysm-testnet"
+    }
+  ]
+}
