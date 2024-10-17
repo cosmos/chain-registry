@@ -29,23 +29,25 @@
   },
   "codebase": {
     "git_repo": "https://github.com/kleomedes/prysm",
-     "recommended_version": "v0.1.0-devnet",
-    "cosmos_sdk_version": "0.50.8",
+    "recommended_version": "v0.1.0-devnet",
+    "compatible_versions": [
+      "v0.1.0-devnet"
+     ],
+    "cosmos_sdk_version": "v0.50.8",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.10"
+    },  
     "genesis": {
       "genesis_url": "https://github.com/kleomedes/prysm/blob/main/network/prysm-devnet-1/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.1.0-devnet",
-        "recommended_version": "v0.1.0-devnet",
-        "compatible_versions": [
-          "v0.1.0-devnet"
-        ]
-      }
-    ],
-    "sdk": {
+     "sdk": {
       "type": "cosmos",
-      "version": "0.50.8"
+      "version": "v0.50.8"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.4.0"
     }
   },
   "images": [
