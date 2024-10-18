@@ -1,0 +1,141 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "atomone",
+  "chain_type": "cosmos",
+  "chain_id": "atomone-1",
+  "website": "https://atom.one",
+  "pretty_name": "AtomOne",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "atone",
+  "daemon_name": "atomoned",
+  "node_home": "$HOME/.atomone",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uatone",
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.006,
+        "average_gas_price": 0.006,
+        "high_gas_price": 0.009
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uatone"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/atomone-hub/atomone",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.0/atomoned-v1.0.0-linux-amd64",
+      "linux/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.0/atomoned-v1.0.0-linux-arm64",
+      "darwin/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.0/atomoned-v1.0.0-darwin-amd64",
+      "darwin/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.0/atomoned-v1.0.0-darwin-arm64",
+      "windows/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.0/atomoned-v1.0.0-windows-amd64.exe",
+      "windows/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.0/atomoned-v1.0.0-windows-arm64.exe"
+    },
+    "genesis": {
+      "genesis_url": "https://atomone.fra1.digitaloceanspaces.com/atomone-1/genesis.json"
+    },
+    "cosmos_sdk_version": "v0.47.13",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.5"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.13"
+    },
+    "versions": [
+      {
+        "name": "v1.0.0",
+        "tag": "v1.0.0",
+        "recommended_version": "v1.0.0",
+        "compatible_versions": [
+          "v1.0.0"
+        ],
+        "cosmos_sdk_version": "v0.47.13",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.5"
+        },
+        "height": 1,
+        "binaries": {
+          "linux/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.0/atomoned-v1.0.0-linux-amd64",
+          "linux/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.0/atomoned-v1.0.0-linux-arm64",
+          "darwin/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.0/atomoned-v1.0.0-darwin-amd64",
+          "darwin/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.0/atomoned-v1.0.0-darwin-arm64",
+          "windows/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.0/atomoned-v1.0.0-windows-amd64.exe",
+          "windows/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.0/atomoned-v1.0.0-windows-arm64.exe"
+        },
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.13"
+        }
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/atomone.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/atomone.svg"
+  },
+  "description": "",
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "9dac79c27e4dba77cb22b0b25933fee6c8121cf7",
+        "address": "72.46.84.243:26656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://atomone-rpc.allinbits.com:443",
+        "provider": "AllInBits"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://atomone-api.allinbits.com",
+        "provider": "AllInBits"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://atomone-grpc.allinbits.com:443",
+        "provider": "AllInBits"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer.allinbits.com/atomone",
+      "tx_page": "https://explorer.allinbits.com/atomone/tx/${txHash}",
+      "account_page": "https://explorer.allinbits.com/atomone/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/atomone.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/atomone.svg",
+      "theme": {
+        "primary_color_hex": "#65d6d4"
+      }
+    }
+  ]
+}
