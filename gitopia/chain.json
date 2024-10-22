@@ -40,19 +40,15 @@
     "genesis": {
       "genesis_url": "https://github.com/gitopia/mainnet/raw/master/genesis.tar.gz"
     },
-    "recommended_version": "v3.3.0",
+    "recommended_version": "v4.0.0",
     "compatible_versions": [
-      "v3.3.0"
+      "v4.0.0"
     ],
-    "cosmos_sdk_version": "v0.46.13",
+    "cosmos_sdk_version": "v0.47.13",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.34.28"
+      "version": "v0.37.6"
     },
-    "ibc_go_version": "5.3.1",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "versions": [
       {
         "name": "v2",
@@ -72,11 +68,18 @@
           "type": "tendermint",
           "version": "0.34"
         },
-        "ibc_go_version": "5.0.0",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "v3"
+        "next_version_name": "v3",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "5.0.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v3",
@@ -95,11 +98,18 @@
           "type": "cometbft",
           "version": "0.34"
         },
-        "ibc_go_version": "5.3.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "v3.2.0"
+        "next_version_name": "v3.2.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "5.3.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v3.2.0",
@@ -114,11 +124,18 @@
           "type": "cometbft",
           "version": "v0.34.28"
         },
-        "ibc_go_version": "5.3.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "v3.3.0"
+        "next_version_name": "v3.3.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.13"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "5.3.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v3.3.0",
@@ -133,13 +150,57 @@
           "type": "cometbft",
           "version": "v0.34.28"
         },
-        "ibc_go_version": "5.3.1",
-        "ics_enabled": [
-          "ics20-1"
+        "next_version_name": "v4",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.13"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "5.3.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
+      },
+      {
+        "name": "v4",
+        "recommended_version": "v4.0.0",
+        "compatible_versions": [
+          "v4.0.0"
         ],
-        "next_version_name": ""
+        "proposal": 31,
+        "height": 24330422,
+        "cosmos_sdk_version": "v0.47.13",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.6"
+        },
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.13"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "7.6.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.13"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "7.6.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    }
   },
   "images": [
     {
@@ -166,11 +227,6 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "gitopia-mainnet-seed.autostake.com",
         "provider": "autostake"
-      },
-      {
-        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
-        "address": "seeds.whispernode.com:11356",
-        "provider": "WhisperNode 🤐"
       },
       {
         "id": "187425bc3739daaef8cb1d7cf47d655117396dbe",
@@ -328,7 +384,7 @@
         "provider": "polkachu"
       },
       {
-        "address": "https://gitopia-rpc.lavenderfive.com",
+        "address": "https://rpc.lavenderfive.com:443/gitopia",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -354,10 +410,6 @@
       {
         "address": "https://gitopia-rpc.genznodes.dev",
         "provider": "genznodes"
-      },
-      {
-        "address": "https://rpc-gitopia.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://gitopia.rpc.liveraven.net",
@@ -450,7 +502,7 @@
         "provider": "polkachu"
       },
       {
-        "address": "https://gitopia-api.lavenderfive.com",
+        "address": "https://rest.lavenderfive.com:443/gitopia",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -480,10 +532,6 @@
       {
         "address": "https://gitopia-api.genznodes.dev",
         "provider": "genznodes"
-      },
-      {
-        "address": "https://lcd-gitopia.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://gitopia.api.liveraven.net",
@@ -588,7 +636,7 @@
         "provider": "Staketab"
       },
       {
-        "address": "https://gitopia-grpc.lavenderfive.com:443",
+        "address": "gitopia.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -699,6 +747,12 @@
       "url": "https://ping.pub/gitopia",
       "tx_page": "https://ping.pub/gitopia/tx/${txHash}",
       "account_page": "https://ping.pub/gitopia/account/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/gitopia",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=gitopia&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=gitopia&addr=${accountAddress}"
     },
     {
       "kind": "🔥STAVR🔥",

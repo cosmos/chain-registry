@@ -61,24 +61,11 @@
           "cosmos_sdk_version": {
             "type": "string"
           },
+          "sdk": {
+            "$ref": "#/$defs/sdk"
+          },
           "consensus": {
-            "type": "object",
-            "required": [
-              "type"
-            ],
-            "properties": {
-              "type": {
-                "type": "string",
-                "enum": [
-                  "tendermint",
-                  "cometbft"
-                ]
-              },
-              "version": {
-                "type": "string"
-              }
-            },
-            "additionalProperties": false
+            "$ref": "#/$defs/consensus"
           },
           "cosmwasm_version": {
             "type": "string"
@@ -91,11 +78,17 @@
             "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
             "pattern": "^\\$HOME.*$"
           },
+          "cosmwasm": {
+            "$ref": "#/$defs/cosmwasm"
+          },
           "ibc_go_version": {
             "type": "string"
           },
-          "go_version": {
-            "type": "string"
+          "ibc": {
+            "$ref": "#/$defs/ibc"
+          },
+          "language": {
+            "$ref": "#/$defs/language"
           },
           "ics_enabled": {
             "type": "array",
@@ -111,39 +104,191 @@
             }
           },
           "binaries": {
-            "type": "object",
-            "properties": {
-              "linux/amd64": {
-                "type": "string",
-                "format": "uri"
-              },
-              "linux/arm64": {
-                "type": "string",
-                "format": "uri"
-              },
-              "darwin/amd64": {
-                "type": "string",
-                "format": "uri"
-              },
-              "darwin/arm64": {
-                "type": "string",
-                "format": "uri"
-              },
-              "windows/amd64": {
-                "type": "string",
-                "format": "uri"
-              },
-              "windows/arm64": {
-                "type": "string",
-                "format": "uri"
-              }
-            },
-            "additionalProperties": false
+            "$ref": "#/$defs/binaries"
           }
         },
         "additionalProperties": false
       }
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "$defs": {
+    "repo": {
+      "type": "string",
+      "format": "uri",
+      "minLength": 1,
+      "description": "URL of the code repository."
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^v?\\d+(\\.\\d+){0,2}$",
+      "description": "Simple version string (e.g., 'v1.0.0')."
+    },
+    "tag": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^v?\\d+(\\.\\d+){0,2}(-[\\w\\.\\-]+)?$",
+      "description": "Detailed version identifier (e.g., 'v1.0.0-a1s2f43g')."
+    },
+    "sdk": {
+      "type": "object",
+      "required": [ "type" ],
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1,
+          "enum": ["cosmos", "penumbra", "other"]
+        },
+        "version": {
+          "$ref": "#/$defs/version"
+        },
+        "repo": {
+          "$ref": "#/$defs/repo"
+        },
+        "tag": {
+          "$ref": "#/$defs/tag"
+        }
+      }
+    },
+    "ibc": {
+      "type": "object",
+      "required": [ "type" ],
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1,
+          "enum": ["go", "rust", "other"]
+        },
+        "version": {
+          "$ref": "#/$defs/version"
+        },
+        "repo": {
+          "$ref": "#/$defs/repo"
+        },
+        "tag": {
+          "$ref": "#/$defs/tag"
+        },
+        "ics_enabled": {
+          "type": "array",
+          "description": "List of IBC apps (usually corresponding to a ICS standard) which have been enabled on the network.",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "description": "IBC app or ICS standard.",
+            "enum": [ "ics20-1", "ics27-1", "mauth" ]
+          }
+        }
+      }
+    },
+    "cosmwasm": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "$ref": "#/$defs/version"
+        },
+        "repo": {
+          "$ref": "#/$defs/repo"
+        },
+        "tag": {
+          "$ref": "#/$defs/tag"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
+          "pattern": "^\\$HOME.*$"
+        }
+      }
+    },
+    "consensus": {
+      "type": "object",
+      "required": [ "type" ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1,
+          "enum": [ "tendermint", "cometbft", "sei-tendermint" ]
+        },
+        "version": {
+          "$ref": "#/$defs/version"
+        },
+        "repo": {
+          "$ref": "#/$defs/repo"
+        },
+        "tag": {
+          "$ref": "#/$defs/tag"
+        }
+      },
+      "additionalProperties": false
+    },
+    "language": {
+      "type": "object",
+      "required": [ "type" ],
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1,
+          "enum": ["go", "rust", "solidity", "other"]
+        },
+        "version": {
+          "$ref": "#/$defs/version"
+        },
+        "repo": {
+          "$ref": "#/$defs/repo"
+        },
+        "tag": {
+          "$ref": "#/$defs/tag"
+        }
+      }
+    },
+    "binaries": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "linux/amd64": {
+          "type": "string",
+          "minLength": 1,
+          "format": "uri"
+        },
+        "linux/arm64": {
+          "type": "string",
+          "minLength": 1,
+          "format": "uri"
+        },
+        "darwin/amd64": {
+          "type": "string",
+          "minLength": 1,
+          "format": "uri"
+        },
+        "darwin/arm64": {
+          "type": "string",
+          "minLength": 1,
+          "format": "uri"
+        },
+        "windows/amd64": {
+          "type": "string",
+          "minLength": 1,
+          "format": "uri"
+        },
+        "windows/arm64": {
+          "type": "string",
+          "minLength": 1,
+          "format": "uri"
+        }
+      }
+    }
+  }
 }

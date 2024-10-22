@@ -40,7 +40,6 @@
       "v2.4.0"
     ],
     "cosmos_sdk_version": "v0.45.16",
-    "ibc_go_version": "v4.4.2",
     "consensus": {
       "type": "cometbft",
       "version": "v0.34.27"
@@ -57,12 +56,19 @@
           "v2.0.1"
         ],
         "cosmos_sdk_version": "v0.45.16",
-        "ibc_go_version": "v4.4.2",
         "consensus": {
           "type": "cometbft",
           "version": "v0.34.27"
         },
-        "next_version_name": "v2.2.0"
+        "next_version_name": "v2.2.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.16"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.4.2"
+        }
       },
       {
         "name": "v2.2.0",
@@ -71,12 +77,19 @@
           "v2.2.0"
         ],
         "cosmos_sdk_version": "v0.45.16",
-        "ibc_go_version": "v4.4.2",
         "consensus": {
           "type": "cometbft",
           "version": "v0.34.27"
         },
-        "next_version_name": "v2.4.0"
+        "next_version_name": "v2.4.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.16"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.4.2"
+        }
       },
       {
         "name": "v2.4.0",
@@ -85,15 +98,36 @@
           "v2.4.0"
         ],
         "cosmos_sdk_version": "v0.45.16",
-        "ibc_go_version": "v4.4.2",
         "consensus": {
           "type": "cometbft",
           "version": "v0.34.27"
         },
         "cosmwasm_version": "v0.31.0",
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.16"
+        },
+        "cosmwasm": {
+          "version": "v0.31.0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.4.2"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.45.16"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v4.4.2"
+    },
+    "cosmwasm": {
+      "version": "v0.31.0"
+    }
   },
   "peers": {
     "seeds": [
@@ -128,11 +162,6 @@
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
-        "address": "seeds.whispernode.com:15656",
-        "provider": "WhisperNode 🤐"
       },
       {
         "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
@@ -196,7 +225,7 @@
         "provider": "ecostake"
       },
       {
-        "address": "https://passage-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/passage",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -222,10 +251,6 @@
       {
         "address": "https://rpc-passage.d-stake.xyz",
         "provider": "D-stake"
-      },
-      {
-        "address": "https://rpc-passage.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://passage-mainnet-rpc.autostake.com:443",
@@ -270,7 +295,7 @@
         "provider": "ecostake"
       },
       {
-        "address": "https://passage-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/passage",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -300,10 +325,6 @@
       {
         "address": "https://passage-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://lcd-passage.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://passage-rest.stakerhouse.com",
@@ -336,7 +357,7 @@
         "provider": "Notional"
       },
       {
-        "address": "passage-grpc.lavenderfive.com:443",
+        "address": "passage.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -399,6 +420,12 @@
       "url": "https://ezstaking.app/passage",
       "tx_page": "https://ezstaking.app/passage/txs/${txHash}",
       "account_page": "https://ezstaking.app/passage/account/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/passage",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=passage&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=passage&addr=${accountAddress}"
     },
     {
       "kind": "atomscan",

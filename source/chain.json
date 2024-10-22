@@ -34,9 +34,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Source-Protocol-Cosmos/source",
-    "recommended_version": "v3.0.1",
+    "recommended_version": "v3.0.3",
     "compatible_versions": [
-      "v3.0.1"
+      "v3.0.3"
     ],
     "cosmos_sdk_version": "0.45",
     "consensus": {
@@ -51,9 +51,9 @@
     "versions": [
       {
         "name": "v3.0.0",
-        "recommended_version": "v3.0.1",
+        "recommended_version": "v3.0.3",
         "compatible_versions": [
-          "v3.0.1"
+          "v3.0.3"
         ],
         "cosmos_sdk_version": "0.45",
         "consensus": {
@@ -61,9 +61,25 @@
           "version": "0.34"
         },
         "cosmwasm_version": "0.30",
-        "cosmwasm_enabled": true
+        "cosmwasm_enabled": true,
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "version": "0.30",
+          "enabled": true
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.45"
+    },
+    "cosmwasm": {
+      "version": "0.30",
+      "enabled": true
+    }
   },
   "peers": {
     "seeds": [
@@ -421,6 +437,12 @@
       "kind": "TC Network",
       "url": "https://explorer.tcnetwork.io/source",
       "tx_page": "https://explorer.tcnetwork.io/source/transaction/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/source",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=source&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=source&addr=${accountAddress}"
     },
     {
       "kind": "Indonode",

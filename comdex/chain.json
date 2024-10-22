@@ -42,7 +42,6 @@
       "type": "cometbft",
       "version": "0.37.5"
     },
-    "ibc_go_version": "v7.4.0",
     "cosmwasm_version": "v0.45.0",
     "cosmwasm_enabled": true,
     "genesis": {
@@ -56,7 +55,10 @@
           "v9.0.0"
         ],
         "cosmwasm_enabled": true,
-        "next_version_name": "v10.0.0"
+        "next_version_name": "v10.0.0",
+        "cosmwasm": {
+          "enabled": true
+        }
       },
       {
         "name": "v10.0.0",
@@ -65,7 +67,10 @@
           "v10.0.0"
         ],
         "cosmwasm_enabled": true,
-        "next_version_name": "v11.5.0"
+        "next_version_name": "v11.5.0",
+        "cosmwasm": {
+          "enabled": true
+        }
       },
       {
         "name": "v11.5.0",
@@ -76,7 +81,10 @@
           "v11.5.2"
         ],
         "cosmwasm_enabled": true,
-        "next_version_name": "v13.3.0"
+        "next_version_name": "v13.3.0",
+        "cosmwasm": {
+          "enabled": true
+        }
       },
       {
         "name": "v13.3.0",
@@ -96,7 +104,15 @@
         },
         "cosmwasm_version": "v0.41.0",
         "cosmwasm_enabled": true,
-        "next_version_name": "v14.1.0"
+        "next_version_name": "v14.1.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.5"
+        },
+        "cosmwasm": {
+          "version": "v0.41.0",
+          "enabled": true
+        }
       },
       {
         "name": "v14.1.0",
@@ -115,12 +131,35 @@
           "type": "cometbft",
           "version": "0.37.5"
         },
-        "ibc_go_version": "v7.4.0",
         "cosmwasm_version": "v0.45.0",
         "cosmwasm_enabled": true,
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.9"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.9"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0"
+    },
+    "cosmwasm": {
+      "version": "v0.45.0",
+      "enabled": true
+    }
   },
   "daemon_name": "comdex",
   "node_home": "$HOME/.comdex",
@@ -166,11 +205,6 @@
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
-        "address": "seeds.whispernode.com:13156",
-        "provider": "WhisperNode 🤐"
       },
       {
         "id": "88ba33fbdf0279efaf27cff629f3cf72814d4069",
@@ -233,16 +267,12 @@
         "provider": "ChainTools"
       },
       {
-        "address": "https://comdex-rpc.lavenderfive.com/",
+        "address": "https://rpc.lavenderfive.com:443/comdex",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://rpc-comdex.cosmos-spaces.cloud",
         "provider": "Cosmos Spaces"
-      },
-      {
-        "address": "https://rpc-comdex.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://comdex-mainnet-rpc.autostake.com:443",
@@ -295,7 +325,7 @@
         "provider": "🔥STAVR🔥"
       },
       {
-        "address": "https://comdex-api.lavenderfive.com/",
+        "address": "https://rest.lavenderfive.com:443/comdex",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -305,10 +335,6 @@
       {
         "address": "https://comdex-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://lcd-comdex.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://comdex-api.w3coins.io",
@@ -361,7 +387,7 @@
         "provider": "Cosmos Spaces"
       },
       {
-        "address": "comdex-grpc.lavenderfive.com:443",
+        "address": "comdex.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -402,6 +428,12 @@
       "url": "https://www.mintscan.io/comdex",
       "tx_page": "https://www.mintscan.io/comdex/transactions/${txHash}",
       "account_page": "https://www.mintscan.io/comdex/accounts/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/comdex",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=comdex&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=comdex&addr=${accountAddress}"
     },
     {
       "kind": "🔥STAVR🔥",

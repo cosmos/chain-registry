@@ -36,7 +36,6 @@
       "v14.0.0"
     ],
     "cosmos_sdk_version": "v0.47.12",
-    "ibc_go_version": "v7.6.0",
     "consensus": {
       "type": "cometbft",
       "version": "v0.37.6"
@@ -90,14 +89,25 @@
           "v13.0.0"
         ],
         "cosmos_sdk_version": "v0.47.10",
-        "ibc_go_version": "v7.3.2",
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.4"
         },
         "cosmwasm_version": "v0.45.0",
         "cosmwasm_enabled": true,
-        "next_version_name": "v14"
+        "next_version_name": "v14",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.10"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.2"
+        }
       },
       {
         "name": "v14",
@@ -108,16 +118,39 @@
           "v14.0.0"
         ],
         "cosmos_sdk_version": "v0.47.12",
-        "ibc_go_version": "v7.6.0",
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.6"
         },
         "cosmwasm_version": "v0.45.0",
         "cosmwasm_enabled": true,
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.12"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.6.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.12"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.6.0"
+    },
+    "cosmwasm": {
+      "version": "v0.45.0",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
@@ -158,11 +191,6 @@
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
-        "address": "seeds.whispernode.com:13756",
-        "provider": "WhisperNode 🤐"
       },
       {
         "id": "96e0040d44a2f0b59d2a07e128369363d8535b67",
@@ -239,10 +267,6 @@
       {
         "address": "https://rpc.stargaze.silentvalidator.com/",
         "provider": "silent"
-      },
-      {
-        "address": "https://rpc-stargaze.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://stargaze-mainnet-rpc.autostake.com:443",
@@ -325,10 +349,6 @@
       {
         "address": "https://stargaze-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://lcd-stargaze.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://stargaze-api.ramuchi.tech",
@@ -423,6 +443,12 @@
       "kind": "ping.pub",
       "url": "https://ping.pub/stargaze",
       "tx_page": "https://ping.pub/stargaze/tx/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/stargaze",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=stargaze&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=stargaze&addr=${accountAddress}"
     },
     {
       "kind": "atomscan",

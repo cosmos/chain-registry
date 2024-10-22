@@ -39,10 +39,10 @@
       "v1.5.0"
     ],
     "cosmos_sdk_version": "v0.50.7-kyve-rc0",
-    "ibc_go_version": "v8.3.1",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.38.7-kyve-rpc-fix-rc0"
+      "version": "v0.38.7",
+      "tag": "v0.38.7-kyve-rpc-fix-rc0"
     },
     "binaries": {
       "linux/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.5.0/kyved_mainnet_linux_amd64.tar.gz",
@@ -108,7 +108,6 @@
           "v1.4.0"
         ],
         "cosmos_sdk_version": "v0.47.6-kyve-rc0",
-        "ibc_go_version": "v7.3.0",
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.2"
@@ -119,7 +118,16 @@
           "darwin/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.4.0/kyved_mainnet_darwin_amd64.tar.gz",
           "darwin/arm64": "https://github.com/KYVENetwork/chain/releases/download/v1.4.0/kyved_mainnet_darwin_arm64.tar.gz"
         },
-        "next_version_name": "v1.5.0"
+        "next_version_name": "v1.5.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.6",
+          "tag": "v0.47.6-kyve-rc0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.0"
+        }
       },
       {
         "name": "v1.4.0",
@@ -130,10 +138,10 @@
           "v1.5.0"
         ],
         "cosmos_sdk_version": "v0.50.7-kyve-rc0",
-        "ibc_go_version": "v8.3.1",
         "consensus": {
           "type": "cometbft",
-          "version": "v0.38.7-kyve-rpc-fix-rc0"
+          "version": "v0.38.7",
+          "tag": "v0.38.7-kyve-rpc-fix-rc0"
         },
         "binaries": {
           "linux/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.5.0/kyved_mainnet_linux_amd64.tar.gz",
@@ -141,9 +149,27 @@
           "darwin/amd64": "https://github.com/KYVENetwork/chain/releases/download/v1.5.0/kyved_mainnet_darwin_amd64.tar.gz",
           "darwin/arm64": "https://github.com/KYVENetwork/chain/releases/download/v1.5.0/kyved_mainnet_darwin_arm64.tar.gz"
         },
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.50.7",
+          "tag": "v0.50.7-kyve-rc0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v8.3.1"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.7",
+      "tag": "v0.50.7-kyve-rc0"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.3.1"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kyve/images/kyve.png",
@@ -237,7 +263,7 @@
         "provider": "ecostake"
       },
       {
-        "address": "https://kyve-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/kyve",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -287,7 +313,7 @@
         "provider": "kyve"
       },
       {
-        "address": "https://kyve-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/kyve",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -341,7 +367,7 @@
         "provider": "NodeStake"
       },
       {
-        "address": "https://kyve-grpc.lavenderfive.com:443",
+        "address": "kyve.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -386,6 +412,12 @@
       "url": "https://www.mintscan.io/kyve",
       "tx_page": "https://www.mintscan.io/kyve/txs/${txHash}",
       "account_page": "https://www.mintscan.io/kyve/account/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/kyve",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=kyve&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=kyve&addr=${accountAddress}"
     },
     {
       "kind": "NodeStake Explorer",

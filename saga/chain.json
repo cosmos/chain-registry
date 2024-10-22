@@ -47,14 +47,29 @@
     "cosmos_sdk_version": "osmosis-labs/cosmos-sdk v0.47.5",
     "consensus": {
       "type": "cometbft",
-      "version": "osmosis-labs/cometbft v0.37.2"
+      "version": "v0.37.2",
+      "repo": "https://github.com/osmosis-labs/cometbft"
     },
     "cosmwasm_enabled": false,
-    "ibc_go_version": "v7.3.1",
-    "ics_enabled": [
-      "ics20-1"
-    ],
-    "go_version": "1.21"
+    "language": {
+      "type": "go",
+      "version": "1.21"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/osmosis-labs/cosmos-sdk",
+      "version": "v0.47.5"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.3.1",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "enabled": false
+    }
   },
   "peers": {
     "seeds": [
@@ -122,7 +137,7 @@
         "provider": "Bro_n_Bro"
       },
       {
-        "address": "https://saga-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/saga",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -156,7 +171,7 @@
         "provider": "Bro_n_Bro"
       },
       {
-        "address": "https://saga-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/saga",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -186,7 +201,7 @@
         "provider": "Bro_n_Bro"
       },
       {
-        "address": "https://saga-grpc.lavenderfive.com:443",
+        "address": "saga.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -206,6 +221,12 @@
       "url": "https://www.mintscan.io/saga",
       "tx_page": "https://www.mintscan.io/saga/transactions/${txHash}",
       "account_page": "https://www.mintscan.io/saga/accounts/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/saga",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=saga&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=saga&addr=${accountAddress}"
     },
     {
       "kind": "ezstaking",

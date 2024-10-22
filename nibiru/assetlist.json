@@ -4,7 +4,7 @@
   "assets": [
     {
       "description": "The native token of Nibiru network",
-      "extended_description": "Nibiru hosts a variety of ecosystem partners in a wide variety of consumer sectors. From RWAs (Coded Estate) to DeFi (Constella, NOM) to Gaming (Blockchain Game Alliance, IntoTheVerse), Nibiru is advancing multiple emerging blockchain narratives that will onboard the next billion users.",
+      "extended_description": "Nibiru is a smart contract ecosystem with a high-performance, EVM-equivalent execution layer. Nibiru is engineered to meet the growing demand for versatile, scalable, and easy-to-use Web3 applications.",
       "socials": {
         "website": "https://nibiru.fi",
         "twitter": "https://twitter.com/nibiruchain"
@@ -17,6 +17,10 @@
         {
           "denom": "nibi",
           "exponent": 6
+        },
+        {
+          "denom": "attonibi",
+          "exponent": 18
         }
       ],
       "base": "unibi",
@@ -36,7 +40,54 @@
             "primary_color_hex": "#14c0ce"
           }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Liquid Staked Nibiru (Eris)",
+      "extended_description": "Liquid Staked Nibiru, powered by Eris Protocol's amplifier contracts. Nibiru is a smart contract ecosystem with a high-performance, EVM-equivalent execution layer. Nibiru is engineered to meet the growing demand for versatile, scalable, and easy-to-use Web3 applications.",
+      "socials": {
+        "website": "https://nibiru.fi/docs/learn/liquid-stake/",
+        "twitter": "https://x.com/eris_protocol"
+      },
+      "denom_units": [
+        {
+          "denom": "tf/nibi1udqqx30cw8nwjxtl4l28ym9hhrp933zlq8dqxfjzcdhvl8y24zcqpzmh8m/ampNIBI",
+          "exponent": 0
+        },
+        {
+          "denom": "stNIBI",
+          "exponent": 6
+        }
+      ],
+      "base": "tf/nibi1udqqx30cw8nwjxtl4l28ym9hhrp933zlq8dqxfjzcdhvl8y24zcqpzmh8m/ampNIBI",
+      "name": "Liquid Staked Nibiru (Eris)",
+      "display": "stNIBI",
+      "symbol": "stNIBI",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nibiru/images/stnibi-logo-circle-500x500.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nibiru/images/stnibi-logo-circle-500x500.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nibiru/images/stnibi-logo-circle-500x500.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nibiru/images/stnibi-logo-circle-500x500.svg",
+          "theme": {
+            "primary_color_hex": "#14c0ce"
+          }
+        }
+      ],
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "nibiru",
+            "base_denom": "unibi"
+          },
+          "provider": "Eris Protocol"
+        }
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "uoprek",
@@ -49,7 +100,8 @@
       "base": "tf/nibi149m52kn7nvsg5nftvv4fh85scsavpdfxp5nr7zasz97dum89dp5qkyhy0t/uoprek",
       "name": "uoprek",
       "display": "tf/nibi149m52kn7nvsg5nftvv4fh85scsavpdfxp5nr7zasz97dum89dp5qkyhy0t/uoprek",
-      "symbol": "UOPREK"
+      "symbol": "UOPREK",
+      "type_asset": "sdk.coin"
     },
     {
       "description": "utestate",
@@ -62,7 +114,8 @@
       "base": "tf/nibi1lp28kx3gz0prsztl024z730ufkg3alahaq3e7a6gae22nk0dqdvsyrrgqw/utestate",
       "name": "utestate",
       "display": "tf/nibi1lp28kx3gz0prsztl024z730ufkg3alahaq3e7a6gae22nk0dqdvsyrrgqw/utestate",
-      "symbol": "UTESTATE"
+      "symbol": "UTESTATE",
+      "type_asset": "sdk.coin"
     },
     {
       "description": "npp",
@@ -75,7 +128,8 @@
       "base": "tf/nibi1xpp7yn0tce62ffattws3gpd6v0tah0mlevef3ej3r4pnfvsehcgqk3jvxq/NPP",
       "name": "npp",
       "display": "tf/nibi1xpp7yn0tce62ffattws3gpd6v0tah0mlevef3ej3r4pnfvsehcgqk3jvxq/NPP",
-      "symbol": "NPP"
+      "symbol": "NPP",
+      "type_asset": "sdk.coin"
     }
   ]
 }

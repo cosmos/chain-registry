@@ -31,7 +31,8 @@
             "primary_color_hex": "#079fd7"
           }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "Vidulum App Token",
@@ -62,7 +63,8 @@
             "primary_color_hex": "#3454bc"
           }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "OSMO from Osmosis",
@@ -143,7 +145,8 @@
             "primary_color_hex": "#FEFEFE"
           }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "The native token of Archway network",
@@ -184,8 +187,8 @@
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.svg"
       },
       "images": [
         {
@@ -193,13 +196,67 @@
             "chain_name": "archway",
             "base_denom": "aarch"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.svg",
           "theme": {
             "primary_color_hex": "#fc4c04"
           }
         }
       ]
+    },
+    {
+      "description": "USDC from Noble",
+      "denom_units": [
+        {
+          "denom": "ibc/6490A7EAB61059BFC1CDDEB05917DD70BDF3A611654162A1A47DB930D40D8AF4",
+          "exponent": 0,
+          "aliases": [
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6,
+          "aliases": []
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/6490A7EAB61059BFC1CDDEB05917DD70BDF3A611654162A1A47DB930D40D8AF4",
+      "name": "USDC",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-95"
+          },
+          "chain": {
+            "channel_id": "channel-3",
+            "path": "transfer/channel-3/uusdc"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "noble",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#2775CA"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      }
     }
   ]
 }
