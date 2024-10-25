@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://bandprotocol.com/",
   "pretty_name": "Band Protocol",
+  "chain_type": "cosmos",
   "chain_id": "laozi-mainnet",
   "daemon_name": "bandd",
   "node_home": "$HOME/.band",
@@ -43,7 +44,6 @@
       "v2.5.4"
     ],
     "cosmos_sdk_version": "0.45.16",
-    "ibc_go_version": "v4.3.1",
     "consensus": {
       "type": "cometbft",
       "version": "v0.34.29"
@@ -63,12 +63,19 @@
           "v2.4.1"
         ],
         "cosmos_sdk_version": "v0.45.10",
-        "ibc_go_version": "v3.3.1",
         "consensus": {
           "type": "tendermint",
           "version": "v0.34.22"
         },
-        "next_version_name": "v2_5"
+        "next_version_name": "v2_5",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.10"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.3.1"
+        }
       },
       {
         "name": "v2_5",
@@ -82,14 +89,29 @@
           "v2.5.4"
         ],
         "cosmos_sdk_version": "0.45.16",
-        "ibc_go_version": "v4.3.1",
         "consensus": {
           "type": "cometbft",
           "version": "v0.34.29"
         },
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45.16"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.3.1"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.45.16"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v4.3.1"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.png",
@@ -105,6 +127,10 @@
       {
         "id": "543e0cab9c3016a0e99775443a17bcf163038912",
         "address": "34.150.156.78:26656"
+      },
+      {
+        "id": "2c884e60a0944958a2a9389f07f2f66dcfc3add0",
+        "address": "seeds-bandprotocol.activenodes.io:36656"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
@@ -170,11 +196,6 @@
         "id": "d3fe7586b604196461db92c2c7cf72eb354af1fc",
         "address": "rpc.band.indonode.net:12656",
         "provider": "Indonode"
-      },
-      {
-        "id": "c6f9e1309055eedbcd58d018b54247f13e9f878b",
-        "address": "65.108.195.213:44656",
-        "provider": "StakeTown"
       }
     ]
   },
@@ -215,10 +236,6 @@
       {
         "address": "https://bandprotocol-rpc.highstakes.ch",
         "provider": "High Stakes 🇨🇭"
-      },
-      {
-        "address": "https://band-rpc.stake-town.com",
-        "provider": "StakeTown"
       },
       {
         "address": "https://public.stakewolle.com/cosmos/bandchain/rpc",
@@ -275,10 +292,6 @@
         "provider": "High Stakes 🇨🇭"
       },
       {
-        "address": "https://band-api.stake-town.com",
-        "provider": "StakeTown"
-      },
-      {
         "address": "https://public.stakewolle.com/cosmos/bandchain/rest",
         "provider": "Stakewolle"
       },
@@ -327,10 +340,6 @@
       {
         "address": "band.grpc.kjnodes.com:443",
         "provider": "kjnodes"
-      },
-      {
-        "address": "band-grpc.stake-town.com:443",
-        "provider": "StakeTown"
       },
       {
         "address": "grpc.band.bronbro.io:443",

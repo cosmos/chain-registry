@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://akash.network/",
   "pretty_name": "Akash",
+  "chain_type": "cosmos",
   "chain_id": "akashnet-2",
   "bech32_prefix": "akash",
   "daemon_name": "akash",
@@ -39,10 +40,11 @@
       "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.36.0/akash_linux_arm64.zip"
     },
     "cosmos_sdk_version": "v0.45.16",
-    "ibc_go_version": "v4.6.0",
     "consensus": {
       "type": "cometbft",
-      "version": "akash-network/cometbft v0.34.27-akash"
+      "version": "v0.34.27",
+      "repo": "https://github.com/akash-network/cometbft",
+      "tag": "v0.34.27-akash"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/akash-network/net/master/mainnet/genesis.json"
@@ -128,12 +130,21 @@
           "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.32.1238/akash_linux_arm64.zip"
         },
         "cosmos_sdk_version": "v0.45.16",
-        "ibc_go_version": "v4.4.2",
         "consensus": {
           "type": "cometbft",
-          "version": "akash-network/cometbft v0.34.27-akash"
+          "version": "v0.34.27",
+          "repo": "https://github.com/akash-network/cometbft",
+          "tag": "v0.34.27-akash"
         },
-        "next_version_name": "v0.34.0"
+        "next_version_name": "v0.34.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.16"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.4.2"
+        }
       },
       {
         "name": "v0.34.0",
@@ -148,12 +159,21 @@
           "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.34.1/akash_linux_arm64.zip"
         },
         "cosmos_sdk_version": "v0.45.16",
-        "ibc_go_version": "v4.6.0",
         "consensus": {
           "type": "cometbft",
-          "version": "akash-network/cometbft v0.34.27-akash"
+          "version": "v0.34.27",
+          "repo": "https://github.com/akash-network/cometbft",
+          "tag": "v0.34.27-akash"
         },
-        "next_version_name": "v0.36.0"
+        "next_version_name": "v0.36.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.16"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.6.0"
+        }
       },
       {
         "name": "v0.36.0",
@@ -168,13 +188,30 @@
           "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.36.0/akash_linux_arm64.zip"
         },
         "cosmos_sdk_version": "v0.45.16",
-        "ibc_go_version": "v4.6.0",
         "consensus": {
           "type": "cometbft",
-          "version": "akash-network/cometbft v0.34.27-akash"
+          "version": "v0.34.27",
+          "repo": "https://github.com/akash-network/cometbft",
+          "tag": "v0.34.27-akash"
+        },
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.16"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.6.0"
         }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.45.16"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v4.6.0"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.png",
@@ -279,7 +316,7 @@
         "provider": "ecostake"
       },
       {
-        "address": "https://akash-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/akash",
         "provider": "Lavender.Five Nodes"
       },
       {
@@ -349,7 +386,7 @@
         "provider": "ecostake"
       },
       {
-        "address": "https://akash-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/akash",
         "provider": "Lavender.Five Nodes"
       },
       {
@@ -415,7 +452,7 @@
         "provider": "Notional"
       },
       {
-        "address": "akash-grpc.lavenderfive.com:443",
+        "address": "akash.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {

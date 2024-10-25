@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Mars Hub Testnet",
+  "chain_type": "cosmos",
   "chain_id": "ares-1",
   "bech32_prefix": "mars",
   "key_algos": [
@@ -29,11 +30,14 @@
     ]
   },
   "codebase": {
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/mars-protocol/networks/main/ares-1/genesis.json"
+    },
+    "ibc": {
+      "type": "go",
+      "ics_enabled": [
+        "ics20-1"
+      ]
     }
   },
   "apis": {

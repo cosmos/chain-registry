@@ -1,0 +1,98 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "paloma",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://palomachain.com/",
+  "pretty_name": "Paloma",
+  "chain_type": "cosmos",
+  "chain_id": "tumbler",
+  "bech32_prefix": "paloma",
+  "daemon_name": "palomad",
+  "node_home": "$HOME/.paloma",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ugrain",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ugrain"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/palomachain/paloma",
+    "recommended_version": "v1.15.4",
+    "compatible_versions": [
+      "v1.15.4"
+    ],
+    "cosmos_sdk_version": "v0.50.6",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.6"
+    },
+    "binaries": {
+      "linux/amd64": "https://github.com/palomachain/paloma/releases/download/v1.15.4/paloma_Linux_x86_64.tar.gz"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/palomachain/mainnet/master/tumbler/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.15.4",
+        "recommended_version": "v1.15.4",
+        "compatible_versions": [
+          "v1.15.4"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/palomachain/paloma/releases/download/v1.15.4/paloma_Linux_x86_64.tar.gz"
+        }
+      }
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.6"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.2.0"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/paloma/images/paloma.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/paloma/images/paloma.svg"
+  },
+  "peers": {
+    "seeds": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-1.paloma.nodes.guru/",
+        "provider": "Nodes.Guru"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "explorers.guru",
+      "url": "https://paloma.explorers.guru/",
+      "tx_page": "https://paloma.explorers.guru/transaction/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/paloma/images/paloma.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/paloma/images/paloma.svg"
+    }
+  ]
+}

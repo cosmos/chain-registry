@@ -1,6 +1,7 @@
 {
   "$schema": "../../chain.schema.json",
   "chain_name": "celestiatestnet2",
+  "chain_type": "cosmos",
   "chain_id": "arabica-11",
   "pretty_name": "Arabica Testnet",
   "status": "live",
@@ -8,7 +9,9 @@
   "bech32_prefix": "celestia",
   "daemon_name": "celestia-appd",
   "node_home": "$HOME/.celestia-app",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -23,16 +26,42 @@
   },
   "codebase": {
     "git_repo": "https://github.com/celestiaorg/celestia-app",
-    "recommended_version": "v1.6.0",
-    "compatible_versions": ["v1.3.0", "v1.4.0", "v1.5.0", "v1.6.0"],
+    "recommended_version": "v2.1.2",
+    "compatible_versions": [
+      "v2.0.0",
+      "v2.1.0",
+      "v2.1.1",
+      "v2.1.2"
+    ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/arabica-11/genesis.json"
     },
     "versions": [
       {
-        "name": "v1.3.0",
-        "recommended_version": "v1.6.0",
-        "compatible_versions": ["v1.3.0", "v1.4.0", "v1.5.0", "v1.6.0"]
+        "name": "v1",
+        "recommended_version": "v1.14.0",
+        "compatible_versions": [
+          "v1.3.0",
+          "v1.6.0",
+          "v1.7.0",
+          "v1.9.0",
+          "v1.10.0",
+          "v1.10.1",
+          "v1.11.0",
+          "v1.12.0",
+          "v1.13.0",
+          "v1.14.0"
+        ]
+      },
+      {
+        "name": "v2",
+        "recommended_version": "v2.1.2",
+        "compatible_versions": [
+          "v2.0.0",
+          "v2.1.0",
+          "v2.1.1",
+          "v2.1.2"
+        ]
       }
     ]
   },
@@ -76,9 +105,9 @@
   },
   "explorers": [
     {
-      "kind": "Ping.Pub",
-      "url": "https://explorer.celestia-arabica-11.com/arabica-11",
-      "tx_page": "https://explorer.celestia-arabica-11.com/arabica-11/tx/${txHash}"
+      "kind": "Celenium",
+      "url": "https://arabica.celenium.io/",
+      "tx_page": "https://arabica.celenium.io/tx/${txHash}"
     }
   ]
 }

@@ -1,9 +1,10 @@
 {
-  "$schema": "../../chain.schema.json",
+  "$schema": "../chain.schema.json",
   "chain_name": "zetachain",
   "status": "live",
   "network_type": "mainnet",
   "pretty_name": "ZetaChain",
+  "chain_type": "cosmos",
   "chain_id": "zetachain_7000-1",
   "bech32_prefix": "zeta",
   "daemon_name": "zetacored",
@@ -34,18 +35,17 @@
   },
   "codebase": {
     "git_repo": "https://github.com/zeta-chain/node",
-    "recommended_version": "v14.0.0",
+    "recommended_version": "v20.0.0",
     "compatible_versions": [
-      "v17.0.0"
+      "v20.0.0"
     ],
     "cosmos_sdk_version": "v0.47.10",
     "consensus": {
       "type": "cometbft",
       "version": "v0.37.4"
     },
-    "ibc_go_version": "v7.4.0",
     "genesis": {
-      "genesis_url": "https://zetachain.blockpi.network/rpc/v1/public/genesis"
+      "genesis_url": "https://raw.githubusercontent.com/zeta-chain/network-config/main/mainnet/genesis.json"
     },
     "versions": [
       {
@@ -59,8 +59,15 @@
           "type": "cometbft",
           "version": "v0.34.28"
         },
-        "ibc_go_version": "v6.1.0",
-        "next_version_name": "v12"
+        "next_version_name": "v12",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.13"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v6.1.0"
+        }
       },
       {
         "name": "v12",
@@ -73,8 +80,15 @@
           "type": "cometbft",
           "version": "v0.34.28"
         },
-        "ibc_go_version": "v6.1.0",
-        "next_version_name": "v12.1.0"
+        "next_version_name": "v12.1.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.13"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v6.1.0"
+        }
       },
       {
         "name": "v12.1.0",
@@ -87,8 +101,15 @@
           "type": "cometbft",
           "version": "v0.34.28"
         },
-        "ibc_go_version": "v6.1.0",
-        "next_version_name": "v12.2.0"
+        "next_version_name": "v12.2.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.13"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v6.1.0"
+        }
       },
       {
         "name": "v12.2.0",
@@ -101,8 +122,15 @@
           "type": "cometbft",
           "version": "v0.34.28"
         },
-        "ibc_go_version": "v6.1.0",
-        "next_version_name": "v14.0.0"
+        "next_version_name": "v14.0.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.13"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v6.1.0"
+        }
       },
       {
         "name": "v14.0.1",
@@ -117,8 +145,15 @@
           "type": "cometbft",
           "version": "v0.34.28"
         },
-        "ibc_go_version": "v6.1.0",
-        "next_version_name": "v17"
+        "next_version_name": "v17",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.13"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v6.1.0"
+        }
       },
       {
         "name": "v17",
@@ -128,15 +163,100 @@
         "compatible_versions": [
           "v17.0.0"
         ],
+        "cosmos_sdk_version": "v0.46.13",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.28"
+        },
+        "next_version_name": "v18",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.13"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v6.1.0"
+        }
+      },
+      {
+        "name": "v18",
+        "proposal": 24,
+        "height": 4071400,
+        "recommended_version": "v18.0.0",
+        "compatible_versions": [
+          "v18.0.0"
+        ],
+        "cosmos_sdk_version": "v0.46.13",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.28"
+        },
+        "next_version_name": "v19",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.13"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v6.1.0"
+        }
+      },
+      {
+        "name": "v19",
+        "proposal": 33,
+        "height": 4696150,
+        "recommended_version": "v19.1.7",
+        "compatible_versions": [
+          "v19.1.1",
+          "v19.1.7"
+        ],
         "cosmos_sdk_version": "v0.47.10",
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.4"
         },
-        "ibc_go_version": "v7.4.0",
-        "next_version_name": ""
+        "next_version_name": "v20",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.10"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0"
+        }
+      },
+      {
+        "name": "20",
+        "proposal": 37,
+        "height": 5089400,
+        "recommended_version": "v20.0.0",
+        "compatible_versions": [
+          "v20.0.0"
+        ],
+        "cosmos_sdk_version": "v0.47.10",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.10"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.10"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0"
+    }
   },
   "peers": {
     "seeds": [
@@ -170,7 +290,7 @@
         "provider": "All That Node"
       },
       {
-        "address": "https://zetachain-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/zetachain",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -184,6 +304,10 @@
       {
         "address": "https://zetachain.rpc.nodeshub.online:443",
         "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+      },
+      {
+        "address": "https://zeta-chain.drpc.org",
+        "provider": "dRPC"
       }
     ],
     "rest": [
@@ -196,7 +320,7 @@
         "provider": "All That Node"
       },
       {
-        "address": "https://zetachain-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/zetachain",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -214,7 +338,7 @@
     ],
     "grpc": [
       {
-        "address": "https://zetachain-grpc.lavenderfive.com:443",
+        "address": "zetachain.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {

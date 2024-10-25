@@ -1,172 +1,201 @@
 {
-    "$schema": "../../chain.schema.json",
-    "chain_name": "swisstroniktestnet",
-    "chain_id": "swisstronik_1291-1",
-    "pretty_name": "Swisstronik Testnet",
-    "status": "live",
-    "network_type": "testnet",
-    "bech32_prefix": "swtr",
-    "daemon_name": "swisstronikd",
-    "node_home": "$HOME/.swisstronik",
-    "key_algos": [
-        "secp256k1"
+  "$schema": "../../chain.schema.json",
+  "chain_name": "swisstroniktestnet",
+  "chain_type": "cosmos",
+  "chain_id": "swisstronik_1291-1",
+  "pretty_name": "Swisstronik Testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "bech32_prefix": "swtr",
+  "daemon_name": "swisstronikd",
+  "node_home": "$HOME/.swisstronik",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "aswtr",
+        "fixed_min_gas_price": 7
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "aswtr"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/SigmaGmbH/swisstronik-chain",
+    "recommended_version": "v1.0.2",
+    "compatible_versions": [
+      "v1.0.2"
     ],
-    "slip44": 60,
-    "fees": {
-        "fee_tokens": [
-            {
-                "denom": "aswtr",
-                "fixed_min_gas_price": 7
-            }
-        ]
+    "binaries": {
+      "linux/amd64": "https://github.com/SigmaGmbH/swisstronik-chain/releases/download/testnet-v1.0.2/swisstronik_1.0.2_amd64.deb.zip"
     },
-    "staking": {
-        "staking_tokens": [
-            {
-                "denom": "aswtr"
-            }
-        ]
+    "cosmos_sdk_version": "0.47",
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.37"
     },
-    "codebase": {
-        "git_repo": "https://github.com/SigmaGmbH/swisstronik-chain",
+    "genesis": {
+      "genesis_url": "https://rpc.testnet.swisstronik.com/genesis"
+    },
+    "versions": [
+      {
+        "name": "v0.1.11-testnet",
+        "recommended_version": "v0.1.11-testnet",
+        "compatible_versions": [
+          "v0.1.11-testnet"
+        ],
+        "cosmos_sdk_version": "0.47",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37"
+        },
+        "next_version_name": "v1.0.1",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.47"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.2.0"
+        }
+      },
+      {
+        "name": "v1.0.1",
+        "proposal": 1,
+        "height": 1969786,
+        "recommended_version": "v1.0.1",
+        "compatible_versions": [
+          "v1.0.1"
+        ],
+        "cosmos_sdk_version": "0.47",
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37"
+        },
+        "next_version_name": "v1.0.2",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.47"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.2.0"
+        }
+      },
+      {
+        "name": "v1.0.2",
+        "height": 5430000,
         "recommended_version": "v1.0.2",
         "compatible_versions": [
-            "v1.0.2"
+          "v1.0.2"
         ],
         "binaries": {
-            "linux/amd64": "https://github.com/SigmaGmbH/swisstronik-chain/releases/download/testnet-v1.0.2/swisstronik_1.0.2_amd64.deb.zip"
+          "linux/amd64": "https://github.com/SigmaGmbH/swisstronik-chain/releases/download/testnet-v1.0.2/swisstronik_1.0.2_amd64.deb.zip"
         },
         "cosmos_sdk_version": "0.47",
         "consensus": {
-            "type": "cometbft",
-            "version": "0.37"
+          "type": "cometbft",
+          "version": "0.37"
         },
-        "ibc_go_version": "v7.2.0",
-        "genesis": {
-            "genesis_url": "https://rpc.testnet.swisstronik.com/genesis"
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.47"
         },
-        "versions": [
-            {
-                "name": "v0.1.11-testnet",
-                "recommended_version": "v0.1.11-testnet",
-                "compatible_versions": [
-                    "v0.1.11-testnet"
-                ],
-                "cosmos_sdk_version": "0.47",
-                "consensus": {
-                    "type": "cometbft",
-                    "version": "0.37"
-                },
-                "ibc_go_version": "v7.2.0",
-                "next_version_name": "v1.0.1"
-            },
-            {
-                "name": "v1.0.1",
-                "proposal": 1,
-                "height": 1969786,
-                "recommended_version": "v1.0.1",
-                "compatible_versions": [
-                    "v1.0.1"
-                ],
-                "cosmos_sdk_version": "0.47",
-                "consensus": {
-                    "type": "cometbft",
-                    "version": "0.37"
-                },
-                "ibc_go_version": "v7.2.0",
-                "next_version_name": "v1.0.2"
-            },
-            {
-                "name": "v1.0.2",
-                "height": 5430000,
-                "recommended_version": "v1.0.2",
-                "compatible_versions": [
-                    "v1.0.2"
-                ],
-                "binaries": {
-                    "linux/amd64": "https://github.com/SigmaGmbH/swisstronik-chain/releases/download/testnet-v1.0.2/swisstronik_1.0.2_amd64.deb.zip"
-                },
-                "cosmos_sdk_version": "0.47",
-                "consensus": {
-                    "type": "cometbft",
-                    "version": "0.37"
-                },
-                "ibc_go_version": "v7.2.0",
-                "next_version_name": ""
-            }
-        ]
-    },
-    "peers": {
-        "seeds": [
-            {
-                "id": "f7e652dc5bf5018ac2fe0ed696e94089f4639391",
-                "address": "148.113.8.228:26656",
-                "provider": "Swisstronik"
-            }
-        ],
-        "persistent_peers": [
-            {
-                "id": "0c2d883d0259f2992b10b3238e96fdd406ebd0c3",
-                "address": "148.113.9.30:20656",
-                "provider": "genznodes"
-            }
-        ]
-    },
-    "apis": {
-        "rpc": [
-            {
-                "address": "https://rpc.testnet.swisstronik.com",
-                "provider": "Swisstronik"
-            },
-            {
-                "address": "https://testnet-swisstronik-rpc.genznodes.dev",
-                "provider": "genznodes"
-            },
-            {
-                "address": "https://rpc.swisstronik.comunitynode.my.id",
-                "provider": "ComunityNode"
-            }
-        ],
-        "rest": [
-            {
-                "address": "https://api.testnet.swisstronik.com",
-                "provider": "Swisstronik"
-            },
-            {
-                "address": "https://testnet-swisstronik-api.genznodes.dev",
-                "provider": "genznodes"
-            },
-            {
-                "address": "https://rest.swisstronik.comunitynode.my.id/",
-                "provider": "Comunitynode"
-            }
-        ],
-        "grpc": [
-            {
-                "address": "testnet-swisstronik-grpc.genznodes.dev:20090",
-                "provider": "genznodes"
-            }
-        ],
-        "evm-http-jsonrpc": [
-            {
-                "address": "https://json-rpc.testnet.swisstronik.com",
-                "provider": "Swisstronik"
-            },
-            {
-                "address": "https://testnet-swisstronik-rpc-evm.genznodes.dev",
-                "provider": "genznodes"
-            },
-            {
-                "address": "https://evm.swisstronik.comunitynode.my.id",
-                "provider": "comunitynode"
-            }
-        ]
-    },
-    "explorers": [
-        {
-            "kind": "ping.pub",
-            "url": "https://explorer-cosmos.testnet.swisstronik.com/swisstronik",
-            "tx_page": "https://explorer-cosmos.testnet.swisstronik.com/swisstronik/tx/${txHash}"
+        "ibc": {
+          "type": "go",
+          "version": "v7.2.0"
         }
+      }
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.47"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.2.0"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "f7e652dc5bf5018ac2fe0ed696e94089f4639391",
+        "address": "148.113.8.228:26656",
+        "provider": "Swisstronik"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "0c2d883d0259f2992b10b3238e96fdd406ebd0c3",
+        "address": "148.113.9.30:20656",
+        "provider": "genznodes"
+      }
     ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.testnet.swisstronik.com",
+        "provider": "Swisstronik"
+      },
+      {
+        "address": "https://testnet-swisstronik-rpc.genznodes.dev",
+        "provider": "genznodes"
+      },
+      {
+        "address": "https://rpc.swisstronik.comunitynode.my.id",
+        "provider": "ComunityNode"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.testnet.swisstronik.com",
+        "provider": "Swisstronik"
+      },
+      {
+        "address": "https://testnet-swisstronik-api.genznodes.dev",
+        "provider": "genznodes"
+      },
+      {
+        "address": "https://rest.swisstronik.comunitynode.my.id/",
+        "provider": "Comunitynode"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "testnet-swisstronik-grpc.genznodes.dev:20090",
+        "provider": "genznodes"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://json-rpc.testnet.swisstronik.com",
+        "provider": "Swisstronik"
+      },
+      {
+        "address": "https://testnet-swisstronik-rpc-evm.genznodes.dev",
+        "provider": "genznodes"
+      },
+      {
+        "address": "https://evm.swisstronik.comunitynode.my.id",
+        "provider": "comunitynode"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer-cosmos.testnet.swisstronik.com/swisstronik",
+      "tx_page": "https://explorer-cosmos.testnet.swisstronik.com/swisstronik/tx/${txHash}"
+    }
+  ]
 }

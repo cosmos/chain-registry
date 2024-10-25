@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Juno Testnet",
+  "chain_type": "cosmos",
   "chain_id": "uni-6",
   "bech32_prefix": "juno",
   "daemon_name": "junod",
@@ -43,7 +44,6 @@
     },
     "cosmwasm_version": "0.31",
     "cosmwasm_enabled": true,
-    "ibc_go_version": "4.3.1",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/CosmosContracts/testnets/main/uni-6/genesis.json"
     },
@@ -61,7 +61,18 @@
         },
         "cosmwasm_version": "0.30",
         "cosmwasm_enabled": true,
-        "ibc_go_version": "4.3.0"
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "version": "0.30",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "4.3.0"
+        }
       },
       {
         "name": "v14.0.0-alpha.1",
@@ -76,9 +87,32 @@
         },
         "cosmwasm_version": "0.30",
         "cosmwasm_enabled": true,
-        "ibc_go_version": "4.3.0"
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "version": "0.30",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "4.3.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.45"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "4.3.1"
+    },
+    "cosmwasm": {
+      "version": "0.31",
+      "enabled": true
+    }
   },
   "peers": {
     "seeds": [

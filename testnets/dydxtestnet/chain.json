@@ -1,10 +1,11 @@
 {
-  "$schema": "../chain.schema.json",
+  "$schema": "../../chain.schema.json",
   "chain_name": "dydxtestnet",
   "status": "live",
   "website": "https://dydx.trade/",
   "network_type": "testnet",
   "pretty_name": "dYdX Protocol",
+  "chain_type": "cosmos",
   "chain_id": "dydx-testnet-4",
   "bech32_prefix": "dydx",
   "daemon_name": "dydxprotocold",
@@ -40,7 +41,7 @@
     "cosmos_sdk_version": "v0.47.4",
     "cosmwasm_enabled": false,
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/dydxopsdao/networks/main/dydx-mainnet-1/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/dydxprotocol/v4-testnets/main/dydx-testnet-4/genesis.json"
     },
     "versions": [
       {
@@ -49,9 +50,20 @@
         "compatible_versions": [
           "v2.0.0"
         ],
-        "cosmos_sdk_version": "v0.47.4"
+        "cosmos_sdk_version": "v0.47.4",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.4"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.4"
+    },
+    "cosmwasm": {
+      "enabled": false
+    }
   },
   "description": "Our goal is to build open source code that can power a first class product and trading experience.",
   "peers": {
@@ -162,7 +174,10 @@
         "chain_name": "dydx"
       },
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx.svg",
+      "theme": {
+        "primary_color_hex": "#21212f"
+      }
     }
   ]
 }

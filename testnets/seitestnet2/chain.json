@@ -1,6 +1,7 @@
 {
   "$schema": "../../chain.schema.json",
   "chain_name": "seitestnet2",
+  "chain_type": "cosmos",
   "chain_id": "atlantic-2",
   "pretty_name": "Sei Atlantic 2",
   "status": "live",
@@ -34,8 +35,8 @@
     },
     "versions": [
       {
-        "name": "2.0.40beta",
-        "recommended_version": "2.0.40beta",
+        "name": "v5.7.5",
+        "recommended_version": "v5.7.5",
         "compatible_versions": [
           "2.0.34beta",
           "2.0.37beta",
@@ -59,16 +60,46 @@
       {
         "address": "https://sei-testnet-2-rpc.brocha.in",
         "provider": "Brochain"
+      },
+      {
+        "address": "https://rpc-testnet-sei.stingray.plus",
+        "provider": "StingRay"
       }
     ],
     "rest": [
       {
         "address": "https://sei-testnet-2-rest.brocha.in",
         "provider": "Brochain"
+      },
+      {
+        "address": "https://api-testnet-sei.stingray.plus",
+        "provider": "StingRay"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc-testnet-sei.stingray.plus",
+        "provider": "StingRay"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://evm-rpc-testnet-sei.stingray.plus",
+        "provider": "StingRay"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "blockscout",
+      "url": "https://seitrace.com/?chain=atlantic-2",
+      "tx_page": "https://seitrace.com/tx/${txHash}?chain=atlantic-2"
+    },
+    {
+      "kind": "celatone",
+      "url": "https://www.seiscan.app/atlantic-2",
+      "tx_page": "https://www.seiscan.app/atlantic-2/txs/${txHash}"
+    },
     {
       "kind": "explorers.guru",
       "url": "https://testnet.sei.explorers.guru",
