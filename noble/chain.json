@@ -34,20 +34,15 @@
   },
   "codebase": {
     "git_repo": "https://github.com/strangelove-ventures/noble",
-    "recommended_version": "v5.0.0",
+    "recommended_version": "v6.0.0",
     "compatible_versions": [
-      "v5.0.0"
+      "v6.0.0"
     ],
     "cosmos_sdk_version": "noble-assets/cosmos-sdk v0.45.16-send-restrictions",
     "consensus": {
       "type": "cometbft",
       "version": "v0.34.27"
     },
-    "cosmwasm_enabled": false,
-    "ibc_go_version": "v4.6.0",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
       "name": "v1.0.0",
       "genesis_url": "https://raw.githubusercontent.com/strangelove-ventures/noble-networks/main/mainnet/noble-1/genesis.json"
@@ -66,11 +61,6 @@
           "type": "tendermint",
           "version": "v0.34"
         },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "v3.4.0",
-        "ics_enabled": [
-          "ics20-1"
-        ],
         "next_version_name": "neon",
         "sdk": {
           "type": "cosmos",
@@ -101,11 +91,6 @@
           "type": "tendermint",
           "version": "v0.34"
         },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "v3.4.0",
-        "ics_enabled": [
-          "ics20-1"
-        ],
         "next_version_name": "radon",
         "sdk": {
           "type": "cosmos",
@@ -135,11 +120,6 @@
           "type": "cometbft",
           "version": "v0.34.27"
         },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "v3.4.0",
-        "ics_enabled": [
-          "ics20-1"
-        ],
         "next_version_name": "v3.1.0",
         "sdk": {
           "type": "cosmos",
@@ -169,11 +149,6 @@
           "type": "cometbft",
           "version": "v0.34.27"
         },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "v3.4.0",
-        "ics_enabled": [
-          "ics20-1"
-        ],
         "next_version_name": "argon",
         "sdk": {
           "type": "cosmos",
@@ -203,11 +178,6 @@
           "type": "cometbft",
           "version": "v0.34.27"
         },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "v4.5.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
         "next_version_name": "fusion",
         "sdk": {
           "type": "cosmos",
@@ -237,11 +207,6 @@
           "type": "cometbft",
           "version": "v0.34.27"
         },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "v4.5.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
         "next_version_name": "krypton",
         "sdk": {
           "type": "cosmos",
@@ -271,11 +236,37 @@
           "type": "cometbft",
           "version": "v0.34.27"
         },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "v4.6.0",
-        "ics_enabled": [
-          "ics20-1"
+        "next_version_name": "xenon",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/noble-assets/cosmos-sdk",
+          "version": "v0.45.16",
+          "tag": "v0.45.16-send-restrictions"
+        },
+        "cosmwasm": {
+          "enabled": false
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.6.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
+      },
+      {
+        "name": "xenon",
+        "tag": "v6.0.0",
+        "height": 11110000,
+        "recommended_version": "v6.0.0",
+        "compatible_versions": [
+          "v6.0.0"
         ],
+        "cosmos_sdk_version": "noble-assets/cosmos-sdk v0.45.16-send-restrictions",
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.27"
+        },
         "next_version_name": "",
         "sdk": {
           "type": "cosmos",
@@ -338,8 +329,12 @@
         "provider": "polkachu"
       },
       {
-        "address": "https://noble-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/noble",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://noble-rpc.owallet.io",
+        "provider": "OWALLET"
       }
     ],
     "rest": [
@@ -348,8 +343,12 @@
         "provider": "polkachu"
       },
       {
-        "address": "https://noble-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/noble",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://noble-rest.owallet.io",
+        "provider": "OWALLET"
       }
     ],
     "grpc": [
@@ -358,8 +357,12 @@
         "provider": "polkachu"
       },
       {
-        "address": "https://noble-grpc.lavenderfive.com:443",
+        "address": "noble.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "noble-grpc.owallet.io:9999",
+        "provider": "OWALLET"
       }
     ]
   },

@@ -13,19 +13,20 @@ export let chainNameToDirectoryMap = new Map();
 
 export const chainRegistryRoot = "../../..";
 
-const networkTypeToDirectoryNameMap = new Map();
+export const networkTypeToDirectoryNameMap = new Map();
 networkTypeToDirectoryNameMap.set("mainnet", "");
 networkTypeToDirectoryNameMap.set("testnet", "testnets");
 const networkTypes = Array.from(networkTypeToDirectoryNameMap.keys());
 
-const domainToDirectoryNameMap = new Map();
+export const domainToDirectoryNameMap = new Map();
 domainToDirectoryNameMap.set("cosmos", "");
 domainToDirectoryNameMap.set("non-cosmos", "_non-cosmos");
 const domains = Array.from(domainToDirectoryNameMap.keys());
 
-const fileToFileNameMap = new Map();
+export const fileToFileNameMap = new Map();
 fileToFileNameMap.set("chain", "chain.json");
 fileToFileNameMap.set("assetlist", "assetlist.json");
+fileToFileNameMap.set("versions", "versions.json");
 const files = Array.from(domainToDirectoryNameMap.keys());
 
 export const nonChainDirectories = [
@@ -46,7 +47,10 @@ export const nonChainDirectories = [
   "versions.schema.json",
   "README.md",
   "LICENSE",
-  "package.json"
+  "package.json",
+  "package-lock.json",
+  "eslint.config.mjs",
+  "primary_colors.py"
 ]
 
 export const assetSchema = {
@@ -67,6 +71,13 @@ export const assetSchema = {
   keywords: []
 }
 
+export const schemas = new Map([
+  ["ibc", "ibc_data.schema.json"],
+  ["chain", "chain.schema.json"],
+  ["assetlist", "assetlist.schema.json"],
+  ["versions", "versions.schema.json"],
+]);
+
 export const bech32ConfigSuffixMap = new Map([
   ["bech32PrefixAccAddr", ""],
   ["bech32PrefixAccPub", "pub"],
@@ -77,7 +88,7 @@ export const bech32ConfigSuffixMap = new Map([
 ]);
 
 
-const networkTypeToDirectoryMap = new Map();
+export const networkTypeToDirectoryMap = new Map();
 networkTypeToDirectoryMap.set("mainnet", "");
 networkTypeToDirectoryMap.set("testnet", "testnets");
 for (const [networkType, directory] of networkTypeToDirectoryMap.entries()) {
