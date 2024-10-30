@@ -19,7 +19,8 @@
       "display": "ORAI",
       "symbol": "ORAI",
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai-token.png"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai-token.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai-token.svg"
       },
       "coingecko_id": "oraichain-token",
       "socials": {
@@ -29,17 +30,18 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai-token.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai-token.svg",
           "theme": {
             "circle": true,
-            "dark_mode": true,
-            "primary_color_hex": "#040404"
+            "primary_color_hex": "#000000",
+            "background_color_hex": "#FFFFFF"
           }
         },
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai-white.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai-white.svg",
           "theme": {
-            "circle": true,
+            "circle": false,
             "dark_mode": true,
             "primary_color_hex": "#FFFFFF"
           }
@@ -48,12 +50,13 @@
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai.svg",
           "theme": {
-            "circle": true,
+            "circle": false,
             "dark_mode": false,
             "primary_color_hex": "#000000"
           }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "The ATOM native token of Oraichain.",
@@ -67,6 +70,7 @@
           "exponent": 6
         }
       ],
+      "type_asset": "ics20",
       "base": "ibc/A2E2EEC9057A4A1C2C0A6A4C78B0239118DF5F278830F50B4A6BDD7A66506B78",
       "name": "ATOM",
       "display": "atom",
@@ -115,6 +119,7 @@
           "exponent": 6
         }
       ],
+      "type_asset": "ics20",
       "base": "ibc/9C4DCD21B48231D0BC2AC3D1B74A864746B37E4292694C93C617324250D002FC",
       "name": "OSMO",
       "display": "osmo",
@@ -156,10 +161,7 @@
       "denom_units": [
         {
           "denom": "ibc/49D820DFDE9F885D7081725A58202ABA2F465CAEE4AFBC683DFB79A8E013E83E",
-          "exponent": 0,
-          "aliases": [
-            "cw20:orai19rtmkk6sn4tppvjmp5d5zj6gfsdykrl5rw2euu5gwur3luheuuusesqn49"
-          ]
+          "exponent": 0
         },
         {
           "denom": "inj",
@@ -167,8 +169,7 @@
         }
       ],
       "type_asset": "ics20",
-      "address": "orai19rtmkk6sn4tppvjmp5d5zj6gfsdykrl5rw2euu5gwur3luheuuusesqn49",
-      "base": "cw20:orai19rtmkk6sn4tppvjmp5d5zj6gfsdykrl5rw2euu5gwur3luheuuusesqn49",
+      "base": "ibc/49D820DFDE9F885D7081725A58202ABA2F465CAEE4AFBC683DFB79A8E013E83E",
       "traces": [
         {
           "type": "ibc",
@@ -195,6 +196,48 @@
           "image_sync": {
             "chain_name": "injective",
             "base_denom": "inj"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg",
+          "theme": {
+            "primary_color_hex": "#04a2fc"
+          }
+        }
+      ]
+    },
+    {
+      "description": "The Wrapped INJ token for the Oraichain.",
+      "type_asset": "cw20",
+      "address": "orai19rtmkk6sn4tppvjmp5d5zj6gfsdykrl5rw2euu5gwur3luheuuusesqn49",
+      "denom_units": [
+        {
+          "denom": "cw20:orai19rtmkk6sn4tppvjmp5d5zj6gfsdykrl5rw2euu5gwur3luheuuusesqn49",
+          "exponent": 0
+        },
+        {
+          "denom": "inj",
+          "exponent": 6
+        }
+      ],
+      "base": "cw20:orai19rtmkk6sn4tppvjmp5d5zj6gfsdykrl5rw2euu5gwur3luheuuusesqn49",
+      "name": "Injective",
+      "display": "inj",
+      "symbol": "INJ",
+      "traces": [
+        {
+          "type": "wrapped",
+          "counterparty": {
+            "chain_name": "oraichain",
+            "base_denom": "ibc/49D820DFDE9F885D7081725A58202ABA2F465CAEE4AFBC683DFB79A8E013E83E"
+          },
+          "provider": "Oraichain"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "oraichain",
+            "base_denom": "ibc/49D820DFDE9F885D7081725A58202ABA2F465CAEE4AFBC683DFB79A8E013E83E"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg",
@@ -677,7 +720,8 @@
             "background_color_hex": "#0088CC"
           }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     }
   ]
 }
