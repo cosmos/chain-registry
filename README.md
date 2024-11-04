@@ -38,6 +38,15 @@ We accept pull requests to add data to an existing assetlist.json or chain.json 
 
 Please give Pull Requests a title that somewhat describes the change more precisely than the default title given to a Commit. PRs titled 'Update chain.json' are insufficient, and would be difficult to navigate when searching through the backlog of Pull Requests. Some recommended details would be: the affected Chain Name, API types, or Provider to give some more detail; e.g., "Add Cosmos Hub APIs for Acme Validator".
 
+### Endpoints reachability
+
+The endpoints added here are being tested via CI daily at 00:00 UTC. It is expected that your endpoints return an HTTP 200 in the following paths:
+- rest: `/status`
+- rpc: `/cosmos/base/tendermint/v1beta1/syncing`
+- grpc: not tested
+
+Providers ready to be tested daily should be whitelisted here: `.github/workflows/tests/apis.py`
+
 # chain.json
 
 ## Sample
