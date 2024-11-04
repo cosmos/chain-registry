@@ -17,6 +17,7 @@ import * as chain_reg from './chain_registry_local.mjs';
 
 
 const chainIdMap = new Map();
+let base_denoms = [];
 
 
 function checkChainIdConflict(chain_name) {
@@ -434,6 +435,16 @@ function checkTypeAsset(chain_name, asset) {
 
 }
 
+export function checkUniqueBaseDenom(chain_name, asset) {
+
+  if (base_denoms.includes(asset.base)) {
+    throw new Error(`Base (denom) already registered: ${chain_name}, ${asset.base}, ${asset.symbol}.`);
+  } else {
+    base_denoms.push(asset.base);
+  }
+
+}
+
 
 export function validate_chain_files() {
 
@@ -462,7 +473,9 @@ export function validate_chain_files() {
 
     //get chain's assets
     const chainAssets = chain_reg.getFileProperty(chain_name, "assetlist", "assets");
-    
+
+    base_denoms = [];
+
     //iterate each asset
     chainAssets?.forEach((asset) => {
 
@@ -480,6 +493,9 @@ export function validate_chain_files() {
 
       //check image_sync pointers of images
       checkImageSyncIsValid(chain_name, asset);
+
+      //check that base denom is unique within the assetlist
+      checkUniqueBaseDenom(chain_name, asset);
     
     });
 
