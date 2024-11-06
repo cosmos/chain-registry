@@ -61,11 +61,6 @@
       "minLength": 1,
       "format": "uri"
     },
-    "update_link": {
-      "type": "string",
-      "minLength": 1,
-      "format": "uri"
-    },
     "status": {
       "enum": [ "live", "upcoming", "killed" ]
     },
@@ -217,35 +212,8 @@
         "consensus": {
           "$ref": "#/$defs/consensus"
         },
-        "cosmwasm_version": {
-          "type": "string",
-          "minLength": 1
-        },
-        "cosmwasm_enabled": {
-          "type": "boolean"
-        },
-        "cosmwasm_path": {
-          "type": "string",
-          "minLength": 1,
-          "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
-          "pattern": "^\\$HOME.*$"
-        },
         "cosmwasm": {
           "$ref": "#/$defs/cosmwasm"
-        },
-        "ibc_go_version": {
-          "type": "string",
-          "minLength": 1
-        },
-        "ics_enabled": {
-          "type": "array",
-          "description": "List of IBC apps (usually corresponding to a ICS standard) which have been enabled on the network.",
-          "items": {
-            "type": "string",
-            "minLength": 1,
-            "description": "IBC app or ICS standard.",
-            "enum": [ "ics20-1", "ics27-1", "mauth" ]
-          }
         },
         "ibc": {
           "$ref": "#/$defs/ibc"
@@ -329,35 +297,8 @@
               "consensus": {
                 "$ref": "#/$defs/consensus"
               },
-              "cosmwasm_version": {
-                "type": "string",
-                "minLength": 1
-              },
-              "cosmwasm_enabled": {
-                "type": "boolean"
-              },
-              "cosmwasm_path": {
-                "type": "string",
-                "minLength": 1,
-                "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
-                "pattern": "^\\$HOME.*$"
-              },
               "cosmwasm": {
                 "$ref": "#/$defs/cosmwasm"
-              },
-              "ibc_go_version": {
-                "type": "string",
-                "minLength": 1
-              },
-              "ics_enabled": {
-                "type": "array",
-                "description": "List of IBC apps (usually corresponding to a ICS standard) which have been enabled on the network.",
-                "items": {
-                  "type": "string",
-                  "minLength": 1,
-                  "description": "IBC app or ICS standard.",
-                  "enum": [ "ics20-1", "ics27-1", "mauth" ]
-                }
               },
               "ibc": {
                 "$ref": "#/$defs/ibc"
@@ -667,11 +608,13 @@
     "version": {
       "type": "string",
       "minLength": 1,
+      "pattern": "^v?\\d+(\\.\\d+){0,2}$",
       "description": "Simple version string (e.g., 'v1.0.0')."
     },
     "tag": {
       "type": "string",
       "minLength": 1,
+      "pattern": "^v?\\d+(\\.\\d+){0,2}(-[\\w\\.\\-]+)?$",
       "description": "Detailed version identifier (e.g., 'v1.0.0-a1s2f43g')."
     },
     "sdk": {

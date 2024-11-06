@@ -17,6 +17,7 @@ import * as chain_reg from './chain_registry_local.mjs';
 
 
 const chainIdMap = new Map();
+let base_denoms = [];
 
 
 function checkChainIdConflict(chain_name) {
@@ -395,6 +396,55 @@ function arraysEqual(arr1, arr2) {
   return true;
 }
 
+function checkTypeAsset(chain_name, asset) {
+
+  let type_asset = "ics20";
+  if (asset.base.startsWith("ibc/") && asset.type_asset !== type_asset) {
+    throw new Error(`Type_asset not specified as ${type_asset}: ${chain_name}, ${asset.base}, ${asset.symbol}.`);
+  }
+
+  if (
+    asset.base.startsWith("cw20")
+  ) {
+    if (chain_name.startsWith("secret")) {
+      type_asset = "snip20";
+      if (asset.type_asset !== type_asset && asset.type_asset !== "snip25") {
+        throw new Error(`Type_asset not specified as ${type_asset}: ${chain_name}, ${asset.base}, ${asset.symbol}.`);
+      }
+    } else {
+      type_asset = "cw20";
+      if (asset.type_asset !== "cw20") {
+        throw new Error(`Type_asset not specified as ${type_asset}: ${chain_name}, ${asset.base}, ${asset.symbol}.`);
+      }
+    }
+  }
+
+  type_asset = "erc20";
+  if (
+    asset.base.startsWith("0x") &&
+    !asset.base.includes("::") &&
+    !asset.base.includes("00000") &&
+    asset.type_asset !== type_asset
+  ) {
+    throw new Error(`Type_asset not specified as ${type_asset}: ${chain_name}, ${asset.base}, ${asset.symbol}.`);
+  }
+
+  if (!asset.type_asset) {
+    throw new Error(`Type_asset not specified: ${chain_name}, ${asset.base}, ${asset.symbol}.`);
+  }
+
+}
+
+export function checkUniqueBaseDenom(chain_name, asset) {
+
+  if (base_denoms.includes(asset.base)) {
+    throw new Error(`Base (denom) already registered: ${chain_name}, ${asset.base}, ${asset.symbol}.`);
+  } else {
+    base_denoms.push(asset.base);
+  }
+
+}
+
 
 export function validate_chain_files() {
 
@@ -423,9 +473,14 @@ export function validate_chain_files() {
 
     //get chain's assets
     const chainAssets = chain_reg.getFileProperty(chain_name, "assetlist", "assets");
-    
+
+    base_denoms = [];
+
     //iterate each asset
     chainAssets?.forEach((asset) => {
+
+      //require type_asset
+      checkTypeAsset(chain_name, asset);
     
       //check denom units
       checkDenomUnits(asset);
@@ -438,6 +493,9 @@ export function validate_chain_files() {
 
       //check image_sync pointers of images
       checkImageSyncIsValid(chain_name, asset);
+
+      //check that base denom is unique within the assetlist
+      checkUniqueBaseDenom(chain_name, asset);
     
     });
 
@@ -446,10 +504,76 @@ export function validate_chain_files() {
 
 }
 
+function validate_ibc_files() {
+
+  //IBC directory name
+  const ibcDirectoryName = "_IBC";
+
+  //create maps of chains and channels
+  const chainNameToIbcChannelsMap = new Map();
+
+  Array.from(chain_reg.networkTypeToDirectoryMap.keys()).forEach((networkType) => {
+
+    //Get all IBC Files (Mainnet and Testnet)
+    const networkTypeDirectory = chain_reg.networkTypeToDirectoryMap.get(networkType);
+    const directory = path.join(
+      networkTypeDirectory,
+      ibcDirectoryName
+    );
+    const ibcFiles = chain_reg.getDirectoryContents(directory);
+
+    ibcFiles.forEach((ibcFile) => {
+
+      //check for ibc channel duplicates
+      const ibcFileContents = chain_reg.readJsonFile(path.join(directory, ibcFile));
+      const chain1 = ibcFileContents.chain_1.chain_name;
+      const chain2 = ibcFileContents.chain_2.chain_name;
+      const channels = ibcFileContents.channels;
+      channels.forEach((channel) => {
+
+        //check for duplicate channel-ids
+        checkDuplicateChannels(channel.chain_1.channel_id, chain1, chain2, chainNameToIbcChannelsMap);
+        checkDuplicateChannels(channel.chain_2.channel_id, chain2, chain1, chainNameToIbcChannelsMap);
+
+      });
+
+    });
+
+  });
+
+}
+
+function checkDuplicateChannels(channel_id, chain, counterparty, chainNameToIbcChannelsMap) {
+
+  if (channel_id === "*") { return; }
+  let duplicateChannel = undefined;
+  let chainChannels = chainNameToIbcChannelsMap.get(chain);
+  if (!chainChannels) {
+    chainChannels = [];
+  } else {
+    duplicateChannel = chainChannels.find(obj => obj.channel_id === channel_id);
+  }
+  if (duplicateChannel) {
+    //report duplicate
+    throw new Error(`For chain: ${chain}, channel_id: ${channel_id} is registered for both: ${duplicateChannel.chain_name} and ${counterparty}.`);
+  } else {
+    const obj = {
+      channel_id: channel_id,
+      chain_name: counterparty
+    };
+    chainChannels.push(obj);
+    chainNameToIbcChannelsMap.set(chain, chainChannels);
+  }
+
+}
+
 function main() {
 
   //check all chains
   validate_chain_files();
+
+  //check all IBC channels
+  validate_ibc_files();
 
   //check file schema references
   checkFileSchemaReferences();

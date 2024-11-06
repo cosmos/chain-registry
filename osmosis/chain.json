@@ -4,7 +4,6 @@
   "status": "live",
   "network_type": "mainnet",
   "website": "https://osmosis.zone/",
-  "update_link": "https://raw.githubusercontent.com/osmosis-labs/osmosis/main/chain.schema.json",
   "pretty_name": "Osmosis",
   "chain_type": "cosmos",
   "chain_id": "osmosis-1",
@@ -49,14 +48,10 @@
     "cosmos_sdk_version": "osmosis-labs/cosmos-sdk v0.47.5-v25-osmo-1",
     "consensus": {
       "type": "cometbft",
-      "version": "osmosis-labs/cometbft v0.37.4-v25-osmo-2"
+      "version": "v0.37.4",
+      "repo": "https://github.com/osmosis-labs/cometbft",
+      "tag": "v25-osmo-2"
     },
-    "cosmwasm_version": "osmosis-labs/wasmd v0.45.0-osmo",
-    "cosmwasm_enabled": true,
-    "ibc_go_version": "v7.4.0",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "binaries": {
       "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-amd64",
       "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-arm64"
@@ -545,6 +540,12 @@
       "url": "https://explorer.tcnetwork.io/osmosis",
       "tx_page": "https://explorer.tcnetwork.io/osmosis/transaction/${txHash}",
       "account_page": "https://explorer.tcnetwork.io/osmosis/account/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/osmosis",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=osmosis&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=osmosis&addr=${accountAddress}"
     },
     {
       "kind": "Stakeflow",
