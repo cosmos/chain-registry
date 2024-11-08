@@ -322,6 +322,7 @@
       "address": "orai1lus0f0rhx8s03gdllx2n6vhkmf0536dv57wfge",
       "base": "cw20:orai1lus0f0rhx8s03gdllx2n6vhkmf0536dv57wfge",
       "name": "Oraix",
+      "coingecko_id": "oraidex",
       "display": "oraix",
       "symbol": "ORAIX",
       "images": [
@@ -461,6 +462,7 @@
       "base": "cw20:orai1065qe48g7aemju045aeyprflytemx7kecxkf5m7u5h5mphd0qlcs47pclp",
       "name": "Scorai",
       "display": "scorai",
+      "coingecko_id": "scorai",
       "symbol": "SCORAI",
       "images": [
         {
@@ -529,6 +531,7 @@
       "name": "scATOM",
       "display": "scatom",
       "symbol": "scATOM",
+      "coingecko_id": "scatom",
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/scatom.png",
@@ -661,6 +664,7 @@
       "name": "Och",
       "display": "och",
       "symbol": "OCH",
+      "coingecko_id": "och",
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/och.png",
@@ -679,9 +683,7 @@
         {
           "denom": "factory/orai1wuvhex9xqs3r539mvc6mtm7n20fcj3qr2m0y9khx6n5vtlngfzes3k0rq9/ton",
           "exponent": 0,
-          "aliases": [
-            "nanoTon"
-          ]
+          "aliases": ["nanoTon"]
         },
         {
           "denom": "ton",
@@ -706,6 +708,7 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ton/images/ton.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ton/images/ton.svg"
       },
+      "type_asset": "sdk.coin",
       "images": [
         {
           "image_sync": {
@@ -720,8 +723,101 @@
             "background_color_hex": "#0088CC"
           }
         }
+      ]
+    },
+    {
+      "description": "The PEPE native token of Oraichain",
+      "denom_units": [
+        {
+          "denom": "factory/orai1wuvhex9xqs3r539mvc6mtm7n20fcj3qr2m0y9khx6n5vtlngfzes3k0rq9/extPEPE",
+          "exponent": 0
+        },
+        {
+          "denom": "pepe",
+          "exponent": 6
+        }
       ],
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x6982508145454Ce325dDbE47a25d4ec3d2311933"
+          },
+          "provider": "Oraichain Labs OBridge"
+        }
+      ],
+      "base": "factory/orai1wuvhex9xqs3r539mvc6mtm7n20fcj3qr2m0y9khx6n5vtlngfzes3k0rq9/extPEPE",
+      "name": "Pepe",
+      "display": "pepe",
+      "symbol": "PEPE",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pepe.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pepe.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0x6982508145454Ce325dDbE47a25d4ec3d2311933"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pepe.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pepe.svg",
+          "theme": {
+            "primary_color_hex": "#cc3233"
+          }
+        }
+      ],
+      "keywords": ["meme"],
       "type_asset": "sdk.coin"
+    },
+    {
+      "description": "The Hamster Kombat native token of Oraichain",
+      "denom_units": [
+        {
+          "denom": "factory/orai1wuvhex9xqs3r539mvc6mtm7n20fcj3qr2m0y9khx6n5vtlngfzes3k0rq9/HMSTR",
+          "exponent": 0,
+          "aliases": ["nanohmstr"]
+        },
+        {
+          "denom": "hmstr",
+          "exponent": 9
+        }
+      ],
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ton",
+            "base_denom": "nanohmstr"
+          },
+          "provider": "Oraichain Labs Ton Bridge"
+        }
+      ],
+      "base": "factory/orai1wuvhex9xqs3r539mvc6mtm7n20fcj3qr2m0y9khx6n5vtlngfzes3k0rq9/HMSTR",
+      "name": "HMSTR",
+      "display": "hmstr",
+      "symbol": "HMSTR",
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ton/images/hmstr.svg",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ton/images/hmstr.png"
+      },
+      "type_asset": "sdk.coin",
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ton",
+            "base_denom": "nanohmstr"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ton/images/hmstr.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ton/images/hmstr.png",
+          "theme": {
+            "primary_color_hex": "#f4941c",
+            "background_color_hex": "#f4941c",
+            "circle": true
+          }
+        }
+      ]
     }
   ]
 }
