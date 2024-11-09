@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "axelar",
+  "chain_type": "cosmos",
   "chain_id": "axelar-dojo-1",
   "pretty_name": "Axelar",
   "status": "live",
@@ -33,22 +34,19 @@
   },
   "codebase": {
     "git_repo": "https://github.com/axelarnetwork/axelar-core",
-    "recommended_version": "v0.35.5",
+    "recommended_version": "v1.0.2",
     "compatible_versions": [
-      "v0.35.5"
+      "v1.0.2"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.35.5/axelard-linux-amd64-v0.35.5",
-      "darwin/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.35.5/axelard-darwin-amd64-v0.35.5"
+      "linux/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v1.0.2/axelard-linux-amd64-v1.0.2",
+      "darwin/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v1.0.2/axelard-darwin-amd64-v1.0.2",
+      "darwin/arm64": "https://github.com/axelarnetwork/axelar-core/releases/download/v1.0.2/axelard-darwin-arm64-v1.0.2"
     },
-    "cosmos_sdk_version": "axelarnetwork/cosmos-sdk v0.45.17-0.20230904150332-37fb903a6c62",
     "consensus": {
       "type": "cometbft",
       "version": "v0.34.31"
     },
-    "ibc_go_version": "v4.5.1",
-    "cosmwasm_version": "v0.33.0",
-    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/axelarnetwork/axelarate-community/main/resources/mainnet/genesis.json"
     },
@@ -87,28 +85,83 @@
           "linux/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.35.5/axelard-linux-amd64-v0.35.5",
           "darwin/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.35.5/axelard-darwin-amd64-v0.35.5"
         },
-        "cosmos_sdk_version": "axelarnetwork/cosmos-sdk v0.45.17-0.20230904150332-37fb903a6c62",
         "consensus": {
           "type": "cometbft",
           "version": "v0.34.31"
         },
-        "ibc_go_version": "v4.5.1",
-        "cosmwasm_version": "v0.33.0",
-        "cosmwasm_enabled": true,
-        "next_version_name": ""
+        "next_version_name": "v1.0",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/axelarnetwork/cosmos-sdk",
+          "version": "v0.45.17",
+          "tag": "v0.45.17-0.20230904150332-37fb903a6c62"
+        },
+        "cosmwasm": {
+          "version": "v0.33.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.5.1"
+        }
+      },
+      {
+        "name": "v1.0",
+        "recommended_version": "v1.0.2",
+        "compatible_versions": [
+          "v1.0.2"
+        ],
+        "binaries": {
+          "linux/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v1.0.2/axelard-linux-amd64-v1.0.2",
+          "darwin/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v1.0.2/axelard-darwin-amd64-v1.0.2",
+          "darwin/arm64": "https://github.com/axelarnetwork/axelar-core/releases/download/v1.0.2/axelard-darwin-arm64-v1.0.2"
+        },
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.31"
+        },
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/axelarnetwork/cosmos-sdk",
+          "version": "v0.45.17",
+          "tag": "v0.45.17-0.20240321205000-47c0c80e20ca"
+        },
+        "cosmwasm": {
+          "version": "v0.33.0",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.6.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/axelarnetwork/cosmos-sdk",
+      "version": "v0.45.17",
+      "tag": "v0.45.17-0.20240321205000-47c0c80e20ca"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v4.6.0"
+    },
+    "cosmwasm": {
+      "version": "v0.33.0",
+      "enabled": true
+    }
   },
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axelar-chain-logo.png",
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axelar-chain-logo.svg"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axl.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axl.svg"
   },
   "description": "Axelar delivers secure cross-chain communication for Web3. Our infrastructure enables dApp users to interact with any asset or application, on any chain, with one click.",
   "peers": {
     "seeds": [
       {
-        "id": "3d67d0646cddcc203b41434aceea64ade22ba6fc",
-        "address": "k8s-mainnet-axelarco-79b464ee93-f03cb16c57cf7cb2.elb.us-east-2.amazonaws.com:26656",
+        "id": "2551bf072d23835e42a32921beacbf3425fe376f",
+        "address": "k8s-mainnet-axelarco-3ab48adcdb-974f2bc59e735192.elb.us-east-2.amazonaws.com:26656",
         "provider": "axelar-core"
       },
       {
@@ -260,6 +313,10 @@
       {
         "address": "https://axelar-rpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://axelar.drpc.org",
+        "provider": "dRPC"
       }
     ],
     "rest": [
@@ -405,6 +462,12 @@
       "tx_page": "https://axelar.explorers.guru/transaction/${txHash}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/axelar",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=axelar&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=axelar&addr=${accountAddress}"
+    },
+    {
       "kind": "atomscan",
       "url": "https://atomscan.com/axelar",
       "tx_page": "https://atomscan.com/axelar/transactions/${txHash}",
@@ -420,12 +483,33 @@
       "url": "https://ezstaking.app/axelar",
       "tx_page": "https://ezstaking.app/axelar/txs/${txHash}",
       "account_page": "https://ezstaking.app/axelar/account/${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/axelar",
+      "tx_page": "https://mainnet.whispernode.com/axelar/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/axelar/account/${accountAddress}"
     }
   ],
   "images": [
     {
+      "image_sync": {
+        "chain_name": "axelar",
+        "base_denom": "uaxl"
+      },
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axl.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axl.svg",
+      "theme": {
+        "primary_color_hex": "#040404"
+      }
+    },
+    {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axelar-chain-logo.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axelar-chain-logo.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axelar-chain-logo.svg",
+      "theme": {
+        "primary_color_hex": "#040404",
+        "circle": false
+      }
     }
   ]
 }

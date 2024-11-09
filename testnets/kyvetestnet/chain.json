@@ -1,6 +1,7 @@
 {
   "$schema": "../../chain.schema.json",
   "chain_name": "kyvetestnet",
+  "chain_type": "cosmos",
   "chain_id": "kaon-1",
   "pretty_name": "KYVE Kaon",
   "status": "live",
@@ -79,6 +80,13 @@
         "id": "bc8b5fbb40a1b82dfba591035cb137278a21c57d",
         "address": "52.59.65.9:26656"
       }
+    ],
+    "seeds": [
+      {
+        "id": "496ac0ba20188f70f41e0a814dfd4d9a617338f8",
+        "address": "kyve-testnet-seed.ibs.team:16659",
+        "provider": "Inter Blockchain Services"
+      }
     ]
   },
   "apis": {
@@ -90,6 +98,10 @@
       {
         "address": "https://rpc-kyve-test.ecostake.com",
         "provider": "ecostake"
+      },
+      {
+        "address": "https://kyve-testnet-rpc.ibs.team:443",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "rest": [
@@ -100,15 +112,19 @@
       {
         "address": "https://rest-kyve-test.ecostake.com",
         "provider": "ecostake"
+      },
+      {
+        "address": "https://kyve-testnet-api.ibs.team:443",
+        "provider": "Inter Blockchain Services"
       }
     ]
   },
   "explorers": [
     {
       "kind": "mintscan",
-      "url": "https://testnet.mintscan.io/kyve-testnet",
-      "tx_page": "https://testnet.mintscan.io/kyve-testnet/txs/${txHash}",
-      "account_page": "https://testnet.mintscan.io/kyve-testnet/account/${accountAddress}"
+      "url": "https://mintscan.io/kyve-testnet",
+      "tx_page": "https://mintscan.io/kyve-testnet/txs/${txHash}",
+      "account_page": "https://mintscan.io/kyve-testnet/account/${accountAddress}"
     }
   ]
 }

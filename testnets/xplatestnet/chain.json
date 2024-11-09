@@ -1,0 +1,314 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "xplatestnet",
+  "status": "live",
+  "website": "https://xpla.io",
+  "network_type": "testnet",
+  "pretty_name": "XPLA",
+  "chain_type": "cosmos",
+  "chain_id": "cube_47-5",
+  "bech32_prefix": "xpla",
+  "daemon_name": "xplad",
+  "node_home": "$HOME/.xpla",
+  "key_algos": ["ethsecp256k1"],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "axpla",
+        "fixed_min_gas_price": 850000000000,
+        "low_gas_price": 850000000000,
+        "average_gas_price": 1147500000000,
+        "high_gas_price": 1487500000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "axpla"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/xpladev/xpla",
+    "recommended_version": "v1.6.0",
+    "compatible_versions": ["v1.6.0"],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.5"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/xpladev/testnets/blob/main/cube_47-5/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "1_0",
+        "recommended_version": "v1.0.0",
+        "compatible_versions": ["v1.0.0"],
+        "height": 0,
+        "consensus": {
+          "type": "tendermint",
+          "version": "v0.34.20"
+        },
+        "next_version_name": "add-reward",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/cosmos/cosmos-sdk",
+          "version": "0.45.5",
+          "tag": "v0.45.5"
+        },
+        "cosmwasm": {
+          "version": "v0.28.0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.1.1"
+        }
+      },
+      {
+        "name": "add-reward",
+        "recommended_version": "v1.1.0-cube",
+        "compatible_versions": ["v1.1.0-cube"],
+        "proposal": 1,
+        "height": 12700,
+        "consensus": {
+          "type": "tendermint",
+          "version": "v0.34.20"
+        },
+        "next_version_name": "evm",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/cosmos/cosmos-sdk",
+          "version": "0.45.5",
+          "tag": "v0.45.5"
+        },
+        "cosmwasm": {
+          "version": "v0.28.0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.1.1"
+        }
+      },
+      {
+        "name": "evm",
+        "recommended_version": "v1.2.1",
+        "compatible_versions": ["v1.2.1"],
+        "proposal": 37,
+        "height": 2184000,
+        "consensus": {
+          "type": "tendermint",
+          "version": "0.34.21"
+        },
+        "next_version_name": "Volunteer",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45.9"
+        },
+        "cosmwasm": {
+          "version": "0.28.0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.2.0"
+        }
+      },
+      {
+        "name": "volunteer",
+        "recommended_version": "v1.3.0-cube",
+        "compatible_versions": ["v1.3.0-cube"],
+        "proposal": 63,
+        "height": 4845600,
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.34.27"
+        },
+        "next_version_name": "v1_4",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.16"
+        },
+        "cosmwasm": {
+          "version": "v0.33.0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.1.1"
+        }
+      },
+      {
+        "name": "v1_4",
+        "recommended_version": "v1.4.0",
+        "compatible_versions": ["v1.4.0"],
+        "proposal": 110,
+        "height": 7516478,
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.34.29"
+        },
+        "next_version_name": "v1_5",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/xpladev/cosmos-sdk",
+          "version": "v0.45.20",
+          "tag": "v0.45.20-xpla"
+        },
+        "cosmwasm": {
+          "version": "v0.33.0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v4.5.1"
+        }
+      },
+      {
+        "name": "v1_5",
+        "recommended_version": "v1.5.0",
+        "compatible_versions": ["v1.5.0"],
+        "proposal": 112,
+        "height": 9229980,
+        "consensus": {
+          "type": "cometbft",
+          "version": "0.37.5"
+        },
+        "next_version_name": "v1_6",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/xpladev/cosmos-sdk",
+          "version": "v0.47.10",
+          "tag": "v0.47.10-xpla"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0"
+        }
+      },
+      {
+        "name": "v1_6",
+        "recommended_version": "v1.6.0",
+        "compatible_versions": ["v1.6.0"],
+        "proposal": 146,
+        "height": 10397730,
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.5"
+        },
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/xpladev/cosmos-sdk",
+          "version": "v0.47.13",
+          "tag": "v0.47.13-xpla"
+        },
+        "cosmwasm": {
+          "version": "v0.46.0"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.7.0"
+        }
+      }
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/xpladev/cosmos-sdk",
+      "version": "v0.47.13",
+      "tag": "v0.47.13-xpla"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.7.0"
+    },
+    "cosmwasm": {
+      "version": "v0.46.0"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.svg"
+  },
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "9034c13d61d7f4ebbe3f5673a8d10dc742566e59",
+        "address": "35.212.215.88:26656",
+        "provider": "DELIGHT"
+      },
+      {
+        "id": "b216988031686e36351c3cb042e522ac98c29a23",
+        "address": "34.64.212.239:26656",
+        "provider": "ZenaAD"
+      },
+      {
+        "id": "a674688aa3cb052cfbf5f81228ef0dd5d4a7b5b9",
+        "address": "34.64.46.211:26656",
+        "provider": "ZenaAD"
+      },
+      {
+        "id": "cf8c6a464bf5bc92744d6c74e0298114955856b8",
+        "address": "34.64.165.123:26656",
+        "provider": "Holdings"
+      },
+      {
+        "id": "fdd6a1c61cc5b84a9c914e520f0e3f31a1505b23",
+        "address": "34.64.250.213:26656",
+        "provider": "Holdings"
+      },
+      {
+        "id": "43fbd86b84b3e8cb38c418f2d74b74f79a376d97",
+        "address": "34.64.47.240:26656",
+        "provider": "Holdings"
+      },
+      {
+        "id": "170c285b6d2679239dd5d9b5f1ec87580c619d8e",
+        "address": "34.64.37.195:26656",
+        "provider": "Holdings"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://cube-rpc.xpla.dev",
+        "provider": "Holdings"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://cube-lcd.xpla.dev",
+        "provider": "Holdings"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://cube-evm-rpc.xpla.dev",
+        "provider": "Holdings"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "explorer.xpla",
+      "url": "https://explorer.xpla.io/testnet",
+      "tx_page": "https://explorer.xpla.io/testnet/mainnet/tx/${txHash}"
+    },
+    {
+      "kind": "finder",
+      "url": "https://finder.xpla.io/testnet",
+      "tx_page": "https://finder.xpla.io/testnet/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.svg",
+      "theme": {
+        "primary_color_hex": "#04b4fc"
+      }
+    }
+  ]
+}

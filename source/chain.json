@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.sourceprotocol.io/",
   "pretty_name": "Source",
+  "chain_type": "cosmos",
   "chain_id": "source-1",
   "bech32_prefix": "source",
   "daemon_name": "sourced",
@@ -33,36 +34,46 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Source-Protocol-Cosmos/source",
-    "recommended_version": "v3.0.1",
+    "recommended_version": "v3.0.3",
     "compatible_versions": [
-      "v3.0.1"
+      "v3.0.3"
     ],
-    "cosmos_sdk_version": "0.45",
     "consensus": {
       "type": "tendermint",
       "version": "0.34"
     },
-    "cosmwasm_version": "0.30",
-    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/Source-Protocol-Cosmos/mainnet/master/source-1/genesis.json"
     },
     "versions": [
       {
         "name": "v3.0.0",
-        "recommended_version": "v3.0.1",
+        "recommended_version": "v3.0.3",
         "compatible_versions": [
-          "v3.0.1"
+          "v3.0.3"
         ],
-        "cosmos_sdk_version": "0.45",
         "consensus": {
           "type": "tendermint",
           "version": "0.34"
         },
-        "cosmwasm_version": "0.30",
-        "cosmwasm_enabled": true
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.45"
+        },
+        "cosmwasm": {
+          "version": "0.30",
+          "enabled": true
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.45"
+    },
+    "cosmwasm": {
+      "version": "0.30",
+      "enabled": true
+    }
   },
   "peers": {
     "seeds": [
@@ -70,6 +81,11 @@
         "id": "7347b05f140e4ed5d3da7b26c754a486dc1d2ecd",
         "address": "source-mainnet-seed.itrocket.net:32656",
         "provider": "ITRocket"
+      },
+      {
+        "id": "dea711723efa15ce2eb8412182ad11c8f1275c91",
+        "address": "source.seed.bccnodes.com:40656",
+        "provider": "BccNodes"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
@@ -82,7 +98,7 @@
         "provider": "NodeStake"
       },
       {
-        "id": "6f6a3a908634b79b6fe7c4988efec2553f188234",
+        "id": "637077d431f618181597706810a65c826524fd74",
         "address": "source.rpc.nodeshub.online:15856",
         "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
       },
@@ -100,6 +116,16 @@
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:23256",
+        "provider": "BlueStake 🚀"
+      },
+      {
+        "id": "08bc9afd0cac4ae6cf8f1877920b0cc7e58a6f42",
+        "address": "seeds.tendermint.roomit.xyz:40002",
+        "provider": "Roomit"
       }
     ],
     "persistent_peers": [
@@ -144,8 +170,8 @@
       },
       {
         "id": "47b858cda8717aef908f2567b05ef312d18bb6f3",
-        "address": "p2p-pve01.roomit.xyz:16602",
-        "provider": "RoomIT"
+        "address": "p2p.tendermint.roomit.xyz:16602",
+        "provider": "Roomit"
       },
       {
         "id": "73ef1c0f9bc77fd925decf7fa41f22a35b5dc76d",
@@ -159,6 +185,10 @@
       {
         "address": "https://rpc.source.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://source.rpc.bccnodes.com/",
+        "provider": "BccNodes"
       },
       {
         "address": "https://source.rpc.moonbridge.team/",
@@ -206,7 +236,7 @@
       },
       {
         "address": "https://rpc.source.roomit.xyz/",
-        "provider": "RoomIT"
+        "provider": "Roomit"
       },
       {
         "address": "https://rpc.source.posthuman.digital",
@@ -219,12 +249,24 @@
       {
         "address": "https://rpc.source.stakeup.tech",
         "provider": "StakeUp"
+      },
+      {
+        "address": "https://source_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+      },
+      {
+        "address": "https://source-rpc.bluestake.net:443",
+        "provider": "BlueStake 🚀"
       }
     ],
     "rest": [
       {
         "address": "https://api.source.nodestake.top",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://source.lcd.bccnodes.com/",
+        "provider": "BccNodes"
       },
       {
         "address": "https://api-source.nodeist.net",
@@ -272,15 +314,15 @@
       },
       {
         "address": "https://api.source.roomit.xyz",
-        "provider": "RoomIT"
+        "provider": "Roomit"
       },
       {
         "address": "https://rest.source.posthuman.digital",
         "provider": "posthuman"
       },
       {
-        "address": "http://source.api.staking-explorer.com",
-        "provider": "Daily DROP"
+        "address": "https://source.api.staking-explorer.com",
+        "provider": "Daily DROP | 3% Fee"
       },
       {
         "address": "https://source.declab.pro:443",
@@ -289,12 +331,24 @@
       {
         "address": "https://api.source.stakeup.tech",
         "provider": "StakeUp"
+      },
+      {
+        "address": "https://source_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+      },
+      {
+        "address": "https://source-api.bluestake.net",
+        "provider": "BlueStake 🚀"
       }
     ],
     "grpc": [
       {
         "address": "source-mainnet-grpc.itrocket.net:32090",
         "provider": "ITRocket"
+      },
+      {
+        "address": "source.grpc.bccnodes.com:443",
+        "provider": "BccNodes"
       },
       {
         "address": "http://source.grpc.m.stavr.tech:9590",
@@ -334,7 +388,7 @@
       },
       {
         "address": "grpc.source.roomit.xyz:8443",
-        "provider": "RoomIT"
+        "provider": "Roomit"
       },
       {
         "address": "https://source.declab.pro:9003",
@@ -379,12 +433,18 @@
       "tx_page": "https://explorer.tcnetwork.io/source/transaction/${txHash}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/source",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=source&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=source&addr=${accountAddress}"
+    },
+    {
       "kind": "Indonode",
       "url": "https://explorer.indonode.net/source",
       "tx_page": "https://explorer.indonode.net/source/tx/${txHash}"
     },
     {
-      "kind": "RoomIT",
+      "kind": "Roomit",
       "url": "https://explorer.tendermint.roomit.xyz/source-mainnet/",
       "tx_page": "https://explorer.tendermint.roomit.xyz/source-mainnet/tx/${txHash}"
     },
@@ -399,12 +459,27 @@
       "url": "https://explorer.declab.pro/Source",
       "tx_page": "https://explorer.declab.pro/Source/tx/${txHash}",
       "account_page": "https://explorer.declab.pro/Source/account/${accountAddress}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/source",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/source/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/source/account/${accountAddress}"
+    },
+    {
+      "kind": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅",
+      "url": "https://explorer.nodeshub.online/source/",
+      "tx_page": "https://explorer.nodeshub.online/source/tx/${txHash}",
+      "account_page": "https://explorer.nodeshub.online/source/accounts/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/source/images/source.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/source/images/source.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/source/images/source.svg",
+      "theme": {
+        "primary_color_hex": "#39a5fc"
+      }
     }
   ],
   "logo_URIs": {

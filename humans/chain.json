@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://humans.ai/",
   "pretty_name": "Humans.ai",
+  "chain_type": "cosmos",
   "chain_id": "humans_1089-1",
   "bech32_prefix": "human",
   "node_home": "$HOME/.humansd",
@@ -40,7 +41,6 @@
     "compatible_versions": [
       "v1.0.0"
     ],
-    "cosmos_sdk_version": "0.46.11",
     "consensus": {
       "type": "cometbft",
       "version": "0.34.27"
@@ -60,7 +60,11 @@
           "version": "0.34.27"
         }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46.11"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/humans/images/heart-dark-mode.png",
@@ -85,13 +89,18 @@
       },
       {
         "id": "0e959a22dfdd34ac16f9af82d76ec6ae5f0e8e73",
-        "address": "46.4.14.172:10256",
+        "address": "65.21.46.90:5256",
         "provider": "PPNV Service"
       },
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "humans-mainnet-seed.autostake.com:27536",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ],
     "persistent_peers": [
@@ -106,8 +115,8 @@
         "provider": "Nodes Hub"
       },
       {
-        "id": "fd66247c122117190c9f2e7a09797e4039a05ba2",
-        "address": "46.4.14.172:16656",
+        "id": "0a1a56a1854923cd3b54edbe870d7d32ca870c4f",
+        "address": "65.21.46.90:5656",
         "provider": "PPNV Service"
       },
       {
@@ -119,6 +128,11 @@
         "id": "9193e655f0581b4acf2e87976ac0b55795359742",
         "address": "167.235.177.226:26656",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "humans-mainnet-peer.autostake.com:27536",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -161,7 +175,7 @@
         "provider": "KonsorTech"
       },
       {
-        "address": "http://46.4.14.172:16657",
+        "address": "http://65.21.46.90:5657",
         "provider": "PPNV Service"
       },
       {
@@ -171,6 +185,18 @@
       {
         "address": "https://rpc.humans.posthuman.digital",
         "provider": "posthuman"
+      },
+      {
+        "address": "https://humans-rpc.noders.services",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://humans-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://humans-mainnet-rpc.cosmonautstakes.com",
+        "provider": "Cosmonaut Stakes 🤖"
       }
     ],
     "rest": [
@@ -207,7 +233,7 @@
         "provider": "KonsorTech"
       },
       {
-        "address": "http://46.4.14.172:16317",
+        "address": "http://65.21.46.90:5317",
         "provider": "PPNV Service"
       },
       {
@@ -217,6 +243,18 @@
       {
         "address": "https://rest.humans.posthuman.digital",
         "provider": "posthuman"
+      },
+      {
+        "address": "https://humans-api.noders.services",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://humans-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://humans-mainnet-rest.cosmonautstakes.com",
+        "provider": "Cosmonaut Stakes 🤖"
       }
     ],
     "grpc": [
@@ -245,12 +283,24 @@
         "provider": "[NODERS]TEAM"
       },
       {
-        "address": "46.4.14.172:16090",
+        "address": "http://65.21.46.90:5090",
         "provider": "PPNV Service"
       },
       {
         "address": "https://grpc-humans.cosmos-spaces.cloud:1190",
         "provider": "StakePool"
+      },
+      {
+        "address": "humans-grpc.noders.services:21090",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "humans-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "humans-mainnet-grpc.cosmonautstakes.com:9190",
+        "provider": "Cosmonaut Stakes 🤖"
       }
     ],
     "evm-http-jsonrpc": [
@@ -277,6 +327,14 @@
       {
         "address": "https://evm.humans.posthuman.digital",
         "provider": "posthuman"
+      },
+      {
+        "address": "https://humans-jsonrpc.noders.services",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://humans-mainnet-evm.cosmonautstakes.com",
+        "provider": "Cosmonaut Stakes 🤖"
       }
     ]
   },
@@ -293,12 +351,6 @@
       "account_page": "https://ezstaking.app/humans/account/${accountAddress}"
     },
     {
-      "kind": "bigdipper",
-      "url": "https://bigdipper.live/humans",
-      "tx_page": "https://bigdipper.live/humans/transactions/${txHash}",
-      "account_page": "https://bigdipper.live/humans/accounts/${accountAddress}"
-    },
-    {
       "kind": "ping.pub",
       "url": "https://ping.pub/humans",
       "tx_page": "https://ping.pub/humans/tx/${txHash}"
@@ -307,6 +359,12 @@
       "kind": "explorers.guru",
       "url": "https://humans.explorers.guru",
       "tx_page": "https://humans.explorers.guru/transaction/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/humans",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=humans&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=humans&addr=${accountAddress}"
     },
     {
       "kind": "exploreme",
@@ -329,7 +387,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/humans/images/heart-dark-mode.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/humans/images/heart-dark-mode.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/humans/images/heart-dark-mode.svg",
+      "theme": {
+        "primary_color_hex": "#f3f3f3"
+      }
     }
   ]
 }

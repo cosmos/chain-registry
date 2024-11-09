@@ -5,6 +5,7 @@
   "website": "https://gitopia.com/",
   "network_type": "mainnet",
   "pretty_name": "Gitopia",
+  "chain_type": "cosmos",
   "chain_id": "gitopia",
   "bech32_prefix": "gitopia",
   "daemon_name": "gitopiad",
@@ -39,19 +40,14 @@
     "genesis": {
       "genesis_url": "https://github.com/gitopia/mainnet/raw/master/genesis.tar.gz"
     },
-    "recommended_version": "v3.3.0",
+    "recommended_version": "v4.0.0",
     "compatible_versions": [
-      "v3.3.0"
+      "v4.0.0"
     ],
-    "cosmos_sdk_version": "v0.46.13",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.34.28"
+      "version": "v0.37.6"
     },
-    "ibc_go_version": "5.3.1",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "versions": [
       {
         "name": "v2",
@@ -66,16 +62,22 @@
           "darwin/amd64": "https://server.gitopia.com/releases/Gitopia/gitopia/v2.1.1/gitopiad_2.1.1_darwin_amd64.tar.gz",
           "darwin/arm64": "https://server.gitopia.com/releases/Gitopia/gitopia/v2.1.1/gitopiad_2.1.1_darwin_arm64.tar.gz"
         },
-        "cosmos_sdk_version": "0.46",
         "consensus": {
           "type": "tendermint",
           "version": "0.34"
         },
-        "ibc_go_version": "5.0.0",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "v3"
+        "next_version_name": "v3",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "5.0.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v3",
@@ -89,16 +91,22 @@
           "darwin/amd64": "https://server.gitopia.com/releases/Gitopia/gitopia/v3.0.1/gitopiad_3.0.1_darwin_amd64.tar.gz",
           "darwin/arm64": "https://server.gitopia.com/releases/Gitopia/gitopia/v3.0.1gitopiad_3.0.1_darwin_arm64.tar.gz"
         },
-        "cosmos_sdk_version": "0.46",
         "consensus": {
           "type": "cometbft",
           "version": "0.34"
         },
-        "ibc_go_version": "5.3.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "v3.2.0"
+        "next_version_name": "v3.2.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "5.3.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v3.2.0",
@@ -108,16 +116,22 @@
         ],
         "proposal": 12,
         "height": 6446000,
-        "cosmos_sdk_version": "v0.46.13",
         "consensus": {
           "type": "cometbft",
           "version": "v0.34.28"
         },
-        "ibc_go_version": "5.3.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "v3.3.0"
+        "next_version_name": "v3.3.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.13"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "5.3.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       },
       {
         "name": "v3.3.0",
@@ -127,22 +141,67 @@
         ],
         "proposal": 14,
         "height": 6720000,
-        "cosmos_sdk_version": "v0.46.13",
         "consensus": {
           "type": "cometbft",
           "version": "v0.34.28"
         },
-        "ibc_go_version": "5.3.1",
-        "ics_enabled": [
-          "ics20-1"
+        "next_version_name": "v4",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.13"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "5.3.1",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
+      },
+      {
+        "name": "v4",
+        "recommended_version": "v4.0.0",
+        "compatible_versions": [
+          "v4.0.0"
         ],
-        "next_version_name": ""
+        "proposal": 31,
+        "height": 24330422,
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.6"
+        },
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.13"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "7.6.0",
+          "ics_enabled": [
+            "ics20-1"
+          ]
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.13"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "7.6.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    }
   },
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gitopia/images/gitopia.png"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gitopia/images/gitopia.png",
+      "theme": {
+        "primary_color_hex": "#2e154d"
+      }
     }
   ],
   "description": "Gitopia is the next-generation Code Collaboration Platform fuelled by a decentralized network and interactive token economy. It is designed to optimize the open-source software development process through collaboration, transparency, and incentivization.",
@@ -162,11 +221,6 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "gitopia-mainnet-seed.autostake.com",
         "provider": "autostake"
-      },
-      {
-        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
-        "address": "seeds.whispernode.com:11356",
-        "provider": "WhisperNode 🤐"
       },
       {
         "id": "187425bc3739daaef8cb1d7cf47d655117396dbe",
@@ -202,6 +256,11 @@
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "08bc9afd0cac4ae6cf8f1877920b0cc7e58a6f42",
+        "address": "seeds.tendermint.roomit.xyz:40001",
+        "provider": "Roomit"
       },
       {
         "id": "91706fd6ec45e38661ba7bb7567fc572b738c3ea",
@@ -301,6 +360,11 @@
         "provider": "ToTheMars"
       },
       {
+        "id": "abd217aa49d5ee86c271d04feef2cf4c97ff8d55",
+        "address": "p2p.tendermint.roomit.xyz:16601",
+        "provider": "Roomit"
+      },
+      {
         "id": "73ef1c0f9bc77fd925decf7fa41f22a35b5dc76d",
         "address": "gitopia.declab.pro:26627",
         "provider": "Decloud Nodes Lab"
@@ -314,7 +378,7 @@
         "provider": "polkachu"
       },
       {
-        "address": "https://gitopia-rpc.lavenderfive.com",
+        "address": "https://rpc.lavenderfive.com:443/gitopia",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -340,10 +404,6 @@
       {
         "address": "https://gitopia-rpc.genznodes.dev",
         "provider": "genznodes"
-      },
-      {
-        "address": "https://rpc-gitopia.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://gitopia.rpc.liveraven.net",
@@ -378,12 +438,8 @@
         "provider": "KonsorTech"
       },
       {
-        "address": "https://rpc.gitopia.quokkastake.io",
-        "provider": "🐹 Quokka Stake"
-      },
-      {
         "address": "https://rpc.gitopia.roomit.xyz",
-        "provider": "RoomIT"
+        "provider": "Roomit"
       },
       {
         "address": "https://gitopia.rpc.moonbridge.team",
@@ -428,6 +484,10 @@
       {
         "address": "https://gitopia.declab.pro:26625",
         "provider": "Decloud Nodes Lab"
+      },
+      {
+        "address": "https://gitopia-rpc.noders.services",
+        "provider": "[NODERS]TEAM"
       }
     ],
     "rest": [
@@ -436,7 +496,7 @@
         "provider": "polkachu"
       },
       {
-        "address": "https://gitopia-api.lavenderfive.com",
+        "address": "https://rest.lavenderfive.com:443/gitopia",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -466,10 +526,6 @@
       {
         "address": "https://gitopia-api.genznodes.dev",
         "provider": "genznodes"
-      },
-      {
-        "address": "https://lcd-gitopia.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://gitopia.api.liveraven.net",
@@ -504,12 +560,8 @@
         "provider": "KonsorTech"
       },
       {
-        "address": "https://api.gitopia.quokkastake.io",
-        "provider": "🐹 Quokka Stake"
-      },
-      {
         "address": "https://api.gitopia.roomit.xyz",
-        "provider": "RoomIT"
+        "provider": "Roomit"
       },
       {
         "address": "https://gitopia.api.moonbridge.team",
@@ -554,6 +606,10 @@
       {
         "address": "https://gitopia.declab.pro:443",
         "provider": "Decloud Nodes Lab"
+      },
+      {
+        "address": "https://gitopia-api.noders.services",
+        "provider": "[NODERS]TEAM"
       }
     ],
     "grpc": [
@@ -574,7 +630,7 @@
         "provider": "Staketab"
       },
       {
-        "address": "https://gitopia-grpc.lavenderfive.com:443",
+        "address": "gitopia.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -627,7 +683,7 @@
       },
       {
         "address": "grpc.gitopia.roomit.xyz:8443",
-        "provider": "RoomIT"
+        "provider": "Roomit"
       },
       {
         "address": "https://gitopia.grpc.moonbridge.team",
@@ -672,6 +728,10 @@
       {
         "address": "https://gitopia.declab.pro:9017",
         "provider": "Decloud Nodes Lab"
+      },
+      {
+        "address": "gitopia-grpc.noders.services:19090",
+        "provider": "[NODERS]TEAM"
       }
     ]
   },
@@ -681,6 +741,12 @@
       "url": "https://ping.pub/gitopia",
       "tx_page": "https://ping.pub/gitopia/tx/${txHash}",
       "account_page": "https://ping.pub/gitopia/account/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/gitopia",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=gitopia&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=gitopia&addr=${accountAddress}"
     },
     {
       "kind": "🔥STAVR🔥",
@@ -725,10 +791,10 @@
       "account_page": "https://explorer.nodestake.top/gitopia/account/${accountAddress}"
     },
     {
-      "kind": "RoomIT",
-      "url": "https://explorer.tendermint.roomit.xyz/gitopia",
-      "tx_page": "https://explorer.tendermint.roomit.xyz/gitopia/transaction/${txHash}",
-      "account_page": "https://explorer.tendermint.roomit.xyz/gitopia/account/${accountAddress}"
+      "kind": "Roomit",
+      "url": "https://explorer.tendermint.roomit.xyz/gitopia-mainnet",
+      "tx_page": "https://explorer.tendermint.roomit.xyz/gitopia-mainnet/transaction/${txHash}",
+      "account_page": "https://explorer.tendermint.roomit.xyz/gitopia-mainnet/account/${accountAddress}"
     },
     {
       "kind": "Moonbridge",
@@ -771,6 +837,12 @@
       "url": "https://explorer.declab.pro/Gitopia",
       "tx_page": "https://explorer.declab.pro/Gitopia/tx/${txHash}",
       "account_page": "https://explorer.declab.pro/Gitopia/account/${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/gitopia",
+      "tx_page": "https://mainnet.whispernode.com/gitopia/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/gitopia/account/${accountAddress}"
     }
   ],
   "logo_URIs": {

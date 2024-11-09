@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "celestia",
+  "chain_type": "cosmos",
   "chain_id": "celestia",
   "pretty_name": "Celestia",
   "status": "live",
@@ -33,39 +34,76 @@
   },
   "codebase": {
     "git_repo": "https://github.com/celestiaorg/celestia-app",
-    "recommended_version": "v1.7.0",
+    "recommended_version": "v2.1.2",
     "compatible_versions": [
-      "v1.3.0",
-      "v1.6.0",
-      "v1.7.0"
+      "v2.0.0",
+      "v2.1.0",
+      "v2.1.1",
+      "v2.1.2"
     ],
-    "cosmos_sdk_version": "v0.46.16",
-    "ibc_go_version": "v6.2.1",
     "consensus": {
       "type": "tendermint",
-      "version": "celestiaorg/celestia-core v1.35.0-tm-v0.34.29"
+      "version": "v1.40.0",
+      "repo": "https://github.com/celestiaorg/celestia-core",
+      "tag": "v1.40.0-tm-v0.34.29"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/celestia/genesis.json"
     },
     "versions": [
       {
-        "name": "v1.3.0",
-        "recommended_version": "v1.7.0",
+        "name": "v1",
+        "recommended_version": "v1.13.0",
         "compatible_versions": [
           "v1.3.0",
           "v1.6.0",
-          "v1.7.0"
+          "v1.7.0",
+          "v1.9.0",
+          "v1.10.1",
+          "v1.11.0",
+          "v1.13.0"
         ],
-        "cosmos_sdk_version": "v0.46.16",
-        "ibc_go_version": "v6.2.1",
         "consensus": {
           "type": "tendermint",
-          "version": "celestiaorg/celestia-core v1.35.0-tm-v0.34.29"
+          "version": "v1.35.0",
+          "repo": "https://github.com/celestiaorg/celestia-core",
+          "tag": "v1.35.0-tm-v0.34.29"
         },
+        "next_version_name": "v2",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/celestiaorg/cosmos-sdk",
+          "version": "v1.23.0",
+          "tag": "v1.23.0-sdk-v0.46.16"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v6.2.1"
+        }
+      },
+      {
+        "name": "v2",
+        "height": 2371495,
+        "recommended_version": "v2.1.2",
+        "compatible_versions": [
+          "v2.0.0",
+          "v2.1.0",
+          "v2.1.1",
+          "v2.1.2"
+        ],
         "next_version_name": ""
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/celestiaorg/cosmos-sdk",
+      "version": "v1.24.1",
+      "tag": "v1.24.1-sdk-v0.46.16"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v6.2.1"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.png",
@@ -135,9 +173,24 @@
         "provider": "FreshSTAKING"
       },
       {
-        "id": "7e21ee80adda9fc86b74bccb399a110022067e03",
+        "id": "8de3b1534abc9d565f232982c0fb7933c0038ead",
         "address": "celestia-full.avril14th.org:26656",
         "provider": "Avril 14th"
+      },
+      {
+        "id": "12ad7c73c7e1f2460941326937a039139aa78884",
+        "address": "celestia-mainnet-seed.itrocket.net:40656",
+        "provider": "🚀 itrocket 🚀"
+      },
+      {
+        "id": "86bd5cb6e762f673f1706e5889e039d5406b4b90",
+        "address": "seed.celestia.node75.org:20356",
+        "provider": "Pro-Nodes75"
+      },
+      {
+        "id": "9b1d22c3a78487d1a664a4b6a331fce527d14fb4",
+        "address": "seed.celestia.mainnet.dteam.tech:27656",
+        "provider": "DTEAM"
       }
     ],
     "persistent_peers": [
@@ -167,9 +220,24 @@
         "provider": "Cumulo"
       },
       {
-        "id": "7e21ee80adda9fc86b74bccb399a110022067e03",
+        "id": "8de3b1534abc9d565f232982c0fb7933c0038ead",
         "address": "celestia-full.avril14th.org:26656",
         "provider": "Avril 14th"
+      },
+      {
+        "id": "d535cbf8d0efd9100649aa3f53cb5cbab33ef2d6",
+        "address": "celestia-mainnet-peer.itrocket.net:40656",
+        "provider": "🚀 itrocket 🚀"
+      },
+      {
+        "id": "ce99d7da2530f75d05880d13d9eda384d5a1afe4",
+        "address": "peer.celestia.node75.org:23356",
+        "provider": "Pro-Nodes75"
+      },
+      {
+        "id": "076c9cc9de3039819a98522aeea39e8c72b49682",
+        "address": "peer.celestia.mainnet.dteam.tech:28656",
+        "provider": "DTEAM"
       }
     ]
   },
@@ -192,7 +260,7 @@
         "provider": "NodeStake"
       },
       {
-        "address": "https://celestia-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/celestia",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -270,6 +338,26 @@
       {
         "address": "https://rpc.celestia-app.bronbro.io",
         "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://celestia-rpc.noders.services",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://rpc.celestia.citizenweb3.com",
+        "provider": "Citizen Web3"
+      },
+      {
+        "address": "https://celestia-mainnet-rpc.itrocket.net",
+        "provider": "🚀 itrocket 🚀"
+      },
+      {
+        "address": "https://rpc.celestia.mainnet.dteam.tech:443",
+        "provider": "DTEAM"
+      },
+      {
+        "address": "https://celestia-rpc.stakeandrelax.net",
+        "provider": "Stake&Relax Validator 🦥"
       }
     ],
     "rest": [
@@ -294,7 +382,7 @@
         "provider": "NodeStake"
       },
       {
-        "address": "https://celestia-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/celestia",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -360,6 +448,22 @@
       {
         "address": "https://lcd.celestia-app.bronbro.io",
         "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://celestia-api.noders.services",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://celestia-mainnet-api.itrocket.net",
+        "provider": "🚀 itrocket 🚀"
+      },
+      {
+        "address": "https://api.celestia.mainnet.dteam.tech:443",
+        "provider": "DTEAM"
+      },
+      {
+        "address": "https://celestia-api.stakeandrelax.net",
+        "provider": "Stake&Relax Validator 🦥"
       }
     ],
     "grpc": [
@@ -372,7 +476,7 @@
         "provider": "AutoStake | Delegate for StakeDrops"
       },
       {
-        "address": "https://celestia-grpc.lavenderfive.com:443",
+        "address": "celestia.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -434,6 +538,22 @@
       {
         "address": "grpc.celestia-app.bronbro.io:443",
         "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "celestia-grpc.noders.services:11090",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "celestia-mainnet-grpc.itrocket.net:40090",
+        "provider": "🚀 itrocket 🚀"
+      },
+      {
+        "address": "grpc.celestia.mainnet.dteam.tech:28090",
+        "provider": "DTEAM"
+      },
+      {
+        "address": "http://celestia-grpc.stakeandrelax.net:11690",
+        "provider": "Stake&Relax Validator 🦥"
       }
     ]
   },
@@ -443,6 +563,12 @@
       "url": "https://mintscan.io/celestia",
       "tx_page": "https://mintscan.io/celestia/txs/${txHash}",
       "account_page": "https://mintscan.io/celestia/address/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/celestia",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=celestia&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=celestia&addr=${accountAddress}"
     },
     {
       "kind": "NodeStake",
@@ -478,12 +604,33 @@
       "url": "https://ezstaking.app/celestia",
       "tx_page": "https://ezstaking.app/celestia/txs/${txHash}",
       "account_page": "https://ezstaking.app/celestia/account/${accountAddress}"
+    },
+    {
+      "kind": "🚀 itrocket 🚀",
+      "url": "https://mainnet.itrocket.net/celestia",
+      "tx_page": "https://mainnet.itrocket.net/celestia/transaction/${txHash}",
+      "account_page": "https://mainnet.itrocket.net/celestia/account/${accountAddress}"
+    },
+    {
+      "kind": "DTEAM | Explorer",
+      "url": "https://explorer.mainnet.dteam.tech/celestia",
+      "tx_page": "https://explorer.mainnet.dteam.tech/celestia/transaction/${txHash}",
+      "account_page": "https://explorer.mainnet.dteam.tech/celestia/account/${accountAddress}"
+    },
+    {
+      "kind": "Relaxed Explorer 🦥",
+      "url": "https://explorer.stakeandrelax.net/celestia",
+      "tx_page": "https://explorer.stakeandrelax.net/celestia/transaction/${txHash}",
+      "account_page": "https://explorer.stakeandrelax.net/celestia/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg",
+      "theme": {
+        "primary_color_hex": "#7c2cfb"
+      }
     }
   ]
 }

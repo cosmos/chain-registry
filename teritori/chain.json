@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://teritori.com/",
   "pretty_name": "Teritori",
+  "chain_type": "cosmos",
   "chain_id": "teritori-1",
   "daemon_name": "teritorid",
   "node_home": "$HOME/.teritorid",
@@ -33,15 +34,10 @@
     "compatible_versions": [
       "v2.0.6"
     ],
-    "ibc_go_version": "v7.3.1",
-    "cosmos_sdk_version": "v0.47.6",
     "consensus": {
       "type": "cometbft",
       "version": "v0.37.2"
     },
-    "cosmwasm_version": "v0.41.0",
-    "cosmwasm_enabled": true,
-    "cosmwasm_path": "$HOME/.teritorid/data/wasm",
     "genesis": {
       "genesis_url": "https://github.com/TERITORI/teritori-chain/raw/mainnet/mainnet/teritori-1/genesis.json"
     },
@@ -72,18 +68,39 @@
         "compatible_versions": [
           "v2.0.6"
         ],
-        "ibc_go_version": "v7.3.1",
-        "cosmos_sdk_version": "v0.47.6",
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.2"
         },
-        "cosmwasm_version": "v0.41.0",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.teritorid/data/wasm",
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.6"
+        },
+        "cosmwasm": {
+          "version": "v0.41.0",
+          "path": "$HOME/.teritorid/data/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.3.1"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.6"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.3.1"
+    },
+    "cosmwasm": {
+      "version": "v0.41.0",
+      "path": "$HOME/.teritorid/data/wasm",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/teritori/images/chain.png",
@@ -95,11 +112,6 @@
         "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
         "address": "seed.rhinostake.com:15956",
         "provider": "RHINO"
-      },
-      {
-        "id": "20e1000e88125698264454a884812746c2eb4807",
-        "address": "seeds.lavenderfive.com:15956",
-        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
@@ -130,6 +142,11 @@
         "id": "38d107de6a22ca6e1a6bafd2041e38f5d50a6945",
         "address": "seed-node.mms.team:40656",
         "provider": "MMS"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:23656",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -162,10 +179,6 @@
   },
   "apis": {
     "rpc": [
-      {
-        "address": "https://teritori-rpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
       {
         "address": "https://teritori-rpc.polkachu.com",
         "provider": "Polkachu"
@@ -217,13 +230,17 @@
       {
         "address": "https://teritori-rpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://teritori-rpc.bluestake.net:443",
+        "provider": "BlueStake 🚀"
+      },
+      {
+        "address": "https://teritori_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "rest": [
-      {
-        "address": "https://teritori-api.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
       {
         "address": "https://teritori-api.polkachu.com",
         "provider": "Polkachu"
@@ -271,13 +288,17 @@
       {
         "address": "https://teritori-rest.publicnode.com",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://teritori-api.bluestake.net",
+        "provider": "BlueStake 🚀"
+      },
+      {
+        "address": "https://teritori_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "grpc": [
-      {
-        "address": "teritori-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
       {
         "address": "grpc.teritori.nodestake.top:443",
         "provider": "NodeStake"
@@ -356,16 +377,31 @@
       "tx_page": "https://explorer.tcnetwork.io/teritori/transaction/${txHash}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/teritori",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=teritori&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=teritori&addr=${accountAddress}"
+    },
+    {
       "kind": "atomscan",
       "url": "https://atomscan.com/teritori",
       "tx_page": "https://atomscan.com/teritori/transactions/${txHash}",
       "account_page": "https://atomscan.com/teritori/accounts/${accountAddress}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/teritori",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/teritori/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/teritori/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/teritori/images/chain.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/teritori/images/chain.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/teritori/images/chain.svg",
+      "theme": {
+        "primary_color_hex": "#44c5f1"
+      }
     }
   ]
 }

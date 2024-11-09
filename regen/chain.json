@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.regen.network/",
   "pretty_name": "Regen",
+  "chain_type": "cosmos",
   "chain_id": "regen-1",
   "bech32_prefix": "regen",
   "daemon_name": "regen",
@@ -42,16 +43,10 @@
       "darwin/amd64": "https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_darwin_amd64.zip",
       "darwin/arm64": "https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_darwin_arm64.zip"
     },
-    "cosmos_sdk_version": "0.46",
     "consensus": {
       "type": "tendermint",
       "version": "0.34"
     },
-    "ibc_go_version": "5.2",
-    "ics_enabled": [
-      "ics20-1",
-      "ics27-1"
-    ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/regen-network/mainnet/main/regen-1/genesis.json"
     },
@@ -62,24 +57,42 @@
         "compatible_versions": [
           "v5.0.0"
         ],
-        "cosmos_sdk_version": "0.46",
         "consensus": {
           "type": "tendermint",
           "version": "0.34"
         },
-        "ibc_go_version": "5.2",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
         "binaries": {
           "linux/amd64": "https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_linux_amd64.zip",
           "linux/arm64": "https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_linux_arm64.zip",
           "darwin/amd64": "https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_darwin_amd64.zip",
           "darwin/arm64": "https://github.com/regen-network/regen-ledger/releases/download/v5.0.0/regen-ledger_5.0.0_darwin_arm64.zip"
+        },
+        "sdk": {
+          "type": "cosmos",
+          "version": "0.46"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "5.2",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ]
         }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "5.2",
+      "ics_enabled": [
+        "ics20-1",
+        "ics27-1"
+      ]
+    }
   },
   "description": "Regen Network, a platform to originate and invest in high-integrity carbon and biodiversity credits from ecological regeneration projects.",
   "peers": {
@@ -230,16 +243,16 @@
   },
   "explorers": [
     {
-      "kind": "mintscan",
-      "url": "https://www.mintscan.io/regen",
-      "tx_page": "https://www.mintscan.io/regen/transactions/${txHash}",
-      "account_page": "https://www.mintscan.io/regen/accounts/${accountAddress}"
-    },
-    {
       "kind": "ezstaking",
       "url": "https://ezstaking.app/regen",
       "tx_page": "https://ezstaking.app/regen/txs/${txHash}",
       "account_page": "https://ezstaking.app/regen/account/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/regen",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=regen&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=regen&addr=${accountAddress}"
     },
     {
       "kind": "🔥STAVR🔥",
@@ -250,12 +263,6 @@
       "kind": "ping.pub",
       "url": "https://ping.pub/regen",
       "tx_page": "https://ping.pub/regen/tx/${txHash}"
-    },
-    {
-      "kind": "bigdipper",
-      "url": "https://bigdipper.live/regen",
-      "tx_page": "https://bigdipper.live/regen/transactions/${txHash}",
-      "account_page": "https://bigdipper.live/regen/accounts/${accountAddress}"
     },
     {
       "kind": "atomscan",
@@ -271,7 +278,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/regen/images/regen.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/regen/images/regen.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/regen/images/regen.svg",
+      "theme": {
+        "primary_color_hex": "#56b790"
+      }
     }
   ]
 }

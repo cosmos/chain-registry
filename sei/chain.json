@@ -5,6 +5,7 @@
   "website": "https://www.sei.io/",
   "network_type": "mainnet",
   "pretty_name": "Sei",
+  "chain_type": "cosmos",
   "chain_id": "pacific-1",
   "bech32_prefix": "sei",
   "daemon_name": "seid",
@@ -33,36 +34,38 @@
   },
   "codebase": {
     "git_repo": "https://github.com/sei-protocol/sei-chain",
-    "recommended_version": "v3.8.2",
+    "recommended_version": "v5.9.0",
     "compatible_versions": [
-      "v3.8.0",
-      "v3.8.2"
+      "v5.9.0"
     ],
-    "ibc_go_version": "sei-ibc-go/v3 v3.3.0",
-    "cosmos_sdk_version": "sei-cosmos v0.2.77",
     "consensus": {
       "type": "sei-tendermint",
-      "version": "v0.2.39"
+      "version": "v0.3.8"
     },
-    "cosmwasm_version": "sei-wasmd v0.0.8",
-    "cosmwasm_enabled": true,
-    "cosmwasm_path": "$HOME/.sei/wasm",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/sei-protocol/testnet/main/pacific-1/genesis.json"
     },
     "versions": [
       {
-        "name": "",
+        "name": "v.0.8",
         "recommended_version": "3.0.8",
         "compatible_versions": [
           "3.0.8"
         ],
-        "ibc_go_version": "v3.0.0",
-        "cosmos_sdk_version": "v0.45.10",
-        "cosmwasm_version": "v0.27.0",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.sei/wasm",
-        "next_version_name": "v3.0.9"
+        "next_version_name": "v3.0.9",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.10"
+        },
+        "cosmwasm": {
+          "version": "v0.27.0",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.0.0"
+        }
       },
       {
         "name": "v3.0.9",
@@ -72,12 +75,20 @@
         ],
         "proposal": 24,
         "height": 25259000,
-        "ibc_go_version": "v3.1.0",
-        "cosmos_sdk_version": "v0.45.10",
-        "cosmwasm_version": "v0.27.0",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.sei/wasm",
-        "next_version_name": "v3.1.1"
+        "next_version_name": "v3.1.1",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.10"
+        },
+        "cosmwasm": {
+          "version": "v0.27.0",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.1.0"
+        }
       },
       {
         "name": "v3.1.1",
@@ -87,12 +98,20 @@
         ],
         "proposal": 32,
         "height": 29772820,
-        "ibc_go_version": "v3.2.0",
-        "cosmos_sdk_version": "v0.45.10",
-        "cosmwasm_version": "v0.27.0",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.sei/wasm",
-        "next_version_name": "v3.2.1"
+        "next_version_name": "v3.2.1",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.10"
+        },
+        "cosmwasm": {
+          "version": "v0.27.0",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.2.0"
+        }
       },
       {
         "name": "v3.2.1",
@@ -102,12 +121,20 @@
         ],
         "proposal": 42,
         "height": 34078260,
-        "ibc_go_version": "v3.2.0",
-        "cosmos_sdk_version": "v0.45.10",
-        "cosmwasm_version": "v0.27.0",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.sei/wasm",
-        "next_version_name": "v3.3.0"
+        "next_version_name": "v3.3.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.45.10"
+        },
+        "cosmwasm": {
+          "version": "v0.27.0",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v3.2.0"
+        }
       },
       {
         "name": "v3.3.0",
@@ -118,16 +145,26 @@
           "v3.3.3",
           "v3.3.4"
         ],
-        "ibc_go_version": "sei-ibc-go/v3 v3.3.0",
-        "cosmos_sdk_version": "sei-cosmos v0.2.63",
         "consensus": {
           "type": "sei-tendermint",
           "version": "v0.2.28"
         },
-        "cosmwasm_version": "sei-wasmd v0.0.2",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.sei/wasm",
-        "next_version_name": "v3.5.0"
+        "next_version_name": "v3.5.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.2.63"
+        },
+        "cosmwasm": {
+          "version": "v0.0.2",
+          "repo": "https://github.com/sei-protocol/sei-wasmd",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/sei-protocol/sei-ibc-go",
+          "version": "v3.3.0"
+        }
       },
       {
         "name": "v3.5.0",
@@ -136,16 +173,26 @@
           "v3.5.0",
           "V3.5.1"
         ],
-        "ibc_go_version": "sei-ibc-go/v3 v3.3.0",
-        "cosmos_sdk_version": "sei-cosmos v0.2.63",
         "consensus": {
           "type": "sei-tendermint",
           "version": "v0.2.35"
         },
-        "cosmwasm_version": "sei-wasmd v0.0.4",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.sei/wasm",
-        "next_version_name": "v3.6.1"
+        "next_version_name": "v3.6.1",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.2.63"
+        },
+        "cosmwasm": {
+          "version": "v0.0.4",
+          "repo": "https://github.com/sei-protocol/sei-wasmd",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/sei-protocol/sei-ibc-go",
+          "version": "v3.3.0"
+        }
       },
       {
         "name": "v3.6.1",
@@ -155,16 +202,26 @@
         "compatible_versions": [
           "v3.6.1"
         ],
-        "ibc_go_version": "sei-ibc-go/v3 v3.3.0",
-        "cosmos_sdk_version": "sei-cosmos v0.2.72",
         "consensus": {
           "type": "sei-tendermint",
           "version": "v0.2.37"
         },
-        "cosmwasm_version": "sei-wasmd v0.0.4",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.sei/wasm",
-        "next_version_name": "v3.7.0"
+        "next_version_name": "v3.7.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.2.72"
+        },
+        "cosmwasm": {
+          "version": "v0.0.4",
+          "repo": "https://github.com/sei-protocol/sei-wasmd",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/sei-protocol/sei-ibc-go",
+          "version": "v3.3.0"
+        }
       },
       {
         "name": "v3.7.0",
@@ -174,16 +231,26 @@
         "compatible_versions": [
           "v3.7.0"
         ],
-        "ibc_go_version": "sei-ibc-go/v3 v3.3.0",
-        "cosmos_sdk_version": "sei-cosmos v0.2.74",
         "consensus": {
           "type": "sei-tendermint",
           "version": "v0.2.37"
         },
-        "cosmwasm_version": "sei-wasmd v0.0.4",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.sei/wasm",
-        "next_version_name": "v3.8.0"
+        "next_version_name": "v3.8.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.2.74"
+        },
+        "cosmwasm": {
+          "version": "v0.0.4",
+          "repo": "https://github.com/sei-protocol/sei-wasmd",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/sei-protocol/sei-ibc-go",
+          "version": "v3.3.0"
+        }
       },
       {
         "name": "v3.8.0",
@@ -194,18 +261,247 @@
           "v3.8.0",
           "v3.8.2"
         ],
-        "ibc_go_version": "sei-ibc-go/v3 v3.3.0",
-        "cosmos_sdk_version": "sei-cosmos v0.2.77",
         "consensus": {
           "type": "sei-tendermint",
           "version": "v0.2.39"
         },
-        "cosmwasm_version": "sei-wasmd v0.0.8",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.sei/wasm",
-        "next_version_name": ""
+        "next_version_name": "v3.9.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.2.77"
+        },
+        "cosmwasm": {
+          "version": "v0.0.8",
+          "repo": "https://github.com/sei-protocol/sei-wasmd",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/sei-protocol/sei-ibc-go",
+          "version": "v3.3.0"
+        }
+      },
+      {
+        "name": "v3.9.0",
+        "proposal": 54,
+        "height": 79123881,
+        "recommended_version": "v5.5.2",
+        "compatible_versions": [
+          "v5.5.2"
+        ],
+        "consensus": {
+          "type": "sei-tendermint",
+          "version": "v0.2.40"
+        },
+        "next_version_name": "v5.5.2",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.2.83"
+        },
+        "cosmwasm": {
+          "version": "v0.1.1",
+          "repo": "https://github.com/sei-protocol/sei-wasmd",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/sei-protocol/sei-ibc-go",
+          "version": "v3.3.0"
+        }
+      },
+      {
+        "name": "v5.5.2",
+        "proposal": 55,
+        "height": 73290488,
+        "recommended_version": "v5.5.2",
+        "compatible_versions": [
+          "v5.5.2"
+        ],
+        "consensus": {
+          "type": "sei-tendermint",
+          "version": "v0.3.3"
+        },
+        "next_version_name": "v5.5.5",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.3.13"
+        },
+        "cosmwasm": {
+          "version": "v0.1.5",
+          "repo": "https://github.com/sei-protocol/sei-wasmd",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/sei-protocol/sei-ibc-go",
+          "version": "v3.3.0"
+        }
+      },
+      {
+        "name": "v5.5.5",
+        "proposal": 58,
+        "height": 84006014,
+        "recommended_version": "v5.5.5",
+        "compatible_versions": [
+          "v5.5.5"
+        ],
+        "consensus": {
+          "type": "sei-tendermint",
+          "version": "v0.3.3"
+        },
+        "next_version_name": "v5.6.2",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.3.19"
+        },
+        "cosmwasm": {
+          "version": "v0.1.5",
+          "repo": "https://github.com/sei-protocol/sei-wasmd",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/sei-protocol/sei-ibc-go",
+          "version": "v3.3.1"
+        }
+      },
+      {
+        "name": "v5.6.2",
+        "proposal": 80,
+        "height": 89475838,
+        "recommended_version": "v5.6.2",
+        "compatible_versions": [
+          "v5.6.2"
+        ],
+        "consensus": {
+          "type": "sei-tendermint",
+          "version": "v0.3.4"
+        },
+        "next_version_name": "5.7.5",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.3.24"
+        },
+        "cosmwasm": {
+          "version": "v0.1.9",
+          "repo": "https://github.com/sei-protocol/sei-wasmd",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/sei-protocol/sei-ibc-go",
+          "version": "v3.3.1"
+        }
+      },
+      {
+        "name": "v5.7.5",
+        "proposal": 82,
+        "height": 94496767,
+        "recommended_version": "v5.7.5",
+        "compatible_versions": [
+          "v5.7.5"
+        ],
+        "consensus": {
+          "type": "sei-tendermint",
+          "version": "v0.3.6"
+        },
+        "next_version_name": "v5.8.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.3.31"
+        },
+        "cosmwasm": {
+          "version": "v0.2.3",
+          "repo": "https://github.com/sei-protocol/sei-wasmd",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/sei-protocol/sei-ibc-go",
+          "version": "v3.3.2"
+        }
+      },
+      {
+        "name": "v5.8.0",
+        "proposal": 84,
+        "height": 102491599,
+        "recommended_version": "v5.8.0",
+        "compatible_versions": [
+          "v5.8.0"
+        ],
+        "consensus": {
+          "type": "sei-tendermint",
+          "version": "v0.3.8"
+        },
+        "next_version_name": "v5.9.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.3.35"
+        },
+        "cosmwasm": {
+          "version": "v0.2.4",
+          "repo": "https://github.com/sei-protocol/sei-wasmd",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/sei-protocol/sei-ibc-go",
+          "version": "v3.3.2"
+        }
+      },
+      {
+        "name": "v5.9.0",
+        "proposal": 85,
+        "height": 107000672,
+        "recommended_version": "v5.9.0",
+        "compatible_versions": [
+          "v5.9.0"
+        ],
+        "consensus": {
+          "type": "sei-tendermint",
+          "version": "v0.3.8"
+        },
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.3.37"
+        },
+        "cosmwasm": {
+          "version": "v0.2.4",
+          "repo": "https://github.com/sei-protocol/sei-wasmd",
+          "path": "$HOME/.sei/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/sei-protocol/sei-ibc-go",
+          "version": "v3.3.2"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/sei-protocol/sei-cosmos",
+      "version": "v0.3.37"
+    },
+    "ibc": {
+      "type": "go",
+      "repo": "https://github.com/sei-protocol/sei-ibc-go",
+      "version": "v3.3.2"
+    },
+    "cosmwasm": {
+      "version": "v0.2.4",
+      "repo": "https://github.com/sei-wasmd",
+      "path": "$HOME/.sei/wasm",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sei/images/sei.png",
@@ -261,19 +557,23 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://sei-rpc.lavenderfive.com:443",
+        "address": "https://rpc.sei-apis.com",
+        "provider": "Rhino Stake"
+      },
+      {
+        "address": "https://rpc.lavenderfive.com:443/sei",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://sei-rpc.polkachu.com/",
+        "address": "https://sei-rpc.polkachu.com",
         "provider": "polkachu.com"
       },
       {
-        "address": "https://sei-rpc.brocha.in/",
+        "address": "https://sei-rpc.brocha.in",
         "provider": "Brochain"
       },
       {
-        "address": "https://rpc-sei.stingray.plus/",
+        "address": "https://rpc-sei.stingray.plus",
         "provider": "StingRay"
       },
       {
@@ -287,23 +587,31 @@
       {
         "address": "https://sei-rpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://sei.drpc.org",
+        "provider": "dRPC - All chains in one place"
       }
     ],
     "rest": [
       {
-        "address": "https://sei-api.lavenderfive.com:443",
+        "address": "https://rest.sei-apis.com",
+        "provider": "Rhino Stake"
+      },
+      {
+        "address": "https://rest.lavenderfive.com:443/sei",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://sei-api.polkachu.com/",
+        "address": "https://sei-api.polkachu.com",
         "provider": "polkachu.com"
       },
       {
-        "address": "https://sei-rest.brocha.in/",
+        "address": "https://sei-rest.brocha.in",
         "provider": "Brochain"
       },
       {
-        "address": "https://api-sei.stingray.plus/",
+        "address": "https://api-sei.stingray.plus",
         "provider": "StingRay"
       },
       {
@@ -321,11 +629,15 @@
     ],
     "grpc": [
       {
-        "address": "https://sei-grpc.lavenderfive.com:443",
+        "address": "https://grpc.sei-apis.com:443",
+        "provider": "Rhino Stake"
+      },
+      {
+        "address": "sei.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://sei-grpc.polkachu.com:11990/",
+        "address": "https://sei-grpc.polkachu.com:11990",
         "provider": "polkachu.com"
       },
       {
@@ -333,7 +645,7 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://grpc-sei.whispernode.com:443",
+        "address": "grpc-sei.whispernode.com:443",
         "provider": "WhisperNode 🤐"
       },
       {
@@ -344,14 +656,28 @@
         "address": "sei-grpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
       }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://evm-rpc.sei-apis.com",
+        "provider": "Rhino Stake"
+      },
+      {
+        "address": "https://seievm-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://jsonrpc.lavenderfive.com:443/sei",
+        "provider": "Lavender.Five Nodes"
+      }
     ]
   },
   "explorers": [
     {
-      "kind": "ping.pub",
-      "url": "https://ping.pub/sei",
-      "tx_page": "https://ping.pub/sei/tx/${txHash}",
-      "account_page": "https://ping.pub/sei/account/${accountAddress}"
+      "kind": "blockscout",
+      "url": "https://seitrace.com",
+      "tx_page": "https://seitrace.com/tx/${txHash}?chain=pacific-1",
+      "account_page": "https://seitrace.com/address/${accountAddress}?chain=pacific-1"
     },
     {
       "kind": "mintscan",
@@ -366,16 +692,31 @@
       "account_page": "https://ezstaking.app/sei/account/${accountAddress}"
     },
     {
-      "kind": "seiscan",
+      "kind": "celatone",
       "url": "https://www.seiscan.app/pacific-1",
       "tx_page": "https://www.seiscan.app/pacific-1/txs/${txHash}",
       "account_page": "https://www.seiscan.app/pacific-1/accounts/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/sei",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=sei&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=sei&addr=${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/sei",
+      "tx_page": "https://mainnet.whispernode.com/sei/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/sei/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sei/images/sei.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sei/images/sei.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sei/images/sei.svg",
+      "theme": {
+        "primary_color_hex": "#9c1c1c"
+      }
     }
   ]
 }

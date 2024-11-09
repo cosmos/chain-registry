@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://sommelier.finance/",
   "pretty_name": "Sommelier",
+  "chain_type": "cosmos",
   "chain_id": "sommelier-3",
   "bech32_prefix": "somm",
   "daemon_name": "sommelier",
@@ -44,14 +45,12 @@
       "darwin/arm64": "https://github.com/PeggyJV/sommelier/releases/download/v7.0.1/sommelier_7.0.1_darwin_arm64.tar.gz",
       "windows/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v7.0.1/sommelier_7.0.1_windows_amd64.tar.gz"
     },
-    "cosmos_sdk_version": "v0.46.14",
     "consensus": {
       "type": "cometbft",
       "version": "v0.34.28"
     },
-    "ibc_go_version": "v6.2.0",
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/PeggyJV/sommelier/main/contrib/mainnet/sommelier-2/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/PeggyJV/sommelier/main/contrib/mainnet/sommelier-3/genesis.json"
     },
     "versions": [
       {
@@ -99,15 +98,29 @@
           "darwin/arm64": "https://github.com/PeggyJV/sommelier/releases/download/v7.0.1/sommelier_7.0.1_darwin_arm64.tar.gz",
           "windows/amd64": "https://github.com/PeggyJV/sommelier/releases/download/v7.0.1/sommelier_7.0.1_windows_amd64.tar.gz"
         },
-        "cosmos_sdk_version": "v0.46.14",
         "consensus": {
           "type": "cometbft",
           "version": "v0.34.28"
         },
-        "ibc_go_version": "v6.2.0",
-        "next_version_name": ""
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.46.14"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v6.2.0"
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.46.14"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v6.2.0"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sommelier/images/somm.png",
@@ -179,7 +192,7 @@
         "provider": "🔥STAVR🔥"
       },
       {
-        "address": "https://sommelier-rpc.lavenderfive.com/",
+        "address": "https://rpc.lavenderfive.com:443/sommelier",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -209,7 +222,7 @@
         "provider": "🔥STAVR🔥"
       },
       {
-        "address": "https://sommelier-api.lavenderfive.com/",
+        "address": "https://rest.lavenderfive.com:443/sommelier",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -231,7 +244,7 @@
         "provider": "🔥STAVR🔥"
       },
       {
-        "address": "sommelier-grpc.lavenderfive.com:443",
+        "address": "sommelier.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -271,6 +284,12 @@
       "account_page": "https://ezstaking.app/sommelier/account/${accountAddress}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/sommelier",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=sommelier&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=sommelier&addr=${accountAddress}"
+    },
+    {
       "kind": "🔥STAVR🔥",
       "url": "https://explorer.stavr.tech/Sommelier-Mainnet",
       "tx_page": "https://explorer.stavr.tech/Sommelier-Mainnet/tx/${txHash}",
@@ -292,7 +311,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sommelier/images/somm.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sommelier/images/somm.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sommelier/images/somm.svg",
+      "theme": {
+        "primary_color_hex": "#f36353"
+      }
     }
   ]
 }

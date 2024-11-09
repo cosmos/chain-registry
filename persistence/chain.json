@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "persistence",
+  "chain_type": "cosmos",
   "chain_id": "core-1",
   "pretty_name": "Persistence",
   "status": "live",
@@ -39,25 +40,16 @@
   },
   "codebase": {
     "git_repo": "https://github.com/persistenceOne/persistenceCore",
-    "recommended_version": "v11.8.1",
+    "recommended_version": "v11.14.0",
     "compatible_versions": [
-      "v11.8.1"
-    ],
-    "cosmos_sdk_version": "persistenceOne/cosmos-sdk v0.47.3-lsm5",
-    "ibc_go_version": "persistenceOne/ibc-go/v7 v7.2.0-lsm3",
-    "ics_enabled": [
-      "ics20-1",
-      "ics27-1"
+      "v11.14.0"
     ],
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.2"
+      "version": "v0.37.4"
     },
-    "cosmwasm_version": "persistenceOne/wasmd v0.40.2-lsm3",
-    "cosmwasm_enabled": true,
-    "cosmwasm_path": "$HOME/.persistenceCore/wasm",
     "binaries": {
-      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v11.8.1/persistenceCore-v11.8.1-linux-amd64.tar.gz"
+      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v11.14.0/persistenceCore-v11.14.0-linux-amd64.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/persistenceOne/genesisTransactions/master/core-1/final_genesis.json"
@@ -100,23 +92,34 @@
           "v9.1.0",
           "v9.2.1"
         ],
-        "cosmos_sdk_version": "v0.47.3-lsm",
-        "ibc_go_version": "v7.2.0-lsm3",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.2"
         },
-        "cosmwasm_version": "v0.40.2-lsm3",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.persistenceCore/wasm",
         "binaries": {
           "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v9.2.1/persistenceCore-v9.2.1-linux-amd64.tar.gz"
         },
-        "next_version_name": "v10"
+        "next_version_name": "v10",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.3",
+          "tag": "v0.47.3-lsm"
+        },
+        "cosmwasm": {
+          "version": "v0.40.2",
+          "path": "$HOME/.persistenceCore/wasm",
+          "enabled": true,
+          "tag": "v0.40.2-lsm3"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.2.0",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ],
+          "tag": "v7.2.0-lsm3"
+        }
       },
       {
         "name": "v10",
@@ -127,23 +130,34 @@
         "compatible_versions": [
           "v10.0.0"
         ],
-        "cosmos_sdk_version": "v0.47.3-lsm",
-        "ibc_go_version": "v7.2.0-lsm3",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.2"
         },
-        "cosmwasm_version": "v0.47.3-lsm5",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.persistenceCore/wasm",
         "binaries": {
           "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v10.0.0/persistenceCore-v10.0.0-linux-amd64.tar.gz"
         },
-        "next_version_name": "v10.3.0"
+        "next_version_name": "v10.3.0",
+        "sdk": {
+          "type": "cosmos",
+          "version": "v0.47.3",
+          "tag": "v0.47.3-lsm"
+        },
+        "cosmwasm": {
+          "version": "v0.47.3",
+          "path": "$HOME/.persistenceCore/wasm",
+          "enabled": true,
+          "tag": "v0.47.3-lsm5"
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.2.0",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ],
+          "tag": "v7.2.0-lsm3"
+        }
       },
       {
         "name": "v10.3.0",
@@ -154,23 +168,37 @@
         "compatible_versions": [
           "v10.3.0"
         ],
-        "cosmos_sdk_version": "persistenceOne/cosmos-sdk v0.47.3-lsm5",
-        "ibc_go_version": "persistenceOne/ibc-go/v7 v7.2.0-lsm3",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.2"
         },
-        "cosmwasm_version": "persistenceOne/wasmd v0.40.2-lsm3",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.persistenceCore/wasm",
         "binaries": {
           "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v10.3.0/persistenceCore-v10.3.0-linux-amd64.tar.gz"
         },
-        "next_version_name": "v10.4.0"
+        "next_version_name": "v10.4.0",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/persistenceOne/cosmos-sdk",
+          "version": "v0.47.3",
+          "tag": "v0.47.3-lsm5"
+        },
+        "cosmwasm": {
+          "version": "v0.40.2",
+          "repo": "https://github.com/persistenceOne/wasmd",
+          "tag": "v0.40.2-lsm3",
+          "path": "$HOME/.persistenceCore/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/persistenceOne/ibc-go",
+          "version": "v7.2.0",
+          "tag": "v7.2.0-lsm3",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ]
+        }
       },
       {
         "name": "v10.4.0",
@@ -181,23 +209,37 @@
         "compatible_versions": [
           "v10.4.0"
         ],
-        "cosmos_sdk_version": "persistenceOne/cosmos-sdk v0.47.3-lsm5",
-        "ibc_go_version": "persistenceOne/ibc-go/v7 v7.2.0-lsm3",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.2"
         },
-        "cosmwasm_version": "persistenceOne/wasmd v0.40.2-lsm3",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.persistenceCore/wasm",
         "binaries": {
           "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v10.4.0/persistenceCore-v10.4.0-linux-amd64.tar.gz"
         },
-        "next_version_name": "v10.4.1"
+        "next_version_name": "v10.4.1",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/persistenceOne/cosmos-sdk",
+          "version": "v0.47.3",
+          "tag": "v0.47.3-lsm5"
+        },
+        "cosmwasm": {
+          "version": "v0.40.2",
+          "repo": "https://github.com/persistenceOne/wasmd",
+          "tag": "v0.40.2-lsm3",
+          "path": "$HOME/.persistenceCore/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/persistenceOne/ibc-go",
+          "version": "v7.2.0",
+          "tag": "v7.2.0-lsm3",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ]
+        }
       },
       {
         "name": "v10.4.1",
@@ -208,52 +250,321 @@
         "compatible_versions": [
           "v10.5.0"
         ],
-        "cosmos_sdk_version": "persistenceOne/cosmos-sdk v0.47.3-lsm5",
-        "ibc_go_version": "persistenceOne/ibc-go/v7 v7.2.0-lsm3",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.2"
         },
-        "cosmwasm_version": "persistenceOne/wasmd v0.40.2-lsm3",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.persistenceCore/wasm",
         "binaries": {
           "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v10.5.0/persistenceCore-v10.5.0-linux-amd64.tar.gz"
         },
-        "next_version_name": "v11"
+        "next_version_name": "v11",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/persistenceOne/cosmos-sdk",
+          "version": "v0.47.3",
+          "tag": "v0.47.3-lsm5"
+        },
+        "cosmwasm": {
+          "version": "v0.40.2",
+          "repo": "https://github.com/persistenceOne/wasmd",
+          "tag": "v0.40.2-lsm3",
+          "path": "$HOME/.persistenceCore/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/persistenceOne/ibc-go",
+          "version": "v7.2.0",
+          "tag": "v7.2.0-lsm3",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ]
+        }
       },
       {
         "name": "v11",
         "tag": "v11.8.1",
         "proposal": 84,
         "height": 15860600,
-        "recommended_version": "v10.5.0",
+        "recommended_version": "v11.8.1",
         "compatible_versions": [
-          "v10.5.0"
-        ],
-        "cosmos_sdk_version": "persistenceOne/cosmos-sdk v0.47.3-lsm5",
-        "ibc_go_version": "persistenceOne/ibc-go/v7 v7.2.0-lsm3",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
+          "v11.8.1"
         ],
         "consensus": {
           "type": "cometbft",
           "version": "v0.37.2"
         },
-        "cosmwasm_version": "persistenceOne/wasmd v0.40.2-lsm3",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.persistenceCore/wasm",
         "binaries": {
           "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v11.8.1/persistenceCore-v11.8.1-linux-amd64.tar.gz"
         },
-        "next_version_name": ""
+        "next_version_name": "v11.9.0",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/persistenceOne/cosmos-sdk",
+          "version": "v0.47.3",
+          "tag": "v0.47.3-lsm5"
+        },
+        "cosmwasm": {
+          "version": "v0.40.2",
+          "repo": "https://github.com/persistenceOne/wasmd",
+          "tag": "v0.40.2-lsm3",
+          "path": "$HOME/.persistenceCore/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "repo": "https://github.com/persistenceOne/ibc-go",
+          "version": "v7.2.0",
+          "tag": "v7.2.0-lsm3",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ]
+        }
+      },
+      {
+        "name": "v11.9.0",
+        "tag": "v11.9.0",
+        "proposal": 90,
+        "height": 16250000,
+        "recommended_version": "v11.9.0",
+        "compatible_versions": [
+          "v11.9.0"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v11.9.0/persistenceCore-v11.9.0-linux-amd64.tar.gz"
+        },
+        "next_version_name": "v11.10.0",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/persistenceOne/cosmos-sdk",
+          "version": "v0.47.10",
+          "tag": "v0.47.10-lsm-rc0"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "path": "$HOME/.persistenceCore/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ]
+        }
+      },
+      {
+        "name": "v11.10.0",
+        "tag": "v11.10.0",
+        "proposal": 96,
+        "height": 16392000,
+        "recommended_version": "v11.10.0",
+        "compatible_versions": [
+          "v11.10.0"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v11.10.0/persistenceCore-v11.10.0-linux-amd64.tar.gz"
+        },
+        "next_version_name": "v11.11.0",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/persistenceOne/cosmos-sdk",
+          "version": "v0.47.10",
+          "tag": "v0.47.10-lsm-rc0"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "path": "$HOME/.persistenceCore/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ]
+        }
+      },
+      {
+        "name": "v11.11.0",
+        "tag": "v11.11.0",
+        "proposal": 100,
+        "height": 16578000,
+        "recommended_version": "v11.11.0",
+        "compatible_versions": [
+          "v11.11.0"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v11.11.0/persistenceCore-v11.11.0-linux-amd64.tar.gz"
+        },
+        "next_version_name": "v11.12.0",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/persistenceOne/cosmos-sdk",
+          "version": "v0.47.10",
+          "tag": "v0.47.10-lsm-rc0"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "path": "$HOME/.persistenceCore/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ]
+        }
+      },
+      {
+        "name": "v11.12.0",
+        "tag": "v11.12.0",
+        "proposal": 105,
+        "height": 16851000,
+        "recommended_version": "v11.12.0",
+        "compatible_versions": [
+          "v11.12.0"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v11.12.0/persistenceCore-v11.12.0-linux-amd64.tar.gz"
+        },
+        "next_version_name": "v11.13.0",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/persistenceOne/cosmos-sdk",
+          "version": "v0.47.10",
+          "tag": "v0.47.10-lsm-rc0"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "path": "$HOME/.persistenceCore/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ]
+        }
+      },
+      {
+        "name": "v11.13.0",
+        "tag": "v11.13.0",
+        "proposal": 108,
+        "height": 16980000,
+        "recommended_version": "v11.13.0",
+        "compatible_versions": [
+          "v11.13.0"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v11.13.0/persistenceCore-v11.13.0-linux-amd64.tar.gz"
+        },
+        "next_version_name": "v11.14.0",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/persistenceOne/cosmos-sdk",
+          "version": "v0.47.10",
+          "tag": "v0.47.10-lsm-rc0"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "path": "$HOME/.persistenceCore/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ]
+        }
+      },
+      {
+        "name": "v11.14.0",
+        "tag": "v11.14.0",
+        "proposal": 112,
+        "height": 17453500,
+        "recommended_version": "v11.14.0",
+        "compatible_versions": [
+          "v11.14.0"
+        ],
+        "consensus": {
+          "type": "cometbft",
+          "version": "v0.37.4"
+        },
+        "binaries": {
+          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v11.14.0/persistenceCore-v11.14.0-linux-amd64.tar.gz"
+        },
+        "next_version_name": "",
+        "sdk": {
+          "type": "cosmos",
+          "repo": "https://github.com/persistenceOne/cosmos-sdk",
+          "version": "v0.47.10",
+          "tag": "v0.47.10-lsm-rc0"
+        },
+        "cosmwasm": {
+          "version": "v0.45.0",
+          "path": "$HOME/.persistenceCore/wasm",
+          "enabled": true
+        },
+        "ibc": {
+          "type": "go",
+          "version": "v7.4.0",
+          "ics_enabled": [
+            "ics20-1",
+            "ics27-1"
+          ]
+        }
       }
-    ]
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/persistenceOne/cosmos-sdk",
+      "version": "v0.47.10",
+      "tag": "v0.47.10-lsm-rc0"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0",
+      "ics_enabled": [
+        "ics20-1",
+        "ics27-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "v0.45.0",
+      "path": "$HOME/.persistenceCore/wasm",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.png",
@@ -282,6 +593,11 @@
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
+        "id": "ab7fc0b9b3c523dacec0500c9f9f1f7f4699d551",
+        "address": "persis-m.seed.stavr.tech:4056",
+        "provider": "🔥STAVR🔥"
+      },
+      {
         "id": "ce9dc9467af943bf35f17f04cfcdf3895914d867",
         "address": "seed-persistence-01.stakeflow.io:33656",
         "provider": "Stakeflow"
@@ -290,6 +606,11 @@
         "id": "ba6ca269cfcf412c175dd6259c1ae15ee5370b08",
         "address": "seed.persistence.validatus.com:3000",
         "provider": "Validatus"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:28556",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -317,6 +638,11 @@
         "id": "ce9dc9467af943bf35f17f04cfcdf3895914d867",
         "address": "peer-persistence-01.stakeflow.io:33656",
         "provider": "Stakeflow"
+      },
+      {
+        "id": "aba2148170161c274d2d786bffbe6a692c535dfe",
+        "address": "65.108.195.213:53656",
+        "provider": "StakeTown"
       }
     ]
   },
@@ -329,6 +655,10 @@
       {
         "address": "https://rpc-persistent-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://persistence.rpc.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "https://persistence-rpc.polkachu.com",
@@ -393,6 +723,14 @@
       {
         "address": "https://public.stakewolle.com/cosmos/persistence/rpc",
         "provider": "Stakewolle"
+      },
+      {
+        "address": "https://xprt-rpc.antrixy.org/",
+        "provider": "Antrix Validators"
+      },
+      {
+        "address": "https://persistence-rpc.stake-town.com",
+        "provider": "StakeTown"
       }
     ],
     "rest": [
@@ -403,6 +741,10 @@
       {
         "address": "https://api-persistent-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://persistence.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "https://persistence-api.polkachu.com",
@@ -467,6 +809,14 @@
       {
         "address": "https://public.stakewolle.com/cosmos/persistence/rest",
         "provider": "Stakewolle"
+      },
+      {
+        "address": "https://xprt-rest.antrixy.org/",
+        "provider": "Antrix Validators"
+      },
+      {
+        "address": "https://persistence-api.stake-town.com",
+        "provider": "StakeTown"
       }
     ],
     "grpc": [
@@ -477,6 +827,10 @@
       {
         "address": "grpc-persistent-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
+      },
+      {
+        "address": "persistence.grpc.m.stavr.tech:410",
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "persistence-grpc.polkachu.com:15490",
@@ -517,6 +871,14 @@
       {
         "address": "grpc.persistence.validatus.com",
         "provider": "Validatus"
+      },
+      {
+        "address": "https://xprt-grpc.antrixy.org/",
+        "provider": "Antrix Validators"
+      },
+      {
+        "address": "persistence-grpc.stake-town.com:443",
+        "provider": "StakeTown"
       }
     ]
   },
@@ -539,16 +901,21 @@
       "tx_page": "https://ping.pub/persistence/tx/${txHash}"
     },
     {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Persistence-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Persistence-Mainnet/tx/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/persistence",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=persistence&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=persistence&addr=${accountAddress}"
+    },
+    {
       "kind": "atomscan",
       "url": "https://atomscan.com/persistence",
       "tx_page": "https://atomscan.com/persistence/transactions/${txHash}",
       "account_page": "https://atomscan.com/persistence/accounts/${accountAddress}"
-    },
-    {
-      "kind": "bigdipper",
-      "url": "https://bigdipper.live/persistence",
-      "tx_page": "https://bigdipper.live/persistence/transactions/${txHash}",
-      "account_page": "https://bigdipper.live/persistence/accounts/${accountAddress}"
     },
     {
       "kind": "Stakeflow",
@@ -559,7 +926,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.svg",
+      "theme": {
+        "primary_color_hex": "#242424"
+      }
     }
   ]
 }

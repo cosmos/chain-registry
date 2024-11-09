@@ -1,6 +1,7 @@
 {
-  "$schema": "../chain.schema.json",
+  "$schema": "../../chain.schema.json",
   "chain_name": "axelartestnet",
+  "chain_type": "cosmos",
   "chain_id": "axelar-testnet-lisbon-3",
   "pretty_name": "Axelar Testnet",
   "status": "live",
@@ -42,6 +43,10 @@
       {
         "address": "https://axelartest-rpc.quickapi.com/",
         "provider": "Quickapi"
+      },
+      {
+        "address": "https://axelar-testnet-rpc.ibs.team:443",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "rest": [
@@ -52,6 +57,19 @@
       {
         "address": "https://axelartest-lcd.quickapi.com/",
         "provider": "Quickapi"
+      },
+      {
+        "address": "https://axelar-testnet-api.ibs.team:443",
+        "provider": "Inter Blockchain Services"
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "496ac0ba20188f70f41e0a814dfd4d9a617338f8",
+        "address": "axelar-testnet-seed.ibs.team:16654",
+        "provider": "Inter Blockchain Services"
       }
     ]
   },
@@ -63,9 +81,9 @@
     },
     {
       "kind": "mintscan",
-      "url": "https://testnet.mintscan.io/axelar-testnet",
-      "tx_page": "https://testnet.mintscan.io/axelar-testnet/txs/${txHash}",
-      "account_page": "https://testnet.mintscan.io/axelar-testnet/account/${accountAddress}"
+      "url": "https://mintscan.io/axelar-testnet",
+      "tx_page": "https://mintscan.io/axelar-testnet/txs/${txHash}",
+      "account_page": "https://mintscan.io/axelar-testnet/account/${accountAddress}"
     }
   ]
 }

@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "IBCData",
   "type": "object",
   "required": [
     "chain_1",
@@ -162,6 +163,7 @@
       "properties": {
         "channel_id": {
           "type": "string",
+          "pattern": "^(channel-\\d+|\\*)$",
           "description": "The channel ID on the corresponding chain's connection representing a channel on the other chain."
         },
         "port_id": {
