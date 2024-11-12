@@ -11,7 +11,7 @@ import * as path from 'path';
 
 export let chainNameToDirectoryMap = new Map();
 
-export const chainRegistryRoot = "../../../chain-registry";
+export let chainRegistryRoot = "../../../chain-registry"; //default assumption is submodule
 
 export const networkTypeToDirectoryNameMap = new Map();
 networkTypeToDirectoryNameMap.set("mainnet", "");
@@ -91,9 +91,7 @@ export const bech32ConfigSuffixMap = new Map([
 export const networkTypeToDirectoryMap = new Map();
 networkTypeToDirectoryMap.set("mainnet", "");
 networkTypeToDirectoryMap.set("testnet", "testnets");
-for (const [networkType, directory] of networkTypeToDirectoryMap.entries()) {
-  networkTypeToDirectoryMap.set(networkType, path.join(chainRegistryRoot, directory));
-}
+
 
 const fileNames = {
   chain: "chain.json",
@@ -453,8 +451,16 @@ export function filterAssetPointersByAssetProperty(pointers, property, value) {
   return filtered;
 }
 
-function main() {
+export function setup(root = chainRegistryRoot) {
+  chainRegistryRoot = root;
+
+  for (const [networkType, directory] of networkTypeToDirectoryMap.entries()) {
+    networkTypeToDirectoryMap.set(networkType, path.join(chainRegistryRoot, directory));
+  }
+
   populateChainDirectories();
 }
 
-main();
+function main() {
+  setup();
+}
