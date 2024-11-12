@@ -13,8 +13,9 @@
 //
 
 import * as path from 'path';
-import * as chain_reg from './chain_registry_local.mjs';
+import * as chain_reg from './chain_registry.mjs';
 
+const chainRegistryRoot = "../../..";
 
 const chainIdMap = new Map();
 let base_denoms = [];
@@ -460,6 +461,9 @@ function checkDuplicateChannels(channel_id, chain, counterparty, chainNameToIbcC
 }
 
 function main() {
+
+  //setup chain registry
+  chain_reg.setup(chainRegistryRoot);
 
   //check all chains
   validate_chain_files();
