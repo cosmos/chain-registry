@@ -317,7 +317,7 @@ function checkTypeAsset(chain_name, asset) {
 
 }
 
-export function checkUniqueBaseDenom(chain_name, asset) {
+function checkUniqueBaseDenom(chain_name, asset) {
 
   if (base_denoms.includes(asset.base)) {
     throw new Error(`Base (denom) already registered: ${chain_name}, ${asset.base}, ${asset.symbol}.`);
@@ -325,6 +325,16 @@ export function checkUniqueBaseDenom(chain_name, asset) {
     base_denoms.push(asset.base);
   }
 
+}
+
+function checkChainNameMatchDirectory(chain_name) {
+  chain_reg.files.forEach((file) => {
+    const fileChainNameValue = chain_reg.getFileProperty(chain_name, file, "chain_name");
+    if (!fileChainNameValue) { return; }
+    if (fileChainNameValue !== chain_name) {
+      throw new Error(`Directory ${chain_name}'s ${file} file has chain_name: ${fileChainNameValue}, which is a mismatch!`);
+    }
+  });
 }
 
 
@@ -337,6 +347,9 @@ export function validate_chain_files() {
   chainRegChains.forEach((chain_name) => {
 
     //console.log(chain_name);
+
+    //check if chain_name matches directory name
+    checkChainNameMatchDirectory(chain_name);
 
     //check if chain_id is registered by another chain
     checkChainIdConflict(chain_name);
