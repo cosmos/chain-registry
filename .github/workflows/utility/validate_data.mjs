@@ -37,6 +37,19 @@ function checkChainIdConflict(chain_name) {
 
 }
 
+function checkSlip44(chain_name) {
+
+  let chain_type = chain_reg.getFileProperty(chain_name, "chain", "chain_type");
+  if (!chain_type || chain_type !== "cosmos") { return; }
+  let chain_status = chain_reg.getFileProperty(chain_name, "chain", "status");
+  if (!chain_status || chain_status === "upcoming" || chain_status === "killed") { return; }
+  let slip44 = chain_reg.getFileProperty(chain_name, "chain", "slip44");
+  if (!slip44) {
+    throw new Error(`Chain ${chain_name} missing slip44!`);
+  }
+
+}
+
 function checkFeeTokensAreRegistered(chain_name) {
 
   let fees = chain_reg.getFileProperty(chain_name, "chain", "fees");
@@ -354,6 +367,9 @@ export function validate_chain_files() {
 
     //check if chain_id is registered by another chain
     checkChainIdConflict(chain_name);
+
+    //check for slip44
+    checkSlip44(chain_name);
 
     //check if all fee tokens are registered
     checkFeeTokensAreRegistered(chain_name);
