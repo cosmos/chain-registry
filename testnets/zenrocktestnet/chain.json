@@ -2,9 +2,10 @@
     "$schema": "../../chain.schema.json",
     "chain_name": "zenrocktestnet",
     "status": "live",
+    "website": "https://zenrocklabs.io",
     "network_type": "testnet",
-    "pretty_name": "Zenrock Testnet",
     "chain_type": "cosmos",
+    "pretty_name": "Zenrock Testnet",
     "chain_id": "gardia-2",
     "bech32_prefix": "rock",
     "daemon_name": "zenrockd",
@@ -17,10 +18,10 @@
       "fee_tokens": [
         {
           "denom": "urock",
-          "fixed_min_gas_price": 0.005,
-          "low_gas_price": 0.01,
-          "average_gas_price": 0.025,
-          "high_gas_price": 0.03
+          "fixed_min_gas_price": 0.5,
+          "low_gas_price": 0.5,
+          "average_gas_price": 0.55,
+          "high_gas_price": 0.6
         }
       ]
     },
@@ -33,54 +34,43 @@
     },
     "codebase": {
       "git_repo": "https://github.com/zenrock-foundation/zrchain",
-      "recommended_version": "5.3.4",
+      "genesis": {
+        "genesis_url": "https://rpc.gardia.zenrocklabs.io/genesis"
+      },
+      "recommended_version": "5.3.8",
       "compatible_versions": [
-        "5.3.4"
+        "5.3.8"
       ],
-      "cosmos_sdk_version": "0.50",
+      "binaries": {
+        "linux/arm64": "https://github.com/zenrocklabs/zrchain/releases/download/v5.3.8/zenrockd"
+      },
       "consensus": {
         "type": "cometbft",
         "version": "0.38"
       },
-      "cosmwasm_version": "0.53",
-      "cosmwasm_enabled": true,
-      "genesis": {
-        "genesis_url": "https://rpc.gardia.zenrocklabs.io/genesis"
-      },
-      "versions": [
-        {
-          "name": "5.3.4",
-          "recommended_version": "5.3.4",
-          "compatible_versions": [
-            "5.3.4"
-          ],
-          "cosmos_sdk_version": "0.50",
-          "consensus": {
-            "type": "cometbft",
-            "version": "0.38"
-          },
-          "cosmwasm_version": "0.53",
-          "cosmwasm_enabled": true,
-          "sdk": {
-            "type": "cosmos",
-            "version": "0.50"
-          },
-          "cosmwasm": {
-            "version": "0.53",
-            "enabled": true
-          }
-        }
-      ],
       "sdk": {
         "type": "cosmos",
         "repo": "https://github.com/zenrocklabs/cosmos-sdk",
-        "version": "0.50"
+        "version": "v0.50.10",
+        "tag": "v0.50.10-zenrock"
       },
       "cosmwasm": {
-        "version": "0.53",
+      "version": "v0.53.0",
         "enabled": true
-      }
+      },
+      "versions": [
+        {
+          "name": "v5",
+          "tag": "v5.3.8",
+          "recommended_version": "5.3.8"
+        }
+      ]
     },
+    "images": [
+      {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/zenrocktestnet/images/zenrock.png"
+      }
+    ],
     "peers": {
       "seeds": [],
       "persistent_peers": [
@@ -98,32 +88,35 @@
       "rpc": [
         {
           "address": "https://rpc.gardia.zenrocklabs.io/",
-          "provider": "Zenrock"
+          "provider": "zenrock"
         }
       ],
       "rest": [
         {
             "address": "https://api.gardia.zenrocklabs.io/",
-            "provider": "Zenrock"
+            "provider": "zenrock"
         }
       ],
       "grpc": [
         {
             "address": "https://grpc.gardia.zenrocklabs.io/",
-          "provider": "Zenrock"
+          "provider": "zenrock"
         }
       ]
     },
+    "explorers": [
+      {
+        "kind": "Big Dipper",
+        "url": "https://explorer.gardia.zenrocklabs.io/",
+        "tx_page": "https://explorer.gardia.zenrocklabs.io/tx/${txHash}",
+        "account_page": "https://explorer.gardia.zenrocklabs.io/account/${accountAddress}"
+      }
+    ],
     "logo_URIs": {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/zenrocktestnet/images/zenrock.png"
     },
     "keywords": [
       "mpc",
       "testnet"
-    ],
-    "images": [
-      {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/zenrocktestnet/images/zenrock.png"
-      }
     ]
   }
