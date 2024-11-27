@@ -1,6 +1,6 @@
 {
   "$schema": "../assetlist.schema.json",
-  "chain_name": "Kopi",
+  "chain_name": "kopi",
   "assets": [
     {
       "description": "The native token of kopi",
@@ -109,7 +109,7 @@
       "type_asset": "sdk.coin"
     },
     {
-      "description": "A MM deposit receipt of the Stablecoin USDC from noble Chain, deposited IBC token on the native kopi MM minted by the protocol",
+      "description": "A MM deposit receipt of the Stablecoin USDC from noble Chain",
       "denom_units": [
         {
           "denom": "ucusdc",
@@ -125,11 +125,11 @@
       "display": "cUSDC",
       "symbol": "cUSDC",
       "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/usdc.svg"
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/non-cosmos/ethereum/images/usdc.svg"
       },
       "images": [
         {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/usdc.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/non-cosmos/ethereum/images/usdc.svg"
         }
       ],
       "keywords": [
@@ -175,6 +175,7 @@
         "discord": "https://discord.gg/kopi-money"
       },
       "type_asset": "sdk.coin"
+     
     },
     {
       "description": "USDC from Noble Chain",
@@ -193,11 +194,11 @@
       "display": "USDC",
       "symbol": "USDC",
       "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/usdc.svg"
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/non-cosmos/ethereum/images/usdc.svg"
       },
       "images": [
         {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/usdc.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/non-cosmos/ethereum/images/usdc.svg"
         }
       ],
       "keywords": [
@@ -208,7 +209,21 @@
         "twitter": "https://x.com/kopi_money",
         "discord": "https://discord.gg/kopi-money"
       },
-      "type_asset": "sdk.coin"
+      "type_asset": "sdk.coin",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-109"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-109/uusdc"
+          }
+        }
+      ]
     },
     {
       "description": "USDT from injective Chain",
@@ -242,7 +257,21 @@
         "twitter": "https://x.com/kopi_money",
         "discord": "https://discord.gg/kopi-money"
       },
-      "type_asset": "sdk.coin"
+      "type_asset": "sdk.coin",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "injective",
+            "base_denom": "ibc/4ABBEF4C8926DDDB320AE5188CFD63267ABBCEFC0583E4AE05D6E5AA2401DDAB",
+            "channel_id": "channel-376"
+          },
+          "chain": {
+            "channel_id": "channel-1",
+            "path": "transfer/channel-376/ibc/4ABBEF4C8926DDDB320AE5188CFD63267ABBCEFC0583E4AE05D6E5AA2401DDAB"
+          }
+        }
+      ]
     },
     {
       "description": "injective from injective Chain",
@@ -257,15 +286,15 @@
         }
       ],
       "base": "ibc/DE63D8AC34B752FB7D4CAA7594145EDE1C9FC256AC6D4043D0F12310EB8FC255",
-      "name": "INJ",
-      "display": "Injective",
-      "symbol": "Injective",
+      "name": "Injective",
+      "display": "Inj",
+      "symbol": "Inj",
       "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/inj.svg"
+        "svg": 
       },
       "images": [
         {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/inj.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg"
         }
       ],
       "keywords": [
@@ -276,7 +305,21 @@
         "twitter": "https://x.com/kopi_money",
         "discord": "https://discord.gg/kopi-money"
       },
-      "type_asset": "sdk.coin"
+      "type_asset": "sdk.coin",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "injective",
+            "base_denom": "inj",
+            "channel_id": "channel-376"
+          },
+          "chain": {
+            "channel_id": "channel-1",
+            "path": "transfer/channel-376/inj"
+          }
+        }
+      ]
     }
   ]
 }
