@@ -48,19 +48,13 @@
       "darwin/arm64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.2.0/likecoin-chain_4.2.0_Darwin_arm64.tar.gz",
       "windows/amd64": "https://github.com/likecoin/likecoin-chain/releases/download/v4.2.0/likecoin-chain_4.2.0_Windows_x86_64.zip"
     },
-    "cosmos_sdk_version": "0.46",
     "consensus": {
       "type": "tendermint",
       "version": "0.34"
     },
-    "cosmwasm_enabled": false,
-    "ibc_go_version": "6.3.0",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
       "name": "fotan-1.0",
-      "genesis_url": "https://raw.githubusercontent.com/likecoin/mainnet/982c14399089950a59d3ebbedcbbc7ead6040457/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/likecoin/mainnet/master/genesis.json"
     },
     "versions": [
       {
@@ -72,7 +66,6 @@
           "v1.2.0",
           "fotan-1.2"
         ],
-        "cosmos_sdk_version": "0.42",
         "consensus": {
           "type": "tendermint",
           "version": "0.34"
@@ -100,8 +93,6 @@
           "v2.0.1",
           "v2.0.2"
         ],
-        "cosmos_sdk_version": "0.44",
-        "ibc_go_version": "2.1.0",
         "consensus": {
           "type": "tendermint",
           "version": "0.34"
@@ -131,8 +122,6 @@
         "compatible_versions": [
           "v3.1.0"
         ],
-        "cosmos_sdk_version": "0.45",
-        "ibc_go_version": "2.3.0",
         "consensus": {
           "type": "tendermint",
           "version": "0.34"
@@ -164,8 +153,6 @@
           "v4.0.1",
           "v4.0.2"
         ],
-        "cosmos_sdk_version": "0.46",
-        "ibc_go_version": "5.3.1",
         "consensus": {
           "type": "tendermint",
           "version": "0.34"
@@ -195,8 +182,6 @@
         "compatible_versions": [
           "v4.1.1"
         ],
-        "cosmos_sdk_version": "0.46",
-        "ibc_go_version": "6.2.1",
         "consensus": {
           "type": "tendermint",
           "version": "0.34"
@@ -226,8 +211,6 @@
         "compatible_versions": [
           "v4.2.0"
         ],
-        "cosmos_sdk_version": "0.46",
-        "ibc_go_version": "6.3.0",
         "consensus": {
           "type": "tendermint",
           "version": "0.34"
@@ -372,6 +355,12 @@
     ]
   },
   "explorers": [
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/likecoin",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=likecoin&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=likecoin&addr=${accountAddress}"
+    },
     {
       "kind": "ezstaking",
       "url": "https://ezstaking.app/likecoin",
