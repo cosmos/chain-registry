@@ -1,0 +1,200 @@
+{
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "osmosis",
+  "assets": [
+    {
+      "description": "The native token of MilkyWay",
+      "extended_description": "",
+      "denom_units": [
+        {
+          "denom": "umilk",
+          "exponent": 0
+        },
+        {
+          "denom": "milk",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "umilk",
+      "name": "Milk",
+      "display": "milk",
+      "symbol": "MILK",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkyway.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkyway.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkyway.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkyway.svg",
+          "theme": {
+            "primary_color_hex": "#760dbb"
+          }
+        }
+      ],
+      "keywords": [
+        "liquid staking",
+        "restaking"
+      ],
+      "socials": {
+        "website": "https://milkyway.zone",
+        "twitter": "https://x.com/milky_way_zone"
+      }
+    },
+    {
+      "description": "The native token of the Celestia blockchain.",
+      "denom_units": [
+        {
+          "denom": "ibc/6C349F0EB135C5FA99301758F35B87DB88403D690E5E314AB080401FEE4066E5",
+          "exponent": 0,
+          "aliases": [
+            "utia"
+          ]
+        },
+        {
+          "denom": "tia",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/6C349F0EB135C5FA99301758F35B87DB88403D690E5E314AB080401FEE4066E5",
+      "name": "Celestia",
+      "display": "tia",
+      "symbol": "TIA",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "celestia",
+            "base_denom": "utia",
+            "channel_id": "channel-2"
+          },
+          "chain": {
+            "channel_id": "channel-6994",
+            "path": "transfer/channel-6994/utia"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "celestia",
+            "base_denom": "utia"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg",
+          "theme": {
+            "primary_color_hex": "#7c2cfb"
+          }
+        }
+      ]
+    },
+    {
+      "description": "MilkyWay's liquid staked TIA",
+      "denom_units": [
+        {
+          "denom": "ibc/16065EE5282C5217685C8F084FC44864C25C706AC37356B0D62811D50B96920F",
+          "exponent": 0
+        },
+        {
+          "denom": "milkTIA",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "ibc/16065EE5282C5217685C8F084FC44864C25C706AC37356B0D62811D50B96920F",
+      "name": "milkTIA",
+      "display": "milkTIA",
+      "symbol": "milkTIA",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "celestia",
+            "base_denom": "utia"
+          },
+          "provider": "MilkyWay"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.svg",
+          "theme": {
+            "primary_color_hex": "#d18dfc"
+          }
+        }
+      ],
+      "coingecko_id": "milkyway-staked-tia"
+    },
+    {
+      "description": "Stride's liquid staked TIA",
+      "denom_units": [
+        {
+          "denom": "ibc/698350B8A61D575025F3ED13E9AC9C0F45C89DEFE92F76D5838F1D3C1A7FF7C9",
+          "exponent": 0,
+          "aliases": [
+            "stutia"
+          ]
+        },
+        {
+          "denom": "stTIA",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/698350B8A61D575025F3ED13E9AC9C0F45C89DEFE92F76D5838F1D3C1A7FF7C9",
+      "name": "Stride Staked TIA",
+      "display": "stTIA",
+      "symbol": "stTIA",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "celestia",
+            "base_denom": "utia"
+          },
+          "provider": "Stride"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "stride",
+            "base_denom": "stutia",
+            "channel_id": "channel-5"
+          },
+          "chain": {
+            "channel_id": "channel-326",
+            "path": "transfer/channel-326/stutia"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/sttia.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/sttia.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "stride",
+            "base_denom": "stutia"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/sttia.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/sttia.svg",
+          "theme": {
+            "primary_color_hex": "#e40474"
+          }
+        }
+      ]
+    }
+  ]
+}

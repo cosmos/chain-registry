@@ -1,0 +1,147 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "milkyway",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://milkyway.zone/",
+  "pretty_name": "MilkyWay",
+  "chain_type": "cosmos",
+  "chain_id": "milkyway",
+  "bech32_prefix": "milk",
+  "daemon_name": "milkywayd",
+  "node_home": "$HOME/.milkywayd",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ibc/16065EE5282C5217685C8F084FC44864C25C706AC37356B0D62811D50B96920F",
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.015,
+        "high_gas_price": 0.02
+      },
+      {
+        "denom": "ibc/6C349F0EB135C5FA99301758F35B87DB88403D690E5E314AB080401FEE4066E5",
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.015,
+        "high_gas_price": 0.02
+      },
+      {
+        "denom": "ibc/698350B8A61D575025F3ED13E9AC9C0F45C89DEFE92F76D5838F1D3C1A7FF7C9",
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.015,
+        "high_gas_price": 0.02
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "umilk"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/milkyway-labs/milkyway",
+    "genesis": {
+      "name": "v2",
+      "genesis_url": "https://github.com/milkyway-labs/networks/raw/main/mainnet/genesis.json"
+    },
+    "recommended_version": "v2.0.2",
+    "compatible_versions": [
+      "v2.0.0",
+      "v2.0.1",
+      "v2.0.2"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.15",
+      "repo": "github.com/cometbft/cometbft",
+      "tag": "v0.38.15"
+    },
+    "binaries": {
+      "linux/amd64": "https://github.com/milkyway-labs/milkyway/releases/download/v2.0.0/milkywayd-2.0.0-linux-amd64"
+    },
+    "language": {
+      "type": "go",
+      "version": "1.23"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/cosmos/cosmos-sdk",
+      "version": "v0.50.10",
+      "tag": "v0.50.10"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.5.2",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "v0.53.0",
+      "repo": "https://github.com/CosmWasm/wasmd",
+      "tag": "v0.53.0",
+      "enabled": true
+    }
+  },
+  "images": [
+    {
+      "image_sync": {
+        "chain_name": "milkyway",
+        "base_denom": "umilk"
+      },
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkyway.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkyway.svg",
+      "theme": {
+        "primary_color_hex": "#760dbb"
+      }
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkyway.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkyway.svg"
+  },
+  "description": "",
+  "peers": {
+    "seeds": [
+    ],
+    "persistent_peers": [
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.mainnet.milkyway.zone/",
+        "provider": "MilkyWay Labs"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lcd.mainnet.milkyway.zone/",
+        "provider": "MilkyWay Labs"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.mainnet.milkyway.zone",
+        "provider": "MilkyWay Labs"
+      }
+    ]
+  },
+  "explorers": [
+  ],
+  "keywords": [
+    "liquid staking",
+    "restaking"
+  ]
+}
