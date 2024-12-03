@@ -1,6 +1,6 @@
 {
   "$schema": "../assetlist.schema.json",
-  "chain_name": "osmosis",
+  "chain_name": "milkyway",
   "assets": [
     {
       "description": "The native token of MilkyWay",
@@ -74,6 +74,18 @@
             "channel_id": "channel-6994",
             "path": "transfer/channel-6994/utia"
           }
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "ibc/D79E7D83AB399BFFF93433E54FAA480C191248FC556924A2A8351AE2638B3877",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/transfer/channel-6994/utia"
+          }
         }
       ],
       "logo_URIs": {
@@ -99,7 +111,10 @@
       "denom_units": [
         {
           "denom": "ibc/16065EE5282C5217685C8F084FC44864C25C706AC37356B0D62811D50B96920F",
-          "exponent": 0
+          "exponent": 0,
+          "aliases": [
+            "umilktia"
+          ]
         },
         {
           "denom": "milkTIA",
@@ -119,16 +134,28 @@
             "base_denom": "utia"
           },
           "provider": "MilkyWay"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "factory/osmo1f5vfcph2dvfeqcqkhetwv75fda69z7e5c2dldm3kvgj23crkv6wqcn47a0/umilkTIA",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/factory/osmo1f5vfcph2dvfeqcqkhetwv75fda69z7e5c2dldm3kvgj23crkv6wqcn47a0/umilkTIA"
+          }
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milktia.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milktia.svg"
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milktia.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milktia.svg",
           "theme": {
             "primary_color_hex": "#d18dfc"
           }
@@ -176,6 +203,18 @@
             "channel_id": "channel-326",
             "path": "transfer/channel-326/stutia"
           }
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "ibc/698350B8A61D575025F3ED13E9AC9C0F45C89DEFE92F76D5838F1D3C1A7FF7C9",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/transfer/channel-326/stutia"
+          }
         }
       ],
       "logo_URIs": {
@@ -192,6 +231,58 @@
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/sttia.svg",
           "theme": {
             "primary_color_hex": "#e40474"
+          }
+        }
+      ]
+    },
+    {
+      "description": "The native token of the Celestia blockchain.",
+      "denom_units": [
+        {
+          "denom": "ibc/F1183DB3D428313A6FD329DF18219F9D6B83257D07D292EA9EC1D877E89EC2B0",
+          "exponent": 0,
+          "aliases": [
+            "utia"
+          ]
+        },
+        {
+          "denom": "tia",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/F1183DB3D428313A6FD329DF18219F9D6B83257D07D292EA9EC1D877E89EC2B0",
+      "name": "Celestia",
+      "display": "tia",
+      "symbol": "TIA",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "celestia",
+            "base_denom": "utia",
+            "channel_id": "channel-2"
+          },
+          "chain": {
+            "channel_id": "channel-2",
+            "path": "transfer/channel-2/utia"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "celestia",
+            "base_denom": "utia"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg",
+          "theme": {
+            "primary_color_hex": "#7c2cfb"
           }
         }
       ]
