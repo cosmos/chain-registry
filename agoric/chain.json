@@ -42,18 +42,19 @@
     "genesis": {
       "genesis_url": "https://main.agoric.net/genesis.json"
     },
-    "recommended_version": "agoric-upgrade-16",
+    "recommended_version": "agoric-upgrade-17",
     "compatible_versions": [
-      "agoric-upgrade-16"
+      "agoric-upgrade-17"
     ],
-    "cosmos_sdk_version": "agoric-labs/cosmos-sdk v0.46.16-alpha.agoric.2.4",
     "consensus": {
       "type": "cometbft",
       "version": "v0.34.30",
       "repo": "https://github.com/agoric-labs/cometbft",
       "tag": "v0.34.30-alpha.agoric.1"
     },
-    "cosmwasm_enabled": false,
+    "cosmwasm": {
+      "enabled": false
+    },
     "language": {
       "type": "go",
       "version": "1.20.2"
@@ -66,13 +67,12 @@
     },
     "ibc": {
       "type": "go",
-      "version": "v7.4.0",
+      "version": "v6.3.1",
+      "repo": "https://github.com/agoric-labs/ibc-go",
+      "tag": "v6.3.1-alpha.agoric.2",
       "ics_enabled": [
         "ics20-1"
       ]
-    },
-    "cosmwasm": {
-      "enabled": false
     }
   },
   "logo_URIs": {
@@ -290,6 +290,12 @@
       "url": "https://agoric.explorers.guru",
       "tx_page": "https://agoric.explorers.guru/transaction/${txHash}",
       "account_page": "https://agoric.explorers.guru/account/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/agoric",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=agoric&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=agoric&addr=${accountAddress}"
     },
     {
       "kind": "atomscan",
