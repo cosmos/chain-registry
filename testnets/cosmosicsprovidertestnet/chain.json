@@ -33,18 +33,18 @@
   },
   "codebase": {
     "git_repo": "https://github.com/cosmos/gaia",
-    "recommended_version": "v21.0.0",
+    "recommended_version": "v21.0.1",
     "compatible_versions": [
-      "v21.0.0"
+      "v21.0.1"
     ],
     "consensus": {
       "type": "cometbft",
       "version": "v0.38.11"
     },
     "binaries": {
-      "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v21.0.0/gaiad-v21.0.0-linux-amd64",
-      "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v21.0.0/gaiad-v21.0.0-darwin-amd64",
-      "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v21.0.0/gaiad-v21.0.0-darwin-arm64"
+      "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v21.0.1/gaiad-v21.0.1-linux-amd64",
+      "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v21.0.1/gaiad-v21.0.1-darwin-amd64",
+      "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v21.0.1/gaiad-v21.0.1-darwin-arm64"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/cosmos/testnets/master/interchain-security/provider/provider-genesis.json"
@@ -63,70 +63,93 @@
     "seeds": [
       {
         "id": "08ec17e86dac67b9da70deb20177655495a55407",
-        "address": "provider-seed-01.rs-testnet.polypore.xyz:26656",
+        "address": "provider-seed-01.ics-testnet.polypore.xyz:26656",
         "provider": "Hypha"
       },
       {
         "id": "4ea6e56300a2f37b90e58de5ee27d1c9065cf871",
-        "address": "provider-seed-02.rs-testnet.polypore.xyz:26656",
+        "address": "provider-seed-02.ics-testnet.polypore.xyz:26656",
         "provider": "Hypha"
+      },
+      {
+        "id": "84871382a3ffa5e781034b6519126f2d5ea29f15",
+        "address": "cosmos-testnet-seed.itrocket.net:21656",
+        "provider": "ITRocket"
       }
     ],
-    "persistent_peers": []
+    "persistent_peers": [
+      {
+        "id": "5359d38055601c523dbbec5c6fd7168d36354c16",
+        "address": "cosmos-testnet-peer.itrocket.net:21656",
+        "provider": "ITRocket"
+      }
+    ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.provider-sentry-01.rs-testnet.polypore.xyz",
+        "address": "https://rpc.provider-sentry-01.ics-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://rpc.provider-sentry-02.rs-testnet.polypore.xyz",
+        "address": "https://rpc.provider-sentry-02.ics-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://rpc.provider-state-sync-01.rs-testnet.polypore.xyz",
+        "address": "https://rpc.provider-state-sync-01.ics-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://rpc.provider-state-sync-02.rs-testnet.polypore.xyz",
+        "address": "https://rpc.provider-state-sync-02.ics-testnet.polypore.xyz",
         "provider": "Hypha"
+      },
+      {
+        "address": "https://cosmos-testnet-rpc.itrocket.net",
+        "provider": "ITRocket"
       }
     ],
     "rest": [
       {
-        "address": "https://rest.provider-sentry-01.rs-testnet.polypore.xyz",
+        "address": "https://rest.provider-sentry-01.ics-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://rest.provider-sentry-02.rs-testnet.polypore.xyz",
+        "address": "https://rest.provider-sentry-02.ics-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://rest.provider-state-sync-01.rs-testnet.polypore.xyz",
+        "address": "https://rest.provider-state-sync-01.ics-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://rest.provider-state-sync-02.rs-testnet.polypore.xyz",
+        "address": "https://rest.provider-state-sync-02.ics-testnet.polypore.xyz",
         "provider": "Hypha"
+      },
+      {
+        "address": "https://cosmos-testnet-api.itrocket.net",
+        "provider": "ITRocket"
       }
     ],
     "grpc": [
       {
-        "address": "https://grpc.provider-sentry-01.rs-testnet.polypore.xyz",
+        "address": "https://grpc.provider-sentry-01.ics-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://grpc.provider-sentry-02.rs-testnet.polypore.xyz",
+        "address": "https://grpc.provider-sentry-02.ics-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://grpc.provider-state-sync-01.rs-testnet.polypore.xyz",
+        "address": "https://grpc.provider-state-sync-01.ics-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://grpc.provider-state-sync-02.rs-testnet.polypore.xyz",
+        "address": "https://grpc.provider-state-sync-02.ics-testnet.polypore.xyz",
         "provider": "Hypha"
+      },
+      {
+        "address": "https://cosmos-testnet-grpc.itrocket.net",
+        "provider": "ITRocket"
       }
     ]
   },
@@ -138,8 +161,17 @@
     },
     {
       "kind": "Ping.pub",
-      "url": "https://explorer.rs-testnet.polypore.xyz/provider",
-      "tx_page": "https://explorer.rs-testnet.polypore.xyz/provider/tx/${txHash}"
+      "url": "https://explorer.polypore.xyz/provider",
+      "tx_page": "https://explorer.polypore.xyz/provider/tx/${txHash}"
+    },
+    {
+      "kind": "ITRocket",
+      "url": "https://testnet.itrocket.net/cosmos",
+      "tx_page": "https://testnet.itrocket.net/cosmos/tx/${txHash}",
+      "account_page": "https://testnet.itrocket.net/cosmos/account/${accountAddress}",
+      "validator_page": "https://testnet.itrocket.net/cosmos/staking/${validatorAddress}",
+      "proposal_page": "https://testnet.itrocket.net/cosmos/gov/${proposalId}",
+      "block_page": "https://testnet.itrocket.net/cosmos/block/${blockHeight}"
     }
   ]
 }
