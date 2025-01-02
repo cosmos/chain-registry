@@ -1,0 +1,17 @@
+syntax = "proto3";
+package opct.opct;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "opct/opct/params.proto";
+
+option go_package = "opct/x/opct/types";
+
+// GenesisState defines the opct module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}
