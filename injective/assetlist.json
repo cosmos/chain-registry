@@ -1302,6 +1302,32 @@
         "twitter": "https://x.com/neptune_finance"
       },
       "type_asset": "sdk.coin"
-    }
+    },
+    {
+      "description": "Bridge Solana on Injective chain via Wormhole gateway IBC channel",
+      "denom_units": [
+        {
+          "denom": "ibc/A8B0B746B5AB736C2D8577259B510D56B8AF598008F68041E3D634BCDE72BE97",
+          "exponent": 0,
+        },
+        {
+          "denom": "sol",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/A8B0B746B5AB736C2D8577259B510D56B8AF598008F68041E3D634BCDE72BE97",
+      "name": "Solana",
+      "display": "SOL",
+      "symbol": "SOL",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "solana",
+            "base_denom": "sol"
+          },
+          "provider": "Wormhole"
+        },
   ]
 }
