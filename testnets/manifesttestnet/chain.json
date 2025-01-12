@@ -5,7 +5,7 @@
   "network_type": "testnet",
   "website": "https://liftedinit.org/",
   "pretty_name": "Manifest Testnet",
-  "chain_id": "manifest-ledger-beta",
+  "chain_id": "manifest-ledger-testnet",
   "chain_type": "cosmos",
   "bech32_prefix": "manifest",
   "daemon_name": "manifest",
@@ -31,59 +31,42 @@
   },
   "codebase": {
     "git_repo": "https://github.com/liftedinit/manifest-ledger",
-    "recommended_version": "v0.0.1-alpha.12",
+    "recommended_version": "v0.0.1-rc.1",
     "compatible_versions": [
-      "v0.0.1-alpha.12"
+      "v0.0.1-rc.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/liftedinit/manifest-ledger/releases/download/v0.0.1-alpha.12/manifest-ledger_0.0.1-alpha.12_linux_amd64.tar.gz"
+      "linux/amd64": "https://github.com/liftedinit/manifest-ledger/releases/download/v0.0.1-rc.1/manifest-ledger-v0.0.1-rc.1-linux-amd64.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://github.com/liftedinit/manifest-ledger/blob/main/network/manifest-1/manifest-1_genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v0.0.1-alpha.12",
-        "recommended_version": "v0.0.1-alpha.12",
-        "compatible_versions": [
-          "v0.0.1-alpha.12"
-        ]
-      }
-    ]
+    }
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://nodes.chandrastation.com/rpc/manifest/",
-        "provider": "Chandra Station"
-      },
-      {
-        "address": "https://manifest-beta-rpc.liftedinit.tech/",
-        "provider": "Lifted Initiative"
+        "address": "https://nodes.liftedinit.tech/manifest/testnet/rpc",
+        "provider": "The Lifted Initiative"
       }
     ],
     "rest": [
       {
-        "address": "https://nodes.chandrastation.com/api/manifest/",
-        "provider": "Chandra Station"
-      },
-      {
-        "address": "https://manifest-beta-rest.liftedinit.tech/",
-        "provider": "Lifted Initiative"
+        "address": "https://nodes.liftedinit.tech/manifest/testnet/api",
+        "provider": "The Lifted Initiative"
       }
     ],
     "grpc": [
       {
-        "address": "https://manifest-beta-grpc.liftedinit.tech/",
-        "provider": "Lifted Initiative"
+        "address": "https://manifest-testnet-grpc.liftedinit.tech",
+        "provider": "The Lifted Initiative"
       }
     ]
   },
   "explorers": [
     {
       "kind": "Default Explorer",
-      "url": "https://manifest-explorer.vercel.app/",
-      "tx_page": "https://manifest-explorer.vercel.app/manifest/tx"
+      "url": "https://testnet.manifest.explorers.guru/",
+      "tx_page": "https://testnet.manifest.explorers.guru/transactions"
     }
   ]
 }

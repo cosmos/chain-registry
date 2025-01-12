@@ -10098,9 +10098,9 @@
       ],
       "type_asset": "ics20",
       "base": "ibc/18FB5C09D9D2371F659D4846A956FA56225E377EE3C3652A2BF3542BF809159D",
-      "name": "Filecoin",
+      "name": "Filecoin (Axelar)",
       "display": "fil",
-      "symbol": "FIL",
+      "symbol": "FIL.axl",
       "traces": [
         {
           "type": "wrapped",
@@ -10132,8 +10132,8 @@
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/filecoin/images/fil.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/filecoin/images/fil.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/fil.axl.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/fil.axl.svg"
       },
       "images": [
         {
@@ -10141,8 +10141,8 @@
             "chain_name": "filecoin",
             "base_denom": "attoFIL"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/filecoin/images/fil.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/filecoin/images/fil.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/fil.axl.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/fil.axl.svg",
           "theme": {
             "primary_color_hex": "#0493fc"
           }
@@ -17027,6 +17027,53 @@
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/xrpl/images/xrp.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/xrpl/images/xrp.svg",
+          "theme": {
+            "primary_color_hex": "#040404"
+          }
+        }
+      ]
+    },
+    {
+      "description": "An alloy of XRP asset variants on Osmosis.",
+      "extended_description": "Multiple Ripple variants on Osmosis comprise the liquidity backing of a tokenized transmuter pool to create an alloy of XRP.",
+      "denom_units": [
+        {
+          "denom": "factory/osmo1qnglc04tmhg32uc4kxlxh55a5cmhj88cpa3rmtly484xqu82t79sfv94w0/alloyed/allXRP",
+          "exponent": 0
+        },
+        {
+          "denom": "allXRP",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo1qnglc04tmhg32uc4kxlxh55a5cmhj88cpa3rmtly484xqu82t79sfv94w0",
+      "base": "factory/osmo1qnglc04tmhg32uc4kxlxh55a5cmhj88cpa3rmtly484xqu82t79sfv94w0/alloyed/allXRP",
+      "name": "Ripple",
+      "display": "allXRP",
+      "symbol": "XRP",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "xrpl",
+            "base_denom": "drop"
+          },
+          "provider": "Osmosis"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/xrpl/images/xrp.svg",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/xrpl/images/xrp.png"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "xrpl",
+            "base_denom": "drop"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/xrpl/images/xrp.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/xrpl/images/xrp.png",
           "theme": {
             "primary_color_hex": "#040404"
           }
@@ -24526,6 +24573,69 @@
       ]
     },
     {
+      "description": "TON on Int3face",
+      "denom_units": [
+        {
+          "denom": "ibc/DDE1238DCBC338C0FD0700A72CBD64C017B7A646C4A46789ADFB5D47F1E52E38",
+          "exponent": 0,
+          "aliases": [
+            "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/ton-ton"
+          ]
+        },
+        {
+          "denom": "ton",
+          "exponent": 9
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/DDE1238DCBC338C0FD0700A72CBD64C017B7A646C4A46789ADFB5D47F1E52E38",
+      "name": "TON (Int3)",
+      "display": "ton",
+      "symbol": "TON.int3",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ton",
+            "base_denom": "nanoton"
+          },
+          "provider": "Int3face"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "int3face",
+            "base_denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/ton-ton",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "channel-82819",
+            "path": "transfer/channel-82819/factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/ton-ton"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ton.int3.svg",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ton.int3.png"
+      },
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ton.int3.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ton.int3.png"
+        },
+        {
+          "image_sync": {
+            "chain_name": "int3face",
+            "base_denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/ton-ton"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/int3ton.png",
+          "theme": {
+            "primary_color_hex": "#3d3d3d"
+          }
+        }
+      ]
+    },
+    {
       "description": "Tether's USD stablecoin from Arbitrum on Axelar",
       "denom_units": [
         {
@@ -25343,6 +25453,7 @@
           }
         }
       ],
+      "coingecko_id": "spice-2",
       "keywords": [
         "meme"
       ],
@@ -26139,6 +26250,320 @@
       "name": "Earn CDT Vault",
       "display": "earnCDT",
       "symbol": "earnCDT"
+    },
+    {
+      "description": "The Sherpa memecoin",
+      "denom_units": [
+        {
+          "denom": "factory/osmo1n6asrjy9754q8y9jsxqf557zmsv3s3xa5m9eg5/usherpa",
+          "exponent": 0
+        },
+        {
+          "denom": "Sherpa",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "factory/osmo1n6asrjy9754q8y9jsxqf557zmsv3s3xa5m9eg5/usherpa",
+      "name": "Sherpa",
+      "display": "Sherpa",
+      "symbol": "SHERPA",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/sherpa.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/sherpa.png",
+          "theme": {
+            "primary_color_hex": "#fe9cdf"
+          }
+        }
+      ],
+      "keywords": [
+        "meme"
+      ]
+    },
+    {
+      "description": "An alloy of FIL asset variants on Osmosis.",
+      "extended_description": "Multiple Filecoin variants on Osmosis comprise the liquidity backing of a tokenized transmuter pool to create an alloy of FIL.",
+      "denom_units": [
+        {
+          "denom": "factory/osmo1ss0n3ghv5rr4z4y54fnkprc69tegmdm3ejlkgr2z4utnyg7eljgs9pztvs/alloyed/allFIL",
+          "exponent": 0
+        },
+        {
+          "denom": "allFIL",
+          "exponent": 12
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo1ss0n3ghv5rr4z4y54fnkprc69tegmdm3ejlkgr2z4utnyg7eljgs9pztvs",
+      "base": "factory/osmo1ss0n3ghv5rr4z4y54fnkprc69tegmdm3ejlkgr2z4utnyg7eljgs9pztvs/alloyed/allFIL",
+      "name": "Filecoin",
+      "display": "allFIL",
+      "symbol": "FIL",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "filecoin",
+            "base_denom": "attoFIL"
+          },
+          "provider": "Osmosis"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/filecoin/images/fil.svg",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/filecoin/images/fil.png"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "filecoin",
+            "base_denom": "attoFIL"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/filecoin/images/fil.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/filecoin/images/fil.png",
+          "theme": {
+            "primary_color_hex": "#0493fc"
+          }
+        },
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/allFIL.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/allFIL.png"
+        }
+      ]
+    },
+    {
+      "description": "Internet Computer bridged via Omnity Network.",
+      "denom_units": [
+        {
+          "denom": "factory/osmo10c4y9csfs8q7mtvfg4p9gd8d0acx0hpc2mte9xqzthd7rd3348tsfhaesm/sICP-native-ICP",
+          "exponent": 0,
+          "aliases": [
+            "e8s"
+          ]
+        },
+        {
+          "denom": "icp",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo10c4y9csfs8q7mtvfg4p9gd8d0acx0hpc2mte9xqzthd7rd3348tsfhaesm",
+      "base": "factory/osmo10c4y9csfs8q7mtvfg4p9gd8d0acx0hpc2mte9xqzthd7rd3348tsfhaesm/sICP-native-ICP",
+      "name": "Internet Computer",
+      "display": "icp",
+      "symbol": "ICP",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "internetcomputer",
+            "base_denom": "e8s"
+          },
+          "provider": "Omnity Network"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/internetcomputer/images/icp.svg",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/internetcomputer/images/icp.png"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "internetcomputer",
+            "base_denom": "e8s"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/internetcomputer/images/icp.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/internetcomputer/images/icp.png"
+        }
+      ]
+    },
+    {
+      "description": "Aaron Network is an innovative platform for secure and private messaging, integrated into the blockchain ecosystem. We also offer a unique address reputation scoring system, ensuring that every user can interact with others confidently.",
+      "denom_units": [
+        {
+          "denom": "ibc/D28B585D6B67E2F1479BBA3E949C687289C94D33FFA0720E3A8CB0B244AD8BC6",
+          "exponent": 0,
+          "aliases": [
+            "uaaron"
+          ]
+        },
+        {
+          "denom": "AARON",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/D28B585D6B67E2F1479BBA3E949C687289C94D33FFA0720E3A8CB0B244AD8BC6",
+      "name": "Aaron Network",
+      "display": "AARON",
+      "symbol": "AARON",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "aaronetwork",
+            "base_denom": "uaaron",
+            "channel_id": "channel-7"
+          },
+          "chain": {
+            "channel_id": "channel-91942",
+            "path": "transfer/channel-91942/uaaron"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/aaronetwork/images/aaron.png"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "aaronetwork",
+            "base_denom": "uaaron"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/aaronetwork/images/aaron.png",
+          "theme": {
+            "circle": false
+          }
+        }
+      ]
+    },
+    {
+      "description": "Chihuahua coin",
+      "denom_units": [
+        {
+          "denom": "ibc/794CF0A448ECA518B9FEAB3356BD283E8762460F8FE87A013E6F9DBA6C53601C",
+          "exponent": 0,
+          "aliases": [
+            "factory/chihuahua1mzcfzh4ufk2cta59pm9a6wdyvv8c4v5epqzj46/Chihuahua"
+          ]
+        },
+        {
+          "denom": "Chihuahua",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/794CF0A448ECA518B9FEAB3356BD283E8762460F8FE87A013E6F9DBA6C53601C",
+      "name": "Chihuahua",
+      "display": "Chihuahua",
+      "symbol": "CHIHUAHUA",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "chihuahua",
+            "base_denom": "factory/chihuahua1mzcfzh4ufk2cta59pm9a6wdyvv8c4v5epqzj46/Chihuahua",
+            "channel_id": "channel-7"
+          },
+          "chain": {
+            "channel_id": "channel-113",
+            "path": "transfer/channel-113/factory/chihuahua1mzcfzh4ufk2cta59pm9a6wdyvv8c4v5epqzj46/Chihuahua"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/chihuahua/images/chihuahua.png"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "chihuahua",
+            "base_denom": "factory/chihuahua1mzcfzh4ufk2cta59pm9a6wdyvv8c4v5epqzj46/Chihuahua"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/chihuahua/images/chihuahua.png",
+          "theme": {
+            "primary_color_hex": "#444444",
+            "background_color_hex": "#FFBF38",
+            "circle": true
+          }
+        }
+      ]
+    },
+    {
+      "description": "ashION - Burned ION",
+      "extended_description": "ashION - receipt token recieved when burning ION via ASH DAOs Furnace",
+      "denom_units": [
+        {
+          "denom": "factory/osmo1svj5kd8kzj7xxtrd6ftjk0856ffpyj4egz7f9pd9dge5wr4kwansmefq07/ion.ash",
+          "exponent": 0
+        },
+        {
+          "denom": "ashION",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo1svj5kd8kzj7xxtrd6ftjk0856ffpyj4egz7f9pd9dge5wr4kwansmefq07",
+      "base": "factory/osmo1svj5kd8kzj7xxtrd6ftjk0856ffpyj4egz7f9pd9dge5wr4kwansmefq07/ion.ash",
+      "name": "Burned ION",
+      "display": "ashION",
+      "symbol": "ashION",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ashion.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ashion.png",
+          "theme": {
+            "primary_color_hex": "#ebb093"
+          }
+        }
+      ]
+    },
+    {
+      "description": "WLF coin",
+      "denom_units": [
+        {
+          "denom": "ibc/3D00ACF371FC6B7BC871399B1909DDE18749FA19DE6B7A4F74E1D96BC073B3BC",
+          "exponent": 0,
+          "aliases": [
+            "factory/chihuahua1mzcfzh4ufk2cta59pm9a6wdyvv8c4v5epqzj46/wirelibertyfence"
+          ]
+        },
+        {
+          "denom": "wirelibertyfence",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/3D00ACF371FC6B7BC871399B1909DDE18749FA19DE6B7A4F74E1D96BC073B3BC",
+      "name": "wirelibertyfence",
+      "display": "wirelibertyfence",
+      "symbol": "WLF",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "chihuahua",
+            "base_denom": "factory/chihuahua1mzcfzh4ufk2cta59pm9a6wdyvv8c4v5epqzj46/wirelibertyfence",
+            "channel_id": "channel-7"
+          },
+          "chain": {
+            "channel_id": "channel-113",
+            "path": "transfer/channel-113/factory/chihuahua1mzcfzh4ufk2cta59pm9a6wdyvv8c4v5epqzj46/wirelibertyfence"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/chihuahua/images/wirelibertyfence.png"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "chihuahua",
+            "base_denom": "factory/chihuahua1mzcfzh4ufk2cta59pm9a6wdyvv8c4v5epqzj46/wirelibertyfence"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/chihuahua/images/wirelibertyfence.png",
+          "theme": {
+            "primary_color_hex": "#BD963D",
+            "background_color_hex": "#6C165E",
+            "circle": true
+          }
+        }
+      ]
     }
   ]
 }

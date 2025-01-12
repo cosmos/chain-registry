@@ -107,7 +107,9 @@ A sample `chain.json` includes the following information.
     },
     "consensus": {
       "type": "cometbft",
-      "version": "osmosis-labs/cometbft v0.37.4-v25-osmo-2"
+      "version": "0.37.4",
+      "repo": "https::github.com/osmosis-labs/cometbft",
+      "tag": "v0.37.4-v25-osmo-2"
     },
     "language": {
       "type": "go",
@@ -132,58 +134,6 @@ A sample `chain.json` includes the following information.
       "tag": "v0.45.0-osmo",
       "enabled": true
     }
-    "versions": [
-      {
-        "name": "v3",
-        "tag": "v3.1.0",
-        "height": 0,
-        "next_version_name": "v4"
-      },
-      ...//version history can alternatively go into 'versions.json'
-      {
-        "name": "v25",
-        "tag": "v25.0.0",
-        "proposal": 782,
-        "height": 15753500,
-        "recommended_version": "v25.0.0",
-        "compatible_versions": [
-          "v25.0.0"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-amd64",
-          "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-arm64"
-        },
-        "previous_version_name": "v24",
-        "next_version_name": "v26",
-        "consensus": {
-          "type": "cometbft",
-          "version": "osmosis-labs/cometbft v0.37.4-v25-osmo-2"
-        },
-        "cosmwasm": {
-          "version": "v0.45.0",
-          "repo": "https://github.com/osmosis-labs/wasmd",
-          "tag": "v0.45.0-osmo",
-          "enabled": true
-        },
-        "sdk": {
-          "type": "cosmos",
-          "version": "v0.47.5",
-          "repo": "https://github.com/osmosis-labs/cosmos-sdk",
-          "tag": "v0.47.5-v25-osmo-1"
-        },
-        "ibc": {
-          "type": "go",
-          "version": "v7.4.0",
-          "ics_enabled": [
-            "ics20-1"
-          ]
-        },
-        "language": {
-          "type": "go",
-          "version": "1.21.4"
-        }
-      }
-    ]
   },
   "images": [
     {
@@ -410,6 +360,73 @@ An example ibc metadata file contains the following structure:
   ]
 }
 ```
+
+
+## Versions
+
+The metadata contained in these files represents a path abstraction between two IBC-connected networks. This information is particularly useful when relaying packets and acknowledgments across chains.
+
+An example ibc metadata file contains the following structure:
+
+```json
+{
+  "$schema": "../ibc_data.schema.json",
+  "chain_name": "osmosis",
+  "versions": [
+    {
+      "name": "v3",
+      "tag": "v3.1.0",
+      "height": 0,
+      "next_version_name": "v4"
+    },
+    ...//entire version history, an object for each major version
+    {
+      "name": "v25",
+      "tag": "v25.0.0",
+      "proposal": 782,
+      "height": 15753500,
+      "recommended_version": "v25.0.0",
+      "compatible_versions": [
+        "v25.0.0"
+      ],
+      "binaries": {
+        "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-amd64",
+        "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-arm64"
+      },
+      "previous_version_name": "v24",
+      "next_version_name": "v26",
+      "consensus": {
+        "type": "cometbft",
+        "version": "0.37.4",
+        "repo": "https::github.com/osmosis-labs/cometbft",
+        "tag": "v0.37.4-v25-osmo-2"
+      },
+      "cosmwasm": {
+        "version": "0.45.0",
+        "repo": "https://github.com/osmosis-labs/wasmd",
+        "tag": "v0.45.0-osmo",
+        "enabled": true
+      },
+      "sdk": {
+        "type": "cosmos",
+        "version": "0.47.5",
+        "repo": "https://github.com/osmosis-labs/cosmos-sdk",
+        "tag": "v0.47.5-v25-osmo-1"
+      },
+      "ibc": {
+        "type": "go",
+        "version": "7.4.0",
+        "ics_enabled": [
+          "ics20-1"
+        ]
+      },
+      "language": {
+        "type": "go",
+        "version": "1.21.4"
+      }
+    }
+  ]
+}
 
 ---
 
