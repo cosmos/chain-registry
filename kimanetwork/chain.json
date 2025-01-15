@@ -8,8 +8,8 @@
   "chain_type": "cosmos",
   "chain_id": "kima_network",
   "bech32_prefix": "kima",
-  "daemon_name": "uKIMA",
-  "node_home": "$HOME/.kimad",
+  "daemon_name": "kimad",
+  "node_home": "$HOME/.kima",
   "key_algos": [
     "secp256k1"
   ],
@@ -30,7 +30,10 @@
       {
         "denom": "uKIMA"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/kima-finance/kima-blockchain",
@@ -39,19 +42,29 @@
     "genesis": {
       "genesis_url": "https://archive.kima.network/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.4.5",
-        "recommended_version": "v0.4.5",
-        "compatible_versions": ["v0.4.5"],
-        "sdk": {
-          "type": "cosmos",
-          "repo": "https://github.com/cosmos/cosmos-sdk",
-          "version": "v0.47.4",
-          "tag": "v0.47.4"
-        }
-      }
-    ]
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.37.2",
+      "repo": "https::github.com/cometbft/cometbft",
+      "tag": "v0.37.2"
+    },
+    "language": {
+      "type": "go",
+      "version": "1.21.6"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/cosmos/cosmos-sdk",
+      "version": "v0.47.4",
+      "tag": "v0.47.4"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.3.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    }
   },
   "images": [
     {
