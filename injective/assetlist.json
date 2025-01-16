@@ -1325,7 +1325,7 @@
       "type_asset": "sdk.coin"
     },
     {
-      "description": "USDi token on Injective",
+      "description": "USDi token from Ethereum via Peggy bridge.",
       "denom_units": [
         {
           "denom": "cw20:peggy0x83E7D0451da91Ac509cd7F545Fb4AA04D4dD3BA8",
@@ -1336,18 +1336,27 @@
           "exponent": 18
         }
       ],
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "peggy0x83E7D0451da91Ac509cd7F545Fb4AA04D4dD3BA8"
+          },
+          "provider": "Peggy"
+        }
+      ],
       "type_asset": "cw20",
-      "address": "peggy0x83E7D0451da91Ac509cd7F545Fb4AA04D4dD3BA8",
-      "base": "cw20:peggy0x83E7D0451da91Ac509cd7F545Fb4AA04D4dD3BA8",
+      "base": "peggy0x83E7D0451da91Ac509cd7F545Fb4AA04D4dD3BA8",
       "name": "USDi",
       "display": "USDi",
       "symbol": "USDi",
       "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/usdi.svg"
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdi.svg"
       },
       "images": [
         {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/usdi.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdi.svg"
         }
       ]
     }
