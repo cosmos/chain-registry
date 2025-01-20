@@ -222,18 +222,6 @@ function checkImageSyncIsValid(chain_name, asset) {
 
 }
 
-//delete this function once the replacement versions function is completed.
-function checkVersionsFileAndVersionsArray(chain_name) {
-
-  const versionsFile = chain_reg.getFileProperty(chain_name, "versions", "versions");
-  const versionsArray = chain_reg.getFileProperty(chain_name, "chain", "codebase")?.versions;
-
-  if (versionsFile && versionsArray) {
-    throw new Error(`Invalid versions array detected in chain.json for ${chain_name}. versions.json already used.`);
-  }
-
-}
-
 function compare_CodebaseVersionData_to_VersionsFile(chain_name) {
 
   const codebase = chain_reg.getFileProperty(chain_name, "chain", "codebase");
@@ -451,9 +439,7 @@ export function validate_chain_files() {
     //check if all staking tokens are registered
     checkStakingTokensAreRegistered(chain_name);
 
-    //check that versions[] cannot be defined in chain.json when versions.json exists
-    //checkVersionsFileAndVersionsArray(chain_name);
-    //ensure that and version properties in code are also defined in the versions file.
+    //ensure that and version properties in codebase are also defined in the versions file.
     compare_CodebaseVersionData_to_VersionsFile(chain_name);
 
     //get chain's assets
