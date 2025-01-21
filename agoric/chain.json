@@ -42,21 +42,38 @@
     "genesis": {
       "genesis_url": "https://main.agoric.net/genesis.json"
     },
-    "recommended_version": "agoric-upgrade-16",
+    "recommended_version": "agoric-upgrade-18",
     "compatible_versions": [
-      "agoric-upgrade-16"
+      "agoric-upgrade-18"
     ],
-    "cosmos_sdk_version": "agoric-labs/cosmos-sdk v0.46.16-alpha.agoric.2.4",
     "consensus": {
       "type": "cometbft",
-      "version": "agoric-labs/cometbft v0.34.30-alpha.agoric.1"
+      "version": "v0.34.30",
+      "repo": "https://github.com/agoric-labs/cometbft",
+      "tag": "v0.34.30-alpha.agoric.2"
     },
-    "cosmwasm_enabled": false,
-    "ibc_go_version": "v7.4.0",
-    "ics_enabled": [
-      "ics20-1"
-    ],
-    "go_version": "1.20.2"
+    "cosmwasm": {
+      "enabled": false
+    },
+    "language": {
+      "type": "go",
+      "version": "1.20.2"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/agoric-labs/cosmos-sdk",
+      "version": "v0.46.16",
+      "tag": "v0.46.16-alpha.agoric.2.5"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v6.3.1",
+      "repo": "https://github.com/agoric-labs/ibc-go",
+      "tag": "v6.3.1-alpha.agoric.2",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.png",
@@ -123,7 +140,7 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://rpc.agoric.nodestake.top",
+        "address": "https://rpc.agoric.nodestake.org",
         "provider": "NodeStake"
       },
       {
@@ -172,7 +189,7 @@
         "address": "https://main.api.agoric.net:443"
       },
       {
-        "address": "https://api.agoric.nodestake.top",
+        "address": "https://api.agoric.nodestake.org",
         "provider": "NodeStake"
       },
       {
@@ -222,7 +239,7 @@
     ],
     "grpc": [
       {
-        "address": "grpc.agoric.nodestake.top:443",
+        "address": "grpc.agoric.nodestake.org:443",
         "provider": "NodeStake"
       },
       {
@@ -273,6 +290,12 @@
       "url": "https://agoric.explorers.guru",
       "tx_page": "https://agoric.explorers.guru/transaction/${txHash}",
       "account_page": "https://agoric.explorers.guru/account/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/agoric",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=agoric&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=agoric&addr=${accountAddress}"
     },
     {
       "kind": "atomscan",

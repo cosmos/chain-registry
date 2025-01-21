@@ -1,11 +1,12 @@
 {
   "$schema": "../../chain.schema.json",
   "chain_name": "xiontestnet",
+  "chain_id": "xion-testnet-1",
+  "pretty_name": "Xion Testnet",
+  "website": "https://burnt.com",
   "status": "live",
   "network_type": "testnet",
-  "pretty_name": "Xion Testnet",
   "chain_type": "cosmos",
-  "chain_id": "xion-testnet-1",
   "bech32_prefix": "xion",
   "daemon_name": "xiond",
   "node_home": "$HOME/.xiond",
@@ -17,10 +18,10 @@
     "fee_tokens": [
       {
         "denom": "uxion",
-        "fixed_min_gas_price": 0,
-        "low_gas_price": 0,
-        "average_gas_price": 0.025,
-        "high_gas_price": 0.04
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.001,
+        "average_gas_price": 0.001,
+        "high_gas_price": 0.01
       }
     ]
   },
@@ -33,179 +34,125 @@
   },
   "codebase": {
     "git_repo": "https://github.com/burnt-labs/xion",
-    "recommended_version": "v0.3.9",
-    "compatible_versions": [
-      "v0.3.9"
-    ],
-    "cosmos_sdk_version": "0.47.10",
-    "consensus": {
-      "type": "cometbft",
-      "version": "0.37.4"
-    },
-    "cosmwasm_version": "0.45.1",
-    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/burnt-labs/burnt-networks/main/testnets/xion-testnet-1/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v0.1.0",
-        "tag": "v0.1.0",
-        "height": 0,
-        "recommended_version": "v0.1.0",
-        "cosmos_sdk_version": "0.47.0",
-        "cosmwasm_enabled": true,
-        "cosmwasm_version": "0.40.0-rc.0",
-        "ibc_go_version": "v7.0.0",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.0"
-        }
-      },
-      {
-        "name": "v0.3.2",
-        "tag": "v0.3.2",
-        "height": 1929544,
-        "recommended_version": "v0.3.2",
-        "cosmos_sdk_version": "0.47.3",
-        "cosmwasm_enabled": true,
-        "cosmwasm_version": "0.40.1",
-        "ibc_go_version": "v7.2.0",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        }
-      },
-      {
-        "name": "v0.3.3",
-        "tag": "v0.3.3",
-        "height": 2147030,
-        "recommended_version": "v0.3.3",
-        "cosmos_sdk_version": "0.47.3",
-        "cosmwasm_enabled": true,
-        "cosmwasm_version": "0.40.1",
-        "ibc_go_version": "v7.2.0",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        }
-      },
-      {
-        "name": "v0.3.4",
-        "tag": "v0.3.4",
-        "height": 3278095,
-        "recommended_version": "v0.3.4",
-        "cosmos_sdk_version": "0.47.5",
-        "cosmwasm_enabled": true,
-        "cosmwasm_version": "0.43.0",
-        "ibc_go_version": "v7.3.0",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        }
-      },
-      {
-        "name": "v0.3.7",
-        "tag": "v0.3.7",
-        "height": 6887750,
-        "recommended_version": "v0.3.7",
-        "cosmos_sdk_version": "0.47.10",
-        "cosmwasm_enabled": true,
-        "cosmwasm_version": "0.45.0",
-        "ibc_go_version": "v7.3.1",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.4"
-        }
-      },
-      {
-        "name": "v0.3.8",
-        "tag": "v0.3.8",
-        "height": 7130100,
-        "recommended_version": "v0.3.8",
-        "cosmos_sdk_version": "0.47.10",
-        "cosmwasm_enabled": true,
-        "cosmwasm_version": "0.45.0",
-        "ibc_go_version": "v7.3.1",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.4"
-        }
-      },
-      {
-        "name": "v0.3.9",
-        "tag": "v0.3.9",
-        "height": 7438800,
-        "recommended_version": "v0.3.9",
-        "cosmos_sdk_version": "0.47.10",
-        "cosmwasm_enabled": true,
-        "cosmwasm_version": "0.45.1",
-        "ibc_go_version": "v7.4.0",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.4"
-        }
-      }
-    ]
+    }
   },
   "peers": {
     "seeds": [
       {
-        "id": "7900d5f177228def24170f9631db76afab20278e",
+        "id": "eb029462c82b46d842a47122d860617bff627fdf",
         "address": "xion-testnet-1.burnt.com:11656",
-        "provider": "burnt-labs"
+        "provider": "🔥BurntLabs🔥"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "testnet-seeds.polkachu.com:22356",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "69e1aa5800ffa82615986eac5f99b77c2b8f1ccb",
+        "address": "burnt-testnet-seed.itrocket.net:55656",
+        "provider": "ITRocket"
       }
     ],
     "persistent_peers": [
       {
-        "id": "93db3539d6cc9603bbb6b9e43bfb473bdaff7e4b",
+        "id": "6bb70718db6af0a473c9d76e82d9ade33618b20d",
         "address": "xion-testnet-1.burnt.com:32656",
-        "provider": "burnt-labs"
+        "provider": "🔥BurntLabs🔥"
       },
       {
         "id": "0f2ccb6d7e8f233c03f91dee690f5ff714319fba",
         "address": "xion-testnet-1.burnt.com:33656",
-        "provider": "burnt-labs"
+        "provider": "🔥BurntLabs🔥"
       },
       {
         "id": "f684e3873191d62a74e5431202581d99fe3439b7",
         "address": "xion-testnet-1.burnt.com:34656",
-        "provider": "burnt-labs"
+        "provider": "🔥BurntLabs🔥"
+      },
+      {
+        "id": "a386af218bd4e5d0a5f2dcfbcc1051eff63d059f",
+        "address": "burnt-testnet-peer.itrocket.net:55656",
+        "provider": "ITRocket"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
+        "address": "https://rpc.xion-testnet-1.burnt.com",
+        "provider": "🔥BurntLabs🔥"
+      },
+      {
         "address": "https://testnet-burnt-rpc.lavenderfive.com",
-        "provider": "Lavender.Five Nodes 🐝"
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://xion-testnet-rpc.polkachu.com",
-        "provider": "polkachu"
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://burnt-testnet-rpc.itrocket.net",
+        "provider": "ITRocket"
       }
     ],
     "rest": [
       {
+        "address": "https://api.xion-testnet-1.burnt.com",
+        "provider": "🔥BurntLabs🔥"
+      },
+      {
         "address": "https://testnet-burnt-api.lavenderfive.com",
-        "provider": "Lavender.Five Nodes 🐝"
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://xion-testnet-api.polkachu.com",
-        "provider": "polkachu"
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://burnt-testnet-api.itrocket.net",
+        "provider": "ITRocket"
       }
     ],
     "grpc": [
       {
-        "address": "https://testnet-burnt-grpc.lavenderfive.com",
+        "address": "grpc.xion-testnet-1.burnt.com:443",
+        "provider": "🔥BurntLabs🔥"
+      },
+      {
+        "address": "testnet-burnt-grpc.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "xion-testnet-grpc.polkachu.com:22390",
-        "provider": "polkachu"
+        "provider": "Polkachu"
+      },
+      {
+        "address": "burnt-testnet-grpc.itrocket.net:443",
+        "provider": "ITRocket"
       }
     ]
   },
+  "explorers": [
+    {
+      "url": "https://explorer.burnt.com/xion-testnet-1",
+      "tx_page": "https://explorer.burnt.com/xion-testnet-1/tx/${txHash}",
+      "account_page": "https://explorer.burnt.com/xion-testnet-1/account/${accountAddress}"
+    },
+    {
+      "kind": "ITRocket",
+      "url": "https://testnet.itrocket.net/burnt",
+      "tx_page": "https://testnet.itrocket.net/burnt/tx/${txHash}",
+      "account_page": "https://testnet.itrocket.net/burnt/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xion/images/burnt.png"
+    }
+  ],
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xion/images/burnt.png"
   },
@@ -213,10 +160,5 @@
     "xion",
     "burnt",
     "testnet"
-  ],
-  "images": [
-    {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xion/images/burnt.png"
-    }
   ]
 }
