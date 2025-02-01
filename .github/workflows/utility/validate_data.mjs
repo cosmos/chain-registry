@@ -20,6 +20,42 @@ const chainRegistryRoot = "../../..";
 const chainIdMap = new Map();
 let base_denoms = [];
 
+const deepEqual = (a, b) => {
+  if (a === b) return true; // Primitive values or reference equality
+  if (typeof a !== typeof b || a === null || b === null) return false; // Mismatched types
+  if (typeof a === "object") {
+    const keysA = Object.keys(a);
+    const keysB = Object.keys(b);
+    if (keysA.length !== keysB.length) return false; // Different number of keys
+    return keysA.every(key => deepEqual(a[key], b[key])); // Recursive comparison
+  }
+  return false; // Fallback for unhandled cases
+};
+
+function deepEqualWithLoggingOneWay(obj1, obj2, path = '', mismatches = []) {
+  if (typeof obj1 === 'object' && typeof obj2 === 'object' && obj1 !== null && obj2 !== null) {
+    for (const key in obj1) {
+      const newPath = path ? `${path}.${key}` : key;
+
+      if (!(key in obj2)) {
+        mismatches.push({ path: newPath, reason: 'Missing in currentVersion', value1: obj1[key] });
+      } else {
+        deepEqualWithLoggingOneWay(obj1[key], obj2[key], newPath, mismatches);
+      }
+    }
+  } else if (obj1 !== obj2) {
+    mismatches.push({
+      path,
+      reason: 'Value mismatch',
+      value1: obj1,
+      value2: obj2,
+    });
+  }
+
+  return mismatches;
+}
+
+
 
 function checkChainIdConflict(chain_name) {
 
@@ -186,14 +222,40 @@ function checkImageSyncIsValid(chain_name, asset) {
 
 }
 
+function compare_CodebaseVersionData_to_VersionsFile(chain_name) {
 
-function checkVersionsFileAndVersionsArray(chain_name) {
+  const codebase = chain_reg.getFileProperty(chain_name, "chain", "codebase");
+  if (!codebase) { return; }
+  const codebaseVersionKeys = new Set([
+    "recommended_version",
+    "compatible_versions",
+    "tag",
+    "language",
+    "binaries",
+    "sdk",
+    "consensus",
+    "cosmwasm",
+    "ibc"
+  ]);
+  const filteredCodebase = Object.fromEntries(
+    Object.entries(codebase).filter(([key]) => codebaseVersionKeys.has(key))
+  );
 
-  const versionsFile = chain_reg.getFileProperty(chain_name, "versions", "versions");
-  const versionsArray = chain_reg.getFileProperty(chain_name, "chain", "codebase")?.versions;
+  const versionsArray = chain_reg.getFileProperty(chain_name, "versions", "versions");
+  let currentVersion = versionsArray?.find(
+    (version) => version.recommended_version === codebase?.recommended_version
+  ) || {};
 
-  if (versionsFile && versionsArray) {
-    throw new Error(`Invalid versions array detected in chain.json for ${chain_name}. versions.json already used.`);
+  const mismatches = deepEqualWithLoggingOneWay(filteredCodebase, currentVersion);
+
+  if (mismatches.length > 0) {
+    console.log('Found mismatches:');
+    mismatches.forEach((mismatch) =>
+      console.log(
+        `Path: ${mismatch.path}, Reason: ${mismatch.reason}, In "codebase": ${mismatch.value1}, In currentVersion: ${mismatch.value2}`
+      )
+    );
+    throw new Error(`Some version properties in codebase do not match the current version for ${chain_name}.`);
   }
 
 }
@@ -377,8 +439,8 @@ export function validate_chain_files() {
     //check if all staking tokens are registered
     checkStakingTokensAreRegistered(chain_name);
 
-    //check that versions[] cannot be defined in chain.json when versions.json exists
-    checkVersionsFileAndVersionsArray(chain_name);
+    //ensure that and version properties in codebase are also defined in the versions file.
+    compare_CodebaseVersionData_to_VersionsFile(chain_name);
 
     //get chain's assets
     const chainAssets = chain_reg.getFileProperty(chain_name, "assetlist", "assets");
