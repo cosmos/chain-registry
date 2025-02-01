@@ -373,16 +373,11 @@ export function getAssetPointersByChain(chainName) {
 
 export function getAssetPointersByNetworkType(networkType) {
   let assetPointers = [];
-  const assets = getFileProperty(chainName, "assetlist", "assets");
-  if(assets) {
-    assets.forEach((asset) => {
-      if(asset.base) {
-        assetPointers.push({
-          chain_name: chainName,
-          base_denom: asset.base
-        });
-      }
-    });
+  for (const chainName of chainNameToDirectoryMap.keys()) {
+    const chainNetworkType = getFileProperty(chainName, "chain", "network_type");
+    if (chainNetworkType === networkType) {
+      assetPointers = assetPointers.concat(getAssetPointersByChain(chainName));
+    }
   }
   return assetPointers;
 }
