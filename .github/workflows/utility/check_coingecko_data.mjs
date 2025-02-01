@@ -50,7 +50,7 @@ async function removeInvalidCoingeckoIds() {
   }
 }
 
-async function processAssets() {
+async function generateCoingeckoStateFile() {
 
   const coingeckoState = {};//await loadCoingeckoState();//  Use this for validation
   coingeckoState.coingecko_data = [];
@@ -110,15 +110,14 @@ function getAssetPointers() {
 }
 
 (async function main() {
-  //await fetchCoingeckoData();
-  //console.log(await loadCoingeckoState());
-  await processAssets(/*assetPointers*/);
 })();
 
 
 if (process.argv.length > 2) {
   const command = process.argv[2];
-  if (command === 'removeInvalidCoingeckoIds') {
+  if (command === 'generateCoingeckoStateFile') {
+    generateCoingeckoStateFile();
+  } else if (command === 'removeInvalidCoingeckoIds') {
     removeInvalidCoingeckoIds();
   } else {
     console.log(`Unknown command: ${command}`);
