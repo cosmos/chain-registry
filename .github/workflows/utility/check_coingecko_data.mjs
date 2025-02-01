@@ -43,7 +43,7 @@ async function removeInvalidCoingeckoIds() {
   const assetPointers = getAssetPointers();
   for (const asset of assetPointers) {
     const coingecko_id = chain_reg.getAssetProperty(asset.chain_name, asset.base_denom, "coingecko_id");
-    if (coingecko_id && !validCoingeckoIds.has(coingecko_id)) {
+    if (coingecko_id === "" || (coingecko_id && !validCoingeckoIds.has(coingecko_id))) {
       console.log(`Removing invalid Coingecko ID: ${coingecko_id} from ${asset.chain_name} ${asset.base_denom}`);
       chain_reg.setAssetProperty(asset.chain_name, asset.base_denom, "coingecko_id", "");
     }

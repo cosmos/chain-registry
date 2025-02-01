@@ -281,7 +281,11 @@ export function setAssetProperty(chainName, baseDenom, property, value) {
   if(assets) {
     assets.forEach((asset) => {
       if(asset.base == baseDenom) {
-        asset[property] = value;
+        if (value === "") {
+          delete asset[property]; // Remove the property if value is an empty string
+        } else {
+          asset[property] = value; // Otherwise, set the property to the value
+        }
         setFileProperty(chainName, "assetlist", "assets", assets);
         return;
       }
