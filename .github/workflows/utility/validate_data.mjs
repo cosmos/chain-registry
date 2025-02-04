@@ -15,6 +15,8 @@
 import * as path from 'path';
 import * as chain_reg from './chain_registry.mjs';
 
+import * as coingecko from './coingecko_data.mjs';
+
 const chainRegistryRoot = "../../..";
 
 const chainIdMap = new Map();
@@ -413,6 +415,14 @@ function checkChainNameMatchDirectory(chain_name) {
   });
 }
 
+function checkValidCoingeckoId(chain_name, base_denom) {
+
+  let coingecko_data = coingecko.coingecko_data;
+  coingecko_data.state = coingecko.loadCoingeckoState();
+
+  return true;
+}
+
 
 export function validate_chain_files() {
 
@@ -467,6 +477,9 @@ export function validate_chain_files() {
 
       //check that base denom is unique within the assetlist
       checkUniqueBaseDenom(chain_name, asset);
+
+      //check that coingecko id is valid
+      checkValidCoingeckoId(chain_name, asset);
     
     });
 
