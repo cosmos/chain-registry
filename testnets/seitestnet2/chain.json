@@ -10,93 +10,106 @@
   "daemon_name": "seid",
   "node_home": "$HOME/.sei",
   "key_algos": [
-    "secp256k1"
+      "secp256k1"
   ],
   "slip44": 118,
   "fees": {
-    "fee_tokens": [
-      {
-        "denom": "usei",
-        "fixed_min_gas_price": 0.08
-      }
-    ]
+      "fee_tokens": [
+          {
+              "denom": "usei",
+              "fixed_min_gas_price": 0.08
+          }
+      ]
   },
   "codebase": {
-    "git_repo": "https://github.com/sei-protocol/sei-chain",
-    "recommended_version": "2.0.40beta",
-    "compatible_versions": [
-      "2.0.34beta",
-      "2.0.37beta",
-      "2.0.39beta",
-      "2.0.40beta"
-    ],
-    "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/sei-protocol/testnet/main/atlantic-2/genesis.json"
-    }
+      "git_repo": "https://github.com/sei-protocol/sei-chain",
+      "recommended_version": "v6.0.3",
+      "compatible_versions": [
+          "2.0.34beta",
+          "2.0.37beta",
+          "2.0.39beta",
+          "2.0.40beta",
+          "v6.0.3"
+      ],
+      "genesis": {
+          "genesis_url": "https://raw.githubusercontent.com/sei-protocol/testnet/main/atlantic-2/genesis.json"
+      }
   },
   "peers": {
-    "seeds": [
-      {
-        "id": "f97a75fb69d3a5fe893dca7c8d238ccc0bd66a8f",
-        "address": "sei-testnet-2-seed.p2p.brocha.in:30587",
-        "provider": "Brochain"
-      }
-    ]
+      "seeds": [
+          {
+              "id": "f97a75fb69d3a5fe893dca7c8d238ccc0bd66a8f",
+              "address": "sei-testnet-2-seed.p2p.brocha.in:30587",
+              "provider": "Brochain"
+          }
+      ],
+      "persistent_peers": [
+          {
+              "id": "37201fcc556edc6d0a6a9cf4c6324902fb5bc81e",
+              "address": "p2p.state-sync.atlantic-2.seinetwork.io:26656",
+              "provider": "Sei Labs"
+          },
+          {
+              "id": "65c257f9275beb1b99ca169ef89743c034b15db",
+              "address": "3.76.192.224:26656",
+              "provider": "Sei Labs"
+          }
+      ]
   },
   "apis": {
-    "rpc": [
-      {
-        "address": "https://sei-testnet-2-rpc.brocha.in",
-        "provider": "Brochain"
-      },
-      {
-        "address": "https://rpc-testnet-sei.stingray.plus",
-        "provider": "StingRay"
-      }
-    ],
-    "rest": [
-      {
-        "address": "https://sei-testnet-2-rest.brocha.in",
-        "provider": "Brochain"
-      },
-      {
-        "address": "https://api-testnet-sei.stingray.plus",
-        "provider": "StingRay"
-      }
-    ],
-    "grpc": [
-      {
-        "address": "https://grpc-testnet-sei.stingray.plus",
-        "provider": "StingRay"
-      }
-    ],
-    "evm-http-jsonrpc": [
-      {
-        "address": "https://evm-rpc-testnet-sei.stingray.plus",
-        "provider": "StingRay"
-      }
-    ]
+      "rpc": [
+          {
+              "address": "https://sei-testnet-2-rpc.brocha.in",
+              "provider": "Brochain"
+          },
+          {
+              "address": "https://rpc-testnet-sei.stingray.plus",
+              "provider": "StingRay"
+          }
+      ],
+      "rest": [
+          {
+              "address": "https://sei-testnet-2-rest.brocha.in",
+              "provider": "Brochain"
+          },
+          {
+              "address": "https://api-testnet-sei.stingray.plus",
+              "provider": "StingRay"
+          }
+      ],
+      "grpc": [
+          {
+              "address": "https://grpc-testnet-sei.stingray.plus",
+              "provider": "StingRay"
+          }
+      ],
+      "evm-http-jsonrpc": [
+          {
+              "address": "https://evm-rpc-testnet-sei.stingray.plus",
+              "provider": "StingRay"
+          }
+      ]
   },
   "explorers": [
-    {
-      "kind": "blockscout",
-      "url": "https://seitrace.com/?chain=atlantic-2",
-      "tx_page": "https://seitrace.com/tx/${txHash}?chain=atlantic-2"
-    },
-    {
-      "kind": "celatone",
-      "url": "https://www.seiscan.app/atlantic-2",
-      "tx_page": "https://www.seiscan.app/atlantic-2/txs/${txHash}"
-    },
-    {
-      "kind": "explorers.guru",
-      "url": "https://testnet.sei.explorers.guru",
-      "tx_page": "https://testnet.sei.explorers.guru/transaction/${txHash}"
-    },
-    {
-      "kind": "Brochain",
-      "url": "https://testnet-explorer.brocha.in/sei%20atlantic%202",
-      "tx_page": "https://testnet-explorer.brocha.in/sei%20atlantic%202/tx/${txHash}"
-    }
+      {
+          "kind": "blockscout",
+          "url": "https://seitrace.com/?chain=atlantic-2",
+          "tx_page": "https://seitrace.com/tx/${txHash}?chain=atlantic-2"
+      },
+      {
+          "kind": "celatone",
+          "url": "https://www.seiscan.app/atlantic-2",
+          "tx_page": "https://www.seiscan.app/atlantic-2/txs/${txHash}"
+      },
+      {
+          "kind": "explorers.guru",
+          "url": "https://testnet.sei.explorers.guru",
+          "tx_page": "https://testnet.sei.explorers.guru/transaction/${txHash}"
+      },
+      {
+          "kind": "Brochain",
+          "url": "https://testnet-explorer.brocha.in/sei%20atlantic%202",
+          "tx_page": "https://testnet-explorer.brocha.in/sei%20atlantic%202/tx/${txHash}"
+      }
   ]
 }
