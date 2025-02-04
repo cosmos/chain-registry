@@ -22,6 +22,8 @@ const chainRegistryRoot = "../../..";
 const chainIdMap = new Map();
 let base_denoms = [];
 
+let coingecko_data = coingecko.coingecko_data;
+
 const deepEqual = (a, b) => {
   if (a === b) return true; // Primitive values or reference equality
   if (typeof a !== typeof b || a === null || b === null) return false; // Mismatched types
@@ -396,7 +398,7 @@ function checkTypeAsset(chain_name, asset) {
 }
 
 function checkUniqueBaseDenom(chain_name, asset) {
-
+  //console.log(`Checking Base Denom. ${asset}, ${asset.base}`);
   if (base_denoms.includes(asset.base)) {
     throw new Error(`Base (denom) already registered: ${chain_name}, ${asset.base}, ${asset.symbol}.`);
   } else {
@@ -415,19 +417,46 @@ function checkChainNameMatchDirectory(chain_name) {
   });
 }
 
-function checkValidCoingeckoId(chain_name, base_denom) {
+function checkCoingeckoId_in_State(chain_name, asset) {
 
-  let coingecko_data = coingecko.coingecko_data;
-  coingecko_data.state = coingecko.loadCoingeckoState();
+  if (!coingecko_data?.state || !asset) { return true; }
+  if (!asset.coingecko_id) { return true; }
+  const coingeckoEntry = coingecko_data?.state?.coingecko_data?.find(entry => entry.coingecko_id === asset.coingecko_id);
+  if (!coingeckoEntry) {
+    console.log(`State file missing Coingecko ID: ${asset.coingecko_id}, registered for asset: ${chain_name}::${asset.base}`);
+    return false; // ID is missing from state
+  }
+  const assetExists = coingeckoEntry.assets.some(
+    cgAsset => cgAsset.chain_name === chain_name && cgAsset.base_denom === asset.base
+  );
+  if (!assetExists) {
+    console.log(`Asset ${chain_name}::${asset.base} is not listing among the assets for ID :${asset.coingecko_id} in the Coingecko state file.`);
+  }
+  return assetExists;
 
-  return true;
+}
+
+async function checkCoingeckoId_in_API(assets_cgidNotInState) {
+  assets_cgidNotInState.forEach((asset) => {
+    const coingecko_API_object = coingeckoApiResponse.find((apiObject) => {
+      apiObject.id === asset.coingecko_id;
+    });
+  });
 }
 
 
-export function validate_chain_files() {
+export async function validate_chain_files() {
 
   //get Chain Names
   const chainRegChains = chain_reg.getChains();
+
+  //load coingecko state
+  coingecko_data.state = await coingecko.loadCoingeckoState();
+  if (!coingecko_data?.state) {
+    console.log("Failed to load Coingecko State.");
+  }
+
+  let assets_cgidNotInState = [];
 
   //iterate each chain
   chainRegChains.forEach((chain_name) => {
@@ -462,7 +491,7 @@ export function validate_chain_files() {
 
       //require type_asset
       checkTypeAsset(chain_name, asset);
-    
+
       //check denom units
       checkDenomUnits(asset);
 
@@ -479,12 +508,21 @@ export function validate_chain_files() {
       checkUniqueBaseDenom(chain_name, asset);
 
       //check that coingecko id is valid
-      checkValidCoingeckoId(chain_name, asset);
-    
+      let coingeckoId_in_State = checkCoingeckoId_in_State(chain_name, asset);
+      if (!coingeckoId_in_State) {
+        assets_cgidNotInState.push({ chain_name, asset });
+        console.log(`Added Asset ${asset.base} to list to check against API`);
+      }
+
     });
 
-
   });
+
+  /*
+  if (coingeckoId_in_State.size > 0) {
+    checkCoingeckoId_in_API(assets_cgidNotInState);
+  }
+  */
 
 }
 
