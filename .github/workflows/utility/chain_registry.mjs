@@ -281,7 +281,11 @@ export function setAssetProperty(chainName, baseDenom, property, value) {
   if(assets) {
     assets.forEach((asset) => {
       if(asset.base == baseDenom) {
-        asset[property] = value;
+        if (value === "") {
+          delete asset[property]; // Remove the property if value is an empty string
+        } else {
+          asset[property] = value; // Otherwise, set the property to the value
+        }
         setFileProperty(chainName, "assetlist", "assets", assets);
         return;
       }
@@ -373,16 +377,11 @@ export function getAssetPointersByChain(chainName) {
 
 export function getAssetPointersByNetworkType(networkType) {
   let assetPointers = [];
-  const assets = getFileProperty(chainName, "assetlist", "assets");
-  if(assets) {
-    assets.forEach((asset) => {
-      if(asset.base) {
-        assetPointers.push({
-          chain_name: chainName,
-          base_denom: asset.base
-        });
-      }
-    });
+  for (const chainName of chainNameToDirectoryMap.keys()) {
+    const chainNetworkType = getFileProperty(chainName, "chain", "network_type");
+    if (chainNetworkType === networkType) {
+      assetPointers = assetPointers.concat(getAssetPointersByChain(chainName));
+    }
   }
   return assetPointers;
 }
