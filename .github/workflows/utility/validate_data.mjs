@@ -417,27 +417,60 @@ function checkChainNameMatchDirectory(chain_name) {
   });
 }
 
-function checkCoingeckoId_in_State(chain_name, asset) {
+function checkCoingeckoIdMainnetAssetsOnly(chain_name, asset, networkType, assets_cgidAssetNotMainnet) {
+  if (asset.coingecko_id && networkType && networkType !== "mainnet") {
+    //throw new Error(`CoinGecko ID  may only be registered to mainnet assets, but found at ${chain_name}::${asset.base}`);
+    console.log(`CoinGecko ID  may only be registered to mainnet assets, but found at ${chain_name}::${asset.base}`);
+    assets_cgidAssetNotMainnet.push({ chain_name, asset });
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState) {
 
   if (!coingecko_data?.state || !asset) { return true; }
   if (!asset.coingecko_id) { return true; }
+
+  //find the object with this coingecko ID in the state file
   const coingeckoEntry = coingecko_data?.state?.coingecko_data?.find(entry => entry.coingecko_id === asset.coingecko_id);
   if (!coingeckoEntry) {
-    console.log(`State file missing Coingecko ID: ${asset.coingecko_id}, registered for asset: ${chain_name}::${asset.base}`);
+    //console.log(`State file missing Coingecko ID: ${asset.coingecko_id}, registered for asset: ${chain_name}::${asset.base}`);
     return false; // ID is missing from state
   }
+  //see if it has the asset listed (bool)
   const assetExists = coingeckoEntry.assets.some(
     cgAsset => cgAsset.chain_name === chain_name && cgAsset.base_denom === asset.base
   );
+  //if not, log so
   if (!assetExists) {
-    console.log(`Asset ${chain_name}::${asset.base} is not listed among the assets for ID: ${asset.coingecko_id} in the Coingecko state file.`);
+    assets_cgidNotInState.push({ chain_name, asset });
+    //console.log(`Asset ${chain_name}::${asset.base} is not listed among the assets for ID: ${asset.coingecko_id} in the Coingecko state file.`);
   }
   return assetExists;
 
 }
 
-async function checkCoingeckoId_in_API(assets_cgidNotInState) {
+async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState) {
+
   let assets_cgidNotInAPI = [];
+  const equivalentIbcTraces = [
+    "ibc",
+    "ibc-cw20",
+    "additional-mintage",
+    "test-mintage"
+  ];
+
+  //Abort if we already know that non-mainnet assets have coingecko IDs.
+  if (assets_cgidAssetNotMainnet.length > 0) {
+    console.log(assets_cgidAssetNotMainnet.length);
+    throw new Error(`CoinGecko IDs  may only be registered to mainnet assets.`);
+  }
+
+  //Abort if there are no new CGIDs to check
+  if (!assets_cgidNotInState.length) { return; }
+  
 
   await coingecko.fetchCoingeckoData();
   if (!coingecko_data?.api_response) {
@@ -446,10 +479,6 @@ async function checkCoingeckoId_in_API(assets_cgidNotInState) {
   }
 
   assets_cgidNotInState.forEach((chain_asset_pair) => {
-    //console.log(`Chain Asset Pair: ${chain_asset_pair}`);
-    //console.log(`Asset: ${chain_asset_pair.asset}`);
-    //console.log(`CGID: ${chain_asset_pair.asset.coingecko_id}`);
-    //console.log(coingecko_data?.api_response);
     const coingecko_API_object = coingecko_data?.api_response?.find(
       apiObject => apiObject.id === chain_asset_pair.asset.coingecko_id
     );
@@ -458,16 +487,32 @@ async function checkCoingeckoId_in_API(assets_cgidNotInState) {
       assets_cgidNotInAPI.push(chain_asset_pair);
       return;
     }
+    //get the origin asset data
+    const originAssetName = chain_reg.getAssetPropertyFromOriginWithTraceCustom(
+      chain_asset_pair.chain_name,
+      chain_asset_pair.asset.base,
+      "name",
+      equivalentIbcTraces
+    );
+    const originAssetSymbol = chain_reg.getAssetPropertyFromOriginWithTraceCustom(
+      chain_asset_pair.chain_name,
+      chain_asset_pair.asset.base,
+      "symbol",
+      equivalentIbcTraces
+    );
     if (
-      chain_asset_pair.asset.name                 != coingecko_API_object.name                  &&
-      chain_asset_pair.asset.symbol.toUpperCase() != coingecko_API_object.symbol.toUpperCase()
+      originAssetName != coingecko_API_object.name &&
+      originAssetSymbol.toUpperCase() != coingecko_API_object.symbol.toUpperCase()
     ) {
       console.warn(`Warning: Mismatch of both Name and Symbol for Coingecko ID ${chain_asset_pair.asset.coingecko_id}.
-Registry: "${chain_asset_pair.asset.name} $${chain_asset_pair.asset.symbol}", 
+Registry: "${originAssetName} $${originAssetSymbol} (CGID registered in Assetlist of chain_name: ${chain_asset_pair.chain_name})", 
 Coingecko: "${coingecko_API_object.name} $${coingecko_API_object.symbol.toUpperCase()}"`);
     }
   });
-  return assets_cgidNotInAPI;
+
+  if (assets_cgidNotInAPI.length > 0) {
+    throw new Error(`Some Coingecko IDs are not valid! ${assets_cgidNotInAPI}`);
+  }
 }
 
 
@@ -483,6 +528,7 @@ export async function validate_chain_files() {
   }
 
   let assets_cgidNotInState = [];
+  let assets_cgidAssetNotMainnet = [];
 
   //iterate each chain
   chainRegChains.forEach((chain_name) => {
@@ -506,6 +552,9 @@ export async function validate_chain_files() {
 
     //ensure that and version properties in codebase are also defined in the versions file.
     compare_CodebaseVersionData_to_VersionsFile(chain_name);
+
+    //get chain's network Type (mainet vs testnet vs...)
+    const chainNetworkType = chain_reg.getFileProperty(chain_name, "chain", "network_type");
 
     //get chain's assets
     const chainAssets = chain_reg.getFileProperty(chain_name, "assetlist", "assets");
@@ -533,24 +582,17 @@ export async function validate_chain_files() {
       //check that base denom is unique within the assetlist
       checkUniqueBaseDenom(chain_name, asset);
 
-      //check that coingecko id is valid
-      let coingeckoId_in_State = checkCoingeckoId_in_State(chain_name, asset);
-      if (!coingeckoId_in_State) {
-        assets_cgidNotInState.push({ chain_name, asset });
-        console.log(`Added Asset ${chain_name}::${asset.base} to list to check against API`);
-      }
+      //checkCoingeckoIdMainnetAssetsOnly(chain_name, asset, chainNetworkType, assets_cgidAssetNotMainnet);
+
+      //check that coingecko IDs are in the state
+      checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState);
 
     });
 
   });
 
-  let assets_cgidNotInAPI = [];
-  if (assets_cgidNotInState.length > 0) {
-    assets_cgidNotInAPI = checkCoingeckoId_in_API(assets_cgidNotInState);
-  }
-  if (assets_cgidNotInAPI.length > 0) {
-    throw new Error(`Some Coingecko IDs are not valid! ${assets_cgidNotInAPI}`);
-  }
+  //check that new coingecko IDs are in the API
+  checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState);
 
 }
 

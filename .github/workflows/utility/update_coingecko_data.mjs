@@ -4,7 +4,8 @@ import * as chain_reg from './chain_registry.mjs';
 let coingecko_data = coingecko.coingecko_data;
 
 function getAssetPointers(networkType = "mainnet") {
-  let assetPointers = chain_reg.getAssetPointersByNetworkType(networkType);
+  //let assetPointers = chain_reg.getAssetPointersByNetworkType(networkType);
+  let assetPointers = chain_reg.getAssetPointers();
   return assetPointers;
 }
 
