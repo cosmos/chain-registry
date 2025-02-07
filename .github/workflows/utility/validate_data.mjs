@@ -188,7 +188,7 @@ function checkTraceCounterpartyIsValid(chain_name, asset) {
 
 }
 
-function checkIBCTraceChannelAccuracy(chain_name, asset) {
+function checkIBCTraceChannelAccuracy(chain_name, asset, assets_ibcInvalid) {
 
   if (!asset.base || !asset.traces || asset.traces.length === 0) { return; }
 
@@ -217,8 +217,12 @@ function checkIBCTraceChannelAccuracy(chain_name, asset) {
   //console.log(chain2.chain_name);
   //console.log(channels);
   if (!channels) {
-    throw new Error(`Missing IBC connection registration between chains.
+    console.log(`Missing IBC connection registration between chains.
 An asset (${asset.base}) registered on ${chain_name}'s assetlist from ${lastTrace.counterparty.chain_name} is invalid.`);
+    assets_ibcInvalid.push({ chain_name, asset });
+    return false;
+    //throw new Error(`Missing IBC connection registration between chains.
+//An asset (${asset.base}) registered on ${chain_name}'s assetlist from ${lastTrace.counterparty.chain_name} is invalid.`);
   }
 
   // Find the correct IBC channel
@@ -234,7 +238,10 @@ An asset (${asset.base}) registered on ${chain_name}'s assetlist from ${lastTrac
     }
   });
   if (!ibcChannel) {
-    throw new Error(`No matching IBC channel found for ${chain_name}, ${asset.base}`);
+    console.log(`No matching IBC channel found for ${chain_name}, ${asset.base}`);
+    assets_ibcInvalid.push({ chain_name, asset });
+    return false;
+    //throw new Error(`No matching IBC channel found for ${chain_name}, ${asset.base}`);
   }
 
   // Assign correct channel and port IDs
@@ -262,9 +269,12 @@ An asset (${asset.base}) registered on ${chain_name}'s assetlist from ${lastTrac
   }
 
   if (!valid) {
+    console.log(`Trace of ${chain_name}, ${asset.base} makes reference to IBC channels not registered.`);
     console.log(`${lastTrace.counterparty.channel_id}, ${counterparty.channel_id}`);
     console.log(`${lastTrace.chain.channel_id}, ${chain.channel_id}`);
-    throw new Error(`Trace of ${chain_name}, ${asset.base} makes reference to IBC channels not registered.`);
+    assets_ibcInvalid.push({ chain_name, asset });
+    return false;
+    //throw new Error(`Trace of ${chain_name}, ${asset.base} makes reference to IBC channels not registered.`);
   }
 
 }
@@ -533,7 +543,7 @@ function checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState) {
 
 }
 
-async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState) {
+async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid) {
 
   let assets_cgidNotInAPI = [];
   const equivalentIbcTraces = [
@@ -556,7 +566,7 @@ async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNo
   await coingecko.fetchCoingeckoData();
   if (!coingecko_data?.api_response) {
     console.log("No CoinGecko API Response");
-    return assets_cgidNotInAPI;
+    return;
   }
 
   assets_cgidNotInState.forEach((chain_asset_pair) => {
@@ -565,7 +575,7 @@ async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNo
     );
     if (!coingecko_API_object) {
       console.log(`Coingecko ID: ${chain_asset_pair.asset.coingecko_id} is not in the Coingecko API result.`);
-      assets_cgidNotInAPI.push(chain_asset_pair);
+      assets_cgidInvalid.push(chain_asset_pair);
       return;
     }
     //get the origin asset data
@@ -591,11 +601,28 @@ Coingecko: "${coingecko_API_object.name} $${coingecko_API_object.symbol.toUpperC
     }
   });
 
-  if (assets_cgidNotInAPI.length > 0) {
+  /*if (assets_cgidNotInAPI.length > 0) {
     throw new Error(`Some Coingecko IDs are not valid! ${assets_cgidNotInAPI}`);
-  }
+  }*/
 }
 
+function reportErrors(assets_cgidInvalid, assets_ibcInvalid) {
+
+  let err = false;
+  if (assets_cgidInvalid.length > 0) {
+    console.log(`Some Coingecko IDs are not valid! ${assets_cgidInvalid}`);
+    err = true;
+  }
+  if (assets_ibcInvalid.length > 0) {
+    console.log(`Some Trace IBC references are not valid! ${assets_ibcInvalid}`);
+    err = true;
+  }
+
+  if (err) {
+    throw new Error(`Some asset metadata is invalid! (See console logs)`);
+  }
+
+}
 
 export async function validate_chain_files() {
 
@@ -610,6 +637,8 @@ export async function validate_chain_files() {
 
   let assets_cgidNotInState = [];
   let assets_cgidAssetNotMainnet = [];
+  let assets_cgidInvalid = [];
+  let assets_ibcInvalid = [];
 
   //iterate each chain
   chainRegChains.forEach((chain_name) => {
@@ -655,7 +684,7 @@ export async function validate_chain_files() {
       checkTraceCounterpartyIsValid(chain_name, asset);
 
       //check IBC counterparty channel accuracy
-      checkIBCTraceChannelAccuracy(chain_name, asset);
+      checkIBCTraceChannelAccuracy(chain_name, asset, assets_ibcInvalid);
 
       //check ibc denom accuracy
       checkIbcDenomAccuracy(chain_name, asset);
@@ -676,7 +705,10 @@ export async function validate_chain_files() {
   });
 
   //check that new coingecko IDs are in the API
-  checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState);
+  checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid);
+
+  //now that we've collected errors in bulk, throw error if positive
+  reportErrors(assets_cgidInvalid, assets_ibcInvalid);
 
 }
 
