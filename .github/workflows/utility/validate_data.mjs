@@ -15,10 +15,50 @@
 import * as path from 'path';
 import * as chain_reg from './chain_registry.mjs';
 
+import * as coingecko from './coingecko_data.mjs';
+
 const chainRegistryRoot = "../../..";
 
 const chainIdMap = new Map();
 let base_denoms = [];
+
+let coingecko_data = coingecko.coingecko_data;
+
+const deepEqual = (a, b) => {
+  if (a === b) return true; // Primitive values or reference equality
+  if (typeof a !== typeof b || a === null || b === null) return false; // Mismatched types
+  if (typeof a === "object") {
+    const keysA = Object.keys(a);
+    const keysB = Object.keys(b);
+    if (keysA.length !== keysB.length) return false; // Different number of keys
+    return keysA.every(key => deepEqual(a[key], b[key])); // Recursive comparison
+  }
+  return false; // Fallback for unhandled cases
+};
+
+function deepEqualWithLoggingOneWay(obj1, obj2, path = '', mismatches = []) {
+  if (typeof obj1 === 'object' && typeof obj2 === 'object' && obj1 !== null && obj2 !== null) {
+    for (const key in obj1) {
+      const newPath = path ? `${path}.${key}` : key;
+
+      if (!(key in obj2)) {
+        mismatches.push({ path: newPath, reason: 'Missing in currentVersion', value1: obj1[key] });
+      } else {
+        deepEqualWithLoggingOneWay(obj1[key], obj2[key], newPath, mismatches);
+      }
+    }
+  } else if (obj1 !== obj2) {
+    mismatches.push({
+      path,
+      reason: 'Value mismatch',
+      value1: obj1,
+      value2: obj2,
+    });
+  }
+
+  return mismatches;
+}
+
 
 
 function checkChainIdConflict(chain_name) {
@@ -148,6 +188,97 @@ function checkTraceCounterpartyIsValid(chain_name, asset) {
 
 }
 
+function checkIBCTraceChannelAccuracy(chain_name, asset, assets_ibcInvalid) {
+
+  if (!asset.base || !asset.traces || asset.traces.length === 0) { return; }
+
+  const lastTrace = asset.traces?.[asset.traces.length - 1];
+  if (lastTrace.type !== "ibc" && lastTrace.type !== "ibc-cw20") { return; }
+
+  // Sort chains alphabetically
+  let list = [chain_name, lastTrace.counterparty.chain_name].sort();
+  let chain1 = { chain_name: list[0] };
+  let chain2 = { chain_name: list[1] };
+
+
+  // Determine which chain is the counterparty
+  let chain, counterparty;
+  if (chain_name === chain1.chain_name) {
+    chain = chain1;
+    counterparty = chain2;
+  } else {
+    chain = chain2;
+    counterparty = chain1;
+  }
+
+  // Get the IBC channels for these two chains
+  const channels = chain_reg.getIBCFileProperty(chain1.chain_name, chain2.chain_name, "channels");
+  //console.log(chain1.chain_name);
+  //console.log(chain2.chain_name);
+  //console.log(channels);
+  if (!channels) {
+    console.log(`Missing IBC connection registration between chains.
+An asset (${asset.base}) registered on ${chain_name}'s assetlist from ${lastTrace.counterparty.chain_name} is invalid.`);
+    assets_ibcInvalid.push({ chain_name, asset });
+    return false;
+    //throw new Error(`Missing IBC connection registration between chains.
+//An asset (${asset.base}) registered on ${chain_name}'s assetlist from ${lastTrace.counterparty.chain_name} is invalid.`);
+  }
+
+  // Find the correct IBC channel
+  let ibcChannel = channels.find(ch => {
+    if (lastTrace.type === "ibc") {
+      return ch.chain_1.port_id === "transfer" && ch.chain_2.port_id === "transfer";
+    } else if (lastTrace.type === "ibc-cw20") {
+      // We don't know if counterparty corresponds to chain_1 or chain_2, so check both ways
+      return (
+        (ch.chain_1.port_id === lastTrace.counterparty.port && ch.chain_1.channel_id === lastTrace.counterparty.channel_id) ||
+        (ch.chain_2.port_id === lastTrace.counterparty.port && ch.chain_2.channel_id === lastTrace.counterparty.channel_id)
+      );
+    }
+  });
+  if (!ibcChannel) {
+    console.log(`No matching IBC channel found for ${chain_name}, ${asset.base}`);
+    assets_ibcInvalid.push({ chain_name, asset });
+    return false;
+    //throw new Error(`No matching IBC channel found for ${chain_name}, ${asset.base}`);
+  }
+
+  // Assign correct channel and port IDs
+  chain1.channel_id = ibcChannel.chain_1.channel_id;
+  chain1.port_id = ibcChannel.chain_1.port_id;
+  chain2.channel_id = ibcChannel.chain_2.channel_id;
+  chain2.port_id = ibcChannel.chain_2.port_id;
+
+  // Validate channel and port IDs
+  let valid = true;
+  if (
+    lastTrace.counterparty.channel_id !== counterparty.channel_id ||
+    lastTrace.chain.channel_id !== chain.channel_id
+  ) {
+    valid = false;
+  }
+
+  if (lastTrace.type === "ibc-cw20") {
+    if (
+      lastTrace.counterparty.port !== counterparty.port_id ||
+      lastTrace.chain.port !== chain.port_id
+    ) {
+      valid = false;
+    }
+  }
+
+  if (!valid) {
+    console.log(`Trace of ${chain_name}, ${asset.base} makes reference to IBC channels not registered.`);
+    console.log(`${lastTrace.counterparty.channel_id}, ${counterparty.channel_id}`);
+    console.log(`${lastTrace.chain.channel_id}, ${chain.channel_id}`);
+    assets_ibcInvalid.push({ chain_name, asset });
+    return false;
+    //throw new Error(`Trace of ${chain_name}, ${asset.base} makes reference to IBC channels not registered.`);
+  }
+
+}
+
 
 async function checkIbcDenomAccuracy(chain_name, asset) {
 
@@ -186,14 +317,40 @@ function checkImageSyncIsValid(chain_name, asset) {
 
 }
 
+function compare_CodebaseVersionData_to_VersionsFile(chain_name) {
 
-function checkVersionsFileAndVersionsArray(chain_name) {
+  const codebase = chain_reg.getFileProperty(chain_name, "chain", "codebase");
+  if (!codebase) { return; }
+  const codebaseVersionKeys = new Set([
+    "recommended_version",
+    "compatible_versions",
+    "tag",
+    "language",
+    "binaries",
+    "sdk",
+    "consensus",
+    "cosmwasm",
+    "ibc"
+  ]);
+  const filteredCodebase = Object.fromEntries(
+    Object.entries(codebase).filter(([key]) => codebaseVersionKeys.has(key))
+  );
 
-  const versionsFile = chain_reg.getFileProperty(chain_name, "versions", "versions");
-  const versionsArray = chain_reg.getFileProperty(chain_name, "chain", "codebase")?.versions;
+  const versionsArray = chain_reg.getFileProperty(chain_name, "versions", "versions");
+  let currentVersion = versionsArray?.find(
+    (version) => version.recommended_version === codebase?.recommended_version
+  ) || {};
 
-  if (versionsFile && versionsArray) {
-    throw new Error(`Invalid versions array detected in chain.json for ${chain_name}. versions.json already used.`);
+  const mismatches = deepEqualWithLoggingOneWay(filteredCodebase, currentVersion);
+
+  if (mismatches.length > 0) {
+    console.log('Found mismatches:');
+    mismatches.forEach((mismatch) =>
+      console.log(
+        `Path: ${mismatch.path}, Reason: ${mismatch.reason}, In "codebase": ${mismatch.value1}, In currentVersion: ${mismatch.value2}`
+      )
+    );
+    throw new Error(`Some version properties in codebase do not match the current version for ${chain_name}.`);
   }
 
 }
@@ -332,7 +489,7 @@ function checkTypeAsset(chain_name, asset) {
 }
 
 function checkUniqueBaseDenom(chain_name, asset) {
-
+  //console.log(`Checking Base Denom. ${asset}, ${asset.base}`);
   if (base_denoms.includes(asset.base)) {
     throw new Error(`Base (denom) already registered: ${chain_name}, ${asset.base}, ${asset.symbol}.`);
   } else {
@@ -351,11 +508,137 @@ function checkChainNameMatchDirectory(chain_name) {
   });
 }
 
+function checkCoingeckoIdMainnetAssetsOnly(chain_name, asset, networkType, assets_cgidAssetNotMainnet) {
+  if (asset.coingecko_id && networkType && networkType !== "mainnet") {
+    //throw new Error(`CoinGecko ID  may only be registered to mainnet assets, but found at ${chain_name}::${asset.base}`);
+    console.log(`CoinGecko ID  may only be registered to mainnet assets, but found at ${chain_name}::${asset.base}`);
+    assets_cgidAssetNotMainnet.push({ chain_name, asset });
+    return false;
+  } else {
+    return true;
+  }
+}
 
-export function validate_chain_files() {
+function checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState) {
+
+  if (!coingecko_data?.state || !asset) { return true; }
+  if (!asset.coingecko_id) { return true; }
+
+  //find the object with this coingecko ID in the state file
+  const coingeckoEntry = coingecko_data?.state?.coingecko_data?.find(entry => entry.coingecko_id === asset.coingecko_id);
+  if (!coingeckoEntry) {
+    //console.log(`State file missing Coingecko ID: ${asset.coingecko_id}, registered for asset: ${chain_name}::${asset.base}`);
+    return false; // ID is missing from state
+  }
+  //see if it has the asset listed (bool)
+  const assetExists = coingeckoEntry.assets.some(
+    cgAsset => cgAsset.chain_name === chain_name && cgAsset.base_denom === asset.base
+  );
+  //if not, log so
+  if (!assetExists) {
+    assets_cgidNotInState.push({ chain_name, asset });
+    //console.log(`Asset ${chain_name}::${asset.base} is not listed among the assets for ID: ${asset.coingecko_id} in the Coingecko state file.`);
+  }
+  return assetExists;
+
+}
+
+async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid) {
+
+  let assets_cgidNotInAPI = [];
+  const equivalentIbcTraces = [
+    "ibc",
+    "ibc-cw20",
+    "additional-mintage",
+    "test-mintage"
+  ];
+
+  //Abort if we already know that non-mainnet assets have coingecko IDs.
+  if (assets_cgidAssetNotMainnet.length > 0) {
+    console.log(assets_cgidAssetNotMainnet.length);
+    throw new Error(`CoinGecko IDs  may only be registered to mainnet assets.`);
+  }
+
+  //Abort if there are no new CGIDs to check
+  if (!assets_cgidNotInState.length) { return; }
+  
+
+  await coingecko.fetchCoingeckoData();
+  if (!coingecko_data?.api_response) {
+    console.log("No CoinGecko API Response");
+    return;
+  }
+
+  assets_cgidNotInState.forEach((chain_asset_pair) => {
+    const coingecko_API_object = coingecko_data?.api_response?.find(
+      apiObject => apiObject.id === chain_asset_pair.asset.coingecko_id
+    );
+    if (!coingecko_API_object) {
+      console.log(`Coingecko ID: ${chain_asset_pair.asset.coingecko_id} is not in the Coingecko API result.`);
+      assets_cgidInvalid.push(chain_asset_pair);
+      return;
+    }
+    //get the origin asset data
+    const originAssetName = chain_reg.getAssetPropertyFromOriginWithTraceCustom(
+      chain_asset_pair.chain_name,
+      chain_asset_pair.asset.base,
+      "name",
+      equivalentIbcTraces
+    );
+    const originAssetSymbol = chain_reg.getAssetPropertyFromOriginWithTraceCustom(
+      chain_asset_pair.chain_name,
+      chain_asset_pair.asset.base,
+      "symbol",
+      equivalentIbcTraces
+    );
+    if (
+      originAssetName != coingecko_API_object.name &&
+      originAssetSymbol.toUpperCase() != coingecko_API_object.symbol.toUpperCase()
+    ) {
+      console.warn(`Warning: Mismatch of both Name and Symbol for Coingecko ID ${chain_asset_pair.asset.coingecko_id}.
+Registry: "${originAssetName} $${originAssetSymbol} (CGID registered in Assetlist of chain_name: ${chain_asset_pair.chain_name})", 
+Coingecko: "${coingecko_API_object.name} $${coingecko_API_object.symbol.toUpperCase()}"`);
+    }
+  });
+
+  /*if (assets_cgidNotInAPI.length > 0) {
+    throw new Error(`Some Coingecko IDs are not valid! ${assets_cgidNotInAPI}`);
+  }*/
+}
+
+function reportErrors(assets_cgidInvalid, assets_ibcInvalid) {
+
+  let err = false;
+  if (assets_cgidInvalid.length > 0) {
+    console.log(`Some Coingecko IDs are not valid! ${assets_cgidInvalid}`);
+    err = true;
+  }
+  if (assets_ibcInvalid.length > 0) {
+    console.log(`Some Trace IBC references are not valid! ${assets_ibcInvalid}`);
+    err = true;
+  }
+
+  if (err) {
+    throw new Error(`Some asset metadata is invalid! (See console logs)`);
+  }
+
+}
+
+export async function validate_chain_files() {
 
   //get Chain Names
   const chainRegChains = chain_reg.getChains();
+
+  //load coingecko state
+  coingecko_data.state = await coingecko.loadCoingeckoState();
+  if (!coingecko_data?.state) {
+    console.log("Failed to load Coingecko State.");
+  }
+
+  let assets_cgidNotInState = [];
+  let assets_cgidAssetNotMainnet = [];
+  let assets_cgidInvalid = [];
+  let assets_ibcInvalid = [];
 
   //iterate each chain
   chainRegChains.forEach((chain_name) => {
@@ -377,8 +660,11 @@ export function validate_chain_files() {
     //check if all staking tokens are registered
     checkStakingTokensAreRegistered(chain_name);
 
-    //check that versions[] cannot be defined in chain.json when versions.json exists
-    checkVersionsFileAndVersionsArray(chain_name);
+    //ensure that and version properties in codebase are also defined in the versions file.
+    compare_CodebaseVersionData_to_VersionsFile(chain_name);
+
+    //get chain's network Type (mainet vs testnet vs...)
+    const chainNetworkType = chain_reg.getFileProperty(chain_name, "chain", "network_type");
 
     //get chain's assets
     const chainAssets = chain_reg.getFileProperty(chain_name, "assetlist", "assets");
@@ -390,12 +676,15 @@ export function validate_chain_files() {
 
       //require type_asset
       checkTypeAsset(chain_name, asset);
-    
+
       //check denom units
       checkDenomUnits(asset);
 
       //check counterparty pointers of traces
       checkTraceCounterpartyIsValid(chain_name, asset);
+
+      //check IBC counterparty channel accuracy
+      checkIBCTraceChannelAccuracy(chain_name, asset, assets_ibcInvalid);
 
       //check ibc denom accuracy
       checkIbcDenomAccuracy(chain_name, asset);
@@ -405,11 +694,21 @@ export function validate_chain_files() {
 
       //check that base denom is unique within the assetlist
       checkUniqueBaseDenom(chain_name, asset);
-    
+
+      //checkCoingeckoIdMainnetAssetsOnly(chain_name, asset, chainNetworkType, assets_cgidAssetNotMainnet);
+
+      //check that coingecko IDs are in the state
+      checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState);
+
     });
 
-
   });
+
+  //check that new coingecko IDs are in the API
+  checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid);
+
+  //now that we've collected errors in bulk, throw error if positive
+  reportErrors(assets_cgidInvalid, assets_ibcInvalid);
 
 }
 
