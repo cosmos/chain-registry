@@ -188,6 +188,87 @@ function checkTraceCounterpartyIsValid(chain_name, asset) {
 
 }
 
+function checkIBCTraceChannelAccuracy(chain_name, asset) {
+
+  if (!asset.base || !asset.traces || asset.traces.length === 0) { return; }
+
+  const lastTrace = asset.traces?.[asset.traces.length - 1];
+  if (lastTrace.type !== "ibc" && lastTrace.type !== "ibc-cw20") { return; }
+
+  // Sort chains alphabetically
+  let list = [chain_name, lastTrace.counterparty.chain_name].sort();
+  let chain1 = { chain_name: list[0] };
+  let chain2 = { chain_name: list[1] };
+
+
+  // Determine which chain is the counterparty
+  let chain, counterparty;
+  if (chain_name === chain1.chain_name) {
+    chain = chain1;
+    counterparty = chain2;
+  } else {
+    chain = chain2;
+    counterparty = chain1;
+  }
+
+  // Get the IBC channels for these two chains
+  const channels = chain_reg.getIBCFileProperty(chain1.chain_name, chain2.chain_name, "channels");
+  //console.log(chain1.chain_name);
+  //console.log(chain2.chain_name);
+  //console.log(channels);
+  if (!channels) {
+    throw new Error(`Missing IBC connection registration between chains.
+An asset (${asset.base}) registered on ${chain_name}'s assetlist from ${lastTrace.counterparty.chain_name} is invalid.`);
+  }
+
+  // Find the correct IBC channel
+  let ibcChannel = channels.find(ch => {
+    if (lastTrace.type === "ibc") {
+      return ch.chain_1.port_id === "transfer" && ch.chain_2.port_id === "transfer";
+    } else if (lastTrace.type === "ibc-cw20") {
+      // We don't know if counterparty corresponds to chain_1 or chain_2, so check both ways
+      return (
+        (ch.chain_1.port_id === lastTrace.counterparty.port && ch.chain_1.channel_id === lastTrace.counterparty.channel_id) ||
+        (ch.chain_2.port_id === lastTrace.counterparty.port && ch.chain_2.channel_id === lastTrace.counterparty.channel_id)
+      );
+    }
+  });
+  if (!ibcChannel) {
+    throw new Error(`No matching IBC channel found for ${chain_name}, ${asset.base}`);
+  }
+
+  // Assign correct channel and port IDs
+  chain1.channel_id = ibcChannel.chain_1.channel_id;
+  chain1.port_id = ibcChannel.chain_1.port_id;
+  chain2.channel_id = ibcChannel.chain_2.channel_id;
+  chain2.port_id = ibcChannel.chain_2.port_id;
+
+  // Validate channel and port IDs
+  let valid = true;
+  if (
+    lastTrace.counterparty.channel_id !== counterparty.channel_id ||
+    lastTrace.chain.channel_id !== chain.channel_id
+  ) {
+    valid = false;
+  }
+
+  if (lastTrace.type === "ibc-cw20") {
+    if (
+      lastTrace.counterparty.port !== counterparty.port_id ||
+      lastTrace.chain.port !== chain.port_id
+    ) {
+      valid = false;
+    }
+  }
+
+  if (!valid) {
+    console.log(`${lastTrace.counterparty.channel_id}, ${counterparty.channel_id}`);
+    console.log(`${lastTrace.chain.channel_id}, ${chain.channel_id}`);
+    throw new Error(`Trace of ${chain_name}, ${asset.base} makes reference to IBC channels not registered.`);
+  }
+
+}
+
 
 async function checkIbcDenomAccuracy(chain_name, asset) {
 
@@ -572,6 +653,9 @@ export async function validate_chain_files() {
 
       //check counterparty pointers of traces
       checkTraceCounterpartyIsValid(chain_name, asset);
+
+      //check IBC counterparty channel accuracy
+      checkIBCTraceChannelAccuracy(chain_name, asset);
 
       //check ibc denom accuracy
       checkIbcDenomAccuracy(chain_name, asset);
