@@ -528,6 +528,7 @@ function checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState) {
   const coingeckoEntry = coingecko_data?.state?.coingecko_data?.find(entry => entry.coingecko_id === asset.coingecko_id);
   if (!coingeckoEntry) {
     //console.log(`State file missing Coingecko ID: ${asset.coingecko_id}, registered for asset: ${chain_name}::${asset.base}`);
+    assets_cgidNotInState.push({ chain_name, asset });
     return false; // ID is missing from state
   }
   //see if it has the asset listed (bool)
@@ -545,7 +546,6 @@ function checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState) {
 
 async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid) {
 
-  let assets_cgidNotInAPI = [];
   const equivalentIbcTraces = [
     "ibc",
     "ibc-cw20",
@@ -698,14 +698,14 @@ export async function validate_chain_files() {
       //checkCoingeckoIdMainnetAssetsOnly(chain_name, asset, chainNetworkType, assets_cgidAssetNotMainnet);
 
       //check that coingecko IDs are in the state
-      checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState);
+      checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState);      
 
     });
 
   });
 
   //check that new coingecko IDs are in the API
-  checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid);
+  await checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid);
 
   //now that we've collected errors in bulk, throw error if positive
   reportErrors(assets_cgidInvalid, assets_ibcInvalid);
