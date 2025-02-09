@@ -42,7 +42,7 @@ The endpoints added here are being tested via CI daily at 00:00 UTC. It is expec
 - rest: `/status`
 - rpc: `/cosmos/base/tendermint/v1beta1/syncing`
 - grpc: not tested
-Endpoints that consistently fail to repond successfully may be removed without warning.
+Endpoints that consistently fail to respond successfully may be removed without warning.
 
 Providers ready to be tested daily should be whitelisted here: `.github/workflows/tests/apis.py`
 
