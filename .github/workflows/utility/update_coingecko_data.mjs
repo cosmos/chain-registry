@@ -1,44 +1,18 @@
-import fs from 'fs/promises';
+import * as coingecko from './coingecko_data.mjs';
 import * as chain_reg from './chain_registry.mjs';
 
-const COINGECKO_API_URL = 'https://api.coingecko.com/api/v3/coins/list';
-const COINGECKO_JSON_PATH = './state/coingecko.json';
+let coingecko_data = coingecko.coingecko_data;
 
-let coingecko_api_response = null;
-
-chain_reg.setup("../../..");
-
-async function fetchCoingeckoData() {
-  try {
-    const response = await fetch(COINGECKO_API_URL);
-    coingecko_api_response = await response.json();
-  } catch (error) {
-    console.error('Error fetching Coingecko data:', error);
-  }
+function getAssetPointers(networkType = "mainnet") {
+  //let assetPointers = chain_reg.getAssetPointersByNetworkType(networkType);
+  let assetPointers = chain_reg.getAssetPointers();
+  return assetPointers;
 }
-
-export async function loadCoingeckoState() {
-  try {
-    const data = await fs.readFile(COINGECKO_JSON_PATH, 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    if (error.code === 'ENOENT') {
-      return { coingecko_data: [] }; // Return empty structure if file doesn't exist
-    }
-    throw error;
-  }
-}
-
-async function saveCoingeckoState(data) {
-  await fs.writeFile(COINGECKO_JSON_PATH, JSON.stringify(data, null, 2));
-}
-
 
 async function removeInvalidCoingeckoIds() {
 
-  //const assetPointers = getAllAssetPointers(); // Replace with your function
-  await fetchCoingeckoData();
-  const validCoingeckoIds = new Set(coingecko_api_response.map(entry => entry.id));
+  await coingecko.fetchCoingeckoData();
+  const validCoingeckoIds = new Set(coingecko_data?.api_response.map(entry => entry.id));
 
   const assetPointers = getAssetPointers();
   for (const asset of assetPointers) {
@@ -55,8 +29,8 @@ async function generateCoingeckoStateFile() {
   const coingeckoState = {};//await loadCoingeckoState();//  Use this for validation
   coingeckoState.coingecko_data = [];
 
-  await fetchCoingeckoData();
-  if (!coingecko_api_response) {
+  await coingecko.fetchCoingeckoData();
+  if (!coingecko_data?.api_response) {
     console.log("No CoinGecko API Response");
     return;
   }
@@ -66,7 +40,7 @@ async function generateCoingeckoStateFile() {
     const coingecko_id = chain_reg.getAssetProperty(asset.chain_name, asset.base_denom, "coingecko_id");
     if (!coingecko_id) { continue; }
 
-    const coingeckoEntry = coingecko_api_response.find(entry => entry.id === coingecko_id);
+    const coingeckoEntry = coingecko_data?.api_response?.find(entry => entry.id === coingecko_id);
     if (!coingeckoEntry) {
       console.log(`Missing Coingecko ID: ${coingecko_id} for asset`, asset);
       continue;
@@ -77,13 +51,13 @@ async function generateCoingeckoStateFile() {
 
     if (
       registryName !== coingeckoEntry.name
-        &&
+      &&
       registrySymbol.toUpperCase() !== coingeckoEntry.symbol.toUpperCase()
     ) {
       console.warn(`Warning: Mismatch of both Name and Symbol for Coingecko ID ${coingecko_id}. Registry: "${registryName} $${registrySymbol}", Coingecko: "${coingeckoEntry.name} $${coingeckoEntry.symbol.toUpperCase()}"`);
     }
 
-    let coingeckoDataEntry = coingeckoState.coingecko_data.find(entry => entry.coingecko_id === coingecko_id);
+    let coingeckoDataEntry = coingecko_data?.state?.coingecko_data?.find(entry => entry.coingecko_id === coingecko_id);
     if (!coingeckoDataEntry) {
       coingeckoDataEntry = {
         coingecko_id,
@@ -91,7 +65,7 @@ async function generateCoingeckoStateFile() {
         _comment: `${chain_reg.getAssetProperty(asset.chain_name, asset.base_denom, "name")} $${chain_reg.getAssetProperty(asset.chain_name, asset.base_denom, "symbol")}`,
         assets: []
       };
-      coingeckoState.coingecko_data.push(coingeckoDataEntry);
+      coingecko_data?.state?.coingecko_data?.push(coingeckoDataEntry);
     }
 
     const assetExists = coingeckoDataEntry.assets.some(a => a.chain_name === asset.chain_name && a.base_denom === asset.base_denom);
@@ -100,20 +74,15 @@ async function generateCoingeckoStateFile() {
     }
   }
 
-  await saveCoingeckoState(coingeckoState);
+  await coingecko.saveCoingeckoState(coingecko_data?.state);
 }
 
-function getAssetPointers() {
-  const networkType = "mainnet";
-  let assetPointers = chain_reg.getAssetPointersByNetworkType(networkType);
-  return assetPointers;
+function main() {
+  return;
 }
-
-(async function main() {
-})();
-
 
 if (process.argv.length > 2) {
+  chain_reg.setup("../../..");
   const command = process.argv[2];
   if (command === 'generateCoingeckoStateFile') {
     generateCoingeckoStateFile();
