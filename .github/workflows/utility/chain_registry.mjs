@@ -210,19 +210,30 @@ export function setFileProperty(chainName, file, property, value) {
 export function getIBCFileProperty(chainName1, chainName2, property) {
   const chain1Directory = chainNameToDirectoryMap.get(chainName1);
   const chain2Directory = chainNameToDirectoryMap.get(chainName2);
-  if(chain1Directory && chain2Directory) {
-    if(path.join(chain1Directory, "..") == path.join(chain2Directory, "..")) {
-      const ibcDirectory = path.join(chain1Directory, "..", "_IBC");
-      let list = [chainName1, chainName2];
-      list = list.sort();
-      const fileName = list[0] + '-' + list[1] + '.json';
-      const filePath = path.join(ibcDirectory, fileName);
-      const FILE_EXISTS = fs.existsSync(filePath);
-      if(FILE_EXISTS) {
-        return readJsonFile(filePath)[property];
-      }
-    }
+  if (!chain1Directory || !chain2Directory) {
+    return; // One or both chains are missing from the directory map
   }
+
+
+  // Check which directory has the _IBC folder
+  let ibcDirectory;
+  if (fs.existsSync(path.join(chain1Directory, "..", "_IBC"))) {
+    ibcDirectory = path.join(chain1Directory, "..", "_IBC");
+  } else if (fs.existsSync(path.join(chain2Directory, "..", "_IBC"))) {
+    ibcDirectory = path.join(chain2Directory, "..", "_IBC");
+  } else {
+    return; // No _IBC directory found
+  }
+
+  // Ensure file ordering is consistent
+  let list = [chainName1, chainName2].sort();
+  const fileName = `${list[0]}-${list[1]}.json`;
+  const filePath = path.join(ibcDirectory, fileName);
+
+  if (fs.existsSync(filePath)) {
+    return readJsonFile(filePath)[property];
+  }
+
 }
 
 export function getAssetProperty(chainName, baseDenom, property) {
@@ -322,6 +333,20 @@ export function getAssetPropertyWithTraceCustom(chainName, baseDenom, property, 
     baseDenom: traces[traces.length - 1].counterparty.base_denom
   }
   return getAssetPropertyWithTraceCustom(originAsset.chainName, originAsset.baseDenom, property, types);
+}
+
+export function getAssetPropertyFromOriginWithTraceCustom(chainName, baseDenom, property, types) {
+  if (property === "traces") { return; }
+  let traces = getAssetProperty(chainName, baseDenom, "traces");
+  if (!traces) { return getAssetProperty(chainName, baseDenom, property); }
+  if (!types.includes(traces[traces.length - 1].type)) {
+    return getAssetProperty(chainName, baseDenom, property);
+  }
+  let originAsset = {
+    chainName: traces[traces.length - 1].counterparty.chain_name,
+    baseDenom: traces[traces.length - 1].counterparty.base_denom
+  }
+  return getAssetPropertyFromOriginWithTraceCustom(originAsset.chainName, originAsset.baseDenom, property, types);
 }
 
 export function getAssetPropertyWithTraceIBC(chainName, baseDenom, property) {
