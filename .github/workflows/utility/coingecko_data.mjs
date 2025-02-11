@@ -3,6 +3,13 @@ import fs from 'fs/promises';
 const COINGECKO_API_URL = 'https://api.coingecko.com/api/v3/coins/list';
 const COINGECKO_JSON_PATH = './state/coingecko.json';
 
+export const cgidOriginTraces = [
+  "ibc",
+  "ibc-cw20",
+  "additional-mintage",
+  "test-mintage"
+];
+
 export const coingecko_data = {
   api_response: null,
   state: {
@@ -35,6 +42,15 @@ export async function loadCoingeckoState() {
 
 export async function saveCoingeckoState(data) {
   await fs.writeFile(COINGECKO_JSON_PATH, JSON.stringify(data, null, 2));
+}
+
+export function createCoingeckoEntry(chainName, baseDenom, coingeckoId) {
+  let coingeckoEntry = {
+    coingecko_id: coingeckoId,
+    assets: []
+  };
+  coingeckoEntry.assets.push({ chainName, baseDenom });
+  return coingeckoEntry;
 }
 
 function main() {
