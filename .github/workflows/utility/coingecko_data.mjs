@@ -44,13 +44,29 @@ export async function saveCoingeckoState(data) {
   await fs.writeFile(COINGECKO_JSON_PATH, JSON.stringify(data, null, 2));
 }
 
-export function createCoingeckoEntry(chainName, baseDenom, coingeckoId) {
+export function createCoingeckoEntry(coingeckoId, chainName, baseDenom) {
   let coingeckoEntry = {
     coingecko_id: coingeckoId,
     assets: []
   };
-  coingeckoEntry.assets.push({ chainName, baseDenom });
+  coingeckoEntry.assets.push({ chain_name: chainName, base_denom: baseDenom });
   return coingeckoEntry;
+}
+
+export function addAssetToCoingeckoEntry(coingeckoEntry, chainName, baseDenom) {
+  // Check if the asset already exists in the assets array
+  const assetExists = coingeckoEntry.assets.some(
+    asset => asset.chainName === chainName && asset.baseDenom === baseDenom
+  );
+
+  // If the asset is not found, add it to the array
+  if (!assetExists) {
+    coingeckoEntry.assets.push({ chain_name: chainName, base_denom: baseDenom });
+  }
+}
+
+export function getCoingeckoEntryFromState(coingeckoId, state) {
+  return state?.coingecko_data?.find(entry => entry.coingecko_id === coingeckoId);
 }
 
 function main() {

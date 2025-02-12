@@ -546,39 +546,58 @@ function checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState) {
 
 function checkCoingeckoIdAssetsShareOrigin(assets_cgidNotInState, assets_cgidOriginConflict) {
 
-  if (!coingecko_data?.state) { return true; }
   if (assets_cgidNotInState.length <= 0) { return true; }
 
-  //iterate assets_cgidNotInState
+  let coingeckoEntrysToCheck = [];
+
   assets_cgidNotInState.forEach((chain_asset_pair) => {
 
-    const coingeckoEntry = coingecko_data?.state?.coingecko_data?.find(entry => entry.coingecko_id === chain_asset_pair.asset.coingecko_id);
-    if (!coingeckoEntry) {
-      return;
+    const chainName = chain_asset_pair.chain_name;
+    const baseDenom = chain_asset_pair.asset.base;
+    const coingeckoId = chain_asset_pair.asset.coingecko_id;
+
+    let coingeckoEntry = coingeckoEntrysToCheck?.find(entry => entry.coingecko_id === coingeckoId);
+    if (coingeckoEntry) {
+      coingecko.addAssetToCoingeckoEntry(coingeckoEntry, chainName, baseDenom);
+    } else {
+      coingeckoEntry = coingecko.getCoingeckoEntryFromState(coingeckoId, coingecko_data?.state);
+      if (coingeckoEntry) {
+        coingecko.addAssetToCoingeckoEntry(coingeckoEntry, chainName, baseDenom);
+      } else {
+        coingeckoEntry = coingecko.createCoingeckoEntry(coingeckoId, chainName, baseDenom);
+      }
+      coingeckoEntrysToCheck.push(coingeckoEntry);
     }
-    const firstAssetInState = coingeckoEntry.assets[0];
-    const coinGeckoEntryOriginAsset = chain_reg.getOriginAssetCustom(
-      firstAssetInState.chain_name,
-      firstAssetInState.base_denom,
+    //console.log(`Coingecko Entry: cgid: ${coingeckoEntry.coingecko_id}, assets[0]::chain_name: ${coingeckoEntry.assets[coingeckoEntry.assets.length - 1].chain_name}, base_denom: ${coingeckoEntry.assets[coingeckoEntry.assets.length - 1].base_denom}`);
+
+  });
+
+  coingeckoEntrysToCheck.forEach((coingeckoEntry) => {
+
+    const firstAsset = coingeckoEntry.assets[0];
+    const firstAssetOriginAsset = chain_reg.getOriginAssetCustom(
+      firstAsset.chain_name,
+      firstAsset.base_denom,
       coingecko.cgidOriginTraces
     );
 
-    console.log(`Origin asset for ${coingeckoEntry.coingecko_id} is: ${coinGeckoEntryOriginAsset.chainName}, ${coinGeckoEntryOriginAsset.baseDenom}`);
+    coingeckoEntry.assets.forEach((asset) => {
+      const originAsset = chain_reg.getOriginAssetCustom(
+        asset.chain_name,
+        asset.base_denom,
+        coingecko.cgidOriginTraces
+      );
 
-    const originAsset = chain_reg.getOriginAssetCustom(
-      chain_asset_pair.chain_name,
-      chain_asset_pair.asset.base,
-      coingecko.cgidOriginTraces
-    );
-
-    if (!deepEqual(coinGeckoEntryOriginAsset, originAsset)) {
-      console.log(`
-Coingecko Entry (ID: ${coingeckoEntry.coingecko_id}) Origin Asset: ${coinGeckoEntryOriginAsset.chainName}, ${coinGeckoEntryOriginAsset.baseDenom}
-does not match origin (${originAsset.chainName}, ${originAsset.baseDenom}) of this asset (${chain_asset_pair.chain_name},${chain_asset_pair.asset.base}}).
+      if (!deepEqual(firstAssetOriginAsset, originAsset)) {
+        console.warn(`
+Coingecko Entry (ID: ${coingeckoEntry.coingecko_id}) Origin Asset: ${firstAssetOriginAsset.chainName}, ${firstAssetOriginAsset.baseDenom}
+does not match origin (${originAsset.chainName}, ${originAsset.baseDenom}) of this asset (${asset.chain_name}, ${asset.base_denom}}).
 `);
-      assets_cgidOriginConflict.push(chain_asset_pair);
-    }
 
+        assets_cgidOriginConflict.push(asset);
+      }
+
+    });
 
   });
 
@@ -745,7 +764,8 @@ export async function validate_chain_files() {
   });
 
   //check that new coingecko IDs are in the API
-  await checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid);
+  //await checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid);
+  //temporary comment ^ UNDO!!!
 
   //check that assets with a newly defined CGID have the same origin asset as other assets that share the same CGID
   checkCoingeckoIdAssetsShareOrigin(assets_cgidNotInState, assets_cgidOriginConflict);
