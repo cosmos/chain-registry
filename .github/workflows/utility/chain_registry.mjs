@@ -11,7 +11,7 @@ import * as path from 'path';
 
 export let chainNameToDirectoryMap = new Map();
 
-export const chainRegistryRoot = "../../../chain-registry";
+export let chainRegistryRoot = "../../../chain-registry"; //default assumption is submodule
 
 export const networkTypeToDirectoryNameMap = new Map();
 networkTypeToDirectoryNameMap.set("mainnet", "");
@@ -27,7 +27,7 @@ export const fileToFileNameMap = new Map();
 fileToFileNameMap.set("chain", "chain.json");
 fileToFileNameMap.set("assetlist", "assetlist.json");
 fileToFileNameMap.set("versions", "versions.json");
-const files = Array.from(domainToDirectoryNameMap.keys());
+export const files = Array.from(fileToFileNameMap.keys());
 
 export const nonChainDirectories = [
   ".git",
@@ -91,9 +91,7 @@ export const bech32ConfigSuffixMap = new Map([
 export const networkTypeToDirectoryMap = new Map();
 networkTypeToDirectoryMap.set("mainnet", "");
 networkTypeToDirectoryMap.set("testnet", "testnets");
-for (const [networkType, directory] of networkTypeToDirectoryMap.entries()) {
-  networkTypeToDirectoryMap.set(networkType, path.join(chainRegistryRoot, directory));
-}
+
 
 const fileNames = {
   chain: "chain.json",
@@ -212,19 +210,30 @@ export function setFileProperty(chainName, file, property, value) {
 export function getIBCFileProperty(chainName1, chainName2, property) {
   const chain1Directory = chainNameToDirectoryMap.get(chainName1);
   const chain2Directory = chainNameToDirectoryMap.get(chainName2);
-  if(chain1Directory && chain2Directory) {
-    if(path.join(chain1Directory, "..") == path.join(chain2Directory, "..")) {
-      const ibcDirectory = path.join(chain1Directory, "..", "_IBC");
-      let list = [chainName1, chainName2];
-      list = list.sort();
-      const fileName = list[0] + '-' + list[1] + '.json';
-      const filePath = path.join(ibcDirectory, fileName);
-      const FILE_EXISTS = fs.existsSync(filePath);
-      if(FILE_EXISTS) {
-        return readJsonFile(filePath)[property];
-      }
-    }
+  if (!chain1Directory || !chain2Directory) {
+    return; // One or both chains are missing from the directory map
   }
+
+
+  // Check which directory has the _IBC folder
+  let ibcDirectory;
+  if (fs.existsSync(path.join(chain1Directory, "..", "_IBC"))) {
+    ibcDirectory = path.join(chain1Directory, "..", "_IBC");
+  } else if (fs.existsSync(path.join(chain2Directory, "..", "_IBC"))) {
+    ibcDirectory = path.join(chain2Directory, "..", "_IBC");
+  } else {
+    return; // No _IBC directory found
+  }
+
+  // Ensure file ordering is consistent
+  let list = [chainName1, chainName2].sort();
+  const fileName = `${list[0]}-${list[1]}.json`;
+  const filePath = path.join(ibcDirectory, fileName);
+
+  if (fs.existsSync(filePath)) {
+    return readJsonFile(filePath)[property];
+  }
+
 }
 
 export function getAssetProperty(chainName, baseDenom, property) {
@@ -283,7 +292,11 @@ export function setAssetProperty(chainName, baseDenom, property, value) {
   if(assets) {
     assets.forEach((asset) => {
       if(asset.base == baseDenom) {
-        asset[property] = value;
+        if (value === "") {
+          delete asset[property]; // Remove the property if value is an empty string
+        } else {
+          asset[property] = value; // Otherwise, set the property to the value
+        }
         setFileProperty(chainName, "assetlist", "assets", assets);
         return;
       }
@@ -320,6 +333,20 @@ export function getAssetPropertyWithTraceCustom(chainName, baseDenom, property, 
     baseDenom: traces[traces.length - 1].counterparty.base_denom
   }
   return getAssetPropertyWithTraceCustom(originAsset.chainName, originAsset.baseDenom, property, types);
+}
+
+export function getAssetPropertyFromOriginWithTraceCustom(chainName, baseDenom, property, types) {
+  if (property === "traces") { return; }
+  let traces = getAssetProperty(chainName, baseDenom, "traces");
+  if (!traces) { return getAssetProperty(chainName, baseDenom, property); }
+  if (!types.includes(traces[traces.length - 1].type)) {
+    return getAssetProperty(chainName, baseDenom, property);
+  }
+  let originAsset = {
+    chainName: traces[traces.length - 1].counterparty.chain_name,
+    baseDenom: traces[traces.length - 1].counterparty.base_denom
+  }
+  return getAssetPropertyFromOriginWithTraceCustom(originAsset.chainName, originAsset.baseDenom, property, types);
 }
 
 export function getAssetPropertyWithTraceIBC(chainName, baseDenom, property) {
@@ -375,16 +402,11 @@ export function getAssetPointersByChain(chainName) {
 
 export function getAssetPointersByNetworkType(networkType) {
   let assetPointers = [];
-  const assets = getFileProperty(chainName, "assetlist", "assets");
-  if(assets) {
-    assets.forEach((asset) => {
-      if(asset.base) {
-        assetPointers.push({
-          chain_name: chainName,
-          base_denom: asset.base
-        });
-      }
-    });
+  for (const chainName of chainNameToDirectoryMap.keys()) {
+    const chainNetworkType = getFileProperty(chainName, "chain", "network_type");
+    if (chainNetworkType === networkType) {
+      assetPointers = assetPointers.concat(getAssetPointersByChain(chainName));
+    }
   }
   return assetPointers;
 }
@@ -453,8 +475,16 @@ export function filterAssetPointersByAssetProperty(pointers, property, value) {
   return filtered;
 }
 
-function main() {
+export function setup(root = chainRegistryRoot) {
+  chainRegistryRoot = root;
+
+  for (const [networkType, directory] of networkTypeToDirectoryMap.entries()) {
+    networkTypeToDirectoryMap.set(networkType, path.join(chainRegistryRoot, directory));
+  }
+
   populateChainDirectories();
 }
 
-main();
+function main() {
+  setup();
+}

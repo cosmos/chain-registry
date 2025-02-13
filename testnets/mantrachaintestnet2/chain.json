@@ -33,51 +33,42 @@
   },
   "codebase": {
     "git_repo": "https://github.com/MANTRA-Chain/mantrachain",
-    "recommended_version": "1.0.0-rc3",
+    "recommended_version": "v2.0.0",
     "compatible_versions": [
-      "1.0.0-rc3"
+      "v2.0.0"
     ],
-    "cosmos_sdk_version": "0.50.10",
     "consensus": {
       "type": "cometbft",
-      "version": "0.38"
+      "version": "v0.38.15"
     },
     "sdk": {
       "type": "cosmos",
-      "version": "0.50.10"
+      "version": "v0.50.11",
+      "repo": "https://github.com/MANTRA-Chain/cosmos-sdk",
+      "tag": "v0.50.11-v2-mantra-1"
     },
     "cosmwasm": {
-      "version": "0.53",
+      "version": "v0.54.0",
       "enabled": true
     },
-    "versions": [
-      {
-        "name": "1.0.0-rc3",
-        "recommended_version": "1.0.0-rc3",
-        "compatible_versions": [
-          "1.0.0-rc3"
-        ],
-        "cosmos_sdk_version": "0.50.10",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.38"
-        },
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.50.10"
-        },
-        "cosmwasm": {
-          "version": "0.53",
-          "enabled": true
-        }
-      }
-    ]
+    "ibc": {
+      "type": "go",
+      "version": "v8.5.2"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/MANTRA-Chain/mantrachain/refs/heads/main/networks/mantra-dukong-1/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
       {
         "id": "7e061edecef73a700b699c785f61a44ca981ff7f",
         "address": "34.150.103.79:26656"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ]
   },
@@ -86,18 +77,30 @@
       {
         "address": "https://rpc.dukong.mantrachain.io",
         "provider": "MANTRACHAIN"
+      },
+      {
+        "address": "https://mantra-testnet-rpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "rest": [
       {
         "address": "https://api.dukong.mantrachain.io",
         "provider": "MANTRACHAIN"
+      },
+      {
+        "address": "https://mantra-testnet-rest.publicnode.com",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "grpc": [
       {
         "address": "https://grpc.dukong.mantrachain.io",
         "provider": "MANTRACHAIN"
+      },
+      {
+        "address": "mantra-testnet-grpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ]
   },
@@ -134,7 +137,7 @@
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Prim-Col.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Prim-Col.svg",
       "theme": {
-        "circle": false,
+        "circle": true,
         "primary_color_hex": "#fba0c1"
       }
     }
