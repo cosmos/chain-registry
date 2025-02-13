@@ -10,6 +10,12 @@ export const cgidOriginTraces = [
   "test-mintage"
 ];
 
+export const cgidOriginTracesWithoutTest = [
+  "ibc",
+  "ibc-cw20",
+  "additional-mintage"
+];
+
 export const coingecko_data = {
   api_response: null,
   state: {

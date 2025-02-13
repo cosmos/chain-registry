@@ -589,16 +589,37 @@ function checkCoingeckoIdAssetsShareOrigin(assets_cgidNotInState, assets_cgidOri
       );
 
       if (!deepEqual(firstAssetOriginAsset, originAsset)) {
+
+        const originAssetTraces = chain_reg.getAssetTraces(
+          originAsset.chainName,
+          originAsset.baseDenom
+        );
+
+        const firstAssetOriginAssetTraces = chain_reg.getAssetTraces(
+          firstAssetOriginAsset.chainName,
+          firstAssetOriginAsset.baseDenom
+        );
+
+        if (originAssetTraces && firstAssetOriginAssetTraces) {
+          const originAssetLastTrace = originAssetTraces[originAssetTraces.length - 1];
+          const firstAssetOriginAssetLastTrace = firstAssetOriginAssetTraces[firstAssetOriginAssetTraces.length - 1];
+
+          if (
+            originAssetLastTrace.type === firstAssetOriginAssetLastTrace.type &&
+            originAssetLastTrace.provider === firstAssetOriginAssetLastTrace.provider
+          ) {
+            return;
+          }
+        }
+
         console.warn(`
 Coingecko Entry (ID: ${coingeckoEntry.coingecko_id}) Origin Asset: ${firstAssetOriginAsset.chainName}, ${firstAssetOriginAsset.baseDenom}
 does not match origin (${originAsset.chainName}, ${originAsset.baseDenom}) of this asset (${asset.chain_name}, ${asset.base_denom}}).
 `);
-
         assets_cgidOriginConflict.push(asset);
+          
       }
-
     });
-
   });
 
 }
