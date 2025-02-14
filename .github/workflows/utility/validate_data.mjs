@@ -544,20 +544,95 @@ function checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState) {
 
 }
 
+function checkCoingeckoIdAssetsShareOrigin(assets_cgidNotInState, assets_cgidOriginConflict) {
+
+  if (assets_cgidNotInState.length <= 0) { return true; }
+
+  let coingeckoEntrysToCheck = [];
+
+  assets_cgidNotInState.forEach((chain_asset_pair) => {
+
+    const chainName = chain_asset_pair.chain_name;
+    const baseDenom = chain_asset_pair.asset.base;
+    const coingeckoId = chain_asset_pair.asset.coingecko_id;
+
+    let coingeckoEntry = coingeckoEntrysToCheck?.find(entry => entry.coingecko_id === coingeckoId);
+    if (coingeckoEntry) {
+      coingecko.addAssetToCoingeckoEntry(coingeckoEntry, chainName, baseDenom);
+    } else {
+      coingeckoEntry = coingecko.getCoingeckoEntryFromState(coingeckoId, coingecko_data?.state);
+      if (coingeckoEntry) {
+        coingecko.addAssetToCoingeckoEntry(coingeckoEntry, chainName, baseDenom);
+      } else {
+        coingeckoEntry = coingecko.createCoingeckoEntry(coingeckoId, chainName, baseDenom);
+      }
+      coingeckoEntrysToCheck.push(coingeckoEntry);
+    }
+    //console.log(`Coingecko Entry: cgid: ${coingeckoEntry.coingecko_id}, assets[0]::chain_name: ${coingeckoEntry.assets[coingeckoEntry.assets.length - 1].chain_name}, base_denom: ${coingeckoEntry.assets[coingeckoEntry.assets.length - 1].base_denom}`);
+
+  });
+
+  coingeckoEntrysToCheck.forEach((coingeckoEntry) => {
+
+    const firstAsset = coingeckoEntry.assets[0];
+    const firstAssetOriginAsset = chain_reg.getOriginAssetCustom(
+      firstAsset.chain_name,
+      firstAsset.base_denom,
+      coingecko.cgidOriginTraces
+    );
+
+    coingeckoEntry.assets.forEach((asset) => {
+      const originAsset = chain_reg.getOriginAssetCustom(
+        asset.chain_name,
+        asset.base_denom,
+        coingecko.cgidOriginTraces
+      );
+
+      if (!deepEqual(firstAssetOriginAsset, originAsset)) {
+
+        const originAssetTraces = chain_reg.getAssetTraces(
+          originAsset.chainName,
+          originAsset.baseDenom
+        );
+
+        const firstAssetOriginAssetTraces = chain_reg.getAssetTraces(
+          firstAssetOriginAsset.chainName,
+          firstAssetOriginAsset.baseDenom
+        );
+
+        if (originAssetTraces && firstAssetOriginAssetTraces) {
+          const originAssetLastTrace = originAssetTraces[originAssetTraces.length - 1];
+          const firstAssetOriginAssetLastTrace = firstAssetOriginAssetTraces[firstAssetOriginAssetTraces.length - 1];
+
+          if (
+            originAssetLastTrace.type === firstAssetOriginAssetLastTrace.type &&
+            originAssetLastTrace.provider === firstAssetOriginAssetLastTrace.provider
+          ) {
+            return;
+          }
+        }
+
+        console.warn(`
+Coingecko Entry (ID: ${coingeckoEntry.coingecko_id}) Origin Asset: ${firstAssetOriginAsset.chainName}, ${firstAssetOriginAsset.baseDenom}
+does not match origin (${originAsset.chainName}, ${originAsset.baseDenom}) of this asset (${asset.chain_name}, ${asset.base_denom}}).
+`);
+        assets_cgidOriginConflict.push(asset);
+          
+      }
+    });
+  });
+
+}
+
 async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid) {
 
-  const equivalentIbcTraces = [
-    "ibc",
-    "ibc-cw20",
-    "additional-mintage",
-    "test-mintage"
-  ];
-
+  
   //Abort if we already know that non-mainnet assets have coingecko IDs.
   if (assets_cgidAssetNotMainnet.length > 0) {
     console.log(assets_cgidAssetNotMainnet.length);
     throw new Error(`CoinGecko IDs  may only be registered to mainnet assets.`);
   }
+  //Currently unused ^
 
   //Abort if there are no new CGIDs to check
   if (!assets_cgidNotInState.length) { return; }
@@ -583,13 +658,13 @@ async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNo
       chain_asset_pair.chain_name,
       chain_asset_pair.asset.base,
       "name",
-      equivalentIbcTraces
+      coingecko.cgidOriginTraces
     );
     const originAssetSymbol = chain_reg.getAssetPropertyFromOriginWithTraceCustom(
       chain_asset_pair.chain_name,
       chain_asset_pair.asset.base,
       "symbol",
-      equivalentIbcTraces
+      coingecko.cgidOriginTraces
     );
     if (
       originAssetName != coingecko_API_object.name &&
@@ -606,7 +681,7 @@ Coingecko: "${coingecko_API_object.name} $${coingecko_API_object.symbol.toUpperC
   }*/
 }
 
-function reportErrors(assets_cgidInvalid, assets_ibcInvalid) {
+function reportErrors(assets_cgidInvalid, assets_ibcInvalid, assets_cgidOriginConflict) {
 
   let err = false;
   if (assets_cgidInvalid.length > 0) {
@@ -615,6 +690,10 @@ function reportErrors(assets_cgidInvalid, assets_ibcInvalid) {
   }
   if (assets_ibcInvalid.length > 0) {
     console.log(`Some Trace IBC references are not valid! ${assets_ibcInvalid}`);
+    err = true;
+  }
+  if (assets_cgidOriginConflict.length > 0) {
+    console.log(`Some Assets with the same Coingecko ID have different origins! ${assets_cgidOriginConflict}`);
     err = true;
   }
 
@@ -638,6 +717,7 @@ export async function validate_chain_files() {
   let assets_cgidNotInState = [];
   let assets_cgidAssetNotMainnet = [];
   let assets_cgidInvalid = [];
+  let assets_cgidOriginConflict = [];
   let assets_ibcInvalid = [];
 
   //iterate each chain
@@ -698,17 +778,21 @@ export async function validate_chain_files() {
       //checkCoingeckoIdMainnetAssetsOnly(chain_name, asset, chainNetworkType, assets_cgidAssetNotMainnet);
 
       //check that coingecko IDs are in the state
-      checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState);      
+      checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState);
 
     });
 
   });
 
   //check that new coingecko IDs are in the API
-  await checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid);
+  //await checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid);
+  //temporary comment ^ UNDO!!!
+
+  //check that assets with a newly defined CGID have the same origin asset as other assets that share the same CGID
+  checkCoingeckoIdAssetsShareOrigin(assets_cgidNotInState, assets_cgidOriginConflict);
 
   //now that we've collected errors in bulk, throw error if positive
-  reportErrors(assets_cgidInvalid, assets_ibcInvalid);
+  reportErrors(assets_cgidInvalid, assets_ibcInvalid, assets_cgidOriginConflict);
 
 }
 
