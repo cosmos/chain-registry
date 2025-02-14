@@ -384,6 +384,24 @@ export function getAssetTraces(chainName, baseDenom) {
   return fullTrace;
 }
 
+export function getOriginAssetCustom(chainName, baseDenom, allowedTraceTypes) {
+  let originAsset = {
+    chainName: chainName,
+    baseDenom: baseDenom
+  }
+  const traces = getAssetTraces(chainName, baseDenom);
+  if (!traces) { return originAsset; }
+  for (let i = traces.length - 1; i >= 0; --i) {
+    if (allowedTraceTypes.includes(traces[i].type)) {
+      originAsset.chainName = traces[i].counterparty.chain_name;
+      originAsset.baseDenom = traces[i].counterparty.base_denom;
+    } else {
+      break;
+    }
+  };
+  return originAsset;
+}
+
 export function getAssetPointersByChain(chainName) {
   let assetPointers = [];
   const assets = getFileProperty(chainName, "assetlist", "assets");

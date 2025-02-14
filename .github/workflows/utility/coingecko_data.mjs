@@ -3,6 +3,19 @@ import fs from 'fs/promises';
 const COINGECKO_API_URL = 'https://api.coingecko.com/api/v3/coins/list';
 const COINGECKO_JSON_PATH = './state/coingecko.json';
 
+export const cgidOriginTraces = [
+  "ibc",
+  "ibc-cw20",
+  "additional-mintage",
+  "test-mintage"
+];
+
+export const cgidOriginTracesWithoutTest = [
+  "ibc",
+  "ibc-cw20",
+  "additional-mintage"
+];
+
 export const coingecko_data = {
   api_response: null,
   state: {
@@ -35,6 +48,31 @@ export async function loadCoingeckoState() {
 
 export async function saveCoingeckoState(data) {
   await fs.writeFile(COINGECKO_JSON_PATH, JSON.stringify(data, null, 2));
+}
+
+export function createCoingeckoEntry(coingeckoId, chainName, baseDenom) {
+  let coingeckoEntry = {
+    coingecko_id: coingeckoId,
+    assets: []
+  };
+  coingeckoEntry.assets.push({ chain_name: chainName, base_denom: baseDenom });
+  return coingeckoEntry;
+}
+
+export function addAssetToCoingeckoEntry(coingeckoEntry, chainName, baseDenom) {
+  // Check if the asset already exists in the assets array
+  const assetExists = coingeckoEntry.assets.some(
+    asset => asset.chainName === chainName && asset.baseDenom === baseDenom
+  );
+
+  // If the asset is not found, add it to the array
+  if (!assetExists) {
+    coingeckoEntry.assets.push({ chain_name: chainName, base_denom: baseDenom });
+  }
+}
+
+export function getCoingeckoEntryFromState(coingeckoId, state) {
+  return state?.coingecko_data?.find(entry => entry.coingecko_id === coingeckoId);
 }
 
 function main() {
