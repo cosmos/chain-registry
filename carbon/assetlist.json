@@ -26,16 +26,7 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/swth.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/swth.svg"
       },
-      "coingecko_id": "switcheo",
-      "images": [
-        {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/swth.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/swth.svg",
-          "theme": {
-            "primary_color_hex": "#a5edf2"
-          }
-        }
-      ]
+      "coingecko_id": "switcheo"
     },
     {
       "description": "The native stablecoin of Carbon",
@@ -46,7 +37,7 @@
         },
         {
           "denom": "dusc",
-          "exponent": 8,
+          "exponent": 6,
           "aliases": [
             "USC"
           ]
@@ -61,67 +52,33 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/usc.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/usc.svg"
       },
-      "images": [
-        {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/usc.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/usc.svg",
-          "theme": {
-            "primary_color_hex": "#053e4f"
-          }
-        }
-      ]
+      "coingecko_id": "usd-coin"
     },
     {
-      "description": "BNB token on Carbon",
+      "description": "Grouped USD on Carbon",
       "denom_units": [
         {
-          "denom": "bnb.1.6.773edb",
+          "denom": "cgt/1",
           "exponent": 0
         },
         {
-          "denom": "bnb",
+          "denom": "usd",
           "exponent": 18,
           "aliases": [
-            "BNB"
+            "USD"
           ]
         }
       ],
-      "base": "bnb.1.6.773edb",
-      "name": "Binance Coin",
-      "display": "bnb",
-      "symbol": "BNB",
-      "traces": [
-        {
-          "type": "bridge",
-          "counterparty": {
-            "chain_name": "binancesmartchain",
-            "base_denom": "wei",
-            "contract": "0xb5D4f343412dC8efb6ff599d790074D0f1e8D430"
-          },
-          "chain": {
-            "contract": "0xb5D4f343412dC8efb6ff599d790074D0f1e8D430"
-          },
-          "provider": "PolyNetwork"
-        }
-      ],
+      "type_asset": "sdk.coin",
+      "base": "cgt/1",
+      "name": "Demex Grouped USD",
+      "display": "usd",
+      "symbol": "USD",
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/binancesmartchain/images/bnb.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/binancesmartchain/images/bnb.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/carbon-grouped-usd.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/carbon-grouped-usd.svg"
       },
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "binancesmartchain",
-            "base_denom": "wei"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/binancesmartchain/images/bnb.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/binancesmartchain/images/bnb.svg",
-          "theme": {
-            "primary_color_hex": "#f3bb0c"
-          }
-        }
-      ],
-      "type_asset": "sdk.coin"
+      "coingecko_id": "usd-coin"
     },
     {
       "description": "bNEO token on Carbon",
@@ -138,6 +95,7 @@
           ]
         }
       ],
+      "type_asset": "sdk.coin",
       "base": "bneo.1.14.e2e5f6",
       "name": "BurgerNEO",
       "display": "bneo",
@@ -160,22 +118,85 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/bneo.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/bneo.svg"
       },
-      "images": [
-        {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/bneo.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/bneo.svg",
-          "theme": {
-            "primary_color_hex": "#040404"
-          }
-        }
-      ],
-      "type_asset": "sdk.coin"
+      "coingecko_id": "neo"
     },
     {
-      "description": "BUSD (BEP-20) token on Carbon",
+      "description": "BNB token on Carbon",
       "denom_units": [
         {
-          "denom": "busd.1.6.754a80",
+          "denom": "brdg/1768794901f8a19c2ec795a5402653cef6cbfe6b3ec6398d39fc37de963cb667",
+          "exponent": 0
+        },
+        {
+          "denom": "bnb",
+          "exponent": 18,
+          "aliases": [
+            "BNB"
+          ]
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "brdg/1768794901f8a19c2ec795a5402653cef6cbfe6b3ec6398d39fc37de963cb667",
+      "name": "BNB",
+      "display": "bnb",
+      "symbol": "BNB",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "binancesmartchain",
+            "base_denom": "wei"
+          },
+          "provider": "Axelar Bridge"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/binancesmartchain/images/bnb.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/binancesmartchain/images/bnb.svg"
+      },
+      "coingecko_id": "binancecoin"
+    },
+    {
+      "description": "cmETH token on Carbon",
+      "denom_units": [
+        {
+          "denom": "brdg/235ea1e9c215addc00464bfbb7f69c23100e38f3d5b8512b2a1e2fb1da1d7453",
+          "exponent": 0
+        },
+        {
+          "denom": "cmeth",
+          "exponent": 18,
+          "aliases": [
+            "cmETH"
+          ]
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "brdg/235ea1e9c215addc00464bfbb7f69c23100e38f3d5b8512b2a1e2fb1da1d7453",
+      "name": "cmETH",
+      "display": "cmeth",
+      "symbol": "cmETH",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "mantle",
+            "base_denom": "0xE6829d9a7eE3040e1276Fa75293Bde931859e8fA"
+          },
+          "provider": "Axelar Bridge"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/cmeth.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/cmeth.svg"
+      },
+      "coingecko_id": "mantle-restaked-eth"
+    },
+    {
+      "description": "BUSD token on Carbon",
+      "denom_units": [
+        {
+          "denom": "brdg/452281b506e82a21c2eedfd593d30883848ddec29cd5747e8e80720cc14e8b84",
           "exponent": 0
         },
         {
@@ -186,8 +207,9 @@
           ]
         }
       ],
-      "base": "busd.1.6.754a80",
-      "name": "BUSD (BEP-20)",
+      "type_asset": "sdk.coin",
+      "base": "brdg/452281b506e82a21c2eedfd593d30883848ddec29cd5747e8e80720cc14e8b84",
+      "name": "BUSD",
       "display": "busd",
       "symbol": "BUSD",
       "traces": [
@@ -195,251 +217,340 @@
           "type": "bridge",
           "counterparty": {
             "chain_name": "binancesmartchain",
-            "base_denom": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
-            "contract": "0xb5D4f343412dC8efb6ff599d790074D0f1e8D430"
+            "base_denom": "0xe9e7cea3dedca5984780bafc599bd69add087d56"
           },
-          "chain": {
-            "contract": "0xb5D4f343412dC8efb6ff599d790074D0f1e8D430"
-          },
-          "provider": "PolyNetwork"
+          "provider": "Axelar Bridge"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/busd.png"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/busd.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/busd.svg"
       },
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "binancesmartchain",
-            "base_denom": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/busd.png",
-          "theme": {
-            "primary_color_hex": "#f3bb0c"
-          }
-        }
-      ],
-      "type_asset": "sdk.coin"
+      "coingecko_id": "binance-usd"
     },
     {
-      "description": "Carbon Wrapped GLP on Carbon",
+      "description": "COOK token on Carbon",
       "denom_units": [
         {
-          "denom": "cglp.1.19.1698d3",
+          "denom": "brdg/4fa6adda16fd1ac1c08c18bf76c137b863637ad96f026ca468015119dcc7da1c",
+          "exponent": 0
+        },
+        {
+          "denom": "cook",
+          "exponent": 18,
+          "aliases": [
+            "COOK"
+          ]
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "brdg/4fa6adda16fd1ac1c08c18bf76c137b863637ad96f026ca468015119dcc7da1c",
+      "name": "COOK",
+      "display": "cook",
+      "symbol": "COOK",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "mantle",
+            "base_denom": "0x9F0C013016E8656bC256f948CD4B79ab25c7b94D"
+          },
+          "provider": "Axelar Bridge"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/cook.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/cook.svg"
+      },
+      "coingecko_id": "meth-protocol"
+    },
+    {
+      "description": "PTcmETH_13FEB2025 token on Carbon",
+      "denom_units": [
+        {
+          "denom": "brdg/5c60cfe79717c68b665f67ed621fa73c0fc438504bec2daaae9e4880de346e04",
+          "exponent": 0
+        },
+        {
+          "denom": "ptcmeth_13feb2025",
+          "exponent": 18,
+          "aliases": [
+            "PTcmETH_13FEB2025"
+          ]
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "brdg/5c60cfe79717c68b665f67ed621fa73c0fc438504bec2daaae9e4880de346e04",
+      "name": "PT cmETH 13 FEB 2025",
+      "display": "ptcmeth_13feb2025",
+      "symbol": "PTcmETH_13FEB2025",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "mantle",
+            "base_denom": "0xEbf4ff21459fEcf96e36CF1dd00db01367254Bcd"
+          },
+          "provider": "Axelar Bridge"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/ptcmeth_13feb2025.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/ptcmeth_13feb2025.svg"
+      }
+    },
+    {
+      "description": "FBTC token on Carbon",
+      "denom_units": [
+        {
+          "denom": "brdg/714a79c1875208b0e2a64e463caa10291726be5292ba014c3a67746804fea502",
+          "exponent": 0
+        },
+        {
+          "denom": "fbtc",
+          "exponent": 8,
+          "aliases": [
+            "FBTC"
+          ]
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "brdg/714a79c1875208b0e2a64e463caa10291726be5292ba014c3a67746804fea502",
+      "name": "Fire Bitcoin",
+      "display": "fbtc",
+      "symbol": "FBTC",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "mantle",
+            "base_denom": "0xC96dE26018A54D51c097160568752c4E3BD6C364"
+          },
+          "provider": "Axelar Bridge"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/mantle/images/fbtc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/mantle/images/fbtc.svg"
+      },
+      "coingecko_id": "ignition-fbtc"
+    },
+    {
+      "description": "mETH token on Carbon",
+      "denom_units": [
+        {
+          "denom": "brdg/7e922ad42da37c2fcffa49aafae1d0cc61d9f1bff7a6cbacd0be9bbc80d05e99",
+          "exponent": 0
+        },
+        {
+          "denom": "meth",
+          "exponent": 18,
+          "aliases": [
+            "mETH"
+          ]
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "brdg/7e922ad42da37c2fcffa49aafae1d0cc61d9f1bff7a6cbacd0be9bbc80d05e99",
+      "name": "mETH",
+      "display": "meth",
+      "symbol": "mETH",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "mantle",
+            "base_denom": "0xcDA86A272531e8640cD7F1a92c01839911B90bb0"
+          },
+          "provider": "Axelar Bridge"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/meth.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/meth.svg"
+      },
+      "coingecko_id": "mantle-staked-ether"
+    },
+    {
+      "description": "SY-cmETH-13FEB2025 token on Carbon",
+      "denom_units": [
+        {
+          "denom": "brdg/8778ab94871c0cb440959a06ce245b5dc06fe5f79df11004ad97e9098a6ec16a",
+          "exponent": 0
+        },
+        {
+          "denom": "sy-cmeth-13feb2025",
+          "exponent": 18,
+          "aliases": [
+            "SY-cmETH-13FEB2025"
+          ]
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "brdg/8778ab94871c0cb440959a06ce245b5dc06fe5f79df11004ad97e9098a6ec16a",
+      "name": "SY cmETH 13FEB2025",
+      "display": "sy-cmeth-13feb2025",
+      "symbol": "SY-cmETH-13FEB2025",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "mantle",
+            "base_denom": "0x2aB88aC7458faeC2E952Bb79CC1be6577bF63E70"
+          },
+          "provider": "Axelar Bridge"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/sy-cmeth-13feb2025.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/sy-cmeth-13feb2025.svg"
+      }
+    },
+    {
+      "description": "MNT token on Carbon",
+      "denom_units": [
+        {
+          "denom": "brdg/a02afc2c1edf77cc023eefa25fc036c184612faf9365cda9c1daa3b1675ebf8f",
+          "exponent": 0
+        },
+        {
+          "denom": "mnt",
+          "exponent": 18,
+          "aliases": [
+            "MNT"
+          ]
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "brdg/a02afc2c1edf77cc023eefa25fc036c184612faf9365cda9c1daa3b1675ebf8f",
+      "name": "Mantle",
+      "display": "mnt",
+      "symbol": "MNT",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "mantle",
+            "base_denom": "wei"
+          },
+          "provider": "Axelar Bridge"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/mnt.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/mnt.svg"
+      },
+      "coingecko_id": "wrapped-mantle"
+    },
+    {
+      "description": "cGLP token on Carbon",
+      "denom_units": [
+        {
+          "denom": "brdg/c29c043c95498c4fc25d8d008e4735f7717a14b06581d8197726ad877c9e567e",
           "exponent": 0
         },
         {
           "denom": "cglp",
           "exponent": 18,
           "aliases": [
-            "CGLP"
+            "cGLP"
           ]
         }
       ],
-      "base": "cglp.1.19.1698d3",
+      "type_asset": "sdk.coin",
+      "base": "brdg/c29c043c95498c4fc25d8d008e4735f7717a14b06581d8197726ad877c9e567e",
       "name": "Carbon Wrapped GLP",
       "display": "cglp",
-      "symbol": "CGLP",
+      "symbol": "cGLP",
       "traces": [
         {
-          "type": "wrapped",
+          "type": "bridge",
           "counterparty": {
             "chain_name": "arbitrum",
-            "base_denom": "0xab19bdaeb37242fa0f30486195f45b9cf5361b78",
-            "contract": "0xb1e6f8820826491fcc5519f84ff4e2bdbb6e3cad"
+            "base_denom": "0xab19bdaeb37242fa0f30486195f45b9cf5361b78"
           },
-          "chain": {
-            "contract": "0xb1e6f8820826491fcc5519f84ff4e2bdbb6e3cad"
-          },
-          "provider": "PolyNetwork"
+          "provider": "Axelar Bridge"
         }
       ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/cglp.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/cglp.svg"
-      },
-      "images": [
-        {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/cglp.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/cglp.svg",
-          "theme": {
-            "primary_color_hex": "#070707"
-          }
-        }
-      ],
-      "type_asset": "sdk.coin"
+      }
     },
     {
-      "description": "Grouped USD on Carbon",
+      "description": "LPcmETH_13FEB2025 token on Carbon",
       "denom_units": [
         {
-          "denom": "cgt/1",
+          "denom": "brdg/cb2cdde14b5ab81cb400650d00e47ab5085dd5fa3fa904ec7904e2488ecdfd6c",
           "exponent": 0
         },
         {
-          "denom": "usd",
+          "denom": "lpcmeth_13feb2025",
           "exponent": 18,
           "aliases": [
-            "USD"
+            "LPcmETH_13FEB2025"
           ]
         }
       ],
-      "base": "cgt/1",
-      "name": "Carbon Grouped USD",
-      "display": "usd",
-      "symbol": "USD",
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/carbon-grouped-usd.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/carbon-grouped-usd.svg"
-      },
-      "images": [
-        {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/carbon-grouped-usd.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/carbon-grouped-usd.svg",
-          "theme": {
-            "primary_color_hex": "#043d4d"
-          }
-        }
-      ],
-      "type_asset": "sdk.coin"
-    },
-    {
-      "description": "ETH (Arbitrum) token on Carbon",
-      "denom_units": [
-        {
-          "denom": "eth.1.19.c3b805",
-          "exponent": 0
-        },
-        {
-          "denom": "eth",
-          "exponent": 18,
-          "aliases": [
-            "ETH"
-          ]
-        }
-      ],
-      "base": "eth.1.19.c3b805",
-      "name": "Ethereum (Arbitrum)",
-      "display": "eth",
-      "symbol": "ETH",
+      "type_asset": "sdk.coin",
+      "base": "brdg/cb2cdde14b5ab81cb400650d00e47ab5085dd5fa3fa904ec7904e2488ecdfd6c",
+      "name": "LP cmETH 13 FEB 2025",
+      "display": "lpcmeth_13feb2025",
+      "symbol": "LPcmETH_13FEB2025",
       "traces": [
         {
           "type": "bridge",
           "counterparty": {
-            "chain_name": "arbitrum",
-            "base_denom": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
-            "contract": "0xb1e6f8820826491fcc5519f84ff4e2bdbb6e3cad"
+            "chain_name": "mantle",
+            "base_denom": "0x0b923f8039ae827e963fcc1b48ab5b903d01925b"
           },
-          "chain": {
-            "contract": "0xb1e6f8820826491fcc5519f84ff4e2bdbb6e3cad"
-          },
-          "provider": "PolyNetwork"
+          "provider": "Axelar Bridge"
         }
       ],
       "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth.svg"
-      },
-      "images": [
-        {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth.svg"
-        }
-      ],
-      "type_asset": "sdk.coin"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/lpcmeth_13feb2025.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/lpcmeth_13feb2025.svg"
+      }
     },
     {
-      "description": "ETH (ERC20) token on Carbon",
+      "description": "ZIL token on Carbon",
       "denom_units": [
         {
-          "denom": "eth.1.2.942d87",
+          "denom": "zil.1.18.1a4a06",
           "exponent": 0
         },
         {
-          "denom": "eth",
-          "exponent": 18,
+          "denom": "zil",
+          "exponent": 12,
           "aliases": [
-            "ETH"
+            "ZIL"
           ]
         }
       ],
-      "base": "eth.1.2.942d87",
-      "name": "Ethereum (ERC20)",
-      "display": "eth",
-      "symbol": "ETH",
+      "type_asset": "sdk.coin",
+      "base": "zil.1.18.1a4a06",
+      "name": "Zilliqa",
+      "display": "zil",
+      "symbol": "ZIL",
       "traces": [
         {
           "type": "bridge",
           "counterparty": {
-            "chain_name": "ethereum",
+            "chain_name": "zilliqa",
             "base_denom": "wei",
-            "contract": "0x9a016ce184a22dbf6c17daa59eb7d3140dbd1c54"
+            "contract": "0xd73c6b871b4d0e130d64581993b745fc938a5be7"
           },
           "chain": {
-            "contract": "0x9a016ce184a22dbf6c17daa59eb7d3140dbd1c54"
+            "contract": "0xd73c6b871b4d0e130d64581993b745fc938a5be7"
           },
           "provider": "PolyNetwork"
         }
       ],
       "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/zil.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/zil.svg"
       },
-      "images": [
-        {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth.svg"
-        }
-      ],
-      "type_asset": "sdk.coin"
-    },
-    {
-      "description": "STARS token on Carbon",
-      "denom_units": [
-        {
-          "denom": "ibc/07FA7831E1920D0C87C9388F86B0108677F6ED0C9DE7E4063F05ED675192405C",
-          "exponent": 0
-        },
-        {
-          "denom": "stars",
-          "exponent": 6,
-          "aliases": [
-            "STARS"
-          ]
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/07FA7831E1920D0C87C9388F86B0108677F6ED0C9DE7E4063F05ED675192405C",
-      "name": "Stargaze Staking Coin",
-      "display": "stars",
-      "symbol": "STARS",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "stargaze",
-            "base_denom": "ustars",
-            "channel_id": "channel-123"
-          },
-          "chain": {
-            "channel_id": "channel-15",
-            "path": "transfer/channel-15/ustars"
-          }
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg"
-      },
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "stargaze",
-            "base_denom": "ustars"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg",
-          "theme": {
-            "primary_color_hex": "#db2777"
-          }
-        }
-      ]
+      "coingecko_id": "zilliqa"
     },
     {
       "description": "LUNA token on Carbon",
@@ -479,123 +590,47 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.svg"
       },
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "terra2",
-            "base_denom": "uluna"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.svg",
-          "theme": {
-            "primary_color_hex": "#f4de6f"
-          }
-        }
-      ]
+      "coingecko_id": "terra-luna-2"
     },
     {
-      "description": "TIA token on Carbon",
+      "description": "stINJ token on Carbon",
       "denom_units": [
         {
-          "denom": "ibc/6C349F0EB135C5FA99301758F35B87DB88403D690E5E314AB080401FEE4066E5",
-          "exponent": 0,
-          "aliases": [
-            "utia"
-          ]
+          "denom": "ibc/2B9D089E73AC096934CD6BBBC71A1CD5DD2A4F8E94CC37CE7F861AC674044002",
+          "exponent": 0
         },
         {
-          "denom": "tia",
-          "exponent": 6
+          "denom": "stinj",
+          "exponent": 18,
+          "aliases": [
+            "stINJ"
+          ]
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/6C349F0EB135C5FA99301758F35B87DB88403D690E5E314AB080401FEE4066E5",
-      "name": "Celestia TIA",
-      "display": "tia",
-      "symbol": "TIA",
+      "base": "ibc/2B9D089E73AC096934CD6BBBC71A1CD5DD2A4F8E94CC37CE7F861AC674044002",
+      "name": "Stride Staked INJ",
+      "display": "stinj",
+      "symbol": "stINJ",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
-            "chain_name": "osmosis",
-            "base_denom": "ibc/D79E7D83AB399BFFF93433E54FAA480C191248FC556924A2A8351AE2638B3877",
-            "channel_id": "channel-188"
+            "chain_name": "stride",
+            "base_denom": "stinj",
+            "channel_id": "channel-47"
           },
           "chain": {
-            "channel_id": "channel-0",
-            "path": "transfer/channel-0/transfer/channel-6994/utia"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "celestia",
-            "base_denom": "utia"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg",
-          "theme": {
-            "primary_color_hex": "#7c2cfb"
+            "channel_id": "channel-8",
+            "path": "transfer/channel-8/stinj"
           }
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg"
-      }
-    },
-    {
-      "description": "MilkTIA token on Carbon",
-      "denom_units": [
-        {
-          "denom": "ibc/16065EE5282C5217685C8F084FC44864C25C706AC37356B0D62811D50B96920F",
-          "exponent": 0,
-          "aliases": [
-            "umilkTIA"
-          ]
-        },
-        {
-          "denom": "milkTIA",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/16065EE5282C5217685C8F084FC44864C25C706AC37356B0D62811D50B96920F",
-      "name": "milkTIA",
-      "display": "milkTIA",
-      "symbol": "milkTIA",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "osmosis",
-            "base_denom": "factory/osmo1f5vfcph2dvfeqcqkhetwv75fda69z7e5c2dldm3kvgj23crkv6wqcn47a0/umilkTIA",
-            "channel_id": "channel-188"
-          },
-          "chain": {
-            "channel_id": "channel-0",
-            "path": "transfer/channel-0/factory/osmo1f5vfcph2dvfeqcqkhetwv75fda69z7e5c2dldm3kvgj23crkv6wqcn47a0/umilkTIA"
-          }
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stinj.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stinj.svg"
       },
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "osmosis",
-            "base_denom": "factory/osmo1f5vfcph2dvfeqcqkhetwv75fda69z7e5c2dldm3kvgj23crkv6wqcn47a0/umilkTIA"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/milktia.svg",
-          "theme": {
-            "primary_color_hex": "#d18dfc"
-          }
-        }
-      ]
+      "coingecko_id": "stride-staked-injective"
     },
     {
       "description": "STRD token on Carbon",
@@ -635,71 +670,7 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/strd.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/strd.svg"
       },
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "stride",
-            "base_denom": "ustrd"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/strd.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/strd.svg",
-          "theme": {
-            "primary_color_hex": "#e4047c"
-          }
-        }
-      ]
-    },
-    {
-      "description": "EVMOS token on Carbon",
-      "denom_units": [
-        {
-          "denom": "ibc/35E771B8682D828173F4B795F6C307780F96DC64D6F914FAE4CC9B4666F66364",
-          "exponent": 0
-        },
-        {
-          "denom": "evmos",
-          "exponent": 18,
-          "aliases": [
-            "EVMOS"
-          ]
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/35E771B8682D828173F4B795F6C307780F96DC64D6F914FAE4CC9B4666F66364",
-      "name": "Evmos",
-      "display": "evmos",
-      "symbol": "EVMOS",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "evmos",
-            "base_denom": "aevmos",
-            "channel_id": "channel-23"
-          },
-          "chain": {
-            "channel_id": "channel-6",
-            "path": "transfer/channel-6/aevmos"
-          }
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.svg"
-      },
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "evmos",
-            "base_denom": "aevmos"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.svg",
-          "theme": {
-            "primary_color_hex": "#ec4c34"
-          }
-        }
-      ]
+      "coingecko_id": "stride"
     },
     {
       "description": "IRIS token on Carbon",
@@ -739,19 +710,46 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.svg"
       },
-      "images": [
+      "coingecko_id": "iris-network"
+    },
+    {
+      "description": "stTIA token on Carbon",
+      "denom_units": [
         {
-          "image_sync": {
-            "chain_name": "irisnet",
-            "base_denom": "uiris"
+          "denom": "ibc/6569E05DEE32B339D9286A52BE33DFCEFC97267F23EF9CFDE0C055140967A9A5",
+          "exponent": 0
+        },
+        {
+          "denom": "sttia",
+          "exponent": 6,
+          "aliases": [
+            "stTIA"
+          ]
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/6569E05DEE32B339D9286A52BE33DFCEFC97267F23EF9CFDE0C055140967A9A5",
+      "name": "Stride Staked TIA",
+      "display": "sttia",
+      "symbol": "stTIA",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "stride",
+            "base_denom": "stutia",
+            "channel_id": "channel-47"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.svg",
-          "theme": {
-            "primary_color_hex": "#5664ad"
+          "chain": {
+            "channel_id": "channel-8",
+            "path": "transfer/channel-8/stutia"
           }
         }
-      ]
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/sttia.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/sttia.svg"
+      }
     },
     {
       "description": "KUJI token on Carbon",
@@ -791,19 +789,7 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kujira/images/kuji.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kujira/images/kuji.svg"
       },
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "kujira",
-            "base_denom": "ukuji"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kujira/images/kuji.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kujira/images/kuji.svg",
-          "theme": {
-            "primary_color_hex": "#e33b34"
-          }
-        }
-      ]
+      "coingecko_id": "kujira"
     },
     {
       "description": "stOSMO token on Carbon",
@@ -843,74 +829,49 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stosmo.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stosmo.svg"
       },
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "stride",
-            "base_denom": "stuosmo"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stosmo.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stosmo.svg",
-          "theme": {
-            "primary_color_hex": "#e40474"
-          }
-        }
-      ]
+      "coingecko_id": "osmosis"
     },
     {
-      "description": "CANTO token on Carbon",
+      "description": "stSTARS token on Carbon",
       "denom_units": [
         {
-          "denom": "ibc/92E974290AF9E2BC3AEEEC35305C8FD76AC5A22A74CF8D91270FDF5A1C41E861",
+          "denom": "ibc/8D749C5FB0213DF002E8FDCCB5B01E35DA241397EF825048C530C7EAE43BCE80",
           "exponent": 0
         },
         {
-          "denom": "canto",
-          "exponent": 18,
+          "denom": "ststars",
+          "exponent": 6,
           "aliases": [
-            "CANTO"
+            "stSTARS"
           ]
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/92E974290AF9E2BC3AEEEC35305C8FD76AC5A22A74CF8D91270FDF5A1C41E861",
-      "name": "Canto",
-      "display": "canto",
-      "symbol": "CANTO",
+      "base": "ibc/8D749C5FB0213DF002E8FDCCB5B01E35DA241397EF825048C530C7EAE43BCE80",
+      "name": "Stride Staked STARS",
+      "display": "ststars",
+      "symbol": "stSTARS",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
-            "chain_name": "canto",
-            "base_denom": "acanto",
-            "channel_id": "channel-6"
+            "chain_name": "stride",
+            "base_denom": "stustars",
+            "channel_id": "channel-47"
           },
           "chain": {
-            "channel_id": "channel-18",
-            "path": "transfer/channel-18/acanto"
+            "channel_id": "channel-8",
+            "path": "transfer/channel-8/stustars"
           }
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/canto/images/canto.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/canto/images/canto.svg"
-      },
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "canto",
-            "base_denom": "acanto"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/canto/images/canto.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/canto/images/canto.svg",
-          "theme": {
-            "primary_color_hex": "#1c1f1f"
-          }
-        }
-      ]
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/ststars.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/ststars.svg"
+      }
     },
     {
-      "description": "Cosmos governance token on Carbon",
+      "description": "ATOM token on Carbon",
       "denom_units": [
         {
           "denom": "ibc/A4DB47A9D3CF9A068D454513891B526702455D3EF08FB9EB558C561F9DC2B701",
@@ -947,19 +908,7 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
       },
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "cosmoshub",
-            "base_denom": "uatom"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg",
-          "theme": {
-            "primary_color_hex": "#272d45"
-          }
-        }
-      ]
+      "coingecko_id": "cosmos"
     },
     {
       "description": "stATOM token on Carbon",
@@ -999,19 +948,46 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/statom.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/statom.svg"
       },
-      "images": [
+      "coingecko_id": "stride-staked-atom"
+    },
+    {
+      "description": "stDYDX token on Carbon",
+      "denom_units": [
         {
-          "image_sync": {
+          "denom": "ibc/BAA1D21893B1D36865C6CA44D18F4ACF08BAD70CB6863C4722E0A61703808F77",
+          "exponent": 0
+        },
+        {
+          "denom": "stdydx",
+          "exponent": 18,
+          "aliases": [
+            "stDYDX"
+          ]
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/BAA1D21893B1D36865C6CA44D18F4ACF08BAD70CB6863C4722E0A61703808F77",
+      "name": "Stride Liquid Staked DYDX",
+      "display": "stdydx",
+      "symbol": "stDYDX",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
             "chain_name": "stride",
-            "base_denom": "stuatom"
+            "base_denom": "stadydx",
+            "channel_id": "channel-47"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/statom.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/statom.svg",
-          "theme": {
-            "primary_color_hex": "#e40474"
+          "chain": {
+            "channel_id": "channel-8",
+            "path": "transfer/channel-8/stadydx"
           }
         }
-      ]
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stdydx.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/stdydx.svg"
+      }
     },
     {
       "description": "OSMO token on Carbon",
@@ -1051,167 +1027,7 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
       },
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "osmosis",
-            "base_denom": "uosmo"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg",
-          "theme": {
-            "primary_color_hex": "#760dbb"
-          }
-        }
-      ]
-    },
-    {
-      "description": "USDC (ERC20) token on Carbon",
-      "denom_units": [
-        {
-          "denom": "usdc.1.2.343151",
-          "exponent": 0
-        },
-        {
-          "denom": "usdc",
-          "exponent": 6,
-          "aliases": [
-            "USDC"
-          ]
-        }
-      ],
-      "base": "usdc.1.2.343151",
-      "name": "Circle USD",
-      "display": "usdc",
-      "symbol": "USDC",
-      "traces": [
-        {
-          "type": "bridge",
-          "counterparty": {
-            "chain_name": "ethereum",
-            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-            "contract": "0x9a016ce184a22dbf6c17daa59eb7d3140dbd1c54"
-          },
-          "chain": {
-            "contract": "0x9a016ce184a22dbf6c17daa59eb7d3140dbd1c54"
-          },
-          "provider": "PolyNetwork"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
-      },
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "ethereum",
-            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-          },
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
-          "theme": {
-            "circle": true,
-            "primary_color_hex": "#2775CA"
-          }
-        }
-      ],
-      "type_asset": "sdk.coin"
-    },
-    {
-      "description": "USD Coin (BEP-20) token on Carbon",
-      "denom_units": [
-        {
-          "denom": "usdc.1.6.53ff75",
-          "exponent": 0
-        },
-        {
-          "denom": "usdc",
-          "exponent": 18,
-          "aliases": [
-            "USDC"
-          ]
-        }
-      ],
-      "base": "usdc.1.6.53ff75",
-      "name": "USD Coin (BEP-20)",
-      "display": "usdc",
-      "symbol": "USDC",
-      "traces": [
-        {
-          "type": "bridge",
-          "counterparty": {
-            "chain_name": "binancesmartchain",
-            "base_denom": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
-            "contract": "0xb5D4f343412dC8efb6ff599d790074D0f1e8D430"
-          },
-          "chain": {
-            "contract": "0xb5D4f343412dC8efb6ff599d790074D0f1e8D430"
-          },
-          "provider": "PolyNetwork"
-        }
-      ],
-      "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
-      },
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "binancesmartchain",
-            "base_denom": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"
-          },
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
-        }
-      ],
-      "type_asset": "sdk.coin"
-    },
-    {
-      "description": "ZIL token on Carbon",
-      "denom_units": [
-        {
-          "denom": "zil.1.18.1a4a06",
-          "exponent": 0
-        },
-        {
-          "denom": "zil",
-          "exponent": 12,
-          "aliases": [
-            "ZIL"
-          ]
-        }
-      ],
-      "base": "zil.1.18.1a4a06",
-      "name": "Zilliqa",
-      "display": "zil",
-      "symbol": "ZIL",
-      "traces": [
-        {
-          "type": "bridge",
-          "counterparty": {
-            "chain_name": "zilliqa",
-            "base_denom": "wei",
-            "contract": "0xd73c6b871b4d0e130d64581993b745fc938a5be7"
-          },
-          "chain": {
-            "contract": "0xd73c6b871b4d0e130d64581993b745fc938a5be7"
-          },
-          "provider": "PolyNetwork"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/zil.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/zil.svg"
-      },
-      "images": [
-        {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/zil.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/carbon/images/zil.svg",
-          "theme": {
-            "primary_color_hex": "#2cccc4"
-          }
-        }
-      ],
-      "type_asset": "sdk.coin"
+      "coingecko_id": "osmosis"
     }
   ]
 }
