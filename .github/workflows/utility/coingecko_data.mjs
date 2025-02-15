@@ -3,17 +3,11 @@ import fs from 'fs/promises';
 const COINGECKO_API_URL = 'https://api.coingecko.com/api/v3/coins/list';
 const COINGECKO_JSON_PATH = './state/coingecko.json';
 
-export const cgidOriginTraces = [
+export const traceTypesCoingeckoId = [
   "ibc",
   "ibc-cw20",
   "additional-mintage",
   "test-mintage"
-];
-
-export const cgidOriginTracesWithoutTest = [
-  "ibc",
-  "ibc-cw20",
-  "additional-mintage"
 ];
 
 export const coingecko_data = {
