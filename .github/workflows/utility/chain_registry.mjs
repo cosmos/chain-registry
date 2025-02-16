@@ -353,6 +353,31 @@ export function getAssetPropertyWithTraceCustom(chainName, baseDenom, property, 
   return getAssetPropertyWithTraceCustom(originAsset.chainName, originAsset.baseDenom, property, types);
 }
 
+export function getDerivedChainMetadata(chainName, property) {
+
+  if (property === "network_type") {
+    if (chainName.includes("testnet")) {
+      return "testnet";
+    } else if (chainName.includes("devnet")) {
+      return "devnet";
+    } else {
+      return "mainnet";
+    }
+  }
+  return undefined; // Explicitly return undefined if the property isn't handled
+}
+
+export function getChainMetadata(chainName, property) {
+
+  const value = getFileProperty(chainName, "chain", property);
+  if (value) {
+    return value;
+  }
+
+  return getDerivedChainMetadata(chainName, property);
+
+}
+
 export function getAssetMetadata(chainName, baseDenom, property, traceTypes = traceTypesAll) {
 
   const TRACES_PROPERTY_NAME = "traces";
@@ -461,13 +486,13 @@ export function getAssetTraces(chainName, baseDenom) {
   return fullTrace;
 }
 
-export function getOriginAsset(chainName, baseDenom, traceTypes) {
+export function getOriginAsset(chainName, baseDenom, traceTypes = traceTypesAll) {
 
   const traces = getAssetMetadata(chainName, baseDenom, "traces", traceTypes) || [];
   const firstTrace = traces.length > 0 ? traces[0] : null;
   return {
-    chainName: firstTrace?.counterparty.chain_name || chainName,
-    baseDenom: firstTrace?.counterparty.base_denom || baseDenom
+    chain_name: firstTrace?.counterparty.chain_name || chainName,
+    base_denom: firstTrace?.counterparty.base_denom || baseDenom
   };
 
 }
