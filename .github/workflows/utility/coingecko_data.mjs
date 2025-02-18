@@ -18,7 +18,7 @@ export const traceTypesCoingeckoId = [
 ];
 
 export const api_response = {};
-export const state = {
+export let state = {
   coingecko_id_groups: []
 };
 
@@ -45,7 +45,8 @@ export async function fetchCoingeckoData(endpoint = coingeckoEndpoints.coins_lis
 export async function loadCoingeckoState() {
   try {
     const data = await fs.readFile(COINGECKO_JSON_PATH, 'utf8');
-    return JSON.parse(data);
+    state = JSON.parse(data);
+    return;
   } catch (error) {
     if (error.code === 'ENOENT') {
       return { coingecko_data: [] }; // Return empty structure if file doesn't exist
@@ -55,7 +56,12 @@ export async function loadCoingeckoState() {
 }
 
 export async function saveCoingeckoState() {
-  await fs.writeFile(COINGECKO_JSON_PATH, JSON.stringify(state, null, 2));
+  try {
+    await fs.writeFile(COINGECKO_JSON_PATH, JSON.stringify(state, null, 2));
+    console.log(`Successfully saved Coingecko state to ${COINGECKO_JSON_PATH}`);
+  } catch (error) {
+    console.error(`Failed to save Coingecko state:`, error);
+  }
 }
 
 export function createCoingeckoIdGroup(coingeckoId, chainName, baseDenom) {
