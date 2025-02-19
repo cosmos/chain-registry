@@ -19,7 +19,7 @@
         "denom": "uom",
         "fixed_min_gas_price": 0.01,
         "low_gas_price": 0.01,
-        "average_gas_price": 0.02,
+        "average_gas_price": 0.01,
         "high_gas_price": 0.03
       }
     ]
@@ -33,21 +33,30 @@
   },
   "codebase": {
     "git_repo": "https://github.com/MANTRA-Chain/mantrachain",
-    "recommended_version": "1.0.0-rc3",
+    "recommended_version": "v2.0.0",
     "compatible_versions": [
-      "1.0.0-rc3"
+      "v2.0.0"
     ],
     "consensus": {
       "type": "cometbft",
-      "version": "0.38"
+      "version": "v0.38.15"
     },
     "sdk": {
       "type": "cosmos",
-      "version": "0.50.10"
+      "version": "v0.50.11",
+      "repo": "https://github.com/MANTRA-Chain/cosmos-sdk",
+      "tag": "v0.50.11-v2-mantra-1"
     },
     "cosmwasm": {
-      "version": "0.53",
+      "version": "v0.54.0",
       "enabled": true
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.5.2"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/MANTRA-Chain/mantrachain/refs/heads/main/networks/mantra-dukong-1/genesis.json"
     }
   },
   "peers": {

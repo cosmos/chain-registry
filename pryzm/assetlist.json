@@ -641,7 +641,61 @@
           },
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/dATOM.svg"
         }
-      ]
+      ],
+      "coingecko_id": "drop-staked-atom"
+    },
+    {
+      "description": "Ondo Finance's US Dollar Yield",
+      "denom_units": [
+        {
+          "denom": "ibc/925137DE4F77A2F26A5FA5051200437F43AFBBC39A4F443968C8E93B756AFB3B",
+          "exponent": 0,
+          "aliases": [
+            "ausdy"
+          ]
+        },
+        {
+          "denom": "usdy",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/925137DE4F77A2F26A5FA5051200437F43AFBBC39A4F443968C8E93B756AFB3B",
+      "name": "USDY",
+      "display": "usdy",
+      "symbol": "USDY",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "ausdy",
+            "channel_id": "channel-79"
+          },
+          "chain": {
+            "channel_id": "channel-5",
+            "path": "transfer/channel-5/ausdy"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/usdy.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/usdy.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "noble",
+            "base_denom": "ausdy"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/usdy.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/usdy.svg",
+          "theme": {
+            "primary_color_hex": "#142c5c"
+          }
+        }
+      ],
+      "coingecko_id": "ondo-us-dollar-yield"
     },
     {
       "description": "Pryzm's native liquid staking token for ATOM",
@@ -867,6 +921,44 @@
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/cTia.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/cTia.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's native liquid staking token for PRYZM",
+      "denom_units": [
+        {
+          "denom": "c:upryzm",
+          "exponent": 0
+        },
+        {
+          "denom": "cpryzm",
+          "exponent": 6
+        }
+      ],
+      "base": "c:upryzm",
+      "name": "cPryzm",
+      "display": "cpryzm",
+      "symbol": "cPRYZM",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "pryzm",
+            "base_denom": "upryzm"
+          },
+          "provider": "Pryzm"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/cPryzm.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/cPryzm.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/cPryzm.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/cPryzm.svg"
         }
       ],
       "type_asset": "sdk.coin"
@@ -2076,6 +2168,230 @@
       "type_asset": "sdk.coin"
     },
     {
+      "description": "Pryzm's refracted principal token for USDY with maturity of 31Mar2025",
+      "denom_units": [
+        {
+          "denom": "p:ausdy:31Mar2025",
+          "exponent": 0
+        },
+        {
+          "denom": "pUSDY31Mar2025",
+          "exponent": 18
+        }
+      ],
+      "base": "p:ausdy:31Mar2025",
+      "name": "pUsdy (31Mar2025)",
+      "display": "pUSDY31Mar2025",
+      "symbol": "pUSDY-31Mar2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's refracted principal token for USDY with maturity of 30Jun2025",
+      "denom_units": [
+        {
+          "denom": "p:ausdy:30Jun2025",
+          "exponent": 0
+        },
+        {
+          "denom": "pUSDY30Jun2025",
+          "exponent": 18
+        }
+      ],
+      "base": "p:ausdy:30Jun2025",
+      "name": "pUsdy (30Jun2025)",
+      "display": "pUSDY30Jun2025",
+      "symbol": "pUSDY-30Jun2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's refracted principal token for USDY with maturity of 30Sep2025",
+      "denom_units": [
+        {
+          "denom": "p:ausdy:30Sep2025",
+          "exponent": 0
+        },
+        {
+          "denom": "pUSDY30Sep2025",
+          "exponent": 18
+        }
+      ],
+      "base": "p:ausdy:30Sep2025",
+      "name": "pUsdy (30Sep2025)",
+      "display": "pUSDY30Sep2025",
+      "symbol": "pUSDY-30Sep2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's refracted principal token for USDY with maturity of 31Dec2025",
+      "denom_units": [
+        {
+          "denom": "p:ausdy:31Dec2025",
+          "exponent": 0
+        },
+        {
+          "denom": "pUSDY31Dec2025",
+          "exponent": 18
+        }
+      ],
+      "base": "p:ausdy:31Dec2025",
+      "name": "pUsdy (31Dec2025)",
+      "display": "pUSDY31Dec2025",
+      "symbol": "pUSDY-31Dec2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pUsdy.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's refracted principal token for PRYZM with maturity of 31Mar2025",
+      "denom_units": [
+        {
+          "denom": "p:upryzm:31Mar2025",
+          "exponent": 0
+        },
+        {
+          "denom": "pPRYZM31Mar2025",
+          "exponent": 6
+        }
+      ],
+      "base": "p:upryzm:31Mar2025",
+      "name": "pPryzm (31Mar2025)",
+      "display": "pPRYZM31Mar2025",
+      "symbol": "pPRYZM-31Mar2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's refracted principal token for PRYZM with maturity of 30Jun2025",
+      "denom_units": [
+        {
+          "denom": "p:upryzm:30Jun2025",
+          "exponent": 0
+        },
+        {
+          "denom": "pPRYZM30Jun2025",
+          "exponent": 6
+        }
+      ],
+      "base": "p:upryzm:30Jun2025",
+      "name": "pPryzm (30Jun2025)",
+      "display": "pPRYZM30Jun2025",
+      "symbol": "pPRYZM-30Jun2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's refracted principal token for PRYZM with maturity of 30Sep2025",
+      "denom_units": [
+        {
+          "denom": "p:upryzm:30Sep2025",
+          "exponent": 0
+        },
+        {
+          "denom": "pPRYZM30Sep2025",
+          "exponent": 6
+        }
+      ],
+      "base": "p:upryzm:30Sep2025",
+      "name": "pPryzm (30Sep2025)",
+      "display": "pPRYZM30Sep2025",
+      "symbol": "pPRYZM-30Sep2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's refracted principal token for PRYZM with maturity of 31Dec2025",
+      "denom_units": [
+        {
+          "denom": "p:upryzm:31Dec2025",
+          "exponent": 0
+        },
+        {
+          "denom": "pPRYZM31Dec2025",
+          "exponent": 6
+        }
+      ],
+      "base": "p:upryzm:31Dec2025",
+      "name": "pPryzm (31Dec2025)",
+      "display": "pPRYZM31Dec2025",
+      "symbol": "pPRYZM-31Dec2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/pPryzm.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
       "description": "Pryzm's refracted yield token for ATOM with maturity of 30Sep2024",
       "denom_units": [
         {
@@ -3280,6 +3596,230 @@
       "type_asset": "sdk.coin"
     },
     {
+      "description": "Pryzm's refracted yield token for USDY with maturity of 31Mar2025",
+      "denom_units": [
+        {
+          "denom": "y:ausdy:31Mar2025",
+          "exponent": 0
+        },
+        {
+          "denom": "yUSDY31Mar2025",
+          "exponent": 18
+        }
+      ],
+      "base": "y:ausdy:31Mar2025",
+      "name": "yUsdy (31Mar2025)",
+      "display": "yUSDY31Mar2025",
+      "symbol": "yUSDY-31Mar2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's refracted yield token for USDY with maturity of 30Jun2025",
+      "denom_units": [
+        {
+          "denom": "y:ausdy:30Jun2025",
+          "exponent": 0
+        },
+        {
+          "denom": "yUSDY30Jun2025",
+          "exponent": 18
+        }
+      ],
+      "base": "y:ausdy:30Jun2025",
+      "name": "yUsdy (30Jun2025)",
+      "display": "yUSDY30Jun2025",
+      "symbol": "yUSDY-30Jun2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's refracted yield token for USDY with maturity of 30Sep2025",
+      "denom_units": [
+        {
+          "denom": "y:ausdy:30Sep2025",
+          "exponent": 0
+        },
+        {
+          "denom": "yUSDY30Sep2025",
+          "exponent": 18
+        }
+      ],
+      "base": "y:ausdy:30Sep2025",
+      "name": "yUsdy (30Sep2025)",
+      "display": "yUSDY30Sep2025",
+      "symbol": "yUSDY-30Sep2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's refracted yield token for USDY with maturity of 31Dec2025",
+      "denom_units": [
+        {
+          "denom": "y:ausdy:31Dec2025",
+          "exponent": 0
+        },
+        {
+          "denom": "yUSDY31Dec2025",
+          "exponent": 18
+        }
+      ],
+      "base": "y:ausdy:31Dec2025",
+      "name": "yUsdy (31Dec2025)",
+      "display": "yUSDY31Dec2025",
+      "symbol": "yUSDY-31Dec2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yUsdy.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's refracted yield token for PRYZM with maturity of 31Mar2025",
+      "denom_units": [
+        {
+          "denom": "y:upryzm:31Mar2025",
+          "exponent": 0
+        },
+        {
+          "denom": "yPRYZM31Mar2025",
+          "exponent": 6
+        }
+      ],
+      "base": "y:upryzm:31Mar2025",
+      "name": "yPryzm (31Mar2025)",
+      "display": "yPRYZM31Mar2025",
+      "symbol": "yPRYZM-31Mar2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's refracted yield token for PRYZM with maturity of 30Jun2025",
+      "denom_units": [
+        {
+          "denom": "y:upryzm:30Jun2025",
+          "exponent": 0
+        },
+        {
+          "denom": "yPRYZM30Jun2025",
+          "exponent": 6
+        }
+      ],
+      "base": "y:upryzm:30Jun2025",
+      "name": "yPryzm (30Jun2025)",
+      "display": "yPRYZM30Jun2025",
+      "symbol": "yPRYZM-30Jun2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's refracted yield token for PRYZM with maturity of 30Sep2025",
+      "denom_units": [
+        {
+          "denom": "y:upryzm:30Sep2025",
+          "exponent": 0
+        },
+        {
+          "denom": "yPRYZM30Sep2025",
+          "exponent": 6
+        }
+      ],
+      "base": "y:upryzm:30Sep2025",
+      "name": "yPryzm (30Sep2025)",
+      "display": "yPRYZM30Sep2025",
+      "symbol": "yPRYZM-30Sep2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's refracted yield token for PRYZM with maturity of 31Dec2025",
+      "denom_units": [
+        {
+          "denom": "y:upryzm:31Dec2025",
+          "exponent": 0
+        },
+        {
+          "denom": "yPRYZM31Dec2025",
+          "exponent": 6
+        }
+      ],
+      "base": "y:upryzm:31Dec2025",
+      "name": "yPryzm (31Dec2025)",
+      "display": "yPRYZM31Dec2025",
+      "symbol": "yPRYZM-31Dec2025",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/yPryzm.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
       "description": "Pryzm's LP token for USDC / USDC.axl pool",
       "denom_units": [
         {
@@ -4003,6 +4543,183 @@
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/lp.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/lp.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's LP token for USDY Yield pool",
+      "denom_units": [
+        {
+          "denom": "lp:31:ausdy",
+          "exponent": 0
+        },
+        {
+          "denom": "lp:31:usdy",
+          "exponent": 18
+        }
+      ],
+      "base": "lp:31:ausdy",
+      "name": "USDY Yield LP",
+      "display": "lp:31:usdy",
+      "symbol": "USDY-YIELD-LP",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/lp.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/lp.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/lp.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/lp.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's LP token for USDY Boost pool",
+      "denom_units": [
+        {
+          "denom": "lp:32:ausdyypt-uusdc",
+          "exponent": 0
+        },
+        {
+          "denom": "lp:32:usdyypt-usdc",
+          "exponent": 18
+        }
+      ],
+      "base": "lp:32:ausdyypt-uusdc",
+      "name": "USDY Boost LP",
+      "display": "lp:32:usdyypt-usdc",
+      "symbol": "USDY-BOOST-LP",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/lp.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/lp.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/lp.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/lp.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Pryzm's LP token for PRYZM Yield pool",
+      "denom_units": [
+        {
+          "denom": "lp:33:upryzm",
+          "exponent": 0
+        },
+        {
+          "denom": "lp:33:pryzm",
+          "exponent": 6
+        }
+      ],
+      "base": "lp:33:upryzm",
+      "name": "PRYZM Yield LP",
+      "display": "lp:33:pryzm",
+      "symbol": "PRYZM-YIELD-LP",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/lp.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/lp.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/lp.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/lp.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "The non-transferable receipt of PRYZM airdrop for StakeDrop participants",
+      "denom_units": [
+        {
+          "denom": "factory/pryzm1jnhcsa5ddjsjq2t97v6a82z542rduxvtw6wd9h/ustakedrop",
+          "exponent": 0,
+          "aliases": [
+            "ustakedrop"
+          ]
+        },
+        {
+          "denom": "stakedrop",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/pryzm1jnhcsa5ddjsjq2t97v6a82z542rduxvtw6wd9h/ustakedrop",
+      "name": "StakeDrop",
+      "display": "stakedrop",
+      "symbol": "STAKEDROP",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/stakedrop.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/stakedrop.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/stakedrop.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/stakedrop.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "The non-transferable receipt of PRYZM Options airdrop",
+      "denom_units": [
+        {
+          "denom": "factory/pryzm1jnhcsa5ddjsjq2t97v6a82z542rduxvtw6wd9h/uopdrop",
+          "exponent": 0,
+          "aliases": [
+            "uopdrop"
+          ]
+        },
+        {
+          "denom": "opdrop",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/pryzm1jnhcsa5ddjsjq2t97v6a82z542rduxvtw6wd9h/uopdrop",
+      "name": "OpDrop",
+      "display": "opdrop",
+      "symbol": "OPDROP",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/opdrop.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/opdrop.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/opdrop.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/opdrop.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "The non-transferable receipt of PRYZM airdrop for Photons Campaign participants",
+      "denom_units": [
+        {
+          "denom": "factory/pryzm1jnhcsa5ddjsjq2t97v6a82z542rduxvtw6wd9h/uphotondrop",
+          "exponent": 0,
+          "aliases": [
+            "uphotondrop"
+          ]
+        },
+        {
+          "denom": "photondrop",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/pryzm1jnhcsa5ddjsjq2t97v6a82z542rduxvtw6wd9h/uphotondrop",
+      "name": "PhotonDrop",
+      "display": "photondrop",
+      "symbol": "PHOTONDROP",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/photondrop.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/photondrop.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/photondrop.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pryzm/images/photondrop.svg"
         }
       ],
       "type_asset": "sdk.coin"
