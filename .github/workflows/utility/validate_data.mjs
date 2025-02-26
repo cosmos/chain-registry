@@ -701,7 +701,7 @@ export async function validate_chain_files() {
 
   //load coingecko state
   await coingecko.loadCoingeckoState();
-  if (!coingecko?.state) {
+  if (!coingecko.state) {
     console.log("Failed to load Coingecko State.");
   }
 
