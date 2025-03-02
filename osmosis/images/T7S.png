@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon"
+    href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlo89/56ZQ/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUjDu1lo89/6mhTP+zrVP/nplD/5+aRK8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHNiIS6Wjz3/ubFY/761W/+vp1D/urRZ/8vDZf/GvmH/nplD/1BNIm8AAAAAAAAAAAAAAAAAAAAAAAAAAJaPPf+knEj/vrVb/761W/++tVv/r6dQ/7q0Wf/Lw2X/y8Nl/8vDZf+tpk7/nplD/wAAAAAAAAAAAAAAAJaPPf+2rVX/vrVb/761W/++tVv/vrVb/6+nUP+6tFn/y8Nl/8vDZf/Lw2X/y8Nl/8G6Xv+emUP/AAAAAAAAAACWjz3/vrVb/761W/++tVv/vrVb/761W/+vp1D/urRZ/8vDZf/Lw2X/y8Nl/8vDZf/Lw2X/nplD/wAAAAAAAAAAlo89/761W/++tVv/vrVb/761W/++tVv/r6dQ/7q0Wf/Lw2X/y8Nl/8vDZf/Lw2X/y8Nl/56ZQ/8AAAAAAAAAAJaPPf++tVv/vrVb/761W/++tVv/vbRa/5aPPf+emUP/y8Nl/8vDZf/Lw2X/y8Nl/8vDZf+emUP/AAAAAAAAAACWjz3/vrVb/761W/++tVv/vrVb/5qTQP+inkb/op5G/6KdRv/Lw2X/y8Nl/8vDZf/Lw2X/nplD/wAAAAAAAAAAlo89/761W/++tVv/sqlS/56ZQ//LxWb/0Mlp/9DJaf/Kw2X/oJtE/7+3XP/Lw2X/y8Nl/56ZQ/8AAAAAAAAAAJaPPf+9tFr/mJE+/7GsUv/Rymr/0cpq/9HKav/Rymr/0cpq/9HKav+xrFL/nplD/8vDZf+emUP/AAAAAAAAAACWjz3/op5G/9HKav/Rymr/0cpq/9HKav/Rymr/0cpq/9HKav/Rymr/0cpq/9HKav+inkb/nplD/wAAAAAAAAAAAAAAAKKeRv+3slb/0cpq/9HKav/Rymr/0cpq/9HKav/Rymr/0cpq/9HKav+1sFX/op5G/wAAAAAAAAAAAAAAAAAAAAAAAAAAop5GUKKeRv/Nxmf/0cpq/9HKav/Rymr/0cpq/83GZ/+inkb/op5GSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAop5G16KeRv/LxWb/y8Vm/6KeRv+inkaPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAop5G/6KeRtcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/n8AAPgfAADwDwAAwAMAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAwAMAAPAPAAD4HwAA/n8AAA==" />    <meta name="description" content="Error 504 (Gateway timeout) when trying to fetch content from the IPFS network.">
+    <title>504 Gateway timeout</title>
+    <style>:root {
+	--sans-serif: "Plex",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+	--monospace: Consolas, monaco, monospace;
+	--navy: #073a53;
+	--teal: #6bc4ce;
+	--turquoise: #47AFB4;
+	--steel-gray: #3f5667;
+	--dark-white: #d9dbe2;
+	--light-white: #edf0f4;
+	--near-white: #f7f8fa;
+	--radius: 4px;
+}
+
+body {
+	color: #34373f;
+	font-family: var(--sans-serif);
+	line-height: 1.43;
+	margin: 0;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
+}
+
+pre, code {
+	font-family: var(--monospace);
+}
+
+a {
+	color: #117eb3;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #00b0e9;
+	text-decoration: underline;
+}
+
+a:active,
+a:visited {
+	color: #117eb3;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-wrap {
+	flex-flow: wrap;
+}
+
+.flex-shrink {
+	flex-shrink: 1;
+}
+
+.ml-auto {
+	margin-left: auto;
+}
+
+.nowrap {
+	white-space:nowrap
+}
+
+.ipfs-hash {
+	color: #7f8491;
+	font-family: var(--monospace);
+}
+
+#header {
+	align-items: center;
+	background: var(--navy);
+	border-bottom: 4px solid var(--teal);
+	color: #fff;
+	display: flex;
+	font-weight: 500;
+	justify-content: space-between;
+	padding: 0 1em;
+}
+
+#header a {
+	color: var(--teal);
+}
+
+#header a:active {
+	color: #9ad4db;
+}
+
+#header a:hover {
+	color: #fff;
+}
+
+#header .ipfs-logo {
+	height:2.25em;
+	margin:.7em .7em .7em 0;
+	width:7.15em
+}
+
+#header nav {
+	align-items: center;
+	display: flex;
+	margin: .65em 0;
+}
+
+#header nav a {
+	margin: 0 .6em;
+}
+
+#header nav a:last-child {
+	margin: 0 0 0 .6em;
+}
+
+#header nav svg {
+	fill: var(--teal);
+	height: 1.8em;
+	margin-top: .125em;
+}
+
+#header nav svg:hover {
+	fill: #fff;
+}
+
+main {
+	border: 1px solid var(--dark-white);
+	border-radius: var(--radius);
+	overflow: hidden;
+	margin: 1em;
+	font-size: .875em;
+}
+
+main header,
+main .container {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+main header {
+	padding-top: .7em;
+	padding-bottom: .7em;
+	background-color: var(--light-white);
+}
+
+main header,
+main section:not(:last-child) {
+	border-bottom: 1px solid var(--dark-white);
+}
+
+main section header {
+	background-color: var(--near-white);
+}
+
+.grid {
+	display: grid;
+	overflow-x: auto;
+}
+
+.grid .grid {
+	overflow-x: visible;
+}
+
+.grid > div {
+	padding: .7em;
+	border-bottom: 1px solid var(--dark-white);
+}
+
+.grid.dir {
+	grid-template-columns: min-content 1fr min-content min-content;
+}
+
+.grid.dir > div:nth-of-type(4n+1) {
+	padding-left: 1em;
+}
+
+.grid.dir > div:nth-of-type(4n+4) {
+	padding-right: 1em;
+}
+
+.grid.dir > div:nth-last-child(-n+4) {
+	border-bottom: 0;
+}
+
+.grid.dir > div:nth-of-type(8n+5),
+.grid.dir > div:nth-of-type(8n+6),
+.grid.dir > div:nth-of-type(8n+7),
+.grid.dir > div:nth-of-type(8n+8) {
+	background-color: var(--near-white);
+}
+
+.grid.dag {
+	grid-template-columns: max-content 1fr;
+}
+
+.grid.dag pre {
+	margin: 0;
+}
+
+.grid.dag .grid {
+	padding: 0;
+}
+
+.grid.dag > div:nth-last-child(-n+2) {
+	border-bottom: 0;
+}
+
+.grid.dag > div {
+	background: white
+}
+
+.grid.dag > div:nth-child(4n),
+.grid.dag > div:nth-child(4n+3) {
+	background-color: var(--near-white);
+}
+
+section > .grid.dag > div:nth-of-type(2n+1) {
+	padding-left: 1em;
+}
+
+.type-icon,
+.type-icon > * {
+	width: 1.15em
+}
+
+.terminal {
+	background: var(--steel-gray);
+	color: white;
+	padding: .7em;
+	border-radius: var(--radius);
+	word-wrap: break-word;
+	white-space: break-spaces;
+}
+
+@media print {
+	#header {
+		display: none;
+	}
+
+	#main header,
+	.ipfs-hash,
+	body {
+		color: #000;
+	}
+
+	#main,
+	#main header {
+		border-color: #000;
+	}
+
+	a,
+	a:visited {
+		color: #000;
+		text-decoration: underline;
+	}
+
+	a[href]:after {
+		content:" (" attr(href) ")"
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.dn-mobile {
+		display: none;
+	}
+}</style>
+</head>
+<body>
+    <header id="header">
+    <div class="ipfs-logo">&nbsp;</div>
+    <nav>
+        <a href="https://ipfs.tech" target="_blank"
+            rel="noopener noreferrer">About<span class="dn-mobile">
+                IPFS</span></a>
+        <a href="https://docs.ipfs.tech/install/"
+            target="_blank" rel="noopener noreferrer">Install<span class="dn-mobile"> IPFS</span></a>
+    </nav>
+</header>    <main id="main">
+        <header>
+            <strong>504 Gateway timeout</strong>
+        </header>
+        <section class="container">
+            <p>
+            The <a href="https://docs.ipfs.tech/concepts/glossary/#gateway" target="_blank" rel="noopener noreferrer">gateway</a> is taking too long to fetch your content from the <a href="https://docs.ipfs.tech/concepts/glossary/#mainnet" target="_blank" rel="noopener noreferrer">public IPFS network</a>. This could be due to several reasons:
+            <ul>
+                <li>There are no providers for CID in the IPFS network</li>
+                <li>The provider node for the CID is offline, on a slow network connection, or is overloaded</li>
+            </ul>
+            </p>
+            <p>
+                You might try waiting for a while and trying again. To prevent having this problem in the future,
+                why not self-host a node? You will be able to get all the content in the IPFS network straight
+                from its source! For more information see
+                <a
+                    target="_blank" rel="noopener noreferrer"
+                    href="https://docs.ipfs.tech/concepts/ipfs-implementations">the
+                    implementations page</a>. You
+                might also want to have a look at the
+                <a
+                    target="_blank" rel="noopener noreferrer"
+                    href="https://docs.ipfs.tech/install/ipfs-companion">IPFS
+                    companion browser extension</a> which
+                will allow your browser to seamlessly fetch content from your local node.
+            </p>
+            <p>How you can proceed:</p>
+<ul>
+    <li>Verify the URL and try again.</li>
+    <li>Self-host and run an <a
+            href="https://docs.ipfs.tech/concepts/ipfs-implementations/"
+            target="_blank"
+            rel="noopener noreferrer">IPFS client</a> that verifies your data.</li>
+    <li>Try diagnosing your request with the <a
+            href="https://docs.ipfs.tech/reference/diagnostic-tools/"
+            target="_blank"
+            rel="noopener noreferrer">IPFS diagnostic tools</a>.</li>
+    <li>Inspect the <a href="https://cid.ipfs.tech/"
+            target="_blank"
+            rel="noopener noreferrer">CID</a> or <a
+            href="https://explore.ipld.io/"
+            target="_blank"
+            rel="noopener noreferrer">DAG</a>.</li>
+</ul>        </section>
+    </main>
+    <script>
+  const subdomainRegex = /^(?:https?:\/\/|\/\/)?(?<cid>[^/]+)\.ipfs\.(?<parentDomain>[^/?#]*)(?<path>.*)$/;
+  const pathRegex = /^.*\/ipfs\/(?<cid>[^/?#]*)(?<path>.*)$/;
+
+  function checkUrl() {
+    const currentUrl = window.location.href;
+    let match = currentUrl.match(pathRegex) || currentUrl.match(subdomainRegex)
+
+    if (match && match.groups.cid) {
+      const cid = match.groups.cid
+      const anchor = document.createElement('a')
+      anchor.target = '_blank';
+
+      anchor.textContent = 'Debug retrievability of CID'
+      anchor.href = `https://check.ipfs.network/?cid=${cid}`
+      anchor.style.cssText = `
+        display: inline-block;
+        background-color: #3B8C90;
+        color: var(--near-white);
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: var(--radius);
+        text-decoration: none;
+        margin: 20px 0;
+        `
+        document.querySelector('.container').appendChild(anchor)
+      }
+    }
+    checkUrl()
+</script></body>
+
+</html>
