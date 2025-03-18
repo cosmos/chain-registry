@@ -521,18 +521,18 @@ function checkCoingeckoIdMainnetAssetsOnly(chain_name, asset, networkType, asset
 
 function checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState) {
 
-  if (!coingecko_data?.state || !asset) { return true; }
+  if (!coingecko.state?.coingecko_id_groups || !asset) { return true; }
   if (!asset.coingecko_id) { return true; }
 
   //find the object with this coingecko ID in the state file
-  const coingeckoEntry = coingecko_data?.state?.coingecko_data?.find(entry => entry.coingecko_id === asset.coingecko_id);
-  if (!coingeckoEntry) {
+  const coingeckoIdGroup = coingecko.state?.coingecko_id_groups?.find(group => group.coingecko_id === asset.coingecko_id);
+  if (!coingeckoIdGroup) {
     //console.log(`State file missing Coingecko ID: ${asset.coingecko_id}, registered for asset: ${chain_name}::${asset.base}`);
     assets_cgidNotInState.push({ chain_name, asset });
     return false; // ID is missing from state
   }
   //see if it has the asset listed (bool)
-  const assetExists = coingeckoEntry.assets.some(
+  const assetExists = coingeckoIdGroup.assets.some(
     cgAsset => cgAsset.chain_name === chain_name && cgAsset.base_denom === asset.base
   );
   //if not, log so
@@ -548,7 +548,7 @@ function checkCoingeckoIdAssetsShareOrigin(assets_cgidNotInState, assets_cgidOri
 
   if (assets_cgidNotInState.length <= 0) { return true; }
 
-  let coingeckoEntrysToCheck = [];
+  let coingeckoIdGroupsToCheck = [];
 
   assets_cgidNotInState.forEach((chain_asset_pair) => {
 
@@ -556,69 +556,58 @@ function checkCoingeckoIdAssetsShareOrigin(assets_cgidNotInState, assets_cgidOri
     const baseDenom = chain_asset_pair.asset.base;
     const coingeckoId = chain_asset_pair.asset.coingecko_id;
 
-    let coingeckoEntry = coingeckoEntrysToCheck?.find(entry => entry.coingecko_id === coingeckoId);
-    if (coingeckoEntry) {
-      coingecko.addAssetToCoingeckoEntry(coingeckoEntry, chainName, baseDenom);
+    let coingeckoIdGroup = coingeckoIdGroupsToCheck?.find(group => group.coingecko_id === coingeckoId);
+    if (coingeckoIdGroup) {
+      coingecko.addAssetToCoingeckoIdGroup(coingeckoIdGroup, chainName, baseDenom);
     } else {
-      coingeckoEntry = coingecko.getCoingeckoEntryFromState(coingeckoId, coingecko_data?.state);
-      if (coingeckoEntry) {
-        coingecko.addAssetToCoingeckoEntry(coingeckoEntry, chainName, baseDenom);
+      coingeckoIdGroup = coingecko.getCoingeckoIdGroupFromState(coingeckoId);
+      if (coingeckoIdGroup) {
+        coingecko.addAssetToCoingeckoIdGroup(coingeckoIdGroup, chainName, baseDenom);
       } else {
-        coingeckoEntry = coingecko.createCoingeckoEntry(coingeckoId, chainName, baseDenom);
+        coingeckoIdGroup = coingecko.createCoingeckoIdGroup(coingeckoId, chainName, baseDenom);
       }
-      coingeckoEntrysToCheck.push(coingeckoEntry);
+      coingeckoIdGroupsToCheck.push(coingeckoIdGroup);
     }
-    //console.log(`Coingecko Entry: cgid: ${coingeckoEntry.coingecko_id}, assets[0]::chain_name: ${coingeckoEntry.assets[coingeckoEntry.assets.length - 1].chain_name}, base_denom: ${coingeckoEntry.assets[coingeckoEntry.assets.length - 1].base_denom}`);
 
   });
 
-  coingeckoEntrysToCheck.forEach((coingeckoEntry) => {
+  coingeckoIdGroupsToCheck.forEach((coingeckoIdGroup) => {
 
-    const firstAsset = coingeckoEntry.assets[0];
-    const firstAssetOriginAsset = chain_reg.getOriginAssetCustom(
-      firstAsset.chain_name,
-      firstAsset.base_denom,
-      coingecko.cgidOriginTraces
-    );
+    const cgidGroupOriginAsset = coingeckoIdGroup.originAsset ?? coingecko.getCoingeckoIdGroupOriginAsset(coingeckoIdGroup);
 
-    coingeckoEntry.assets.forEach((asset) => {
-      const originAsset = chain_reg.getOriginAssetCustom(
+    coingeckoIdGroup.assets.forEach((asset) => {
+
+      const originAsset = chain_reg.getOriginAsset(
         asset.chain_name,
         asset.base_denom,
-        coingecko.cgidOriginTraces
+        coingecko.traceTypesCoingeckoId
       );
 
-      if (!deepEqual(firstAssetOriginAsset, originAsset)) {
-
-        const originAssetTraces = chain_reg.getAssetTraces(
-          originAsset.chainName,
-          originAsset.baseDenom
-        );
-
-        const firstAssetOriginAssetTraces = chain_reg.getAssetTraces(
-          firstAssetOriginAsset.chainName,
-          firstAssetOriginAsset.baseDenom
-        );
-
-        if (originAssetTraces && firstAssetOriginAssetTraces) {
-          const originAssetLastTrace = originAssetTraces[originAssetTraces.length - 1];
-          const firstAssetOriginAssetLastTrace = firstAssetOriginAssetTraces[firstAssetOriginAssetTraces.length - 1];
-
-          if (
-            originAssetLastTrace.type === firstAssetOriginAssetLastTrace.type &&
-            originAssetLastTrace.provider === firstAssetOriginAssetLastTrace.provider
-          ) {
-            return;
-          }
-        }
-
-        console.warn(`
-Coingecko Entry (ID: ${coingeckoEntry.coingecko_id}) Origin Asset: ${firstAssetOriginAsset.chainName}, ${firstAssetOriginAsset.baseDenom}
-does not match origin (${originAsset.chainName}, ${originAsset.baseDenom}) of this asset (${asset.chain_name}, ${asset.base_denom}}).
-`);
-        assets_cgidOriginConflict.push(asset);
-          
+      if (deepEqual(cgidGroupOriginAsset, originAsset)) {
+        return;
       }
+
+      const originAssetLastTrace = chain_reg
+        .getAssetMetadata(originAsset.chain_name, originAsset.base_denom, "traces")
+        ?.at(-1); // Get the last element safely
+
+      const cgidGroupOriginAssetLastTrace = chain_reg
+        .getAssetMetadata(cgidGroupOriginAsset.chain_name, cgidGroupOriginAsset.base_denom, "traces")
+        ?.at(-1);
+
+      if (
+        originAssetLastTrace?.type === cgidGroupOriginAssetLastTrace?.type &&
+        originAssetLastTrace?.provider === cgidGroupOriginAssetLastTrace?.provider
+      ) {
+        return;
+      }
+
+      console.warn(`
+Coingecko Id Group (ID: ${coingeckoIdGroup.coingecko_id}) Origin Asset: ${cgidGroupOriginAsset.chain_name}, ${cgidGroupOriginAsset.base_denom}
+does not match origin (${originAsset.chain_name}, ${originAsset.base_denom}) of this asset (${asset.chain_name}, ${asset.base_denom}}).
+`);
+      assets_cgidOriginConflict.push(asset);
+          
     });
   });
 
@@ -638,47 +627,49 @@ async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNo
   if (!assets_cgidNotInState.length) { return; }
   
 
-  await coingecko.fetchCoingeckoData();
-  if (!coingecko_data?.api_response) {
+  await coingecko.fetchCoingeckoData(coingecko.coingeckoEndpoints.coins_list);
+  if (!coingecko.api_response) {
     console.log("No CoinGecko API Response");
     return;
   }
 
   assets_cgidNotInState.forEach((chain_asset_pair) => {
-    const coingecko_API_object = coingecko_data?.api_response?.find(
+    const coin = coingecko.api_response?.[coingecko.coingeckoEndpoints.coins_list.name]?.find(
       apiObject => apiObject.id === chain_asset_pair.asset.coingecko_id
     );
-    if (!coingecko_API_object) {
-      console.log(`Coingecko ID: ${chain_asset_pair.asset.coingecko_id} is not in the Coingecko API result.`);
+    if (!coin) {
+      console.log(`
+Error: Coingecko ID: ${chain_asset_pair.asset.coingecko_id} is not in the Coingecko API result.
+`);
       assets_cgidInvalid.push(chain_asset_pair);
       return;
     }
     //get the origin asset data
-    const originAssetName = chain_reg.getAssetPropertyFromOriginWithTraceCustom(
+    const originAsset = chain_reg.getOriginAsset(
       chain_asset_pair.chain_name,
       chain_asset_pair.asset.base,
-      "name",
-      coingecko.cgidOriginTraces
+      coingecko.traceTypesCoingeckoId
     );
-    const originAssetSymbol = chain_reg.getAssetPropertyFromOriginWithTraceCustom(
-      chain_asset_pair.chain_name,
-      chain_asset_pair.asset.base,
-      "symbol",
-      coingecko.cgidOriginTraces
+    const originAssetName = chain_reg.getAssetMetadata(
+      originAsset.chain_name,
+      originAsset.base_denom,
+      "name"
+    );
+    const originAssetSymbol = chain_reg.getAssetMetadata(
+      originAsset.chain_name,
+      originAsset.base_denom,
+      "symbol"
     );
     if (
-      originAssetName != coingecko_API_object.name &&
-      originAssetSymbol.toUpperCase() != coingecko_API_object.symbol.toUpperCase()
+      originAssetName != coin.name &&
+      originAssetSymbol?.toUpperCase() != coin.symbol?.toUpperCase()
     ) {
       console.warn(`Warning: Mismatch of both Name and Symbol for Coingecko ID ${chain_asset_pair.asset.coingecko_id}.
-Registry: "${originAssetName} $${originAssetSymbol} (CGID registered in Assetlist of chain_name: ${chain_asset_pair.chain_name})", 
-Coingecko: "${coingecko_API_object.name} $${coingecko_API_object.symbol.toUpperCase()}"`);
+  -Registry: "${originAssetName} $${originAssetSymbol} (CGID registered in Assetlist of chain_name: ${chain_asset_pair.chain_name})", 
+  -Coingecko: "${coin.name} $${coin.symbol?.toUpperCase()}"`);
     }
   });
 
-  /*if (assets_cgidNotInAPI.length > 0) {
-    throw new Error(`Some Coingecko IDs are not valid! ${assets_cgidNotInAPI}`);
-  }*/
 }
 
 function reportErrors(assets_cgidInvalid, assets_ibcInvalid, assets_cgidOriginConflict) {
@@ -709,8 +700,8 @@ export async function validate_chain_files() {
   const chainRegChains = chain_reg.getChains();
 
   //load coingecko state
-  coingecko_data.state = await coingecko.loadCoingeckoState();
-  if (!coingecko_data?.state) {
+  await coingecko.loadCoingeckoState();
+  if (!coingecko.state) {
     console.log("Failed to load Coingecko State.");
   }
 
@@ -785,8 +776,7 @@ export async function validate_chain_files() {
   });
 
   //check that new coingecko IDs are in the API
-  //await checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid);
-  //temporary comment ^ UNDO!!!
+  await checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid);
 
   //check that assets with a newly defined CGID have the same origin asset as other assets that share the same CGID
   checkCoingeckoIdAssetsShareOrigin(assets_cgidNotInState, assets_cgidOriginConflict);

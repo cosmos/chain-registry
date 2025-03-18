@@ -29,6 +29,24 @@ fileToFileNameMap.set("assetlist", "assetlist.json");
 fileToFileNameMap.set("versions", "versions.json");
 export const files = Array.from(fileToFileNameMap.keys());
 
+export const traceTypesIbc = [
+  "ibc",
+  "ibc-cw20"
+];
+
+export const traceTypesAll = [
+  "ibc",
+  "ibc-cw20",
+  "ibc-bridge",
+  "bridge",
+  "liquid-stake",
+  "synthetic",
+  "wrapped",
+  "additional-mintage",
+  "test-mintage",
+  "legacy-mintage"
+];
+
 export const nonChainDirectories = [
   ".git",
   ".github",
@@ -335,6 +353,90 @@ export function getAssetPropertyWithTraceCustom(chainName, baseDenom, property, 
   return getAssetPropertyWithTraceCustom(originAsset.chainName, originAsset.baseDenom, property, types);
 }
 
+export function getDerivedChainMetadata(chainName, property) {
+
+  if (property === "network_type") {
+    if (chainName.includes("testnet")) {
+      return "testnet";
+    } else if (chainName.includes("devnet")) {
+      return "devnet";
+    } else {
+      return "mainnet";
+    }
+  }
+  return undefined; // Explicitly return undefined if the property isn't handled
+}
+
+export function getChainMetadata(chainName, property) {
+
+  const value = getFileProperty(chainName, "chain", property);
+  if (value) {
+    return value;
+  }
+
+  return getDerivedChainMetadata(chainName, property);
+
+}
+
+export function getAssetMetadata(chainName, baseDenom, property, traceTypes = traceTypesAll) {
+
+  const TRACES_PROPERTY_NAME = "traces";
+
+  const assets = getFileProperty(chainName, "assetlist", "assets");
+  if (!assets) { return; }
+  let selectedAsset;
+  for (const asset of assets) {
+    if (asset.base === baseDenom) {
+      selectedAsset = asset;
+      break;
+    }
+  }
+  if (!selectedAsset) { return; }
+
+  let value = selectedAsset[property];
+
+  if (property !== TRACES_PROPERTY_NAME && value) {
+    return value;
+  }
+
+  const traces = selectedAsset.traces;
+  if (!traces || traces.length === 0) {
+    return value;
+  }
+
+  const lastTrace = traces[traces.length - 1];
+  if (!traceTypes.includes(lastTrace.type)) {
+    if (property !== TRACES_PROPERTY_NAME) {
+      return value;
+    } else {
+      return [];
+    }
+  }
+
+  const previousAsset = {
+    chainName: lastTrace.counterparty.chain_name,
+    baseDenom: lastTrace.counterparty.base_denom
+  }
+
+  if (property !== TRACES_PROPERTY_NAME) {
+    return getAssetMetadata(previousAsset.chainName, previousAsset.baseDenom, property, traceTypes);
+  }
+
+  let fullTraces = [];
+  fullTraces.push(lastTrace);
+  let previousTraces = getAssetMetadata(
+    previousAsset.chainName,
+    previousAsset.baseDenom,
+    TRACES_PROPERTY_NAME,
+    traceTypes
+  );
+  if (previousTraces) {
+    fullTraces = previousTraces.concat(fullTraces);
+  }
+  return fullTraces;
+
+}
+
 export function getAssetPropertyFromOriginWithTraceCustom(chainName, baseDenom, property, types) {
   if (property === "traces") { return; }
   let traces = getAssetProperty(chainName, baseDenom, "traces");
@@ -382,6 +484,17 @@ export function getAssetTraces(chainName, baseDenom) {
     }
   }
   return fullTrace;
+}
+
+export function getOriginAsset(chainName, baseDenom, traceTypes = traceTypesAll) {
+
+  const traces = getAssetMetadata(chainName, baseDenom, "traces", traceTypes) || [];
+  const firstTrace = traces.length > 0 ? traces[0] : null;
+  return {
+    chain_name: firstTrace?.counterparty.chain_name || chainName,
+    base_denom: firstTrace?.counterparty.base_denom || baseDenom
+  };
+
 }
 
 export function getOriginAssetCustom(chainName, baseDenom, allowedTraceTypes) {
