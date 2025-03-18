@@ -1,0 +1,114 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "zkcloud",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://www.zkcloud.com/",
+  "pretty_name": "ZkCloud",
+  "chain_type": "cosmos",
+  "chain_id": "deluge-1",
+  "bech32_prefix": "zkcloud",
+  "daemon_name": "zkcloudd",
+  "node_home": "$HOME/.zkcloud",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uproof",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uproof"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/thezkcloud/zkcloud",
+    "recommended_version": "v0.1.0",
+    "compatible_versions": [
+      "v0.1.0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38"
+    },
+    "genesis": {
+      "genesis_url": "https://rpc.testnet.zkcloud.com/genesis"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50"
+    },
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "4f5f32942db9333fc893fe3b14c6e4e2e55a1709",
+        "address": "bootstrap.testnet.zkcloud.com:26656",
+        "provider": "ZkCloud"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "4f5f32942db9333fc893fe3b14c6e4e2e55a1709",
+        "address": "34.77.91.67:26656",
+        "provider": "ZkCloud"
+      },
+      {
+        "id": "e8c7079e845b63c6824981a7b1f0d237aa78a5bf",
+        "address": "34.163.145.2:26656",
+        "provider": "ZkCloud"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.testnet.zkcloud.com",
+        "provider": "ZkCloud"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.testnet.zkcloud.com",
+        "provider": "ZkCloud"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.testnet.zkcloud.com:443",
+        "provider": "ZkCloud"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://testnet.ping.pub/zkcloud",
+      "tx_page": "https://testnet.ping.pub/zkcloud/tx/${txHash}"
+    },
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zkcloud/images/zkcloud.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zkcloud/images/zkcloud.svg",
+      "theme": {
+        "primary_color_hex": "#4C66D4"
+      }
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zkcloud/images/zkcloud.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zkcloud/images/zkcloud.svg",
+  }
+}
