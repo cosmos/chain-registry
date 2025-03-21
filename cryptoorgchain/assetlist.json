@@ -1,28 +1,91 @@
 {
-    "$schema": "../assetlist.schema.json",
-    "chain_name": "cryptoorgchain",
-    "assets": [
-      {
-        "description": "CRO coin is the token for the Crypto.com platform.",
-        "denom_units": [
-          {
-            "denom": "basecro",
-            "exponent": 0
-          },
-          {
-            "denom": "cro",
-            "exponent": 8
-          }
-        ],
-        "base": "basecro",
-        "name": "Cronos",
-        "display": "cro",
-        "symbol": "CRO",
-        "logo_URIs": {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro.svg",
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cronos.png"
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "cryptoorgchain",
+  "assets": [
+    {
+      "description": "CRO is the native token of the Crypto.org Chain, referred to as Native CRO.",
+      "denom_units": [
+        {
+          "denom": "basecro",
+          "exponent": 0
         },
-        "coingecko_id": "crypto-com-chain"
-      }
-    ]
-  }
+        {
+          "denom": "cro",
+          "exponent": 8
+        }
+      ],
+      "base": "basecro",
+      "name": "Cronos",
+      "display": "cro",
+      "symbol": "CRO",
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro.svg"
+      },
+      "coingecko_id": "crypto-com-chain",
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro.svg"
+        },
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cronos.png",
+          "theme": {
+            "primary_color_hex": "#0c2c71"
+          }
+        }
+      ],
+      "socials": {
+        "website": "https://cronos.org/",
+        "twitter": "https://twitter.com/cronos_chain"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Synthetic XLM pegged 1:1 by Crypto.com",
+      "denom_units": [
+        {
+          "denom": "baseXLM",
+          "exponent": 0,
+          "aliases": [
+            "stroop"
+          ]
+        },
+        {
+          "denom": "lumen",
+          "exponent": 7
+        }
+      ],
+      "base": "baseXLM",
+      "name": "Lumen (XLM) pegged token",
+      "display": "lumen",
+      "symbol": "XLM",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "stellar",
+            "base_denom": "stroop"
+          },
+          "provider": "Crypto.com"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "stellar",
+            "base_denom": "stroop"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/stellar/images/xlm.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/stellar/images/xlm.svg",
+          "theme": {
+            "primary_color_hex": "#040404"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/stellar/images/xlm.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/stellar/images/xlm.svg"
+      },
+      "type_asset": "sdk.coin"
+    }
+  ]
+}

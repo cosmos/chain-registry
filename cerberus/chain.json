@@ -5,10 +5,12 @@
   "network_type": "mainnet",
   "website": "https://cerberus.zone/",
   "pretty_name": "Cerberus",
+  "chain_type": "cosmos",
   "chain_id": "cerberus-chain-1",
   "bech32_prefix": "cerberus",
   "daemon_name": "cerberusd",
   "node_home": "$HOME/.cerberus",
+  "slip44": 118,
   "codebase": {
     "git_repo": "https://github.com/cerberus-zone/cerberus",
     "recommended_version": "v3.1.0",
@@ -17,22 +19,16 @@
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/cerberus-zone/cerberus_genesis/main/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v3.1.0",
-        "recommended_version": "v3.1.0",
-        "compatible_versions": [
-          "v3.1.0"
-        ]
-      }
-    ]
+    }
   },
   "fees": {
     "fee_tokens": [
       {
         "denom": "ucrbrus",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
       }
     ]
   },
@@ -54,36 +50,11 @@
         "address": "seeds.polkachu.com:13856",
         "provider": "Polkachu"
       }
-    ],
-    "persistent_peers": [
-      {
-        "id": "d7f578c4295c7cf05164a2f786601050bf2f2356",
-        "address": "142.132.202.98:46656",
-        "provider": "ecostake"
-      }
     ]
   },
   "apis": {
-    "rpc": [
-      {
-        "address": "https://cerberus-rpc.polkachu.com",
-        "provider": "Polkachu"
-      },
-      {
-        "address": "https://cerberus-rpc.kleomedes.network",
-        "provider": "Kleomedes"
-      }
-    ],
-    "rest": [
-      {
-        "address": "https://cerberus-api.polkachu.com",
-        "provider": "Polkachu"
-      },
-      {
-        "address": "https://cerberus-api.kleomedes.network",
-        "provider": "Kleomedes"
-      }
-    ],
+    "rpc": [],
+    "rest": [],
     "grpc": [
       {
         "address": "grpc-cerberus-ia.cosmosia.notional.ventures:443",
@@ -107,12 +78,6 @@
       "tx_page": "https://ping.pub/cerberus/tx/${txHash}"
     },
     {
-      "kind": "mintscan",
-      "url": "https://www.mintscan.io/cerberus",
-      "tx_page": "https://www.mintscan.io/cerberus/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/cerberus/account/${accountAddress}"
-    },
-    {
       "kind": "atomscan",
       "url": "https://atomscan.com/cerberus",
       "tx_page": "https://atomscan.com/cerberus/transactions/${txHash}"
@@ -121,6 +86,15 @@
       "kind": "TC Network",
       "url": "https://explorer.tcnetwork.io/cerberus",
       "tx_page": "https://explorer.tcnetwork.io/cerberus/transaction/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cerberus/images/crbrus.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cerberus/images/crbrus.svg",
+      "theme": {
+        "primary_color_hex": "#c6c6c9"
+      }
     }
   ]
 }

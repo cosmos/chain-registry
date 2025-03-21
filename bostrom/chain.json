@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "pretty_name": "bostrom",
+  "chain_type": "cosmos",
   "chain_id": "bostrom",
   "bech32_prefix": "bostrom",
   "daemon_name": "cyber",
@@ -39,21 +40,9 @@
     "genesis": {
       "genesis_url": "https://cloudflare-ipfs.com/ipfs/QmYubyVNfghD4xCrTFj26zBwrF9s5GJhi1TmxvrwmJCipr"
     },
-    "cosmwasm_enabled": true,
-    "versions": [
-      {
-        "name": "v0.3.0",
-        "recommended_version": "v0.3.0",
-        "compatible_versions": [
-          "v0.3.0"
-        ],
-        "cosmwasm_enabled": true,
-        "binaries": {
-          "linux/amd64": "https://github.com/cybercongress/go-cyber/releases/download/v0.2.0/cyber_v0.2.0_linux-amd64.tar.gz",
-          "darwin/amd64": "https://github.com/cybercongress/go-cyber/releases/download/v0.2.0/cyber_v0.2.0_darwin-amd64.tar.gz"
-        }
-      }
-    ]
+    "cosmwasm": {
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bostrom/images/boot.png",
@@ -65,6 +54,11 @@
         "id": "d0518ce9881a4b0c5872e5e9b7c4ea8d760dad3f",
         "address": "85.10.207.173:26656",
         "provider": "cybercongress"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "persistent_peers": []
@@ -76,12 +70,12 @@
         "provider": "cybercongress"
       },
       {
-        "address": "https://rpc.cyber.posthuman.digital",
-        "provider": "posthuman"
-      },
-      {
         "address": "https://rpc-cyber-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://rpc.cyber.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ],
     "rest": [
@@ -90,18 +84,22 @@
         "provider": "cybercongress"
       },
       {
-        "address": "https://lcd.cyber.posthuman.digital",
-        "provider": "posthuman"
-      },
-      {
         "address": "https://api-cyber-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://lcd.cyber.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ],
     "grpc": [
       {
         "address": "grpc-cyber-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
+      },
+      {
+        "address": "https://grpc.cyber.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ]
   },
@@ -117,10 +115,25 @@
       "tx_page": "https://ping.pub/bostrom/tx/${txHash}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/bostrom",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=bostrom&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=bostrom&addr=${accountAddress}"
+    },
+    {
       "kind": "atomscan",
       "url": "https://atomscan.com/bostrom",
       "tx_page": "https://atomscan.com/bostrom/transactions/${txHash}",
       "account_page": "https://atomscan.com/bostrom/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bostrom/images/boot.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bostrom/images/boot.svg",
+      "theme": {
+        "primary_color_hex": "#4cea4e"
+      }
     }
   ]
 }

@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "stafihub",
+  "chain_type": "cosmos",
   "chain_id": "stafihub-1",
   "website": "https://stafihub.io/",
   "pretty_name": "StaFi Hub",
@@ -17,7 +18,10 @@
     "fee_tokens": [
       {
         "denom": "ufis",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
       }
     ]
   },
@@ -26,45 +30,44 @@
       {
         "denom": "ufis"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1209600s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/stafihub/stafihub",
-    "recommended_version": "v0.4.1",
+    "recommended_version": "v0.5.0",
     "compatible_versions": [
-      "v0.4.1"
+      "v0.5.0"
     ],
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/stafihub/network/main/mainnets/stafihub-1(dragonberry)/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.2",
-        "height": 0,
-        "recommended_version": "v0.2.3",
-        "compatible_versions": [
-          "v0.2.0", "v0.2.1", "v0.2.2", "v0.2.3"
-        ]
-      },
-      {
-        "name": "v0.3",
-        "height": 2626590,
-        "recommended_version": "v0.3.0",
-        "compatible_versions": [
-          "v0.3.0"
-        ]
-      },
-      {
-        "name": "v0.4",
-        "height": 3766566,
-        "recommended_version": "v0.4.1",
-        "compatible_versions": [
-          "v0.4.0", "v0.4.1"
-        ]
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "5.2.1",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    }
   },
   "peers": {
+    "seeds": [
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "bed296dfadd972ed07cab82c87a0ee5c182dea43",
@@ -99,12 +102,8 @@
         "provider": "StaFiHub"
       },
       {
-        "address": "https://rpc.stafihub.nodestake.top:443",
+        "address": "https://rpc.stafihub.nodestake.org:443",
         "provider": "NodeStake"
-      },
-      {
-        "address": "https://stafihub.nodejumper.io",
-        "provider": "NODEJUMPER"
       }
     ],
     "rest": [
@@ -117,12 +116,8 @@
         "provider": "StaFiHub"
       },
       {
-        "address": "https://api.stafihub.nodestake.top",
+        "address": "https://api.stafihub.nodestake.org",
         "provider": "NodeStake"
-      },
-      {
-        "address": "https://stafihub.nodejumper.io:1317",
-        "provider": "NODEJUMPER"
       }
     ],
     "grpc": [
@@ -135,7 +130,7 @@
         "provider": "StaFiHub"
       },
       {
-        "address": "grpc.stafihub.nodestake.top:443",
+        "address": "grpc.stafihub.nodestake.org:443",
         "provider": "NodeStake"
       },
       {
@@ -148,12 +143,25 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/stafi",
-      "tx_page": "https://www.mintscan.io/stafi/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/stafi/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/stafi/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/stafihub",
+      "tx_page": "https://ezstaking.app/stafihub/txs/${txHash}",
+      "account_page": "https://ezstaking.app/stafihub/account/${accountAddress}"
     },
     {
       "kind": "ping-pub",
       "url": "https://ping.pub/stafihub",
       "tx_page": "https://ping.pub/stafihub/tx/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/stafihub",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=stafihub&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=stafihub&addr=${accountAddress}"
     },
     {
       "kind": "atomscan",
@@ -167,5 +175,13 @@
   },
   "keywords": [
     "liquid staking"
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stafihub/images/stafihub-chain-logo.png",
+      "theme": {
+        "primary_color_hex": "#100d10"
+      }
+    }
   ]
 }

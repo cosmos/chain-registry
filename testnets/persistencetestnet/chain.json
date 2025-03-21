@@ -1,6 +1,7 @@
 {
-  "$schema": "../chain.schema.json",
+  "$schema": "../../chain.schema.json",
   "chain_name": "persistencetestnet",
+  "chain_type": "cosmos",
   "chain_id": "test-core-1",
   "pretty_name": "Persistence Testnet",
   "status": "live",
@@ -17,7 +18,10 @@
     "fee_tokens": [
       {
         "denom": "uxprt",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.05,
+        "average_gas_price": 0.125,
+        "high_gas_price": 0.2
       }
     ]
   },
@@ -39,19 +43,7 @@
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/persistenceOne/genesisTransactions/master/test-core-1/final_genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v6.0.0-rc5",
-        "recommended_version": "v6.0.0-rc5",
-        "compatible_versions": [
-          "v6.0.0-rc5"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/archive/refs/tags/v6.0.0-rc5.tar.gz"
-        }
-      }
-    ]
+    }
   },
   "peers": {
     "seeds": [
@@ -105,6 +97,10 @@
       {
         "address": "https://persistence-testnet-rpc.polkachu.com/",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://xprt-trpc.antrixy.org/",
+        "provider": "Antrix Validators"
       }
     ],
     "rest": [
@@ -127,12 +123,20 @@
       {
         "address": "https://persistence-testnet-api.polkachu.com/",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://xprt-trest.antrixy.org/",
+        "provider": "Antrix Validators"
       }
     ],
     "grpc": [
       {
         "address": "persistence-testnet-grpc.polkachu.com:15490",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://xprt-tgrpc.antrixy.org/",
+        "provider": "Antrix Validators"
       }
     ]
   },
@@ -144,9 +148,9 @@
     },
     {
       "kind": "mintscan",
-      "url": "https://testnet.mintscan.io/persistence-testnet",
-      "tx_page": "https://testnet.mintscan.io/persistence-testnet/txs/${txHash}",
-      "account_page": "https://testnet.mintscan.io/persistence-testnet/account/${accountAddress}"
+      "url": "https://mintscan.io/persistence-testnet",
+      "tx_page": "https://mintscan.io/persistence-testnet/txs/${txHash}",
+      "account_page": "https://mintscan.io/persistence-testnet/account/${accountAddress}"
     }
   ]
 }

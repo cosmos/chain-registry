@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Juno Testnet",
+  "chain_type": "cosmos",
   "chain_id": "uni-6",
   "bech32_prefix": "juno",
   "daemon_name": "junod",
@@ -16,9 +17,9 @@
     "fee_tokens": [
       {
         "denom": "ujunox",
-        "low_gas_price": 0.0025,
-        "average_gas_price": 0.0025,
-        "high_gas_price": 0.0024
+        "low_gas_price": 0.003,
+        "average_gas_price": 0.0045,
+        "high_gas_price": 0.006
       }
     ]
   },
@@ -31,53 +32,30 @@
   },
   "codebase": {
     "git_repo": "https://github.com/CosmosContracts/juno",
-    "recommended_version": "v14.0.0-alpha.1",
+    "recommended_version": "v15.0.0-alpha.2",
     "compatible_versions": [
-      "v14.0.0-alpha.1"
+      "v15.0.0",
+      "v15.0.0-alpha.2"
     ],
-    "cosmos_sdk_version": "0.45",
     "consensus": {
       "type": "tendermint",
       "version": "0.34"
     },
-    "cosmwasm_version": "0.30",
-    "cosmwasm_enabled": true,
-    "ibc_go_version": "4.3.0",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/CosmosContracts/testnets/main/uni-6/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v13.0.0-beta.1",
-        "recommended_version": "v13.0.0-beta.1",
-        "compatible_versions": [
-          "v13.0.0-beta.1"
-        ],
-        "cosmos_sdk_version": "0.45",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "cosmwasm_version": "0.30",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "4.3.0"
-      },
-      {
-        "name": "v14.0.0-alpha.1",
-        "recommended_version": "v14.0.0-alpha.1",
-        "compatible_versions": [
-          "v14.0.0-alpha.1"
-        ],
-        "cosmos_sdk_version": "0.45",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "cosmwasm_version": "0.30",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "4.3.0"
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.45"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "4.3.1"
+    },
+    "cosmwasm": {
+      "version": "0.31",
+      "enabled": true
+    }
   },
   "peers": {
     "seeds": [
@@ -98,30 +76,18 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.uni.junonetwork.io",
-        "provider": "Juno"
-      },
-      {
         "address": "https://juno-testnet-rpc.polkachu.com",
         "provider": "Polkachu"
-      },
-      {
-        "address": "https://uni-rpc.reece.sh",
-        "provider": "Reecepbcups"
       }
     ],
     "rest": [
-      {
-        "address": "https://api.uni.junonetwork.io",
-        "provider": "Juno"
-      },
       {
         "address": "https://juno-testnet-api.polkachu.com",
         "provider": "Polkachu"
       },
       {
-        "address": "https://uni-api.reece.sh",
-        "provider": "Reecepbcups"
+        "address": "https://juno.api.t.stavr.tech",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       }
     ],
     "grpc": [
@@ -133,20 +99,10 @@
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://testnet.ezstaking.tools/juno-testnet",
-      "tx_page": "https://testnet.ezstaking.tools/juno-testnet/txs/${txHash}",
-      "account_page": "https://testnet.ezstaking.tools/juno-testnet/account/${accountAddress}"
-    },
-    {
-      "kind": "Mintscan",
-      "url": "https://testnet.mintscan.io/juno-testnet",
-      "tx_page": "https://testnet.mintscan.io/juno-testnet/txs/${txHash}"
-    },
-    {
-      "kind": "NodesGuru",
-      "url": "https://testnet.juno.explorers.guru/",
-      "tx_page": "https://testnet.juno.explorers.guru/transaction/${txHash}"
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
+      "url": "https://explorer.stavr.tech/Juno-Testnet",
+      "tx_page": "https://explorer.stavr.tech/Juno-Testnet/txs/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Juno-Testnet/account/${accountAddress}"
     }
   ]
 }

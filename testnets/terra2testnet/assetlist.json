@@ -1,28 +1,45 @@
 {
-    "$schema": "../../assetlist.schema.json",
-    "chain_name": "terra2",
-    "assets": [
-      {
-        "description": "The native staking token of Terra.",
-        "denom_units": [
-          {
-            "denom": "uluna",
-            "exponent": 0
-          },
-          {
-            "denom": "luna",
-            "exponent": 6
-          }
-        ],
-        "base": "uluna",
-        "name": "Luna",
-        "display": "luna",
-        "symbol": "LUNA",
-        "logo_URIs": {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.svg",
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.png"
+  "$schema": "../../assetlist.schema.json",
+  "chain_name": "terra2testnet",
+  "assets": [
+    {
+      "description": "The native staking token of Terra.",
+      "denom_units": [
+        {
+          "denom": "uluna",
+          "exponent": 0
         },
-        "coingecko_id": "terra-luna-2"
-      }
-    ]
-  }
+        {
+          "denom": "luna",
+          "exponent": 6
+        }
+      ],
+      "base": "uluna",
+      "name": "Luna",
+      "display": "luna",
+      "symbol": "LUNA",
+      "traces": [
+        {
+          "type": "test-mintage",
+          "counterparty": {
+            "chain_name": "terra2",
+            "base_denom": "uluna"
+          },
+          "provider": "Terra"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.svg"
+      },
+      "coingecko_id": "terra-luna-2",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    }
+  ]
+}

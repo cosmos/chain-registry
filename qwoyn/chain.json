@@ -4,7 +4,9 @@
   "status": "live",
   "network_type": "mainnet",
   "website": "https://qwoyn.studio/",
+  "description": "The Qwoyn Network stands as a cutting-edge gaming hub that embeds Web3 technologies into the core of interactive entertainment. It revolutionizes the gaming industry by ensuring true ownership of in-game assets for players, facilitated through blockchain. This approach not only enhances gameplay but also fosters a unique ecosystem of interoperability and innovation. As a beacon in the gaming world, Qwoyn Network is dedicated to merging the excitement of traditional gaming with the transformative potential of Web3, creating a seamless and enriched gaming experience.",
   "pretty_name": "Qwoyn",
+  "chain_type": "cosmos",
   "chain_id": "qwoyn-1",
   "bech32_prefix": "qwoyn",
   "daemon_name": "qwoynd",
@@ -16,7 +18,11 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "uqwoyn"
+        "denom": "uqwoyn",
+        "fixed_min_gas_price": 0.03,
+        "low_gas_price": 0.03,
+        "average_gas_price": 0.05,
+        "high_gas_price": 0.075
       }
     ]
   },
@@ -29,21 +35,31 @@
   },
   "codebase": {
     "git_repo": "https://github.com/cosmic-horizon/QWOYN",
-    "recommended_version": "v5.0.2",
+    "recommended_version": "v5.4.1",
     "compatible_versions": [
-      "v5.0.2"
+      "v5.4.1"
     ],
-    "binaries": {
-      "linux/amd64": "https://github.com/cosmic-horizon/QWOYN/releases/download/v5.0.2/qwoynd_5.0.2_linux_amd64.zip"
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.2"
     },
-    "cosmos_sdk_version": "0.47.3",
-    "ibc_go_version": "7.0.1",
-    "ics_enabled": [
-      "ics20-1",
-      "ics27-1"
-    ],
     "genesis": {
-      "genesis_url": "https://github.com/cosmic-horizon/mainnet/blob/main/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/cosmic-horizon/mainnet/main/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.47.6"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "7.3.1",
+      "ics_enabled": [
+        "ics20-1",
+        "ics27-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "0.40.0"
     }
   },
   "peers": {
@@ -51,6 +67,20 @@
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:23556"
+      },
+      {
+        "id": "2a22c052e6ffe875bf38d1c25ad7e04daa638967",
+        "address": "seed-qwoyn.theamsolutions.info:22256"
+      },
+      {
+        "id": "9aa8a73ea9364aa3cf7806d4dd25b6aed88d8152",
+        "address": "qwoyn.seed.mzonder.com:11656",
+        "provider": "MZONDER"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -59,12 +89,20 @@
         "address": "47.5.80.5:26646"
       },
       {
+        "id": "becf65550dd8453e36393cb2b97ca4e2494b2460",
+        "address": "qwoyn.peer.stavr.tech:11206"
+      },
+      {
         "id": "499d72d9954c0fd2011eeee3629bf993c5d920ae",
         "address": "62.171.166.106:33657"
       },
       {
         "id": "d0c6ae2457d0066331f30638b0240b162e695cb5",
         "address": "94.250.203.61:33657"
+      },
+      {
+        "id": "9c89c3644518d295b51b2e396dce00db0b16cd4d",
+        "address": "148.251.235.130:13656"
       }
     ]
   },
@@ -73,18 +111,94 @@
       {
         "address": "https://rpc.qwoyn.studio:443",
         "provider": "Qwoyn Studios"
+      },
+      {
+        "address": "https://rpc-qwoyn.theamsolutions.info:443",
+        "provider": "AM Solutions"
+      },
+      {
+        "address": "https://qwoyn.rpc.m.stavr.tech:443",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "https://qwoyn-rpc.staketab.org:443",
+        "provider": "Staketab"
+      },
+      {
+        "address": "https://qwoyn-rpc-archive.staketab.org:443",
+        "provider": "Staketab archive"
+      },
+      {
+        "address": "https://rpc.lavenderfive.com:443/qwoyn",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
+      },
+      {
+        "address": "https://rpc-qwoyn.mzonder.com:443",
+        "provider": "MZONDER"
+      },
+      {
+        "address": "https://rpc.qwoyn.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ],
     "grpc": [
       {
-        "address": "https://services.staketab.com:9430",
+        "address": "services.staketab.com:9430",
         "provider": "Staketab"
+      },
+      {
+        "address": "qwoyn.grpc.m.stavr.tech:1907",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "services.staketab.com:2000",
+        "provider": "Staketab archive"
+      },
+      {
+        "address": "https://grpc-qwoyn.theamsolutions.info:443",
+        "provider": "AM Solutions"
+      },
+      {
+        "address": "qwoyn.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
+      },
+      {
+        "address": "grpc-qwoyn.mzonder.com:443",
+        "provider": "MZONDER"
+      },
+      {
+        "address": "https://grpc.qwoyn.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ],
     "rest": [
       {
+        "address": "https://rest-qwoyn.theamsolutions.info:443",
+        "provider": "AM Solutions"
+      },
+      {
         "address": "https://qwoyn-rest.staketab.org",
         "provider": "Staketab"
+      },
+      {
+        "address": "https://qwoyn.api.m.stavr.tech",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "https://qwoyn-rest-archive.staketab.org",
+        "provider": "Staketab archive"
+      },
+      {
+        "address": "https://rest.lavenderfive.com:443/qwoyn",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
+      },
+      {
+        "address": "https://api-qwoyn.mzonder.com",
+        "provider": "MZONDER"
+      },
+      {
+        "address": "https://lcd.qwoyn.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ]
   },
@@ -94,9 +208,35 @@
       "url": "https://explorer.theamsolutions.info/qwoyn-main/",
       "tx_page": "https://explorer.theamsolutions.info/qwoyn-main/blocks",
       "account_page": "https://explorer.theamsolutions.info/qwoyn-main/account/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/qwoyn",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=qwoyn&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=qwoyn&addr=${accountAddress}"
+    },
+    {
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
+      "url": "https://explorer.stavr.tech/Qwoyn-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Qwoyn-Mainnet/tx/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Qwoyn-Mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "ping",
+      "url": "https://explorer.theamsolutions.info/QWOYN-MAIN",
+      "tx_page": "https://explorer.theamsolutions.info/QWOYN-MAIN/tx/${txHash}",
+      "account_page": "https://explorer.theamsolutions.info/QWOYN-MAIN/account/${accountAddress}"
     }
   ],
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/qwoyn/images/qwoyn.png"
-  }
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/qwoyn/images/qwoyn.png",
+      "theme": {
+        "primary_color_hex": "#04e4fc"
+      }
+    }
+  ]
 }
