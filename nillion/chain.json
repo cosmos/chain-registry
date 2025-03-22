@@ -1,0 +1,112 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "nillion",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Nillion",
+  "chain_type": "cosmos",
+  "chain_id": "nillion-1",
+  "bech32_prefix": "nillion",
+  "daemon_name": "nilchaind",
+  "node_home": "$HOME/.nillionapp",
+  "key_algos": ["ed25519"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "unil",
+        "low_gas_price": 0.0001,
+        "average_gas_price": 0.0001,
+        "high_gas_price": 0.00025
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "unil"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/NillionNetwork/nilchain",
+    "recommended_version": "v0.2.5",
+    "compatible_versions": ["v0.2.5"],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.12"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/NillionNetwork/networks/main/nillion-1/genesis.json.xz"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.11"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "8.2.1"
+    },
+    "cosmwasm": {
+      "enabled": false
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:28156"
+      },
+      {
+        "id": "ff5d57b8e9b99cb8105ea21ef2264bd737401a82",
+        "address": "185.182.194.186:26656"
+      },
+      {
+        "id": "c06d93fb95cfbbe69bffea605661e8cc53d15733",
+        "address": "38.242.150.63:26766"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:28156"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://nillion-rpc.lavenderfive.com",
+        "provider": "lavenderfive"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://nillion-api.lavenderfive.com",
+        "provider": "lavenderfive"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://nillion-grpc.lavenderfive.com",
+        "provider": "lavenderfive"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "url": "https://nillion.explorers.guru",
+      "tx_page": "https://nillion.explorers.guru/transaction/${txHash}",
+      "account_page": "https://nillion.explorers.guru/account/${accountAddress}"
+    },
+    {
+      "url": "https://www.mintscan.io/nillion",
+      "tx_page": "https://www.mintscan.io/nillion/tx/${txHash}",
+      "account_page": "https://www.mintscan.io/nillion/address/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nillion/images/nil.svg",
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nillion/images/nil.png"
+    }
+  ]
+}
