@@ -1,8 +1,47 @@
 {
-  "$schema": "../assetlist.schema.json",
+  "$schema": "../../assetlist.schema.json",
   "chain_name": "polygon",
   "assets": [
     {
+      "description": "Polygon combines the best of Ethereum and sovereign blockchains into a full-fledged multi-chain system.",
+      "extended_description": "POL (ex-MATIC) is the native coin of the Polygon network, used to pay transaction fees and staking rewards. It's also an ERC-20 token and will power a vast ecosystem of zero-knowledge-based Layer 2 chains. POL will gradually replace the current MATIC token over 4 years as part of Polygon 2.0.",
+      "type_asset": "erc20",
+      "address": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "denom_units": [
+        {
+          "denom": "0x0000000000000000000000000000000000001010",
+          "exponent": 0
+        },
+        {
+          "denom": "pol",
+          "exponent": 18
+        }
+      ],
+      "base": "0x0000000000000000000000000000000000001010",
+      "name": "Polygon (ex-MATIC)",
+      "display": "pol",
+      "symbol": "POL",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polygon/images/matic-purple.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polygon/images/matic-purple.svg"
+      },
+      "coingecko_id": "polygon-ecosystem-token",
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "polygon",
+            "base_denom": "wei"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polygon/images/matic-purple.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polygon/images/matic-purple.svg",
+          "theme": {
+            "primary_color_hex": "#8444e4"
+          }
+        }
+      ]
+    },
+    {
+      "deprecated": true,
       "description": "Polygon, previously known as Matic Network, is a Layer 2 scaling solution for Ethereum that aims to provide faster and cheaper transactions.",
       "extended_description": "Polygon is a Layer 2 scaling solution for Ethereum, designed to improve the scalability and usability of the Ethereum blockchain. It achieves this by using sidechains for off-chain computation while ensuring asset security using the Plasma framework and a decentralized network of Proof-of-Stake (PoS) validators. Polygon supports various DeFi and NFT projects by providing a faster, more efficient, and low-cost environment for transactions. Its native token, MATIC, is used for staking, governance, and paying transaction fees on the network. The platform aims to transform Ethereum into a multi-chain system, similar to Polkadot, but with the benefits of Ethereum's security and vibrant ecosystem.",
       "denom_units": [
@@ -12,17 +51,24 @@
         },
         {
           "denom": "matic",
-          "exponent": 18,
-          "aliases": [
-            "polygon"
-          ]
+          "exponent": 18
         }
       ],
       "type_asset": "evm-base",
       "base": "wei",
-      "name": "Matic",
+      "name": "Polygon",
       "display": "matic",
       "symbol": "MATIC",
+      "traces": [
+        {
+          "type": "legacy-mintage",
+          "counterparty": {
+            "chain_name": "polygon",
+            "base_denom": "0x0000000000000000000000000000000000001010"
+          },
+          "provider": "Polygon"
+        }
+      ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polygon/images/matic-purple.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polygon/images/matic-purple.svg"
@@ -52,10 +98,7 @@
         },
         {
           "denom": "wmatic",
-          "exponent": 18,
-          "aliases": [
-            "polygon"
-          ]
+          "exponent": 18
         }
       ],
       "base": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
@@ -67,7 +110,7 @@
           "type": "wrapped",
           "counterparty": {
             "chain_name": "polygon",
-            "base_denom": "wei"
+            "base_denom": "0x0000000000000000000000000000000000001010"
           },
           "provider": "Polygon"
         }
@@ -127,8 +170,10 @@
           },
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
           "theme": {
-            "circle": true
-          }
+            "circle": true,
+            "primary_color_hex": "#2775CA"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png"
         }
       ]
     },
@@ -172,8 +217,10 @@
           },
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
           "theme": {
-            "circle": true
-          }
+            "circle": true,
+            "primary_color_hex": "#2775CA"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png"
         }
       ]
     },
@@ -333,11 +380,22 @@
         }
       ],
       "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
       },
       "images": [
         {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+          "image_sync": {
+            "chain_name": "axelar",
+            "base_denom": "uusdt"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#009393",
+            "background_color_hex": "#009393"
+          }
         }
       ]
     },
@@ -386,7 +444,8 @@
             "primary_color_hex": "#ebb324"
           }
         }
-      ]
+      ],
+      "coingecko_id": "page"
     },
     {
       "description": "wETH is 'wrapped ETH'",

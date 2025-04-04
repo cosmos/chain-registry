@@ -34,30 +34,38 @@
   },
   "codebase": {
     "git_repo": "https://github.com/sedaprotocol/seda-chain",
-    "recommended_version": "v0.1.1",
+    "recommended_version": "v0.1.9",
     "compatible_versions": [
-      "v0.1.1"
+      "v0.1.8-hotfix.3",
+      "v0.1.9"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/sedaprotocol/seda-chain/releases/download/v0.1.1/sedad-amd64",
-      "linux/arm64": "https://github.com/sedaprotocol/seda-chain/releases/download/v0.1.1/sedad-arm64"
+      "linux/amd64": "https://github.com/sedaprotocol/seda-chain/releases/download/v0.1.9/sedad-amd64",
+      "linux/arm64": "https://github.com/sedaprotocol/seda-chain/releases/download/v0.1.9/sedad-arm64"
     },
-    "cosmos_sdk_version": "v0.50.5",
-    "consensus": {
-      "type": "cometbft",
-      "version": "v0.38.6"
-    },
-    "ibc_go_version": "v8.2.0",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/sedaprotocol/seda-networks/main/mainnet/genesis.json"
     },
+    "language": {
+      "type": "go",
+      "version": "1.22.11"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.17"
+    },
     "sdk": {
       "type": "cosmos",
-      "version": "v0.50.5"
+      "version": "v0.50.12"
+    },
+    "cosmwasm": {
+      "version": "0.50.0",
+      "repo": "https://github.com/CosmWasm/wasmd",
+      "enabled": true
     },
     "ibc": {
       "type": "go",
-      "version": "v8.2.0"
+      "version": "v8.6.1"
     }
   },
   "logo_URIs": {
@@ -143,7 +151,7 @@
         "provider": "Synergy Nodes"
       },
       {
-        "address": "https://seda-rpc.lavenderfive.com/",
+        "address": "https://rpc.lavenderfive.com:443/seda",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -177,6 +185,10 @@
       {
         "address": "https://seda_mainnet_rpc.chain.whenmoonwhenlambo.money:443",
         "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+      },
+      {
+        "address": "https://rpc-seda-mainnet.keepitstaked.com:443",
+        "provider": "KeepItStaked.com"
       }
     ],
     "rest": [
@@ -197,7 +209,7 @@
         "provider": "Synergy Nodes"
       },
       {
-        "address": "https://seda-api.lavenderfive.com/",
+        "address": "https://rest.lavenderfive.com:443/seda",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -231,6 +243,10 @@
       {
         "address": "https://seda_mainnet_api.chain.whenmoonwhenlambo.money",
         "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+      },
+      {
+        "address": "https://api-seda-mainnet.keepitstaked.com:443",
+        "provider": "KeepItStaked.com"
       }
     ],
     "grpc": [
@@ -247,7 +263,7 @@
         "provider": "kjnodes"
       },
       {
-        "address": "https://seda-grpc.lavenderfive.com",
+        "address": "seda.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -276,6 +292,12 @@
       "url": "https://seda.explorers.guru",
       "tx_page": "https://seda.explorers.guru/transaction/${txHash}",
       "account_page": "https://seda.explorers.guru/account/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/seda",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=seda&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=seda&addr=${accountAddress}"
     },
     {
       "kind": "WhisperNode 🤐",
