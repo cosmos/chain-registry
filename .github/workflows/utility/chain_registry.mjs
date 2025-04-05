@@ -121,9 +121,6 @@ let chains = [];
 export const chain__FileName = "chain.json";
 export const assetlist__FileName = "assetlist.json";
 
-export let debug = 1;
-
-
 export let allChains = "";
 
 // -- GENERAL UTILITY FUNCTIONS --
