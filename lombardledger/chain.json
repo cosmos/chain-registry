@@ -1,26 +1,26 @@
 {
-  "$schema": "../../chain.schema.json",
-  "chain_name": "lombardledgertestnet",
+  "$schema": "../chain.schema.json",
+  "chain_name": "lombardledger",
   "chain_type": "cosmos",
-  "chain_id": "ledger-testnet-1",
+  "chain_id": "ledger-mainnet-1",
   "status": "live",
-  "network_type": "testnet",
+  "network_type": "mainnet",
   "bech32_prefix": "lom",
   "daemon_name": "ledgerd",
   "node_home": "$HOME/.ledgerd",
   "key_algos": [
     "secp256k1"
   ],
-  "pretty_name": "Lombard Ledger Testnet",
+  "pretty_name": "Lombard Ledger",
   "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
         "denom": "ulom",
-        "fixed_min_gas_price": 1,
-        "low_gas_price": 1,
-        "average_gas_price": 1,
-        "high_gas_price": 1
+        "fixed_min_gas_price": 100,
+        "low_gas_price": 100,
+        "average_gas_price": 100,
+        "high_gas_price": 100
       }
     ]
   },
@@ -35,7 +35,7 @@
     "git_repo": "https://github.com/lombard-finance/ledger",
     "recommended_version": "v1.2.0",
     "genesis": {
-      "genesis_url": "https://github.com/lombard-finance/ledger-testnets/blob/d9a6a4e1ca48bd6f9cbe5330d3e10eb157c38252/gastald/config/genesis.json"
+      "genesis_url": "https://github.com/lombard-finance/ledger-testnets/blob/441861abd12e5149663079c6e36db3064ec4745a/mainnet/config/genesis.json"
     }
   },
   "peers": {},
@@ -47,8 +47,8 @@
   "explorers": [
     {
       "kind": "Mintscan",
-      "url": "https://www.mintscan.io/lombard-testnet",
-      "tx_page": "https://www.mintscan.io/lombard-testnet/tx/${txHash}"
+      "url": "https://www.mintscan.io/lombard",
+      "tx_page": "https://www.mintscan.io/lombard/tx/${txHash}"
     }
   ]
 }
