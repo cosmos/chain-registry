@@ -37,6 +37,76 @@
     {
       "denom_units": [
         {
+          "denom": "ibc/65D0BEC6DAD96C7F5043D1E54E54B6BB5D5B3AEC3FF6CEBB75B9E059F3580EA3",
+          "exponent": 0
+        },
+        {
+          "denom": "USDC",
+          "exponent": 6
+        }
+      ],
+      "base": "ibc/65D0BEC6DAD96C7F5043D1E54E54B6BB5D5B3AEC3FF6CEBB75B9E059F3580EA3",
+      "name": "USDC",
+      "display": "USDC",
+      "symbol": "USDC",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png"
+      },
+      "coingecko_id": "usd-coin",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-132"
+          },
+          "chain": {
+            "channel_id": "channel-1",
+            "path": "transfer/channel-1/uusdc"
+          }
+        }
+      ],
+      "type_asset": "ics20"
+    },
+    {
+      "denom_units": [
+        {
+          "denom": "ibc/C0E66D1C81D8AAF0E6896E05190FDFBC222367148F86AC3EA679C28327A763CD",
+          "exponent": 0
+        },
+        {
+          "denom": "AXL",
+          "exponent": 6
+        }
+      ],
+      "base": "ibc/C0E66D1C81D8AAF0E6896E05190FDFBC222367148F86AC3EA679C28327A763CD",
+      "name": "AXL",
+      "display": "AXL",
+      "symbol": "AXL",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axl.png"
+      },
+      "coingecko_id": "axelar",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "axelar",
+            "base_denom": "uaxl",
+            "channel_id": "channel-175"
+          },
+          "chain": {
+            "channel_id": "channel-2",
+            "path": "transfer/channel-2/uaxl"
+          }
+        }
+      ],
+      "type_asset": "ics20"
+    },
+    {
+      "denom_units": [
+        {
           "denom": "ibc/4805A17C742D2325715167EA1167974821888307CC62066D6CFA2BD0F724821D",
           "exponent": 0
         },
@@ -54,12 +124,16 @@
       },
       "traces": [
         {
-          "type": "bridge",
+          "type": "ibc",
           "counterparty": {
-            "chain_name": "ethereum",
-            "base_denom": "0x657e8C867D8B37dCC18fA4Caead9C45EB088C642"
+            "chain_name": "cosmoshub",
+            "base_denom": "ibc/6F8F0E9D472BF053261F2DEBE521801B703372777F3923B48DAE55D4F1212B5F",
+            "channel_id": "channel-1341"
           },
-          "provider": "Eureka"
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/transfer/channel-1341/0x657e8C867D8B37dCC18fA4Caead9C45EB088C642"
+          }
         }
       ],
       "coingecko_id": "ether-fi-staked-btc",
@@ -130,72 +204,6 @@
     {
       "denom_units": [
         {
-          "denom": "ibc/88386AC48152D48B34B082648DF836F975506F0B57DBBFC10A54213B1BF484CB",
-          "exponent": 0
-        },
-        {
-          "denom": "WBTC",
-          "exponent": 8
-        }
-      ],
-      "base": "ibc/88386AC48152D48B34B082648DF836F975506F0B57DBBFC10A54213B1BF484CB",
-      "name": "Wrapped BTC",
-      "display": "WBTC",
-      "symbol": "WBTC",
-      "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/babylon/images/wbtc.svg"
-      },
-      "coingecko_id": "wrapped-bitcoin",
-      "traces": [
-        {
-          "type": "bridge",
-          "counterparty": {
-            "chain_name": "ethereum",
-            "base_denom": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
-          },
-          "provider": "Axelar"
-        }
-      ],
-      "type_asset": "ics20"
-    },
-    {
-      "denom_units": [
-        {
-          "denom": "ibc/65D0BEC6DAD96C7F5043D1E54E54B6BB5D5B3AEC3FF6CEBB75B9E059F3580EA3",
-          "exponent": 0
-        },
-        {
-          "denom": "USDC",
-          "exponent": 6
-        }
-      ],
-      "base": "ibc/65D0BEC6DAD96C7F5043D1E54E54B6BB5D5B3AEC3FF6CEBB75B9E059F3580EA3",
-      "name": "USDC",
-      "display": "USDC",
-      "symbol": "USDC",
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png"
-      },
-      "coingecko_id": "usd-coin",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "noble",
-            "base_denom": "uusdc",
-            "channel_id": "channel-132"
-          },
-          "chain": {
-            "channel_id": "channel-1",
-            "path": "transfer/channel-1/uusdc"
-          }
-        }
-      ],
-      "type_asset": "ics20"
-    },
-    {
-      "denom_units": [
-        {
           "denom": "ibc/6E7CA61C5656D3F3007535F035386AEB8281833743CFCE0F069213331CEBBE1A",
           "exponent": 0
         },
@@ -220,41 +228,6 @@
             "base_denom": "0x004E9C3EF86bc1ca1f0bB5C7662861Ee93350568"
           },
           "provider": "Eureka"
-        }
-      ],
-      "type_asset": "ics20"
-    },
-    {
-      "denom_units": [
-        {
-          "denom": "ibc/C0E66D1C81D8AAF0E6896E05190FDFBC222367148F86AC3EA679C28327A763CD",
-          "exponent": 0
-        },
-        {
-          "denom": "AXL",
-          "exponent": 6
-        }
-      ],
-      "base": "ibc/C0E66D1C81D8AAF0E6896E05190FDFBC222367148F86AC3EA679C28327A763CD",
-      "name": "AXL",
-      "display": "AXL",
-      "symbol": "AXL",
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axl.png"
-      },
-      "coingecko_id": "axelar",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "axelar",
-            "base_denom": "uaxl",
-            "channel_id": "channel-175"
-          },
-          "chain": {
-            "channel_id": "channel-2",
-            "path": "transfer/channel-2/uaxl"
-          }
         }
       ],
       "type_asset": "ics20"
@@ -410,6 +383,37 @@
             "base_denom": "0xd9D920AA40f578ab794426F5C90F6C731D159DEf"
           },
           "provider": "Eureka"
+        }
+      ],
+      "type_asset": "ics20"
+    },
+    {
+      "denom_units": [
+        {
+          "denom": "ibc/88386AC48152D48B34B082648DF836F975506F0B57DBBFC10A54213B1BF484CB",
+          "exponent": 0
+        },
+        {
+          "denom": "WBTC",
+          "exponent": 8
+        }
+      ],
+      "base": "ibc/88386AC48152D48B34B082648DF836F975506F0B57DBBFC10A54213B1BF484CB",
+      "name": "Wrapped BTC",
+      "display": "WBTC",
+      "symbol": "WBTC",
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/babylon/images/wbtc.svg"
+      },
+      "coingecko_id": "wrapped-bitcoin",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+          },
+          "provider": "Axelar"
         }
       ],
       "type_asset": "ics20"
