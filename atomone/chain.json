@@ -34,18 +34,17 @@
   },
   "codebase": {
     "git_repo": "https://github.com/atomone-hub/atomone",
-    "recommended_version": "v1.0.1",
+    "recommended_version": "v1.1.2",
     "compatible_versions": [
-      "v1.0.0",
-      "v1.0.1"
+      "v1.1.2"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.1/atomoned-v1.0.1-linux-amd64",
-      "linux/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.1/atomoned-v1.0.1-linux-arm64",
-      "darwin/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.1/atomoned-v1.0.1-darwin-amd64",
-      "darwin/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.1/atomoned-v1.0.1-darwin-arm64",
-      "windows/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.1/atomoned-v1.0.1-windows-amd64.exe",
-      "windows/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.1/atomoned-v1.0.1-windows-arm64.exe"
+      "linux/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.1.2/atomoned-v1.1.2-linux-amd64",
+      "linux/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.1.2/atomoned-v1.1.2-linux-arm64",
+      "darwin/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.1.2/atomoned-v1.1.2-darwin-amd64",
+      "darwin/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.1.2/atomoned-v1.1.2-darwin-arm64",
+      "windows/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.1.2/atomoned-v1.1.2-windows-amd64.exe",
+      "windows/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.1.2/atomoned-v1.1.2-windows-arm64.exe"
     },
     "genesis": {
       "genesis_url": "https://atomone.fra1.digitaloceanspaces.com/atomone-1/genesis.json"
@@ -95,6 +94,11 @@
         "id": "f19d9e0f8d48119aa4cafde65de923ae2c29181a",
         "address": "atomone-mainnet-seed.itrocket.net:61656",
         "provider": "ITRocket"
+      },
+      {
+        "id": "08bc9afd0cac4ae6cf8f1877920b0cc7e58a6f42",
+        "address": "seeds.tendermint.roomit.xyz:40011",
+        "provider": "Roomit"
       }
     ],
     "persistent_peers": [
@@ -126,6 +130,11 @@
         "id": "ed0e36c57122184ab05b6c635b2f2adf592bfa0c",
         "address": "atomone-mainnet-peer.itrocket.net:61657",
         "provider": "ITRocket"
+      },
+      {
+        "id": "5afef6e45590e9509a982b6d2a160fde8893dbec",
+        "address": "p2p.tendermint.roomit.xyz:16611",
+        "provider": "Roomit"
       }
     ]
   },
@@ -194,6 +203,18 @@
       {
         "address": "https://rpc-atomone.ecostake.com",
         "provider": "ecostake"
+      },
+      {
+        "address": "https://m-atomone.rpc.utsa.tech/",
+        "provider": "UTSA"
+      },
+      {
+        "address": "https://rpc.atomone.roomit.xyz",
+        "provider": "Roomit"
+      },
+      {
+        "address": "https://rpc.atomone.chaintools.tech",
+        "provider": "ChainTools"
       }
     ],
     "rest": [
@@ -260,7 +281,19 @@
       {
         "address": "https://rest-atomone.ecostake.com",
         "provider": "ecostake"
-      }
+      },
+      {
+        "address": "https://m-atomone.api.utsa.tech/",
+        "provider": "UTSA"
+      },
+      {
+        "address": "https://api.atomone.roomit.xyz",
+        "provider": "Roomit"
+      },
+      {
+        "address": "https://api.atomone.chaintools.tech",
+        "provider": "ChainTools"
+      }      
     ],
     "grpc": [
       {
@@ -302,6 +335,14 @@
       {
         "address": "atomone-mainnet-grpc.itrocket.net:443",
         "provider": "ITRocket"
+      },
+      {
+        "address": "grpc.atomone.roomit.xyz:8443",
+        "provider": "Roomit"
+      },
+      {
+        "address": "grps.aomone.chaintools.tech:443",
+        "provider": "ChainTools"
       }
     ]
   },
@@ -347,7 +388,19 @@
       "url": "https://mainnet.itrocket.net/atomone",
       "tx_page": "https://mainnet.itrocket.net/atomone/tx/${txHash}",
       "account_page": "https://mainnet.itrocket.net/atomone/account/${accountAddress}"
-    }
+    },
+    {
+      "kind": "Roomit",
+      "url": "https://explorer.tendermint.roomit.xyz/atomone-mainnet",
+      "tx_page": "https://explorer.tendermint.roomit.xyz/atomone-mainnet/tx/${txHash}",
+      "account_page": "https://explorer.tendermint.roomit.xyz/atomone-mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "ChainTools",
+      "url": "https://explorer.chaintools.tech/atomone",
+      "tx_page": "https://explorer.chaintools.tech/atomone/tx/${txHash}",
+      "account_page": "https://explorer.chaintools.tech/atomone/account/${accountAddress}"
+    }    
   ],
   "images": [
     {
