@@ -24,11 +24,11 @@ jobs:
           
       - name: Run code to Generate Coingecko State File
         working-directory: ./.github/workflows/utility
-        run: node check_coingecko_data.mjs generateCoingeckoStateFile
+        run: node update_coingecko_data.mjs generateCoingeckoStateFile
 
       - name: Run code to Remove Invalid Coingecko Ids
         working-directory: ./.github/workflows/utility
-        run: node check_coingecko_data.mjs removeInvalidCoingeckoIds
+        run: node update_coingecko_data.mjs removeInvalidCoingeckoIds
       
       - name: Add Commit Push
         uses: devops-infra/action-commit-push@master
