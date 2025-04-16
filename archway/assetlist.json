@@ -44,6 +44,70 @@
       "type_asset": "sdk.coin"
     },
     {
+      "description": "BackBone Labs Liquid Staked Archway",
+      "type_asset": "cw20",
+      "address": "archway12yurzx8zynv3ck7uh4tucre48tqsm4fac4hfk9p3l24qs2cn08dqr684cg",
+      "denom_units": [
+        {
+          "denom": "archway12yurzx8zynv3ck7uh4tucre48tqsm4fac4hfk9p3l24qs2cn08dqr684cg",
+          "exponent": 0
+        },
+        {
+          "denom": "bARCH",
+          "exponent": 18
+        }
+      ],
+      "base": "archway12yurzx8zynv3ck7uh4tucre48tqsm4fac4hfk9p3l24qs2cn08dqr684cg",
+      "name": "BackBone Labs Liquid Staked Archway",
+      "display": "bARCH",
+      "symbol": "bARCH",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/barch.png"
+      },
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "archway",
+            "base_denom": "aarch"
+          },
+          "provider": "BackBoneLabs"
+        }
+      ],
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/barch.png"
+        }
+      ]
+    },
+    {
+      "description": "Architects Token",
+      "type_asset": "cw20",
+      "address": "archway16kxu278xtwa9ql20yhgk9smk2k6ke74hsxeesf36c9dhxqc5zyksh8ykwu",
+      "denom_units": [
+        {
+          "denom": "archway16kxu278xtwa9ql20yhgk9smk2k6ke74hsxeesf36c9dhxqc5zyksh8ykwu",
+          "exponent": 0
+        },
+        {
+          "denom": "TOKN",
+          "exponent": 18
+        }
+      ],
+      "base": "archway16kxu278xtwa9ql20yhgk9smk2k6ke74hsxeesf36c9dhxqc5zyksh8ykwu",
+      "name": "Architects Token",
+      "display": "TOKN",
+      "symbol": "TOKN",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/tokn.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/tokn.png"
+        }
+      ]
+    },
+    {
       "description": "ERIS liquid staked ARCH",
       "type_asset": "cw20",
       "address": "archway1fwurjg7ah4v7hhs6xsc3wutqpvmahrfhns285s0lt34tgfdhplxq6m8xg5",
@@ -72,53 +136,6 @@
           }
         }
       ]
-    },
-    {
-      "description": "The first memecoin on osmosis.",
-      "denom_units": [
-        {
-          "denom": "ibc/D2BCFE34F35AF2968C8E1F84557D8A2058BB56F739EB553206EFC2AD8C6EDAF0",
-          "exponent": 0
-        },
-        {
-          "denom": "WOSMO",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/D2BCFE34F35AF2968C8E1F84557D8A2058BB56F739EB553206EFC2AD8C6EDAF0",
-      "name": "Wosmo",
-      "display": "WOSMO",
-      "symbol": "WOSMO",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "osmosis",
-            "base_denom": "factory/osmo1pfyxruwvtwk00y8z06dh2lqjdj82ldvy74wzm3/WOSMO",
-            "channel_id": "channel-1"
-          },
-          "chain": {
-            "channel_id": "channel-1429",
-            "path": "transfer/channel-1429/factory/osmo1pfyxruwvtwk00y8z06dh2lqjdj82ldvy74wzm3/WOSMO"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "osmosis",
-            "base_denom": "factory/osmo1pfyxruwvtwk00y8z06dh2lqjdj82ldvy74wzm3/WOSMO"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/wosmo.png",
-          "theme": {
-            "primary_color_hex": "#edd5ee"
-          }
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/wosmo.png"
-      }
     },
     {
       "description": "The native token of Vidulum",
@@ -170,7 +187,8 @@
             "primary_color_hex": "#3454bc"
           }
         }
-      ]
+      ],
+      "coingecko_id": "vidulum"
     },
     {
       "description": "Astrovault AXV",
@@ -190,6 +208,16 @@
       "name": "Astrovault AXV",
       "display": "AXV",
       "symbol": "AXV",
+      "traces": [
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "neutron",
+            "base_denom": "cw20:neutron10dxyft3nv4vpxh5vrpn0xw8geej8dw3g39g7nqp8mrm307ypssksau29af"
+          },
+          "provider": "Astrovault"
+        }
+      ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/axv.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/axv.svg"
@@ -298,7 +326,8 @@
             "primary_color_hex": "#2775CA"
           }
         }
-      ]
+      ],
+      "coingecko_id": "usd-coin"
     },
     {
       "description": "Wrapped USDC (Noble)",
@@ -338,6 +367,106 @@
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/wUsdc-noble.svg",
           "theme": {
             "primary_color_hex": "#000000"
+          }
+        }
+      ]
+    },
+    {
+      "description": "The native token of Migaloo Chain",
+      "denom_units": [
+        {
+          "denom": "ibc/3F882513A0CCD1C4110ACB7C6C761AC7B48974C9D2D439CD6F652F9B44362518",
+          "exponent": 0,
+          "aliases": [
+            "uwhale"
+          ]
+        },
+        {
+          "denom": "whale",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/3F882513A0CCD1C4110ACB7C6C761AC7B48974C9D2D439CD6F652F9B44362518",
+      "name": "Migaloo",
+      "display": "whale",
+      "symbol": "WHALE",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "migaloo",
+            "base_denom": "uwhale",
+            "channel_id": "channel-141"
+          },
+          "chain": {
+            "channel_id": "channel-184",
+            "path": "transfer/channel-184/uwhale"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/white-whale.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/white-whale.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "migaloo",
+            "base_denom": "uwhale"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/white-whale.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/white-whale.svg",
+          "theme": {
+            "primary_color_hex": "#1c1c1c"
+          }
+        }
+      ]
+    },
+    {
+      "description": "CULT - Less Brainwashing, More Utility",
+      "extended_description": "CULT - Less Brainwashing, More Utility\n\n$CULT is more than a token; it's your key to ascend within the Order of Architects. Each token empowers you to mint and upgrade Architect NFTs, navigating through rites that elevate their mystical powers. Engage directly in our unique Streamswap process, beginning with a USDC deposit, transitioning smoothly into $CULT.\n\nFair Launch: Our token launch excludes whitelists and bots, ensuring a transparent and equitable distribution for all. Streamswap Mechanics: Deposit $USDC during the 72-hour Bootstrapping Phase, followed by a 1-hour Streaming Phase to convert into $CULT, ensuring a smooth and fair token distribution.",
+      "denom_units": [
+        {
+          "denom": "ibc/7364C29ED876F05A82628B738AA2F0D53724991FD0220858570D7A3844B67F58",
+          "exponent": 0,
+          "aliases": [
+            "ucult"
+          ]
+        },
+        {
+          "denom": "CULT",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/7364C29ED876F05A82628B738AA2F0D53724991FD0220858570D7A3844B67F58",
+      "name": "CULT",
+      "display": "CULT",
+      "symbol": "CULT",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/cult.png"
+      },
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "factory/osmo1qdvwftqd8ml6t9w6dmj97m03ck5ghqqmd8y7cm/cult",
+            "channel_id": "channel-1429"
+          },
+          "chain": {
+            "channel_id": "channel-1",
+            "path": "transfer/channel-1/factory/osmo1qdvwftqd8ml6t9w6dmj97m03ck5ghqqmd8y7cm/cult"
+          }
+        }
+      ],
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/cult.png",
+          "image_sync": {
+            "chain_name": "osmosis",
+            "base_denom": "factory/osmo1qdvwftqd8ml6t9w6dmj97m03ck5ghqqmd8y7cm/cult"
           }
         }
       ]
