@@ -41,19 +41,24 @@
   },
   "codebase": {
     "git_repo": "https://github.com/dydxprotocol/v4-chain/",
-    "recommended_version": "protocol/v7.0.1",
+    "recommended_version": "protocol/v8.0.5",
     "compatible_versions": [
-      "protocol/v7.0.1"
+      "protocol/v8.0.5",
+      "protocol/v8.0.3",
+      "protocol/v8.0.2",
+      "protocol/v8.0.1",
+      "protocol/v8.0.0-rc1",
+      "protocol/v8.0.0-rc0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/dydxprotocol/v4-chain/releases/download/protocol%2Fv7.0.1/dydxprotocold-v7.0.1-linux-amd64.tar.gz",
-      "linux/arm64": "https://github.com/dydxprotocol/v4-chain/releases/download/protocol%2Fv7.0.1/dydxprotocold-v7.0.1-linux-arm64.tar.gz"
+      "linux/amd64": "https://github.com/dydxprotocol/v4-chain/releases/download/protocol%2Fv8.0.5/dydxprotocold-v8.0.5-linux-amd64.tar.gz",
+      "linux/arm64": "https://github.com/dydxprotocol/v4-chain/releases/download/protocol%2Fv8.0.5/dydxprotocold-v8.0.5-linux-arm64.tar.gz"
     },
     "consensus": {
       "type": "cometbft",
-      "version": "v0.38.6",
+      "version": "v0.38.15",
       "repo": "https://github.com/dydxprotocol/cometbft",
-      "tag": "v0.38.6-0.20241106081823-31609289f401"
+      "tag": "v0.38.6-0.20250203202601-3ab07f44e83a"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/dydxopsdao/networks/main/dydx-mainnet-1/genesis.json"
@@ -62,7 +67,7 @@
       "type": "cosmos",
       "repo": "https://github.com/dydxprotocol/cosmos-sdk",
       "version": "v0.50.6",
-      "tag": "v0.50.6-0.20241022180223-cc8c850952c5"
+      "tag": "v0.50.6-0.20250113155252-f00c500eaff3"
     },
     "ibc": {
       "type": "go",
@@ -82,9 +87,9 @@
         "provider": "Polkachu"
       },
       {
-        "id": "65b740ee326c9260c30af1f044e9cda63c73f7c1",
-        "address": "seeds.kingnodes.net:23856",
-        "provider": "KingNodes"
+        "id": "df1f145848d253800d4e4216e8793158688912f1",
+        "address": "seeds.kingnodes.com:23856",
+        "provider": "Kingnodes"
       },
       {
         "id": "f04a77b92d0d86725cdb2d6b7a7eb0eda8c27089",
@@ -127,11 +132,6 @@
         "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
-        "id": "4c30c8a95e26b07b249813b677caab28bf0c54eb",
-        "address": "rpc.dydx.nodestake.top:666",
-        "provider": "NodeStake"
-      },
-      {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "dydx-mainnet-seed.autostake.com:27366",
         "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
@@ -140,6 +140,11 @@
         "id": "09ba537d6563018b97c502979c3478df4decf426",
         "address": "dydxprotocol-seed.genznodes.dev:22656",
         "provider": "genznodes"
+      },
+      {
+        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
+        "address": "seed.rhinostake.com:23856",
+        "provider": "RHINO \ud83e\udd8f"
       }
     ],
     "persistent_peers": [
@@ -175,10 +180,6 @@
       {
         "address": "https://rpc-dydx.ecostake.com:443",
         "provider": "ecostake"
-      },
-      {
-        "address": "https://rpc.dydx.nodestake.top:443",
-        "provider": "NodeStake"
       },
       {
         "address": "https://rpc-dydx.cosmos-spaces.cloud",
@@ -243,10 +244,6 @@
         "provider": "Cosmos Spaces"
       },
       {
-        "address": "https://api.dydx.nodestake.top:443",
-        "provider": "NodeStake"
-      },
-      {
         "address": "https://dydx-rest.publicnode.com",
         "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
@@ -305,10 +302,6 @@
         "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
-        "address": "https://grpc.dydx.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
         "address": "dydx.grpc.kjnodes.com:443",
         "provider": "kjnodes"
       },
@@ -347,15 +340,21 @@
     },
     {
       "kind": "NodeStake",
-      "url": "https://explorer.nodestake.top/dydx/",
-      "tx_page": "https://explorer.nodestake.top/dydx/txs/${txHash}",
-      "account_page": "https://explorer.nodestake.top/dydx/account/${accountAddress}"
+      "url": "https://explorer.nodestake.org/dydx/",
+      "tx_page": "https://explorer.nodestake.org/dydx/txs/${txHash}",
+      "account_page": "https://explorer.nodestake.org/dydx/account/${accountAddress}"
     },
     {
       "kind": "TC Network",
       "url": "https://explorer.tcnetwork.io/dydx",
       "tx_page": "https://explorer.tcnetwork.io/dydx/transaction/${txHash}",
       "account_page": "https://explorer.tcnetwork.io/dydx/account/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://dydx.valopers.com/",
+      "tx_page": "https://dydx.valopers.com/transactions/${txHash}",
+      "account_page": "https://dydx.valopers.com/account/${accountAddress}"
     }
   ],
   "images": [

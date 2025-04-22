@@ -39,10 +39,10 @@ Please give Pull Requests a title that somewhat describes the change more precis
 ### Endpoints reachability
 
 The endpoints added here are being tested via CI daily at 00:00 UTC. It is expected that your endpoints return an HTTP 200 in the following paths:
-- rest: `/status`
-- rpc: `/cosmos/base/tendermint/v1beta1/syncing`
+- rest: `/cosmos/base/tendermint/v1beta1/syncing`
+- rpc: `/status`
 - grpc: not tested
-Endpoints that consistently fail to repond successfully may be removed without warning.
+Endpoints that consistently fail to respond successfully may be removed without warning.
 
 Providers ready to be tested daily should be whitelisted here: `.github/workflows/tests/apis.py`
 
