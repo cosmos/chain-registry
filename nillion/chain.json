@@ -15,9 +15,9 @@
     "fee_tokens": [
       {
         "denom": "unil",
-        "low_gas_price": 0.0001,
-        "average_gas_price": 0.0001,
-        "high_gas_price": 0.00025
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.1
       }
     ]
   },
@@ -68,6 +68,20 @@
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:28156"
+      },
+      {
+        "id": "327fb4151de9f78f29ff10714085e347a4e3c836",
+        "address": "rpc.nodestake.org.com:666"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "nillion-mainnet-seed.autostake.com:27076",
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+      },
+      {
+        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
+        "address": "seed.rhinostake.com:28156",
+        "provider": "RHINO \ud83e\udd8f"
       }
     ]
   },
@@ -76,22 +90,52 @@
       {
         "address": "https://nillion-rpc.lavenderfive.com",
         "provider": "lavenderfive"
+      },
+      {
+        "address": "https://rpc.nillion.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://nillion-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       }
     ],
     "rest": [
       {
         "address": "https://nillion-api.lavenderfive.com",
         "provider": "lavenderfive"
+      },
+      {
+        "address": "https://api.nillion.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://nillion-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       }
     ],
     "grpc": [
       {
         "address": "https://nillion-grpc.lavenderfive.com",
         "provider": "lavenderfive"
+      },
+      {
+        "address": "https://grpc.nillion.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "nillion-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Nillionhub [Noders]",
+      "url": "https://nillionhub.org/explorer/dashboard",
+      "tx_page": "https://nillionhub.org/explorer/transactions/${txHash}",
+      "account_page": "https://nillionhub.org/explorer/accounts/${accountAddress}"
+    },
     {
       "url": "https://nillion.explorers.guru",
       "tx_page": "https://nillion.explorers.guru/transaction/${txHash}",
@@ -101,6 +145,12 @@
       "url": "https://www.mintscan.io/nillion",
       "tx_page": "https://www.mintscan.io/nillion/tx/${txHash}",
       "account_page": "https://www.mintscan.io/nillion/address/${accountAddress}"
+    },
+    {
+      "kind": "NodeStake",
+      "url": "https://explorer.nodestake.org/nillion/",
+      "tx_page": "https://explorer.nodestake.org/nillion/txs/${txHash}",
+      "account_page": "https://explorer.nodestake.org/nillion/account/${accountAddress}"
     }
   ],
   "images": [
