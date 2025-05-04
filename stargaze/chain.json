@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://stargaze.zone/",
   "pretty_name": "Stargaze",
+  "chain_type": "cosmos",
   "chain_id": "stargaze-1",
   "bech32_prefix": "stars",
   "daemon_name": "starsd",
@@ -30,37 +31,35 @@
   },
   "codebase": {
     "git_repo": "https://github.com/public-awesome/stargaze",
-    "recommended_version": "v10.0.1",
+    "recommended_version": "v14.0.0",
     "compatible_versions": [
-      "v10.0.1",
-      "v10.0.0"
+      "v14.0.0"
     ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.6"
+    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/public-awesome/mainnet/main/stargaze-1/genesis.tar.gz"
     },
-    "versions": [
-      {
-        "name": "v9",
-        "recommended_version": "v9.1.0",
-        "compatible_versions": [
-          "v9.1.0",
-          "v9.0.0"
-        ]
-      },
-      {
-        "name": "v10",
-        "recommended_version": "v10.0.1",
-        "compatible_versions": [
-          "v10.0.1",
-          "v10.0.0"
-        ]
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.12"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.6.0"
+    },
+    "cosmwasm": {
+      "version": "v0.45.0",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg"
   },
+  "description": "The premier community-focused blockchain for NFTs. Stargaze empowers creators, developers, collectors, and traders to participate on the platform. The Stargaze chain consists of various NFT-related apps such as a Launchpad, and a Marketplace with offers and auctions.",
   "peers": {
     "seeds": [
       {
@@ -79,7 +78,7 @@
       {
         "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
         "address": "seed.rhinostake.com:13756",
-        "provider": "RHINO"
+        "provider": "RHINO \ud83e\udd8f"
       },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
@@ -89,29 +88,34 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "stargaze-mainnet-seed.autostake.com:26986",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "stargaze-seed-1.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "604f4baaa30cd3f50d080bf45806d222c7fadc94",
-        "address": "seeds.whispernode.com:13756",
-        "provider": "WhisperNode🤐"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "id": "96e0040d44a2f0b59d2a07e128369363d8535b67",
-        "address": "seed-stargaze.ibs.team:16658",
+        "address": "seed-stargaze.ibs.team:16669",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
+        "address": "seeds.stakerhouse.com:10356",
+        "provider": "StakerHouse"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:26356",
+        "provider": "BlueStake \ud83d\ude80"
       }
     ],
     "persistent_peers": [
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "stargaze-mainnet-peer.autostake.com:26986",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "344c62c700a59de6137ccd6cade56721cb1e9777",
@@ -133,7 +137,7 @@
       },
       {
         "address": "https://rpc-stargaze.pupmos.network",
-        "provider": "PUPMØS"
+        "provider": "PUPM\u00d8S"
       },
       {
         "address": "https://rpc-stargaze.ezstaking.dev",
@@ -152,6 +156,10 @@
         "provider": "c29r3"
       },
       {
+        "address": "https://rpc-stargaze.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://stargaze-rpc.ibs.team",
         "provider": "Inter Blockchain Services"
       },
@@ -164,12 +172,8 @@
         "provider": "silent"
       },
       {
-        "address": "https://rpc-stargaze.whispernode.com:443",
-        "provider": "WhisperNode🤐"
-      },
-      {
         "address": "https://stargaze-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://stargaze-rpc.ramuchi.tech",
@@ -186,6 +190,26 @@
       {
         "address": "https://stargaze-rpc.stakerhouse.com",
         "provider": "StakerHouse"
+      },
+      {
+        "address": "https://stargaze-rpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "https://stargaze-rpc.reece.sh:443",
+        "provider": "Reecepbcups"
+      },
+      {
+        "address": "https://rpc.stargaze.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://stargaze-rpc.kleomedes.network",
+        "provider": "Kleomedes"
+      },
+      {
+        "address": "https://stargaze-rpc.chainroot.io",
+        "provider": "Chainroot"
       }
     ],
     "rest": [
@@ -195,7 +219,7 @@
       },
       {
         "address": "https://api-stargaze.pupmos.network",
-        "provider": "PUPMØS"
+        "provider": "PUPM\u00d8S"
       },
       {
         "address": "https://api-stargaze.ezstaking.dev",
@@ -222,16 +246,16 @@
         "provider": "D-stake"
       },
       {
+        "address": "https://api-stargaze.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://api.stargaze.silentvalidator.com/",
         "provider": "silent"
       },
       {
         "address": "https://stargaze-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://lcd-stargaze.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://stargaze-api.ramuchi.tech",
@@ -246,8 +270,28 @@
         "provider": "w3coins"
       },
       {
-        "address": "https://stargaze-api.stakerhouse.com",
+        "address": "https://stargaze-rest.stakerhouse.com",
         "provider": "StakerHouse"
+      },
+      {
+        "address": "https://stargaze-rest.publicnode.com",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "https://stargaze-api.reece.sh:443",
+        "provider": "Reecepbcups"
+      },
+      {
+        "address": "https://lcd.stargaze.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://stargaze-api.kleomedes.network",
+        "provider": "Kleomedes"
+      },
+      {
+        "address": "https://stargaze-api.chainroot.io",
+        "provider": "Chainroot"
       }
     ],
     "grpc": [
@@ -261,7 +305,11 @@
       },
       {
         "address": "stargaze-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+      },
+      {
+        "address": "grpc-stargaze.cosmos-spaces.cloud:1150",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://stargaze-grpc.ramuchi.tech:9090",
@@ -274,26 +322,48 @@
       {
         "address": "stargaze-grpc.w3coins.io:13790",
         "provider": "w3coins"
+      },
+      {
+        "address": "stargaze-grpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "stargaze-grpc.stakerhouse.com:443",
+        "provider": "StakerHouse"
+      },
+      {
+        "address": "https://grpc.stargaze.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "stargaze-grpc.chainroot.io:443",
+        "provider": "Chainroot"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/stargaze",
-      "tx_page": "https://ezstaking.tools/stargaze/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/stargaze/account/${accountAddress}"
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/stargaze",
+      "tx_page": "https://ezstaking.app/stargaze/txs/${txHash}",
+      "account_page": "https://ezstaking.app/stargaze/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/stargaze/",
-      "tx_page": "https://www.mintscan.io/stargaze/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/stargaze/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/stargaze/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/stargaze/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
       "url": "https://ping.pub/stargaze",
       "tx_page": "https://ping.pub/stargaze/tx/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/stargaze",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=stargaze&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=stargaze&addr=${accountAddress}"
     },
     {
       "kind": "atomscan",
@@ -306,6 +376,33 @@
       "url": "https://starscan.net/",
       "tx_page": "https://starscan.net/stargaze-1/tx/${txHash}",
       "account_page": "https://starscan.net/stargaze-1/address/${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode \ud83e\udd10",
+      "url": "https://mainnet.whispernode.com/stargaze",
+      "tx_page": "https://mainnet.whispernode.com/stargaze/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/stargaze/account/${accountAddress}"
+    },
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/stargaze",
+      "tx_page": "https://explorer.chainroot.io/stargaze/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/stargaze/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://stargaze.valopers.com/",
+      "tx_page": "https://stargaze.valopers.com/transactions/${txHash}",
+      "account_page": "https://stargaze.valopers.com/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg",
+      "theme": {
+        "primary_color_hex": "#db2777"
+      }
     }
   ]
 }

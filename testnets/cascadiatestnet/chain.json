@@ -5,6 +5,7 @@
   "network_type": "testnet",
   "website": "https://cascadia.foundation/",
   "pretty_name": "Cascadia",
+  "chain_type": "cosmos",
   "chain_id": "cascadia_6102-1",
   "bech32_prefix": "cascadia",
   "daemon_name": "cascadiad",
@@ -40,24 +41,28 @@
     "compatible_versions": [
       "v0.1.1"
     ],
-    "cosmos_sdk_version": "0.46.10",
     "consensus": {
       "type": "tendermint",
       "version": "v0.34.26"
     },
-    "cosmwasm_version": "0.30",
-    "cosmwasm_enabled": true,
     "genesis": {
       "name": "v1",
       "genesis_url": "https://raw.githubusercontent.com/CascadiaFoundation/chain-configuration/master/testnet/genesis.json"
     },
-    "versions": []
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46.10"
+    },
+    "cosmwasm": {
+      "version": "0.30",
+      "enabled": true
+    }
   },
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/cascadiatestnet/images/cascadia.png",
       "theme": {
-      "primary_color_hex": "#004A96"
+        "primary_color_hex": "#004A96"
       }
     }
   ],
@@ -65,7 +70,16 @@
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/cascadiatestnet/images/cascadia.png"
   },
   "peers": {
-    "seeds": [],
+    "seeds": [
+      {
+        "id": "42c4a78f39935df1c20b51c4b0d0a21db8f01c88",
+        "address": "cascadia-testnet-seed.itrocket.net:40656"
+      },
+      {
+        "id": "af73a10430d389e7480ef01b10b763fe156a397d",
+        "address": "cscd-rpc.systemd.run:29656"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "dd225f803eb3ae4bba2eef4628bebd6fc52092c2",
@@ -163,7 +177,7 @@
       "url": "https://validator.cascadia.foundation/",
       "tx_page": "https://validator.cascadia.foundation/transactions/${txHash}",
       "account_page": "https://validator.cascadia.foundation/accounts/${accountAddress}"
-    },   
+    },
     {
       "kind": "block_explorer",
       "url": "https://explorer.cascadia.foundation/",

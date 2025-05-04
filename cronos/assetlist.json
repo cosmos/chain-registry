@@ -3,7 +3,8 @@
   "chain_name": "cronos",
   "assets": [
     {
-      "description": "Cronos Chain - Get Instant DApp Portability with EVM Support",
+      "description": "Cronos is a blockchain platform developed by Crypto.com, designed to support DeFi, NFTs, and decentralized applications with fast and low-cost transactions.",
+      "extended_description": "Cronos is a blockchain platform developed by Crypto.com to facilitate the creation and operation of decentralized applications (dApps), decentralized finance (DeFi) protocols, and non-fungible tokens (NFTs). By utilizing the Tendermint consensus engine and the Cosmos SDK, Cronos offers fast and low-cost transactions while ensuring high security and scalability. The platform is EVM-compatible, allowing developers to easily port their Ethereum-based dApps to Cronos. The native token, CRO, is used for transaction fees, staking, and governance, providing incentives for users to contribute to the network's security and participate in its governance. Cronos aims to accelerate the adoption of DeFi and NFTs by providing a robust and efficient blockchain infrastructure.",
       "denom_units": [
         {
           "denom": "basecro",
@@ -18,11 +19,82 @@
       "name": "Cronos",
       "display": "cro",
       "symbol": "CRO",
+      "traces": [
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "cryptoorgchain",
+            "base_denom": "basecro"
+          },
+          "provider": "Cronos"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "cryptoorgchain",
+            "base_denom": "basecro"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro.svg"
+        }
+      ],
       "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro.svg",
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cronos.png"
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro.svg"
       },
+      "type_asset": "sdk.coin",
       "coingecko_id": "crypto-com-chain"
+    },
+    {
+      "description": "Tether USDt on Cronos",
+      "denom_units": [
+        {
+          "denom": "ibc/9106F2626880DF7FAD30621F355423B2A7523D8E2274475F009644D708A90682",
+          "exponent": 0
+        },
+        {
+          "denom": "usdt",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/9106F2626880DF7FAD30621F355423B2A7523D8E2274475F009644D708A90682",
+      "name": "Tether USDt",
+      "display": "usdt",
+      "symbol": "USDt",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "kava",
+            "base_denom": "erc20/tether/usdt",
+            "channel_id": "channel-125"
+          },
+          "chain": {
+            "channel_id": "channel-11",
+            "path": "transfer/channel-11/erc20/tether/usdt"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "kava",
+            "base_denom": "erc20/tether/usdt"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#009393",
+            "background_color_hex": "#009393"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+      },
+      "coingecko_id": "tether"
     }
   ]
 }

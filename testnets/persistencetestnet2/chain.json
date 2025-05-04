@@ -1,6 +1,7 @@
 {
-  "$schema": "../chain.schema.json",
+  "$schema": "../../chain.schema.json",
   "chain_name": "persistencetestnet2",
+  "chain_type": "cosmos",
   "chain_id": "test-core-2",
   "pretty_name": "Persistence Testnet",
   "status": "live",
@@ -17,7 +18,10 @@
     "fee_tokens": [
       {
         "denom": "uxprt",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.05,
+        "average_gas_price": 0.125,
+        "high_gas_price": 0.2
       }
     ]
   },
@@ -26,32 +30,23 @@
       {
         "denom": "uxprt"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/persistenceOne/persistenceCore",
-    "recommended_version": "v7.0.2",
+    "recommended_version": "v9.1.1",
     "compatible_versions": [
-      "v7.0.2"
+      "v9.1.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v7.0.2/persistenceCore-v7.0.2-linux-amd64.tar.gz"
+      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v9.1.1/persistenceCore-v9.1.1-linux-amd64.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/persistenceOne/networks/auditOne/test-core-2/test-core-2/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v7.0.2",
-        "recommended_version": "v7.0.2",
-        "compatible_versions": [
-          "v7.0.2"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v7.0.2/persistenceCore-v7.0.2-linux-amd64.tar.gz"
-        }
-      }
-    ]
+    }
   },
   "peers": {
     "seeds": [
@@ -107,12 +102,12 @@
         "provider": "Polkachu"
       },
       {
-        "address":"https://persistencecoretest-rpc.ytwofund.pro/",
-        "provider":"YTWOFUND"
+        "address": "https://persistencecoretest-rpc.ytwofund.pro/",
+        "provider": "YTWOFUND"
       },
       {
-        "address":"http://persistence-testnet.paranorm.pro:24657/",
-        "provider":"Paranorm"
+        "address": "http://persistence-testnet.paranorm.pro:24657/",
+        "provider": "Paranorm"
       }
     ],
     "rest": [
@@ -137,8 +132,8 @@
         "provider": "Polkachu"
       },
       {
-        "address":"https://persistenceCoreTest-rest.ytwofund.pro",
-        "provider":"YTWOFUND"
+        "address": "https://persistenceCoreTest-rest.ytwofund.pro",
+        "provider": "YTWOFUND"
       }
     ],
     "grpc": [
@@ -155,9 +150,9 @@
   "explorers": [
     {
       "kind": "mintscan",
-      "url": "https://testnet.mintscan.io/persistence-testnet",
-      "tx_page": "https://testnet.mintscan.io/persistence-testnet/txs/${txHash}",
-      "account_page": "https://testnet.mintscan.io/persistence-testnet/account/${accountAddress}"
+      "url": "https://mintscan.io/persistence-testnet",
+      "tx_page": "https://mintscan.io/persistence-testnet/txs/${txHash}",
+      "account_page": "https://mintscan.io/persistence-testnet/account/${accountAddress}"
     },
     {
       "kind": "StakeFlow",
@@ -170,6 +165,12 @@
       "url": "https://testnet-explorer.baryon.dev/test-core-2",
       "tx_page": "https://testnet-explorer.baryon.dev/test-core-2/tx/{txHash}",
       "account_page": "https://testnet-explorer.baryon.dev/test-core-2/account/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://testnet.persistence.valopers.com/",
+      "tx_page": "https://testnet.persistence.valopers.com/transactions/${txHash}",
+      "account_page": "https://testnet.persistence.valopers.com/account/${accountAddress}"
     }
   ]
 }

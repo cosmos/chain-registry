@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "axelar",
+  "chain_type": "cosmos",
   "chain_id": "axelar-dojo-1",
   "pretty_name": "Axelar",
   "status": "live",
@@ -8,10 +9,8 @@
   "website": "https://axelar.network/",
   "bech32_prefix": "axelar",
   "daemon_name": "axelard",
-  "node_home": "$HOME/.axelard",
-  "key_algos": [
-    "secp256k1"
-  ],
+  "node_home": "$HOME/.axelar",
+  "key_algos": ["secp256k1"],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -33,40 +32,52 @@
   },
   "codebase": {
     "git_repo": "https://github.com/axelarnetwork/axelar-core",
-    "recommended_version": "v0.33.0",
+    "recommended_version": "v1.0.5",
     "compatible_versions": [
-      "v0.33.0"
+      "v1.0.0",
+      "v1.0.1",
+      "v1.0.2",
+      "v1.0.3",
+      "v1.0.4",
+      "v1.0.5"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.33.0/axelard-linux-amd64-v0.33.0",
-      "darwin/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.33.0/axelard-darwin-amd64-v0.33.0"
+      "linux/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v1.0.5/axelard-linux-amd64-v1.0.5",
+      "darwin/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v1.0.5/axelard-darwin-amd64-v1.0.5",
+      "darwin/arm64": "https://github.com/axelarnetwork/axelar-core/releases/download/v1.0.5/axelard-darwin-arm64-v1.0.5"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.34.31"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/axelarnetwork/axelarate-community/main/resources/mainnet/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.33.0",
-        "recommended_version": "v0.33.0",
-        "compatible_versions": [
-          "v0.33.0"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.33.0/axelard-linux-amd64-v0.33.0",
-          "darwin/amd64": "https://github.com/axelarnetwork/axelar-core/releases/download/v0.33.0/axelard-darwin-amd64-v0.33.0"
-        }
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/axelarnetwork/cosmos-sdk",
+      "version": "v0.45.17",
+      "tag": "v0.45.17-0.20241127184440-bd1464cb7b4b"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v4.6.0"
+    },
+    "cosmwasm": {
+      "version": "v0.33.0",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axl.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axl.svg"
   },
+  "description": "Axelar delivers secure cross-chain communication for Web3. Our infrastructure enables dApp users to interact with any asset or application, on any chain, with one click.",
   "peers": {
     "seeds": [
       {
-        "id": "3d67d0646cddcc203b41434aceea64ade22ba6fc",
-        "address": "k8s-mainnet-axelarco-79b464ee93-f03cb16c57cf7cb2.elb.us-east-2.amazonaws.com:26656",
+        "id": "2551bf072d23835e42a32921beacbf3425fe376f",
+        "address": "k8s-mainnet-axelarco-3ab48adcdb-974f2bc59e735192.elb.us-east-2.amazonaws.com:26656",
         "provider": "axelar-core"
       },
       {
@@ -82,12 +93,12 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "axelar-mainnet-seed.autostake.com:26826",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
-        "id": "1e5c0b8f4431b0881edbd04537f4351bd7f19afc",
+        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:15156",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode \ud83e\udd10"
       },
       {
         "id": "3470414cd299d15911e9bb28557f6bffb8e514c6",
@@ -95,9 +106,14 @@
         "provider": "Stakeflow"
       },
       {
-        "id": "27b6d74c8408e033e2e5a9e966a0d15782e33596",
-        "address": "seeds.nethernode.xyz:15156",
-        "provider": "carbonZERO🌲"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "id": "10ed1e176d874c8bb3c7c065685d2da6a4b86475",
+        "address": "seed-axelar.ibs.team:16671",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "persistent_peers": [
@@ -108,7 +124,7 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "axelar-mainnet-peer.autostake.com:26826",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "3470414cd299d15911e9bb28557f6bffb8e514c6",
@@ -127,10 +143,6 @@
       {
         "address": "axelar-grpcweb.chainode.tech",
         "provider": "Chainode"
-      },
-      {
-        "address": "axelar-grpcweb.quantnode.tech:9091",
-        "provider": "Quantnode"
       }
     ],
     "rpc": [
@@ -143,8 +155,8 @@
         "provider": "chainlayer"
       },
       {
-        "address": "https://axelar-rpc.chainode.tech:443",
-        "provider": "Chainode"
+        "address": "https://rpc-axelar.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://axelar-rpc.pops.one:443",
@@ -172,7 +184,7 @@
       },
       {
         "address": "https://rpc.axelar.bh.rocks",
-        "provider": "BlockHunters 🎯"
+        "provider": "BlockHunters \ud83c\udfaf"
       },
       {
         "address": "https://axelar-rpc.validatrium.club",
@@ -180,15 +192,15 @@
       },
       {
         "address": "https://rpc-axelar.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode \ud83e\udd10"
       },
       {
-        "address": "https://axelar-rpc.quantnode.tech/",
+        "address": "https://axelar.rpc.quantnode.xyz/",
         "provider": "QuantNode"
       },
       {
         "address": "https://axelar-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://axelar-rpc.rockrpc.net/",
@@ -207,12 +219,16 @@
         "provider": "Staketab"
       },
       {
-        "address": "https://rpc-axelar.carbonZERO.zone:443",
-        "provider": "carbonZERO🌲"
-      },
-      {
         "address": "https://axelar-rpc.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://axelar-rpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "https://axelar.drpc.org",
+        "provider": "dRPC"
       }
     ],
     "rest": [
@@ -225,8 +241,8 @@
         "provider": "chainlayer"
       },
       {
-        "address": "https://axelar-rest.chainode.tech:443",
-        "provider": "Chainode"
+        "address": "https://api-axelar.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://axelar-lcd.qubelabs.io:443",
@@ -250,7 +266,7 @@
       },
       {
         "address": "https://api.axelar.bh.rocks",
-        "provider": "BlockHunters 🎯"
+        "provider": "BlockHunters \ud83c\udfaf"
       },
       {
         "address": "https://axelar-api.validatrium.club",
@@ -258,14 +274,14 @@
       },
       {
         "address": "https://lcd-axelar.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode \ud83e\udd10"
       },
       {
         "address": "https://axelar-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
-        "address": "https://axelar-lcd.quantnode.tech/",
+        "address": "https://axelar.lcd.quantnode.xyz/",
         "provider": "QuantNode"
       },
       {
@@ -281,12 +297,12 @@
         "provider": "Staketab"
       },
       {
-        "address": "https://rest-axelar.carbonZERO.zone:443",
-        "provider": "carbonZERO🌲"
-      },
-      {
         "address": "https://axelar-api.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://axelar-rest.publicnode.com",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "grpc": [
@@ -295,12 +311,16 @@
         "provider": "Qubelabs"
       },
       {
-        "address": "axelar-grpc.quantnode.tech:9090",
+        "address": "axelar.grpc.quantnode.xyz:21990",
         "provider": "Quantnode"
       },
       {
         "address": "services.staketab.com:9080",
         "provider": "Staketab"
+      },
+      {
+        "address": "grpc-axelar.cosmos-spaces.cloud:1590",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "grpc-axelar-ia.cosmosia.notional.ventures:443",
@@ -316,19 +336,23 @@
       },
       {
         "address": "axelar-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "grpc-axelar-01.stakeflow.io:1602",
         "provider": "Stakeflow"
       },
       {
-        "address": "grpc-axelar.carbonzero.zone:443",
-        "provider": "carbonZERO🌲"
-      },
-      {
         "address": "axelar-grpc.w3coins.io:15190",
         "provider": "w3coins"
+      },
+      {
+        "address": "grpc-axelar.whispernode.com:443",
+        "provider": "WhisperNode \ud83e\udd10"
+      },
+      {
+        "address": "axelar-grpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ]
   },
@@ -341,13 +365,19 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/axelar",
-      "tx_page": "https://www.mintscan.io/axelar/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/axelar/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/axelar/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/axelar/accounts/${accountAddress}"
     },
     {
       "kind": "explorers.guru",
       "url": "https://axelar.explorers.guru",
       "tx_page": "https://axelar.explorers.guru/transaction/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/axelar",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=axelar&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=axelar&addr=${accountAddress}"
     },
     {
       "kind": "atomscan",
@@ -359,6 +389,46 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/axelar",
       "account_page": "https://stakeflow.io/axelar/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/axelar",
+      "tx_page": "https://ezstaking.app/axelar/txs/${txHash}",
+      "account_page": "https://ezstaking.app/axelar/account/${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode \ud83e\udd10",
+      "url": "https://mainnet.whispernode.com/axelar",
+      "tx_page": "https://mainnet.whispernode.com/axelar/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/axelar/account/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://axelar.valopers.com/",
+      "tx_page": "https://axelar.valopers.com/transactions/${txHash}",
+      "account_page": "https://axelar.valopers.com/account/${accountAddress}"
+    }
+    
+  ],
+  "images": [
+    {
+      "image_sync": {
+        "chain_name": "axelar",
+        "base_denom": "uaxl"
+      },
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axl.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axl.svg",
+      "theme": {
+        "primary_color_hex": "#040404"
+      }
+    },
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axelar-chain-logo.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axelar-chain-logo.svg",
+      "theme": {
+        "primary_color_hex": "#040404",
+        "circle": false
+      }
     }
   ]
 }

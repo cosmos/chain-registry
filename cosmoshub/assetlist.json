@@ -1,28 +1,586 @@
 {
-    "$schema": "../assetlist.schema.json",
-    "chain_name": "cosmoshub",
-    "assets": [
-      {
-        "description": "The native staking and governance token of the Cosmos Hub.",
-        "denom_units": [
-          {
-            "denom": "uatom",
-            "exponent": 0
-          },
-          {
-            "denom": "atom",
-            "exponent": 6
-          }
-        ],
-        "base": "uatom",
-        "name": "Cosmos Hub Atom",
-        "display": "atom",
-        "symbol": "ATOM",
-        "logo_URIs": {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "cosmoshub",
+  "assets": [
+    {
+      "description": "ATOM is the native cryptocurrency of the Cosmos network, designed to facilitate interoperability between multiple blockchains through its innovative hub-and-spoke model.",
+      "extended_description": "ATOM, the native cryptocurrency of the Cosmos network, is essential for achieving the project's goal of creating an 'Internet of Blockchains.' Launched in 2019, Cosmos aims to solve the scalability, usability, and interoperability issues prevalent in existing blockchain ecosystems. The Cosmos Hub, the central blockchain of the network, uses ATOM for transaction fees, staking, and governance. By staking ATOM, users can earn rewards and participate in governance, influencing decisions on network upgrades and changes.\n\nCosmos leverages the Tendermint consensus algorithm to achieve high transaction throughput and fast finality. Its Inter-Blockchain Communication (IBC) protocol enables seamless data and value transfer between different blockchains, fostering a highly interconnected and collaborative ecosystem. The flexibility and scalability offered by Cosmos have attracted numerous projects, enhancing its utility and adoption. ATOM's role in securing the network and facilitating governance underscores its importance in the broader blockchain landscape.",
+      "denom_units": [
+        {
+          "denom": "uatom",
+          "exponent": 0
         },
-        "coingecko_id": "cosmos"
+        {
+          "denom": "atom",
+          "exponent": 6
+        }
+      ],
+      "base": "uatom",
+      "name": "Cosmos Hub Atom",
+      "display": "atom",
+      "symbol": "ATOM",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
+      },
+      "coingecko_id": "cosmos",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg",
+          "theme": {
+            "primary_color_hex": "#272d45"
+          }
+        }
+      ],
+      "socials": {
+        "website": "https://cosmos.network",
+        "twitter": "https://twitter.com/cosmoshub"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Tether USDt on the Cosmos Hub",
+      "denom_units": [
+        {
+          "denom": "ibc/F04D72CF9B5D9C849BB278B691CDFA2241813327430EC9CDC83F8F4CA4CDC2B0",
+          "exponent": 0
+        },
+        {
+          "denom": "usdt",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/F04D72CF9B5D9C849BB278B691CDFA2241813327430EC9CDC83F8F4CA4CDC2B0",
+      "name": "Tether USDt",
+      "display": "usdt",
+      "symbol": "USDt",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "kava",
+            "base_denom": "erc20/tether/usdt",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "channel-277",
+            "path": "transfer/channel-277/erc20/tether/usdt"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "kava",
+            "base_denom": "erc20/tether/usdt"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#009393",
+            "background_color_hex": "#009393"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+      },
+      "coingecko_id": "tether"
+    },
+    {
+      "description": "FX on Cosmos Hub",
+      "denom_units": [
+        {
+          "denom": "ibc/4925E6ABA571A44D2BE0286D2D29AF42A294D0FF2BB16490149A1B26EAD33729",
+          "exponent": 0,
+          "aliases": [
+            "FX"
+          ]
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/4925E6ABA571A44D2BE0286D2D29AF42A294D0FF2BB16490149A1B26EAD33729",
+      "name": "Function X",
+      "display": "FX",
+      "symbol": "FX",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "fxcore",
+            "base_denom": "FX",
+            "channel_id": "channel-10"
+          },
+          "chain": {
+            "channel_id": "channel-585",
+            "path": "transfer/channel-585/FX"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "fxcore",
+            "base_denom": "FX"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/fxcore/images/fx.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/fxcore/images/fx.svg",
+          "theme": {
+            "primary_color_hex": "#1c1c1c"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/fxcore/images/fx.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/fxcore/images/fx.svg"
+      },
+      "coingecko_id": "fx-coin"
+    },
+    {
+      "description": "The token of Crowdpunk DAO",
+      "denom_units": [
+        {
+          "denom": "ibc/74C4FE1EC3BDD66B02C691496371DDBB86DDE512C5BC072D76262C6C9B4B20D1",
+          "exponent": 0,
+          "aliases": [
+            "erc20/0xfbF4318d24a93753F11d365A6dcF8b830e98Ab0F"
+          ]
+        },
+        {
+          "denom": "crowdp",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/74C4FE1EC3BDD66B02C691496371DDBB86DDE512C5BC072D76262C6C9B4B20D1",
+      "name": "Crowdpunk DAO",
+      "display": "crowdp",
+      "symbol": "CROWDP",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "evmos",
+            "base_denom": "erc20/0xfbF4318d24a93753F11d365A6dcF8b830e98Ab0F",
+            "channel_id": "channel-3"
+          },
+          "chain": {
+            "channel_id": "channel-292",
+            "path": "transfer/channel-292/erc20/0xfbF4318d24a93753F11d365A6dcF8b830e98Ab0F"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/crowdp.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/crowdp.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "evmos",
+            "base_denom": "erc20/0xfbF4318d24a93753F11d365A6dcF8b830e98Ab0F"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/crowdp.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/crowdp.svg",
+          "theme": {
+            "primary_color_hex": "#04fbfb"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Wrapped Bitcoin on the Cosmos Hub",
+      "denom_units": [
+        {
+          "denom": "ibc/D742E8566B0B8CC8F569D950051C09CF57988A88F0E45574BFB3079D41DE6462",
+          "exponent": 0
+        },
+        {
+          "denom": "wbtc",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/D742E8566B0B8CC8F569D950051C09CF57988A88F0E45574BFB3079D41DE6462",
+      "name": "Wrapped Bitcoin",
+      "display": "wbtc",
+      "symbol": "WBTC",
+      "traces": [
+        {
+          "type": "ibc-bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "channel_id": "cosmoshub-0"
+          },
+          "chain": {
+            "channel_id": "08-wasm-1369",
+            "path": "transfer/08-wasm-1369/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+          },
+          "provider": "Eureka"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.svg",
+          "theme": {
+            "primary_color_hex": "#f39444"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.svg"
       }
-    ]
-  }
+    },
+    {
+      "description": "Lombard Staked Bitcoin on the Cosmos Hub",
+      "denom_units": [
+        {
+          "denom": "ibc/DBD9E339E1B093A052D76BECFFDE8435EAC114CF2133346B4D691F3F2068C957",
+          "exponent": 0
+        },
+        {
+          "denom": "lbtc",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/DBD9E339E1B093A052D76BECFFDE8435EAC114CF2133346B4D691F3F2068C957",
+      "name": "Lombard Staked Bitcoin",
+      "display": "lbtc",
+      "symbol": "LBTC",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "lombardledger",
+            "base_denom": "uclbtc",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "channel-1340",
+            "path": "transfer/channel-1340/uclbtc"
+          }
+        }
+      ],
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/lbtc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/lbtc.svg"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/lbtc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/lbtc.svg"
+      },
+      "coingecko_id": "lombard-staked-btc"
+    },
+    {
+      "description": "SolvBTC on the Cosmos Hub",
+      "denom_units": [
+        {
+          "denom": "ibc/0C4417F123459B47B6933939BF6F128C362B0C1F9EDA6A6EBC08860E4672AF7E",
+          "exponent": 0
+        },
+        {
+          "denom": "solvbtc",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/0C4417F123459B47B6933939BF6F128C362B0C1F9EDA6A6EBC08860E4672AF7E",
+      "name": "SolvBTC",
+      "display": "solvbtc",
+      "symbol": "SolvBTC",
+      "traces": [
+        {
+          "type": "ibc-bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x7a56e1c57c7475ccf742a1832b028f0456652f97",
+            "channel_id": "cosmoshub-0"
+          },
+          "chain": {
+            "channel_id": "08-wasm-1369",
+            "path": "transfer/08-wasm-1369/0x7a56e1c57c7475ccf742a1832b028f0456652f97"
+          },
+          "provider": "Eureka"
+        }
+      ]
+    },
+    {
+      "description": "SolvBTC.BBN on the Cosmos Hub",
+      "denom_units": [
+        {
+          "denom": "ibc/486D45458E018B59D1F23ADD116D21A881D8DA3BC348B9E0E22354CA031C977E",
+          "exponent": 0
+        },
+        {
+          "denom": "xsolvbtc",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/486D45458E018B59D1F23ADD116D21A881D8DA3BC348B9E0E22354CA031C977E",
+      "name": "xSolvBTC",
+      "display": "xsolvbtc",
+      "symbol": "xSolvBTC",
+      "traces": [
+        {
+          "type": "ibc-bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xd9d920aa40f578ab794426f5c90f6c731d159def",
+            "channel_id": "cosmoshub-0"
+          },
+          "chain": {
+            "channel_id": "08-wasm-1369",
+            "path": "transfer/08-wasm-1369/0xd9d920aa40f578ab794426f5c90f6c731d159def"
+          },
+          "provider": "Eureka"
+        }
+      ]
+    },
+    {
+      "description": "PumpBTC on the Cosmos Hub",
+      "denom_units": [
+        {
+          "denom": "ibc/9DA8B22BC0E6D76C2D621EF008168BC163B09A517697B14B68DE75382043152E",
+          "exponent": 0
+        },
+        {
+          "denom": "pumpbtc",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/9DA8B22BC0E6D76C2D621EF008168BC163B09A517697B14B68DE75382043152E",
+      "name": "pumpBTC",
+      "display": "pumpbtc",
+      "symbol": "pumpBTC",
+      "traces": [
+        {
+          "type": "ibc-bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xf469fbd2abcd6b9de8e169d128226c0fc90a012e",
+            "channel_id": "cosmoshub-0"
+          },
+          "chain": {
+            "channel_id": "08-wasm-1369",
+            "path": "transfer/08-wasm-1369/0xf469fbd2abcd6b9de8e169d128226c0fc90a012e"
+          },
+          "provider": "Eureka"
+        }
+      ]
+    },
+    {
+      "description": "UniBTC on the Cosmos Hub",
+      "denom_units": [
+        {
+          "denom": "ibc/9EE1F80BA2AE01138A40D656BBB42D11B1720000D6F64FC5988E412B6EDB4F71",
+          "exponent": 0
+        },
+        {
+          "denom": "unibtc",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/9EE1F80BA2AE01138A40D656BBB42D11B1720000D6F64FC5988E412B6EDB4F71",
+      "name": "UniBTC",
+      "display": "unibtc",
+      "symbol": "uniBTC",
+      "traces": [
+        {
+          "type": "ibc-bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x004e9c3ef86bc1ca1f0bb5c7662861ee93350568",
+            "channel_id": "cosmoshub-0"
+          },
+          "chain": {
+            "channel_id": "08-wasm-1369",
+            "path": "transfer/08-wasm-1369/0x004e9c3ef86bc1ca1f0bb5c7662861ee93350568"
+          },
+          "provider": "Eureka"
+        }
+      ]
+    },
+    {
+      "description": "stBTC on the Cosmos Hub",
+      "denom_units": [
+        {
+          "denom": "ibc/286A30F7F093357CE113A2E3B9A2E497F7A691CAFC624ABC615DE147DCE9FD17",
+          "exponent": 0
+        },
+        {
+          "denom": "stbtc",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/286A30F7F093357CE113A2E3B9A2E497F7A691CAFC624ABC615DE147DCE9FD17",
+      "name": "stBTC",
+      "display": "stbtc",
+      "symbol": "stBTC",
+      "traces": [
+        {
+          "type": "ibc-bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xf6718b2701d4a6498ef77d7c152b2137ab28b8a3",
+            "channel_id": "cosmoshub-0"
+          },
+          "chain": {
+            "channel_id": "08-wasm-1369",
+            "path": "transfer/08-wasm-1369/0xf6718b2701d4a6498ef77d7c152b2137ab28b8a3"
+          },
+          "provider": "Eureka"
+        }
+      ]
+    },
+    {
+      "description": "mBTC on the Cosmos Hub",
+      "denom_units": [
+        {
+          "denom": "ibc/6583B66D1450B5A0E997C85A4048749ADCBD745562D62F3CC1CEE5D41B5814D1",
+          "exponent": 0
+        },
+        {
+          "denom": "mbtc",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/6583B66D1450B5A0E997C85A4048749ADCBD745562D62F3CC1CEE5D41B5814D1",
+      "name": "mBTC",
+      "display": "mbtc",
+      "symbol": "mBTC",
+      "traces": [
+        {
+          "type": "ibc-bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xbdf245957992bfbc62b07e344128a1eec7b7ee3f",
+            "channel_id": "cosmoshub-0"
+          },
+          "chain": {
+            "channel_id": "08-wasm-1369",
+            "path": "transfer/08-wasm-1369/0xbdf245957992bfbc62b07e344128a1eec7b7ee3f"
+          },
+          "provider": "Eureka"
+        }
+      ]
+    },
+    {
+      "description": "kBTC on the Cosmos Hub",
+      "denom_units": [
+        {
+          "denom": "ibc/AE65FB498AFB35CC06301BEE6EA8063DC41CE04D80A8D167258B73D7A863DA8D",
+          "exponent": 0
+        },
+        {
+          "denom": "kbtc",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/AE65FB498AFB35CC06301BEE6EA8063DC41CE04D80A8D167258B73D7A863DA8D",
+      "name": "kBTC",
+      "display": "kbtc",
+      "symbol": "kBTC",
+      "traces": [
+        {
+          "type": "ibc-bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x9356f6d95b8e109f4b7ce3e49d672967d3b48383",
+            "channel_id": "cosmoshub-0"
+          },
+          "chain": {
+            "channel_id": "08-wasm-1369",
+            "path": "transfer/08-wasm-1369/0x9356f6d95b8e109f4b7ce3e49d672967d3b48383"
+          },
+          "provider": "Eureka"
+        }
+      ]
+    },
+    {
+      "description": "eBTC on the Cosmos Hub",
+      "denom_units": [
+        {
+          "denom": "ibc/6F8F0E9D472BF053261F2DEBE521801B703372777F3923B48DAE55D4F1212B5F",
+          "exponent": 0
+        },
+        {
+          "denom": "ebtc",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/6F8F0E9D472BF053261F2DEBE521801B703372777F3923B48DAE55D4F1212B5F",
+      "name": "eBTC",
+      "display": "ebtc",
+      "symbol": "eBTC",
+      "traces": [
+        {
+          "type": "ibc-bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x657e8c867d8b37dcc18fa4caead9c45eb088c642",
+            "channel_id": "cosmoshub-0"
+          },
+          "chain": {
+            "channel_id": "08-wasm-1369",
+            "path": "transfer/08-wasm-1369/0x657e8c867d8b37dcc18fa4caead9c45eb088c642"
+          },
+          "provider": "Eureka"
+        }
+      ]
+    },
+    {
+      "description": "enzoBTC on the Cosmos Hub",
+      "denom_units": [
+        {
+          "denom": "ibc/9CB24EF57DF00EFFCE3B52FC1225EDEDF98B31DB8C792B43C7E3D4AD9B3982CF",
+          "exponent": 0
+        },
+        {
+          "denom": "enzobtc",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/9CB24EF57DF00EFFCE3B52FC1225EDEDF98B31DB8C792B43C7E3D4AD9B3982CF",
+      "name": "enzoBTC",
+      "display": "enzobtc",
+      "symbol": "enzoBTC",
+      "traces": [
+        {
+          "type": "ibc-bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x6a9a65b84843f5fd4ac9a0471c4fc11afffbce4a",
+            "channel_id": "cosmoshub-0"
+          },
+          "chain": {
+            "channel_id": "08-wasm-1369",
+            "path": "transfer/08-wasm-1369/0x6a9a65b84843f5fd4ac9a0471c4fc11afffbce4a"
+          },
+          "provider": "Eureka"
+        }
+      ]
+    }
+  ]
+}

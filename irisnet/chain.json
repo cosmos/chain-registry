@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "pretty_name": "IRISnet",
+  "chain_type": "cosmos",
   "chain_id": "irishub-1",
   "bech32_prefix": "iaa",
   "daemon_name": "iris",
@@ -12,9 +13,6 @@
     "secp256k1"
   ],
   "slip44": 118,
-  "alternative_slip44s": [
-    566
-  ],
   "fees": {
     "fee_tokens": [
       {
@@ -34,30 +32,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/irisnet/irishub",
-    "recommended_version": "v1.4.1",
+    "recommended_version": "v2.0.3",
     "compatible_versions": [
-      "v1.4.1"
+      "v2.0.3"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/irisnet/mainnet/master/config/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v1.3.0",
-        "next_version_name": "v1.4.1",
-        "recommended_version": "v1.3.0",
-        "compatible_versions": [
-          "v1.3.0"
-        ]
-      },
-      {
-        "name": "v1.4.1",
-        "recommended_version": "v1.4.1",
-        "compatible_versions": [
-          "v1.4.1"
-        ]
-      }
-    ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.png",
@@ -74,14 +55,19 @@
         "address": "seed-2.mainnet.irisnet.org:26656"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "iris-seed-1.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "id": "445b38a181d147c243185d94567412e5c5f1a22c",
         "address": "seed-irisnet-01.stakeflow.io:1906",
         "provider": "Stakeflow"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "iris.rpc.kjnodes.com:16659",
+        "provider": "kjnodes"
       }
     ],
     "persistent_peers": [
@@ -94,15 +80,21 @@
         "id": "445b38a181d147c243185d94567412e5c5f1a22c",
         "address": "peer-irisnet-01.stakeflow.io:1906",
         "provider": "Stakeflow"
+      },
+      {
+        "id": "3ddf22082bda8607289bd94b649e0e2595f1fffd",
+        "address": "iris-mainnet.peers.l0vd.com:19656",
+        "provider": "L0vd.com \u2764\ufe0f"
+      },
+      {
+        "id": "a19022cc07010836ed2a9c77dd56968965edb454",
+        "address": "mainnet-iris.konsortech.xyz:30656",
+        "provider": "KonsorTech"
       }
     ]
   },
   "apis": {
     "rpc": [
-      {
-        "address": "https://rpc-iris.keplr.app",
-        "provider": "chainapsis"
-      },
       {
         "address": "https://rpc-irisnet-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
@@ -114,13 +106,21 @@
       {
         "address": "https://irisnet-rpc.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://iris-rpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "https://iris-rpc.highstakes.ch",
+        "provider": "High Stakes \ud83c\udde8\ud83c\udded"
+      },
+      {
+        "address": "https://mainnet-iris-rpc.konsortech.xyz",
+        "provider": "KonsorTech"
       }
     ],
     "rest": [
-      {
-        "address": "https://lcd-iris.keplr.app",
-        "provider": "chainapsis"
-      },
       {
         "address": "https://api-irisnet-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
@@ -132,6 +132,18 @@
       {
         "address": "https://irisnet-api.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://iris-rest.publicnode.com",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "https://iris-api.highstakes.ch",
+        "provider": "High Stakes \ud83c\udde8\ud83c\udded"
+      },
+      {
+        "address": "https://mainnet-iris-api.konsortech.xyz",
+        "provider": "KonsorTech"
       }
     ],
     "grpc": [
@@ -146,26 +158,62 @@
       {
         "address": "irisnet-grpc.w3coins.io:22690",
         "provider": "w3coins"
+      },
+      {
+        "address": "iris-grpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "iris.grpc.kjnodes.com:443",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://grpc-irisnet.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "iris-mainnet.grpc.l0vd.com:80",
+        "provider": "L0vd.com \u2764\ufe0f"
+      },
+      {
+        "address": "mainnet-iris.konsortech.xyz:30090",
+        "provider": "KonsorTech"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://iris-evm.publicnode.com",
+        "provider": "Allnodes.com \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "https://mainnet-iris-evm.konsortech.xyz",
+        "provider": "KonsorTech"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/irisnet",
-      "tx_page": "https://ezstaking.tools/irisnet/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/irisnet/account/${accountAddress}"
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/irisnet",
+      "tx_page": "https://ezstaking.app/irisnet/txs/${txHash}",
+      "account_page": "https://ezstaking.app/irisnet/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/iris",
-      "tx_page": "https://www.mintscan.io/iris/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/iris/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/iris/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/iris/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
       "url": "https://ping.pub/iris-network",
       "tx_page": "https://ping.pub/iris-network/tx/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/irisnet",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=irisnet&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=irisnet&addr=${accountAddress}"
     },
     {
       "kind": "atomscan",
@@ -177,6 +225,36 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/irisnet",
       "account_page": "https://stakeflow.io/irisnet/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Nodeist Explorer",
+      "url": "https://exp.nodeist.net/iris",
+      "tx_page": "https://exp.nodeist.net/iris/tx/${txHash}"
+    },
+    {
+      "kind": "L0vd.com \u2764\ufe0f",
+      "url": "https://explorers.l0vd.com/iris-mainnet",
+      "tx_page": "https://explorers.l0vd.com/iris-mainnet/tx/${txHash}"
+    },
+    {
+      "kind": "KonsorTech",
+      "url": "https://explorer.konsortech.xyz/iris",
+      "tx_page": "https://explorer.konsortech.xyz/iris/tx/${txHash}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://iris.valopers.com/",
+      "tx_page": "https://iris.valopers.com/transactions/${txHash}",
+      "account_page": "https://iris.valopers.com/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.svg",
+      "theme": {
+        "primary_color_hex": "#5664ad"
+      }
     }
   ]
 }

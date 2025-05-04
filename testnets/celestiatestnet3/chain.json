@@ -1,50 +1,74 @@
 {
   "$schema": "../../chain.schema.json",
   "chain_name": "celestiatestnet3",
-  "chain_id": "mocha",
+  "chain_type": "cosmos",
+  "chain_id": "mocha-4",
   "pretty_name": "Mocha Testnet",
   "status": "live",
   "network_type": "testnet",
   "bech32_prefix": "celestia",
   "daemon_name": "celestia-appd",
   "node_home": "$HOME/.celestia-app",
-  "key_algos": [
-    "secp256k1"
-  ],
+  "key_algos": ["secp256k1"],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
         "denom": "utia",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.02,
+        "high_gas_price": 0.1
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/celestiaorg/celestia-app",
-    "recommended_version": "v0.11.1",
+    "recommended_version": "v3.3.1-mocha",
     "compatible_versions": [
-      "v0.12.0"
+      "v3.0.0-mocha",
+      "v3.0.1-mocha",
+      "v3.0.2-mocha",
+      "v3.1.1-mocha",
+      "v3.2.0-mocha",
+      "v3.3.0-mocha",
+      "v3.3.1-mocha"
     ],
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/mocha/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v0.11.1",
-        "recommended_version": "v0.11.1",
-        "compatible_versions": [
-          "v0.12.0"
-        ]
-      }
-    ]
+      "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/mocha-4/genesis.json"
+    }
   },
   "peers": {
     "seeds": [
       {
-        "id": "9aa8a73ea9364aa3cf7806d4dd25b6aed88d8152",
-        "address": "celestia.seed.mzonder.com",
-        "provider": "Mzonder"
+        "id": "3314051954fc072a0678ec0cbac690ad8676ab98",
+        "address": "65.108.66.220:26656",
+        "provider": "P-OPS"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "id": "8c780fa4df00621926a9b20e80410895548cb0d9",
+        "address": "mocha-full.avril14th.org:26656",
+        "provider": "Avril 14th"
+      },
+      {
+        "id": "5d0bf034d6e6a8b5ee31a2f42f753f1107b3a00e",
+        "address": "celestia-testnet-seed.itrocket.net:11656",
+        "provider": "\ud83d\ude80ITRocket\ud83d\ude80"
+      },
+      {
+        "id": "de181ebe22ce14483abbb8695bdb43c1169246af",
+        "address": "185.144.99.223:26656",
+        "provider": "CrypTech"
+      },
+      {
+        "id": "70e8a8941f32dc5f696e46ee836c27620e773065",
+        "address": "seed.celestia.testnet.dteam.tech:26656",
+        "provider": "DTEAM"
       }
     ]
   },
@@ -53,20 +77,124 @@
       {
         "address": "https://rpc-mocha.pops.one",
         "provider": "P-OPs"
+      },
+      {
+        "address": "https://celestia-testnet-rpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "https://rpc-mocha-full.avril14th.org",
+        "provider": "Avril 14th"
+      },
+      {
+        "address": "https://celestia-testnet-rpc.itrocket.net",
+        "provider": "\ud83d\ude80ITRocket\ud83d\ude80"
+      },
+      {
+        "address": "https://rpc-celestia-testnet.cryptech.com.ua",
+        "provider": "CrypTech"
+      },
+      {
+        "address": "https://rpc.celestia.testnet.dteam.tech:443",
+        "provider": "DTEAM"
+      },
+      {
+        "address": "https://celestia-testnet-rpc.stakeandrelax.net",
+        "provider": "Stake&Relax Validator \ud83e\udda5"
       }
     ],
     "rest": [
       {
         "address": "https://api-mocha.pops.one",
         "provider": "P-OPs"
+      },
+      {
+        "address": "https://celestia-testnet-rest.publicnode.com",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "https://api-mocha-full.avril14th.org",
+        "provider": "Avril 14th"
+      },
+      {
+        "address": "https://celestia-testnet-api.itrocket.net",
+        "provider": "\ud83d\ude80ITRocket\ud83d\ude80"
+      },
+      {
+        "address": "https://api-celestia-testnet.cryptech.com.ua",
+        "provider": "CrypTech"
+      },
+      {
+        "address": "https://api.celestia.testnet.dteam.tech:443",
+        "provider": "DTEAM"
+      },
+      {
+        "address": "https://celestia-testnet-api.stakeandrelax.net",
+        "provider": "Stake&Relax Validator \ud83e\udda5"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "celestia-testnet-grpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "grpc-mocha-full.avril14th.org",
+        "provider": "Avril 14th"
+      },
+      {
+        "address": "celestia-testnet-grpc.itrocket.net:11090",
+        "provider": "\ud83d\ude80ITRocket\ud83d\ude80"
+      },
+      {
+        "address": "https://grpc-celestia-testnet.cryptech.com.ua",
+        "provider": "CrypTech"
+      },
+      {
+        "address": "grpc.celestia.testnet.dteam.tech:27090",
+        "provider": "DTEAM"
+      },
+      {
+        "address": "http://celestia-testnet-grpc.stakeandrelax.net:11690",
+        "provider": "Stake&Relax Validator \ud83e\udda5"
       }
     ]
   },
   "explorers": [
     {
       "kind": "Mintscan",
-      "url": "https://testnet.mintscan.io/celestia-testnet",
-      "tx_page": "https://testnet.mintscan.io/celestia-testnet/txs/${txHash}"
+      "url": "https://mintscan.io/celestia-testnet",
+      "tx_page": "https://mintscan.io/celestia-testnet/txs/${txHash}"
+    },
+    {
+      "kind": "\ud83d\ude80ITRocket\ud83d\ude80",
+      "url": "https://testnet.itrocket.net/celestia",
+      "tx_page": "https://testnet.itrocket.net/celestia/tx/${txHash}",
+      "account_page": "https://testnet.itrocket.net/celestia/account/${accountAddress}"
+    },
+    {
+      "kind": "CrypTech",
+      "url": "https://explorers.cryptech.com.ua/Celestia-Testnet",
+      "tx_page": "https://explorers.cryptech.com.ua/Celestia-Testnet/tx/${txHash}",
+      "account_page": "https://explorers.cryptech.com.ua/Celestia-Testnet/account/${accountAddress}"
+    },
+    {
+      "kind": "DTEAM | Explorer",
+      "url": "https://explorer.testnet.dteam.tech/celestia",
+      "tx_page": "https://explorer.testnet.dteam.tech/celestia/tx/${txHash}",
+      "account_page": "https://explorer.testnet.dteam.tech/celestia/account/${accountAddress}"
+    },
+    {
+      "kind": "Relaxed Explorer \ud83e\udda5",
+      "url": "https://testnet.explorer.stakeandrelax.net/celestia",
+      "tx_page": "https://testnet.explorer.stakeandrelax.net/celestia/transaction/${txHash}",
+      "account_page": "https://testnet.explorer.stakeandrelax.net/celestia/account/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://testnet.celestia.valopers.com/",
+      "tx_page": "https://testnet.celestia.valopers.com/transactions/${txHash}",
+      "account_page": "https://testnet.celestia.valopers.com/account/${accountAddress}"
     }
   ]
 }

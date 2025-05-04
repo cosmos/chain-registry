@@ -1,5 +1,5 @@
 {
-  "$schema": "../assetlist.schema.json",
+  "$schema": "../../../assetlist.schema.json",
   "chain_name": "avalanchetestnet",
   "assets": [
     {
@@ -14,15 +14,32 @@
           "exponent": 18
         }
       ],
+      "type_asset": "evm-base",
       "base": "wei",
       "name": "Avalanche",
       "display": "avax",
       "symbol": "AVAX",
+      "traces": [
+        {
+          "type": "test-mintage",
+          "counterparty": {
+            "chain_name": "avalanche",
+            "base_denom": "wei"
+          },
+          "provider": "Avalanche"
+        }
+      ],
       "logo_URIs": {
-	"png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/avalanche/images/avax.png",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/avalanche/images/avax.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/avalanche/images/avax.svg"
       },
-      "coingecko_id": "avalanche-2"
+      "coingecko_id": "avalanche-2",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/avalanche/images/avax.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/avalanche/images/avax.svg"
+        }
+      ]
     },
     {
       "description": "The wrapped ERC-20 representation of AVAX, the native token of Avalanche.",
@@ -32,9 +49,9 @@
         {
           "denom": "0xd00ae08403B9bbb9124bB305C09058E32C39A48c",
           "exponent": 0,
-	  "aliases": [
-	    "wavax-wei"
-	  ]
+          "aliases": [
+            "wavax-wei"
+          ]
         },
         {
           "denom": "wavax",
@@ -58,7 +75,12 @@
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/avalanche/images/wavax.svg"
       },
-      "coingecko_id": "wrapped-avax"
+      "coingecko_id": "wrapped-avax",
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/avalanche/images/wavax.svg"
+        }
+      ]
     },
     {
       "description": "USDC is a fully collateralized US Dollar stablecoin developed by CENTRE, the open source project with Circle being the first of several forthcoming issuers.",
@@ -68,9 +90,9 @@
         {
           "denom": "0x57F1c63497AEe0bE305B8852b354CEc793da43bB",
           "exponent": 0,
-	  "aliases": [
-	    "uusdc"
-	  ]
+          "aliases": [
+            "uausdc"
+          ]
         },
         {
           "denom": "axlusdc",
@@ -86,14 +108,74 @@
           "type": "bridge",
           "counterparty": {
             "chain_name": "axelartestnet",
-            "base_denom": "uusdc"
+            "base_denom": "uausdc"
           },
           "provider": "Axelar"
         }
       ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
-      }
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "axelartestnet",
+            "base_denom": "uausdc"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+        }
+      ]
+    },
+    {
+      "description": "USDC is a fully collateralized US Dollar stablecoin developed by CENTRE, the open source project with Circle being the first of several forthcoming issuers.",
+      "type_asset": "erc20",
+      "address": "0x5425890298aed601595a70ab815c96711a31bc65",
+      "denom_units": [
+        {
+          "denom": "0x5425890298aed601595a70ab815c96711a31bc65",
+          "exponent": 0,
+          "aliases": [
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "base": "0x5425890298aed601595a70ab815c96711a31bc65",
+      "name": "USD Coin",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "test-mintage",
+          "counterparty": {
+            "chain_name": "avalanche",
+            "base_denom": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E"
+          },
+          "provider": "Circle"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "avalanche",
+            "base_denom": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#2775CA"
+          }
+        }
+      ],
+      "coingecko_id": "usd-coin"
     }
   ]
 }

@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://orai.io/",
   "pretty_name": "Oraichain",
+  "chain_type": "cosmos",
   "chain_id": "Oraichain",
   "bech32_prefix": "orai",
   "daemon_name": "oraid",
@@ -33,28 +34,25 @@
   },
   "codebase": {
     "git_repo": "https://github.com/oraichain/orai",
-    "recommended_version": "v0.40.3",
+    "recommended_version": "v0.42.4",
     "compatible_versions": [
-      "v0.40.3"
+      "v0.42.0",
+      "v0.42.1",
+      "v0.42.2",
+      "v0.42.3",
+      "v0.42.4"
     ],
-    "binaries": {
-      "linux/amd64": "https://orai.s3.us-east-2.amazonaws.com/v0.40.3/oraid"
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.45.16"
     },
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.40.3",
-        "recommended_version": "v0.40.3",
-        "compatible_versions": [
-          "v0.40.3"
-        ],
-        "binaries": {
-          "linux/amd64": "https://orai.s3.us-east-2.amazonaws.com/v0.40.3/oraid"
-        }
-      }
-    ]
+    "cosmwasm": {
+      "version": "0.33.0",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai.png",
@@ -63,52 +61,96 @@
   "peers": {
     "seeds": [
       {
-        "id": "0baa806b3a4dd17be6e06369d899f140c3897d6e",
-        "address": "18.223.242.70:26656",
+        "id": "e18f82a6da3a9842fa55769955d694f62f7f48bd",
+        "address": "seed1.orai.zone:26656",
         "provider": "oraichain-team"
       },
       {
-        "id": "9749da4a81526266d7b8fe9a03d260cd3db241ad",
-        "address": "18.116.209.76:26656",
+        "id": "defeea41a01b5afdb79ef2af155866e122797a9c",
+        "address": "seed4.orai.zone:26656",
         "provider": "oraichain-team"
       },
       {
-        "id": "35c1f999d67de56736b412a1325370a8e2fdb34a",
-        "address": "5.189.169.99:26656",
-        "provider": "ORAI Vanguard"
-      },
-      {
-        "id": "5ad3b29bf56b9ba95c67f282aa281b6f0903e921",
-        "address": "64.225.53.108:26656",
-        "provider": "oraichain-team"
-      },
-      {
-        "id": "d091cabe3584cb32043cc0c9199b0c7a5b68ddcb",
+        "id": "49165f4ef94395897d435f144964bdd14413ea28",
         "address": "seed.orai.synergynodes.com:26656",
         "provider": "synergynodes"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "oraichain-mainnet-seed.autostake.com:27436",
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+      },
+      {
+        "id": "f223f1be06ef35a6dfe54995f05daeb1897d94d7",
+        "address": "seed-node.mms.team:42656",
+        "provider": "MMS"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "id": "fe0a0d46eb5436905bf8465f83d2da5a503bf4eb",
+        "address": "mainnet-seed.konsortech.xyz:33165",
+        "provider": "KonsorTech"
+      },
+      {
+        "id": "bdf3f54758e6a712d13fbcda9f49b01f3c1c73b2",
+        "address": "seed.orai.mortysnode.nl:26656",
+        "provider": "Morty's Nodes"
+      },
+      {
+        "id": "4babdcd4c81d589e789db3b294eebcd779f2227c",
+        "address": "orai.seed.stavr.tech:2056",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:25956",
+        "provider": "BlueStake \ud83d\ude80"
+      },
+      {
+        "id": "1c6e0f2b3317fefb772fb528269c151735a5f0cb",
+        "address": "seeds.owallet.io:10005",
+        "provider": "OWALLET"
+      },
+      {
+        "id": "d5999814f9d3bf34d1d4505a0d5dc4f56d202772",
+        "address": "oraichain-mainnet-seed.itrocket.net:16656",
+        "provider": "ITRocket"
       }
     ],
     "persistent_peers": [
       {
-        "id": "0baa806b3a4dd17be6e06369d899f140c3897d6e",
-        "address": "18.223.242.70:26656"
-      },
-      {
-        "id": "9749da4a81526266d7b8fe9a03d260cd3db241ad",
-        "address": "18.116.209.76:26656"
-      },
-      {
-        "id": "35c1f999d67de56736b412a1325370a8e2fdb34a",
-        "address": "5.189.169.99:26656"
-      },
-      {
-        "id": "5ad3b29bf56b9ba95c67f282aa281b6f0903e921",
-        "address": "64.225.53.108:26656"
-      },
-      {
-        "id": "d091cabe3584cb32043cc0c9199b0c7a5b68ddcb",
+        "id": "49165f4ef94395897d435f144964bdd14413ea28",
         "address": "seed.orai.synergynodes.com:26656",
         "provider": "synergynodes"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "oraichain-mainnet-seed.autostake.com:27436",
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+      },
+      {
+        "id": "c14df7b2e097d743aa7574c7cf65397a06ea3833",
+        "address": "peer-oraichain.mms.team:56103",
+        "provider": "MMS"
+      },
+      {
+        "id": "efb9d22a6fdf7460f965982ae013d242bbbfd53c",
+        "address": "mainnet-orai.konsortech.xyz:33656",
+        "provider": "KonsorTech"
+      },
+      {
+        "id": "bdf3f54758e6a712d13fbcda9f49b01f3c1c73b2",
+        "address": "seed.orai.mortysnode.nl:26656",
+        "provider": "Morty's Nodes"
+      },
+      {
+        "id": "42cfd3780c6a26870af437083cb05f7cbfdf13b3",
+        "address": "oraichain-mainnet-peer.itrocket.net:16656",
+        "provider": "ITRocket"
       }
     ]
   },
@@ -119,16 +161,52 @@
         "provider": "oraichain-team"
       },
       {
-        "address": "http://64.225.53.108:26657",
-        "provider": "oraichain-team"
-      },
-      {
-        "address": "https://rpc-oraichain.vchain.zone",
-        "provider": "Vchain-team"
+        "address": "https://rpc.orai.pfc.zone/",
+        "provider": "PFC"
       },
       {
         "address": "https://rpc-orai.nodine.id/",
         "provider": "Nodine.ID"
+      },
+      {
+        "address": "https://oraichain-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+      },
+      {
+        "address": "https://rpc-oraichain.mms.team",
+        "provider": "MMS"
+      },
+      {
+        "address": "https://rpc-orai.blockval.io/",
+        "provider": "Blockval"
+      },
+      {
+        "address": "https://mainnet-orai-rpc.konsortech.xyz",
+        "provider": "KonsorTech"
+      },
+      {
+        "address": "https://rpc.orai.mortysnode.nl",
+        "provider": "Morty's Nodes"
+      },
+      {
+        "address": "https://orai.rpc.m.stavr.tech",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "https://oraichain-rpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "https://orai-rpc.imdev.app",
+        "provider": "imORAI"
+      },
+      {
+        "address": "https://orai-rpc.owallet.io",
+        "provider": "OWALLET"
+      },
+      {
+        "address": "https://oraichain-mainnet-rpc.itrocket.net",
+        "provider": "ITRocket"
       }
     ],
     "rest": [
@@ -137,16 +215,74 @@
         "provider": "oraichain-team"
       },
       {
-        "address": "http://64.225.53.108:1317",
-        "provider": "oraichain-team"
+        "address": "https://oraichain-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
-        "address": "https://rest-oraichain.vchain.zone",
-        "provider": "Vchain-team"
+        "address": "https://api-oraichain.mms.team",
+        "provider": "MMS"
       },
       {
-        "address": "https://api-orai.nodine.id",
-        "provider": "Noidne.ID"
+        "address": "https://api-orai.blockval.io",
+        "provider": "Blockval"
+      },
+      {
+        "address": "https://mainnet-orai-api.konsortech.xyz",
+        "provider": "KonsorTech"
+      },
+      {
+        "address": "https://orai.api.m.stavr.tech",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "https://oraichain-rest.publicnode.com",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "https://orai-rest.owallet.io",
+        "provider": "OWALLET"
+      },
+      {
+        "address": "https://oraichain-mainnet-api.itrocket.net",
+        "provider": "ITRocket"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc-oraichain.mms.team:443",
+        "provider": "MMS"
+      },
+      {
+        "address": "grpc.orai.pfc.zone:443",
+        "provider": "PFC"
+      },
+      {
+        "address": "oraichain-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+      },
+      {
+        "address": "grpc-orai.blockval.io:9390",
+        "provider": "Blockval"
+      },
+      {
+        "address": "mainnet-orai.konsortech.xyz:33090",
+        "provider": "KonsorTech"
+      },
+      {
+        "address": "orai.grpc.m.stavr.tech:110",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "oraichain-grpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "orai-grpc.owallet.io:9999",
+        "provider": "OWALLET"
+      },
+      {
+        "address": "oraichain-mainnet-grpc.itrocket.net:443",
+        "provider": "ITRocket"
       }
     ]
   },
@@ -162,10 +298,56 @@
       "tx_page": "https://explorer.co.id/orai/tx/${txHash}"
     },
     {
+      "kind": "Blockval Explorer",
+      "url": "https://explorer.blockval.io/oraichain",
+      "tx_page": "https://explorer.blockval.io/oraichain/tx/${txHash}"
+    },
+    {
       "kind": "atomscan",
       "url": "https://atomscan.com/orai",
       "tx_page": "https://atomscan.com/orai/transactions/${txHash}",
       "account_page": "https://atomscan.com/orai/accounts/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/oraichain",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=oraichain&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=oraichain&addr=${accountAddress}"
+    },
+    {
+      "kind": "KonsorTech Explorer",
+      "url": "https://explorer.konsortech.xyz/oraichain",
+      "tx_page": "https://explorer.konsortech.xyz/oraichain/transactions/${txHash}",
+      "account_page": "https://explorer.konsortech.xyz/oraichain/accounts/${accountAddress}"
+    },
+    {
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25 Explorer",
+      "url": "https://explorer.stavr.tech/Orai-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Orai-Mainnet/transactions/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Orai-Mainnet/accounts/${accountAddress}"
+    },
+    {
+      "kind": "imORAI ORAIchain Explorer",
+      "url": "https://explorer.imdev.app/oraichain",
+      "tx_page": "https://explorer.imdev.app/oraichain/tx/${txHash}",
+      "account_page": "https://explorer.imdev.app/oraichain/account/${accountAddress}"
+    },
+    {
+      "kind": "ITRocket",
+      "url": "https://mainnet.itrocket.net/oraichain",
+      "tx_page": "https://mainnet.itrocket.net/oraichain/tx/${txHash}",
+      "account_page": "https://mainnet.itrocket.net/oraichain/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai.svg",
+      "theme": {
+        "circle": false,
+        "dark_mode": false,
+        "primary_color_hex": "#000000"
+      }
     }
   ]
 }

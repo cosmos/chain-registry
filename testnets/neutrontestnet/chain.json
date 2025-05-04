@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Neutron Testnet",
+  "chain_type": "cosmos",
   "chain_id": "pion-1",
   "bech32_prefix": "neutron",
   "daemon_name": "neutrond",
@@ -16,42 +17,37 @@
     "fee_tokens": [
       {
         "denom": "untrn",
-        "low_gas_price": 0,
-        "average_gas_price": 0.025,
-        "high_gas_price": 0.05
+        "low_gas_price": 0.0053,
+        "average_gas_price": 0.0053,
+        "high_gas_price": 0.0053
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/neutron-org/neutron",
-    "recommended_version": "v0.4.3",
-    "compatible_versions": [],
-    "cosmos_sdk_version": "0.45",
+    "recommended_version": "v4.2.2-testnet",
+    "compatible_versions": [
+      "v4.2.2-testnet"
+    ],
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
+      "type": "cometbft",
+      "version": "0.38.11"
     },
-    "cosmwasm_version": "0.31",
-    "cosmwasm_enabled": true,
-    "ibc_go_version": "4.3.0",
     "genesis": {
       "genesis_url": "https://github.com/cosmos/testnets/raw/master/replicated-security/pion-1/pion-1-genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.4.3",
-        "recommended_version": "v0.4.3",
-        "compatible_versions": [],
-        "cosmos_sdk_version": "0.45",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "cosmwasm_version": "0.31",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "4.3.0"
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "8.2.1"
+    },
+    "cosmwasm": {
+      "version": "0.51",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/neutrontestnet/images/neutron-black-logo.png",
@@ -60,9 +56,14 @@
   "peers": {
     "seeds": [
       {
-        "id": "e2c07e8e6e808fb36cca0fc580e31216772841df",
-        "address": "p2p-palvus.pion-1.ntrn.tech:26656",
+        "id": "0de4d730b5341d3a83721e1cbb5ce7772e26a400",
+        "address": "p2p-falcron.pion-1.ntrn.tech:26656",
         "provider": "Neutron"
+      },
+      {
+        "id": "496ac0ba20188f70f41e0a814dfd4d9a617338f8",
+        "address": "neutron-testnet-seed.ibs.team:16669",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "persistent_peers": [
@@ -81,17 +82,21 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-palvus.pion-1.ntrn.tech",
+        "address": "https://rpc-falcron.pion-1.ntrn.tech",
         "provider": "Neutron"
       },
       {
         "address": "https://neutron-testnet-rpc.polkachu.com/",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://neutron-testnet-rpc.ibs.team:443",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "rest": [
       {
-        "address": "https://rest-palvus.pion-1.ntrn.tech",
+        "address": "https://rest-falcron.pion-1.ntrn.tech",
         "provider": "Neutron"
       },
       {
@@ -101,11 +106,15 @@
       {
         "address": "https://rest.baryon-sentry-01.rs-testnet.polypore.xyz",
         "provider": "Hypha"
+      },
+      {
+        "address": "https://neutron-testnet-api.ibs.team:443",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "grpc": [
       {
-        "address": "grpc-palvus.pion-1.ntrn.tech:80",
+        "address": "grpc-falcron.pion-1.ntrn.tech:80",
         "provider": "Neutron"
       },
       {
@@ -123,9 +132,15 @@
     },
     {
       "kind": "Mintscan",
-      "url": "https://testnet.mintscan.io/neutron-testnet",
-      "tx_page": "https://testnet.mintscan.io/neutron-testnet/txs/${txHash}",
-      "account_page": "https://testnet.mintscan.io/neutron-testnet/account/${accountAddress}"
+      "url": "https://mintscan.io/neutron-testnet",
+      "tx_page": "https://mintscan.io/neutron-testnet/txs/${txHash}",
+      "account_page": "https://mintscan.io/neutron-testnet/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/neutrontestnet/images/neutron-black-logo.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/neutrontestnet/images/neutron-black-logo.svg"
     }
   ]
 }

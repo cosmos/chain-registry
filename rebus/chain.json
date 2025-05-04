@@ -5,6 +5,7 @@
   "status": "live",
   "network_type": "mainnet",
   "pretty_name": "Rebus",
+  "chain_type": "cosmos",
   "chain_id": "reb_1111-1",
   "bech32_prefix": "rebus",
   "daemon_name": "rebusd",
@@ -17,7 +18,10 @@
     "fee_tokens": [
       {
         "denom": "arebus",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
       }
     ]
   },
@@ -30,26 +34,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/rebuschain/rebus.core",
-    "recommended_version": "v0.3.0",
+    "recommended_version": "v0.4.0",
     "compatible_versions": [
-      "v0.3.0"
-    ],
-    "versions": [
-      {
-        "name": "v0.1.2",
-        "tag": "v0.1.2",
-        "height": 0,
-        "next_version_name": "v0.2.3"
-      },
-      {
-        "name": "v0.2.3",
-        "tag": "v0.2.3",
-        "height": 473400,
-        "recommended_version": "v0.3.0",
-        "compatible_versions": [
-          "v0.3.0"
-        ]
-      }
+      "v0.4.0"
     ],
     "genesis": {
       "genesis_url": "https://github.com/rebuschain/rebus.mainnet/raw/master/reb_1111-1/genesis.zip"
@@ -68,34 +55,34 @@
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:17256",
-        "provider": "Lavender.Five Nodes 🐝"
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "rebus-mainnet-seed.autostake.com:26906",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "rebus-seed-1.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "rebus-seed-2.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "persistent_peers": [
       {
         "id": "0863966356f6532377aeba663415258d44ddbd13",
         "address": "rebus.peer.stavr.tech:40106",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "rebus-mainnet-peer.autostake.com:26906",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+      },
+      {
+        "id": "9c7c067bd73bddfe8da39087cdae37c4fc5ec6e3",
+        "address": "5.9.69.107:26656",
+        "provider": "[NODERS]TEAM"
       }
     ]
   },
@@ -114,12 +101,8 @@
         "provider": "MantiCore"
       },
       {
-        "address": "https://rpc.rebus.nodestake.top/",
-        "provider": "NodeStake"
-      },
-      {
         "address": "http://rebus.rpc.m.stavr.tech:40107",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "https://rpc-1.rebus.nodes.guru",
@@ -130,40 +113,20 @@
         "provider": "Rebuschain"
       },
       {
-        "address": "https://rpc-rebus.d-stake.xyz",
-        "provider": "D-stake"
-      },
-      {
-        "address": "https://rebus-rpc.brocha.in",
-        "provider": "Brochain"
-      },
-      {
-        "address": "https://rebus.nodejumper.io",
-        "provider": "NODEJUMPER"
-      },
-      {
-        "address": "https://rpc.rebus.bh.rocks",
-        "provider": "BlockHunters 🎯"
-      },
-      {
-        "address": "https://rebus-rpc.kleomedes.network",
-        "provider": "Kleomedes"
-      },
-      {
-        "address": "https://rpc-rebus.huginn.tech",
-        "provider": "Huginn"
-      },
-      {
         "address": "https://rebus-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://rebus.rpc.liveraven.net",
         "provider": "LiveRaveN"
       },
       {
-        "address": "https://rpc.rebus.safeblock.space",
-        "provider": "Safe Block"
+        "address": "https://rebus-rpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "https://rebus-rpc.noders.services",
+        "provider": "[NODERS]TEAM"
       }
     ],
     "rest": [
@@ -172,20 +135,12 @@
         "provider": "Rebuschain"
       },
       {
-        "address": "https://rebus.api.bccnodes.com:443",
-        "provider": "BccNodes"
-      },
-      {
         "address": "https://rebus.api.manticore.team:443/",
         "provider": "MantiCore"
       },
       {
-        "address": "https://api.rebus.nodestake.top/",
-        "provider": "NodeStake"
-      },
-      {
         "address": "https://rebus.api.m.stavr.tech",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "https://api-1.rebus.nodes.guru",
@@ -196,32 +151,20 @@
         "provider": "Rebuschain"
       },
       {
-        "address": "https://api-rebus.d-stake.xyz",
-        "provider": "D-stake"
-      },
-      {
-        "address": "https://rebus-rest.brocha.in",
-        "provider": "Brochain"
-      },
-      {
-        "address": "https://rebus.nodejumper.io:1317",
-        "provider": "NODEJUMPER"
-      },
-      {
-        "address": "https://rebus-api.kleomedes.network",
-        "provider": "Kleomedes"
-      },
-      {
         "address": "https://rebus-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://rebus.api.liveraven.net",
         "provider": "LiveRaveN"
       },
       {
-        "address": "https://api.rebus.safeblock.space",
-        "provider": "Safe Block"
+        "address": "https://rebus-rest.publicnode.com",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "https:/rebus-api.noders.services",
+        "provider": "[NODERS]TEAM"
       }
     ],
     "grpc": [
@@ -234,28 +177,28 @@
         "provider": "BccNodes"
       },
       {
-        "address": "grpc.rebus.nodestake.top:443",
-        "provider": "NodeStake"
-      },
-      {
-        "address": "rebus.nodejumper.io:9090",
-        "provider": "NODEJUMPER"
+        "address": "rebus.grpc.nodersteam.com:9181",
+        "provider": "[NODERS]TEAM"
       },
       {
         "address": "http://rebus.grpc.m.stavr.tech:3211",
-        "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "rebus-grpc.brocha.in:443",
-        "provider": "Brochain"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "rebus-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://rebus.grpc.liveraven.net",
         "provider": "LiveRaveN"
+      },
+      {
+        "address": "rebus-grpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "rebus-grpc.noders.services:18090",
+        "provider": "[NODERS]TEAM"
       }
     ]
   },
@@ -267,8 +210,14 @@
     },
     {
       "kind": "NodeStake",
-      "url": "https://explorer.nodestake.top/rebus",
-      "tx_page": "https://explorer.nodestake.top/rebus/tx/${txHash}"
+      "url": "https://explorer.nodestake.org/rebus",
+      "tx_page": "https://explorer.nodestake.org/rebus/tx/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/rebus",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=rebus&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=rebus&addr=${accountAddress}"
     },
     {
       "kind": "BccNodes",
@@ -276,12 +225,7 @@
       "tx_page": "https://explorer.bccnodes.com/rebus-M/tx/${txHash}"
     },
     {
-      "kind": "Brochain",
-      "url": "https://explorer.brocha.in/rebus",
-      "tx_page": "https://explorer.brocha.in/rebus/tx/${txHash}"
-    },
-    {
-      "kind": "🔥STAVR🔥 Explorer",
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25 Explorer",
       "url": "https://explorer.stavr.tech/rebus",
       "tx_page": "https://explorer.stavr.tech/rebus/tx/${txHash}"
     },
@@ -295,6 +239,15 @@
       "url": "https://atomscan.com/rebus",
       "tx_page": "https://atomscan.com/rebus/transactions/${txHash}",
       "account_page": "https://atomscan.com/rebus/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/rebus/images/rebus.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/rebus/images/rebus.svg",
+      "theme": {
+        "primary_color_hex": "#e75486"
+      }
     }
   ]
 }

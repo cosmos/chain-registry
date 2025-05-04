@@ -5,15 +5,23 @@
   "network_type": "mainnet",
   "website": "https://bandprotocol.com/",
   "pretty_name": "Band Protocol",
+  "chain_type": "cosmos",
   "chain_id": "laozi-mainnet",
   "daemon_name": "bandd",
   "node_home": "$HOME/.band",
   "bech32_prefix": "band",
   "slip44": 494,
+  "key_algos": [
+    "secp256k1"
+  ],
   "fees": {
     "fee_tokens": [
       {
-        "denom": "uband"
+        "denom": "uband",
+        "fixed_min_gas_price": 0.0025,
+        "low_gas_price": 0.0025,
+        "average_gas_price": 0.003,
+        "high_gas_price": 0.005
       }
     ]
   },
@@ -22,38 +30,40 @@
       {
         "denom": "uband"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/bandprotocol/chain",
-    "recommended_version": "v2.5.2",
+    "recommended_version": "v2.5.4",
     "compatible_versions": [
-      "v2.5.2"
+      "v2.5.2",
+      "v2.5.3",
+      "v2.5.4"
     ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.34.29"
+    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/bandprotocol/launch/master/laozi-mainnet/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v2.4.1",
-        "recommended_version": "v2.4.1",
-        "compatible_versions": [
-          "v2.4.1"
-        ]
-      },
-      {
-        "name": "v2.5.2",
-        "recommended_version": "v2.5.2",
-        "compatible_versions": [
-          "v2.5.2"
-        ]
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.45.16"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v4.3.1"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.svg"
   },
+  "description": "Band Protocol is a cross-chain data oracle platform that aggregates and connects real-world data and APIs to smart contracts.",
   "peers": {
     "seeds": [
       {
@@ -65,14 +75,38 @@
         "address": "34.150.156.78:26656"
       },
       {
+        "id": "2c884e60a0944958a2a9389f07f2f66dcfc3add0",
+        "address": "seeds-bandprotocol.activenodes.io:36656"
+      },
+      {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "bandchain-mainnet-seed.autostake.com:26666",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "4ded49b3a718828eb64cf35da1ed791ecb201bc1",
         "address": "seed-band-01.stakeflow.io:25017",
         "provider": "Stakeflow"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "band.rpc.kjnodes.com:16959",
+        "provider": "kjnodes"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "id": "08bc9afd0cac4ae6cf8f1877920b0cc7e58a6f42",
+        "address": "seeds.tendermint.roomit.xyz:40000",
+        "provider": "Roomit"
+      },
+      {
+        "id": "10ed1e176d874c8bb3c7c065685d2da6a4b86475",
+        "address": "seed-band.ibs.team:16672",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "persistent_peers": [
@@ -87,12 +121,27 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "bandchain-mainnet-peer.autostake.com:26666",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+      },
+      {
+        "id": "0bfd5d7355ebf38e35af619ae0cab70aa21675a5",
+        "address": "band-m.peer.stavr.tech:11026",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "id": "420994846f175d0413796be9caea49e07ad3a503",
+        "address": "p2p.tendermint.roomit.xyz:166006",
+        "provider": "Roomit"
       },
       {
         "id": "4ded49b3a718828eb64cf35da1ed791ecb201bc1",
         "address": "peer-band-01.stakeflow.io:25017",
         "provider": "Stakeflow"
+      },
+      {
+        "id": "d3fe7586b604196461db92c2c7cf72eb354af1fc",
+        "address": "rpc.band.indonode.net:12656",
+        "provider": "Indonode"
       }
     ]
   },
@@ -112,15 +161,43 @@
       },
       {
         "address": "https://bandchain-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+      },
+      {
+        "address": "https://band.rpc.m.stavr.tech:443",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "https://rpc-band-01.stakeflow.io",
         "provider": "Stakeflow"
       },
       {
+        "address": "https://rpc-band.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://band-rpc.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://bandprotocol-rpc.highstakes.ch",
+        "provider": "High Stakes \ud83c\udde8\ud83c\udded"
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/bandchain/rpc",
+        "provider": "Stakewolle"
+      },
+      {
+        "address": "https://rpc.band.bronbro.io/",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://rpc.band.roomit.xyz/",
+        "provider": "Roomit"
+      },
+      {
+        "address": "https://band-rpc.noders.services",
+        "provider": "[NODERS]TEAM"
       }
     ],
     "rest": [
@@ -137,8 +214,16 @@
         "provider": "Inter Blockchain Services"
       },
       {
+        "address": "https://api-band.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
+        "address": "https://band.api.m.stavr.tech",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
         "address": "https://bandchain-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://api-band-01.stakeflow.io",
@@ -147,6 +232,26 @@
       {
         "address": "https://band-api.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://bandprotocol-api.highstakes.ch",
+        "provider": "High Stakes \ud83c\udde8\ud83c\udded"
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/bandchain/rest",
+        "provider": "Stakewolle"
+      },
+      {
+        "address": "https://lcd.band.bronbro.io/",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://api.band.roomit.xyz/",
+        "provider": "Roomit"
+      },
+      {
+        "address": "https://band-api.noders.services",
+        "provider": "[NODERS]TEAM"
       }
     ],
     "grpc": [
@@ -156,7 +261,11 @@
       },
       {
         "address": "bandchain-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+      },
+      {
+        "address": "grpc-band.cosmos-spaces.cloud:2240",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "grpc-band-01.stakeflow.io:2502",
@@ -165,6 +274,30 @@
       {
         "address": "band-grpc.w3coins.io:22990",
         "provider": "w3coins"
+      },
+      {
+        "address": "http://band.grpc.m.stavr.tech:7803",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "https://grpc-band.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "band.grpc.kjnodes.com:443",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "grpc.band.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "grpc.band.roomit.xyz:8443",
+        "provider": "Roomit"
+      },
+      {
+        "address": "band-grpc.noders.services:30090",
+        "provider": "[NODERS]TEAM"
       }
     ]
   },
@@ -177,13 +310,29 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/band",
-      "tx_page": "https://www.mintscan.io/band/txs${txHash}",
-      "account_page": "https://www.mintscan.io/band/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/band/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/band/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
       "url": "https://ping.pub/band-protocol",
       "tx_page": "https://ping.pub/band-protocol/tx/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/bandchain",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=bandchain&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=bandchain&addr=${accountAddress}"
+    },
+    {
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
+      "url": "https://explorer.stavr.tech/Band-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Band-Mainnet/tx/${txHash}"
+    },
+    {
+      "kind": "Nodeist Explorer",
+      "url": "https://exp.nodeist.net/band",
+      "tx_page": "https://exp.nodeist.net/band/tx/${txHash}"
     },
     {
       "kind": "atomscan",
@@ -192,15 +341,28 @@
       "account_page": "https://atomscan.com/band-protocol/accounts/${accountAddress}"
     },
     {
-      "kind": "bigdipper",
-      "url": "https://bigdipper.live/band",
-      "tx_page": "https://bigdipper.live/band/transactions/${txHash}",
-      "account_page": "https://bigdipper.live/band/accounts/${accountAddress}"
-    },
-    {
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/band-protocol",
       "account_page": "https://stakeflow.io/band-protocol/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Roomit Explorer",
+      "url": "https://explorer.tendermint.roomit.xyz/band-mainnet",
+      "account_page": "https://explorer.tendermint.roomit.xyz/band-mainnet/accounts/${accountAddress}"
+    },
+    {
+      "kind": "kjnodes Explorer",
+      "url": "https://explorer.kjnodes.com/band",
+      "tx_page": "https://explorer.kjnodes.com/band/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.svg",
+      "theme": {
+        "primary_color_hex": "#4424e4"
+      }
     }
   ]
 }

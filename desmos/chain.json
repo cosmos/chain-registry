@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://desmos.network/",
   "pretty_name": "Desmos",
+  "chain_type": "cosmos",
   "chain_id": "desmos-mainnet",
   "bech32_prefix": "desmos",
   "daemon_name": "desmos",
@@ -33,54 +34,35 @@
   },
   "codebase": {
     "git_repo": "https://github.com/desmos-labs/desmos",
-    "recommended_version": "v5.2.0",
+    "recommended_version": "v7.1.0",
     "compatible_versions": [
-      "5.2.0"
+      "v7.1.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/desmos-labs/desmos/releases/download/v5.2.0/desmos-5.2.0-linux-amd64"
+      "linux/amd64": "https://github.com/desmos-labs/desmos/releases/download/v7.1.0/desmos-v7.1.0-linux-amd64"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.4"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/desmos-labs/mainnet/main/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v4.8.0",
-        "recommended_version": "v4.8.1",
-        "compatible_versions": [
-          "v4.8.0", "v4.8.1"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/desmos-labs/desmos/releases/download/v4.8.1/desmos-4.8.1-linux-amd64"
-        },
-        "next_version_name": "v5.0.0"
-      },
-      {
-        "name": "v5.0.0",
-        "recommended_version": "v5.1.0",
-        "compatible_versions": [
-          "v5.1.0"
-        ],
-        "proposal": 28,
-        "height": 9069645,
-        "binaries": {
-          "linux/amd64": "https://github.com/desmos-labs/desmos/releases/download/v5.1.0/desmos-5.1.0-linux-amd64"
-        },
-        "next_version_name": "v5.2.0"
-      },
-      {
-        "name": "v5.2.0",
-        "recommended_version": "v5.2.0",
-        "compatible_versions": [
-          "v5.2.0"
-        ],
-        "proposal": 29,
-        "height": 9259165,
-        "binaries": {
-          "linux/amd64": "https://github.com/desmos-labs/desmos/releases/download/v5.2.0/desmos-5.2.0-linux-amd64"
-        }
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/desmos-labs/cosmos-sdk",
+      "version": "v0.47.10",
+      "tag": "v0.47.10-desmos"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0"
+    },
+    "cosmwasm": {
+      "version": "v0.45.0",
+      "path": "$HOME/.desmos/data/wasm",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/desmos/images/dsm.png",
@@ -99,11 +81,6 @@
         "provider": "desmos"
       },
       {
-        "id": "20e1000e88125698264454a884812746c2eb4807",
-        "address": "seeds.lavenderfive.com:16256",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
         "id": "15b1f6b49a548e9f0d0855bd340199bce9140add",
         "address": "seed-desmos.starsquid.io:15601",
         "provider": "Starsquid"
@@ -114,31 +91,36 @@
         "provider": "Nodine.ID"
       },
       {
-        "id": "73fc6b8b41aada42306b2f149619cc0ff935a868",
-        "address": "desmos-seed.panthea.eu:39656",
-        "provider": "Panthea EU"
-      },
-      {
-        "id": "6580d5123923ec1426c67658d2ae1e68cfd6a62f",
-        "address": "seeds.whispernode.com:16256",
-        "provider": "WhisperNode🤐"
-      },
-      {
         "id": "b7c72e371caca2e5287c0d9a68bfcdabc93fc664",
         "address": "seed-desmos.ibs.team:16658",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:26156",
+        "provider": "BlueStake \ud83d\ude80"
       }
     ],
     "persistent_peers": [
       {
-        "id": "7c506d9e32cfc486ea714ee0c0307022398b8c20",
-        "address": "desmos-peer.panthea.eu:29656",
-        "provider": "Panthea EU"
-      },
-      {
         "id": "e8ff89b51d9fbf594e7f9237f01a6a2f19c44725",
         "address": "65.21.91.99:36656",
         "provider": "Staketab"
+      },
+      {
+        "id": "311cfd5691f11ec0cb0f0b8e5303016d86fb4789",
+        "address": "148.251.19.41:26656",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "id": "73ef1c0f9bc77fd925decf7fa41f22a35b5dc76d",
+        "address": "desmos.declab.pro:26615",
+        "provider": "Decloud Nodes Lab"
       }
     ]
   },
@@ -149,28 +131,28 @@
         "provider": "desmos"
       },
       {
-        "address": "https://desmos-rpc.lavenderfive.com/",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
         "address": "https://desmos-rpc.ibs.team/",
         "provider": "Inter Blockchain Services"
       },
       {
-        "address": "https://desmos.nodejumper.io",
-        "provider": "NODEJUMPER"
-      },
-      {
-        "address": "https://rpc-desmos.whispernode.com:443",
-        "provider": "WhisperNode🤐"
-      },
-      {
-        "address": "https://rpc-desmos.explorer.co.id",
-        "provider": "Nodine.ID"
-      },
-      {
         "address": "https://desmos-rpc.staketab.org:443",
         "provider": "Staketab"
+      },
+      {
+        "address": "https://rpc.desmos.tcnetwork.io",
+        "provider": "TC Network"
+      },
+      {
+        "address": "https://rpc.desmos.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://desmos.declab.pro:26613",
+        "provider": "Decloud Nodes Lab"
+      },
+      {
+        "address": "https://desmos-rpc.noders.services",
+        "provider": "[NODERS]TEAM"
       }
     ],
     "rest": [
@@ -179,35 +161,31 @@
         "provider": "desmos"
       },
       {
-        "address": "https://desmos-api.lavenderfive.com/",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
         "address": "https://desmos-api.ibs.team/",
         "provider": "Inter Blockchain Services"
       },
       {
-        "address": "https://desmos.nodejumper.io:1317",
-        "provider": "NODEJUMPER"
-      },
-      {
-        "address": "https://api-desmos.explorer.co.id",
-        "provider": "Nodine.ID"
-      },
-      {
         "address": "https://desmos-rest.staketab.org",
         "provider": "Staketab"
+      },
+      {
+        "address": "https://rest.desmos.tcnetwork.io",
+        "provider": "TC Network"
+      },
+      {
+        "address": "https://lcd.desmos.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://vidulum.declab.pro:443",
+        "provider": "Decloud Nodes Lab"
+      },
+      {
+        "address": "https://desmos-api.noders.services",
+        "provider": "[NODERS]TEAM"
       }
     ],
     "grpc": [
-      {
-        "address": "desmos-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://desmos.nodejumper.io:9090",
-        "provider": "Nodejumper 🚀"
-      },
       {
         "address": "https://grpc-desmos.explorer.co.id",
         "provider": "Nodine.ID"
@@ -215,15 +193,35 @@
       {
         "address": "services.staketab.com:9043",
         "provider": "Staketab"
+      },
+      {
+        "address": "desmos.grpc.nodersteam.com:9121",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://grpc-desmos.sr20de.xyz",
+        "provider": "Sr20de"
+      },
+      {
+        "address": "https://grpc.desmos.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://vidulum.declab.pro:9009",
+        "provider": "Decloud Nodes Lab"
+      },
+      {
+        "address": "desmos-grpc.noders.services:27090",
+        "provider": "[NODERS]TEAM"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/desmos",
-      "tx_page": "https://ezstaking.tools/desmos/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/desmos/account/${accountAddress}"
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/desmos",
+      "tx_page": "https://ezstaking.app/desmos/txs/${txHash}",
+      "account_page": "https://ezstaking.app/desmos/account/${accountAddress}"
     },
     {
       "kind": "bigdipper",
@@ -234,8 +232,8 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/desmos",
-      "tx_page": "https://www.mintscan.io/desmos/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/desmos/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/desmos/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/desmos/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -251,6 +249,20 @@
       "kind": "TC Network",
       "url": "https://explorer.tcnetwork.io/desmos",
       "tx_page": "https://explorer.tcnetwork.io/desmos/transaction/${txHash}"
+    },
+    {
+      "kind": "Decloud Nodes Lab",
+      "url": "https://explorer.declab.pro/Desmos",
+      "tx_page": "https://explorer.declab.pro/Desmos/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/desmos/images/dsm.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/desmos/images/dsm.svg",
+      "theme": {
+        "primary_color_hex": "#fb804e"
+      }
     }
   ]
 }

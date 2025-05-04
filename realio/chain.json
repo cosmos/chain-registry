@@ -1,230 +1,228 @@
 {
-    "$schema": "../chain.schema.json",
-    "chain_name": "realio",
-    "status": "live",
-    "network_type": "mainnet",
-    "website": "https://realio.network/",
-    "pretty_name": "Realio Network",
-    "chain_id": "realionetwork_3301-1",
-    "bech32_prefix": "realio",
-    "node_home": "$HOME/.realio-network",
-    "daemon_name": "realio-networkd",
-    "key_algos": [
-      "ethsecp256k1"
-    ],
-    "slip44": 60,
-    "fees": {
-      "fee_tokens": [
-        {
-          "denom": "ario",
-          "fixed_min_gas_price": 1000000000,
-          "low_gas_price": 4000000000,
-          "average_gas_price": 5000000000,
-          "high_gas_price": 8000000000
-        }
-      ]
-    },
-    "staking": {
-      "staking_tokens": [
-        {
-          "denom": "ario"
-        },
-        {
-          "denom": "arst"
-        }
-      ]
-    },
-    "codebase": {
-      "git_repo": "https://github.com/realiotech/realio-network",
-      "recommended_version": "v0.8.2",
-      "compatible_versions": [
-        "v0.8.2"
-      ],
-      "binaries": {
-        "linux/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.8.2/realio-network_0.8.2_Linux_x86_64.tar.gz",
-        "linux/arm64": "https://github.com/realiotech/realio-network/releases/download/v0.8.2/realio-network_0.8.2_Linux_arm64.tar.gz",
-        "darwin/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.8.2/realio-network_0.8.2_Darwin_x86_64.tar.gz",
-        "darwin/arm64": "https://github.com/realiotech/realio-network/releases/download/v0.8.2/realio-network_0.8.2_Darwin_arm64.tar.gz",
-        "windows/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.8.2/realio-network_0.8.2_Windows_x86_64.zip"
-      },
-      "cosmos_sdk_version": "0.46",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-      "ibc_go_version": "6.1.1",
-      "genesis": {
-        "genesis_url": "https://raw.githubusercontent.com/realiotech/mainnet/main/realionetwork_3301-1/genesis.json"
-      },
-      "versions": [
-        {
-          "name": "v0.8.0-rc4",
-          "recommended_version": "v0.8.0-rc4",
-          "compatible_versions": [
-            "v0.8.0-rc4"
-          ],
-          "cosmos_sdk_version": "0.46",
-          "consensus": {
-            "type": "tendermint",
-            "version": "0.34"
-          },
-          "ibc_go_version": "6.1.0",
-          "next_version_name": "v0.8.1"
-        },
-        {
-          "name": "v0.8.1",
-          "recommended_version": "v0.8.1",
-          "compatible_versions": [
-            "v0.8.1"
-          ],
-          "cosmos_sdk_version": "0.46",
-          "consensus": {
-            "type": "tendermint",
-            "version": "0.34"
-          },
-          "ibc_go_version": "6.1.1",
-          "next_version_name": "v0.8.2"
-        },
-        {
-          "name": "v0.8.2",
-          "recommended_version": "v0.8.2",
-          "compatible_versions": [
-            "v0.8.2"
-          ],
-          "cosmos_sdk_version": "0.46",
-          "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-            },
-          "ibc_go_version": "6.1.1",
-          "binaries": {
-            "linux/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.8.2/realio-network_0.8.2_Linux_x86_64.tar.gz",
-            "linux/arm64": "https://github.com/realiotech/realio-network/releases/download/v0.8.2/realio-network_0.8.2_Linux_arm64.tar.gz",
-            "darwin/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.8.2/realio-network_0.8.2_Darwin_x86_64.tar.gz",
-            "darwin/arm64": "https://github.com/realiotech/realio-network/releases/download/v0.8.2/realio-network_0.8.2_Darwin_arm64.tar.gz",
-            "windows/amd64": "https://github.com/realiotech/realio-network/releases/download/v0.8.2/realio-network_0.8.2_Windows_x86_64.zip"
-          }
-        }
-      ]
-    },
-    "logo_URIs": {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/realio/images/rio.png"
-    },
-    "peers": {
-      "seeds": [
-        {
-          "id": "b2564269d7fca6db1215f385e10d21b5917c675f",
-          "address": "195.3.220.22:30656",
-          "provider": "genznodes"
-        }
-      ],
-      "persistent_peers": [
-        {
-          "id": "96ab7d2dafe2039cbb55e59cb99bcb7e1369c9a0",
-          "address": "95.214.55.138:30656",
-          "provider": "genznodes"
-        },
-        {
-          "id": "b09d477f5b59e5e99632ad3a8a11806381efa46f",
-          "address": "realio.peers.stavr.tech:21096",
-          "provider": "🔥STAVR🔥"
-        },
-        {
-          "id": "9fe6d3bd18bb5367396b6602a65e20b302d36b33",
-          "address": "rpc.realio.indonode.net:18656",
-          "provider": "Indonode"
-        },
-        {
-          "id": "042ecfc55f2ca63a850d17921d55f241c8de7ce0",
-          "address": "65.108.206.74:22656",
-          "provider": "vinjan"    
-        }
-      ]
-    },
-    "apis": {
-      "rpc": [
-        {
-          "address": "https://realio-rpc.genznodes.dev",
-          "provider": "genznodes"
-        },
-        {
-          "address": "https://rpc-realio.nodeist.net",
-          "provider": "Nodeist"
-        },
-        {
-          "address": "http://realio.rpc.m.stavr.tech:21097",
-          "provider": "🔥STAVR🔥"
-        },
-        {
-          "address": "https://rpc.realio.indonode.net",
-          "provider": "Indonode"
-        },
-        {
-          "address": "https://rpc-realio.vinjan.xyz",
-          "provider": "vinjan"    
-        }
-      ],
-      "rest": [
-        {
-          "address": "https://realio-api.genznodes.dev",
-          "provider": "genznodes"
-        },
-        {
-          "address": "https://api-realio.nodeist.net",
-          "provider": "Nodeist"
-        },
-        {
-          "address": "https://realio.api.m.stavr.tech",
-          "provider": "🔥STAVR🔥"
-        },
-        {
-          "address": "https://api.realio.indonode.net",
-          "provider": "Indonode"
-        },
-        {
-          "address": "https://api-realio.vinjan.xyz",
-          "provider": "vinjan"    
-        }
-      ],
-      "grpc": [
-        {
-          "address": "realio-grpc.genznodes.dev:30090",
-          "provider": "genznodes"
-        },
-        {
-          "address": "http://realio.grpc.m.stavr.tech:9062",
-          "provider": "🔥STAVR🔥"
-        },
-        {
-          "address": "https://grpc-realio.nodeist.net",
-          "provider": "Nodeist"
-        }
-      ],
-      "evm-http-jsonrpc": [
-        {
-          "address": "https://realio-rpc-evm.genznodes.dev",
-          "provider": "genznodes"
-        }
-      ]
-    },
-    "explorers": [
+  "$schema": "../chain.schema.json",
+  "chain_name": "realio",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://realio.network/",
+  "pretty_name": "Realio Network",
+  "chain_type": "cosmos",
+  "chain_id": "realionetwork_3301-1",
+  "bech32_prefix": "realio",
+  "node_home": "$HOME/.realio-network",
+  "daemon_name": "realio-networkd",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
       {
-        "kind": "genznodes Explorer",
-        "url": "https://explorer.genznodes.dev/realio",
-        "tx_page": "https://explorer.genznodes.dev/realio/tx/${txHash}",
-        "account_page": "https://explorer.genznodes.dev/realio/account/{$accountAddress}"
-      },
-      {
-        "kind": "🔥STAVR🔥 Explorer",
-        "url": "https://explorer.stavr.tech/realio-mainnet",
-        "tx_page": "https://explorer.stavr.tech/realio-mainnet/tx/${txHash}",
-        "account_page": "https://explorer.stavr.tech/realio-mainnet/account/{$accountAddress}"
-      },
-      {
-        "kind": "Nodeist Explorer",
-        "url": "https://exp.nodeist.net/realio",
-        "tx_page": "https://exp.nodeist.net/realio/tx/${txHash}",
-        "account_page": "https://exp.nodeist.net/realio/account/{$accountAddress}"
+        "denom": "ario",
+        "fixed_min_gas_price": 1000000000,
+        "low_gas_price": 4000000000,
+        "average_gas_price": 5000000000,
+        "high_gas_price": 8000000000
       }
     ]
-  }
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ario"
+      },
+      {
+        "denom": "arst"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/realiotech/realio-network",
+    "recommended_version": "v1.0.2",
+    "compatible_versions": [
+      "v1.0.2"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/realiotech/realio-network/releases/download/v1.0.2/realio-network_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/realiotech/realio-network/releases/download/v1.0.2/realio-network_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/realiotech/realio-network/releases/download/v1.0.2/realio-network_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/realiotech/realio-network/releases/download/v1.0.2/realio-network_Darwin_arm64.tar.gz",
+      "windows/amd64": "https://github.com/realiotech/realio-network/releases/download/v1.0.2/realio-network_Windows_x86_64.zip"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.12"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/realiotech/mainnet/main/realionetwork_3301-1/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50"
+    },
+      {
+        "address": "https://realio-api.genznodes.dev",
+        "provider": "genznodes"
+      },
+      {
+        "address": "https://realio.lcd.bccnodes.com/",
+        "provider": "BccNodes"
+      },
+      {
+        "address": "https://api-realio-network.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://realio.api.m.stavr.tech",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "https://api.realio.indonode.net",
+        "provider": "Indonode"
+      },
+      {
+        "address": "https://api-realio.vinjan.xyz",
+        "provider": "vinjan"
+      },
+      {
+        "address": "https://rpc-realio.sr20de.xyz",
+        "provider": "Sr20de"
+      },
+      {
+        "address": "https://realio.declab.pro:443",
+        "provider": "Decloud Nodes Lab"
+      },
+      {
+        "address": "https://realio-api.noders.services",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://api-realio.blockval.io",
+        "provider": "Blockval"
+      },
+      {
+        "address": "https://realio_rio_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
+      },
+      {
+        "address": "https://realio-api.moonbridge.org",
+        "provider": "Moonbridge"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "realio-grpc.genznodes.dev:30090",
+        "provider": "genznodes"
+      },
+      {
+        "address": "realio.grpc.bccnodes.com:10990",
+        "provider": "BccNodes"
+      },
+      {
+        "address": "http://realio.grpc.m.stavr.tech:9062",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "https://grpc-realio.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://grpc.realio.nodestake.org:443",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://grpc-realio.sr20de.xyz",
+        "provider": "Sr20de"
+      },
+      {
+        "address": "realio.grpc.skynodejs.net",
+        "provider": "skynodejs"
+      },
+      {
+        "address": "https://realio.declab.pro:9015",
+        "provider": "Decloud Nodes Lab"
+      },
+      {
+        "address": "realio-grpc.noders.services:22090",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://grpc-realio.blockval.io",
+        "provider": "Blockval"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://realio-rpc-evm.genznodes.dev",
+        "provider": "genznodes"
+      },
+      {
+        "address": "https://jsonrpc.realio.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://evm-realio.sr20de.xyz",
+        "provider": "Sr20de"
+      },
+      {
+        "address": "https://realio-jsonrpc.noders.services",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://realio_rio_mainnet_evm.chain.whenmoonwhenlambo.money",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25 Explorer",
+      "url": "https://explorer.stavr.tech/realio-mainnet",
+      "tx_page": "https://explorer.stavr.tech/realio-mainnet/tx/${txHash}",
+      "account_page": "https://explorer.stavr.tech/realio-mainnet/account/{$accountAddress}"
+    },
+    {
+      "kind": "NodeStake Explorer",
+      "url": "https://explorer.nodestake.org/realio",
+      "tx_page": "https://explorer.nodestake.org/realio/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.org/realio/account/{$accountAddress}"
+    },
+    {
+      "kind": "Sr20de Explorer",
+      "url": "https://explorer.sr20de.xyz/Realio",
+      "tx_page": "https://explorer.sr20de.xyz/Realio/tx/${txHash}",
+      "account_page": "https://explorer.sr20de.xyz/Realio/account/{$accountAddress}"
+    },
+    {
+      "kind": "TC Network",
+      "url": "https://explorer.tcnetwork.io/realio",
+      "tx_page": "https://explorer.tcnetwork.io/realio/transaction/${txHash}",
+      "account_page": "https://explorer.tcnetwork.io/realio/account/${accountAddress}"
+    },
+    {
+      "kind": "Decloud Nodes Lab",
+      "url": "https://explorer.declab.pro/realio",
+      "tx_page": "https://explorer.declab.pro/realio/tx/${txHash}",
+      "account_page": "https://explorer.declab.pro/realio/account/{$accountAddress}"
+    },
+    {
+      "kind": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25",
+      "url": "https://explorer.whenmoonwhenlambo.money/realio",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/realio/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/realio/account/${accountAddress}"
+    },
+    {
+      "kind": "Moonbridge",
+      "url": "https://explorer.moonbridge.org/realio",
+      "tx_page": "https://explorer.moonbridge.org/realio/tx/${txHash}",
+      "account_page": "https://explorer.moonbridge.org/realio/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/realio/images/rio.png",
+      "theme": {
+        "primary_color_hex": "#181818"
+      }
+    }
+  ]
+}

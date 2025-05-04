@@ -4,7 +4,8 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Osmosis Testnet",
-  "chain_id": "osmo-test-4",
+  "chain_type": "cosmos",
+  "chain_id": "osmo-test-5",
   "bech32_prefix": "osmo",
   "daemon_name": "osmosisd",
   "node_home": "$HOME/.osmosisd",
@@ -17,7 +18,7 @@
       {
         "denom": "uosmo",
         "fixed_min_gas_price": 0,
-        "low_gas_price": 0,
+        "low_gas_price": 0.0025,
         "average_gas_price": 0.025,
         "high_gas_price": 0.04
       }
@@ -32,104 +33,58 @@
   },
   "codebase": {
     "git_repo": "https://github.com/osmosis-labs/osmosis",
-    "recommended_version": "v15.0.0-rc3",
+    "recommended_version": "29.0.0",
     "compatible_versions": [
-      "v15.0.0-rc3"
-    ],
-    "cosmos_sdk_version": "0.45",
-    "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
-    },
-    "cosmwasm_version": "0.29",
-    "cosmwasm_enabled": true,
-    "genesis": {
-      "genesis_url": "https://github.com/osmosis-labs/networks/raw/main/osmo-test-4/genesis.tar.bz2"
-    },
-    "versions": [
-      {
-        "name": "v14.0.0-rc1",
-        "recommended_version": "v14.0.0-rc1",
-        "compatible_versions": [
-          "v14.0.0-rc1"
-        ],
-        "cosmos_sdk_version": "0.45",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "cosmwasm_version": "0.29",
-        "cosmwasm_enabled": true
-      },
-      {
-        "name": "v15.0.0-rc3",
-        "recommended_version": "v15.0.0-rc3",
-        "compatible_versions": [
-          "v15.0.0-rc3"
-        ],
-        "cosmos_sdk_version": "0.45",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "cosmwasm_version": "0.29",
-        "cosmwasm_enabled": true
-      }
+      "29.0.0-rc1",
+      "29.0.0"
     ]
   },
   "peers": {
     "seeds": [
       {
-        "id": "0f9a9c694c46bd28ad9ad6126e923993fc6c56b1",
-        "address": "137.184.181.105:26656",
-        "provider": ""
+        "id": "bb197876fd952d245ef6377e3651c157e3d7ed81",
+        "address": "157.245.26.231:26656"
+      },
+      {
+        "id": "7c2b9e76be5c2142c76b429d9c29e902599ceb44",
+        "address": "157.245.21.183:26656"
       }
     ],
     "persistent_peers": [
       {
-        "id": "4ab030b7fd75ed895c48bcc899b99c17a396736b",
-        "address": "137.184.190.127:26656",
-        "provider": ""
+        "id": "51084fccec1c309a415e89d39e6f0881c49493ed",
+        "address": "95.217.144.107:12556"
       },
       {
-        "id": "3dbffa30baab16cc8597df02945dcee0aa0a4581",
-        "address": "143.198.139.33:26656",
-        "provider": ""
+        "id": "a5c34bdd777dd418ff7152a8646fd2f31f53f8a5",
+        "address": "46.232.248.117:2000"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.osmo-test.ccvalidators.com/",
-        "provider": "CryptoCrew"
-      },
-      {
-        "address": "https://osmosistest-rpc.quickapi.com/",
-        "provider": "ChainLayer"
-      },
-      {
-        "address": "https://rpc.testnet.osmosis.zone/",
+        "address": "https://rpc.osmotest5.osmosis.zone/",
         "provider": "Osmosis"
+      },
+      {
+        "address": "https://osmosis-testnet-tendermint.reliableninjas.com",
+        "provider": "Reliable Ninjas"
       }
     ],
     "rest": [
       {
-        "address": "https://osmosistest-lcd.quickapi.com/",
-        "provider": "CryptoCrew"
+        "address": "https://lcd.osmotest5.osmosis.zone/",
+        "provider": "Osmosis"
       },
       {
-        "address": "https://lcd.osmo-test.ccvalidators.com/",
-        "provider": "ChainLayer"
-      },
-      {
-        "address": "https://testnet-rest.osmosis.zone/",
-        "provider": ""
+        "address": "https://osmosis-testnet-cosmos.reliableninjas.com",
+        "provider": "Reliable Ninjas"
       }
     ],
     "grpc": [
       {
-        "address": "https://grpc-test.osmosis.zone:443",
+        "address": "https://grpc.osmotest5.osmosis.zone/",
         "provider": "Osmosis"
       }
     ]
@@ -137,8 +92,27 @@
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png"
   },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://mintscan.io/osmosis-testnet",
+      "tx_page": "https://mintscan.io/osmosis-testnet/txs/${txHash}",
+      "account_page": "https://mintscan.io/osmosis-testnet/account/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer.osmotest5.osmosis.zone",
+      "tx_page": "https://explorer.osmotest5.osmosis.zone/osmo-test-5/tx/${txHash}",
+      "account_page": "https://explorer.osmotest5.osmosis.zone/osmo-test-5/account/${accountAddress}"
+    }
+  ],
   "keywords": [
     "dex",
     "testnet"
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png"
+    }
   ]
 }

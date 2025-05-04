@@ -1,10 +1,11 @@
 {
-  "$schema": "../chain.schema.json",
+  "$schema": "../../chain.schema.json",
   "chain_name": "injectivetestnet",
   "status": "live",
   "network_type": "testnet",
   "website": "https://injective.com",
   "pretty_name": "Injective",
+  "chain_type": "cosmos",
   "chain_id": "injective-888",
   "bech32_prefix": "inj",
   "extra_codecs": [
@@ -17,7 +18,7 @@
     "fee_tokens": [
       {
         "denom": "inj",
-        "fixed_min_gas_price": 500000000,
+        "fixed_min_gas_price": 160000000,
         "low_gas_price": 500000000,
         "average_gas_price": 700000000,
         "high_gas_price": 900000000
@@ -33,33 +34,31 @@
   },
   "codebase": {
     "git_repo": "https://github.com/InjectiveLabs/testnet",
-    "recommended_version": "v1.10.2",
+    "recommended_version": "v1.11.1",
     "compatible_versions": [
-      "v1.10.2"
+      "v1.11.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.10.2-1678712142/linux-amd64.zip",
-      "darwin/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.10.2-1678712142/darwin-amd64.zip"
+      "linux/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.11.1-1685205489/linux-amd64.zip",
+      "darwin/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.11.1-1685205489/darwin-amd64.zip"
     },
     "genesis": {
-      "genesis_url": "aws s3 cp s3://injective-snapshots/testnet/genesis.json . --no-sign-request"
-    },
-    "versions": [
-      {
-        "name": "v1.10.2",
-        "recommended_version": "v1.10.2",
-        "compatible_versions": [
-          "v1.10.2"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.10.2-1678712142/linux-amd64.zip",
-          "darwin/amd64": "https://github.com/InjectiveLabs/testnet/releases/download/v1.10.2-1678712142/darwin-amd64.zip"
-        }
-      }
-    ]
+      "genesis_url": "https://injective-snapshots.s3.amazonaws.com/testnet/genesis.json"
+    }
   },
   "peers": {
-    "seeds": [],
+    "seeds": [
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "testnet-seeds.polkachu.com:14356",
+        "provider": "polkachu"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "e5cc63a9117e6f372169f15774ea4f7c5177da25",
@@ -96,32 +95,56 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://k8s.testnet.tm.injective.network:443",
+        "address": "https://injective-testnet-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://testnet.sentry.tm.injective.network:443",
         "provider": "injectiveLabs"
       },
       {
         "address": "https://testnet.tm.injective.network",
         "provider": "injectiveLabs"
+      },
+      {
+        "address": "https://injective-testnet-rpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "rest": [
       {
-        "address": "https://k8s.testnet.lcd.injective.network",
+        "address": "https://injective-testnet-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://testnet.sentry.lcd.injective.network:443",
         "provider": "injectiveLabs"
       },
       {
-        "address": "https://testnet.grpc.injective.network",
+        "address": "https://testnet.lcd.injective.network",
         "provider": "injectiveLabs"
+      },
+      {
+        "address": "https://injective-testnet-rest.publicnode.com",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "grpc": [
       {
-        "address": "k8s.testnet.chain.grpc.injective.network:443",
+        "address": "injective-testnet-grpc.polkachu.com:14390",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "testnet.sentry.chain.grpc.injective.network:443",
         "provider": "injectiveLabs"
       },
       {
         "address": "https://testnet.grpc.injective.network",
         "provider": "injectiveLabs"
+      },
+      {
+        "address": "injective-testnet-grpc.publicnode.com:443",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ]
   },
