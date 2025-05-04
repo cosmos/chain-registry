@@ -12,15 +12,23 @@
     "secp256k1"
   ],
   "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uodis",
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
   "staking": {
     "staking_tokens": [
       {
         "denom": "uodis"
       }
-    ],
-    "lock_duration": {
-      "time": "1209600s"
-    }
+    ]
   },
   "codebase": {
     "git_repo": "https://github.com/daodiseomoney/Achilles",
@@ -34,10 +42,12 @@
       "version": "v0.37.2"
     },
     "ibc_go_version": "v7.3.0",
-    "cosmwasm_enabled": false,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/daodiseomoney/Achilles/main/genesis.json"
     }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/daodiseotestnet/images/odiseo.png"
   },
   "peers": {
     "seeds": [],
@@ -84,7 +94,7 @@
   },
   "explorers": [
     {
-      "kind": "Vinjan.Inc",
+      "kind": "Xplorer",
       "url": "https://xplorer.vinjan.xyz/odiseo",
       "tx_page": "https://xplorer.vinjan.xyz/odiseo/tx/${txHash}"
     },
@@ -93,8 +103,5 @@
       "url": "https://explorer.sychonix.com/odiseo-testnet",
       "tx_page": "https://explorer.sychonix.com/odiseo-testnet/tx/${txHash}"
     }
-  ],
-  "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/daodiseotestnet/images/odiseo.png"
-  }
+  ]
 }
