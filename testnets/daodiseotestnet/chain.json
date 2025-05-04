@@ -1,0 +1,78 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "daodiseotestnet",
+  "chain_type": "cosmos",
+  "chain_id": "ithaca-1",
+  "pretty_name": "Daodiseo testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "bech32_prefix": "odiseo",
+  "daemon_name": "achillesd",
+  "node_home": "$HOME/.achilles",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uodis",
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.03
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uodis"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/daodiseomoney/Achilles",
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.8"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://daodiseo.money/wp-content/uploads/2025/05/DAO_O_logo_256x256.png",
+  "peers": {
+    "seeds": [
+    ],
+    "persistent_peers": [
+      {
+        "id": "da3827fe93b9232eb5a218d6c9c3a44de0b9578f",
+        "address": "88.99.149.170:28656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-odiseo.vinjan.xyz",
+        "provider": "Vinjan.Inc"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-odiseo.vinjan.xyz",
+        "provider": "Vinjan.Inc"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.odiseo.vinjan.xyz:28090",
+        "provider": "Vinjan.Inc"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "url": "https://xplorer.vinjan.xyz/odiseo",
+      "tx_page": "https://xplorer.vinjan.xyz/odiseo/tx/${txHash}"
+    }
+  ]
+}
