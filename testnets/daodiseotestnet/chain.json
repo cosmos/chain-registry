@@ -4,10 +4,7 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "Daodiseo Testnet",
-  "chain_type": "cosmos",
   "chain_id": "ithaca-1",
-  "website": "https://daodiseo.money",
-  "description": "Daodiseo Testnet is the testing network for Daodiseo, a decentralized finance and governance platform powered by Cosmos SDK.",
   "bech32_prefix": "odiseo",
   "daemon_name": "achillesd",
   "node_home": "$HOME/.achilles",
@@ -15,26 +12,15 @@
     "secp256k1"
   ],
   "slip44": 118,
-  "fees": {
-    "fee_tokens": [
-      {
-        "denom": "uodis",
-        "fixed_min_gas_price": 0.025,
-        "low_gas_price": 0.01,
-        "average_gas_price": 0.025,
-        "high_gas_price": 0.04
-      }
-    ]
-  },
   "staking": {
     "staking_tokens": [
       {
         "denom": "uodis"
       }
-    ]
-  },
-  "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/daodiseotestnet/images/odiseo.png"
+    ],
+    "lock_duration": {
+      "time": "1209600s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/daodiseomoney/Achilles",
@@ -42,20 +28,15 @@
     "compatible_versions": [
       "v0.50.8"
     ],
+    "cosmos_sdk_version": "v0.50.8",
     "consensus": {
       "type": "cometbft",
       "version": "v0.37.2"
     },
+    "ibc_go_version": "v7.3.0",
+    "cosmwasm_enabled": false,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/daodiseomoney/Achilles/main/genesis.json"
-    },
-    "sdk": {
-      "type": "cosmos",
-      "version": "v0.50.8"
-    },
-    "ibc": {
-      "type": "go",
-      "version": "v7.3.0"
     }
   },
   "peers": {
@@ -103,7 +84,7 @@
   },
   "explorers": [
     {
-      "kind": "Xplorer",
+      "kind": "Vinjan.Inc",
       "url": "https://xplorer.vinjan.xyz/odiseo",
       "tx_page": "https://xplorer.vinjan.xyz/odiseo/tx/${txHash}"
     },
@@ -113,12 +94,7 @@
       "tx_page": "https://explorer.sychonix.com/odiseo-testnet/tx/${txHash}"
     }
   ],
-  "images": [
-    {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/daodiseotestnet/images/odiseo.png",
-      "theme": {
-        "primary_color_hex": "#191f36"
-      }
-    }
-  ]
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/daodiseotestnet/images/odiseo.png"
+  }
 }
