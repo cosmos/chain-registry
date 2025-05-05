@@ -1,0 +1,107 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "daodiseotestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Daodiseo Testnet",
+  "chain_id": "ithaca-1",
+  "bech32_prefix": "odiseo",
+  "daemon_name": "achillesd",
+  "node_home": "$HOME/.achilles",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uodis",
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uodis"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/daodiseomoney/Achilles",
+    "recommended_version": "v0.50.8",
+    "compatible_versions": [
+      "v0.50.8"
+    ],
+    "cosmos_sdk_version": "v0.50.8",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.2"
+    },
+    "ibc_go_version": "v7.3.0",
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/daodiseomoney/Achilles/main/genesis.json"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/daodiseotestnet/images/odiseo.png"
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "da3827fe93b9232eb5a218d6c9c3a44de0b9578f",
+        "address": "88.99.149.170:28656",
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "id": "d47bcc981c7b2ef4ea9334925bba95bab2c71da5",
+        "address": "149.50.101.137:13256",
+        "provider": "Sychonix"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-odiseo.vinjan.xyz",
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "https://rpc-odiseo-t.sychonix.com",
+        "provider": "Sychonix"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-odiseo.vinjan.xyz",
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "https://api-odiseo-t.sychonix.com",
+        "provider": "Sychonix"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.odiseo.vinjan.xyz:28090",
+        "provider": "Vinjan.Inc"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Xplorer",
+      "url": "https://xplorer.vinjan.xyz/odiseo",
+      "tx_page": "https://xplorer.vinjan.xyz/odiseo/tx/${txHash}"
+    },
+    {
+      "kind": "Sychonix",
+      "url": "https://explorer.sychonix.com/odiseo-testnet",
+      "tx_page": "https://explorer.sychonix.com/odiseo-testnet/tx/${txHash}"
+    }
+  ]
+}
