@@ -1,0 +1,132 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "lumeratestnet",
+  "chain_type": "cosmos",
+  "chain_id": "lumera-testnet-1",
+  "pretty_name": "Lumera",
+  "website": "https://lumera.protocol",
+  "network_type": "testnet",
+  "status": "live",
+  "bech32_prefix": "lumera",
+  "bech32_config": {
+    "bech32PrefixAccAddr": "lumera",
+    "bech32PrefixAccPub": "lumerapub",
+    "bech32PrefixValAddr": "lumeravaloper",
+    "bech32PrefixValPub": "lumeravaloperpub",
+    "bech32PrefixConsAddr": "lumeravalcons",
+    "bech32PrefixConsPub": "lumeravalconspub"
+  },
+  "daemon_name": "lumerad",
+  "node_home": "$HOME/.lumera",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ulume",
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.025
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ulume"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/LumeraProtocol/lumera",
+    "tag": "v0.4.3",
+    "recommended_version": "v0.4.3",
+    "language": {
+      "type": "go",
+      "version": "v1.24"
+    },
+    "binaries": {
+      "linux/amd64": "https://github.com/LumeraProtocol/lumera/releases/download/v0.4.3/lumera_v0.4.3_linux_amd64.tar.gz?checksum=sha256:f82f82e6350e1c8b893bc631c24342b3ac1b487bb69079cff51131ae5dc8ca15"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.13"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.12"
+    },
+    "cosmwasm": {
+      "version": "v0.53.0",
+      "enabled": true
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.5.1"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/LumeraProtocol/lumera-networks/tree/master/testnet"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "10a50e7a88561b22a8d1f6f0fb0b8e54412229ab",
+        "address": "seeds.lumera.io:26656",
+        "provider": "LumeraProtocol"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "10a50e7a88561b22a8d1f6f0fb0b8e54412229ab",
+        "address": "seeds.lumera.io:26656",
+        "provider": "LumeraProtocol"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.lumera.io:443",
+        "provider": "LumeraProtocol"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lcd.lumera.io:443",
+        "provider": "LumeraProtocol"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.lumera.io:443",
+        "provider": "LumeraProtocol"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://portal.lumera.io/lumera-testnet-1/",
+      "tx_page": "https://portal.lumera.io/lumera-testnet-1/tx/${txHash}",
+      "account_page": "https://portal.lumera.io/lumera-testnet-1/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lumera/images/lumera.png"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lumera/images/lumera.png"
+  },
+  "keywords": [
+    "lumera",
+    "lume",
+    "mainnet",
+    "pastel"
+  ]
+}
