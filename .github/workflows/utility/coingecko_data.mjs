@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 
 import * as chain_reg from './chain_registry.mjs';
 
-const COINGECKO_JSON_PATH = './state/coingecko.json';
+const COINGECKO_JSON_PATH = '../../state/coingecko.json';
 
 const COINGECKO_API_BASE_URL = 'https://api.coingecko.com/api/';
 export const coingeckoEndpoints = {
