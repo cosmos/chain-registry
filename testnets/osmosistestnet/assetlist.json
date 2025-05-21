@@ -1594,7 +1594,7 @@
         {
           "type": "bridge",
           "counterparty": {
-            "chain_name": "dogecoin",
+            "chain_name": "dogecointestnet",
             "base_denom": "shibe"
           },
           "provider": "Int3face"
@@ -1658,7 +1658,7 @@
         {
           "type": "bridge",
           "counterparty": {
-            "chain_name": "bitcoin",
+            "chain_name": "bitcointestnet",
             "base_denom": "sat"
           },
           "provider": "Int3face"
@@ -1722,7 +1722,7 @@
         {
           "type": "bridge",
           "counterparty": {
-            "chain_name": "bitcoincash",
+            "chain_name": "bitcoincashtestnet",
             "base_denom": "sat"
           },
           "provider": "Int3face"
@@ -1786,7 +1786,7 @@
         {
           "type": "bridge",
           "counterparty": {
-            "chain_name": "litecoin",
+            "chain_name": "litecointestnet",
             "base_denom": "litoshi"
           },
           "provider": "Int3face"
@@ -1850,7 +1850,7 @@
         {
           "type": "bridge",
           "counterparty": {
-            "chain_name": "ton",
+            "chain_name": "tontestnet",
             "base_denom": "nanoton"
           },
           "provider": "Int3face"
@@ -1914,7 +1914,7 @@
         {
           "type": "bridge",
           "counterparty": {
-            "chain_name": "solana",
+            "chain_name": "solanatestnet",
             "base_denom": "Lamport"
           },
           "provider": "Int3face"
@@ -1948,6 +1948,70 @@
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/sol.int3.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/sol.int3.svg",
+          "theme": {
+            "primary_color_hex": "#3d3d3d"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Testnet XRPL (XRP) coin bridged via Int3face bridge",
+      "denom_units": [
+        {
+          "denom": "ibc/9D44B9A113D449A16FAB9F639FF5B074CAB6D33D049056AB6B4DCE6E3891DD55",
+          "exponent": 0,
+          "aliases": [
+            "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/xrpl-xrp"
+          ]
+        },
+        {
+          "denom": "xrp",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/9D44B9A113D449A16FAB9F639FF5B074CAB6D33D049056AB6B4DCE6E3891DD55",
+      "name": "Testnet XRP (Int3)",
+      "display": "xrp",
+      "symbol": "XRP.int3",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "xrpltestnet",
+            "base_denom": "drop"
+          },
+          "provider": "Int3face"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "int3facetestnet",
+            "base_denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/xrpl-xrp",
+            "channel_id": "channel-1"
+          },
+          "chain": {
+            "channel_id": "channel-9755",
+            "path": "transfer/channel-9755/factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/xrpl-xrp"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/xrp.int3.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/xrp.int3.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/xrp.int3.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/xrp.int3.svg"
+        },
+        {
+          "image_sync": {
+            "chain_name": "int3facetestnet",
+            "base_denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/xrpl-xrp"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/xrp.int3.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/xrp.int3.svg",
           "theme": {
             "primary_color_hex": "#3d3d3d"
           }
