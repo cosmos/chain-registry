@@ -1,0 +1,74 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "nuklai",
+  "chain_type": "cosmos",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Nuklai Testnet",
+  "chain_id": "nuklai",
+  "bech32_prefix": "nuklai",
+  "daemon_name": "nuklaid",
+  "node_home": "$HOME/.nuklai",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "nai",
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "nai"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Nuklai/nuklaivm-chain",
+    "recommended_version": "v0.1.0",
+    "compatible_versions": ["v0.1.0"],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/Nuklai/genesisTransactions/refs/heads/main/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "09ff5ce747caf117897a7b09251d4b08fdd31d2d",
+        "address": "52.208.110.202:26656",
+        "provider": "Nuklai"
+      },
+      {
+        "id": "fc115d2a64a66d61284abcab0f04da956755812c",
+        "address": "52.214.68.175:26656",
+        "provider": "Nuklai"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-testnet.nuklaivm-dev.net",
+        "provider": "Nuklai"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-testnet.nuklaivm-dev.net",
+        "provider": "Nuklai"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "rpc-testnet.nuklaivm-dev.net:9090",
+        "provider": "Nuklai"
+      }
+    ]
+  }
+}
