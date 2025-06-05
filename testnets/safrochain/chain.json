@@ -1,0 +1,87 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "safrochain",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://safrochain.com",
+  "pretty_name": "Safrochain Testnet",
+  "chain_id": "safrochain-testnet",
+  "bech32_prefix": "addr_safro",
+  "daemon_name": "safrochaind",
+  "node_home": ".safrochaind",
+  "key_algos": [
+    "secp256k1",
+    "ed25519"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "saf",
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.0025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "saf"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Safrochain-Org/safrochain-node",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "cosmos_sdk_version": "0.50+",
+    "binaries": {
+      "linux/amd64": "https://github.com/Safrochain-Org/safrochain-node/releases/download/latest/latest_linux_amd64.tar.gz",
+      "darwin/amd64": "https://github.com/Safrochain-Org/safrochain-node/releases/download/latest/latest_darwin_amd64.tar.gz",
+      "darwin/arm64": "https://github.com/Safrochain-Org/safrochain-node/releases/download/latest/latest_darwin_arm64.tar.gz",
+      "checksum_file": "https://github.com/Safrochain-Org/safrochain-node/releases/download/latest/release_checksum"
+    }
+  },
+  "genesis": {
+    "genesis_url": "https://safrochain.com/genesis/testnet/genesis.json"
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.testnet.safrochain.com",
+        "provider": "Safrochain"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.testnet.safrochain.com",
+        "provider": "Safrochain"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.testnet.safrochain.com",
+        "provider": "Safrochain"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "bigdipper",
+      "url": "https://explorer.testnet.safrochain.com",
+      "tx_page": "https://explorer.testnet.safrochain.com/transactions/${txHash}"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/safrochain/images/saf.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/safrochain/images/saf.svg"
+  }
+}
