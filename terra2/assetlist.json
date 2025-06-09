@@ -3,7 +3,7 @@
   "chain_name": "terra2",
   "assets": [
     {
-      "description": "The native staking token of Terra.",
+      "description": "The native staking token of Terra Phoenix.",
       "denom_units": [
         {
           "denom": "uluna",
@@ -33,8 +33,8 @@
         }
       ],
       "socials": {
-        "website": "https://www.terra.money/",
-        "twitter": "https://twitter.com/terra_money"
+        "website": "https://www.phoenix.money/",
+        "twitter": "https://twitter.com/phoenix_dir"
       },
       "type_asset": "sdk.coin"
     },
@@ -1372,75 +1372,6 @@
       "coingecko_id": "tether"
     },
     {
-      "description": "ATOM-LUNA liquidity pool token on URA",
-      "denom_units": [
-        {
-          "denom": "factory/terra1djk2zl83dspt696ex5crhfacu8vm6934576t4zdd2592fzyahr2qma6guq/ULUN-IBC/-LP",
-          "exponent": 0
-        },
-        {
-          "denom": "atom-luna-lp",
-          "exponent": 6
-        }
-      ],
-      "base": "factory/terra1djk2zl83dspt696ex5crhfacu8vm6934576t4zdd2592fzyahr2qma6guq/ULUN-IBC/-LP",
-      "name": "ATOM-LUNA LP Token URA",
-      "display": "atom-luna-lp",
-      "symbol": "ATOM-LUNA-LP",
-      "images": [
-        {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/ura.svg"
-        }
-      ],
-      "type_asset": "sdk.coin"
-    },
-    {
-      "description": "LUNA-USDC liquidity pool token on URA",
-      "denom_units": [
-        {
-          "denom": "factory/terra12jxfw2vg4cu6mxlgf39dp5ccxtuwm468w8eh9cnh2qsxc9t0sffs7ekhft/ULUN-IBC/-LP",
-          "exponent": 0
-        },
-        {
-          "denom": "luna-usdc-lp",
-          "exponent": 6
-        }
-      ],
-      "base": "factory/terra12jxfw2vg4cu6mxlgf39dp5ccxtuwm468w8eh9cnh2qsxc9t0sffs7ekhft/ULUN-IBC/-LP",
-      "name": "LUNA-USDC LP Token URA",
-      "display": "luna-usdc-lp",
-      "symbol": "LUNA-USDC-LP",
-      "images": [
-        {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/ura.svg"
-        }
-      ],
-      "type_asset": "sdk.coin"
-    },
-    {
-      "description": "LUNA-USDT liquidity pool token on URA",
-      "denom_units": [
-        {
-          "denom": "factory/terra1w9spejtuac5dt0gympq576uhwde39exhh7hdxwl99rjvaphfukkq6y4cv7/ULUN-IBC/-LP",
-          "exponent": 0
-        },
-        {
-          "denom": "luna-usdt-lp",
-          "exponent": 6
-        }
-      ],
-      "base": "factory/terra1w9spejtuac5dt0gympq576uhwde39exhh7hdxwl99rjvaphfukkq6y4cv7/ULUN-IBC/-LP",
-      "name": "LUNA-USDT LP Token URA",
-      "display": "luna-usdt-lp",
-      "symbol": "LUNA-USDT-LP",
-      "images": [
-        {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/ura.svg"
-        }
-      ],
-      "type_asset": "sdk.coin"
-    },
-    {
       "description": "ashLUNA",
       "denom_units": [
         {
@@ -1759,6 +1690,77 @@
       "name": "Eris Protocol LUNA/USDC ampLP",
       "display": "amplp",
       "symbol": "LUNA-USDC-ampLP"
+    },
+    {
+      "description": "EURe is a Euro-backed stablecoin issued by Monerium on Noble.",
+      "denom_units": [
+        {
+          "denom": "ibc/8D52B251B447B7160421ACFBD50F6B0ABE5F98D2C404B03701130F12044439A1",
+          "exponent": 0,
+          "aliases": [
+            "ueure"
+          ]
+        },
+        {
+          "denom": "eure",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/8D52B251B447B7160421ACFBD50F6B0ABE5F98D2C404B03701130F12044439A1",
+      "name": "Monerium EUR emoney",
+      "display": "eure",
+      "symbol": "EURe",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "EUR"
+          },
+          "provider": "Monerium"
+        },
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x3231Cb76718CDeF2155FC47b5286d82e6eDA273f"
+          },
+          "provider": "Monerium"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "eure",
+            "channel_id": "channel-30"
+          },
+          "chain": {
+            "channel_id": "channel-253",
+            "path": "transfer/channel-253/eure"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eure.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eure.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0x3231Cb76718CDeF2155FC47b5286d82e6eDA273f"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eure.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eure.svg",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#0095D7",
+            "background_color_hex": "#FFFFFF"
+          }
+        }
+      ],
+      "coingecko_id": "monerium-eur-money"
     }
   ]
 }
