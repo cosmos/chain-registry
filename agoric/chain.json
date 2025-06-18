@@ -21,12 +21,6 @@
         "low_gas_price": 0.03,
         "average_gas_price": 0.05,
         "high_gas_price": 0.07
-      },
-      {
-        "denom": "uist",
-        "low_gas_price": 0.0034,
-        "average_gas_price": 0.007,
-        "high_gas_price": 0.02
       }
     ]
   },
@@ -42,9 +36,9 @@
     "genesis": {
       "genesis_url": "https://main.agoric.net/genesis.json"
     },
-    "recommended_version": "agoric-upgrade-19",
+    "recommended_version": "agoric-upgrade-20",
     "compatible_versions": [
-      "agoric-upgrade-19"
+      "agoric-upgrade-20"
     ],
     "consensus": {
       "type": "cometbft",
@@ -273,6 +267,12 @@
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/agoric",
+      "tx_page": "https://explorer.chainroot.io/agoric/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/agoric/accounts/${accountAddress}"
+    },
     {
       "kind": "explorers.guru",
       "url": "https://agoric.explorers.guru",
