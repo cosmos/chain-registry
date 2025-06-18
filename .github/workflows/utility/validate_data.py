@@ -108,7 +108,7 @@ def checkChains():
                       for alias in unit["aliases"]:
                         assetDenoms.append(alias)
                 else:
-                  raise Exception("'denon_units' array doesn't contain any units")
+                  raise Exception("'denom_units' array doesn't contain any units")
               else:
                 raise Exception("asset doesn't contain 'denom_units' array")
               if "base" in asset:
@@ -178,7 +178,7 @@ def checkChains():
                   if chainSchema["bech32_prefix"] != slipPrefixes[prettyName]:
                     raise Exception("chain.json bech32 prefix " + chainSchema["bech32_prefix"] + " does not match SLIP-0173 prefix " + slipPrefixes[prettyName])
                 else:
-                  raise Exception(prettyName + " SLIP-0173 registeration does not have prefix")
+                  raise Exception(prettyName + " SLIP-0173 registration does not have prefix")
               else:
                 raise Exception(prettyName + "  not registered to SLIP-0173")
             else:
