@@ -239,7 +239,12 @@ export function getIBCFileProperty(chainName1, chainName2, property) {
     ibcDirectory = path.join(chain1Directory, "..", "_IBC");
   } else if (fs.existsSync(path.join(chain2Directory, "..", "_IBC"))) {
     ibcDirectory = path.join(chain2Directory, "..", "_IBC");
+  } else if (fs.existsSync(path.join(chainRegistryRoot, "_IBC"))) {
+    ibcDirectory = path.join(chainRegistryRoot, "_IBC");
+  } else if (fs.existsSync(path.join(chainRegistryRoot, "testnets", "_IBC"))) {
+    ibcDirectory = path.join(chainRegistryRoot, "testnets", "_IBC");
   } else {
+    console.log("No _IBC directory found!");
     return; // No _IBC directory found
   }
 
