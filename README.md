@@ -16,7 +16,7 @@ Once schemas have matured and client needs are better understood Chain Registry 
 
 ## Web Endpoints
 - https://registry.ping.pub (Update every 24H)
-- https://proxy.atomscan.com/directory/ (Update every 24H)
+- https://atomscan.com/directory (Update every 24H)
 - https://cosmoschains.thesilverfox.pro (Updated every 24H)
 
 ## APIs
@@ -26,7 +26,6 @@ Once schemas have matured and client needs are better understood Chain Registry 
 
 ## Web Interfaces
 - https://cosmos.directory
-- https://chain-registry.netlify.com
 - https://atomscan.com/directory
 
 ## Tooling
@@ -34,9 +33,17 @@ Once schemas have matured and client needs are better understood Chain Registry 
 
 ## Contributing
 
-We accept pull requests to add data to an existing assetlist.json or chain.json (especially to add peer data or public rpc endpoint) or to add a new chain or asset.
+Please give Pull Requests a title that somewhat describes the change more precisely than the default title given to a Commit. PRs titled 'Update chain.json' difficult to navigate when searching through the backlog of Pull Requests. Some recommended details would be: the affected Chain Name, API types, or Provider to give some more detail; e.g., "Add Cosmos Hub APIs for Acme Validator".
 
-Please give Pull Requests a title that somewhat describes the change more precisely than the default title given to a Commit. PRs titled 'Update chain.json' are insufficient, and would be difficult to navigate when searching through the backlog of Pull Requests. Some recommended details would be: the affected Chain Name, API types, or Provider to give some more detail; e.g., "Add Cosmos Hub APIs for Acme Validator".
+### Endpoints reachability
+
+The endpoints added here are being tested via CI daily at 00:00 UTC. It is expected that your endpoints return an HTTP 200 in the following paths:
+- rest: `/cosmos/base/tendermint/v1beta1/syncing`
+- rpc: `/status`
+- grpc: not tested
+Endpoints that consistently fail to respond successfully may be removed without warning.
+
+Providers ready to be tested daily should be whitelisted here: `.github/workflows/tests/apis.py`
 
 # chain.json
 
@@ -51,6 +58,7 @@ A sample `chain.json` includes the following information.
   "status": "live",
   "website": "https://osmosis.zone/",
   "network_type": "mainnet",
+  "chain_type": "cosmos"
   "pretty_name": "Osmosis",
   "chain_id": "osmosis-1",
   "bech32_prefix": "osmo",
@@ -83,63 +91,18 @@ A sample `chain.json` includes the following information.
   },
   "codebase": {
     "git_repo": "https://github.com/osmosis-labs/osmosis",
-    "recommended_version": "v12.2.0",
-    "compatible_versions": [
-      "v12.1.0"
-      "v12.2.0"
-    ],
-    "cosmos_sdk_version": "0.46",
-    "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
-    },
-    "cosmwasm_version": "0.28",
-    "cosmwasm_enabled": true,
-    "ibc_go_version": "3.0.0",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
       "name": "v3",
       "genesis_url": "https://github.com/osmosis-labs/networks/raw/main/osmosis-1/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v3",
-        "tag": "v3.1.0",
-        "height": 0,
-        "next_version_name": "v4"
-      },
-      ...//version history can alternatively go into 'versions.json'
-      {
-        "name": "v12",
-        "tag": "v12.1.0",
-        "height": 6246000,
-        "proposal": 335,
-        "recommended_version": "v12.2.0",
-        "compatible_versions": [
-          "v12.1.0"
-          "v12.2.0"
-        ],
-        "cosmos_sdk_version": "0.46",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "cosmwasm_version": "0.28",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "3.0.0",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "v13"
-      }
-    ]
+    "recommended_version": "v25.0.0"
   },
   "images": [
     {
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg",
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
       "theme": {
+        "circle": true,
         "primary_color_hex": "#231D4B"
       }
     }
@@ -151,10 +114,9 @@ A sample `chain.json` includes the following information.
         "address": "ec2-44-234-84-104.us-west-2.compute.amazonaws.com:26656",
         "provider": "notional"
       },
+      ...
       {
-        "id": "f515a8599b40f0e84dfad935ba414674ab11a668",
-        "address": "osmosis.blockpane.com:26656",
-        "provider": "blockpane"
+        //another peer
       }
     ],
     "persistent_peers": [
@@ -163,22 +125,9 @@ A sample `chain.json` includes the following information.
         "address": "52.79.199.137:26656",
         "provider": "cosmostation"
       },
-      {
-        "id": "8d9967d5f865c68f6fe2630c0f725b0363554e77",
-        "address": "134.255.252.173:26656",
-        "provider": "divecrypto"
-      },
-      ...
       ...
       {
-        "id": "64d36f3a186a113c02db0cf7c588c7c85d946b5b",
-        "address": "209.97.132.170:26656",
-        "provider": "solidstake"
-      },
-      {
-        "id": "4d9ac3510d9f5cfc975a28eb2a7b8da866f7bc47",
-        "address": "37.187.38.191:26656",
-        "provider": "stakelab"
+        //another peer
       }
     ]
   },
@@ -188,15 +137,19 @@ A sample `chain.json` includes the following information.
         "address": "https://osmosis.validator.network/",
         "provider": "validatornetwork"
       },
+      ...
       {
-        "address": "https://rpc-osmosis.blockapsis.com",
-        "provider": "chainapsis"
+        //another rpc
       }
     ],
     "rest": [
       {
         "address": "https://lcd-osmosis.blockapsis.com",
         "provider": "chainapsis"
+      },
+      ...
+      {
+        //another rest
       }
     ]
   },
@@ -206,6 +159,10 @@ A sample `chain.json` includes the following information.
       "url": "https://www.mintscan.io/osmosis",
       "tx_page": "https://www.mintscan.io/osmosis/txs/${txHash}",
       "account_page": "https://www.mintscan.io/osmosis/account/${accountAddress}"
+    },
+    ...
+    {
+      //another explorer
     }
   ],
   "keywords": [
@@ -213,6 +170,11 @@ A sample `chain.json` includes the following information.
   ]
 }
 ```
+
+### Guidelines for Properties
+
+#### Bech32 Prefix
+Although it is not a requirement that bech32 prefixes be unique, it is highly recommended for each chain to have its bech32 prefix registered at the Satoshi Labs Registry (see [SLIP-0173 : Registered human-readable parts for BIP-0173](https://github.com/satoshilabs/slips/blob/master/slip-0173.md)), or consider picking an uncliamed prefix if the chosen prefix has already be registered to another project.
 
 # Assetlists
 
@@ -243,6 +205,7 @@ An example assetlist json contains the following structure:
           "exponent": 6
         }
       ],
+      "type_asset": "sdk.coin",
       "base": "uosmo",
       "name": "Osmosis",
       "display": "osmo",
@@ -252,6 +215,7 @@ An example assetlist json contains the following structure:
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg",
           "theme": {
+            "circle": false,
             "primary_color_hex": "#5c09a0"
           }
         }
@@ -266,39 +230,54 @@ An example assetlist json contains the following structure:
         "twitter": "https://twitter.com/osmosiszone"
       }
     },
+    ..
     {
+      "description": "The native staking and governance token of the Cosmos Hub.",
       "denom_units": [
         {
-          "denom": "uion",
-          "exponent": 0
+          "denom": "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
+          "exponent": 0,
+          "aliases": [
+            "uatom"
+          ]
         },
         {
-          "denom": "ion",
+          "denom": "atom",
           "exponent": 6
         }
       ],
-      "base": "uion",
-      "name": "Ion",
-      "display": "ion",
-      "symbol": "ION",
-      "images": [
+      "type_asset": "ics20",
+      "base": "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
+      "name": "Cosmos Hub",
+      "display": "atom",
+      "symbol": "ATOM",
+      "traces": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/ion.svg",
-          "theme": {
-            "primary_color_hex": "#3f97fc"
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom",
+            "channel_id": "channel-141"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/uatom"
           }
         }
       ],
-      "coingecko_id": "ion",
-      "keywords": [
-        "memecoin",
-        "defi"
-      ],
-      "socials": {
-        "website": "https://ion.wtf",
-        "twitter": "https://twitter.com/_IONDAO"
-      }
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg",
+          "theme": {
+            "primary_color_hex": "#272d45"
+          }
+        }
+      ]
     }
   ]
 }
@@ -349,6 +328,73 @@ An example ibc metadata file contains the following structure:
 }
 ```
 
+
+## Versions
+
+The metadata contained in these files represents a path abstraction between two IBC-connected networks. This information is particularly useful when relaying packets and acknowledgments across chains.
+
+An example ibc metadata file contains the following structure:
+
+```json
+{
+  "$schema": "../ibc_data.schema.json",
+  "chain_name": "osmosis",
+  "versions": [
+    {
+      "name": "v3",
+      "tag": "v3.1.0",
+      "height": 0,
+      "next_version_name": "v4"
+    },
+    ...//entire version history, an object for each major version
+    {
+      "name": "v25",
+      "tag": "v25.0.0",
+      "proposal": 782,
+      "height": 15753500,
+      "recommended_version": "v25.0.0",
+      "compatible_versions": [
+        "v25.0.0"
+      ],
+      "binaries": {
+        "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-amd64",
+        "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v25.0.0/osmosisd-25.0.0-linux-arm64"
+      },
+      "previous_version_name": "v24",
+      "next_version_name": "v26",
+      "consensus": {
+        "type": "cometbft",
+        "version": "0.37.4",
+        "repo": "https::github.com/osmosis-labs/cometbft",
+        "tag": "v0.37.4-v25-osmo-2"
+      },
+      "cosmwasm": {
+        "version": "0.45.0",
+        "repo": "https://github.com/osmosis-labs/wasmd",
+        "tag": "v0.45.0-osmo",
+        "enabled": true
+      },
+      "sdk": {
+        "type": "cosmos",
+        "version": "0.47.5",
+        "repo": "https://github.com/osmosis-labs/cosmos-sdk",
+        "tag": "v0.47.5-v25-osmo-1"
+      },
+      "ibc": {
+        "type": "go",
+        "version": "7.4.0",
+        "ics_enabled": [
+          "ics20-1"
+        ]
+      },
+      "language": {
+        "type": "go",
+        "version": "1.21.4"
+      }
+    }
+  ]
+}
+```
 ---
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.

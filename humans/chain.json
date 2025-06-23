@@ -41,7 +41,6 @@
     "compatible_versions": [
       "v1.0.0"
     ],
-    "cosmos_sdk_version": "0.46.11",
     "consensus": {
       "type": "cometbft",
       "version": "0.34.27"
@@ -49,19 +48,10 @@
     "genesis": {
       "genesis_url": "https://github.com/humansdotai/mainnets/blob/main/mainnet/1/genesis_1089-1.json"
     },
-    "versions": [
-      {
-        "name": "v1.0.0",
-        "recommended_version": "v1.0.0",
-        "compatible_versions": [
-          "v1.0.0"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.34.27"
-        }
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46.11"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/humans/images/heart-dark-mode.png",
@@ -80,11 +70,6 @@
         "provider": "itrocket"
       },
       {
-        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
-        "address": "seed.rhinostake.com:18456",
-        "provider": "RHINO"
-      },
-      {
         "id": "0e959a22dfdd34ac16f9af82d76ec6ae5f0e8e73",
         "address": "65.21.46.90:5256",
         "provider": "PPNV Service"
@@ -92,12 +77,12 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "humans-mainnet-seed.autostake.com:27536",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       }
     ],
     "persistent_peers": [
@@ -129,14 +114,14 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "humans-mainnet-peer.autostake.com:27536",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.humans.nodestake.top",
+        "address": "https://rpc.humans.nodestake.org",
         "provider": "NodeStake"
       },
       {
@@ -189,12 +174,16 @@
       },
       {
         "address": "https://humans-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+      },
+      {
+        "address": "https://humans-mainnet-rpc.cosmonautstakes.com",
+        "provider": "Cosmonaut Stakes"
       }
     ],
     "rest": [
       {
-        "address": "https://api.humans.nodestake.top",
+        "address": "https://api.humans.nodestake.org",
         "provider": "NodeStake"
       },
       {
@@ -243,12 +232,16 @@
       },
       {
         "address": "https://humans-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+      },
+      {
+        "address": "https://humans-mainnet-rest.cosmonautstakes.com",
+        "provider": "Cosmonaut Stakes"
       }
     ],
     "grpc": [
       {
-        "address": "https://grpc.humans.nodestake.top:443",
+        "address": "https://grpc.humans.nodestake.org:443",
         "provider": "NodeStake"
       },
       {
@@ -260,7 +253,7 @@
         "provider": "Nodeist"
       },
       {
-        "address": "humans-mainnet-grpc.itrocket.net:17090",
+        "address": "humans-mainnet-grpc.itrocket.net:443",
         "provider": "itrocket"
       },
       {
@@ -285,12 +278,16 @@
       },
       {
         "address": "humans-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+      },
+      {
+        "address": "humans-mainnet-grpc.cosmonautstakes.com:14890",
+        "provider": "Cosmonaut Stakes"
       }
     ],
     "evm-http-jsonrpc": [
       {
-        "address": "https://jsonrpc.humans.nodestake.top/",
+        "address": "https://jsonrpc.humans.nodestake.org/",
         "provider": "NodeStake"
       },
       {
@@ -316,6 +313,10 @@
       {
         "address": "https://humans-jsonrpc.noders.services",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://humans-mainnet-evm.cosmonautstakes.com",
+        "provider": "Cosmonaut Stakes \ud83e\udd16"
       }
     ]
   },
@@ -342,6 +343,12 @@
       "tx_page": "https://humans.explorers.guru/transaction/${txHash}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/humans",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=humans&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=humans&addr=${accountAddress}"
+    },
+    {
       "kind": "exploreme",
       "url": "https://humansai.exploreme.pro/",
       "tx_page": "https://humans.exploreme.pro/transaction/${txHash}"
@@ -357,6 +364,12 @@
       "url": "https://explorer.posthuman.digital/humans",
       "tx_page": "https://explorer.posthuman.digital/humans/tx/${txHash}",
       "account_page": "https://explorer.posthuman.digital/humans/account/${accountAddress}"
+    },
+    {
+      "kind": "NodeStake",
+      "url": "https://explorer.nodestake.org/humans/staking",
+      "tx_page": "https://explorer.nodestake.org/humans/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.org/humans/account/${accountAddress}"
     }
   ],
   "images": [

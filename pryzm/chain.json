@@ -86,6 +86,13 @@
         "low_gas_price": 10000000000,
         "average_gas_price": 12000000000,
         "high_gas_price": 14000000000
+      },
+      {
+        "denom": "ibc/EA6E1E8BA2EB9F681C4BD12C8C81A46530A62934F2BD561B120A00F46946CE87",
+        "fixed_min_gas_price": 0.0025,
+        "low_gas_price": 0.0025,
+        "average_gas_price": 0.003,
+        "high_gas_price": 0.004
       }
     ]
   },
@@ -101,31 +108,42 @@
   },
   "codebase": {
     "git_repo": "https://github.com/pryzm-finance/pryzm-core",
-    "recommended_version": "v0.18.0",
+    "recommended_version": "v0.28.0",
     "compatible_versions": [
-      "v0.18.0"
+      "v0.28.0"
     ],
     "binaries": {
-      "darwin/amd64": "https://storage.googleapis.com/pryzm-zone/core/0.18.0/pryzmd-0.18.0-darwin-amd64",
-      "darwin/arm64": "https://storage.googleapis.com/pryzm-zone/core/0.18.0/pryzmd-0.18.0-darwin-arm64",
-      "linux/amd64": "https://storage.googleapis.com/pryzm-zone/core/0.18.0/pryzmd-0.18.0-linux-amd64",
-      "linux/arm64": "https://storage.googleapis.com/pryzm-zone/core/0.18.0/pryzmd-0.18.0-linux-arm64"
+      "darwin/amd64": "https://storage.googleapis.com/pryzm-zone/core/0.28.0/pryzmd-0.28.0-darwin-amd64",
+      "darwin/arm64": "https://storage.googleapis.com/pryzm-zone/core/0.28.0/pryzmd-0.28.0-darwin-arm64",
+      "linux/amd64": "https://storage.googleapis.com/pryzm-zone/core/0.28.0/pryzmd-0.28.0-linux-amd64",
+      "linux/arm64": "https://storage.googleapis.com/pryzm-zone/core/0.28.0/pryzmd-0.28.0-linux-arm64"
     },
-    "go_version": "1.22",
-    "cosmos_sdk_version": "v0.47.11",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.5"
+      "version": "0.37.5"
     },
-    "ibc_go_version": "v7.4.1",
-    "ics_enabled": [
-      "ics20-1",
-      "ics27-1"
-    ],
-    "cosmwasm_enabled": true,
-    "cosmwasm_version": "v0.45.0",
     "genesis": {
       "genesis_url": "https://storage.googleapis.com/pryzm-zone/pryzm-1/genesis.json"
+    },
+    "language": {
+      "type": "go",
+      "version": "1.22"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.17"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "7.10.0",
+      "ics_enabled": [
+        "ics20-1",
+        "ics27-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "v0.46.0",
+      "enabled": true
     }
   },
   "peers": {
@@ -161,12 +179,16 @@
         "provider": "PRYZM"
       },
       {
-        "address": "https://pryzm-rpc.lavenderfive.com",
+        "address": "https://rpc.lavenderfive.com:443/pryzm",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://pryzm-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://pryzm-rpc.chainroot.io",
+        "provider": "Chainroot"
       }
     ],
     "rest": [
@@ -175,12 +197,16 @@
         "provider": "PRYZM"
       },
       {
-        "address": "https://pryzm-api.lavenderfive.com",
+        "address": "https://rest.lavenderfive.com:443/pryzm",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://pryzm-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://pryzm-api.chainroot.io",
+        "provider": "Chainroot"
       }
     ],
     "grpc": [
@@ -189,12 +215,16 @@
         "provider": "PRYZM"
       },
       {
-        "address": "https://pryzm-grpc.lavenderfive.com",
+        "address": "pryzm.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "pryzm-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "pryzm-grpc.chainroot.io:443",
+        "provider": "Chainroot"
       }
     ]
   },
@@ -220,6 +250,18 @@
       "block_page": "https://cosmosrun.info/pryzm/blocks/${blockHeight}",
       "proposal_page": "https://cosmosrun.info/pryzm/gov/${proposalId}",
       "validator_page": "https://cosmosrun.info/pryzm/staking/${validatorAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/pryzm",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=pryzm&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=pryzm&addr=${accountAddress}"
+    },
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/pryzm",
+      "tx_page": "https://explorer.chainroot.io/pryzm/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/pryzm/accounts/${accountAddress}"
     }
   ],
   "images": [

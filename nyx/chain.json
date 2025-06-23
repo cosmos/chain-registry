@@ -51,53 +51,9 @@
     "genesis": {
       "genesis_url": "https://nymtech.net/genesis/genesis.json"
     },
-    "cosmwasm_enabled": true,
-    "versions": [
-      {
-        "name": "v0.31.1",
-        "tag": "v0.31.1",
-        "height": 7710000,
-        "proposal": 8,
-        "recommended_version": "v0.31.1",
-        "compatible_versions": [
-          "v0.31.1"
-        ],
-        "cosmwasm_enabled": true,
-        "binaries": {
-          "linux/amd64": "https://github.com/nymtech/nyxd/releases/tag/v0.31.1"
-        },
-        "next_version_name": "v0.32.0"
-      },
-      {
-        "name": "v0.32.0",
-        "tag": "v0.32.0",
-        "height": 8010500,
-        "proposal": 9,
-        "recommended_version": "v0.32.0",
-        "compatible_versions": [
-          "v0.32.0"
-        ],
-        "cosmwasm_enabled": true,
-        "binaries": {
-          "linux/amd64": "https://github.com/nymtech/nyxd/releases/tag/v0.32.0"
-        },
-        "next_version_name": "v0.43.0"
-      },
-      {
-        "name": "v0.43.0",
-        "tag": "v0.43.0",
-        "height": 9912345,
-        "proposal": 10,
-        "recommended_version": "v0.43.0",
-        "compatible_versions": [
-          "v0.43.0"
-        ],
-        "cosmwasm_enabled": true,
-        "binaries": {
-          "linux/amd64": "https://github.com/nymtech/nyxd/releases/tag/v0.43.0"
-        }
-      }
-    ]
+    "cosmwasm": {
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nym_token_light.png",
@@ -113,7 +69,7 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -225,10 +181,22 @@
   },
   "explorers": [
     {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/nym",
+      "tx_page": "https://explorer.chainroot.io/nym/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/nym/accounts/${accountAddress}"
+    },
+    {
       "kind": "Nodes Guru explorer",
       "url": "https://nym.explorers.guru/",
       "tx_page": "https://nym.explorers.guru/transaction/${txHash}",
       "account_page": "https://nym.explorers.guru/account/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/nyx",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=nyx&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=nyx&addr=${accountAddress}"
     },
     {
       "kind": "ezstaking",

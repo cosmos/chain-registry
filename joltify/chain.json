@@ -40,41 +40,31 @@
     "compatible_versions": [
       "v0.1.0-rc1"
     ],
-    "cosmos_sdk_version": "v0.47.5",
     "consensus": {
       "type": "cometbft",
       "version": "v0.37.3"
     },
-    "cosmwasm_enabled": false,
-    "ibc_go_version": "v7.3.0",
-    "ics_enabled": [
-      "ics20-1"
-    ],
-    "go_version": "1.22.3",
     "binaries": {
       "linux/amd64": "https://gitlab.com/api/v4/projects/42057472/packages/generic/joltify-linux-amd64-v0.1.0-rc1/v0.1.0-rc1/joltify"
     },
-    "versions": [
-      {
-        "name": "v0.1.0-rc1",
-        "tag": "v0.1.0-rc1",
-        "height": 0,
-        "cosmos_sdk_version": "v0.47.5",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.37.3"
-        },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "v7.3.0",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "go_version": "1.22.3",
-        "binaries": {
-          "linux/amd64": "https://gitlab.com/api/v4/projects/42057472/packages/generic/joltify-linux-amd64-v0.1.0-rc1/v0.1.0-rc1/joltify"
-        }
-      }
-    ]
+    "language": {
+      "type": "go",
+      "version": "1.22.3"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.5"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.3.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "enabled": false
+    }
   },
   "images": [
     {
@@ -108,12 +98,20 @@
       {
         "address": "https://rpc.joltify.io",
         "provider": "joltify"
+      },
+      {
+        "address": "https://joltify_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
       }
     ],
     "rest": [
       {
         "address": "https://lcd.joltify.io/",
         "provider": "joltify"
+      },
+      {
+        "address": "https://joltify_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
       }
     ],
     "grpc": [
@@ -126,6 +124,10 @@
       {
         "address": "https://evm.joltify.io/",
         "provider": "joltify"
+      },
+      {
+        "address": "https://joltify_mainnet_evm.chain.whenmoonwhenlambo.money",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
       }
     ]
   },
@@ -135,6 +137,18 @@
       "url": "https://explorer.joltify.io/joltify",
       "tx_page": "https://explorer.joltify.io/joltify/transactions/${txHash}",
       "account_page": "https://explorer.joltify.io/joltify/accounts/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/joltify",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=joltify&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=joltify&addr=${accountAddress}"
+    },
+    {
+      "kind": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25",
+      "url": "https://explorer.whenmoonwhenlambo.money/joltify",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/joltify/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/joltify/account/${accountAddress}"
     }
   ],
   "keywords": [

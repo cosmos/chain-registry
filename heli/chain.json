@@ -41,35 +41,25 @@
     "compatible_versions": [
       "v0.0.1"
     ],
-    "cosmos_sdk_version": "0.47.4",
-    "ibc_go_version": "v7.2.0",
     "consensus": {
       "type": "cometbft",
       "version": "0.37.2"
     },
-    "cosmwasm_version": "0.41.0",
-    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/Heli-Chain/heli/main/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.0.1",
-        "recommended_version": "v0.0.1",
-        "compatible_versions": [
-          "v0.0.1"
-        ],
-        "cosmos_sdk_version": "0.47.4",
-        "ibc_go_version": "v7.2.0",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        },
-        "cosmwasm_version": "0.42.0",
-        "cosmwasm_enabled": true,
-        "next_version_name": ""
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.47.4"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.2.0"
+    },
+    "cosmwasm": {
+      "version": "0.42.0",
+      "enabled": true
+    }
   },
   "peers": {
     "seeds": [
@@ -108,6 +98,12 @@
       "url": "https://explorer.helichain.com/Helichain",
       "tx_page": "https://explorer.helichain.com/Helichain/tx/${txHash}",
       "account_page": "https://explorer.helichain.com/Helichain/account/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/heli",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=heli&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=heli&addr=${accountAddress}"
     }
   ],
   "images": [

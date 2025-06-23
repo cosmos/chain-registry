@@ -10,7 +10,9 @@
   "bech32_prefix": "air",
   "daemon_name": "junctiond",
   "node_home": "$HOME/.junctiond",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -33,19 +35,13 @@
   "codebase": {
     "git_repo": "https://github.com/airchains-network/junction",
     "recommended_version": "v0.1.0",
-    "cosmos_sdk_version": "0.50.3",
     "genesis": {
       "genesis_url": "https://github.com/airchains-network/junction/releases/download/v0.1.0/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1",
-        "recommended_version": "v1.0.0",
-        "compatible_versions": [
-          "v1.0.0"
-        ]
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50.3"
+    }
   },
   "images": [
     {
@@ -64,7 +60,7 @@
       {
         "id": "04e2fdd6ec8f23729f24245171eaceae5219aa91",
         "address": "airchains-testnet-seed.itrocket.net:19656",
-        "provider": "IT Rocket"
+        "provider": "ITRocket"
       },
       {
         "id": "aeaf101d54d47f6c99b4755983b64e8504f6132d",
@@ -101,7 +97,7 @@
       {
         "id": "04e2fdd6ec8f23729f24245171eaceae5219aa91",
         "address": "airchains-testnet-seed.itrocket.net:19656",
-        "provider": "IT Rocket"
+        "provider": "ITRocket"
       },
       {
         "id": "3dc2f101876e1a26730f99c06a5a2eb6e2cc2349",
@@ -131,7 +127,7 @@
       {
         "id": "47f61921b54a652ca5241e2a7fc4ed8663091e89",
         "address": "airchains-testnet-peer.itrocket.net:19656",
-        "provider": "IT Rocket"
+        "provider": "ITRocket"
       }
     ]
   },
@@ -203,7 +199,7 @@
       },
       {
         "address": "https://airchains-testnet-rpc.itrocket.net/",
-        "provider": "IT Rocket"
+        "provider": "ITRocket"
       },
       {
         "address": "https://rpc1.airchains.t.cosmostaking.com/",
@@ -257,11 +253,15 @@
       },
       {
         "address": "https://airchains-testnet-api.itrocket.net/",
-        "provider": "IT Rocket"
+        "provider": "ITRocket"
       },
       {
         "address": "https://rest1.airchains.t.cosmostaking.com/",
         "provider": "Cosmostaking"
+      },
+      {
+        "address": "https://airchains-testnet-rest.cosmonautstakes.com/",
+        "provider": "Cosmonaut Stakes"
       }
     ],
     "grpc": [
@@ -279,11 +279,15 @@
       },
       {
         "address": "airchains-testnet-grpc.itrocket.net:443",
-        "provider": "IT Rocket"
+        "provider": "ITRocket"
       },
       {
         "address": "http://grpc1.airchains.t.cosmostaking.com/",
         "provider": "Cosmostaking"
+      },
+      {
+        "address": "airchains-testnet-grpc.cosmonautstakes.com:14190",
+        "provider": "Cosmonaut Stakes"
       }
     ]
   },
@@ -293,14 +297,12 @@
       "url": "https://testnet.airchains.io",
       "tx_page": "https://testnet.airchains.io/transaction/${txHash}",
       "account_page": "https://testnet.airchains.io/address/${accountAddress}"
-
     },
     {
       "kind": "NodesGuru",
       "url": "https://testnet.junction.explorers.guru/",
       "tx_page": "https://testnet.junction.explorers.guru/transaction/${txHash}",
       "account_page": "https://testnet.junction.explorers.guru/account/${accountAddress}"
-
     },
     {
       "kind": "Nodejumper",
@@ -354,7 +356,7 @@
       "account_page": "https://cosmotracker.com/airchains/account/${accountAddress}"
     },
     {
-      "kind": "IT Rocket",
+      "kind": "ITRocket",
       "url": "https://testnet.itrocket.net/airchains/",
       "tx_page": "https://testnet.itrocket.net/airchains//tx/${txHash}",
       "account_page": "https://testnet.itrocket.net/airchains/account/${accountAddress}"

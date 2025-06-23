@@ -40,55 +40,25 @@
     "compatible_versions": [
       "v0.1.1-patch"
     ],
-    "cosmos_sdk_version": "v0.47.8",
-    "ibc_go_version": "v7.4.0",
     "consensus": {
       "type": "cometbft",
       "version": "v0.37.4"
     },
-    "cosmwasm_version": "v0.41.0",
-    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://snapshots.lavenderfive.com/genesis/andromeda/genesis.json"
     },
-    "versions": [
-      {
-        "name": "andromeda-1-v0.1.0",
-        "height": 1696401,
-        "tag": "andromeda-1-v0.1.0",
-        "recommended_version": "andromeda-1-v0.1.0",
-        "compatible_versions": [
-          "andromeda-1-v0.1.0"
-        ],
-        "cosmos_sdk_version": "v0.47.5",
-        "ibc_go_version": "v7.3.0",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.37.2"
-        },
-        "cosmwasm_version": "v0.41.0",
-        "cosmwasm_enabled": true,
-        "next_version_name": "v0.1.1"
-      },
-      {
-        "name": "v0.1.1",
-        "proposal": 5,
-        "height": 2363000,
-        "tag": "v0.1.1-patch",
-        "recommended_version": "v0.1.1-patch",
-        "compatible_versions": [
-          "v0.1.1-patch"
-        ],
-        "cosmos_sdk_version": "v0.47.8",
-        "ibc_go_version": "v7.4.0",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.37.4"
-        },
-        "cosmwasm_version": "v0.41.0",
-        "cosmwasm_enabled": true
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.8"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0"
+    },
+    "cosmwasm": {
+      "version": "v0.41.0",
+      "enabled": true
+    }
   },
   "peers": {
     "seeds": [
@@ -100,12 +70,17 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "andromeda-mainnet-peer.autostake.com:27126",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
         "address": "andromeda.rpc.kjnodes.com:14759",
-        "provider": "kjnodes.com 🦄"
+        "provider": "kjnodes.com \ud83e\udd84"
+      },
+      {
+        "id": "258f523c96efde50d5fe0a9faeea8a3e83be22ca",
+        "address": "seed.andromeda-1.andromeda.aviaone.com:10280",
+        "provider": "AviaOne \ud83d\udfe2"
       }
     ],
     "persistent_peers": [
@@ -132,17 +107,17 @@
       {
         "id": "e4c2267b90c7cfbb45090ab7647dc01df97f58f9",
         "address": "andromeda-m.peer.stavr.tech:4376",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:14956",
-        "provider": "Lavender.Five Nodes 🐝"
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "andromeda-mainnet-seed.autostake.com:27126",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "1652b0e25ac00834292624db10fef408155686e5",
@@ -155,7 +130,7 @@
     "rpc": [
       {
         "address": "https://rpc.andromeda-1.andromeda.aviaone.com",
-        "provider": "AVIAONE"
+        "provider": "AviaOne \ud83d\udfe2"
       },
       {
         "address": "https://andromeda.rpc.kjnodes.com",
@@ -167,15 +142,15 @@
       },
       {
         "address": "https://andro.rpc.m.stavr.tech/",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
-        "address": "https://andromeda-rpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rpc.lavenderfive.com:443/andromeda",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://andromeda-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://andromeda-rpc.stakerhouse.com:443",
@@ -183,7 +158,7 @@
       },
       {
         "address": "https://andromeda-rpc.highstakes.ch",
-        "provider": "High Stakes 🇨🇭"
+        "provider": "High Stakes \ud83c\udde8\ud83c\udded"
       },
       {
         "address": "https://andromeda-rpc.genznodes.dev",
@@ -191,7 +166,7 @@
       },
       {
         "address": "https://andromeda.rpc.kjnodes.com",
-        "provider": "kjnodes.com 🦄"
+        "provider": "kjnodes.com \ud83e\udd84"
       },
       {
         "address": "andromeda-rpc.noders.services",
@@ -208,8 +183,8 @@
     ],
     "rest": [
       {
-        "address": "https://api.andromeda-1.andromeda.aviaone.com/",
-        "provider": "AVIAONE"
+        "address": "https://api.andromeda-1.andromeda.aviaone.com",
+        "provider": "AviaOne \ud83d\udfe2"
       },
       {
         "address": "https://andromeda.api.kjnodes.com",
@@ -221,15 +196,15 @@
       },
       {
         "address": "https://andro.api.m.stavr.tech",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
-        "address": "https://andromeda-api.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rest.lavenderfive.com:443/andromeda",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://andromeda-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://andromeda-rest.stakerhouse.com:443",
@@ -237,7 +212,7 @@
       },
       {
         "address": "https://andromeda-api.highstakes.ch",
-        "provider": "High Stakes 🇨🇭"
+        "provider": "High Stakes \ud83c\udde8\ud83c\udded"
       },
       {
         "address": "https://andromeda-api.genznodes.dev",
@@ -245,7 +220,7 @@
       },
       {
         "address": "https://andromeda.api.kjnodes.com",
-        "provider": "kjnodes.com 🦄"
+        "provider": "kjnodes.com \ud83e\udd84"
       },
       {
         "address": "andromeda-api.noders.services",
@@ -262,12 +237,12 @@
     ],
     "grpc": [
       {
-        "address": "andromeda-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "andromeda.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
-        "address": "https://grpc.andromeda-1.andromeda.aviaone.com:9094",
-        "provider": "AVIAONE"
+        "address": "https://grpc.andromeda-1.andromeda.aviaone.com:9108",
+        "provider": "AviaOne \ud83d\udfe2"
       },
       {
         "address": "andromeda.grpc.kjnodes.com:443",
@@ -275,7 +250,7 @@
       },
       {
         "address": "andromeda-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://andromeda.grpc.nodex.one:443",
@@ -283,7 +258,7 @@
       },
       {
         "address": "http://andromedad.grpc.t.stavr.tech:132",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "andromeda-grpc.stakerhouse.com:443",
@@ -295,7 +270,7 @@
       },
       {
         "address": "andromeda.grpc.kjnodes.com:443",
-        "provider": "kjnodes.com 🦄"
+        "provider": "kjnodes.com \ud83e\udd84"
       },
       {
         "address": "andromeda-grpc.noders.services:34090",
@@ -313,7 +288,13 @@
   },
   "explorers": [
     {
-      "kind": "🔥STAVR🔥 Explorer",
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/andromeda",
+      "tx_page": "https://explorer.chainroot.io/andromeda/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/andromeda/accounts/${accountAddress}"
+    },
+    {
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25 Explorer",
       "url": "https://explorer.stavr.tech/Andromeda-Mainnet",
       "tx_page": "https://explorer.stavr.tech/Andromeda-Mainnet/tx/${txHash}",
       "account_page": "https://explorer.stavr.tech/Andromeda-Mainnet/account/${accountAddress}"
@@ -334,6 +315,11 @@
       "kind": "ping.pub",
       "url": "https://ping.pub/andromeda",
       "tx_page": "https://ping.pub/andromeda/tx/${txHash}"
+    },
+    {
+      "kind": "AviaOne Explorer \ud83d\udfe2",
+      "url": "https://mainnet.explorer.aviaone.com/andromeda",
+      "tx_page": "https://mainnet.explorer.aviaone.com/andromeda/tx/${txHash}"
     }
   ],
   "logo_URIs": {

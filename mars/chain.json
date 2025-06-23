@@ -1,7 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "mars",
-  "status": "live",
+  "status": "killed",
   "network_type": "mainnet",
   "website": "https://www.marsprotocol.io/",
   "pretty_name": "Mars Hub",
@@ -42,43 +42,28 @@
       "v1.0.0",
       "v1.0.2"
     ],
-    "cosmos_sdk_version": "0.46.7",
     "consensus": {
       "type": "tendermint",
       "version": "0.34.24"
     },
-    "cosmwasm_version": "0.30.0",
-    "cosmwasm_enabled": true,
-    "ibc_go_version": "6.1.0",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
       "genesis_url": "https://github.com/mars-protocol/networks/raw/main/mars-1/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1",
-        "tag": "v1.0.0",
-        "height": 0,
-        "recommended_version": "v1.0.2",
-        "compatible_versions": [
-          "v1.0.0",
-          "v1.0.2"
-        ],
-        "cosmos_sdk_version": "0.46.7",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34.24"
-        },
-        "cosmwasm_version": "0.30.0",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "6.1.0",
-        "ics_enabled": [
-          "ics20-1"
-        ]
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46.7"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "6.1.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "0.30.0",
+      "enabled": true
+    }
   },
   "description": "Lend, borrow and earn with an autonomous credit protocol in the Cosmos universe. Open to all, closed to none.",
   "peers": {
@@ -86,12 +71,12 @@
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:18556",
-        "provider": "Lavender.Five Nodes 🐝"
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "mars-mainnet-seed.autostake.com:27056",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
@@ -101,7 +86,7 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
@@ -113,7 +98,7 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "mars-mainnet-peer.autostake.com:27056",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       }
     ]
   },
@@ -124,12 +109,12 @@
         "provider": "Delphi Labs"
       },
       {
-        "address": "https://mars-rpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rpc.lavenderfive.com:443/mars",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://mars-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://mars-rpc.polkachu.com",
@@ -145,15 +130,15 @@
       },
       {
         "address": "https://mars-rpc.stakeandrelax.net",
-        "provider": "Stake&Relax Validator 🦥"
+        "provider": "Stake&Relax Validator \ud83e\udda5"
       },
       {
         "address": "https://mars-rpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "https://mars-rpc.stakeandrelax.net",
-        "provider": "Stake&Relax 🦥"
+        "provider": "Stake&Relax \ud83e\udda5"
       }
     ],
     "rest": [
@@ -162,12 +147,12 @@
         "provider": "Delphi Labs"
       },
       {
-        "address": "https://mars-api.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rest.lavenderfive.com:443/mars",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://mars-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://mars-api.polkachu.com",
@@ -183,15 +168,15 @@
       },
       {
         "address": "https://mars-api.stakeandrelax.net",
-        "provider": "Stake&Relax Validator 🦥"
+        "provider": "Stake&Relax Validator \ud83e\udda5"
       },
       {
         "address": "https://mars-rest.publicnode.com",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "https://mars-api.stakeandrelax.net",
-        "provider": "Stake&Relax 🦥"
+        "provider": "Stake&Relax \ud83e\udda5"
       }
     ],
     "grpc": [
@@ -200,8 +185,8 @@
         "provider": "Delphi Labs"
       },
       {
-        "address": "mars-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "mars.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "mars-grpc.polkachu.com:18590",
@@ -209,7 +194,7 @@
       },
       {
         "address": "mars-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "mars-grpc.genznodes.dev:26090",
@@ -225,20 +210,20 @@
       },
       {
         "address": "mars-grpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "mars-grpc.stakeandrelax.net:18590",
-        "provider": "Stake&Relax 🦥"
+        "provider": "Stake&Relax \ud83e\udda5"
       }
     ]
   },
   "explorers": [
     {
       "kind": "ezstaking",
-      "url": "https://ezstaking.app/mars",
-      "tx_page": "https://ezstaking.app/mars/txs/${txHash}",
-      "account_page": "https://ezstaking.app/mars/account/${accountAddress}"
+      "url": "https://ezstaking.app/mars-protocol",
+      "tx_page": "https://ezstaking.app/mars-protocol/txs/${txHash}",
+      "account_page": "https://ezstaking.app/mars-protocol/account/${accountAddress}"
     },
     {
       "kind": "BigDipper",

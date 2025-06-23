@@ -40,106 +40,25 @@
     "genesis": {
       "genesis_url": "https://github.com/gitopia/mainnet/raw/master/genesis.tar.gz"
     },
-    "recommended_version": "v3.3.0",
+    "recommended_version": "v4.0.0",
     "compatible_versions": [
-      "v3.3.0"
+      "v4.0.0"
     ],
-    "cosmos_sdk_version": "v0.46.13",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.34.28"
+      "version": "v0.37.6"
     },
-    "ibc_go_version": "5.3.1",
-    "ics_enabled": [
-      "ics20-1"
-    ],
-    "versions": [
-      {
-        "name": "v2",
-        "recommended_version": "v2.1.1",
-        "compatible_versions": [
-          "v2.0.0",
-          "v2.1.1"
-        ],
-        "binaries": {
-          "linux/amd64": "https://server.gitopia.com/releases/Gitopia/gitopia/v2.1.1/gitopiad_2.1.1_linux_amd64.tar.gz",
-          "linux/arm64": "https://server.gitopia.com/releases/Gitopia/gitopia/v2.1.1/gitopiad_2.1.1_linux_arm64.tar.gz",
-          "darwin/amd64": "https://server.gitopia.com/releases/Gitopia/gitopia/v2.1.1/gitopiad_2.1.1_darwin_amd64.tar.gz",
-          "darwin/arm64": "https://server.gitopia.com/releases/Gitopia/gitopia/v2.1.1/gitopiad_2.1.1_darwin_arm64.tar.gz"
-        },
-        "cosmos_sdk_version": "0.46",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "ibc_go_version": "5.0.0",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "v3"
-      },
-      {
-        "name": "v3",
-        "recommended_version": "v3.0.1",
-        "compatible_versions": [
-          "v3.0.1"
-        ],
-        "binaries": {
-          "linux/amd64": "https://server.gitopia.com/releases/Gitopia/gitopia/v3.0.1/gitopiad_3.0.1_linux_amd64.tar.gz",
-          "linux/arm64": "https://server.gitopia.com/releases/Gitopia/gitopia/v3.0.1/gitopiad_3.0.1_linux_arm64.tar.gz",
-          "darwin/amd64": "https://server.gitopia.com/releases/Gitopia/gitopia/v3.0.1/gitopiad_3.0.1_darwin_amd64.tar.gz",
-          "darwin/arm64": "https://server.gitopia.com/releases/Gitopia/gitopia/v3.0.1gitopiad_3.0.1_darwin_arm64.tar.gz"
-        },
-        "cosmos_sdk_version": "0.46",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.34"
-        },
-        "ibc_go_version": "5.3.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "v3.2.0"
-      },
-      {
-        "name": "v3.2.0",
-        "recommended_version": "v3.2.0",
-        "compatible_versions": [
-          "v3.2.0"
-        ],
-        "proposal": 12,
-        "height": 6446000,
-        "cosmos_sdk_version": "v0.46.13",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.28"
-        },
-        "ibc_go_version": "5.3.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "v3.3.0"
-      },
-      {
-        "name": "v3.3.0",
-        "recommended_version": "v3.3.0",
-        "compatible_versions": [
-          "v3.3.0"
-        ],
-        "proposal": 14,
-        "height": 6720000,
-        "cosmos_sdk_version": "v0.46.13",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.28"
-        },
-        "ibc_go_version": "5.3.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": ""
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.13"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "7.6.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    }
   },
   "images": [
     {
@@ -160,22 +79,12 @@
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:11356",
-        "provider": "Lavender.Five Nodes 🐝"
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "gitopia-mainnet-seed.autostake.com",
         "provider": "autostake"
-      },
-      {
-        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
-        "address": "seeds.whispernode.com:11356",
-        "provider": "WhisperNode 🤐"
-      },
-      {
-        "id": "187425bc3739daaef8cb1d7cf47d655117396dbe",
-        "address": "seed-gitopia.ibs.team:16660",
-        "provider": "Inter Blockchain Services"
       },
       {
         "id": "9aa8a73ea9364aa3cf7806d4dd25b6aed88d8152",
@@ -193,19 +102,14 @@
         "provider": "MMS"
       },
       {
-        "id": "a74403b9fbf58ba7538e0a9584510c67a0877beb",
-        "address": "rpc.gitopia.nodestake.top:666",
-        "provider": "NodeStake"
-      },
-      {
         "id": "6d41d36d54abd868c4cdaf5b956ac047327bff67",
         "address": "seeds-3.anode.team:10260",
-        "provider": "AlxVoy ⚡ ANODE.TEAM"
+        "provider": "AlxVoy \u26a1 ANODE.TEAM"
       },
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "id": "08bc9afd0cac4ae6cf8f1877920b0cc7e58a6f42",
@@ -216,14 +120,14 @@
         "id": "91706fd6ec45e38661ba7bb7567fc572b738c3ea",
         "address": "seed-gitopia.tothemars.network:11156",
         "provider": "ToTheMars"
+      },
+      {
+        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
+        "address": "seed.rhinostake.com:11356",
+        "provider": "RHINO \ud83e\udd8f"
       }
     ],
     "persistent_peers": [
-      {
-        "id": "8f67a2fcdd7ade970b1983bf1697111d35dfdd6f",
-        "address": "52.79.199.137:26656",
-        "provider": "nodestake"
-      },
       {
         "id": "4979b96c4453efb66c677876fe0e9109b15a8440",
         "address": "65.21.235.144:26656",
@@ -252,7 +156,7 @@
       {
         "id": "c903e98ce3923865f521151d97f36510157c8bc1",
         "address": "gitopia.peers.stavr.tech:51056",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "id": "fdf51e3445ef8b3b28c313d98c65516b8faf3317",
@@ -297,12 +201,12 @@
       {
         "id": "901c393d17c1e6094cbbc83c34f167a67bb5fab1",
         "address": "65.108.70.119:36656",
-        "provider": "AlxVoy ⚡ ANODE.TEAM"
+        "provider": "AlxVoy \u26a1 ANODE.TEAM"
       },
       {
         "id": "aa26aa0baa5dfc41c126d16d4dc48bb45151d560",
         "address": "gitopia-mainnet.peers.l0vd.com:22656",
-        "provider": "L0vd.com ❤️"
+        "provider": "L0vd.com \u2764\ufe0f"
       },
       {
         "id": "c160c99489ca08ce5c59af1025460544619acdad",
@@ -328,36 +232,24 @@
         "provider": "polkachu"
       },
       {
-        "address": "https://gitopia-rpc.lavenderfive.com",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://rpc.gitopia.nodestake.top:443",
-        "provider": "nodestake"
+        "address": "https://rpc.lavenderfive.com:443/gitopia",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://gitopia-rpc.staketab.org:443",
         "provider": "Staketab"
       },
       {
-        "address": "https://gitopia-rpc.ibs.team:443",
-        "provider": "Inter Blockchain Services"
-      },
-      {
         "address": "https://m-gitopia.rpc.utsa.tech",
-        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
+        "provider": "\ud835\udc25\ud835\udc1e\ud835\udc2c\ud835\udc27\ud835\udc22\ud835\udc24 | \ud835\udc14\ud835\udc13\ud835\udc12\ud835\udc00"
       },
       {
         "address": "http://gitopia.rpc.m.stavr.tech:51057",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "https://gitopia-rpc.genznodes.dev",
         "provider": "genznodes"
-      },
-      {
-        "address": "https://rpc-gitopia.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://gitopia.rpc.liveraven.net",
@@ -396,7 +288,7 @@
         "provider": "Roomit"
       },
       {
-        "address": "https://gitopia.rpc.moonbridge.team",
+        "address": "https://gitopia-rpc.moonbridge.org",
         "provider": "Moonbridge"
       },
       {
@@ -405,7 +297,7 @@
       },
       {
         "address": "https://gitopia.rpc.m.anode.team",
-        "provider": "AlxVoy ⚡ ANODE.TEAM"
+        "provider": "AlxVoy \u26a1 ANODE.TEAM"
       },
       {
         "address": "https://gitopia.rpc.stakevillage.net",
@@ -429,7 +321,7 @@
       },
       {
         "address": "https://gitopia-mainnet.rpc.l0vd.com:443",
-        "provider": "L0vd.com ❤️"
+        "provider": "L0vd.com \u2764\ufe0f"
       },
       {
         "address": "https://gitopia-rpc.tothemars.network:443",
@@ -450,12 +342,8 @@
         "provider": "polkachu"
       },
       {
-        "address": "https://gitopia-api.lavenderfive.com",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://api.gitopia.nodestake.top:443",
-        "provider": "nodestake"
+        "address": "https://rest.lavenderfive.com:443/gitopia",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://gitopia-rest.staketab.org",
@@ -466,24 +354,16 @@
         "provider": "autostake"
       },
       {
-        "address": "https://gitopia-api.ibs.team:443",
-        "provider": "Inter Blockchain Services"
-      },
-      {
         "address": "https://m-gitopia.api.utsa.tech",
-        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
+        "provider": "\ud835\udc25\ud835\udc1e\ud835\udc2c\ud835\udc27\ud835\udc22\ud835\udc24 | \ud835\udc14\ud835\udc13\ud835\udc12\ud835\udc00"
       },
       {
         "address": "https://gitopia.api.m.stavr.tech",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "https://gitopia-api.genznodes.dev",
         "provider": "genznodes"
-      },
-      {
-        "address": "https://lcd-gitopia.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://gitopia.api.liveraven.net",
@@ -522,7 +402,7 @@
         "provider": "Roomit"
       },
       {
-        "address": "https://gitopia.api.moonbridge.team",
+        "address": "https://gitopia-api.moonbridge.org",
         "provider": "Moonbridge"
       },
       {
@@ -531,7 +411,7 @@
       },
       {
         "address": "https://gitopia.api.m.anode.team",
-        "provider": "AlxVoy ⚡ ANODE.TEAM"
+        "provider": "AlxVoy \u26a1 ANODE.TEAM"
       },
       {
         "address": "https://gitopia.api.stakevillage.net",
@@ -555,7 +435,7 @@
       },
       {
         "address": "https://gitopia-mainnet.api.l0vd.com:443",
-        "provider": "L0vd.com ❤️"
+        "provider": "L0vd.com \u2764\ufe0f"
       },
       {
         "address": "https://gitopia-api.tothemars.network:443",
@@ -588,12 +468,8 @@
         "provider": "Staketab"
       },
       {
-        "address": "https://gitopia-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://grpc.gitopia.nodestake.top:443",
-        "provider": "nodestake"
+        "address": "gitopia.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://grpc-gitopia.nodeist.net",
@@ -601,7 +477,7 @@
       },
       {
         "address": "http://gitopia.grpc.m.stavr.tech:5123",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "gitopia-grpc.genznodes.dev:33090",
@@ -644,7 +520,7 @@
         "provider": "Roomit"
       },
       {
-        "address": "https://gitopia.grpc.moonbridge.team",
+        "address": "gitopia-grpc.moonbridge.org:443",
         "provider": "Moonbridge"
       },
       {
@@ -653,7 +529,7 @@
       },
       {
         "address": "https://gitopia.grpc.m.anode.team",
-        "provider": "AlxVoy ⚡ ANODE.TEAM"
+        "provider": "AlxVoy \u26a1 ANODE.TEAM"
       },
       {
         "address": "https://grpc.gitopia.sbgid.com",
@@ -677,7 +553,7 @@
       },
       {
         "address": "gitopia-mainnet.grpc.l0vd.com:80",
-        "provider": "L0vd.com ❤️"
+        "provider": "L0vd.com \u2764\ufe0f"
       },
       {
         "address": "gitopia-grpc.tothemars.network:21190",
@@ -695,19 +571,31 @@
   },
   "explorers": [
     {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/gitopia",
+      "tx_page": "https://explorer.chainroot.io/gitopia/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/gitopia/accounts/${accountAddress}"
+    },
+    {
       "kind": "ping.pub",
       "url": "https://ping.pub/gitopia",
       "tx_page": "https://ping.pub/gitopia/tx/${txHash}",
       "account_page": "https://ping.pub/gitopia/account/${accountAddress}"
     },
     {
-      "kind": "🔥STAVR🔥",
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/gitopia",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=gitopia&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=gitopia&addr=${accountAddress}"
+    },
+    {
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
       "url": "https://explorer.stavr.tech/Gitopia-M",
       "tx_page": "https://explorer.stavr.tech/Gitopia-M/tx/${txHash}",
       "account_page": "https://explorer.stavr.tech/Gitopia-M/account/${accountAddress}"
     },
     {
-      "kind": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀",
+      "kind": "\ud835\udc25\ud835\udc1e\ud835\udc2c\ud835\udc27\ud835\udc22\ud835\udc24 | \ud835\udc14\ud835\udc13\ud835\udc12\ud835\udc00",
       "url": "https://exp.utsa.tech/gitopia",
       "tx_page": "https://exp.utsa.tech/gitopia/tx/${txHash}",
       "account_page": "https://exp.utsa.tech/gitopia/account/${accountAddress}"
@@ -738,9 +626,9 @@
     },
     {
       "kind": "NodeStake",
-      "url": "https://explorer.nodestake.top/gitopia",
-      "tx_page": "https://explorer.nodestake.top/gitopia/tx/${txHash}",
-      "account_page": "https://explorer.nodestake.top/gitopia/account/${accountAddress}"
+      "url": "https://explorer.nodestake.org/gitopia",
+      "tx_page": "https://explorer.nodestake.org/gitopia/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.org/gitopia/account/${accountAddress}"
     },
     {
       "kind": "Roomit",
@@ -750,9 +638,9 @@
     },
     {
       "kind": "Moonbridge",
-      "url": "https://explorer.moonbridge.team/gitopia",
-      "tx_page": "https://explorer.moonbridge.team/gitopia/tx/${txHash}",
-      "account_page": "https://explorer.moonbridge.team/gitopia/account/${accountAddress}"
+      "url": "https://explorer.moonbridge.org/gitopia",
+      "tx_page": "https://explorer.moonbridge.org/gitopia/tx/${txHash}",
+      "account_page": "https://explorer.moonbridge.org/gitopia/account/${accountAddress}"
     },
     {
       "kind": "KonsorTech",
@@ -767,13 +655,13 @@
       "account_page": "https://exp.stakevillage.net/gitopia/account/${accountAddress}"
     },
     {
-      "kind": "AlxVoy ⚡ ANODE.TEAM",
+      "kind": "AlxVoy \u26a1 ANODE.TEAM",
       "url": "https://main.anode.team/gitopia",
       "tx_page": "https://main.anode.team/gitopia/tx/${txHash}",
       "account_page": "https://main.anode.team/gitopia/account/${accountAddress}"
     },
     {
-      "kind": "L0vd.com ❤️",
+      "kind": "L0vd.com \u2764\ufe0f",
       "url": "https://chain-services.l0vd.com/mainnets/gitopia",
       "tx_page": "https://chain-services.l0vd.com/mainnets/gitopia/tx/${txHash}",
       "account_page": "https://chain-services.l0vd.com/mainnets/gitopia/account/${accountAddress}"
@@ -791,7 +679,7 @@
       "account_page": "https://explorer.declab.pro/Gitopia/account/${accountAddress}"
     },
     {
-      "kind": "WhisperNode 🤐",
+      "kind": "WhisperNode \ud83e\udd10",
       "url": "https://mainnet.whispernode.com/gitopia",
       "tx_page": "https://mainnet.whispernode.com/gitopia/tx/${txHash}",
       "account_page": "https://mainnet.whispernode.com/gitopia/account/${accountAddress}"

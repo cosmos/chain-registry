@@ -41,40 +41,27 @@
     "binaries": {
       "linux/amd64": "https://github.com/dhealthproject/dhealth/releases/download/v1.0.0/dhealthd-1.0.0-linux-amd64"
     },
-    "cosmos_sdk_version": "cosmos/cosmos-sdk v0.47.4",
-    "ibc_go_version": "v7.2.0",
     "consensus": {
       "type": "cometbft",
       "version": "v0.37.2"
     },
-    "cosmwasm_version": "v0.41.0",
-    "cosmwasm_enabled": true,
-    "cosmwasm_path": "$HOME/.dhealth/wasm",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/dhealthproject/mainnet/main/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1.0.0",
-        "recommended_version": "v1.0.0",
-        "compatible_versions": [
-          "v1.0.0"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/dhealthproject/dhealth/releases/download/v1.0.0/dhealthd-1.0.0-linux-amd64"
-        },
-        "cosmos_sdk_version": "cosmos/cosmos-sdk v0.47.4",
-        "ibc_go_version": "v7.2.0",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.37.2"
-        },
-        "cosmwasm_version": "v0.41.0",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.dhealth/wasm",
-        "next_version_name": ""
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/cosmos/cosmos-sdk",
+      "version": "v0.47.4"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.2.0"
+    },
+    "cosmwasm": {
+      "version": "v0.41.0",
+      "path": "$HOME/.dhealth/wasm",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dhealth/images/dhp.png",
@@ -139,6 +126,18 @@
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/dhealth",
+      "tx_page": "https://explorer.chainroot.io/dhealth/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/dhealth/accounts/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/dhealth",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=dhealth&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=dhealth&addr=${accountAddress}"
+    },
     {
       "kind": "nodestake",
       "url": "https://explorer.nodestake.org/dhealth",

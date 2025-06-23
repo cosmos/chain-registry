@@ -35,7 +35,8 @@
       "socials": {
         "website": "https://junonetwork.io/",
         "twitter": "https://twitter.com/JunoNetwork"
-      }
+      },
+      "type_asset": "sdk.coin"
     },
     {
       "denom_units": [
@@ -83,7 +84,8 @@
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
-      }
+      },
+      "coingecko_id": "cosmos"
     },
     {
       "description": "The native token cw20 for Neta on Juno Chain",
@@ -728,7 +730,6 @@
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/loop.png"
       },
-      "coingecko_id": "loop",
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/loop.png",
@@ -930,7 +931,6 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/wynd.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/wynd.svg"
       },
-      "coingecko_id": "wynd",
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/wynd.png",
@@ -973,6 +973,7 @@
     },
     {
       "description": "nRide Token",
+      "extended_description": "nRide is developing a uber-like ride-hailing protocol, leveraging cosmwasm smart-contracts for payment, driver registration and text-messaging between the rider and the driver, to create a trustless public transportation environment for any cab or taxi company to use.",
       "type_asset": "cw20",
       "address": "juno1qmlchtmjpvu0cr7u0tad2pq8838h6farrrjzp39eqa9xswg7teussrswlq",
       "denom_units": [
@@ -1001,7 +1002,11 @@
             "primary_color_hex": "#050505"
           }
         }
-      ]
+      ],
+      "socials": {
+        "website": "https://www.nride.network",
+        "twitter": "https://twitter.com/nRide12"
+      }
     },
     {
       "description": "Signal Art and Gaming on Juno",
@@ -2026,7 +2031,8 @@
             "primary_color_hex": "#040405"
           }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "denom_units": [
@@ -2054,7 +2060,8 @@
             "primary_color_hex": "#dfe0e0"
           }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "ERIS liquid staked JUNO",
@@ -2284,6 +2291,16 @@
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/bJUNO-bbl.png"
       },
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "juno",
+            "base_denom": "ujuno"
+          },
+          "provider": "BackBoneLabs"
+        }
+      ],
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/bJUNO-bbl.png",
@@ -2317,8 +2334,8 @@
       "symbol": "USDC",
       "coingecko_id": "usd-coin",
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
       },
       "images": [
         {
@@ -2326,10 +2343,11 @@
             "chain_name": "noble",
             "base_denom": "uusdc"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
           "theme": {
-            "primary_color_hex": "#2474cc"
+            "circle": true,
+            "primary_color_hex": "#2775CA"
           }
         }
       ],
@@ -2425,7 +2443,8 @@
             "primary_color_hex": "#122b4d"
           }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "Airdrop For All [AFA - New Name on Cosmos Ecosystem, A4A - Old Name on TurtleNetwork] is a token from turtleNetwork towards cosmos ecosystem.",
@@ -2486,29 +2505,108 @@
       }
     },
     {
-  "description": "ashWIND",
-  "denom_units": [
-    {
-      "denom": "factory/juno16uprl38e4ljj5ctuha9ehpvp2l93z3d5jmwj2cttt6jkhlrhscpqgglalk/wind.ash",
-      "exponent": 0
+      "description": "ashWIND",
+      "denom_units": [
+        {
+          "denom": "factory/juno16uprl38e4ljj5ctuha9ehpvp2l93z3d5jmwj2cttt6jkhlrhscpqgglalk/wind.ash",
+          "exponent": 0
+        },
+        {
+          "denom": "ashWIND",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/juno16uprl38e4ljj5ctuha9ehpvp2l93z3d5jmwj2cttt6jkhlrhscpqgglalk/wind.ash",
+      "name": "ashWIND",
+      "display": "ashWIND",
+      "symbol": "ashWIND",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/wind.ash.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/wind.ash.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
     },
     {
-      "denom": "ashWIND",
-      "exponent": 6
-    }
-  ],
-  "base": "factory/juno16uprl38e4ljj5ctuha9ehpvp2l93z3d5jmwj2cttt6jkhlrhscpqgglalk/wind.ash",
-  "name": "ashWIND",
-  "display": "ashWIND",
-  "symbol": "ashWIND",
-  "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/wind.ash.png"
-  },
-  "images": [
+      "description": "The native token of Migaloo Chain",
+      "denom_units": [
+        {
+          "denom": "ibc/3A6ADE78FB8169C034C29C4F2E1A61CE596EC8235366F22381D981A98F1F5A5C",
+          "exponent": 0,
+          "aliases": [
+            "uwhale"
+          ]
+        },
+        {
+          "denom": "whale",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/3A6ADE78FB8169C034C29C4F2E1A61CE596EC8235366F22381D981A98F1F5A5C",
+      "name": "Migaloo",
+      "display": "whale",
+      "symbol": "WHALE",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "migaloo",
+            "base_denom": "uwhale",
+            "channel_id": "channel-1"
+          },
+          "chain": {
+            "channel_id": "channel-210",
+            "path": "transfer/channel-210/uwhale"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/white-whale.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/white-whale.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "migaloo",
+            "base_denom": "uwhale"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/white-whale.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/white-whale.svg",
+          "theme": {
+            "primary_color_hex": "#1c1c1c"
+          }
+        }
+      ]
+    },
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/wind.ash.png"
+      "description": "Staking coin of Emporion",
+      "denom_units": [
+        {
+          "denom": "factory/juno1zjqsel42pj5e6wvxxw7hjs9gn06yqz4m3ffyua3x2v44m4l8trjsr92q9s/empr",
+          "exponent": 0
+        },
+        {
+          "denom": "EMPR",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/juno1zjqsel42pj5e6wvxxw7hjs9gn06yqz4m3ffyua3x2v44m4l8trjsr92q9s/empr",
+      "name": "EMPR",
+      "display": "EMPR",
+      "symbol": "EMPR",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/empr.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/empr.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
     }
-  ]
-}
   ]
 }

@@ -25,176 +25,43 @@
       },
       {
         "denom": "ibc/EF48E6B1A1A19F47ECAEA62F5670C37C0580E86A9E88498B7E393EB6F49F33C0",
-        "fixed_min_gas_price": 0.01,
-        "low_gas_price": 0.01,
-        "average_gas_price": 0.01,
+        "fixed_min_gas_price": 0.02,
+        "low_gas_price": 0.02,
+        "average_gas_price": 0.02,
         "high_gas_price": 0.02
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/strangelove-ventures/noble",
-    "recommended_version": "v5.0.0",
+    "recommended_version": "v6.0.0",
     "compatible_versions": [
-      "v5.0.0"
+      "v6.0.0"
     ],
-    "cosmos_sdk_version": "noble-assets/cosmos-sdk v0.45.16-send-restrictions",
     "consensus": {
       "type": "cometbft",
       "version": "v0.34.27"
     },
-    "cosmwasm_enabled": false,
-    "ibc_go_version": "v4.6.0",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
       "name": "v1.0.0",
       "genesis_url": "https://raw.githubusercontent.com/strangelove-ventures/noble-networks/main/mainnet/noble-1/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1.0.0",
-        "tag": "v1.0.0",
-        "height": 0,
-        "recommended_version": "v1.0.0",
-        "compatible_versions": [
-          "v1.0.0"
-        ],
-        "cosmos_sdk_version": "v0.45",
-        "consensus": {
-          "type": "tendermint",
-          "version": "v0.34"
-        },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "v3.4.0",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "neon"
-      },
-      {
-        "name": "neon",
-        "tag": "v2.0.1",
-        "height": 119000,
-        "recommended_version": "v2.0.1",
-        "compatible_versions": [
-          "v2.0.1",
-          "v2.0.0"
-        ],
-        "cosmos_sdk_version": "v0.45",
-        "consensus": {
-          "type": "tendermint",
-          "version": "v0.34"
-        },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "v3.4.0",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "radon"
-      },
-      {
-        "name": "radon",
-        "tag": "v3.0.0",
-        "height": 1296000,
-        "recommended_version": "v3.0.0",
-        "compatible_versions": [
-          "v3.0.0"
-        ],
-        "cosmos_sdk_version": "v0.45.15",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.27"
-        },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "v3.4.0",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "v3.1.0"
-      },
-      {
-        "name": "v3.1.0",
-        "tag": "v3.1.0",
-        "height": 2672000,
-        "recommended_version": "v3.1.0",
-        "compatible_versions": [
-          "v3.1.0"
-        ],
-        "cosmos_sdk_version": "v0.45.15",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.27"
-        },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "v3.4.0",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "argon"
-      },
-      {
-        "name": "argon",
-        "tag": "v4.0.3",
-        "height": 3408600,
-        "recommended_version": "v4.0.3",
-        "compatible_versions": [
-          "v4.0.3"
-        ],
-        "cosmos_sdk_version": "v0.45.16",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.27"
-        },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "v4.5.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "fusion"
-      },
-      {
-        "name": "fusion",
-        "tag": "v4.1.3",
-        "height": 5797500,
-        "recommended_version": "v4.1.3",
-        "compatible_versions": [
-          "v4.1.3"
-        ],
-        "cosmos_sdk_version": "v0.45.16",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.27"
-        },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "v4.5.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": "krypton"
-      },
-      {
-        "name": "krypton",
-        "tag": "v5.0.0",
-        "height": 7947000,
-        "recommended_version": "v5.0.0",
-        "compatible_versions": [
-          "v5.0.0"
-        ],
-        "cosmos_sdk_version": "noble-assets/cosmos-sdk v0.45.16-send-restrictions",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.27"
-        },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "v4.6.0",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "next_version_name": ""
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/noble-assets/cosmos-sdk",
+      "version": "v0.45.16",
+      "tag": "v0.45.16-send-restrictions"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v4.6.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "enabled": false
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/stake.png",
@@ -206,12 +73,12 @@
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:21590",
-        "provider": "Lavender.Five Nodes 🐝"
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
         "address": "seeds.bluestake.net:25556",
-        "provider": "BlueStake 🚀"
+        "provider": "BlueStake \ud83d\ude80"
       }
     ]
   },
@@ -222,8 +89,12 @@
         "provider": "polkachu"
       },
       {
-        "address": "https://noble-rpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rpc.lavenderfive.com:443/noble",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
+      },
+      {
+        "address": "https://noble-rpc.owallet.io",
+        "provider": "OWALLET"
       }
     ],
     "rest": [
@@ -232,8 +103,12 @@
         "provider": "polkachu"
       },
       {
-        "address": "https://noble-api.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rest.lavenderfive.com:443/noble",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
+      },
+      {
+        "address": "https://noble-rest.owallet.io",
+        "provider": "OWALLET"
       }
     ],
     "grpc": [
@@ -242,12 +117,22 @@
         "provider": "polkachu"
       },
       {
-        "address": "https://noble-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "noble.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
+      },
+      {
+        "address": "noble-grpc.owallet.io:9999",
+        "provider": "OWALLET"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/noble",
+      "tx_page": "https://explorer.chainroot.io/noble/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/noble/accounts/${accountAddress}"
+    },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/noble",

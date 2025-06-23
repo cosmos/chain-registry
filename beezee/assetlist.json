@@ -3,7 +3,8 @@
   "chain_name": "beezee",
   "assets": [
     {
-      "description": "BeeZee native blockchain",
+      "description": "BeeZee network native coin",
+      "extended_description": "Powered by BZE Coin, BeeZee Network offers users access to decentralized services through a variety of applications built on a fast and cost-efficient blockchain.",
       "denom_units": [
         {
           "denom": "ubze",
@@ -31,10 +32,16 @@
             "primary_color_hex": "#079fd7"
           }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin",
+      "socials": {
+        "website": "https://getbze.com/",
+        "twitter": "https://x.com/BZEdgeCoin"
+      }
     },
     {
       "description": "Vidulum App Token",
+      "extended_description": "Vidulum App is your one stop, multi-currency crypto web wallet. Hold, earn, and own your crypto assets in non-custodial fashion from any device, anytime.",
       "denom_units": [
         {
           "denom": "factory/bze13gzq40che93tgfm9kzmkpjamah5nj0j73pyhqk/uvdl",
@@ -62,7 +69,12 @@
             "primary_color_hex": "#3454bc"
           }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin",
+      "socials": {
+        "website": "https://vidulum.app/",
+        "twitter": "https://x.com/VidulumApp"
+      }
     },
     {
       "description": "OSMO from Osmosis",
@@ -115,7 +127,8 @@
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
-      }
+      },
+      "coingecko_id": "osmosis"
     },
     {
       "description": "Crypto2Mars Community Token",
@@ -143,7 +156,8 @@
             "primary_color_hex": "#FEFEFE"
           }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "The native token of Archway network",
@@ -184,8 +198,8 @@
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.svg"
       },
       "images": [
         {
@@ -193,13 +207,441 @@
             "chain_name": "archway",
             "base_denom": "aarch"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/archway.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/archway/images/arch.svg",
           "theme": {
             "primary_color_hex": "#fc4c04"
           }
         }
+      ],
+      "coingecko_id": "archway"
+    },
+    {
+      "description": "USDC from Noble",
+      "denom_units": [
+        {
+          "denom": "ibc/6490A7EAB61059BFC1CDDEB05917DD70BDF3A611654162A1A47DB930D40D8AF4",
+          "exponent": 0,
+          "aliases": [
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6,
+          "aliases": []
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/6490A7EAB61059BFC1CDDEB05917DD70BDF3A611654162A1A47DB930D40D8AF4",
+      "name": "USDC",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-95"
+          },
+          "chain": {
+            "channel_id": "channel-3",
+            "path": "transfer/channel-3/uusdc"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "noble",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#2775CA"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      },
+      "coingecko_id": "usd-coin"
+    },
+    {
+      "description": "The Spice memecoin",
+      "denom_units": [
+        {
+          "denom": "ibc/08EAEAB525E59C611D5BD8FAC4BE65DF65A69E62874377F6889BBD01A33F385F",
+          "exponent": 0
+        },
+        {
+          "denom": "Spice",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/08EAEAB525E59C611D5BD8FAC4BE65DF65A69E62874377F6889BBD01A33F385F",
+      "name": "Spice",
+      "display": "Spice",
+      "symbol": "SPICE",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/spice.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/spice.png",
+          "theme": {
+            "primary_color_hex": "#e5ba44"
+          }
+        }
+      ],
+      "keywords": [
+        "meme"
+      ],
+      "socials": {
+        "twitter": "https://x.com/spiceoncosmos"
+      },
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "factory/osmo1n6asrjy9754q8y9jsxqf557zmsv3s3xa5m9eg5/uspice",
+            "channel_id": "channel-340"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/factory/osmo1n6asrjy9754q8y9jsxqf557zmsv3s3xa5m9eg5/uspice"
+          }
+        }
+      ],
+      "coingecko_id": "spice-2"
+    },
+    {
+      "description": "JKL from Jackal Network",
+      "denom_units": [
+        {
+          "denom": "ibc/4AA3B163580B4377250CD4486FB6AD098EB27822EE056949EC4A39B09C5E3B4E",
+          "exponent": 0
+        },
+        {
+          "denom": "jkl",
+          "exponent": 6,
+          "aliases": []
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/4AA3B163580B4377250CD4486FB6AD098EB27822EE056949EC4A39B09C5E3B4E",
+      "name": "Jackal",
+      "display": "jkl",
+      "symbol": "JKL",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "jackal",
+            "base_denom": "ujkl",
+            "channel_id": "channel-142"
+          },
+          "chain": {
+            "channel_id": "channel-4",
+            "path": "transfer/channel-4/ujkl"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "jackal",
+            "base_denom": "ujkl"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/jackal/images/jkl.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/jackal/images/jkl.svg",
+          "theme": {
+            "primary_color_hex": "#dbdbcb"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/jackal/images/jkl.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/jackal/images/jkl.svg"
+      },
+      "coingecko_id": "jackal-protocol"
+    },
+    {
+      "description": "FLIX from OmniFlix Network",
+      "denom_units": [
+        {
+          "denom": "ibc/FF39851E73089ACBD0B09BDF62FA3C67FBD77A2CD97CD159DBCE9C770561F8AF",
+          "exponent": 0
+        },
+        {
+          "denom": "flix",
+          "exponent": 6,
+          "aliases": []
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/FF39851E73089ACBD0B09BDF62FA3C67FBD77A2CD97CD159DBCE9C770561F8AF",
+      "name": "Flix",
+      "display": "flix",
+      "symbol": "FLIX",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "omniflixhub",
+            "base_denom": "uflix",
+            "channel_id": "channel-50"
+          },
+          "chain": {
+            "channel_id": "channel-5",
+            "path": "transfer/channel-5/uflix"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "omniflixhub",
+            "base_denom": "uflix"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/omniflixhub/images/flix.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/omniflixhub/images/flix.svg",
+          "theme": {
+            "primary_color_hex": "#c33635"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/omniflixhub/images/flix.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/omniflixhub/images/flix.svg"
+      },
+      "coingecko_id": "omniflix-network"
+    },
+    {
+      "description": "The Sherpa memecoin",
+      "denom_units": [
+        {
+          "denom": "ibc/02EE50AB3A4B7540FA001B24CB75E688016F65547CABE885EA184338440080B2",
+          "exponent": 0
+        },
+        {
+          "denom": "Sherpa",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/02EE50AB3A4B7540FA001B24CB75E688016F65547CABE885EA184338440080B2",
+      "name": "Sherpa",
+      "display": "Sherpa",
+      "symbol": "SHERPA",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/sherpa.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/sherpa.png",
+          "theme": {
+            "primary_color_hex": "#fe9cdf"
+          }
+        }
+      ],
+      "keywords": [
+        "meme"
+      ],
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "factory/osmo1n6asrjy9754q8y9jsxqf557zmsv3s3xa5m9eg5/usherpa",
+            "channel_id": "channel-340"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/factory/osmo1n6asrjy9754q8y9jsxqf557zmsv3s3xa5m9eg5/usherpa"
+          }
+        }
       ]
+    },
+    {
+      "description": "AtomOne native coin",
+      "denom_units": [
+        {
+          "denom": "ibc/B2219CA05421EA988F83E5E824BF69362E80A6A87503EFD18B92C91C9E03763D",
+          "exponent": 0,
+          "aliases": [
+            "uatone"
+          ]
+        },
+        {
+          "denom": "atone",
+          "exponent": 6,
+          "aliases": []
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/B2219CA05421EA988F83E5E824BF69362E80A6A87503EFD18B92C91C9E03763D",
+      "name": "Atone",
+      "display": "atone",
+      "symbol": "ATONE",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "atomone",
+            "base_denom": "uatone",
+            "channel_id": "channel-1"
+          },
+          "chain": {
+            "channel_id": "channel-6",
+            "path": "transfer/channel-6/uatone"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "atomone",
+            "base_denom": "uatone"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/atomone.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/atomone.svg"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/atomone.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/atomone.svg"
+      }
+    },
+    {
+      "description": "PHMN from Osmosis",
+      "denom_units": [
+        {
+          "denom": "ibc/12C0B8B561AFCFDA3C73DEE0F7F84AA2B860D48493C27E8E81A5D14724FAB08B",
+          "exponent": 0,
+          "aliases": [
+            "cw20:juno1rws84uz7969aaa7pej303udhlkt3j9ca0l3egpcae98jwak9quzq8szn2l"
+          ]
+        },
+        {
+          "denom": "phmn",
+          "exponent": 6,
+          "aliases": []
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/12C0B8B561AFCFDA3C73DEE0F7F84AA2B860D48493C27E8E81A5D14724FAB08B",
+      "name": "POSTHUMAN",
+      "display": "phmn",
+      "symbol": "PHMN",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "ibc/D3B574938631B0A1BA704879020C696E514CFADAA7643CDE4BD5EB010BDE327B",
+            "channel_id": "channel-340"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/transfer/channel-169/cw20:juno1rws84uz7969aaa7pej303udhlkt3j9ca0l3egpcae98jwak9quzq8szn2l"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/phmn.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/phmn.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "juno",
+            "base_denom": "cw20:juno1rws84uz7969aaa7pej303udhlkt3j9ca0l3egpcae98jwak9quzq8szn2l"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/phmn.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/phmn.svg",
+          "theme": {
+            "primary_color_hex": "#bbc2c6"
+          }
+        }
+      ],
+      "socials": {
+        "website": "https://posthuman.digital/",
+        "twitter": "https://twitter.com/POSTHUMAN_DVS"
+      },
+      "coingecko_id": "posthuman"
+    },
+    {
+      "description": "GEEGEE (GGE) on Cosmos is a community driven meme coin. Sharing knowledge and create visibility. How strong can we be? ☀\uFE0F",
+      "denom_units": [
+        {
+          "denom": "factory/bze12gyp30f29zg26nuqrwdhl26ej4q066pt572fhm/GGE",
+          "exponent": 0
+        },
+        {
+          "denom": "GGE",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/bze12gyp30f29zg26nuqrwdhl26ej4q066pt572fhm/GGE",
+      "name": "GEEGEE",
+      "display": "GGE",
+      "symbol": "GGE",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/beezee/images/gge.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/beezee/images/gge.png",
+          "theme": {
+            "primary_color_hex": "#FEFEFE"
+          }
+        }
+      ],
+      "socials": {
+        "website": "https://geegeecoin.io/",
+        "twitter": "https://x.com/gge_crypto"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "$CryptoTrtl is fun, join us on Telegram.",
+      "denom_units": [
+        {
+          "denom": "factory/bze1972aqfzdg29ugjln74edx0xvcg4ehvysjptk77/CTL",
+          "exponent": 0
+        },
+        {
+          "denom": "CTL",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/bze1972aqfzdg29ugjln74edx0xvcg4ehvysjptk77/CTL",
+      "name": "CryptoTrtl",
+      "display": "CTL",
+      "symbol": "CTL",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/beezee/images/ctl.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/beezee/images/ctl.png",
+          "theme": {
+            "primary_color_hex": "#FEFEFE"
+          }
+        }
+      ],
+      "socials": {
+        "twitter": "https://x.com/CryproTrtl",
+        "telegram": "https://T.me/CryptoTrtlCoin"
+      },
+      "type_asset": "sdk.coin"
     }
   ]
 }

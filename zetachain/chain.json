@@ -1,5 +1,5 @@
 {
-  "$schema": "../../chain.schema.json",
+  "$schema": "../chain.schema.json",
   "chain_name": "zetachain",
   "status": "live",
   "network_type": "mainnet",
@@ -35,132 +35,32 @@
   },
   "codebase": {
     "git_repo": "https://github.com/zeta-chain/node",
-    "recommended_version": "v18.0.0",
+    "recommended_version": "v20.0.0",
     "compatible_versions": [
-      "v18.0.0"
+      "v20.0.0"
     ],
-    "cosmos_sdk_version": "v0.46.13",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.34.28"
+      "version": "v0.37.4"
     },
-    "ibc_go_version": "v6.1.0",
     "genesis": {
-      "genesis_url": "https://zetachain.blockpi.network/rpc/v1/public/genesis"
+      "genesis_url": "https://raw.githubusercontent.com/zeta-chain/network-config/main/mainnet/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v11",
-        "recommended_version": "v11.0.0",
-        "compatible_versions": [
-          "v11.0.0"
-        ],
-        "cosmos_sdk_version": "v0.46.13",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.28"
-        },
-        "ibc_go_version": "v6.1.0",
-        "next_version_name": "v12"
-      },
-      {
-        "name": "v12",
-        "recommended_version": "v12.0.0",
-        "compatible_versions": [
-          "v12.0.0"
-        ],
-        "cosmos_sdk_version": "v0.46.13",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.28"
-        },
-        "ibc_go_version": "v6.1.0",
-        "next_version_name": "v12.1.0"
-      },
-      {
-        "name": "v12.1.0",
-        "recommended_version": "v12.1.0",
-        "compatible_versions": [
-          "v12.1.0"
-        ],
-        "cosmos_sdk_version": "v0.46.13",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.28"
-        },
-        "ibc_go_version": "v6.1.0",
-        "next_version_name": "v12.2.0"
-      },
-      {
-        "name": "v12.2.0",
-        "recommended_version": "v12.2.5",
-        "compatible_versions": [
-          "v12.2.5"
-        ],
-        "cosmos_sdk_version": "v0.46.13",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.28"
-        },
-        "ibc_go_version": "v6.1.0",
-        "next_version_name": "v14.0.0"
-      },
-      {
-        "name": "v14.0.1",
-        "recommended_version": "v14.0.1",
-        "compatible_versions": [
-          "v14.0.1"
-        ],
-        "proposal": 21,
-        "height": 2074730,
-        "cosmos_sdk_version": "v0.46.13",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.28"
-        },
-        "ibc_go_version": "v6.1.0",
-        "next_version_name": "v17"
-      },
-      {
-        "name": "v17",
-        "proposal": 23,
-        "height": 3388200,
-        "recommended_version": "v17.0.0",
-        "compatible_versions": [
-          "v17.0.0"
-        ],
-        "cosmos_sdk_version": "v0.46.13",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.28"
-        },
-        "ibc_go_version": "v6.1.0",
-        "next_version_name": "v18"
-      },
-      {
-        "name": "v18",
-        "proposal": 24,
-        "height": 4071400,
-        "recommended_version": "v18.0.0",
-        "compatible_versions": [
-          "v18.0.0"
-        ],
-        "cosmos_sdk_version": "v0.46.13",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.28"
-        },
-        "ibc_go_version": "v6.1.0",
-        "next_version_name": ""
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.10"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0"
+    }
   },
   "peers": {
     "seeds": [
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:22556",
-        "provider": "Lavender.Five Nodes 🐝"
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       }
     ],
     "persistent_peers": [
@@ -172,7 +72,12 @@
       {
         "id": "637077d431f618181597706810a65c826524fd74",
         "address": "zetachain.rpc.nodeshub.online:22556",
-        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+        "provider": "Nodes Hub \ud83d\udee1\ufe0f 100% Slash Protected \ud83d\udee1\ufe0f | Restake \u2705"
+      },
+      {
+        "id": "11b86546b092e0645a91b32ca78e40c8bec54546",
+        "address": "zetachain-m.peer.stavr.tech:17656",
+        "provider": "🔥STAVR🔥"
       }
     ]
   },
@@ -187,8 +92,8 @@
         "provider": "All That Node"
       },
       {
-        "address": "https://zetachain-rpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rpc.lavenderfive.com:443/zetachain",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://rpc.zetachain.nodestake.org",
@@ -200,7 +105,23 @@
       },
       {
         "address": "https://zetachain.rpc.nodeshub.online:443",
-        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+        "provider": "Nodes Hub \ud83d\udee1\ufe0f 100% Slash Protected \ud83d\udee1\ufe0f | Restake \u2705"
+      },
+      {
+        "address": "https://zeta-chain.drpc.org",
+        "provider": "dRPC"
+      },
+      {
+        "address": "https://zeta.rpc.m.stavr.tech:443",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://zetachain-mainnet-rpc.cosmonautstakes.com",
+        "provider": "Cosmonaut Stakes"
+      },
+      {
+        "address": "https://zetachain-mainnet-tendermint.reliableninjas.com",
+        "provider": "Reliable Ninjas"
       }
     ],
     "rest": [
@@ -213,8 +134,8 @@
         "provider": "All That Node"
       },
       {
-        "address": "https://zetachain-api.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rest.lavenderfive.com:443/zetachain",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://api.zetachain.nodestake.org",
@@ -226,13 +147,25 @@
       },
       {
         "address": "https://zetachain.api.nodeshub.online:443",
-        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+        "provider": "Nodes Hub \ud83d\udee1\ufe0f 100% Slash Protected \ud83d\udee1\ufe0f | Restake \u2705"
+      },
+      {
+        "address": "https://zeta.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://zetachain-mainnet-rest.cosmonautstakes.com",
+        "provider": "Cosmonaut Stakes"
+      },
+      {
+        "address": "https://zetachain-mainnet-cosmos.reliableninjas.com",
+        "provider": "Reliable Ninjas"
       }
     ],
     "grpc": [
       {
-        "address": "https://zetachain-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "zetachain.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://grpc.zetachain.nodestake.org:443",
@@ -245,10 +178,24 @@
       {
         "address": "https://zetachain.grpc.nodeshub.online",
         "provider": "Nodes Hub"
+      },
+      {
+        "address": "zeta.grpc.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "zetachain-mainnet-grpc.cosmonautstakes.com:15190",
+        "provider": "Cosmonaut Stakes"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/zetachain",
+      "tx_page": "https://explorer.chainroot.io/zetachain/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/zetachain/accounts/${accountAddress}"
+    },
     {
       "kind": "ZetaScan",
       "url": "https://explorer.zetachain.com/",
@@ -265,10 +212,28 @@
       "tx_page": "https://explorer.nodestake.org/zetachain/tx/${txHash}"
     },
     {
-      "kind": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅",
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/zetachain",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=zetachain&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=zetachain&addr=${accountAddress}"
+    },
+    {
+      "kind": "Nodes Hub \ud83d\udee1\ufe0f 100% Slash Protected \ud83d\udee1\ufe0f | Restake \u2705",
       "url": "https://explorer.nodeshub.online/zetachain/",
       "tx_page": "https://explorer.nodeshub.online/zetachain/tx/${txHash}",
       "account_page": "https://explorer.nodeshub.online/zetachain/accounts/${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Zetachain-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Zetachain-Mainnet/tx/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Zetachain-Mainnet/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://zetachain.valopers.com/",
+      "tx_page": "https://zetachain.valopers.com/transactions/${txHash}",
+      "account_page": "https://zetachain.valopers.com/account/${accountAddress}"
     }
   ]
 }

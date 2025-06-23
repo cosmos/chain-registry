@@ -34,57 +34,26 @@
     "compatible_versions": [
       "v2.0.6"
     ],
-    "ibc_go_version": "v7.3.1",
-    "cosmos_sdk_version": "v0.47.6",
     "consensus": {
       "type": "cometbft",
       "version": "v0.37.2"
     },
-    "cosmwasm_version": "v0.41.0",
-    "cosmwasm_enabled": true,
-    "cosmwasm_path": "$HOME/.teritorid/data/wasm",
     "genesis": {
       "genesis_url": "https://github.com/TERITORI/teritori-chain/raw/mainnet/mainnet/teritori-1/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1.3.1",
-        "recommended_version": "v1.3.1",
-        "compatible_versions": [
-          "v1.3.1"
-        ],
-        "next_version_name": "v1.4.0"
-      },
-      {
-        "name": "v1.4.0",
-        "proposal": 34,
-        "height": 3699425,
-        "recommended_version": "v1.4.0",
-        "compatible_versions": [
-          "v1.4.0"
-        ],
-        "next_version_name": "v2.0.0"
-      },
-      {
-        "name": "v2.0.0",
-        "proposal": 38,
-        "height": 7199342,
-        "recommended_version": "v2.0.6",
-        "compatible_versions": [
-          "v2.0.6"
-        ],
-        "ibc_go_version": "v7.3.1",
-        "cosmos_sdk_version": "v0.47.6",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.37.2"
-        },
-        "cosmwasm_version": "v0.41.0",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.teritorid/data/wasm",
-        "next_version_name": ""
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.6"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.3.1"
+    },
+    "cosmwasm": {
+      "version": "v0.41.0",
+      "path": "$HOME/.teritorid/data/wasm",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/teritori/images/chain.png",
@@ -95,7 +64,7 @@
       {
         "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
         "address": "seed.rhinostake.com:15956",
-        "provider": "RHINO"
+        "provider": "RHINO \ud83e\udd8f"
       },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
@@ -110,12 +79,12 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "teritori-mainnet-seed.autostake.com:27166",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "1ef268d56b79edbd0c32815f4bf9c362a0617ed4",
@@ -130,29 +99,29 @@
       {
         "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
         "address": "seeds.bluestake.net:23656",
-        "provider": "BlueStake 🚀"
+        "provider": "BlueStake \ud83d\ude80"
       }
     ],
     "persistent_peers": [
       {
         "id": "8f28518afd31a42ea81bb3232a50ab0cec4dcdf7",
         "address": "10.201.190.1:26656",
-        "provider": "teritori-core-1 ⛩"
+        "provider": "teritori-core-1 \u26e9"
       },
       {
         "id": "6046cec27c36f0a7596cb9fa9f2c5decbd4e87cb",
         "address": "10.193.255.1:26656",
-        "provider": "teritori-core-2 ⛩⛩"
+        "provider": "teritori-core-2 \u26e9\u26e9"
       },
       {
         "id": "29c218fb6d31d2316b854c1178327157fbce8aa7",
         "address": "teritori.peers.stavr.tech:38026",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "teritori-mainnet-peer.autostake.com:27166",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "669470aba9778ccccd07127115dcdc30e141d7ae",
@@ -169,15 +138,11 @@
       },
       {
         "address": "https://teritori.rpc.m.stavr.tech",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "https://rpc.teritori.silentvalidator.com/",
         "provider": "silent"
-      },
-      {
-        "address": "https://teritori-rpc.brocha.in",
-        "provider": "Brochain"
       },
       {
         "address": "https://teritori-rpc.ibs.team",
@@ -189,7 +154,7 @@
       },
       {
         "address": "https://rpc.tori.bh.rocks",
-        "provider": "BlockHunters 🎯"
+        "provider": "BlockHunters \ud83c\udfaf"
       },
       {
         "address": "https://teritori-rpc.kleomedes.network",
@@ -197,15 +162,15 @@
       },
       {
         "address": "https://m-teritori.rpc.utsa.tech",
-        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
+        "provider": "\ud835\udc25\ud835\udc1e\ud835\udc2c\ud835\udc27\ud835\udc22\ud835\udc24 | \ud835\udc14\ud835\udc13\ud835\udc12\ud835\udc00"
       },
       {
         "address": "https://rpc-teritori.pupmos.network",
-        "provider": "PUPMØS"
+        "provider": "PUPM\u00d8S"
       },
       {
         "address": "https://teritori-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://rpc-teritori.ecostake.com",
@@ -213,11 +178,19 @@
       },
       {
         "address": "https://teritori-rpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "https://teritori-rpc.bluestake.net:443",
-        "provider": "BlueStake 🚀"
+        "provider": "BlueStake \ud83d\ude80"
+      },
+      {
+        "address": "https://teritori_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
+      },
+      {
+        "address": "https://teritori-rpc.chainroot.io",
+        "provider": "Chainroot"
       }
     ],
     "rest": [
@@ -227,7 +200,7 @@
       },
       {
         "address": "https://teritori.api.m.stavr.tech",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "https://api.teritori.silentvalidator.com/",
@@ -243,7 +216,7 @@
       },
       {
         "address": "https://api.tori.bh.rocks",
-        "provider": "BlockHunters 🎯"
+        "provider": "BlockHunters \ud83c\udfaf"
       },
       {
         "address": "https://teritori-api.kleomedes.network",
@@ -251,15 +224,15 @@
       },
       {
         "address": "https://m-teritori.api.utsa.tech",
-        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
+        "provider": "\ud835\udc25\ud835\udc1e\ud835\udc2c\ud835\udc27\ud835\udc22\ud835\udc24 | \ud835\udc14\ud835\udc13\ud835\udc12\ud835\udc00"
       },
       {
         "address": "https://api-teritori.pupmos.network",
-        "provider": "PUPMØS"
+        "provider": "PUPM\u00d8S"
       },
       {
         "address": "https://teritori-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://rest-teritori.ecostake.com",
@@ -267,11 +240,19 @@
       },
       {
         "address": "https://teritori-rest.publicnode.com",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "https://teritori-api.bluestake.net",
-        "provider": "BlueStake 🚀"
+        "provider": "BlueStake \ud83d\ude80"
+      },
+      {
+        "address": "https://teritori_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
+      },
+      {
+        "address": "https://teritori-api.chainroot.io",
+        "provider": "Chainroot"
       }
     ],
     "grpc": [
@@ -281,11 +262,7 @@
       },
       {
         "address": "teritori.grpc.m.stavr.tech:6705",
-        "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "teritori-grpc.brocha.in:443",
-        "provider": "Brochain"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "teritori-grpc.polkachu.com:15990",
@@ -297,7 +274,7 @@
       },
       {
         "address": "teritori-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "teritori.grpc.kjnodes.com:11990",
@@ -305,7 +282,11 @@
       },
       {
         "address": "teritori-grpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "teritori-grpc.chainroot.io:443",
+        "provider": "Chainroot"
       }
     ]
   },
@@ -322,7 +303,7 @@
       "tx_page": "https://explorer.teritori.com/teritori/tx/${txHash}"
     },
     {
-      "kind": "🔥STAVR🔥 Explorer",
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25 Explorer",
       "url": "https://explorer.stavr.tech/teritori-main",
       "tx_page": "https://explorer.stavr.tech/teritori-main/tx/${txHash}"
     },
@@ -332,12 +313,7 @@
       "tx_page": "https://teritori.explorers.guru/transaction/${txHash}"
     },
     {
-      "kind": "Brochain",
-      "url": "https://explorer.brocha.in/teritori",
-      "tx_page": "https://explorer.brocha.in/teritori/tx/${txHash}"
-    },
-    {
-      "kind": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀",
+      "kind": "\ud835\udc25\ud835\udc1e\ud835\udc2c\ud835\udc27\ud835\udc22\ud835\udc24 | \ud835\udc14\ud835\udc13\ud835\udc12\ud835\udc00",
       "url": "https://exp.utsa.tech/teritori",
       "tx_page": "https://exp.utsa.tech/teritori/tx/${txHash}"
     },
@@ -353,10 +329,28 @@
       "tx_page": "https://explorer.tcnetwork.io/teritori/transaction/${txHash}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/teritori",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=teritori&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=teritori&addr=${accountAddress}"
+    },
+    {
       "kind": "atomscan",
       "url": "https://atomscan.com/teritori",
       "tx_page": "https://atomscan.com/teritori/transactions/${txHash}",
       "account_page": "https://atomscan.com/teritori/accounts/${accountAddress}"
+    },
+    {
+      "kind": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25",
+      "url": "https://explorer.whenmoonwhenlambo.money/teritori",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/teritori/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/teritori/account/${accountAddress}"
+    },
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/teritori",
+      "tx_page": "https://explorer.chainroot.io/teritori/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/teritori/accounts/${accountAddress}"
     }
   ],
   "images": [

@@ -18,10 +18,14 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "wei"
+        "denom": "wei",
+        "low_gas_price": 1000000000,
+        "average_gas_price": 1200000000,
+        "high_gas_price": 1600000000
       }
     ]
   },
+  "description": "STOS coin is the native token for the Stratos Blockchain. Stratos is a pioneering decentralized infrastructure service provider, revolutionizing AI and DePIN with advanced decentralized solutions in storage, computing, databases, and blockchain services. We empower Web 3.0 developpers and dApps through our scalable, reliable, and high-performance networks.",
   "codebase": {
     "git_repo": "https://github.com/stratosnet/stratos-chain",
     "recommended_version": "v0.11.2",
@@ -30,16 +34,7 @@
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/stratosnet/mainnet/main/genesis/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v0.11.2",
-        "recommended_version": "v0.11.2",
-        "compatible_versions": [
-          "v0.11.2"
-        ]
-      }
-    ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stratos/images/stratos.png",
@@ -58,14 +53,9 @@
         "provider": "thestratos.org"
       },
       {
-        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
-        "address": "seeds.whispernode.com:21856",
-        "provider": "WhisperNode 🤐"
-      },
-      {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -87,12 +77,12 @@
         "provider": "[NODERS]TEAM"
       },
       {
-        "address": "https://rpc-stratos.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
-      },
-      {
         "address": "https://stratos-rpc.noders.services:443",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://rpc.stratos.nodestake.org",
+        "provider": "NodeStake"
       }
     ],
     "rest": [
@@ -101,12 +91,12 @@
         "provider": "thestratos.org"
       },
       {
-        "address": "https://lcd-stratos.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
-      },
-      {
         "address": "https://stratos-api.noders.services:443",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://api.stratos.nodestake.org",
+        "provider": "NodeStake"
       }
     ],
     "grpc": [
@@ -115,7 +105,7 @@
         "provider": "thestratos.org"
       },
       {
-        "address": "https://grpc.stratos.nodestake.top",
+        "address": "https://grpc.stratos.nodestake.org",
         "provider": "NodeStake"
       },
       {
@@ -133,7 +123,7 @@
         "provider": "thestratos.org"
       },
       {
-        "address": "https://jsonrpc.stratos.nodestake.top",
+        "address": "https://jsonrpc.stratos.nodestake.org",
         "provider": "NodeStake"
       },
       {
@@ -143,6 +133,12 @@
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/stratos",
+      "tx_page": "https://explorer.chainroot.io/stratos/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/stratos/accounts/${accountAddress}"
+    },
     {
       "kind": "bigdipper",
       "url": "https://explorer.thestratos.org",
@@ -157,21 +153,21 @@
     },
     {
       "kind": "NodeStake",
-      "url": "https://explorer.nodestake.top/stratos",
-      "tx_page": "https://explorer.nodestake.top/stratos/tx/${txHash}",
-      "account_page": "https://explorer.nodestake.top/stratos/accounts/${accountAddress}"
+      "url": "https://explorer.nodestake.org/stratos",
+      "tx_page": "https://explorer.nodestake.org/stratos/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.org/stratos/accounts/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/stratos",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=stratos&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=stratos&addr=${accountAddress}"
     },
     {
       "kind": "TC Network",
       "url": "https://explorer.tcnetwork.io/stratos",
       "tx_page": "https://explorer.tcnetwork.io/stratos/transaction/${txHash}",
       "account_page": "https://explorer.tcnetwork.io/stratos/account/${accountAddress}"
-    },
-    {
-      "kind": "WhisperNode 🤐",
-      "url": "https://mainnet.whispernode.com/stratos",
-      "tx_page": "https://mainnet.whispernode.com/stratos/tx/${txHash}",
-      "account_page": "https://mainnet.whispernode.com/stratos/account/${accountAddress}"
     }
   ],
   "images": [

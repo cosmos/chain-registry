@@ -7,7 +7,7 @@
   "status": "live",
   "network_type": "devnet",
   "bech32_prefix": "kyve",
-  "daemon_name": "chaind",
+  "daemon_name": "kyved",
   "node_home": "$HOME/.kyve",
   "key_algos": [
     "secp256k1"
@@ -23,40 +23,26 @@
   },
   "codebase": {
     "git_repo": "https://github.com/KYVENetwork/chain",
-    "recommended_version": "v0.6.3",
+    "recommended_version": "v1.5.0",
     "compatible_versions": [
-      "v0.6.3"
+      "v1.5.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/KYVENetwork/chain/releases/download/v0.6.3/chain_linux_amd64.tar.gz"
+      "darwin/amd64": "https://files.kyve.network/korellia-2/v1.5.0-rc0/kyved_kaon_darwin_amd64?checksum=sha256:5f0c2e02eced4af81d15fbb46ba1f5bca45b662096b8bee3e90a20ef3cb1f54c",
+      "darwin/arm64": "https://files.kyve.network/korellia-2/v1.5.0-rc0/kyved_kaon_darwin_arm64?checksum=sha256:9c3667945a3f559d6a48f03fb61ea4045f410f1207bb9c1705a1043253877bf3",
+      "linux/amd64": "https://files.kyve.network/korellia-2/v1.5.0-rc0/kyved_kaon_linux_amd64?checksum=sha256:f165f4ca6c3831ac0d789fa5b5d6a98c0a9084b767bd048d12cca3691a861e23",
+      "linux/arm64": "https://files.kyve.network/korellia-2/v1.5.0-rc0/kyved_kaon_linux_arm64?checksum=sha256:fbd042016cd6973b301184af39df3020c69b0b35ce08d4286e974bb008ebbff0"
     },
     "genesis": {
-      "genesis_url": "https://github.com/KYVENetwork/chain/releases/download/v0.0.1/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v0.6.3",
-        "recommended_version": "v0.6.3",
-        "compatible_versions": [
-          "v0.6.3"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/KYVENetwork/chain/releases/download/v0.6.3/chain_linux_amd64.tar.gz"
-        }
-      }
-    ]
+      "genesis_url": "https://files.kyve.network/korellia-2/genesis.json"
+    }
   },
   "peers": {
-    "seeds": [
-      {
-        "id": "02dd2c26948ea758a25d3dbc91744f8897681652",
-        "address": "3.73.27.185:26656"
-      }
-    ],
+    "seeds": [],
     "persistent_peers": [
       {
-        "id": "70556c82352b9919fb6f339b9da0ebc587e9148c",
-        "address": "3.68.232.117:26656"
+        "id": "42ad60464c5104aa61a08e032e2d1bd9aeaa2524",
+        "address": "148.113.187.189:46656"
       }
     ]
   },
@@ -76,9 +62,10 @@
   },
   "explorers": [
     {
-      "kind": "explorers.guru",
-      "url": "https://kyve.explorers.guru/",
-      "tx_page": "https://kyve.explorers.guru/transaction/${txHash}"
+      "kind": "KYVE Explorer",
+      "url": "https://explorer.kyve.network/korellia",
+      "tx_page": "https://explorer.kyve.network/korellia/tx/${txHash}",
+      "account_page": "https://explorer.kyve.network/korellia/account/${accountAddress}"
     }
   ]
 }

@@ -40,21 +40,9 @@
     "genesis": {
       "genesis_url": "https://cloudflare-ipfs.com/ipfs/QmYubyVNfghD4xCrTFj26zBwrF9s5GJhi1TmxvrwmJCipr"
     },
-    "cosmwasm_enabled": true,
-    "versions": [
-      {
-        "name": "v0.3.0",
-        "recommended_version": "v0.3.0",
-        "compatible_versions": [
-          "v0.3.0"
-        ],
-        "cosmwasm_enabled": true,
-        "binaries": {
-          "linux/amd64": "https://github.com/cybercongress/go-cyber/releases/download/v0.2.0/cyber_v0.2.0_linux-amd64.tar.gz",
-          "darwin/amd64": "https://github.com/cybercongress/go-cyber/releases/download/v0.2.0/cyber_v0.2.0_darwin-amd64.tar.gz"
-        }
-      }
-    ]
+    "cosmwasm": {
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bostrom/images/boot.png",
@@ -70,7 +58,7 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "persistent_peers": []
@@ -117,6 +105,12 @@
   },
   "explorers": [
     {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/bostrom",
+      "tx_page": "https://explorer.chainroot.io/bostrom/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/bostrom/accounts/${accountAddress}"
+    },
+    {
       "kind": "cyb",
       "url": "https://cyb.ai/",
       "tx_page": "https://cyb.ai/network/bostrom/tx/${txHash}"
@@ -125,6 +119,12 @@
       "kind": "ping.pub",
       "url": "https://ping.pub/bostrom",
       "tx_page": "https://ping.pub/bostrom/tx/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/bostrom",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=bostrom&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=bostrom&addr=${accountAddress}"
     },
     {
       "kind": "atomscan",

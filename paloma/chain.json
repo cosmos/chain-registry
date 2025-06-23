@@ -35,30 +35,24 @@
     "compatible_versions": [
       "v1.15.4"
     ],
-    "cosmos_sdk_version": "v0.50.6",
     "consensus": {
       "type": "cometbft",
       "version": "v0.38.6"
     },
-    "ibc_go_version": "v8.2.0",
     "binaries": {
       "linux/amd64": "https://github.com/palomachain/paloma/releases/download/v1.15.4/paloma_Linux_x86_64.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/palomachain/mainnet/master/tumbler/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1.15.4",
-        "recommended_version": "v1.15.4",
-        "compatible_versions": [
-          "v1.15.4"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/palomachain/paloma/releases/download/v1.15.4/paloma_Linux_x86_64.tar.gz"
-        }
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.6"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.2.0"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/paloma/images/paloma.png",
@@ -76,6 +70,12 @@
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/paloma",
+      "tx_page": "https://explorer.chainroot.io/paloma/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/paloma/accounts/${accountAddress}"
+    },
     {
       "kind": "explorers.guru",
       "url": "https://paloma.explorers.guru/",
