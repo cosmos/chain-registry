@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://agoric.com/",
   "pretty_name": "Agoric",
+  "chain_type": "cosmos",
   "chain_id": "agoric-3",
   "bech32_prefix": "agoric",
   "daemon_name": "agd",
@@ -20,12 +21,6 @@
         "low_gas_price": 0.03,
         "average_gas_price": 0.05,
         "high_gas_price": 0.07
-      },
-      {
-        "denom": "uist",
-        "low_gas_price": 0.0034,
-        "average_gas_price": 0.007,
-        "high_gas_price": 0.02
       }
     ]
   },
@@ -38,22 +33,41 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Agoric/agoric-sdk/",
-    "recommended_version": "agoric-upgrade-8",
-    "compatible_versions": [
-      "agoric-upgrade-8"
-    ],
     "genesis": {
       "genesis_url": "https://main.agoric.net/genesis.json"
     },
-    "versions": [
-      {
-        "name": "agoric-upgrade-8",
-        "recommended_version": "agoric-upgrade-8",
-        "compatible_versions": [
-          "agoric-upgrade-8"
-        ]
-      }
-    ]
+    "recommended_version": "agoric-upgrade-20",
+    "compatible_versions": [
+      "agoric-upgrade-20"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.34.35",
+      "repo": "https://github.com/agoric-labs/cometbft",
+      "tag": "v0.34.35-alpha.agoric.3"
+    },
+    "cosmwasm": {
+      "enabled": false
+    },
+    "language": {
+      "type": "go",
+      "version": "1.22.12"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/agoric-labs/cosmos-sdk",
+      "version": "v0.46.16",
+      "tag": "v0.46.16-alpha.agoric.2.5"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v6.3.1",
+      "repo": "https://github.com/agoric-labs/ibc-go",
+      "tag": "v6.3.1-alpha.agoric.4",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.png",
@@ -120,10 +134,6 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://rpc.agoric.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
         "address": "https://agoric.rpc.kjnodes.com",
         "provider": "kjnodes"
       },
@@ -162,15 +172,11 @@
       {
         "address": "https://rpc.agoric.bronbro.io:443",
         "provider": "Bro_n_Bro"
-      } 
+      }
     ],
     "rest": [
       {
         "address": "https://main.api.agoric.net:443"
-      },
-      {
-        "address": "https://api.agoric.nodestake.top",
-        "provider": "NodeStake"
       },
       {
         "address": "https://agoric-api.polkachu.com",
@@ -197,6 +203,10 @@
         "provider": "w3coins"
       },
       {
+        "address": "https://agoric.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      },
+      {
         "address": "https://api.agoric.stakewith.us",
         "provider": "StakeWithUs"
       },
@@ -211,13 +221,9 @@
       {
         "address": "https://lcd.agoric.bronbro.io:443",
         "provider": "Bro_n_Bro"
-      }   
+      }
     ],
     "grpc": [
-      {
-        "address": "grpc.agoric.nodestake.top:443",
-        "provider": "NodeStake"
-      },
       {
         "address": "agoric-grpc.polkachu.com:14490",
         "provider": "Polkachu"
@@ -257,21 +263,27 @@
       {
         "address": "https://grpc.agoric.bronbro.io:443",
         "provider": "Bro_n_Bro"
-      }   
+      }
     ]
   },
   "explorers": [
     {
-      "kind": "bigdipper",
-      "url": "https://agoric.bigdipper.live/",
-      "tx_page": "https://agoric.bigdipper.live/transactions/${txHash}",
-      "account_page": "https://agoric.bigdipper.live/accounts/${accountAddress}"
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/agoric",
+      "tx_page": "https://explorer.chainroot.io/agoric/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/agoric/accounts/${accountAddress}"
     },
     {
       "kind": "explorers.guru",
       "url": "https://agoric.explorers.guru",
       "tx_page": "https://agoric.explorers.guru/transaction/${txHash}",
       "account_page": "https://agoric.explorers.guru/account/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/agoric",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=agoric&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=agoric&addr=${accountAddress}"
     },
     {
       "kind": "atomscan",
@@ -283,12 +295,27 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/agoric",
       "account_page": "https://stakeflow.io/agoric/accounts/${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Agoric",
+      "tx_page": "https://explorer.stavr.tech/Agoric/tx/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Agoric/account/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://agoric.valopers.com/",
+      "tx_page": "https://agoric.valopers.com/transactions/${txHash}",
+      "account_page": "https://agoric.valopers.com/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.svg",
+      "theme": {
+        "primary_color_hex": "#bc2c44"
+      }
     }
   ]
 }

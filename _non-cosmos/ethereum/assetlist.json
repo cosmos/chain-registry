@@ -1,9 +1,10 @@
 {
-  "$schema": "../assetlist.schema.json",
+  "$schema": "../../assetlist.schema.json",
   "chain_name": "ethereum",
   "assets": [
     {
-      "description": "Ethereum (ETH) is a decentralized, open-source blockchain system featuring smart contract functionality. It's the native cryptocurrency of the Ethereum platform, often regarded as the second most popular digital currency after Bitcoin. Ethereum was proposed in late 2013 and development was crowdfunded in 2014, leading to its network going live on 30 July 2015.\n\nETH, as a digital currency, is used for a variety of purposes within the Ethereum ecosystem, including the execution of decentralized smart contracts and as a mode of payment. Unlike Bitcoin, Ethereum was designed to be a platform for applications that can operate without the need for intermediaries, using blockchain technology. This has made Ethereum a leading platform for various applications, including decentralized finance (DeFi), non-fungible tokens (NFTs), and more. Ethereum is constantly evolving, with a significant upgrade termed Ethereum 2.0, which aims to improve its scalability, security, and sustainability.",
+      "description": "Ethereum is a decentralized blockchain platform for running smart contracts and dApps, with Ether (ETH) as its native cryptocurrency, enabling a versatile ecosystem beyond just digital currency.",
+      "extended_description": "Ethereum, symbolized as ETH, is a groundbreaking cryptocurrency and blockchain platform introduced in 2015 by a team led by Vitalik Buterin. Unlike Bitcoin, which primarily serves as a digital currency, Ethereum is designed to be a decentralized platform for running smart contracts and decentralized applications (dApps). These smart contracts are self-executing contracts with the terms directly written into code, enabling trustless and automated transactions without intermediaries. Ethereum's blockchain can host a wide variety of applications, from financial services to gaming, making it a versatile and powerful tool in the world of blockchain technology.\n\nOne of the most notable features of Ethereum is its native cryptocurrency, Ether (ETH), which is used to pay for transaction fees and computational services on the network. Ethereum has also been the backbone for the explosive growth of decentralized finance (DeFi), which seeks to recreate traditional financial systems with blockchain-based alternatives. Additionally, Ethereum is undergoing a significant upgrade known as Ethereum 2.0, which aims to improve scalability, security, and energy efficiency through a shift from proof-of-work (PoW) to proof-of-stake (PoS) consensus mechanisms. This transition is expected to enhance the network's performance and reduce its environmental impact, further solidifying Ethereum's position as a leading platform in the blockchain ecosystem.",
       "denom_units": [
         {
           "denom": "wei",
@@ -21,6 +22,7 @@
           ]
         }
       ],
+      "type_asset": "evm-base",
       "base": "wei",
       "name": "Ether",
       "display": "eth",
@@ -33,7 +35,10 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.svg",
+          "theme": {
+            "primary_color_hex": "#303030"
+          }
         }
       ]
     },
@@ -206,11 +211,13 @@
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/sdai.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/sdai.svg"
       },
-      "coingecko_id": "dai",
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/sdai.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/sdai.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/sdai.svg",
+          "theme": {
+            "primary_color_hex": "#7ec231"
+          }
         }
       ]
     },
@@ -284,12 +291,16 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/link.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/link.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/link.svg",
+          "theme": {
+            "primary_color_hex": "#2c5cdc"
+          }
         }
       ]
     },
     {
-      "description": "Maker is a Decentralized Autonomous Organization that creates and insures the dai stablecoin on the Ethereum blockchain",
+      "description": "Maker is a decentralized finance (DeFi) platform on the Ethereum blockchain that facilitates the creation of the stablecoin DAI, which is pegged to the US dollar.",
+      "extended_description": "Maker is a leading DeFi platform on Ethereum, known for its stablecoin DAI, which is soft-pegged to the US dollar. Users can generate DAI by locking collateral such as ETH in Maker Vaults. The Maker Protocol, governed by the MKR token holders, ensures the stability and security of DAI through decentralized governance mechanisms. MKR tokens are used for voting on governance proposals and for recapitalizing the system if necessary. Maker has become a cornerstone of the DeFi ecosystem, providing a reliable and decentralized stablecoin for various financial applications.",
       "type_asset": "erc20",
       "address": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
       "denom_units": [
@@ -387,7 +398,11 @@
       "coingecko_id": "shiba-inu",
       "images": [
         {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/shib.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/shib.svg",
+          "theme": {
+            "primary_color_hex": "#FFA409",
+            "background_color_hex": "#00000000"
+          }
         }
       ]
     },
@@ -455,7 +470,7 @@
       "symbol": "wstETH",
       "traces": [
         {
-          "type": "wrapped",
+          "type": "liquid-stake",
           "counterparty": {
             "chain_name": "ethereum",
             "base_denom": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84"
@@ -496,7 +511,7 @@
       "symbol": "frxETH",
       "traces": [
         {
-          "type": "liquid-stake",
+          "type": "synthetic",
           "counterparty": {
             "chain_name": "ethereum",
             "base_denom": "wei"
@@ -507,21 +522,20 @@
       "coingecko_id": "frax-ether",
       "images": [
         {
-          "image_sync": {
-            "chain_name": "ethereum",
-            "base_denom": "wei"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/frxeth.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/frxeth.svg",
+          "theme": {
+            "primary_color_hex": "#040404"
+          }
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/frxeth.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/frxeth.svg"
       }
     },
     {
-      "description": "sfrxETH is the version of frxETH which accrues staking yield. All profit generated from Frax Ether validators is distributed to sfrxETH holders. By exchanging frxETH for sfrxETH, one become's eligible for staking yield, which is redeemed upon converting sfrxETH back to frxETH.",
+      "description": "sfrxETH is the version of frxETH which accrues staking yield. All profit generated from Frax Ether validators is distributed to sfrxETH holders. By exchanging frxETH for sfrxETH, one becomes eligible for staking yield, which is redeemed upon converting sfrxETH back to frxETH.",
       "type_asset": "erc20",
       "address": "0xac3e018457b222d93114458476f3e3416abbe38f",
       "denom_units": [
@@ -543,7 +557,7 @@
       "symbol": "sfrxETH",
       "traces": [
         {
-          "type": "wrapped",
+          "type": "liquid-stake",
           "counterparty": {
             "chain_name": "ethereum",
             "base_denom": "0x5e8422345238f34275888049021821e8e08caa1f"
@@ -598,7 +612,10 @@
       "coingecko_id": "rocket-pool-eth",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/reth.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/reth.png",
+          "theme": {
+            "primary_color_hex": "#fba487"
+          }
         }
       ]
     },
@@ -639,7 +656,10 @@
       "coingecko_id": "coinbase-wrapped-staked-eth",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/cbeth.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/cbeth.png",
+          "theme": {
+            "primary_color_hex": "#c9dbfc"
+          }
         }
       ]
     },
@@ -675,7 +695,8 @@
       ]
     },
     {
-      "description": "USDC is a fully collateralized US Dollar stablecoin developed by CENTRE, the open source project with Circle being the first of several forthcoming issuers.",
+      "description": "USDC (USD Coin) is a stablecoin fully backed by US dollars, providing a transparent and regulated digital dollar solution.",
+      "extended_description": "USD Coin (USDC) was launched in 2018 as a joint effort between Coinbase and Circle. USDC is a fully reserved stablecoin, meaning each token is backed 1:1 by US dollars held in reserve. This structure is designed to provide transparency and trust, reinforced by regular audits from reputable third-party firms. Initially built on the Ethereum blockchain, USDC has expanded to support multiple blockchain networks, including Algorand, Solana, and more. It is widely used in DeFi protocols, as collateral, and for international transactions, offering a stable and compliant digital dollar solution.",
       "type_asset": "erc20",
       "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "denom_units": [
@@ -692,7 +713,7 @@
         }
       ],
       "base": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-      "name": "USD Coin",
+      "name": "USDC",
       "display": "usdc",
       "symbol": "USDC",
       "traces": [
@@ -706,17 +727,24 @@
         }
       ],
       "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
       },
       "coingecko_id": "usd-coin",
       "images": [
         {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#2775CA"
+          }
         }
       ]
     },
     {
-      "description": "Tether gives you the joint benefits of open blockchain technology and traditional currency by converting your cash into a stable digital currency equivalent.",
+      "description": "USDT (Tether) is a stablecoin that is pegged to the US dollar, designed to provide stability and liquidity within the cryptocurrency market.",
+      "extended_description": "Tether (USDT) is a pioneering stablecoin introduced in 2014 by Tether Limited. It aims to provide stability and liquidity by maintaining a 1:1 value ratio with the US dollar. USDT operates across multiple blockchain platforms, including Ethereum, Tron, and others, enhancing its accessibility and interoperability. It is widely used for trading, hedging against market volatility, and facilitating quick transfers between exchanges. Despite facing scrutiny over its transparency and backing reserves, USDT remains a cornerstone in the crypto market, offering a stable digital asset that bridges traditional finance and cryptocurrencies.",
       "type_asset": "erc20",
       "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
       "denom_units": [
@@ -746,15 +774,35 @@
           "provider": "Tether"
         }
       ],
+      "coingecko_id": "tether",
       "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
       },
-      "coingecko_id": "tether",
       "images": [
         {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#009393",
+            "background_color_hex": "#009393"
+          }
+        },
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt_logomark.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt_logomark.svg",
+          "theme": {
+            "circle": false,
+            "primary_color_hex": "#50AF95",
+            "background_color_hex": "#00000000"
+          }
         }
-      ]
+      ],
+      "socials": {
+        "website": "https://tether.to/",
+        "twitter": "https://x.com/Tether_to"
+      }
     },
     {
       "description": "Wrapped Bitcoin (WBTC) is an ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.",
@@ -795,7 +843,10 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.svg",
+          "theme": {
+            "primary_color_hex": "#f39444"
+          }
         }
       ]
     },
@@ -910,12 +961,15 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/busd.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/busd.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/busd.svg",
+          "theme": {
+            "primary_color_hex": "#f3bb0c"
+          }
         }
       ]
     },
     {
-      "description": "",
+      "description": "Pepe is a community based memecoin with one mission: to make memecoins great again. Made to honor the iconic meme we all know and love, Pepe is here to take reign as the most memeable memecoin in existence, fueled purely by memetic power. Pepe is for the people.",
       "type_asset": "erc20",
       "address": "0x6982508145454Ce325dDbE47a25d4ec3d2311933",
       "denom_units": [
@@ -943,8 +997,14 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pepe.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pepe.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pepe.svg",
+          "theme": {
+            "primary_color_hex": "#cc3233"
+          }
         }
+      ],
+      "keywords": [
+        "meme"
       ]
     },
     {
@@ -983,7 +1043,10 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/yieldeth.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/yieldeth.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/yieldeth.svg",
+          "theme": {
+            "primary_color_hex": "#14448c"
+          }
         }
       ]
     },
@@ -1065,7 +1128,10 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/pstake.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/pstake.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/pstake.svg",
+          "theme": {
+            "primary_color_hex": "#050505"
+          }
         }
       ]
     },
@@ -1094,7 +1160,10 @@
       "coingecko_id": "occamfi",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/occamfi.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/occamfi.png",
+          "theme": {
+            "primary_color_hex": "#313648"
+          }
         }
       ]
     },
@@ -1117,6 +1186,7 @@
       "name": "Page",
       "display": "page",
       "symbol": "PAGE",
+      "coingecko_id": "page",
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/page.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/page.svg"
@@ -1124,9 +1194,1370 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/page.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/page.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/page.svg",
+          "theme": {
+            "primary_color_hex": "#ebb324"
+          }
         }
       ]
+    },
+    {
+      "description": "Gelotto blends gaming, DEFI, and fun Dapps in a unique Web3 ecosystem. Join us to become part of the house, earning from all Gelotto products. Our main goal? To bring the masses into Web3 with open, accessible, and enjoyable Dapps.",
+      "type_asset": "erc20",
+      "address": "0xd73175f9eb15eee81745d367ae59309Ca2ceb5e2",
+      "denom_units": [
+        {
+          "denom": "0xd73175f9eb15eee81745d367ae59309Ca2ceb5e2",
+          "exponent": 0,
+          "aliases": []
+        },
+        {
+          "denom": "glto",
+          "exponent": 6
+        }
+      ],
+      "base": "0xd73175f9eb15eee81745d367ae59309Ca2ceb5e2",
+      "name": "Gelotto",
+      "display": "glto",
+      "symbol": "GLTO",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/glto.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/glto.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/glto.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/glto.svg",
+          "theme": {
+            "primary_color_hex": "#501cad"
+          }
+        }
+      ]
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0x78a0A62Fba6Fb21A83FE8a3433d44C73a4017A6f",
+      "denom_units": [
+        {
+          "denom": "0x78a0A62Fba6Fb21A83FE8a3433d44C73a4017A6f",
+          "exponent": 0,
+          "aliases": []
+        },
+        {
+          "denom": "ox",
+          "exponent": 18
+        }
+      ],
+      "base": "0x78a0A62Fba6Fb21A83FE8a3433d44C73a4017A6f",
+      "name": "Open Exchange Token",
+      "display": "ox",
+      "symbol": "OX",
+      "coingecko_id": "open-exchange-token",
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/ox.svg"
+      },
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/ox.svg"
+        }
+      ]
+    },
+    {
+      "description": "BEAST: Battle, Breed, and Customize unique creatures powered by Ethereum & Cosmos",
+      "extended_description": "A monster breeding & battling game with a twist. Each game interaction burns $BEAST tokens, adding a strategic depth to breeding, battling, and customization. Dive into a world where every move counts!",
+      "type_asset": "erc20",
+      "address": "0xA4426666addBE8c4985377d36683D17FB40c31Be",
+      "denom_units": [
+        {
+          "denom": "0xA4426666addBE8c4985377d36683D17FB40c31Be",
+          "exponent": 0,
+          "aliases": []
+        },
+        {
+          "denom": "beast",
+          "exponent": 6
+        }
+      ],
+      "base": "0xA4426666addBE8c4985377d36683D17FB40c31Be",
+      "name": "Gelotto BEAST",
+      "display": "beast",
+      "symbol": "BEAST",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/beast.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/beast.png",
+          "theme": {
+            "primary_color_hex": "#21172b"
+          }
+        }
+      ]
+    },
+    {
+      "description": "PUNDIX token is the native token that functions within the Pundi X ecosystem, including PundiX Chain and XPOS.",
+      "extended_description": "PUNDIX token is the native token that functions within the Pundi X ecosystem, including PundiX Chain and XPOS. PUNDIX has several core use cases, including:\n- Payment for goods and services from merchants through XPOS\n- Gas Fee on PundiX Chain\n- Listing tokens in the XPOS\n- Merchant payments for loyalty programs and ads",
+      "type_asset": "erc20",
+      "address": "0x0FD10b9899882a6f2fcb5c371E17e70FdEe00C38",
+      "denom_units": [
+        {
+          "denom": "0x0FD10b9899882a6f2fcb5c371E17e70FdEe00C38",
+          "exponent": 0
+        },
+        {
+          "denom": "PUNDIX",
+          "exponent": 18
+        }
+      ],
+      "base": "0x0FD10b9899882a6f2fcb5c371E17e70FdEe00C38",
+      "name": "Pundi X Token",
+      "display": "PUNDIX",
+      "symbol": "PUNDIX",
+      "coingecko_id": "pundi-x-2",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pundix/images/pundi-x-token-logo.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pundix/images/pundi-x-token-logo.svg",
+          "theme": {
+            "primary_color_hex": "#f1d20c"
+          }
+        }
+      ],
+      "socials": {
+        "website": "https://pundix.com",
+        "twitter": "https://x.com/PundiXLabs"
+      }
+    },
+    {
+      "description": "Staked FRAX (sFRAX) is an ERC4626 staking vault that distributes part of the Frax Protocol yield weekly to stakers denominated in FRAX stablecoins.",
+      "type_asset": "erc20",
+      "address": "0xa663b02cf0a4b149d2ad41910cb81e23e1c41c32",
+      "denom_units": [
+        {
+          "denom": "0xa663b02cf0a4b149d2ad41910cb81e23e1c41c32",
+          "exponent": 0,
+          "aliases": [
+            "sfrax-wei"
+          ]
+        },
+        {
+          "denom": "sfrax",
+          "exponent": 18
+        }
+      ],
+      "base": "0xa663b02cf0a4b149d2ad41910cb81e23e1c41c32",
+      "name": "Staked FRAX",
+      "display": "sfrax",
+      "symbol": "sFRAX",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x853d955acef822db058eb8505911ed77f175b99e"
+          },
+          "provider": "Frax"
+        }
+      ],
+      "coingecko_id": "staked-frax",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/sfrax.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/sfrax.svg",
+          "theme": {
+            "primary_color_hex": "#040404"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/sfrax.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/sfrax.svg"
+      }
+    },
+    {
+      "description": "FXS is the value accrual and governance token of the entire Frax ecosystem. Frax is a fractional-algorithmic stablecoin protocol. It aims to provide a highly scalable, decentralized, algorithmic money in place of fixed-supply assets like BTC.",
+      "type_asset": "erc20",
+      "address": "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
+      "denom_units": [
+        {
+          "denom": "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
+          "exponent": 0,
+          "aliases": [
+            "fxs-wei"
+          ]
+        },
+        {
+          "denom": "fxs",
+          "exponent": 18
+        }
+      ],
+      "base": "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
+      "name": "Frax Share",
+      "display": "fxs",
+      "symbol": "FXS",
+      "coingecko_id": "frax-share",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/fxs.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/fxs.svg",
+          "theme": {
+            "primary_color_hex": "#040404"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/fxs.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/fxs.svg"
+      }
+    },
+    {
+      "description": "PAX Gold (PAXG) tokens each represent one fine troy ounce of an LBMA-certified, London Good Delivery physical gold bar, secured in Brink’s vaults.",
+      "type_asset": "erc20",
+      "address": "0x45804880De22913dAFE09f4980848ECE6EcbAf78",
+      "denom_units": [
+        {
+          "denom": "0x45804880De22913dAFE09f4980848ECE6EcbAf78",
+          "exponent": 0,
+          "aliases": [
+            "paxg-wei"
+          ]
+        },
+        {
+          "denom": "paxg",
+          "exponent": 18
+        }
+      ],
+      "base": "0x45804880De22913dAFE09f4980848ECE6EcbAf78",
+      "name": "Paxos Gold",
+      "display": "paxg",
+      "symbol": "PAXG",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "comex",
+            "base_denom": "XAU"
+          },
+          "provider": "Paxos"
+        }
+      ],
+      "coingecko_id": "pax-gold",
+      "socials": {
+        "website": "https://www.paxos.com/paxgold/",
+        "twitter": "https://twitter.com/paxosglobal"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/paxg.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/paxg.svg",
+          "theme": {
+            "primary_color_hex": "#ebe60e"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/paxg.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/paxg.svg"
+      }
+    },
+    {
+      "description": "CRV is the governance token for Curve Finance.",
+      "type_asset": "erc20",
+      "address": "0xd533a949740bb3306d119cc777fa900ba034cd52",
+      "denom_units": [
+        {
+          "denom": "0xd533a949740bb3306d119cc777fa900ba034cd52",
+          "exponent": 0,
+          "aliases": [
+            "crv-wei"
+          ]
+        },
+        {
+          "denom": "crv",
+          "exponent": 18
+        }
+      ],
+      "base": "0xd533a949740bb3306d119cc777fa900ba034cd52",
+      "name": "Curve DAO",
+      "display": "crv",
+      "symbol": "CRV",
+      "coingecko_id": "curve-dao-token",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/crv.png",
+          "theme": {
+            "primary_color_hex": "#1fcbdb"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/crv.png"
+      }
+    },
+    {
+      "description": "A collateralized-debt-position (CDP) stablecoin by Curve DAO.",
+      "type_asset": "erc20",
+      "address": "0xf939e0a03fb07f59a73314e73794be0e57ac1b4e",
+      "denom_units": [
+        {
+          "denom": "0xf939e0a03fb07f59a73314e73794be0e57ac1b4e",
+          "exponent": 0,
+          "aliases": [
+            "crvusd-wei"
+          ]
+        },
+        {
+          "denom": "crvusd",
+          "exponent": 18
+        }
+      ],
+      "base": "0xf939e0a03fb07f59a73314e73794be0e57ac1b4e",
+      "name": "crvUSD",
+      "display": "crvusd",
+      "symbol": "crvUSD",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "USD"
+          },
+          "provider": "Curve Finance"
+        }
+      ],
+      "coingecko_id": "crvusd",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/crvusd.png",
+          "theme": {
+            "primary_color_hex": "#d6e3d9"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/crvusd.png"
+      }
+    },
+    {
+      "description": "pxETH is built on top of the Pirex platform and forms the foundation of the Dinero protocol.",
+      "type_asset": "erc20",
+      "address": "0x04c154b66cb340f3ae24111cc767e0184ed00cc6",
+      "denom_units": [
+        {
+          "denom": "0x04c154b66cb340f3ae24111cc767e0184ed00cc6",
+          "exponent": 0,
+          "aliases": [
+            "pxeth-wei"
+          ]
+        },
+        {
+          "denom": "pxeth",
+          "exponent": 18
+        }
+      ],
+      "base": "0x04c154b66cb340f3ae24111cc767e0184ed00cc6",
+      "name": "Dinero Staked ETH",
+      "display": "pxeth",
+      "symbol": "pxETH",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "wei"
+          },
+          "provider": "Dinero"
+        }
+      ],
+      "coingecko_id": "dinero-staked-eth",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pxeth.png",
+          "theme": {
+            "primary_color_hex": "#c3cbd2"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pxeth.png"
+      }
+    },
+    {
+      "description": "eETH is a natively restaked liquid staking token on Ethereum.",
+      "type_asset": "erc20",
+      "address": "0x35fa164735182de50811e8e2e824cfb9b6118ac2",
+      "denom_units": [
+        {
+          "denom": "0x35fa164735182de50811e8e2e824cfb9b6118ac2",
+          "exponent": 0,
+          "aliases": [
+            "eeth-wei"
+          ]
+        },
+        {
+          "denom": "eeth",
+          "exponent": 18
+        }
+      ],
+      "base": "0x35fa164735182de50811e8e2e824cfb9b6118ac2",
+      "name": "ether.fi Staked ETH",
+      "display": "eeth",
+      "symbol": "eETH",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "wei"
+          },
+          "provider": "EtherFi"
+        }
+      ],
+      "coingecko_id": "ether-fi-staked-eth",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eeth.png",
+          "theme": {
+            "primary_color_hex": "#5045b7"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eeth.png"
+      }
+    },
+    {
+      "description": "The native governance token of Ethena.",
+      "type_asset": "erc20",
+      "address": "0x57e114b691db790c35207b2e685d4a43181e6061",
+      "denom_units": [
+        {
+          "denom": "0x57e114b691db790c35207b2e685d4a43181e6061",
+          "exponent": 0,
+          "aliases": [
+            "ena-wei"
+          ]
+        },
+        {
+          "denom": "ena",
+          "exponent": 18
+        }
+      ],
+      "base": "0x57e114b691db790c35207b2e685d4a43181e6061",
+      "name": "Ethena",
+      "display": "ena",
+      "symbol": "ENA",
+      "coingecko_id": "ethena",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/ena.png",
+          "theme": {
+            "primary_color_hex": "#1c1c1c"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/ena.png"
+      }
+    },
+    {
+      "description": "Ethena USDe is a synthetic dollar protocol built on Ethereum.",
+      "type_asset": "erc20",
+      "address": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+      "denom_units": [
+        {
+          "denom": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+          "exponent": 0,
+          "aliases": [
+            "usde-wei"
+          ]
+        },
+        {
+          "denom": "usde",
+          "exponent": 18
+        }
+      ],
+      "base": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+      "name": "Ethena USDe",
+      "display": "usde",
+      "symbol": "USDe",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "USD"
+          },
+          "provider": "Ethena"
+        }
+      ],
+      "coingecko_id": "ethena-usde",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usde.png",
+          "theme": {
+            "primary_color_hex": "#040404"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usde.png"
+      }
+    },
+    {
+      "description": "A Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer.",
+      "type_asset": "erc20",
+      "address": "0xbf5495efe5db9ce00f80364c8b423567e58d2110",
+      "denom_units": [
+        {
+          "denom": "0xbf5495efe5db9ce00f80364c8b423567e58d2110",
+          "exponent": 0,
+          "aliases": [
+            "ezeth-wei"
+          ]
+        },
+        {
+          "denom": "ezeth",
+          "exponent": 18
+        }
+      ],
+      "base": "0xbf5495efe5db9ce00f80364c8b423567e58d2110",
+      "name": "Renzo Restaked ETH",
+      "display": "ezeth",
+      "symbol": "ezETH",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "wei"
+          },
+          "provider": "Renzo"
+        }
+      ],
+      "coingecko_id": "renzo-restaked-eth",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/ezeth.png",
+          "theme": {
+            "primary_color_hex": "#9bcf2c"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/ezeth.png"
+      }
+    },
+    {
+      "description": "Ankr is a Web3 decentralized infrastructure provider that helps developers, dapps, and stakers easily interact with multiple blockchains. It allows you to create DApps using API and RPC, staking on Ankr Earn, and use customized blockchain solutions for businesses.",
+      "type_asset": "erc20",
+      "address": "0x8290333ceF9e6D528dD5618Fb97a76f268f3EDD4",
+      "denom_units": [
+        {
+          "denom": "0x8290333ceF9e6D528dD5618Fb97a76f268f3EDD4",
+          "exponent": 0,
+          "aliases": [
+            "ankr-wei"
+          ]
+        },
+        {
+          "denom": "ankr",
+          "exponent": 18
+        }
+      ],
+      "base": "0x8290333ceF9e6D528dD5618Fb97a76f268f3EDD4",
+      "name": "Ankr Network",
+      "display": "ankr",
+      "symbol": "ANKR",
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/ankr.svg"
+        }
+      ],
+      "coingecko_id": "ankr",
+      "socials": {
+        "website": "https://www.ankr.com",
+        "twitter": "https://x.com/ankr"
+      }
+    },
+    {
+      "description": "YUM is the Cacao Swap token, powering decentralised rails.",
+      "type_asset": "erc20",
+      "address": "0xcE682c89C63d2850Cb2ca898E44D6c7c30d897a6",
+      "denom_units": [
+        {
+          "denom": "0xcE682c89C63d2850Cb2ca898E44D6c7c30d897a6",
+          "exponent": 0,
+          "aliases": [
+            "yum-wei"
+          ]
+        },
+        {
+          "denom": "yum",
+          "exponent": 18
+        }
+      ],
+      "base": "0xcE682c89C63d2850Cb2ca898E44D6c7c30d897a6",
+      "name": "Yum",
+      "display": "yum",
+      "symbol": "YUM",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/yum.png",
+          "theme": {
+            "primary_color_hex": "#33a6e7"
+          }
+        }
+      ],
+      "socials": {
+        "website": "https://cacaoswap.app",
+        "twitter": "https://x.com/CacaoSwap"
+      }
+    },
+    {
+      "description": "Avail is a web3 infrastructure layer that allows modular execution layers to scale and interoperate in a trust minimized way.",
+      "type_asset": "erc20",
+      "address": "0xEeB4d8400AEefafC1B2953e0094134A887C76Bd8",
+      "denom_units": [
+        {
+          "denom": "0xEeB4d8400AEefafC1B2953e0094134A887C76Bd8",
+          "exponent": 0,
+          "aliases": [
+            "avail-wei",
+            "avail"
+          ]
+        },
+        {
+          "denom": "AVAIL",
+          "exponent": 18
+        }
+      ],
+      "base": "0xEeB4d8400AEefafC1B2953e0094134A887C76Bd8",
+      "name": "Avail",
+      "display": "AVAIL",
+      "symbol": "AVAIL",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "avail",
+            "base_denom": "avail"
+          },
+          "provider": "Avail Bridge"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "avail",
+            "base_denom": "avail"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/avail/images/avail.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/avail/images/avail.png",
+          "theme": {
+            "circle": false,
+            "primary_color_hex": "#2B80D7"
+          }
+        }
+      ]
+    },
+    {
+      "description": "EURe is a Euro-backed stablecoin issued by Monerium.",
+      "extended_description": "EURe is the first authorized and regulated stablecoin in Europe. It is collateralized by Euro-denominated deposits held in segregated accounts. EURe is issued by Monerium, the first Electronic Money Institution (EMI) to become compliant under the EU's MiCA regulations.",
+      "type_asset": "erc20",
+      "address": "0x3231Cb76718CDeF2155FC47b5286d82e6eDA273f",
+      "denom_units": [
+        {
+          "denom": "0x3231Cb76718CDeF2155FC47b5286d82e6eDA273f",
+          "exponent": 0,
+          "aliases": [
+            "eure-wei",
+            "ueure"
+          ]
+        },
+        {
+          "denom": "eure",
+          "exponent": 18
+        }
+      ],
+      "base": "0x3231Cb76718CDeF2155FC47b5286d82e6eDA273f",
+      "name": "Monerium EUR emoney",
+      "display": "eure",
+      "symbol": "EURe",
+      "coingecko_id": "monerium-eur-money",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "EUR"
+          },
+          "provider": "Monerium"
+        }
+      ],
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eure.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eure.svg",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#0095D7",
+            "background_color_hex": "#FFFFFF"
+          }
+        }
+      ],
+      "socials": {
+        "website": "https://monerium.com/",
+        "twitter": "https://x.com/monerium"
+      }
+    },
+    {
+      "description": "LBTC is liquid, yield-bearing, natively cross-chain, and 1:1 backed by bitcoin.",
+      "extended_description": "Lombard is dedicated to expanding the digital economy by transforming Bitcoin’s utility from a mere store of value into a productive financial tool. While Bitcoin remains the world’s largest crypto asset, with over $1 trillion worth of Bitcoin often sitting idle, its utility is limited compared to other digital assets. Lombard sees a significant opportunity to change this by connecting Bitcoin to decentralized finance (DeFi).\n\nLombard is driven by the fact that if just 10% of Bitcoin's $1.5 trillion market cap flows into DeFi, the total value locked (TVL) in the ecosystem could more than double, catalyzing unprecedented growth and enabling sustainable market dynamics over time. Lombard believes this potential can be unlocked through a security-first liquid Bitcoin primitive—LBTC.\n\nOur flagship product, LBTC, is a secure Bitcoin liquid staked token (LST), designed to empower anyone—from individual holders to large institutions—to amplify the utility of their Bitcoin. It allows users to earn a native yield from providing economic security to networks via Babylon and participate in DeFi, all while maintaining the value of the original asset.\n\nBy building LBTC on top of Babylon, Lombard’s LBTC bridges the gap between Bitcoin’s immense economic value, security capabilities, and the dynamic opportunities within PoS and DeFi ecosystems, marking a transformative phase for Bitcoin in the decentralized economy.",
+      "type_asset": "erc20",
+      "address": "0x8236a87084f8B84306f72007F36F2618A5634494",
+      "denom_units": [
+        {
+          "denom": "0x8236a87084f8B84306f72007F36F2618A5634494",
+          "exponent": 0
+        },
+        {
+          "denom": "lbtc",
+          "exponent": 8
+        }
+      ],
+      "base": "0x8236a87084f8B84306f72007F36F2618A5634494",
+      "name": "Lombard Staked Bitcoin",
+      "display": "lbtc",
+      "symbol": "LBTC",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "bitcoin",
+            "base_denom": "sat"
+          },
+          "provider": "Lombard"
+        }
+      ],
+      "coingecko_id": "lombard-staked-btc",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/lbtc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/lbtc.svg",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#162E2F"
+          }
+        }
+      ],
+      "socials": {
+        "website": "https://lombard.finance",
+        "twitter": "https://x.com/Lombard_Finance"
+      }
+    },
+    {
+      "description": "The Ethereum ERC20 issuance of Movement ($MOVE).",
+      "type_asset": "erc20",
+      "address": "0x3073f7aaa4db83f95e9fff17424f71d4751a3073",
+      "denom_units": [
+        {
+          "denom": "0x3073f7aaa4db83f95e9fff17424f71d4751a3073",
+          "exponent": 0,
+          "aliases": [
+            "0xa",
+            "octa"
+          ]
+        },
+        {
+          "denom": "move",
+          "exponent": 8
+        }
+      ],
+      "base": "0x3073f7aaa4db83f95e9fff17424f71d4751a3073",
+      "name": "Movement",
+      "display": "move",
+      "symbol": "MOVE",
+      "coingecko_id": "movement",
+      "traces": [
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "movement",
+            "base_denom": "0xa"
+          },
+          "provider": "Movement Foundation"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "movement",
+            "base_denom": "0xa"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/movement/images/move.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/movement/images/move.png",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#F1BB15"
+          }
+        }
+      ],
+      "socials": {
+        "website": "https://www.movementnetwork.xyz/",
+        "twitter": "https://twitter.com/movementfdn"
+      }
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0x657e8c867d8b37dcc18fa4caead9c45eb088c642",
+      "denom_units": [
+        {
+          "denom": "0x657e8c867d8b37dcc18fa4caead9c45eb088c642",
+          "exponent": 0
+        },
+        {
+          "denom": "ebtc",
+          "exponent": 8
+        }
+      ],
+      "base": "0x657e8c867d8b37dcc18fa4caead9c45eb088c642",
+      "name": "ether.fi BTC",
+      "display": "ebtc",
+      "symbol": "eBTC",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eBTC.png"
+      },
+      "coingecko_id": "ether-fi-staked-btc"
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0xf6718b2701d4a6498ef77d7c152b2137ab28b8a3",
+      "denom_units": [
+        {
+          "denom": "0xf6718b2701d4a6498ef77d7c152b2137ab28b8a3",
+          "exponent": 0
+        },
+        {
+          "denom": "stbtc",
+          "exponent": 18
+        }
+      ],
+      "base": "0xf6718b2701d4a6498ef77d7c152b2137ab28b8a3",
+      "name": "Lorenzo stBTC",
+      "display": "stbtc",
+      "symbol": "stBTC",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "bitcoin",
+            "base_denom": "sat"
+          },
+          "provider": "Lorenzo"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/stbtc.svg"
+      },
+      "coingecko_id": "lorenzo-stbtc"
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0x9356f6d95b8e109f4b7ce3e49d672967d3b48383",
+      "denom_units": [
+        {
+          "denom": "0x9356f6d95b8e109f4b7ce3e49d672967d3b48383",
+          "exponent": 0
+        },
+        {
+          "denom": "kbtc",
+          "exponent": 18
+        }
+      ],
+      "base": "0x9356f6d95b8e109f4b7ce3e49d672967d3b48383",
+      "name": "Kinza Babylon Staked BTC",
+      "display": "kbtc",
+      "symbol": "kBTC",
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/kBTC.svg"
+      },
+      "coingecko_id": "kintsugi-btc"
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0x004e9c3ef86bc1ca1f0bb5c7662861ee93350568",
+      "denom_units": [
+        {
+          "denom": "0x004e9c3ef86bc1ca1f0bb5c7662861ee93350568",
+          "exponent": 0
+        },
+        {
+          "denom": "unibtc",
+          "exponent": 8
+        }
+      ],
+      "base": "0x004e9c3ef86bc1ca1f0bb5c7662861ee93350568",
+      "name": "Universal BTC",
+      "display": "unibtc",
+      "symbol": "uniBTC",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "bitcoin",
+            "base_denom": "sat"
+          },
+          "provider": "Bedrock"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/uniBTC_200px.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/uniBTC_200px.png",
+          "theme": {
+            "circle": false,
+            "background_color_hex": "#00000000"
+          }
+        },
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/uniBTC.svg",
+          "theme": {
+            "circle": true,
+            "background_color_hex": "#000000"
+          }
+        }
+      ],
+      "coingecko_id": "universal-btc"
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0xbdf245957992bfbc62b07e344128a1eec7b7ee3f",
+      "denom_units": [
+        {
+          "denom": "0xbdf245957992bfbc62b07e344128a1eec7b7ee3f",
+          "exponent": 0
+        },
+        {
+          "denom": "mbtc",
+          "exponent": 8
+        }
+      ],
+      "base": "0xbdf245957992bfbc62b07e344128a1eec7b7ee3f",
+      "name": "mBTC",
+      "display": "mbtc",
+      "symbol": "mBTC",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/mbtc.png"
+      },
+      "coingecko_id": "babypie-wrapped-btc"
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0xf469fbd2abcd6b9de8e169d128226c0fc90a012e",
+      "denom_units": [
+        {
+          "denom": "0xf469fbd2abcd6b9de8e169d128226c0fc90a012e",
+          "exponent": 0
+        },
+        {
+          "denom": "pumpbtc",
+          "exponent": 8
+        }
+      ],
+      "base": "0xf469fbd2abcd6b9de8e169d128226c0fc90a012e",
+      "name": "pumpBTC",
+      "display": "pumpbtc",
+      "symbol": "pumpBTC",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "bitcoin",
+            "base_denom": "sat"
+          },
+          "provider": "pumpBTC"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pumpBTC.svg"
+      },
+      "coingecko_id": "pumpbtc"
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0x7a56e1c57c7475ccf742a1832b028f0456652f97",
+      "denom_units": [
+        {
+          "denom": "0x7a56e1c57c7475ccf742a1832b028f0456652f97",
+          "exponent": 0
+        },
+        {
+          "denom": "solvbtc",
+          "exponent": 18
+        }
+      ],
+      "base": "0x7a56e1c57c7475ccf742a1832b028f0456652f97",
+      "name": "SolvBTC",
+      "display": "solvbtc",
+      "symbol": "solvBTC",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "bitcoin",
+            "base_denom": "sat"
+          },
+          "provider": "Solv Protocol"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/solvBTC.svg",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/solvBTC.png"
+      },
+      "coingecko_id": "solv-btc"
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0xd9d920aa40f578ab794426f5c90f6c731d159def",
+      "denom_units": [
+        {
+          "denom": "0xd9d920aa40f578ab794426f5c90f6c731d159def",
+          "exponent": 0
+        },
+        {
+          "denom": "xsolvbtc",
+          "exponent": 18
+        }
+      ],
+      "base": "0xd9d920aa40f578ab794426f5c90f6c731d159def",
+      "name": "xSolvBTC",
+      "display": "xsolvbtc",
+      "symbol": "xsolvBTC",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/xSolvBTC.png"
+      },
+      "coingecko_id": "solv-protocol-solvbtc-bbn"
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0x6a9a65b84843f5fd4ac9a0471c4fc11afffbce4a",
+      "denom_units": [
+        {
+          "denom": "0x6a9a65b84843f5fd4ac9a0471c4fc11afffbce4a",
+          "exponent": 0
+        },
+        {
+          "denom": "enzobtc",
+          "exponent": 8
+        }
+      ],
+      "base": "0x6a9a65b84843f5fd4ac9a0471c4fc11afffbce4a",
+      "name": "lorenzo Wrapped Bitcoin",
+      "display": "enzobtc",
+      "symbol": "enzoBTC",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "bitcoin",
+            "base_denom": "sat"
+          },
+          "provider": "Lorenzo Protocol"
+        }
+      ],
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/lorenzo-wrapped-bitcoin.png"
+        }
+      ],
+      "coingecko_id": "lorenzo-wrapped-bitcoin"
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0xF7De2B7afdb07AA5dD143180Ed758165821E076e",
+      "denom_units": [
+        {
+          "denom": "0xF7De2B7afdb07AA5dD143180Ed758165821E076e",
+          "exponent": 0
+        },
+        {
+          "denom": "satunibtc",
+          "exponent": 8
+        }
+      ],
+      "base": "0xF7De2B7afdb07AA5dD143180Ed758165821E076e",
+      "name": "Satlayer uniBTC",
+      "display": "satunibtc",
+      "symbol": "satUniBTC",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x004e9c3ef86bc1ca1f0bb5c7662861ee93350568"
+          },
+          "provider": "SatLayer"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/uniBTC.svg"
+      }
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0x17140b69FfaDfF9e87BF1D86D99119ee10AD24ff",
+      "denom_units": [
+        {
+          "denom": "0x17140b69FfaDfF9e87BF1D86D99119ee10AD24ff",
+          "exponent": 0
+        },
+        {
+          "denom": "satsolvbtc",
+          "exponent": 18
+        }
+      ],
+      "base": "0x17140b69FfaDfF9e87BF1D86D99119ee10AD24ff",
+      "name": "Satlayer SolvBTC.BBN",
+      "display": "satsolvbtc",
+      "symbol": "satSolvBTC",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xd9d920aa40f578ab794426f5c90f6c731d159def"
+          },
+          "provider": "SatLayer"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/solvBTC.svg"
+      }
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0x067e11Ac5471C853aea205B3C1933a5f6367152F",
+      "denom_units": [
+        {
+          "denom": "0x067e11Ac5471C853aea205B3C1933a5f6367152F",
+          "exponent": 0
+        },
+        {
+          "denom": "satlbtc",
+          "exponent": 8
+        }
+      ],
+      "base": "0x067e11Ac5471C853aea205B3C1933a5f6367152F",
+      "name": "Satlayer LBTC",
+      "display": "satlbtc",
+      "symbol": "satLBTC",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x8236a87084f8B84306f72007F36F2618A5634494"
+          },
+          "provider": "SatLayer"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/lbtc.svg"
+      }
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0xC96dE26018A54D51c097160568752c4E3BD6C364",
+      "denom_units": [
+        {
+          "denom": "0xC96dE26018A54D51c097160568752c4E3BD6C364",
+          "exponent": 0
+        },
+        {
+          "denom": "fbtc",
+          "exponent": 8
+        }
+      ],
+      "base": "0xC96dE26018A54D51c097160568752c4E3BD6C364",
+      "name": "Fire Bitcoin",
+      "display": "fbtc",
+      "symbol": "FBTC",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/FBTC.png"
+      }
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0xe2C6755C10d0B61D8B11Dd2851AE8266Cea912DC",
+      "denom_units": [
+        {
+          "denom": "0xe2C6755C10d0B61D8B11Dd2851AE8266Cea912DC",
+          "exponent": 0
+        },
+        {
+          "denom": "satfbtc",
+          "exponent": 8
+        }
+      ],
+      "base": "0xe2C6755C10d0B61D8B11Dd2851AE8266Cea912DC",
+      "name": "Satlayer FBTC",
+      "display": "satfbtc",
+      "symbol": "satFBTC",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xC96dE26018A54D51c097160568752c4E3BD6C364"
+          },
+          "provider": "SatLayer"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/FBTC.png"
+      }
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0x69223B5B36a785Ec08e5f685fd7961399982C566",
+      "denom_units": [
+        {
+          "denom": "0x69223B5B36a785Ec08e5f685fd7961399982C566",
+          "exponent": 0
+        },
+        {
+          "denom": "satwbtc",
+          "exponent": 8
+        }
+      ],
+      "base": "0x69223B5B36a785Ec08e5f685fd7961399982C566",
+      "name": "Satlayer WBTC",
+      "display": "satwbtc",
+      "symbol": "satWBTC",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+          },
+          "provider": "SatLayer"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.svg"
+      }
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0x0c4dd69705D16d91bC9C0534Cc926966f23430c7",
+      "denom_units": [
+        {
+          "denom": "0x0c4dd69705D16d91bC9C0534Cc926966f23430c7",
+          "exponent": 0
+        },
+        {
+          "denom": "satpumpbtc",
+          "exponent": 8
+        }
+      ],
+      "base": "0x0c4dd69705D16d91bC9C0534Cc926966f23430c7",
+      "name": "Satlayer pumpBTC",
+      "display": "satpumpbtc",
+      "symbol": "satPumpBTC",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xf469fbd2abcd6b9de8e169d128226c0fc90a012e"
+          },
+          "provider": "SatLayer"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pumpBTC.svg"
+      }
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0xFF2858Cc8227aA45a51c8961598Edc2d44B5ee5b",
+      "denom_units": [
+        {
+          "denom": "0xFF2858Cc8227aA45a51c8961598Edc2d44B5ee5b",
+          "exponent": 0
+        },
+        {
+          "denom": "satstbtc",
+          "exponent": 18
+        }
+      ],
+      "base": "0xFF2858Cc8227aA45a51c8961598Edc2d44B5ee5b",
+      "name": "Satlayer stBTC",
+      "display": "satstbtc",
+      "symbol": "satStBTC",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xf6718b2701d4a6498ef77d7c152b2137ab28b8a3"
+          },
+          "provider": "SatLayer"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/stbtc.svg"
+      }
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD",
+      "denom_units": [
+        {
+          "denom": "0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD",
+          "exponent": 0
+        },
+        {
+          "denom": "susds",
+          "exponent": 18
+        }
+      ],
+      "base": "0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD",
+      "name": "Savings USDS",
+      "display": "susds",
+      "symbol": "sUSDS",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/susds.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/susds.svg"
+      },
+      "coingecko_id": "susds"
+    },
+    {
+      "type_asset": "erc20",
+      "address": "0x007115416ab6c266329a03b09a8aa39ac2ef7d9d",
+      "denom_units": [
+        {
+          "denom": "0x007115416ab6c266329a03b09a8aa39ac2ef7d9d",
+          "exponent": 0
+        },
+        {
+          "denom": "mBTC",
+          "exponent": 18
+        }
+      ],
+      "base": "0x007115416ab6c266329a03b09a8aa39ac2ef7d9d",
+      "name": "Midas BTC Yield Token",
+      "display": "mBTC",
+      "symbol": "mBTC.midas",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/midas-mbtc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/midas-mbtc.svg"
+      },
+      "coingecko_id": "midas-btc-yield-token"
     }
   ]
 }

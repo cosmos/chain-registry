@@ -3,12 +3,16 @@
   "chain_name": "conscious",
   "status": "live",
   "network_type": "mainnet",
-  "website": "https://www.consciousdao.com/",
+  "website": "https://cvn.io/",
   "pretty_name": "ConsciousDAO",
+  "chain_type": "cosmos",
   "chain_id": "cvn_2032-1",
   "bech32_prefix": "cvn",
   "node_home": "$HOME/.cvnd",
   "daemon_name": "cvnd",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
   "slip44": 60,
   "fees": {
     "fee_tokens": [
@@ -36,53 +40,41 @@
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/cvn-network/cvn/release/v2.1.x/networks/mainnet/config/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v1.0.3",
-        "recommended_version": "v1.0.4",
-        "compatible_versions": [
-          "v1.0.3"
-        ],
-        "next_version_name": "v2.1.1"
-      },
-      {
-        "name": "v2.1.1",
-        "recommended_version": "v2.1.1",
-        "compatible_versions": [
-          "v2.1.1"
-        ],
-        "next_version_name": ""
-      }
-    ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/conscious/images/cvn.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/conscious/images/cvn.svg"
   },
   "peers": {
-    "seeds": [
-    ],
-    "persistent_peers": [
-    ]
+    "seeds": [],
+    "persistent_peers": []
   },
   "apis": {
     "rpc": [
       {
         "address": "https://rpc.cvn.io/",
         "provider": "cvn.io"
+      },
+      {
+        "address": "https://conscious_mainnet_rpc.chain.whenmoonwhenlambo.money/",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
       }
     ],
     "rest": [
       {
-        "address": "https://api.consciousdao.com",
-        "provider": "consciousdao.com"
+        "address": "https://api.cvn.io",
+        "provider": "cvn.io"
+      },
+      {
+        "address": "https://conscious_mainnet_api.chain.whenmoonwhenlambo.money/",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
       }
     ],
     "grpc": [
       {
-        "address": "https://rest.consciousdao.com",
-        "provider": "consciousdao.com"
+        "address": "https://grpc.cvn.io",
+        "provider": "cvn.io"
       }
     ],
     "evm-http-jsonrpc": [
@@ -93,14 +85,39 @@
       {
         "address": "https://node.consciousdao.io/",
         "provider": "consciousdao"
+      },
+      {
+        "address": "https://conscious_mainnet_evm.chain.whenmoonwhenlambo.money/",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
       }
     ]
   },
   "explorers": [
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/conscious",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=conscious&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=conscious&addr=${accountAddress}"
+    },
+    {
       "kind": "blockscout",
       "url": "https://explore.consciousdao.com/",
       "tx_page": "https://explore.consciousdao.com/tx/${txHash}"
+    },
+    {
+      "kind": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25",
+      "url": "https://explorer.whenmoonwhenlambo.money/conscious",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/conscious/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/conscious/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/conscious/images/cvn.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/conscious/images/cvn.svg",
+      "theme": {
+        "primary_color_hex": "#047e04"
+      }
     }
   ]
 }

@@ -5,10 +5,12 @@
   "network_type": "mainnet",
   "website": "https://cifer.ai/",
   "pretty_name": "Cifer",
-  "chain_id": "cifer",
+  "chain_type": "cosmos",
+  "chain_id": "cifer-2",
   "bech32_prefix": "cife",
   "daemon_name": "ciferd",
   "node_home": "$HOME/.ciferd",
+  "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
@@ -29,41 +31,55 @@
   },
   "codebase": {
     "git_repo": "https://github.com/cifer-ai/cifer",
-    "recommended_version": "v1.0.0",
+    "recommended_version": "v2.0.0",
     "compatible_versions": [
-      "v1.0.0"
+      "v2.0.0"
     ],
     "genesis": {
-      "genesis_url": "https://rpc.mainnet.cifer.ai/genesis"
-    },
-    "versions": [
-      {
-        "name": "v1.0.0",
-        "recommended_version": "v1.0.0",
-        "compatible_versions": [
-          "v1.0.0"
-        ]
-      }
-    ]
+      "genesis_url": "https://rpcmainnet.cifer.ai/genesis"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cifer/images/cif.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cifer/images/cif.svg"
   },
   "peers": {
-    "persistent_peers": []
+    "seeds": [
+      {
+        "id": "0e8ff52fd093a99bd08b3c294d683761fbad7ca8",
+        "address": "34.128.114.243:26656",
+        "provider": "Cifer"
+      },
+      {
+        "id": "541fbc9169c7c1ec84babea50cb76c4b991fd0b2",
+        "address": "34.128.114.243:26656"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "3406d8c2f3f45f0a2364e2518d8da221186439d9",
+        "address": "147.50.231.205:26656",
+        "provider": "Nomad Block Validator"
+      }
+    ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.mainnet.cifer.ai",
-        "provider": "cifer"
+        "address": "http://34.128.114.243:26657",
+        "provider": "Cifer"
       }
     ],
     "rest": [
       {
-        "address": "https://mainnet.cifer.ai",
-        "provider": "cifer"
+        "address": "https://api.cifer.ai",
+        "provider": "Cifer"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "http://34.128.114.243:9090",
+        "provider": "Cifer"
       }
     ]
   },
@@ -77,7 +93,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cifer/images/cif.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cifer/images/cif.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cifer/images/cif.svg",
+      "theme": {
+        "primary_color_hex": "#af49b7"
+      }
     }
   ]
 }

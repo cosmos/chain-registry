@@ -5,6 +5,7 @@
   "website": "https://nolus.io/",
   "network_type": "mainnet",
   "pretty_name": "Nolus",
+  "chain_type": "cosmos",
   "chain_id": "pirin-1",
   "bech32_prefix": "nolus",
   "daemon_name": "nolusd",
@@ -17,9 +18,45 @@
     "fee_tokens": [
       {
         "denom": "unls",
-        "low_gas_price": 0,
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.025,
         "average_gas_price": 0.025,
         "high_gas_price": 0.05
+      },
+      {
+        "denom": "ibc/F5FABF52B54E65064B57BF6DBD8E5FAD22CEE9F4B8A57ADBB20CCD0173AA72A4",
+        "fixed_min_gas_price": 0.05,
+        "low_gas_price": 0.05,
+        "average_gas_price": 0.07,
+        "high_gas_price": 0.09
+      },
+      {
+        "denom": "ibc/18161D8EFBD00FF5B7683EF8E923B8913453567FBE3FB6672D75712B0DEB6682",
+        "fixed_min_gas_price": 0.05,
+        "low_gas_price": 0.05,
+        "average_gas_price": 0.07,
+        "high_gas_price": 0.09
+      },
+      {
+        "denom": "ibc/6CDD4663F2F09CD62285E2D45891FC149A3568E316CE3EBBE201A71A78A69388",
+        "fixed_min_gas_price": 0.0058,
+        "low_gas_price": 0.0058,
+        "average_gas_price": 0.0072,
+        "high_gas_price": 0.0088
+      },
+      {
+        "denom": "ibc/ED07A3391A112B175915CD8FAF43A2DA8E4790EDE12566649D0C2F97716B8518",
+        "fixed_min_gas_price": 0.088,
+        "low_gas_price": 0.088,
+        "average_gas_price": 0.11,
+        "high_gas_price": 0.13
+      },
+      {
+        "denom": "ibc/3D6BC6E049CAEB905AC97031A42800588C58FB471EBDC7A3530FFCD0C3DC9E09",
+        "fixed_min_gas_price": 0.1,
+        "low_gas_price": 0.1,
+        "average_gas_price": 0.12,
+        "high_gas_price": 0.14
       }
     ]
   },
@@ -35,127 +72,36 @@
   },
   "codebase": {
     "git_repo": "https://github.com/nolus-protocol/nolus-core",
-    "recommended_version": "v0.5.0",
+    "recommended_version": "v0.6.3",
     "compatible_versions": [
-      "v0.5.0"
+      "v0.6.3"
     ],
-    "cosmos_sdk_version": "v0.47.6-nolus",
     "consensus": {
       "type": "cometbft",
-      "version": "0.34.27"
+      "version": "v0.38.11"
     },
-    "cosmwasm_version": "neutron-org/wasmd v0.45.0",
-    "cosmwasm_enabled": true,
-    "ibc_go_version": "7.3.1",
-    "ics_enabled": [
-      "ics20-1",
-      "ics27-1"
-    ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/nolus-protocol/nolus-networks/main/mainnet/pirin-1/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.3.0",
-        "recommended_version": "v0.3.0",
-        "compatible_versions": [
-          "v0.3.0"
-        ],
-        "cosmos_sdk_version": "0.45",
-        "cosmwasm_version": "0.31",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "4.3.0",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
-        "next_version_name": "v0.4.0"
-      },
-      {
-        "name": "v0.4.0",
-        "proposal": 5,
-        "height": 207300,
-        "recommended_version": "v0.4.0",
-        "compatible_versions": [
-          "v0.4.0"
-        ],
-        "cosmos_sdk_version": "0.45",
-        "cosmwasm_version": "0.31",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "4.3.0",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
-        "next_version_name": "v0.4.1"
-      },
-      {
-        "name": "v0.4.1",
-        "proposal": 34,
-        "height": 941000,
-        "recommended_version": "v0.4.1",
-        "compatible_versions": [
-          "v0.4.1"
-        ],
-        "cosmos_sdk_version": "0.45",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.34.27"
-        },
-        "cosmwasm_version": "0.31",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "4.3.1",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
-        "next_version_name": ""
-      },
-      {
-        "name": "v0.4.2",
-        "proposal": 54,
-        "height": 3044000,
-        "recommended_version": "v0.4.2",
-        "compatible_versions": [
-          "v0.4.2"
-        ],
-        "cosmos_sdk_version": "v0.45.15-ics",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.34.27"
-        },
-        "cosmwasm_version": "0.31",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "4.3.1",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
-        "next_version_name": "v0.5.0"
-      },
-      {
-        "name": "v0.5.0",
-        "proposal": 72,
-        "height": 3659000,
-        "recommended_version": "v0.5.0",
-        "compatible_versions": [
-          "v0.5.0"
-        ],
-        "cosmos_sdk_version": "v0.47.6-nolus",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.34.27"
-        },
-        "cosmwasm_version": "neutron-org/wasmd v0.45.0",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "7.3.1",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
-        "next_version_name": ""
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/nolus-protocol/cosmos-sdk",
+      "version": "v0.50.7",
+      "tag": "v0.50.7-nolus-rc1"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "8.2.1",
+      "ics_enabled": [
+        "ics20-1",
+        "ics27-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "v0.51.0",
+      "repo": "https://github.com/neutron-org/wasmd",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.png",
@@ -167,17 +113,17 @@
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:11956",
-        "provider": "Lavender.Five Nodes 🐝"
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "nolus-mainnet-seed.autostake.com:27016",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
@@ -186,7 +132,7 @@
       },
       {
         "id": "cefe4a5394dc57f318547258c511a9a96aaeaa7b",
-        "address": "seed-nolus.ibs.team:56656",
+        "address": "seed-nolus.ibs.team:16665",
         "provider": "Inter Blockchain Services"
       }
     ],
@@ -194,27 +140,23 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "nolus-mainnet-peer.autostake.com:27016",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://pirin-cl.nolus.network:26657",
+        "address": "rpc.nolus.network",
         "provider": "NolusProtocol"
       },
       {
         "address": "https://nolus-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
-        "address": "https://nolus-rpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://nolus-rpc.sphincs.plus",
-        "provider": "Sphincs.plus 🔅"
+        "address": "https://rpc.lavenderfive.com:443/nolus",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://nolus.rpc.liveraven.net",
@@ -242,7 +184,7 @@
       },
       {
         "address": "https://nolus-rpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "https://nolus-rpc.ibs.team",
@@ -251,20 +193,16 @@
     ],
     "rest": [
       {
-        "address": "https://pirin-cl.nolus.network:1317",
+        "address": "lcd.nolus.network",
         "provider": "NolusProtocol"
       },
       {
         "address": "https://nolus-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
-        "address": "https://nolus-api.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://nolus-lcd.sphincs.plus",
-        "provider": "Sphincs.plus 🔅"
+        "address": "https://rest.lavenderfive.com:443/nolus",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://api-nolus.cosmos-spaces.cloud",
@@ -292,7 +230,7 @@
       },
       {
         "address": "https://nolus-rest.publicnode.com",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "https://nolus-api.ibs.team",
@@ -301,16 +239,16 @@
     ],
     "grpc": [
       {
-        "address": "https://pirin-cl.nolus.network:9090",
+        "address": "grpc.nolus.network",
         "provider": "NolusProtocol"
       },
       {
         "address": "nolus-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
-        "address": "https://nolus-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "nolus.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://nolus.grpc.liveraven.net",
@@ -334,11 +272,17 @@
       },
       {
         "address": "nolus-grpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/nolus",
+      "tx_page": "https://explorer.chainroot.io/nolus/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/nolus/accounts/${accountAddress}"
+    },
     {
       "kind": "Nolus Explorer",
       "url": "https://explorer.nolus.io/pirin-1",
@@ -363,6 +307,12 @@
       "tx_page": "https://nolus.explorers.guru/transaction/${txHash}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/nolus",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=nolus&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=nolus&addr=${accountAddress}"
+    },
+    {
       "kind": "KJ Nodes Explorer",
       "url": "https://explorer.kjnodes.com/nolus",
       "tx_page": "https://explorer.kjnodes.com/nolus/tx/${txHash}",
@@ -375,7 +325,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.svg",
+      "theme": {
+        "primary_color_hex": "#fc542c"
+      }
     }
   ]
 }

@@ -4,7 +4,8 @@
   "status": "live",
   "network_type": "mainnet",
   "website": "https://c4e.io/",
-  "pretty_name": "Chain4Energy",
+  "pretty_name": "C4E",
+  "chain_type": "cosmos",
   "chain_id": "perun-1",
   "bech32_prefix": "c4e",
   "daemon_name": "c4ed",
@@ -12,133 +13,34 @@
   "key_algos": [
     "secp256k1"
   ],
-  "slip44": 4444,
+  "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
         "denom": "uc4e",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uc4e"
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/chain4energy/c4e-chain",
-    "recommended_version": "v1.2.1",
+    "recommended_version": "v1.3.1",
     "compatible_versions": [
-      "v1.2.1"
+      "v1.3.1"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/chain4energy/c4e-chains/main/perun-1/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v1.0.0",
-        "recommended_version": "v1.0.1",
-        "compatible_versions": [
-          "v1.0.0",
-          "v1.0.1"
-        ],
-        "cosmos_sdk_version": "v0.45.5",
-        "ibc_go_version": "v3.0.1",
-        "consensus": {
-          "type": "tendermint",
-          "version": "v0.34.19"
-        },
-        "binaries": {
-          "linux/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.0.0/c4ed_v1.0.0_linux_amd64.tar.gz",
-          "linux/arm64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.0.0/c4ed_v1.0.0_darwin_amd64.tar.gz",
-          "darwin/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.0.0/c4ed_v1.0.0_darwin_amd64.tar.gz"
-        },
-        "next_version_name": "v1.1.0"
-      },
-      {
-        "name": "v1.1.0",
-        "tag": "v1.1.0",
-        "proposal": 1,
-        "height": 1952250,
-        "recommended_version": "v1.1.0",
-        "compatible_versions": [
-          "v1.1.0"
-        ],
-        "cosmos_sdk_version": "v0.45.9",
-        "ibc_go_version": "v3.0.1",
-        "consensus": {
-          "type": "tendermint",
-          "version": "v0.34.21"
-        },
-        "binaries": {
-          "linux/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.1.0/c4ed_v1.1.0_linux_amd64.tar.gz",
-          "linux/arm64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.1.0/c4ed_v1.1.0_linux_arm64.tar.gz",
-          "darwin/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.1.0/c4ed_v1.1.0_darwin_amd64.tar.gz"
-        },
-        "next_version_name": "v1.2.0"
-      },
-      {
-        "name": "v1.2.0",
-        "tag": "v1.2.0",
-        "proposal": 4,
-        "height": 2826500,
-        "recommended_version": "v1.2.0",
-        "compatible_versions": [
-          "v1.2.0"
-        ],
-        "cosmos_sdk_version": "v0.46.10",
-        "ibc_go_version": "v5.2.0",
-        "consensus": {
-          "type": "tendermint",
-          "version": "v0.34.26"
-        },
-        "binaries": {
-          "linux/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.2.0/c4ed_v1.2.0_linux_amd64.tar.gz",
-          "linux/arm64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.2.0/c4ed_v1.2.0_linux_arm64.tar.gz",
-          "darwin/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.2.0/c4ed_v1.2.0_darwin_amd64.tar.gz"
-        },
-        "next_version_name": "v1.2.1"
-      },
-      {
-        "name": "v1.2.1",
-        "tag": "v1.2.1",
-        "height": 3767300,
-        "recommended_version": "v1.2.1",
-        "compatible_versions": [
-          "v1.2.1"
-        ],
-        "cosmos_sdk_version": "v0.46.13",
-        "ibc_go_version": "v5.2.0",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.28"
-        },
-        "binaries": {
-          "linux/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.2.1/c4ed_v1.2.1_linux_amd64.tar.gz",
-          "linux/arm64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.2.1/c4ed_v1.2.1_linux_arm64.tar.gz",
-          "darwin/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.2.1/c4ed_v1.2.1_darwin_amd64.tar.gz"
-        },
-        "next_version_name": "v1.3.0"
-      },
-      {
-        "name": "v1.3.0",
-        "tag": "v1.3.0",
-        "proposal": 7,
-        "height": 6283905,
-        "recommended_version": "v1.3.0",
-        "compatible_versions": [
-          "v1.3.0"
-        ],
-        "cosmos_sdk_version": "v0.46.13",
-        "ibc_go_version": "v5.2.1",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.28"
-        },
-        "binaries": {
-          "linux/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.0/c4ed_v1.3.0_darwin_amd64.tar.gz",
-          "linux/arm64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.0/c4ed_v1.3.0_linux_arm64.tar.gz",
-          "darwin/amd64": "https://github.com/chain4energy/c4e-chain/releases/download/v1.3.0/c4ed_v1.3.0_darwin_amd64.tar.gz"
-        },
-        "next_version_name": ""
-      }
-    ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/chain4energy/images/c4e.png"
@@ -146,13 +48,23 @@
   "peers": {
     "seeds": [
       {
+        "id": "8ac87f7f8da5c2a901d64f2c1e86f8b6ee39fef1",
+        "address": "seed-m.c4e.apeironnodes.com:41003",
+        "provider": "Apeiron Nodes"
+      },
+      {
+        "id": "edca3b826d61d1e5e7d3dc173954de1324f2e512",
+        "address": "seed-m.c4e.apeironnodes.com:27003",
+        "provider": "Apeiron Nodes"
+      },
+      {
         "id": "30e98bbcf5bb29ed4e4ff685fa8fa84fa0ddff51",
         "address": "tenderseed.ccvalidators.com:26008",
         "provider": "CryptoCrew"
       },
       {
         "id": "54515079bae4cadae2f9b511cffeb9447d4bc98d",
-        "address": "c4e.seed.bccnodes.com:27656",
+        "address": "c4e.seed.bccnodes.com:30656",
         "provider": "BccNodes"
       },
       {
@@ -176,6 +88,11 @@
         "provider": "MZONDER"
       },
       {
+        "id": "fbf9a48eca1ba873ad766e2cb72a0562596a248f",
+        "address": "c4e.seed.stavr.tech:17096",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
         "id": "a85a651a3cf1746694560c5b6f76d566c04ca581",
         "address": "c4e-seed.takeshi.team:10256",
         "provider": "TAKESHI"
@@ -183,7 +100,7 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "chain4energy-mainnet-seed.autostake.com:27276",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "8cb175d973c3c638a4e5d014c030d8599369419f",
@@ -203,7 +120,7 @@
       {
         "id": "6cb7ff21d19f139f4ca5e6e2a336e59d2857aba1",
         "address": "seeds.anode.team:10256",
-        "provider": "AlxVoy ⚡ ANODE.TEAM"
+        "provider": "AlxVoy \u26a1 ANODE.TEAM"
       },
       {
         "id": "e47f4fa12187234dd205f51cb984c8235c3a3511",
@@ -243,10 +160,15 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "persistent_peers": [
+      {
+        "id": "00eb92db69a4848f8ac1c84e7b8b2d9b01b95dff",
+        "address": "peer.c4e.mainnet.dteam.tech:30656",
+        "provider": "DTEAM"
+      },
       {
         "id": "5b62ff6035d9c8143c0ebf4fe05fa0b22d96bb05",
         "address": "rpc.c4e.ppnv.space:13656",
@@ -260,12 +182,12 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "chain4energy-mainnet-peer.autostake.com:27276",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "e3d0b136495c3f4382ac801fbc89083d32625ff8",
         "address": "c4e.peer.stavr.tech:17096",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "id": "094cc97f8443ba4302e2db818e64497d03176fad",
@@ -280,7 +202,7 @@
       {
         "id": "5be2027950e249c42e20390c94fc1e8f3cd16657",
         "address": "65.108.70.119:33656",
-        "provider": "AlxVoy ⚡ ANODE.TEAM"
+        "provider": "AlxVoy \u26a1 ANODE.TEAM"
       },
       {
         "id": "1b802d4616c1de3fa687ad0d671b1b9d64754a44",
@@ -301,6 +223,11 @@
         "id": "2e08beed75525c2d583e6413fa5f090801965aba",
         "address": "c4e.doubletop:30655",
         "provider": "DOUBLETOP"
+      },
+      {
+        "id": "15ea07bf6211f708eb2966b6c66e3aaa45834137",
+        "address": "185.144.99.37:16656",
+        "provider": "CrypTech"
       }
     ]
   },
@@ -311,28 +238,20 @@
         "provider": "C4E"
       },
       {
-        "address": "https://rpc.c4e.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
-        "address": "https://chain4energy-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "http://c4e.rpc.m.stavr.tech:17097",
-        "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "https://rpc-c4e.d-stake.xyz",
-        "provider": "D-Stake"
+        "address": "https://rpc.c4e.mainnet.dteam.tech:443",
+        "provider": "DTEAM"
       },
       {
         "address": "https://c4e.rpc.bccnodes.com",
         "provider": "BccNodes"
       },
       {
-        "address": "https://rpc-m.c4e.hexnodes.co",
-        "provider": "Hexnodes"
+        "address": "https://chain4energy-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+      },
+      {
+        "address": "https://c4e.rpc.m.stavr.tech:443",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "https://rpc-c4e.takeshi.team",
@@ -376,11 +295,7 @@
       },
       {
         "address": "https://c4e.rpc.m.anode.team",
-        "provider": "AlxVoy ⚡ ANODE.TEAM"
-      },
-      {
-        "address": "https://c4e-rpc.validatrium.club",
-        "provider": "Validatrium"
+        "provider": "AlxVoy \u26a1 ANODE.TEAM"
       },
       {
         "address": "http://185.245.182.192:46657",
@@ -393,10 +308,6 @@
       {
         "address": "http://c4e.rpc.node75.org:26957",
         "provider": "Pro-nodes75"
-      },
-      {
-        "address": "https://rpc-c4e.stakerun.com:443",
-        "provider": "StakeRun"
       },
       {
         "address": "http://164.68.125.243:26657",
@@ -415,10 +326,6 @@
         "provider": "Kalia Network"
       },
       {
-        "address": "https://c4e.rpc.skynodejs.net",
-        "provider": "skynodejs"
-      },
-      {
         "address": "http://38.242.220.64:16657",
         "provider": "mahof"
       },
@@ -429,6 +336,22 @@
       {
         "address": "https://rpc.c4e.validatus.com:443",
         "provider": "Validatus"
+      },
+      {
+        "address": "https://rpc-m-c4e.apeironnodes.com:443",
+        "provider": "Apeiron Nodes"
+      },
+      {
+        "address": "http://rpc-c4e.cryptech.com.ua:443",
+        "provider": "Cryptech"
+      },
+      {
+        "address": "http://37.60.240.43:46657",
+        "provider": "NakoTurk"
+      },
+      {
+        "address": "https://chain4energy_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
       }
     ],
     "rest": [
@@ -437,20 +360,20 @@
         "provider": "C4E"
       },
       {
-        "address": "https://api.c4e.nodestake.top",
-        "provider": "NodeStake"
+        "address": "https://api.c4e.mainnet.dteam.tech:443",
+        "provider": "DTEAM"
+      },
+      {
+        "address": "https://c4e.lcd.bccnodes.com",
+        "provider": "BccNodes"
       },
       {
         "address": "https://chain4energy-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://c4e.api.m.stavr.tech",
-        "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "https://api-m.c4e.hexnodes.co",
-        "provider": "Hexnodes"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "https://api-c4e.takeshi.team",
@@ -494,19 +417,11 @@
       },
       {
         "address": "https://c4e.api.m.anode.team",
-        "provider": "AlxVoy ⚡ ANODE.TEAM"
-      },
-      {
-        "address": "https://c4e-api.validatrium.club",
-        "provider": "Validatrium"
+        "provider": "AlxVoy \u26a1 ANODE.TEAM"
       },
       {
         "address": "http://c4e.api.node75.org:1397",
         "provider": "Pro-nodes75"
-      },
-      {
-        "address": "https://lcd-c4e.stakerun.com:443",
-        "provider": "StakeRun"
       },
       {
         "address": "http://164.68.125.243:1319",
@@ -521,10 +436,6 @@
         "provider": "Kalia Network"
       },
       {
-        "address": "https://c4e.api.skynodejs.net",
-        "provider": "skynodejs"
-      },
-      {
         "address": "http://38.242.220.64:11317",
         "provider": "mahof"
       },
@@ -535,16 +446,32 @@
       {
         "address": "https://api.c4e.validatus.com:443",
         "provider": "Validatus"
+      },
+      {
+        "address": "https://api-c4e.cryptech.com.ua:443",
+        "provider": "CrypTech"
+      },
+      {
+        "address": "https://lcd-m-c4e.apeironnodes.com",
+        "provider": "Apeiron Nodes"
+      },
+      {
+        "address": "https://chain4energy_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
       }
     ],
     "grpc": [
       {
-        "address": "grpc.c4e.nodestake.top:443",
-        "provider": "NodeStake"
+        "address": "grpc.c4e.mainnet.dteam.tech:30090",
+        "provider": "DTEAM"
+      },
+      {
+        "address": "c4e.grpc.bccnodes.com:443",
+        "provider": "BccNodes"
       },
       {
         "address": "chain4energy-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "c4e.grpc.bccnodes.com:443",
@@ -560,7 +487,7 @@
       },
       {
         "address": "http://c4e.grpc.m.stavr.tech:7029",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "c4e-grpc.stake-town.com:443",
@@ -584,7 +511,7 @@
       },
       {
         "address": "https://c4e.grpc.m.anode.team",
-        "provider": "AlxVoy ⚡ ANODE.TEAM"
+        "provider": "AlxVoy \u26a1 ANODE.TEAM"
       },
       {
         "address": "https://c4e-grpc.validatrium.club",
@@ -625,14 +552,33 @@
       {
         "address": "https://grpc.c4e.validatus.com:443",
         "provider": "Validatus"
+      },
+      {
+        "address": "https://grpc-c4e.cryptech.com.ua:443",
+        "provider": "Cryptech"
+      },
+      {
+        "address": "http://207.180.208.47:46657",
+        "provider": "NakoTurk"
       }
     ]
   },
   "explorers": [
     {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/chain4energy",
+      "tx_page": "https://explorer.chainroot.io/chain4energy/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/chain4energy/accounts/${accountAddress}"
+    },
+    {
       "kind": "explorer",
       "url": "https://explorer.apeironnodes.com/chain4energy",
       "tx_page": "https://explorer.apeironnodes.com/chain4energy/transactions/${txHash}"
+    },
+    {
+      "kind": "DTEAM | Explorer",
+      "url": "https://explorer.mainnet.dteam.tech/chain4energy",
+      "tx_page": "https://explorer.mainnet.dteam.tech/chain4energytransactions/${txHash}"
     },
     {
       "kind": "explorer",
@@ -646,16 +592,16 @@
     },
     {
       "kind": "NodeStake Explorer",
-      "url": "https://explorer.nodestake.top/chain4energy",
-      "tx_page": "https://explorer.nodestake.top/chain4energy/transactions/${txHash}"
+      "url": "https://explorer.nodestake.org/chain4energy",
+      "tx_page": "https://explorer.nodestake.org/chain4energy/transactions/${txHash}"
     },
     {
-      "kind": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀 Explorer",
+      "kind": "\ud835\udc25\ud835\udc1e\ud835\udc2c\ud835\udc27\ud835\udc22\ud835\udc24 | \ud835\udc14\ud835\udc13\ud835\udc12\ud835\udc00 Explorer",
       "url": "https://exp.utsa.tech/c4e",
       "tx_page": "https://exp.utsa.tech/c4e/tx/${txHash}"
     },
     {
-      "kind": "🔥STAVR🔥 Explorer",
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25 Explorer",
       "url": "https://explorer.stavr.tech/c4e",
       "tx_page": "https://explorer.stavr.tech/c4e/tx/${txHash}"
     },
@@ -681,7 +627,7 @@
       "tx_page": "https://explorer.theamsolutions.info/c4e-main/transactions/${txHash}"
     },
     {
-      "kind": "AlxVoy ⚡ ANODE.TEAM Explorer",
+      "kind": "AlxVoy \u26a1 ANODE.TEAM Explorer",
       "url": "https://main.anode.team/c4e",
       "tx_page": "https://main.anode.team/c4e/tx/${txHash}"
     },
@@ -689,11 +635,25 @@
       "kind": "ScanRun",
       "url": "https://scanrun.io/c4e",
       "tx_page": "https://scanrun.io/c4e/transactions/${txHash}"
+    },
+    {
+      "kind": "Cryptech",
+      "url": "https://explorers.cryptech.com.ua/chain4energy",
+      "tx_page": "https://explorers.cryptech.com.ua/chain4energy/tx/${txHash}"
+    },
+    {
+      "kind": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25",
+      "url": "https://explorer.whenmoonwhenlambo.money/chain4energy",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/chain4energy/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/chain4energy/account/${accountAddress}"
     }
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/chain4energy/images/c4e.png"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/chain4energy/images/c4e.png",
+      "theme": {
+        "primary_color_hex": "#24344c"
+      }
     }
   ]
 }

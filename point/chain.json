@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "pretty_name": "Point Network",
+  "chain_type": "cosmos",
   "chain_id": "point_10687-1",
   "bech32_prefix": "point",
   "node_home": "$HOME/.pointd",
@@ -32,32 +33,9 @@
     "compatible_versions": [
       "v8.0.0"
     ],
-    "binaries": {
-      "linux/amd64": "",
-      "linux/arm64": "",
-      "darwin/amd64": "",
-      "darwin/arm64": "",
-      "windows/amd64": ""
-    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/pointnetwork/point-chain-config/main/mainnet-1/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v8.0.0",
-        "recommended_version": "v8.0.0",
-        "compatible_versions": [
-          "v8.0.0"
-        ],
-        "binaries": {
-          "linux/amd64": "",
-          "linux/arm64": "",
-          "darwin/amd64": "",
-          "darwin/arm64": "",
-          "windows/amd64": ""
-        }
-      }
-    ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/point/images/point-logo.png",
@@ -73,7 +51,7 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -81,6 +59,11 @@
         "id": "8673c1f04c29c464189e8bf29e51fb0b38da2f19",
         "address": "rpc-mainnet-1.point.space:26656",
         "provider": "Point Network"
+      },
+      {
+        "id": "f675d544f5e6b8bc7ef9923d6f594dd0a3570190",
+        "address": "point.peer.stavr.tech:1056",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "id": "9c7902cf292e1dbb79b2a0c3ed18f9e6f826483f",
@@ -96,8 +79,12 @@
         "provider": "Point Network"
       },
       {
-        "address": "https://rpc.point.nodestake.top",
+        "address": "https://rpc.point.nodestake.org",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://point.rpc.m.stavr.tech:443",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "https://rpc.point.indonode.net",
@@ -110,7 +97,11 @@
         "provider": "Point Network"
       },
       {
-        "address": "https://api.point.nodestake.top",
+        "address": "https://point.api.m.stavr.tech",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "https://api.point.nodestake.org",
         "provider": "NodeStake"
       },
       {
@@ -120,12 +111,16 @@
     ],
     "grpc": [
       {
-        "address": "grpc.point.nodestake.top:443",
+        "address": "grpc.point.nodestake.org:443",
         "provider": "NodeStake"
       },
       {
+        "address": "point.grpc.m.stavr.tech:2050",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
         "address": "https://grpc.point.nodexcapital.com",
-        "provider": "⚡NodeX Validator⚡"
+        "provider": "\u26a1NodeX Validator\u26a1"
       },
       {
         "address": "https://grpc.point.indonode.net:21090",
@@ -138,7 +133,7 @@
         "provider": "Point Network"
       },
       {
-        "address": "https://jsonrpc.point.nodestake.top",
+        "address": "https://jsonrpc.point.nodestake.org",
         "provider": "NodeStake"
       }
     ]
@@ -148,6 +143,11 @@
       "kind": "blockscout",
       "url": "https://explorer.pointnetwork.io/",
       "tx_page": "https://explorer.pointnetwork.io/tx/${txHash}"
+    },
+    {
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
+      "url": "https://explorer.stavr.tech/Point-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Point-Mainnet/tx/${txHash}"
     },
     {
       "kind": "ping.pub",
@@ -169,7 +169,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/point/images/point-logo.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/point/images/point-logo.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/point/images/point-logo.svg",
+      "theme": {
+        "primary_color_hex": "#040404"
+      }
     }
   ]
 }

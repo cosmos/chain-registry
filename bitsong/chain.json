@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://bitsong.io/",
   "pretty_name": "BitSong",
+  "chain_type": "cosmos",
   "chain_id": "bitsong-2b",
   "bech32_prefix": "bitsong",
   "slip44": 639,
@@ -12,22 +13,29 @@
   "node_home": "$HOME/.bitsongd",
   "codebase": {
     "git_repo": "https://github.com/bitsongofficial/go-bitsong",
-    "recommended_version": "v0.14.0",
+    "recommended_version": "v0.20.4",
     "compatible_versions": [
-      "v0.14.0"
+      "v0.20.4"
     ],
+    "binaries": {
+      "linux/amd64": "https://github.com/bitsongofficial/go-bitsong/releases/download/v0.20.4/bitsongd-linux-amd64",
+      "linux/arm64": "https://github.com/bitsongofficial/go-bitsong/releases/download/v0.20.4/bitsongd-linux-arm64"
+    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/bitsongofficial/networks/master/bitsong-2b/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.14.0",
-        "recommended_version": "v0.14.0",
-        "compatible_versions": [
-          "v0.14.0"
-        ]
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.47.15"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0"
+    },
+    "cosmwasm": {
+      "version": "0.45.0",
+      "enabled": true
+    }
   },
   "fees": {
     "fee_tokens": [
@@ -55,19 +63,24 @@
   "peers": {
     "seeds": [
       {
-        "id": "20e1000e88125698264454a884812746c2eb4807",
-        "address": "seeds.lavenderfive.com:16056",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "id": "10de6c207e60b876bdd88571db44d29c18d0cb5d",
-        "address": "seed-bitsong.starsquid.io:15605",
-        "provider": "Starsquid"
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:16056",
+        "provider": "Polkachu"
       },
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "id": "8defec7d0eec97f507411e02fd2634e3efc997a2",
+        "address": "bitsong-seed.panthea.eu:41656",
+        "provider": "Panthea EU"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:26256",
+        "provider": "BlueStake \ud83d\ude80"
       }
     ],
     "persistent_peers": [
@@ -81,25 +94,27 @@
         "provider": "[NODERS]TEAM"
       },
       {
-        "id": "3ca45466430bf6e0bfebb758e689e4047f0b73c7",
-        "address": "p2p.bitsong.safeblock.space:26656",
-        "provider": "Safe Block"
+        "id": "2cd6bb75fc9279c62c0ef3af82fbe08632743472",
+        "address": "bitsong-peer.panthea.eu:31656",
+        "provider": "Panthea EU"
+      },
+      {
+        "id": "3ddd0edc57217161fbd5dee9bb40b506e7089d00",
+        "address": "167.114.159.157:36656",
+        "provider": "MathNodes"
+      },
+      {
+        "id": "44026983e48ab8a5f2e28374b33351a3958d6cec",
+        "address": "bitsong.seed.stavr.tech:21036",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-bitsong-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
-      },
-      {
         "address": "https://rpc.explorebitsong.com",
         "provider": "stake.systems"
-      },
-      {
-        "address": "https://bitsong-rpc.validatrium.club",
-        "provider": "Validatrium"
       },
       {
         "address": "https://rpc.bitsong.chaintools.tech/",
@@ -107,100 +122,131 @@
       },
       {
         "address": "https://rpc.bitsong.quokkastake.io",
-        "provider": "🐹 Quokka Stake"
-      },
-      {
-        "address": "https://bitsong-rpc.lavenderfive.com/",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://rpc-bitsong.starsquid.io",
-        "provider": "Starsquid"
+        "provider": "\ud83d\udc39 Quokka Stake"
       },
       {
         "address": "https://rpc-bitsong.architectnodes.com",
         "provider": "Architect Nodes"
       },
       {
-        "address": "http://bitsong.statesync.nodersteam.com:11657",
+        "address": "https://bitsong.tdrsys.com:2053",
+        "provider": "TdrSys"
+      },
+      {
+        "address": "https://bitsong-rpc.panthea.eu",
+        "provider": "Panthea EU"
+      },
+      {
+        "address": "https://rpc.bitsong.mathnodes.com",
+        "provider": "MathNodes"
+      },
+      {
+        "address": "https://bitsong-rpc.noders.services",
         "provider": "[NODERS]TEAM"
       },
       {
-        "address": "https://rpc.bitsong.safeblock.space",
-        "provider": "Safe Block"
+        "address": "https://bitsong-rpc.bluestake.net:443",
+        "provider": "BlueStake \ud83d\ude80"
       },
       {
-        "address": "https://bitsong.tdrsys.com:2053",
-        "provider": "TdrSys"
+        "address": "https://bitsong.rpc.m.stavr.tech:443",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "https://bitsong-rpc.polkachu.com:443",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://bitsong-rpc.tothemars.network:443",
+        "provider": "ToTheMars"
       }
     ],
     "rest": [
-      {
-        "address": "https://api-bitsong-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
-      },
       {
         "address": "https://lcd.explorebitsong.com/",
         "provider": "stake.systems"
       },
       {
-        "address": "https://bitsong-api.validatrium.club",
-        "provider": "Validatrium"
-      },
-      {
         "address": "https://api.bitsong.quokkastake.io",
-        "provider": "🐹 Quokka Stake"
-      },
-      {
-        "address": "http://bitsong.api.nodersteam.com:11017",
-        "provider": "[NODERS]TEAM"
-      },
-      {
-        "address": "https://bitsong-api.lavenderfive.com/",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://api-bitsong.starsquid.io",
-        "provider": "Starsquid"
+        "provider": "\ud83d\udc39 Quokka Stake"
       },
       {
         "address": "https://rest-bitsong.architectnodes.com",
         "provider": "Architect Nodes"
       },
       {
-        "address": "https://api.bitsong.safeblock.space",
-        "provider": "Safe Block"
-      },
-      {
         "address": "https://bitsong.tdrsys.com",
         "provider": "TdrSys"
+      },
+      {
+        "address": "https://bitsong-api.panthea.eu",
+        "provider": "Panthea EU"
+      },
+      {
+        "address": "https://api.bitsong.mathnodes.com",
+        "provider": "MathNodes"
+      },
+      {
+        "address": "https://bitsong-api.noders.services",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://bitsong.api.m.stavr.tech",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "https://bitsong-api.bluestake.net",
+        "provider": "BlueStake \ud83d\ude80"
+      },
+      {
+        "address": "https://bitsong-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://bitsong-api.tothemars.network:443",
+        "provider": "ToTheMars"
       }
     ],
     "grpc": [
       {
-        "address": "grpc-bitsong-ia.cosmosia.notional.ventures:443",
-        "provider": "Notional"
+        "address": "bitsong-grpc.polkachu.com:16090",
+        "provider": "Polkachu"
       },
       {
-        "address": "bitsong-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "grpc.bitsong.mathnodes.com:443",
+        "provider": "MathNodes"
       },
       {
-        "address": "bitsong.grpc.nodersteam.com:9111/",
+        "address": "bitsong-grpc.panthea.eu:16750",
+        "provider": "Panthea EU"
+      },
+      {
+        "address": "bitsong-grpc.noders.services:20090",
         "provider": "[NODERS]TEAM"
       },
       {
-        "address": "grpc.bitsong.safeblock.space:9090",
-        "provider": "Safe Block"
+        "address": "bitsong.grpc.m.stavr.tech:9988",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "bitsong-grpc.tothemars.network:60290",
+        "provider": "ToTheMars"
       }
+      
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking",
-      "url": "https://app.ezstaking.io/bitsong",
-      "tx_page": "https://app.ezstaking.io/bitsong/txs/${txHash}",
-      "account_page": "https://app.ezstaking.io/bitsong/account/${accountAddress}"
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/bitsong",
+      "tx_page": "https://explorer.chainroot.io/bitsong/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/bitsong/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/bitsong",
+      "tx_page": "https://ezstaking.app/bitsong/txs/${txHash}",
+      "account_page": "https://ezstaking.app/bitsong/account/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -214,10 +260,10 @@
       "account_page": "https://www.mintscan.io/bitsong/accounts/${accountAddress}"
     },
     {
-      "kind": "bigdipper",
-      "url": "https://bigdipper.live/bitsong",
-      "tx_page": "https://bigdipper.live/bitsong/transactions/${txHash}",
-      "account_page": "https://bigdipper.live/bitsong/accounts/${accountAddress}"
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/bitsong",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=bitsong&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=bitsong&addr=${accountAddress}"
     },
     {
       "kind": "atomscan",
@@ -226,16 +272,19 @@
       "account_page": "https://atomscan.com/bitsong/accounts/${accountAddress}"
     },
     {
-      "kind": "Safe Block",
-      "url": "https://explorer.safeblok.space/bitsong",
-      "tx_page": "https://explorer.safeblock.space/bitsong/tx/${txHash}",
-      "account_page": "https://explorer.safeblock.space/bitsong/account/${accountAddress}"
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
+      "url": "https://explorer.stavr.tech/Bitsong",
+      "tx_page": "https://explorer.stavr.tech/Bitsong/tx/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Bitsong/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitsong/images/btsg.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitsong/images/btsg.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitsong/images/btsg.svg",
+      "theme": {
+        "primary_color_hex": "#c8307f"
+      }
     }
   ]
 }

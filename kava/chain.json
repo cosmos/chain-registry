@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.kava.io/",
   "pretty_name": "Kava",
+  "chain_type": "cosmos",
   "chain_id": "kava_2222-10",
   "bech32_prefix": "kava",
   "daemon_name": "kava",
@@ -32,22 +33,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/kava-Labs/kava/",
-    "recommended_version": "v0.21.0",
+    "recommended_version": "v0.26.0",
     "compatible_versions": [
-      "v0.21.0"
+      "v0.26.0"
     ],
     "genesis": {
       "genesis_url": "https://kava-genesis-files.s3.us-east-1.amazonaws.com/kava_2222-10/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v0.21.0",
-        "recommended_version": "v0.21.0",
-        "compatible_versions": [
-          "v0.21.0"
-        ]
-      }
-    ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/kava.png",
@@ -64,7 +56,7 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "kava-mainnet-seed.autostake.com:26656",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "7ab4b78fbe5ee9e3777b21464a3162bd4cc17f57",
@@ -74,7 +66,12 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "id": "10ed1e176d874c8bb3c7c065685d2da6a4b86475",
+        "address": "seed-kava.ibs.team:16677",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "persistent_peers": [
@@ -85,7 +82,7 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "kava-mainnet-peer.autostake.com:26656",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "7ab4b78fbe5ee9e3777b21464a3162bd4cc17f57",
@@ -110,7 +107,7 @@
       },
       {
         "address": "https://kava-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://kava-rpc.ibs.team",
@@ -122,7 +119,15 @@
       },
       {
         "address": "https://kava-rpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "https://kava.drpc.org",
+        "provider": "dRPC"
+      },
+      {
+        "address": "https://rpc.kava.nodestake.org",
+        "provider": "NodeStake"
       }
     ],
     "rest": [
@@ -140,7 +145,7 @@
       },
       {
         "address": "https://kava-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://kava-api.ibs.team",
@@ -152,7 +157,11 @@
       },
       {
         "address": "https://kava-rest.publicnode.com",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "https://api.kava.nodestake.org",
+        "provider": "NodeStake"
       }
     ],
     "grpc": [
@@ -170,7 +179,7 @@
       },
       {
         "address": "kava-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "grpc-kava-01.stakeflow.io:1202",
@@ -178,7 +187,11 @@
       },
       {
         "address": "kava-grpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "address": "https://grpc.kava.nodestake.org",
+        "provider": "NodeStake"
       }
     ],
     "evm-http-jsonrpc": [
@@ -188,20 +201,42 @@
       },
       {
         "address": "https://kava-evm.publicnode.com",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "https://kava.api.onfinality.io/public",
         "provider": "OnFinality"
+      },
+      {
+        "address": "https://evmrpc.kava.nodestake.org",
+        "provider": "NodeStake"
       }
     ]
   },
   "explorers": [
     {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/kava",
+      "tx_page": "https://explorer.chainroot.io/kava/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/kava/accounts/${accountAddress}"
+    },
+    {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/kava",
       "tx_page": "https://www.mintscan.io/kava/transactions/${txHash}",
       "account_page": "https://www.mintscan.io/kava/accounts/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/kava",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=kava&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=kava&addr=${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/kava",
+      "tx_page": "https://ezstaking.app/kava/txs/${txHash}",
+      "account_page": "https://ezstaking.app/kava/account/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -218,12 +253,21 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/kava",
       "account_page": "https://stakeflow.io/kava/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://kava.valopers.com/",
+      "tx_page": "https://kava.valopers.com/transactions/${txHash}",
+      "account_page": "https://kava.valopers.com/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/kava.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/kava.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/kava.svg",
+      "theme": {
+        "primary_color_hex": "#e64942"
+      }
     }
   ]
 }

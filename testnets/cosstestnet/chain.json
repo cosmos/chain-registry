@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "COSS Testnet",
+  "chain_type": "cosmos",
   "chain_id": "coss-testnet-1",
   "bech32_prefix": "coss",
   "daemon_name": "cossd",
@@ -36,14 +37,19 @@
     "compatible_versions": [
       "0.1.0-testnet"
     ],
-    "cosmos_sdk_version": "0.50.2",
     "consensus": {
       "type": "tendermint",
       "version": "0.38.2"
     },
-    "cosmwasm_enabled": false,
     "genesis": {
       "genesis_url": "https://github.com/coss-inscription/networks/blob/main/testnet/coss-testnet-1/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50.2"
+    },
+    "cosmwasm": {
+      "enabled": false
     }
   },
   "peers": {
@@ -65,21 +71,13 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-coss-node-1.coss.ink",
-        "provider": "COSS"
-      },
-      {
-        "address": "https://rpc-coss-node-2.coss.ink/",
+        "address": "https://coss-testnet-rpc.coss.ink",
         "provider": "COSS"
       }
     ],
     "rest": [
       {
-        "address": "https://rest-coss-node-1.coss.ink",
-        "provider": "COSS"
-      },
-      {
-        "address": "https://rest-coss-node-2.coss.ink",
+        "address": "https://coss-testnet-rest.coss.ink",
         "provider": "COSS"
       }
     ]

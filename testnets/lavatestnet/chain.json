@@ -2,9 +2,11 @@
   "$schema": "../../chain.schema.json",
   "chain_name": "lavatestnet",
   "status": "live",
+  "pre_fork_chain_name": "lavatestnet1",
   "network_type": "testnet",
   "website": "https://www.lavanet.xyz/",
-  "pretty_name": "Lava",
+  "pretty_name": "Lava Testnet",
+  "chain_type": "cosmos",
   "chain_id": "lava-testnet-2",
   "bech32_prefix": "lava@",
   "daemon_name": "lavad",
@@ -17,10 +19,10 @@
     "fee_tokens": [
       {
         "denom": "ulava",
-        "fixed_min_gas_price": 1e-9,
-        "low_gas_price": 1e-9,
-        "average_gas_price": 1e-9,
-        "high_gas_price": 1e-9
+        "fixed_min_gas_price": 1e-06,
+        "low_gas_price": 1e-06,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
       }
     ]
   },
@@ -36,52 +38,36 @@
   },
   "codebase": {
     "git_repo": "https://github.com/lavanet/lava",
-    "recommended_version": "v0.21.1.2",
+    "recommended_version": "v1.0.1",
     "compatible_versions": [
-      "v0.21.1.2"
+      "v1.0.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/lavanet/lava/releases/download/v0.21.1.2/lavad-v0.21.1.2-linux-amd64"
+      "linux/amd64": "https://github.com/lavanet/lava/releases/download/v1.0.1/lavad-v1.0.1-linux-amd64"
     },
-    "cosmos_sdk_version": "0.47",
     "consensus": {
       "type": "tendermint",
-      "version": "0.34"
+      "version": "0.37"
     },
-    "cosmwasm_version": "0.30",
-    "cosmwasm_enabled": false,
-    "ibc_go_version": "v7.2.0",
-    "ics_enabled": [
-      "ics20-1"
-    ],
     "genesis": {
-      "name": "v0.3.0",
+      "name": "v0.21.1.2",
       "genesis_url": "https://raw.githubusercontent.com/lavanet/lava-config/main/testnet-2/genesis_json/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.21.1.2",
-        "tag": "v0.21.1.2",
-        "height": 340778,
-        "recommended_version": "v0.21.1.2",
-        "compatible_versions": [
-          "v0.21.1.2"
-        ],
-        "cosmos_sdk_version": "0.47",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "cosmwasm_enabled": false,
-        "ibc_go_version": "3.0.1",
-        "ics_enabled": [
-          "ics20-1"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/lavanet/lava/releases/download/v0.21.1.2/lavad-v0.21.1.2-linux-amd64"
-        }
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.47.7"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "7.2.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "0.30",
+      "enabled": false
+    }
   },
   "images": [
     {
@@ -114,28 +100,49 @@
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "testnet-seeds.polkachu.com:19956",
         "provider": "Polkachu"
+      },
+      {
+        "id": "eb7832932626c1c636d16e0beb49e0e4498fbd5e",
+        "address": "lava-testnet-seed.itrocket.net:20656",
+        "provider": "ITRocket"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://https://public-rpc-testnet2.lavanet.xyz/",
+        "address": "https://lav1.tendermintrpc.lava.build:443",
         "provider": "Lava"
       },
       {
         "address": "http://lava.rpc.t.stavr.tech:198",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "https://lava-testnet-rpc.itrocket.net:443",
+        "provider": "ITRocket"
+      },
+      {
+        "address": "https://lava-testnet-rpc.ibs.team:443",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "rest": [
       {
-        "address": "https://public-rpc-testnet2.lavanet.xyz/rest/",
+        "address": "https://lav1.lava.build/",
         "provider": "Lava"
       },
       {
         "address": "https://lava.api.t.stavr.tech",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "https://lava-testnet-api.itrocket.net",
+        "provider": "ITRocket"
+      },
+      {
+        "address": "https://lava-testnet-api.ibs.team:443",
+        "provider": "Inter Blockchain Services"
       }
     ]
   },
@@ -147,14 +154,28 @@
       "account_page": "https://lava.explorers.guru//account/${accountAddress}"
     },
     {
-      "kind": "🔥STAVR🔥",
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
       "url": "https://explorer.stavr.tech/Lava-Testnet",
       "tx_page": "https://explorer.stavr.tech/Lava-Testnet/tx/${txHash}",
       "account_page": "https://explorer.stavr.tech/Lava-Testnet/account/${accountAddress}"
+    },
+    {
+      "kind": "NodeStake Explorer",
+      "url": "https://explorer.nodestake.org/lava-testnet",
+      "tx_page": "https://explorer.nodestake.org/lava-testnet/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.org/lava-testnet/account/${accountAddress}"
+    },
+    {
+      "kind": "ITRocket",
+      "url": "https://testnet.itrocket.net/lava",
+      "tx_page": "https://testnet.itrocket.net/lava/tx/${txHash}",
+      "account_page": "https://testnet.itrocket.net/lava/account/${accountAddress}"
     }
   ],
   "keywords": [
     "rpc",
-    "api"
+    "api",
+    "modular",
+    "data"
   ]
 }

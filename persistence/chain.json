@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "persistence",
+  "chain_type": "cosmos",
   "chain_id": "core-1",
   "pretty_name": "Persistence",
   "status": "live",
@@ -39,113 +40,39 @@
   },
   "codebase": {
     "git_repo": "https://github.com/persistenceOne/persistenceCore",
-    "recommended_version": "v10.0.0",
+    "recommended_version": "v11.14.0",
     "compatible_versions": [
-      "v10.0.0"
-    ],
-    "cosmos_sdk_version": "v0.47.3-lsm5",
-    "ibc_go_version": "v7.2.0-lsm3",
-    "ics_enabled": [
-      "ics20-1",
-      "ics27-1"
+      "v11.14.0"
     ],
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.2"
+      "version": "v0.37.4"
     },
-    "cosmwasm_version": "v0.40.2-lsm3",
-    "cosmwasm_enabled": true,
-    "cosmwasm_path": "$HOME/.persistenceCore/wasm",
     "binaries": {
-      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v10.0.0/persistenceCore-v10.0.0-linux-amd64.tar.gz"
+      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v11.14.0/persistenceCore-v11.14.0-linux-amd64.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/persistenceOne/genesisTransactions/master/core-1/final_genesis.json"
     },
-    "versions": [
-      {
-        "name": "v7",
-        "tag": "v7.0.0",
-        "recommended_version": "v7.0.0",
-        "compatible_versions": [
-          "v7.0.0"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v7.0.0/persistenceCore-v7.0.0-linux-amd64.tar.gz"
-        },
-        "next_version_name": "v8"
-      },
-      {
-        "name": "v8",
-        "tag": "v8.1.0",
-        "height": 13046600,
-        "proposal": 42,
-        "recommended_version": "v8.1.0",
-        "compatible_versions": [
-          "v8.1.0"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v8.1.0/persistenceCore-v8.1.0-linux-amd64.tar.gz"
-        },
-        "next_version_name": "v9"
-      },
-      {
-        "name": "v9",
-        "tag": "v9.2.1",
-        "height": 13160000,
-        "proposal": 43,
-        "recommended_version": "v9.2.1",
-        "compatible_versions": [
-          "v9.1.1",
-          "v9.1.0",
-          "v9.2.1"
-        ],
-        "cosmos_sdk_version": "v0.47.3-lsm",
-        "ibc_go_version": "v7.2.0-lsm3",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.37.2"
-        },
-        "cosmwasm_version": "v0.40.2-lsm3",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.persistenceCore/wasm",
-        "binaries": {
-          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v9.2.1/persistenceCore-v9.2.1-linux-amd64.tar.gz"
-        },
-        "next_version_name": "v10"
-      },
-      {
-        "name": "v10",
-        "tag": "v10.0.0",
-        "height": 13870350,
-        "proposal": 55,
-        "recommended_version": "v10.0.0",
-        "compatible_versions": [
-          "v10.0.0"
-        ],
-        "cosmos_sdk_version": "v0.47.3-lsm",
-        "ibc_go_version": "v7.2.0-lsm3",
-        "ics_enabled": [
-          "ics20-1",
-          "ics27-1"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.37.2"
-        },
-        "cosmwasm_version": "v0.47.3-lsm5",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.persistenceCore/wasm",
-        "binaries": {
-          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v10.0.0/persistenceCore-v10.0.0-linux-amd64.tar.gz"
-        },
-        "next_version_name": ""
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/persistenceOne/cosmos-sdk",
+      "version": "v0.47.10",
+      "tag": "v0.47.10-lsm-rc0"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0",
+      "ics_enabled": [
+        "ics20-1",
+        "ics27-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "v0.45.0",
+      "path": "$HOME/.persistenceCore/wasm",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.png",
@@ -161,7 +88,7 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "persistence-mainnet-seed.autostake.com:26896",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
@@ -171,7 +98,12 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "id": "ab7fc0b9b3c523dacec0500c9f9f1f7f4699d551",
+        "address": "persis-m.seed.stavr.tech:4056",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "id": "ce9dc9467af943bf35f17f04cfcdf3895914d867",
@@ -182,13 +114,18 @@
         "id": "ba6ca269cfcf412c175dd6259c1ae15ee5370b08",
         "address": "seed.persistence.validatus.com:3000",
         "provider": "Validatus"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:28556",
+        "provider": "BlueStake \ud83d\ude80"
       }
     ],
     "persistent_peers": [
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "persistence-mainnet-peer.autostake.com:26896",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "137818b03a705cf86622b4d97a074091f2f22589",
@@ -198,7 +135,7 @@
       {
         "id": "bb7c2cddd665303a0b4233e3d47f5bf2c3ac21ba",
         "address": "135.181.142.60:15601",
-        "provider": "POSTHUMAN∞DVS"
+        "provider": "POSTHUMAN\u221eDVS"
       },
       {
         "id": "3a4aa732fc9ad4f971ce081a34d6fc06e08dd7c6",
@@ -209,6 +146,11 @@
         "id": "ce9dc9467af943bf35f17f04cfcdf3895914d867",
         "address": "peer-persistence-01.stakeflow.io:33656",
         "provider": "Stakeflow"
+      },
+      {
+        "id": "aba2148170161c274d2d786bffbe6a692c535dfe",
+        "address": "65.108.195.213:53656",
+        "provider": "StakeTown"
       }
     ]
   },
@@ -221,6 +163,10 @@
       {
         "address": "https://rpc-persistent-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://persistence.rpc.m.stavr.tech",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "https://persistence-rpc.polkachu.com",
@@ -243,7 +189,7 @@
         "provider": "Cosmonaut Stakes"
       },
       {
-        "address": "https://persistence-rpc.quantnode.tech",
+        "address": "https://persistence.rpc.quantnode.xyz",
         "provider": "QuantNode"
       },
       {
@@ -252,15 +198,15 @@
       },
       {
         "address": "https://persistence-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://persistence-rpc.stakeandrelax.net",
-        "provider": "Stake&Relax Validator 🦥"
+        "provider": "Stake&Relax Validator \ud83e\udda5"
       },
       {
         "address": "https://rpc.persistence.posthuman.digital:443",
-        "provider": "POSTHUMAN∞DVS"
+        "provider": "POSTHUMAN\u221eDVS"
       },
       {
         "address": "https://rpc-persistence-01.stakeflow.io",
@@ -268,20 +214,32 @@
       },
       {
         "address": "https://persistence-rpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
-        "address": "https://persistence-rpc.highstakes.ch:26657/",
-        "provider": "High Stakes 🇨🇭"
+        "address": "https://persistence-rpc.highstakes.ch",
+        "provider": "High Stakes \ud83c\udde8\ud83c\udded"
       },
       {
         "address": "https://persistence-rpc.stakeandrelax.net",
-        "provider": "Stake&Relax 🦥"
+        "provider": "Stake&Relax \ud83e\udda5"
       },
       {
         "address": "https://rpc.persistence.validatus.com",
         "provider": "Validatus"
-      } 
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/persistence/rpc",
+        "provider": "Stakewolle"
+      },
+      {
+        "address": "https://xprt-rpc.antrixy.org/",
+        "provider": "Antrix Validators"
+      },
+      {
+        "address": "https://persistence-rpc.stake-town.com",
+        "provider": "StakeTown"
+      }
     ],
     "rest": [
       {
@@ -291,6 +249,10 @@
       {
         "address": "https://api-persistent-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
+      },
+      {
+        "address": "https://persistence.api.m.stavr.tech",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "https://persistence-api.polkachu.com",
@@ -310,14 +272,14 @@
       },
       {
         "address": "https://persistence-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://persistence-mainnet-rest.cosmonautstakes.com",
         "provider": "Cosmonaut Stakes"
       },
       {
-        "address": "https://persistence-lcd.quantnode.tech",
+        "address": "https://persistence.lcd.quantnode.xyz",
         "provider": "QuantNode"
       },
       {
@@ -326,11 +288,11 @@
       },
       {
         "address": "https://persistence-api.stakeandrelax.net",
-        "provider": "Stake&Relax Validator 🦥"
+        "provider": "Stake&Relax Validator \ud83e\udda5"
       },
       {
         "address": "https://rest.persistence.posthuman.digital:443",
-        "provider": "POSTHUMAN∞DVS"
+        "provider": "POSTHUMAN\u221eDVS"
       },
       {
         "address": "https://api-persistence-01.stakeflow.io",
@@ -338,19 +300,31 @@
       },
       {
         "address": "https://persistence-rest.publicnode.com",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
-        "address": "https://persistence-api.highstakes.ch:1317/",
-        "provider": "High Stakes 🇨🇭"
+        "address": "https://persistence-api.highstakes.ch",
+        "provider": "High Stakes \ud83c\udde8\ud83c\udded"
       },
       {
         "address": "https://persistence-api.stakeandrelax.net",
-        "provider": "Stake&Relax 🦥"
+        "provider": "Stake&Relax \ud83e\udda5"
       },
       {
         "address": "https://api.persistence.validatus.com",
         "provider": "Validatus"
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/persistence/rest",
+        "provider": "Stakewolle"
+      },
+      {
+        "address": "https://xprt-rest.antrixy.org/",
+        "provider": "Antrix Validators"
+      },
+      {
+        "address": "https://persistence-api.stake-town.com",
+        "provider": "StakeTown"
       }
     ],
     "grpc": [
@@ -363,16 +337,20 @@
         "provider": "Notional"
       },
       {
+        "address": "persistence.grpc.m.stavr.tech:410",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
         "address": "persistence-grpc.polkachu.com:15490",
         "provider": "Polkachu"
       },
       {
         "address": "persistence-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "grpc.persistence.posthuman.digital:80",
-        "provider": "POSTHUMAN∞DVS"
+        "provider": "POSTHUMAN\u221eDVS"
       },
       {
         "address": "grpc-persistence.cosmos-spaces.cloud:1180",
@@ -392,19 +370,37 @@
       },
       {
         "address": "persistence-grpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "persistence-grpc.stakeandrelax.net:15490",
-        "provider": "Stake&Relax 🦥"
+        "provider": "Stake&Relax \ud83e\udda5"
       },
       {
         "address": "grpc.persistence.validatus.com",
         "provider": "Validatus"
+      },
+      {
+        "address": "https://xprt-grpc.antrixy.org/",
+        "provider": "Antrix Validators"
+      },
+      {
+        "address": "persistence-grpc.stake-town.com:443",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "persistence.grpc.quantnode.xyz:22990",
+        "provider": "QuantNode"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/persistence",
+      "tx_page": "https://explorer.chainroot.io/persistence/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/persistence/accounts/${accountAddress}"
+    },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/persistence",
@@ -412,9 +408,26 @@
       "account_page": "https://www.mintscan.io/persistence/accounts/${accountAddress}"
     },
     {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/persistence",
+      "tx_page": "https://ezstaking.app/persistence/txs/${txHash}",
+      "account_page": "https://ezstaking.app/persistence/account/${accountAddress}"
+    },
+    {
       "kind": "ping.pub",
       "url": "https://ping.pub/persistence",
       "tx_page": "https://ping.pub/persistence/tx/${txHash}"
+    },
+    {
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
+      "url": "https://explorer.stavr.tech/Persistence-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Persistence-Mainnet/tx/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/persistence",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=persistence&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=persistence&addr=${accountAddress}"
     },
     {
       "kind": "atomscan",
@@ -423,21 +436,24 @@
       "account_page": "https://atomscan.com/persistence/accounts/${accountAddress}"
     },
     {
-      "kind": "bigdipper",
-      "url": "https://bigdipper.live/persistence",
-      "tx_page": "https://bigdipper.live/persistence/transactions/${txHash}",
-      "account_page": "https://bigdipper.live/persistence/accounts/${accountAddress}"
-    },
-    {
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/persistence",
       "account_page": "https://stakeflow.io/persistence/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://persistence.valopers.com/",
+      "tx_page": "https://persistence.valopers.com/transactions/${txHash}",
+      "account_page": "https://persistence.valopers.com/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.svg",
+      "theme": {
+        "primary_color_hex": "#242424"
+      }
     }
   ]
 }

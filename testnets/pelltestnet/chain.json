@@ -1,0 +1,130 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "pelltestnet",
+  "chain_type": "cosmos",
+  "chain_id": "ignite_186-1",
+  "pretty_name": "Pell Ignite Testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "bech32_prefix": "pell",
+  "daemon_name": "pellcored",
+  "node_home": "$HOME/.pellcored",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "apell",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/0xPellNetwork/network-config",
+    "recommended_version": "v1.1.6",
+    "compatible_versions": [
+      "v1.1.6"
+    ],
+    "genesis": {
+      "genesis_url": "https://pell-testnet-rpc.cosmonautstakes.com/genesis"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "ae40cd58a5418271074cd2aeb90d366e1aadd41d",
+        "address": "rpc-t.pell.nodestake.org:666",
+        "provider": "NodeStake"
+      },
+      {
+        "id": "5f10959cc96b5b7f9e08b9720d9a8530c3d08d19",
+        "address": "pell-testnet-seed.itrocket.net:58656",
+        "provider": "ITRocket"
+      },
+      {
+        "id": "496ac0ba20188f70f41e0a814dfd4d9a617338f8",
+        "address": "pell-testnet-seed.ibs.team:16668",
+        "provider": "Inter Blockchain Services"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "ae40cd58a5418271074cd2aeb90d366e1aadd41d",
+        "address": "rpc-t.pell.nodestake.org:666",
+        "provider": "NodeStake"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://pell-testnet-rpc.cosmonautstakes.com",
+        "provider": "Cosmonaut Stakes"
+      },
+      {
+        "address": "https://pell-testnet-rpc.hibunode.com",
+        "provider": "HibuNode"
+      },
+      {
+        "address": "https://rpc-t.pell.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://pell-testnet-rpc.ibs.team",
+        "provider": "Inter Blockchain Services"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://pell-testnet-rest.cosmonautstakes.com",
+        "provider": "Cosmonaut Stakes"
+      },
+      {
+        "address": "https://pell-testnet-api.hibunode.com",
+        "provider": "HibuNode"
+      },
+      {
+        "address": "https://api-t.pell.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://pell-testnet-api.ibs.team",
+        "provider": "Inter Blockchain Services"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "pell-testnet-grpc.cosmonautstakes.com:15290",
+        "provider": "Cosmonaut Stakes"
+      },
+      {
+        "address": "https://grpc-t.pell.nodestake.org:443",
+        "provider": "NodeStake"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "pell-testnet-evm.cosmonautstakes.com:443",
+        "provider": "Cosmonaut Stakes"
+      },
+      {
+        "address": "https://evmrpc-t.pell.nodestake.org",
+        "provider": "NodeStake"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "testnet.pell.explorers.guru",
+      "url": "https://testnet.pell.explorers.guru/",
+      "tx_page": "https://testnet.pell.explorers.guru/transaction/${txHash}"
+    },
+    {
+      "kind": "explorer.hibunode.com",
+      "url": "https://explorer.hibunode.com/pell",
+      "tx_page": "https://explorer.hibunode.com/pell/tx/${txHash}"
+    }
+  ]
+}
