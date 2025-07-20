@@ -8,11 +8,10 @@
   "chain_type": "cosmos",
   "chain_id": "injective-1",
   "bech32_prefix": "inj",
-  "extra_codecs": [
-    "injective"
-  ],
+  "extra_codecs": ["injective"],
   "slip44": 60,
   "daemon_name": "injectived",
+  "key_algos": ["ethsecp256k1"],
   "node_home": "$HOME/.injectived",
   "fees": {
     "fee_tokens": [
@@ -35,9 +34,7 @@
   "codebase": {
     "git_repo": "https://github.com/InjectiveFoundation/injective-core/",
     "recommended_version": "v1.13.2",
-    "compatible_versions": [
-      "v1.13.2"
-    ],
+    "compatible_versions": ["v1.13.2"],
     "binaries": {
       "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.13.2-1723753267/linux-amd64.zip"
     },
@@ -352,6 +349,12 @@
   },
   "explorers": [
     {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/injective",
+      "tx_page": "https://explorer.chainroot.io/injective/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/injective/accounts/${accountAddress}"
+    },
+    {
       "kind": "ezstaking",
       "url": "https://ezstaking.app/injective",
       "tx_page": "https://ezstaking.app/injective/txs/${txHash}",
@@ -395,6 +398,12 @@
       "url": "https://mainnet.whispernode.com/injective",
       "tx_page": "https://mainnet.whispernode.com/injective/tx/${txHash}",
       "account_page": "https://mainnet.whispernode.com/injective/account/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://injective.valopers.com/",
+      "tx_page": "https://injective.valopers.com/transactions/${txHash}",
+      "account_page": "https://injective.valopers.com/account/${accountAddress}"
     }
   ],
   "images": [

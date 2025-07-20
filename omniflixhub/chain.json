@@ -13,27 +13,27 @@
   "slip44": 118,
   "codebase": {
     "git_repo": "https://github.com/OmniFlix/omniflixhub",
-    "recommended_version": "v4.1.1",
+    "recommended_version": "v6.0.0",
     "compatible_versions": [
-      "v4.1.1"
+      "v6.0.0"
     ],
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.4"
+      "version": "v0.38.17"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/OmniFlix/mainnet/main/omniflixhub-1/genesis.json"
     },
     "sdk": {
       "type": "cosmos",
-      "version": "v0.47.10"
+      "version": "v0.50.13"
     },
     "ibc": {
       "type": "go",
-      "version": "v7.4.0"
+      "version": "v8.7.0"
     },
     "cosmwasm": {
-      "version": "v0.45.0"
+      "version": "v0.53.2"
     }
   },
   "logo_URIs": {
@@ -45,8 +45,8 @@
       {
         "denom": "uflix",
         "fixed_min_gas_price": 0,
-        "low_gas_price": 0.001,
-        "average_gas_price": 0.0025,
+        "low_gas_price": 0.005,
+        "average_gas_price": 0.015,
         "high_gas_price": 0.025
       }
     ]
@@ -64,7 +64,7 @@
       {
         "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
         "address": "seed.rhinostake.com:16956",
-        "provider": "RHINO"
+        "provider": "RHINO \ud83e\udd8f"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
@@ -300,6 +300,12 @@
   },
   "explorers": [
     {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/omniflix",
+      "tx_page": "https://explorer.chainroot.io/omniflix/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/omniflix/accounts/${accountAddress}"
+    },
+    {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/omniflix",
       "tx_page": "https://www.mintscan.io/omniflix/transactions/${txHash}",
@@ -328,6 +334,12 @@
       "url": "https://explorer.stakr.space/omniflix/",
       "tx_page": "https://explorer.stakr.space/omniflix/tx/${txHash}",
       "account_page": "https://explorer.stakr.space/omniflix/account/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://omniflix.valopers.com/",
+      "tx_page": "https://omniflix.valopers.com/transactions/${txHash}",
+      "account_page": "https://omniflix.valopers.com/account/${accountAddress}"
     }
   ],
   "images": [

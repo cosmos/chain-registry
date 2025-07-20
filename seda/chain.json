@@ -34,21 +34,20 @@
   },
   "codebase": {
     "git_repo": "https://github.com/sedaprotocol/seda-chain",
-    "recommended_version": "v0.1.9",
+    "recommended_version": "v1.0.0",
     "compatible_versions": [
-      "v0.1.8-hotfix.3",
-      "v0.1.9"
+      "v1.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/sedaprotocol/seda-chain/releases/download/v0.1.9/sedad-amd64",
-      "linux/arm64": "https://github.com/sedaprotocol/seda-chain/releases/download/v0.1.9/sedad-arm64"
+      "linux/amd64": "https://github.com/sedaprotocol/seda-chain/releases/download/v1.0.0/sedad-amd64",
+      "linux/arm64": "https://github.com/sedaprotocol/seda-chain/releases/download/v1.0.0/sedad-arm64"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/sedaprotocol/seda-networks/main/mainnet/genesis.json"
     },
     "language": {
       "type": "go",
-      "version": "1.22.11"
+      "version": "1.23.5"
     },
     "consensus": {
       "type": "cometbft",
@@ -56,16 +55,16 @@
     },
     "sdk": {
       "type": "cosmos",
-      "version": "v0.50.12"
+      "version": "v0.50.14"
     },
     "cosmwasm": {
-      "version": "0.50.0",
+      "version": "v0.53.3",
       "repo": "https://github.com/CosmWasm/wasmd",
       "enabled": true
     },
     "ibc": {
       "type": "go",
-      "version": "v8.6.1"
+      "version": "v8.7.0"
     }
   },
   "logo_URIs": {
@@ -118,6 +117,11 @@
         "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
         "address": "seeds.bluestake.net:24656",
         "provider": "BlueStake 🚀"
+      },
+      {
+        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
+        "address": "seed.rhinostake.com:25856",
+        "provider": "RHINO \ud83e\udd8f"
       }
     ],
     "persistent_peers": [
@@ -129,6 +133,11 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "seda-mainnet-peer.autostake.com:26866",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "1067a3d13bc82129b14078edb053be07966c15fe",
+        "address": "seda-peers.node39.top:13656",
+        "provider": "Node39.TOP"
       }
     ]
   },
@@ -189,6 +198,18 @@
       {
         "address": "https://rpc-seda-mainnet.keepitstaked.com:443",
         "provider": "KeepItStaked.com"
+      },
+      {
+        "address": "https://seda-rpc.node39.top:443",
+        "provider": "Node39.TOP"
+      },
+      {
+        "address": "https://seda-rpc.cosmos-apis.com:443",
+        "provider": "RHINO \ud83e\udd8f"
+      },
+      {
+        "address": "https://seda-mainnet-rpc.shazoes.xyz",
+        "provider": "Shazoes"
       }
     ],
     "rest": [
@@ -247,6 +268,18 @@
       {
         "address": "https://api-seda-mainnet.keepitstaked.com:443",
         "provider": "KeepItStaked.com"
+      },
+      {
+        "address": "https://seda-api.node39.top:443",
+        "provider": "Node39.TOP"
+      },
+      {
+        "address": "https://seda-rest.cosmos-apis.com:443",
+        "provider": "RHINO \ud83e\udd8f"
+      },
+      {
+        "address": "https://seda-mainnet-api.shazoes.xyz",
+        "provider": "Shazoes"
       }
     ],
     "grpc": [
@@ -277,10 +310,28 @@
       {
         "address": "grpc-seda.whispernode.com:443",
         "provider": "WhisperNode 🤐"
+      },
+      {
+        "address": "seda-grpc.node39.top:13090",
+        "provider": "Node39.TOP"
+      },
+      {
+        "address": "seda-grpc.cosmos-apis.com:443",
+        "provider": "RHINO \ud83e\udd8f"
+      },
+      {
+        "address": "seda-mainnet-grpc.shazoes.xyz:6090",
+        "provider": "Shazoes"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/seda",
+      "tx_page": "https://explorer.chainroot.io/seda/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/seda/accounts/${accountAddress}"
+    },
     {
       "kind": "sedaexplorer",
       "url": "https://explorer.seda.xyz/",
@@ -316,6 +367,12 @@
       "url": "https://explorer.whenmoonwhenlambo.money/seda",
       "tx_page": "https://explorer.whenmoonwhenlambo.money/seda/tx/${txHash}",
       "account_page": "https://explorer.whenmoonwhenlambo.money/seda/account/${accountAddress}"
+    },
+    {
+      "kind": "Node39.TOP",
+      "url": "https://explorer.node39.top/Seda",
+      "tx_page": "https://explorer.node39.top/Seda/tx/${txHash}",
+      "account_page": "https://explorer.node39.top/Seda/account/${accountAddress}"
     }
   ],
   "images": [
