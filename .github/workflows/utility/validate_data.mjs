@@ -84,7 +84,7 @@ function checkSlip44(chain_name) {
   let chain_status = chain_reg.getFileProperty(chain_name, "chain", "status");
   if (!chain_status || chain_status === "upcoming" || chain_status === "killed") { return; }
   let slip44 = chain_reg.getFileProperty(chain_name, "chain", "slip44");
-  if (!slip44) {
+  if (slip44 === undefined) {
     throw new Error(`Chain ${chain_name} missing slip44!`);
   }
 
