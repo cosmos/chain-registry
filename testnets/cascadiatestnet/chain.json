@@ -5,6 +5,7 @@
   "network_type": "testnet",
   "website": "https://cascadia.foundation/",
   "pretty_name": "Cascadia",
+  "chain_type": "cosmos",
   "chain_id": "cascadia_6102-1",
   "bech32_prefix": "cascadia",
   "daemon_name": "cascadiad",
@@ -40,18 +41,22 @@
     "compatible_versions": [
       "v0.1.1"
     ],
-    "cosmos_sdk_version": "0.46.10",
     "consensus": {
       "type": "tendermint",
       "version": "v0.34.26"
     },
-    "cosmwasm_version": "0.30",
-    "cosmwasm_enabled": true,
     "genesis": {
       "name": "v1",
       "genesis_url": "https://raw.githubusercontent.com/CascadiaFoundation/chain-configuration/master/testnet/genesis.json"
     },
-    "versions": []
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46.10"
+    },
+    "cosmwasm": {
+      "version": "0.30",
+      "enabled": true
+    }
   },
   "images": [
     {
@@ -66,10 +71,6 @@
   },
   "peers": {
     "seeds": [
-      {
-        "id": "42c4a78f39935df1c20b51c4b0d0a21db8f01c88",
-        "address": "cascadia-testnet-seed.itrocket.net:40656"
-      },
       {
         "id": "af73a10430d389e7480ef01b10b763fe156a397d",
         "address": "cscd-rpc.systemd.run:29656"

@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "govgen",
+  "chain_type": "cosmos",
   "chain_id": "govgen-1",
   "website": "https://govgen.io/",
   "pretty_name": "GovGen",
@@ -48,47 +49,26 @@
     "genesis": {
       "genesis_url": "https://atomone.fra1.digitaloceanspaces.com/govgen/govgen-1/genesis.json"
     },
-    "cosmos_sdk_version": "v0.45.16",
     "consensus": {
       "type": "cometbft",
       "version": "v0.34.29"
     },
-    "versions": [
-      {
-        "name": "v1.0.1",
-        "tag": "v1.0.1",
-        "recommended_version": "v1.0.1",
-        "compatible_versions": [
-          "v1.0.1"
-        ],
-        "cosmos_sdk_version": "v0.45.16",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.29"
-        },
-        "height": 1,
-        "binaries": {
-          "linux/amd64": "https://github.com/atomone-hub/govgen/releases/download/v1.0.1/govgend-v1.0.1-linux-amd64",
-          "linux/arm64": "https://github.com/atomone-hub/govgen/releases/download/v1.0.1/govgend-v1.0.1-linux-arm64",
-          "darwin/amd64": "https://github.com/atomone-hub/govgen/releases/download/v1.0.1/govgend-v1.0.1-darwin-amd64",
-          "darwin/arm64": "https://github.com/atomone-hub/govgen/releases/download/v1.0.1/govgend-v1.0.1-darwin-arm64",
-          "windows/amd64": "https://github.com/atomone-hub/govgen/releases/download/v1.0.1/govgend-v1.0.1-windows-amd64.exe",
-          "windows/arm64": "https://github.com/atomone-hub/govgen/releases/download/v1.0.1/govgend-v1.0.1-windows-arm64.exe"
-        }
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.45.16"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/govgen/images/govgen.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/govgen/images/govgen.svg"
   },
-  "description": "GovGen is a governance-only chain separate from the proposed AtomOne hub chain. GovGen aims to gauge the sentiment of those who voted “NO” or “NO_WITH_VETO” on Cosmos Hub proposal 848 regarding the potential future of AtomOne. Through the native, non-transferable GOVGEN governance-only token, this community can come together to discuss, debate, submit proposals, and help shape the future of AtomOne in a fully decentralized community-driven initiative.",
+  "description": "GovGen is a governance-only chain separate from the proposed AtomOne hub chain. GovGen aims to gauge the sentiment of those who voted \u201cNO\u201d or \u201cNO_WITH_VETO\u201d on Cosmos Hub proposal 848 regarding the potential future of AtomOne. Through the native, non-transferable GOVGEN governance-only token, this community can come together to discuss, debate, submit proposals, and help shape the future of AtomOne in a fully decentralized community-driven initiative.",
   "peers": {
     "seeds": [
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -218,7 +198,7 @@
       },
       {
         "address": "https://govgen-rpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "https://rpc.govgen.posthuman.digital:443",
@@ -244,7 +224,7 @@
       },
       {
         "address": "https://govgen-rest.publicnode.com",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "https://rest.govgen.posthuman.digital:443",
@@ -258,7 +238,7 @@
     "grpc": [
       {
         "address": "govgen-grpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "https://govgen.grpc.nodeshub.online:443",
@@ -276,6 +256,12 @@
       "url": "https://explorer.govgen.io/",
       "tx_page": "https://explorer.govgen.io/govgen/tx/${txHash}",
       "account_page": "https://explorer.govgen.io/govgen/account/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/govgen",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=govgen&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=govgen&addr=${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -305,7 +291,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/govgen/images/govgen.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/govgen/images/govgen.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/govgen/images/govgen.svg",
+      "theme": {
+        "primary_color_hex": "#65d6d4"
+      }
     }
   ]
 }

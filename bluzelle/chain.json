@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://bluzelle.com/",
   "pretty_name": "Bluzelle",
+  "chain_type": "cosmos",
   "chain_id": "bluzelle-9",
   "bech32_prefix": "bluzelle",
   "daemon_name": "curiumd",
@@ -40,61 +41,21 @@
     "compatible_versions": [
       "v10.0"
     ],
-    "cosmos_sdk_version": "v0.45.11",
     "consensus": {
       "type": "cometbft",
       "version": "0.34.23"
     },
-    "ibc_go_version": "v3.4.0",
     "genesis": {
       "genesis_url": "https://a.client.sentry.net.bluzelle.com:26657/genesis"
     },
-    "versions": [
-      {
-        "name": "v2.0",
-        "recommended_version": "v2.0",
-        "compatible_versions": [
-          "v2.0"
-        ],
-        "cosmos_sdk_version": "0.44.3",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34.14"
-        }
-      },
-      {
-        "name": "v9.0",
-        "recommended_version": "v9.0",
-        "compatible_versions": [
-          "v9.0"
-        ],
-        "cosmos_sdk_version": "0.45.11",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34.23"
-        },
-        "next_version_name": "10.0"
-      },
-      {
-        "name": "10.0",
-        "recommended_version": "v10.0",
-        "compatible_versions": [
-          "v10.0"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/bluzelle/bluzelle-public/releases/download/v10.0/curiumd"
-        },
-        "proposal": 1,
-        "height": 3333333,
-        "cosmos_sdk_version": "v0.45.11",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.23"
-        },
-        "ibc_go_version": "v3.4.0",
-        "next_version_name": ""
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.45.11"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v3.4.0"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bluzelle/images/bluzelle.png",
@@ -105,7 +66,7 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -139,6 +100,10 @@
       {
         "address": "https://c.client.sentry.net.bluzelle.com:26657",
         "provider": "Bluzelle"
+      },
+      {
+        "address": "https://bluzelle_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
       }
     ],
     "rest": [
@@ -157,6 +122,10 @@
       {
         "address": "https://bluzelle-api.genznodes.dev/",
         "provider": "genznodes"
+      },
+      {
+        "address": "https://bluzelle_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
       }
     ],
     "grpc": [
@@ -204,6 +173,12 @@
       "kind": "Nodine.ID",
       "url": "https://explorer.co.id/bluzelle",
       "tx_page": "https://explorer.co.id/bluzelle/transaction/${txHash}"
+    },
+    {
+      "kind": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25",
+      "url": "https://explorer.whenmoonwhenlambo.money/bluzelle",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/bluzelle/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/bluzelle/account/${accountAddress}"
     }
   ],
   "keywords": [
@@ -215,7 +190,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bluzelle/images/bluzelle.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bluzelle/images/bluzelle.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bluzelle/images/bluzelle.svg",
+      "theme": {
+        "primary_color_hex": "#708ffc"
+      }
     }
   ]
 }

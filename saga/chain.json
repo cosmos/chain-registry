@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://www.saga.xyz/",
   "pretty_name": "Saga",
+  "chain_type": "cosmos",
   "chain_id": "ssc-1",
   "bech32_prefix": "saga",
   "daemon_name": "sscd",
@@ -36,24 +37,37 @@
   "codebase": {
     "git_repo": "https://github.com/sagaxyz/ssc",
     "genesis": {
-      "name": "v0.1.5",
+      "name": "v0.2.1",
       "genesis_url": "https://raw.githubusercontent.com/sagaxyz/mainnet/main/genesis/genesis.json"
     },
-    "recommended_version": "v0.1.5",
+    "recommended_version": "v0.2.1",
     "compatible_versions": [
-      "v0.1.5"
+      "v0.2.1"
     ],
-    "cosmos_sdk_version": "osmosis-labs/cosmos-sdk v0.47.5",
     "consensus": {
       "type": "cometbft",
-      "version": "osmosis-labs/cometbft v0.37.2"
+      "version": "v0.38.12",
+      "repo": "https://github.com/cometbft/cometbft"
     },
-    "cosmwasm_enabled": false,
-    "ibc_go_version": "v7.3.1",
-    "ics_enabled": [
-      "ics20-1"
-    ],
-    "go_version": "1.21"
+    "language": {
+      "type": "go",
+      "version": "1.22"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/osmosis-labs/cosmos-sdk",
+      "version": "v0.50.11"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.3.2",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "enabled": false
+    }
   },
   "peers": {
     "seeds": [
@@ -71,8 +85,7 @@
     "persistent_peers": [
       {
         "id": "9e22163e2bf159883557ea36d1025ca3468f0d71",
-        "address": "211.216.47.211:26656",
-        "provider": ""
+        "address": "211.216.47.211:26656"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
@@ -122,8 +135,16 @@
         "provider": "Bro_n_Bro"
       },
       {
-        "address": "https://saga-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/saga",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://saga-rpc.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
+      },
+      {
+        "address": "https://saga-rpc.chainroot.io",
+        "provider": "Chainroot"
       }
     ],
     "rest": [
@@ -152,8 +173,16 @@
         "provider": "Bro_n_Bro"
       },
       {
-        "address": "https://saga-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/saga",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://saga-api.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
+      },
+      {
+        "address": "https://saga-api.chainroot.io",
+        "provider": "Chainroot"
       }
     ],
     "grpc": [
@@ -178,8 +207,16 @@
         "provider": "Bro_n_Bro"
       },
       {
-        "address": "https://saga-grpc.lavenderfive.com:443",
+        "address": "saga.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "http://saga-grpc.stakeandrelax.net:24990",
+        "provider": "Stake&Relax 🦥"
+      },
+      {
+        "address": "saga-grpc.chainroot.io:443",
+        "provider": "Chainroot"
       }
     ]
   },
@@ -196,6 +233,12 @@
       "account_page": "https://www.mintscan.io/saga/accounts/${accountAddress}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/saga",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=saga&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=saga&addr=${accountAddress}"
+    },
+    {
       "kind": "ezstaking",
       "url": "https://ezstaking.app/saga",
       "tx_page": "https://ezstaking.app/saga/txs/${txHash}",
@@ -206,13 +249,21 @@
       "url": "https://explorer.nodestake.org/saga",
       "tx_page": "https://explorer.nodestake.org/saga/tx/${txHash}",
       "account_page": "https://explorer.nodestake.org/saga/account/${accountAddress}"
+    },
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/saga",
+      "tx_page": "https://explorer.chainroot.io/saga/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/saga/accounts/${accountAddress}"
     }
   ],
-  "keywords": [],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/saga/images/saga.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/saga/images/saga.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/saga/images/saga.svg",
+      "theme": {
+        "primary_color_hex": "#040404"
+      }
     }
   ]
 }

@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "pretty_name": "Cronos POS Chain",
+  "chain_type": "cosmos",
   "chain_id": "crypto-org-chain-mainnet-1",
   "bech32_prefix": "cro",
   "website": "https://cronos-pos.org/",
@@ -45,23 +46,7 @@
     },
     "genesis": {
       "genesis_url": "https://github.com/crypto-org-chain/mainnet/raw/main/crypto-org-chain-mainnet-1/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v4.2.9",
-        "recommended_version": "v4.2.9",
-        "compatible_versions": [
-          "v4.2.9"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/crypto-org-chain/chain-main/releases/download/v4.2.9/chain-main_4.2.9_Linux_x86_64.tar.gz",
-          "linux/arm64": "https://github.com/crypto-org-chain/chain-main/releases/download/v4.2.9/chain-main_4.2.9_Linux_arm64.tar.gz",
-          "darwin/amd64": "https://github.com/crypto-org-chain/chain-main/releases/download/v4.2.9/chain-main_4.2.9_Darwin_x86_64.tar.gz",
-          "darwin/arm64": "https://github.com/crypto-org-chain/chain-main/releases/download/v4.2.9/chain-main_4.2.9_Darwin_arm64.tar.gz",
-          "windows/amd64": "https://github.com/crypto-org-chain/chain-main/releases/download/v4.2.9/chain-main_4.2.9_Windows_x86_64.zip"
-        }
-      }
-    ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cryptoorgchain/images/cronos.png"
@@ -87,7 +72,7 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
@@ -141,7 +126,7 @@
       },
       {
         "address": "https://cro-chain-rpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "rest": [
@@ -171,7 +156,7 @@
       },
       {
         "address": "https://cro-chain-rest.publicnode.com",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "grpc": [
@@ -197,7 +182,7 @@
       },
       {
         "address": "cro-chain-grpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ]
   },
@@ -209,10 +194,16 @@
       "account_page": "https://www.mintscan.io/crypto-org/accounts/${accountAddress}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/cryptoorgchain",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=cryptoorgchain&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=cryptoorgchain&addr=${accountAddress}"
+    },
+    {
       "kind": "ezstaking",
-      "url": "https://ezstaking.app/cronos",
-      "tx_page": "https://ezstaking.app/cronos/txs/${txHash}",
-      "account_page": "https://ezstaking.app/cronos/account/${accountAddress}"
+      "url": "https://ezstaking.app/crypto-org",
+      "tx_page": "https://ezstaking.app/crypto-org/txs/${txHash}",
+      "account_page": "https://ezstaking.app/crypto-org/account/${accountAddress}"
     },
     {
       "kind": "cronos.org",
@@ -223,23 +214,24 @@
       "kind": "ping.pub",
       "url": "https://ping.pub/crypto-com-chain",
       "tx_page": "https://ping.pub/crypto-com-chain/tx/${txHash}"
-    },
-    {
-      "kind": "yummy-explorer",
-      "url": "https://explorer.yummy.capital",
-      "tx_page": "https://explorer.yummy.capital/txs/${txHash}"
     }
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cryptoorgchain/images/cronos.png"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cryptoorgchain/images/cronos.png",
+      "theme": {
+        "primary_color_hex": "#0c2c71"
+      }
     },
     {
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cryptoorgchain/images/Cronos_POS_Chain_Colour.svg"
     },
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cronos.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro.svg",
+      "theme": {
+        "primary_color_hex": "#0c2c71"
+      }
     }
   ]
 }

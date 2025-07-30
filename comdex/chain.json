@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://comdex.one/",
   "pretty_name": "Comdex",
+  "chain_type": "cosmos",
   "chain_id": "comdex-1",
   "bech32_prefix": "comdex",
   "slip44": 118,
@@ -28,74 +29,33 @@
   },
   "codebase": {
     "git_repo": "https://github.com/comdex-official/comdex",
-    "recommended_version": "v13.4.0",
+    "recommended_version": "v14.1.0",
     "compatible_versions": [
-      "v13.4.0"
+      "v14.1.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/comdex-official/comdex/releases/download/v13.4.0/comdex-linux-amd64.tar.gz"
+      "linux/amd64": "https://github.com/comdex-official/comdex/releases/download/v14.1.0/comdex-linux-amd64.tar.gz",
+      "darwin/arm64": "https://github.com/comdex-official/comdex/releases/download/v14.1.0/comdex-darwin-arm64.tar.gz"
     },
-    "cosmos_sdk_version": "v0.47.5",
     "consensus": {
       "type": "cometbft",
-      "version": "0.37.2"
+      "version": "0.37.5"
     },
-    "cosmwasm_version": "v0.41.0",
-    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://comdex-mainnet-genesis.s3.ap-southeast-1.amazonaws.com/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v9.0.0",
-        "recommended_version": "v9.0.0",
-        "compatible_versions": [
-          "v9.0.0"
-        ],
-        "cosmwasm_enabled": true,
-        "next_version_name": "v10.0.0"
-      },
-      {
-        "name": "v10.0.0",
-        "recommended_version": "v10.0.0",
-        "compatible_versions": [
-          "v10.0.0"
-        ],
-        "cosmwasm_enabled": true,
-        "next_version_name": "v11.5.0"
-      },
-      {
-        "name": "v11.5.0",
-        "height": 8184000,
-        "proposal": 154,
-        "recommended_version": "v11.5.2",
-        "compatible_versions": [
-          "v11.5.2"
-        ],
-        "cosmwasm_enabled": true,
-        "next_version_name": "v13.3.0"
-      },
-      {
-        "name": "v13.3.0",
-        "proposal": 216,
-        "height": 10981900,
-        "recommended_version": "v13.4.0",
-        "compatible_versions": [
-          "v13.4.0"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/comdex-official/comdex/releases/download/v13.4.0/comdex-linux-amd64.tar.gz"
-        },
-        "cosmos_sdk_version": "v0.47.5",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        },
-        "cosmwasm_version": "v0.41.0",
-        "cosmwasm_enabled": true,
-        "next_version_name": ""
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.9"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0"
+    },
+    "cosmwasm": {
+      "version": "v0.45.0",
+      "enabled": true
+    }
   },
   "daemon_name": "comdex",
   "node_home": "$HOME/.comdex",
@@ -120,17 +80,17 @@
       {
         "id": "c30dacf15e97a30b78792c7fa817fd2ef529b820",
         "address": "comdex.seed.stavr.tech:2026",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:13156",
-        "provider": "Lavender.Five Nodes 🐝"
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "comdex-mainnet-seed.autostake.com:26776",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "6596d143fd128b2394b27cd7846bda099ca5a193",
@@ -140,12 +100,7 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
-        "address": "seeds.whispernode.com:13156",
-        "provider": "WhisperNode 🤐"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "id": "88ba33fbdf0279efaf27cff629f3cf72814d4069",
@@ -156,6 +111,11 @@
         "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
         "address": "seeds.stakerhouse.com:10456",
         "provider": "StakerHouse"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:24556",
+        "provider": "BlueStake \ud83d\ude80"
       }
     ],
     "persistent_peers": [
@@ -170,7 +130,7 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "comdex-mainnet-peer.autostake.com:26776",
-        "provider": "AutoStake 🛡️ Slash Protecteds"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protecteds"
       },
       {
         "id": "88ba33fbdf0279efaf27cff629f3cf72814d4069",
@@ -196,27 +156,19 @@
       },
       {
         "address": "https://comdex.rpc.m.stavr.tech",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
-        "address": "https://rpc.comdex.chaintools.tech/",
-        "provider": "ChainTools"
-      },
-      {
-        "address": "https://comdex-rpc.lavenderfive.com/",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rpc.lavenderfive.com:443/comdex",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://rpc-comdex.cosmos-spaces.cloud",
         "provider": "Cosmos Spaces"
       },
       {
-        "address": "https://rpc-comdex.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
-      },
-      {
         "address": "https://comdex-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://comdex-rpc.w3coins.io",
@@ -228,7 +180,7 @@
       },
       {
         "address": "https://comdex-rpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "https://rpc-comdex-01.stakeflow.io",
@@ -241,6 +193,14 @@
       {
         "address": "https://rpc-comdex.blockval.io",
         "provider": "Blockval"
+      },
+      {
+        "address": "https://comdex-rpc.bluestake.net:443",
+        "provider": "BlueStake \ud83d\ude80"
+      },
+      {
+        "address": "https://comdex-rpc.chainroot.io",
+        "provider": "Chainroot"
       }
     ],
     "rest": [
@@ -249,20 +209,16 @@
         "provider": "comdex"
       },
       {
-        "address": "https://api.comdex.chaintools.tech/",
-        "provider": "ChainTools"
-      },
-      {
         "address": "https://comdex-api.polkachu.com",
         "provider": "Polkachu"
       },
       {
         "address": "https://comdex.api.m.stavr.tech",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
-        "address": "https://comdex-api.lavenderfive.com/",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rest.lavenderfive.com:443/comdex",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://api-comdex.cosmos-spaces.cloud",
@@ -270,11 +226,7 @@
       },
       {
         "address": "https://comdex-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://lcd-comdex.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://comdex-api.w3coins.io",
@@ -286,7 +238,7 @@
       },
       {
         "address": "https://comdex-rest.publicnode.com",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "https://api-comdex-01.stakeflow.io",
@@ -299,6 +251,14 @@
       {
         "address": "https://api-comdex.blockval.io",
         "provider": "Blockval"
+      },
+      {
+        "address": "https://comdex-api.bluestake.net",
+        "provider": "BlueStake \ud83d\ude80"
+      },
+      {
+        "address": "https://comdex-api.chainroot.io",
+        "provider": "Chainroot"
       }
     ],
     "grpc": [
@@ -307,28 +267,24 @@
         "provider": "Notional"
       },
       {
-        "address": "comdex.grpcui.chaintools.host:443",
-        "provider": "ChainTools"
-      },
-      {
         "address": "comdex-grpc.polkachu.com:13190",
         "provider": "Polkachu"
       },
       {
         "address": "comdex.grpc.m.stavr.tech:104",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "grpc-comdex.cosmos-spaces.cloud:2300",
         "provider": "Cosmos Spaces"
       },
       {
-        "address": "comdex-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "comdex.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "comdex-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "comdex-grpc.w3coins.io:13190",
@@ -336,7 +292,7 @@
       },
       {
         "address": "comdex-grpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "grpc-comdex-01.stakeflow.io:10002",
@@ -349,6 +305,10 @@
       {
         "address": "https://grpc-comdex.blockval.io:443",
         "provider": "Blockval"
+      },
+      {
+        "address": "comdex-grpc.chainroot.io:443",
+        "provider": "Chainroot"
       }
     ]
   },
@@ -366,7 +326,13 @@
       "account_page": "https://www.mintscan.io/comdex/accounts/${accountAddress}"
     },
     {
-      "kind": "🔥STAVR🔥",
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/comdex",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=comdex&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=comdex&addr=${accountAddress}"
+    },
+    {
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
       "url": "https://explorer.stavr.tech/Comdex-Mainnet",
       "tx_page": "https://explorer.stavr.tech/Comdex-Mainnet/txs/${txHash}",
       "account_page": "https://explorer.stavr.tech/Comdex-Mainnet/accounts/${accountAddress}"
@@ -398,16 +364,25 @@
       "tx_page": "https://explorer.validatornode.com/comdex/tx/${txHash}"
     },
     {
-      "kind": "WhisperNode 🤐",
+      "kind": "WhisperNode \ud83e\udd10",
       "url": "https://mainnet.whispernode.com/comdex",
       "tx_page": "https://mainnet.whispernode.com/comdex/tx/${txHash}",
       "account_page": "https://mainnet.whispernode.com/comdex/account/${accountAddress}"
+    },
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/comdex",
+      "tx_page": "https://explorer.chainroot.io/comdex/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/comdex/accounts/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/comdex/images/cmdx.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/comdex/images/cmdx.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/comdex/images/cmdx.svg",
+      "theme": {
+        "primary_color_hex": "#fc4454"
+      }
     }
   ]
 }

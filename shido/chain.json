@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://shido.io/",
   "pretty_name": "Shido",
+  "chain_type": "cosmos",
   "chain_id": "shido_9008-1",
   "bech32_prefix": "shido",
   "node_home": "$HOME/.shidod",
@@ -36,43 +37,32 @@
   },
   "codebase": {
     "git_repo": "https://github.com/ShidoGlobal/shidochain",
-    "recommended_version": "v1.0.0",
+    "recommended_version": "v2.0.0",
     "compatible_versions": [
-      "v1.0.0"
+      "v2.0.0"
     ],
-    "cosmos_sdk_version": "v0.47.4",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.2"
+      "version": "v0.37.4"
     },
-    "cosmwasm_version": "v0.45.0",
-    "cosmwasm_enabled": true,
-    "ibc_go_version": "v7.3.0",
     "binaries": {
-      "linux/amd64": "https://github.com/ShidoGlobal/mainnetShidoNodeSync/releases/download/v1.0.0/ubuntu_22.04.tar.gz"
+      "linux/amd64": "https://github.com/ShidoGlobal/mainnetShidoNodeSync/releases/download/v2.0.0/ubuntu_22.04.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/ShidoGlobal/mainnetShidoNodeSync/main/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1.0.0",
-        "tag": "v1.0.0",
-        "recommended_version": "v1.0.0",
-        "compatible_versions": [
-          "v1.0.0"
-        ],
-        "cosmos_sdk_version": "v0.47.4",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.37.2"
-        },
-        "ibc_go_version": "v7.3.0",
-        "binaries": {
-          "linux/amd64": "https://github.com/ShidoGlobal/mainnetShidoNodeSync/releases/download/v1.0.0/ubuntu_22.04.tar.gz"
-        }
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.4"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0"
+    },
+    "cosmwasm": {
+      "version": "v0.45.0",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/shido/images/shido.png",
@@ -82,46 +72,51 @@
   "peers": {
     "seeds": [
       {
-        "id": "181fcc5672fee87751eb369491744e85ba0651f5",
-        "address": "18.153.233.126:26656",
+        "id": "b0bade3e416f88a6c21c14d5de15aa9928a352e6",
+        "address": "18.192.75.125:26656",
         "provider": "SHIDO"
       },
       {
-        "id": "8d46e292347951d651486611abac77825a0c83f8",
-        "address": "18.199.25.117:26656",
+        "id": "4a7e112b84119435c16f71bde955b9cbcc6180ac",
+        "address": "18.199.28.209:26656",
         "provider": "SHIDO"
       },
       {
-        "id": "cdf19a7234ee8ec12519f6ad066408f09e1b73e0",
-        "address": "15.157.50.94:26656",
+        "id": "5267ea7a65f7fe8e5f61658ca21e6d77adcb9ae3",
+        "address": "3.79.211.195:26656",
         "provider": "SHIDO"
       },
       {
-        "id": "8793ad6de6efdb6919d31e74e61a1be57a6d6d32",
-        "address": "3.97.121.236:26656",
+        "id": "cb8f8c6f813612a5b9844c0699490a583bc12d84",
+        "address": "35.182.147.124:26656",
         "provider": "SHIDO"
       }
     ],
     "persistent_peers": [
       {
-        "id": "181fcc5672fee87751eb369491744e85ba0651f5",
-        "address": "18.153.233.126:26656",
+        "id": "b0bade3e416f88a6c21c14d5de15aa9928a352e6",
+        "address": "18.192.75.125:26656",
         "provider": "SHIDO"
       },
       {
-        "id": "8d46e292347951d651486611abac77825a0c83f8",
-        "address": "18.199.25.117:26656",
+        "id": "4a7e112b84119435c16f71bde955b9cbcc6180ac",
+        "address": "18.199.28.209:26656",
         "provider": "SHIDO"
       },
       {
-        "id": "cdf19a7234ee8ec12519f6ad066408f09e1b73e0",
-        "address": "15.157.50.94:26656",
+        "id": "5267ea7a65f7fe8e5f61658ca21e6d77adcb9ae3",
+        "address": "3.79.211.195:26656",
         "provider": "SHIDO"
       },
       {
-        "id": "8793ad6de6efdb6919d31e74e61a1be57a6d6d32",
-        "address": "3.97.121.236:26656",
+        "id": "cb8f8c6f813612a5b9844c0699490a583bc12d84",
+        "address": "35.182.147.124:26656",
         "provider": "SHIDO"
+      },
+      {
+        "id": "ecfa8fecb479d1e30be4cac20dc8b0f3ef8b761d",
+        "address": "rpc.shido.indonode.net:23657",
+        "provider": "Indonode"
       }
     ]
   },
@@ -133,11 +128,31 @@
       },
       {
         "address": "https://shidochain_mainnet_rpc.chain.whenmoonwhenlambo.money",
-        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
       },
       {
-        "address": "https://shido-rpc.applejuice.256x25.tech:443",
-        "provider": "Apple juice 🧃"
+        "address": "https://rpc.shido.256x25.tech:443",
+        "provider": "256x25"
+      },
+      {
+        "address": "https://rpc.shido.indonode.net:443",
+        "provider": "Indonode"
+      },
+      {
+        "address": "https://rpc.mavnode.io",
+        "provider": "MavNode"
+      },
+      {
+        "address": "https://rpc.kenseishido.com",
+        "provider": "KENSEI"
+      },
+      {
+      "address": "https://rpc.shidoscan.net",
+        "provider": "Shido"
+      },
+      {
+        "address": "https://shido-mainnet-archive-lb-nw5es9.zeeve.net/USjg7xqUmCZ4wCsqEOOE/",
+        "provider": "Zeeve"
       }
     ],
     "rest": [
@@ -147,14 +162,38 @@
       },
       {
         "address": "https://shidochain_mainnet_api.chain.whenmoonwhenlambo.money",
-        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
       },
       {
-        "address": "https://shido-api.applejuice.256x25.tech:443",
-        "provider": "Apple juice 🧃"
+        "address": "https://rest.shido.256x25.tech:443",
+        "provider": "256x25"
+      },
+      {
+        "address": "https://api.shido.indonode.net",
+        "provider": "Indonode"
+      },
+      {
+        "address": "https://rest.mavnode.io",
+        "provider": "MavNode"
+      },
+      {
+        "address": "https://api.kenseishido.com",
+        "provider": "KENSEI"
+      },
+      {
+        "address": "https://api.shidoscan.net",
+        "provider": "Shido"
+      },
+      {
+        "address": "https://shido-mainnet-archive-lb-nw5es9.zeeve.net/USjg7xqUmCZ4wCsqEOOE/",
+        "provider": "Zeeve"
       }
     ],
     "grpc": [
+      {
+        "address": "https://grpc.shidoscan.net",
+        "provider": "Shido"
+      },
       {
         "address": "https://grpc.shidoscan.com",
         "provider": "shido.io"
@@ -162,6 +201,14 @@
       {
         "address": "https://grpc-web.shidoscan.com",
         "provider": "shido.io"
+      },
+      {
+        "address": "https://grpc.mavnode.io",
+        "provider": "MavNode"
+      },
+      {
+        "address": "https://grpc.kenseishido.com",
+        "provider": "KENSEI"
       }
     ],
     "evm-http-jsonrpc": [
@@ -175,11 +222,23 @@
       },
       {
         "address": "https://shidochain_mainnet_evm.chain.whenmoonwhenlambo.money",
-        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
       },
       {
-        "address": "https://shido-evm.applejuice.256x25.tech:443",
-        "provider": "Apple juice 🧃"
+        "address": "https://evm.mavnode.io",
+        "provider": "MavNode"
+      },
+      {
+        "address": "https://evm.kenseishido.com",
+        "provider": "KENSEI"
+      },
+      {
+        "address": "https://shido-mainnet-archive-lb-nw5es9.zeeve.net/USjg7xqUmCZ4wCsqEOOE/rpc",
+        "provider": "Zeeve"
+      },
+      {
+        "address": "https://evm.shidoscan.net",
+        "provider": "Shido"
       }
     ]
   },
@@ -191,13 +250,13 @@
       "account_page": "https://shidoscan.com/address/${accountAddress}"
     },
     {
-      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "kind": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25",
       "url": "https://explorer.whenmoonwhenlambo.money/shido",
       "tx_page": "https://explorer.whenmoonwhenlambo.money/shido/tx/${txHash}",
       "account_page": "https://explorer.whenmoonwhenlambo.money/shido/account/${accountAddress}"
     },
     {
-      "kind": "Apple juice 🧃",
+      "kind": "256x25",
       "url": "https://explorer.256x25.tech/shido",
       "tx_page": "https://explorer.256x25.tech/shido/tx/${txHash}",
       "account_page": "https://explorer.256x25.tech//shido/account/${accountAddress}"
@@ -207,12 +266,27 @@
       "url": "https://explorer.mavnode.io/shido",
       "tx_page": "https://explorer.mavnode.io/shido/tx/${txHash}",
       "account_page": "https://explorer.mavnode.io/shido/account/${accountAddress}"
+    },
+    {
+      "kind": "Indonode",
+      "url": "https://explorer.indonode.net/shido",
+      "tx_page": "https://explorer.indonode.net/shido/tx/${txHash}",
+      "account_page": "https://explorer.indonode.net/shido/account/${accountAddress}"
+    },
+    {
+      "kind": "Shido",
+      "url": "https://native.shidoscan.net",
+      "tx_page": "https://native.shidoscan.net/shido/tx/${txHash}",
+      "account_page": "https://native.shidoscan.net/shido/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/shido/images/shido.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/shido/images/shido.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/shido/images/shido.svg",
+      "theme": {
+        "primary_color_hex": "#046ffc"
+      }
     }
   ]
 }

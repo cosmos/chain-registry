@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "pretty_name": "GenesisL1",
+  "chain_type": "cosmos",
   "chain_id": "genesis_29-2",
   "bech32_prefix": "genesis",
   "daemon_name": "genesisd",
@@ -32,36 +33,14 @@
     "compatible_versions": [
       "v1.0.0"
     ],
-    "cosmos_sdk_version": "0.46.15",
     "genesis": {
       "name": "plan_ethermint",
       "genesis_url": "https://raw.githubusercontent.com/alpha-omega-labs/genesis-parameters/main/genesis_29-2/genesis.json"
     },
-    "versions": [
-      {
-        "name": "plan_ethermint",
-        "tag": "v0.3.0",
-        "height": 0,
-        "recommended_version": "v0.5.0",
-        "compatible_versions": [
-          "v0.3.0",
-          "v0.5.0"
-        ],
-        "cosmos_sdk_version": "0.44.5",
-        "next_version_name": "plan_crypto"
-      },
-      {
-        "name": "plan_crypto",
-        "tag": "v1.0.0",
-        "height": 7400000,
-        "proposal": 92,
-        "recommended_version": "v1.0.0",
-        "compatible_versions": [
-          "v1.0.0"
-        ],
-        "cosmos_sdk_version": "0.46.15"
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46.15"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/genesisl1/images/l1.png",
@@ -72,7 +51,7 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -92,6 +71,10 @@
       {
         "address": "https://26657.genesisl1.org",
         "provider": "GenesisL1"
+      },
+      {
+        "address": "https://genesisl1-rpc.zenode.app",
+        "provider": "anodeofzen"
       }
     ],
     "rest": [
@@ -123,7 +106,7 @@
       "tx_page": "https://exp.utsa.tech/genesis/tx/${txHash}"
     },
     {
-      "kind": "🔥STAVR🔥",
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
       "url": "https://explorer.stavr.tech/Genesisl1",
       "tx_page": "https://explorer.stavr.tech/Genesisl1/tx/${txHash}",
       "account_page": "https://explorer.stavr.tech/Genesisl1/accounts/${accountAddress}"
@@ -138,7 +121,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/genesisl1/images/l1.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/genesisl1/images/l1.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/genesisl1/images/l1.svg",
+      "theme": {
+        "primary_color_hex": "#040404"
+      }
     }
   ]
 }

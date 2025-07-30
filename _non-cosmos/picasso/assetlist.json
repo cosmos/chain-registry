@@ -1,5 +1,5 @@
 {
-  "$schema": "../assetlist.schema.json",
+  "$schema": "../../assetlist.schema.json",
   "chain_name": "picasso",
   "assets": [
     {
@@ -16,9 +16,10 @@
       ],
       "type_asset": "substrate",
       "base": "ppica",
-      "name": "Pica",
+      "name": "Picasso",
       "display": "pica",
       "symbol": "PICA",
+      "coingecko_id": "picasso",
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/composable/images/pica.svg"
       },
@@ -85,7 +86,7 @@
       "symbol": "DOT",
       "traces": [
         {
-          "type": "ibc",
+          "type": "ibc-bridge",
           "counterparty": {
             "chain_name": "composablepolkadot",
             "base_denom": "79228162514264337593543950342",
@@ -94,7 +95,8 @@
           "chain": {
             "channel_id": "channel-15",
             "path": "transfer/channel-15/79228162514264337593543950342"
-          }
+          },
+          "provider": "Picasso"
         }
       ],
       "images": [
@@ -104,7 +106,10 @@
             "base_denom": "79228162514264337593543950342"
           },
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polkadot/images/dot.svg",
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polkadot/images/dot.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polkadot/images/dot.png",
+          "theme": {
+            "primary_color_hex": "#e4047c"
+          }
         }
       ],
       "logo_URIs": {
@@ -158,6 +163,7 @@
           "exponent": 12
         }
       ],
+      "type_asset": "substrate",
       "base": "2125",
       "name": "Tinkernet",
       "display": "TNKR",

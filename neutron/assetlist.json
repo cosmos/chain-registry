@@ -3,7 +3,8 @@
   "chain_name": "neutron",
   "assets": [
     {
-      "description": "The native token of Neutron chain.",
+      "description": "Neutron is a smart contract blockchain within the Cosmos ecosystem, leveraging the Cosmos Hub's security to provide cross-chain DeFi applications.",
+      "extended_description": "Neutron is a blockchain network designed to bring smart contracts to the Cosmos ecosystem using CosmWasm. It leverages Interchain Security to rely on the Cosmos Hub's validator set, enhancing its security without needing its own validators. This allows Neutron to provide robust, cross-chain smart contract applications across more than 50 interconnected blockchains. Neutron's focus on interchain queries and transactions enables secure data retrieval and transaction execution across multiple chains, fostering the development of complex and decentralized applications within the Cosmos network.",
       "denom_units": [
         {
           "denom": "untrn",
@@ -26,13 +27,19 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/ntrn.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/ntrn.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/ntrn.svg",
+          "theme": {
+            "primary_color_hex": "#040404",
+            "background_color_hex": "#000000",
+            "circle": true
+          }
         }
       ],
       "socials": {
         "website": "https://neutron.org/",
         "twitter": "https://twitter.com/Neutron_org"
-      }
+      },
+      "type_asset": "sdk.coin"
     },
     {
       "description": "IBC uatom through cosmoshub-4 transfer/channel-1",
@@ -75,13 +82,17 @@
             "base_denom": "uatom"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg",
+          "theme": {
+            "primary_color_hex": "#272d45"
+          }
         }
       ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
-      }
+      },
+      "coingecko_id": "cosmos"
     },
     {
       "description": "IBC Axelar uusdc through axelar-dojo-1 transfer/channel-2",
@@ -124,13 +135,17 @@
             "base_denom": "uusdc"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/usdc.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/usdc.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/usdc.svg",
+          "theme": {
+            "primary_color_hex": "#2474cc"
+          }
         }
       ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/usdc.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/usdc.svg"
-      }
+      },
+      "coingecko_id": "axlusdc"
     },
     {
       "description": "Tia on Neutron",
@@ -162,7 +177,7 @@
           },
           "chain": {
             "channel_id": "channel-35",
-            "path": "transfer/channel-35"
+            "path": "transfer/channel-35/utia"
           }
         }
       ],
@@ -173,13 +188,67 @@
             "base_denom": "utia"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg",
+          "theme": {
+            "primary_color_hex": "#7c2cfb"
+          }
         }
       ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg"
-      }
+      },
+      "coingecko_id": "celestia"
+    },
+    {
+      "description": "ELYS on Neutron",
+      "denom_units": [
+        {
+          "denom": "ibc/28FC965E05DB1A4C0A6DE6B720F67AFF8CAB571FE262824976DDDFF49A4BAAF7",
+          "exponent": 0,
+          "aliases": [
+            "uelys"
+          ]
+        },
+        {
+          "denom": "elys",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/28FC965E05DB1A4C0A6DE6B720F67AFF8CAB571FE262824976DDDFF49A4BAAF7",
+      "name": "ELYS",
+      "display": "elys",
+      "symbol": "ELYS",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "elys",
+            "base_denom": "uelys",
+            "channel_id": "channel-16"
+          },
+          "chain": {
+            "channel_id": "channel-6476",
+            "path": "transfer/channel-6476/uelys"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "elys",
+            "base_denom": "uelys"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/elys/images/elys.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/elys/images/elys.svg"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/elys/images/elys.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/elys/images/elys.svg"
+      },
+      "coingecko_id": "elys-network"
     },
     {
       "description": "Astropepe meme coin",
@@ -202,9 +271,13 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astropepe.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astropepe.png",
+          "theme": {
+            "primary_color_hex": "#47391d"
+          }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "wstETH on Neutron",
@@ -224,12 +297,12 @@
       "symbol": "wstETH",
       "traces": [
         {
-          "type": "additional-mintage",
+          "type": "bridge",
           "counterparty": {
             "chain_name": "ethereum",
             "base_denom": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
           },
-          "provider": "Lido"
+          "provider": "Lido wstETH Cosmos Bridge"
         }
       ],
       "images": [
@@ -243,56 +316,8 @@
       ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wsteth.svg"
-      }
-    },
-    {
-      "description": "NBTC on Neutron",
-      "denom_units": [
-        {
-          "denom": "ibc/DDC3C60EE82BF544F1A0C6A983FF500EF1C14DE20071A5E1E7C0FB470E36E920",
-          "exponent": 0,
-          "aliases": [
-            "usat"
-          ]
-        },
-        {
-          "denom": "sat",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/DDC3C60EE82BF544F1A0C6A983FF500EF1C14DE20071A5E1E7C0FB470E36E920",
-      "name": "Nomic NBTC",
-      "display": "sat",
-      "symbol": "SAT",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "nomic",
-            "base_denom": "usat",
-            "channel_id": "channel-2"
-          },
-          "chain": {
-            "channel_id": "channel-42",
-            "path": "transfer/channel-42/usat"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "nomic",
-            "base_denom": "usat"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nbtc.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nbtc.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nbtc.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nbtc.svg"
-      }
+      },
+      "type_asset": "sdk.coin"
     },
     {
       "description": "DYDX on Neutron",
@@ -335,13 +360,17 @@
             "base_denom": "adydx"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx.svg",
+          "theme": {
+            "primary_color_hex": "#21212f"
+          }
         }
       ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx.svg"
-      }
+      },
+      "coingecko_id": "dydx-chain"
     },
     {
       "description": "The cutest NEWT token on Neutron chain.",
@@ -368,9 +397,13 @@
       "coingecko_id": "newt",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/newt.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/newt.png",
+          "theme": {
+            "primary_color_hex": "#16233d"
+          }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "Astroport is a neutral marketplace where anyone, from anywhere in the galaxy, can dock to trade their wares.",
@@ -395,7 +428,10 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.svg",
+          "theme": {
+            "primary_color_hex": "#4056e9"
+          }
         }
       ],
       "logo_URIs": {
@@ -405,7 +441,8 @@
       "socials": {
         "website": "https://astroport.fi/",
         "twitter": "https://twitter.com/astroport_fi"
-      }
+      },
+      "type_asset": "sdk.coin"
     },
     {
       "description": "Astroport is a neutral marketplace where anyone, from anywhere in the galaxy, can dock to trade their wares.",
@@ -447,7 +484,8 @@
       "socials": {
         "website": "https://astroport.fi/",
         "twitter": "https://twitter.com/astroport_fi"
-      }
+      },
+      "type_asset": "sdk.coin"
     },
     {
       "description": "ASTRO.cw20 on Neutron",
@@ -496,7 +534,8 @@
       ],
       "logo_URIs": {
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/astro-cw20.svg"
-      }
+      },
+      "coingecko_id": "astroport-fi"
     },
     {
       "description": "Baby Corgi is the real doggo of Neutron!",
@@ -522,9 +561,13 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/babycorgi.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/babycorgi.png",
+          "theme": {
+            "primary_color_hex": "#fab442"
+          }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "clownmaxxed store of value",
@@ -550,9 +593,13 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/circus.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/circus.png",
+          "theme": {
+            "primary_color_hex": "#242033"
+          }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "Jimmy Neutron Finance",
@@ -578,9 +625,13 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/jimmy.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/jimmy.png",
+          "theme": {
+            "primary_color_hex": "#7d3c20"
+          }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "Baddest coin on Cosmos",
@@ -606,9 +657,13 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/bad.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/bad.png",
+          "theme": {
+            "primary_color_hex": "#211a0d"
+          }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "BITCOSMOS",
@@ -634,9 +689,13 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/bitcosmos.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/bitcosmos.png",
+          "theme": {
+            "primary_color_hex": "#1b0847"
+          }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "What the Fuck",
@@ -662,9 +721,13 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/WTF.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/WTF.png",
+          "theme": {
+            "primary_color_hex": "#dcd5ab"
+          }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "NLS on Neutron",
@@ -707,13 +770,17 @@
             "base_denom": "unls"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.svg",
+          "theme": {
+            "primary_color_hex": "#fc542c"
+          }
         }
       ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.svg"
-      }
+      },
+      "coingecko_id": "nolus"
     },
     {
       "description": "A Mechanical Canine",
@@ -739,9 +806,13 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/goddardntrn.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/goddardntrn.png",
+          "theme": {
+            "primary_color_hex": "#516b80"
+          }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "The deflationary utility token of the Apollo DAO project",
@@ -773,7 +844,8 @@
       "socials": {
         "website": "https://apollo.farm/",
         "twitter": "https://twitter.com/ApolloDAO"
-      }
+      },
+      "type_asset": "sdk.coin"
     },
     {
       "description": "NEWTROLL",
@@ -801,7 +873,8 @@
         {
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/newtroll.svg"
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "Retro Game",
@@ -829,7 +902,8 @@
         {
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/retro.svg"
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "THE FIRST NATIVE GODDARD MEMECOIN ON NEUTRON",
@@ -857,7 +931,8 @@
         {
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/goddard.svg"
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "The first memecoin on osmosis.",
@@ -896,7 +971,10 @@
             "chain_name": "osmosis",
             "base_denom": "factory/osmo1pfyxruwvtwk00y8z06dh2lqjdj82ldvy74wzm3/WOSMO"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/wosmo.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/wosmo.png",
+          "theme": {
+            "primary_color_hex": "#edd5ee"
+          }
         }
       ],
       "logo_URIs": {
@@ -927,9 +1005,13 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/boy.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/boy.png",
+          "theme": {
+            "primary_color_hex": "#333333"
+          }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "A clan of 11y bad kids crafting chaos on the Cosmos eco. One bad memecoin to rule them all  $BADKID. Airdropped to Badkids NFT holders and $STARS stakers. It's so bad, your wallet's throwing a tantrum for it.",
@@ -968,7 +1050,10 @@
             "chain_name": "osmosis",
             "base_denom": "factory/osmo10n8rv8npx870l69248hnp6djy6pll2yuzzn9x8/BADKID"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/badkid.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/badkid.png",
+          "theme": {
+            "primary_color_hex": "#57443f"
+          }
         }
       ],
       "logo_URIs": {
@@ -999,9 +1084,13 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/cartel.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/cartel.png",
+          "theme": {
+            "primary_color_hex": "#8c9098"
+          }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "$ATOM to $1,000 LFG!!",
@@ -1027,9 +1116,13 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/ATOM1KLFGc.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/ATOM1KLFGc.png",
+          "theme": {
+            "primary_color_hex": "#040404"
+          }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "type_asset": "ics20",
@@ -1054,8 +1147,8 @@
       "symbol": "USDC",
       "coingecko_id": "usd-coin",
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
       },
       "images": [
         {
@@ -1063,8 +1156,12 @@
             "chain_name": "noble",
             "base_denom": "uusdc"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#2775CA"
+          }
         }
       ],
       "traces": [
@@ -1106,9 +1203,13 @@
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/WEIRD.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/WEIRD.png",
+          "theme": {
+            "primary_color_hex": "#ebf0f4"
+          }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "denom_units": [
@@ -1130,16 +1231,20 @@
       "symbol": "TAKUMI",
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/TAKUMI.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/TAKUMI.png",
+          "theme": {
+            "primary_color_hex": "#556867"
+          }
         }
-      ]
+      ],
+      "type_asset": "sdk.coin"
     },
     {
-      "name": "Ninja Blaze Token",
-      "description": "Ninja Blaze Token",
+      "description": "Ninja Blaze is a decentralized multi-chain gaming platform powered by Injective Blockchain.",
+      "extended_description": "The only truly decentralized gaming platform. Shape the future of gaming by owning Ninja Blaze tokens.",
       "denom_units": [
         {
-          "denom": "factory/neutron1a6ydq8urdj0gkvjw9e9e5y9r5ce2qegm9m4xufpt96kcm60kmuass0mqq4/nbz",
+          "denom": "ibc/A79E35F2418EB26FA8D72B9AA5EDF28C0C2CF475E8CF4CAEBB25FA5C858D4D22",
           "exponent": 0,
           "aliases": [
             "uNBZ"
@@ -1150,17 +1255,885 @@
           "exponent": 6
         }
       ],
-      "base": "factory/neutron1a6ydq8urdj0gkvjw9e9e5y9r5ce2qegm9m4xufpt96kcm60kmuass0mqq4/nbz",
+      "type_asset": "ics20",
+      "base": "ibc/A79E35F2418EB26FA8D72B9AA5EDF28C0C2CF475E8CF4CAEBB25FA5C858D4D22",
+      "name": "Ninja Blaze",
       "display": "NBZ",
       "symbol": "NBZ",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "injective",
+            "base_denom": "factory/inj1llr45x92t7jrqtxvc02gpkcqhqr82dvyzkr4mz/NBZ",
+            "channel_id": "channel-177"
+          },
+          "chain": {
+            "channel_id": "channel-60",
+            "path": "transfer/channel-60/factory/inj1llr45x92t7jrqtxvc02gpkcqhqr82dvyzkr4mz/NBZ"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "injective",
+            "base_denom": "factory/inj1llr45x92t7jrqtxvc02gpkcqhqr82dvyzkr4mz/NBZ"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/NBZ.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/NBZ.svg",
+          "theme": {
+            "primary_color_hex": "#9890f9"
+          }
+        }
+      ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/NBZ.png"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/NBZ.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/NBZ.svg"
+      },
+      "socials": {
+        "website": "https://blaze.ninja",
+        "twitter": "https://x.com/NinjaBlazeApp"
+      }
+    },
+    {
+      "description": "Mars Protocol is a cross-collateralized Money Market Protocol on Neutron and Osmosis.",
+      "extended_description": "Lend, borrow and earn with an autonomous credit protocol in the Cosmos universe. Open to all, closed to none.",
+      "denom_units": [
+        {
+          "denom": "factory/neutron1ndu2wvkrxtane8se2tr48gv7nsm46y5gcqjhux/MARS",
+          "exponent": 0,
+          "aliases": [
+            "umars"
+          ]
+        },
+        {
+          "denom": "MARS",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron1ndu2wvkrxtane8se2tr48gv7nsm46y5gcqjhux/MARS",
+      "name": "Mars Protocol",
+      "display": "MARS",
+      "symbol": "MARS",
+      "coingecko_id": "mars-protocol-a7fcbcfb-fd61-4017-92f0-7ee9f9cc6da3",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/mars-token.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/mars-token.svg",
+          "theme": {
+            "primary_color_hex": "#ef4136"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/mars-token.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/mars-token.svg"
+      },
+      "socials": {
+        "website": "https://marsprotocol.io/",
+        "twitter": "https://x.com/mars_protocol"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Drop staked NTRN",
+      "extended_description": "Drop protocol token for the interchain liquidity",
+      "denom_units": [
+        {
+          "denom": "factory/neutron1frc0p5czd9uaaymdkug2njz7dc7j65jxukp9apmt9260a8egujkspms2t2/udntrn",
+          "exponent": 0
+        },
+        {
+          "denom": "dNTRN",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron1frc0p5czd9uaaymdkug2njz7dc7j65jxukp9apmt9260a8egujkspms2t2/udntrn",
+      "name": "dNTRN",
+      "display": "dNTRN",
+      "symbol": "dNTRN",
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/dNTRN.svg"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/dNTRN.svg"
+      },
+      "socials": {
+        "website": "https://www.drop.money/",
+        "twitter": "https://x.com/Dropdotmoney"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Drop staked ATOM",
+      "extended_description": "Drop protocol token for the interchain liquidity",
+      "denom_units": [
+        {
+          "denom": "factory/neutron1k6hr0f83e7un2wjf29cspk7j69jrnskk65k3ek2nj9dztrlzpj6q00rtsa/udatom",
+          "exponent": 0
+        },
+        {
+          "denom": "dATOM",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron1k6hr0f83e7un2wjf29cspk7j69jrnskk65k3ek2nj9dztrlzpj6q00rtsa/udatom",
+      "name": "dATOM",
+      "display": "dATOM",
+      "symbol": "dATOM",
+      "coingecko_id": "drop-staked-atom",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom"
+          },
+          "provider": "Drop Protocol"
+        }
+      ],
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/dATOM.svg"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/dATOM.svg"
+      },
+      "socials": {
+        "website": "https://www.drop.money/",
+        "twitter": "https://x.com/Dropdotmoney"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "SinGarden token",
+      "denom_units": [
+        {
+          "denom": "factory/neutron133xakkrfksq39wxy575unve2nyehg5npx75nph/sin",
+          "exponent": 0,
+          "aliases": [
+            "uSIN"
+          ]
+        },
+        {
+          "denom": "SIN",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron133xakkrfksq39wxy575unve2nyehg5npx75nph/sin",
+      "name": "SIN",
+      "display": "SIN",
+      "symbol": "SIN",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/sin.png"
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/NBZ.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/sin.png",
+          "theme": {
+            "primary_color_hex": "#ebf0f4"
+          }
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "CryptoGopniks token",
+      "denom_units": [
+        {
+          "denom": "factory/neutron133xakkrfksq39wxy575unve2nyehg5npx75nph/GOP",
+          "exponent": 0,
+          "aliases": [
+            "uGOP"
+          ]
+        },
+        {
+          "denom": "GOP",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron133xakkrfksq39wxy575unve2nyehg5npx75nph/GOP",
+      "name": "GOP",
+      "display": "GOP",
+      "symbol": "GOP",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/gop.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/gop.png",
+          "theme": {
+            "primary_color_hex": "#000000"
+          }
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "type_asset": "sdk.coin",
+      "denom_units": [
+        {
+          "denom": "factory/neutron129ukd5cwahcjkccujz87rjemjukff7jf6sau72qrhva677xgz9gs4m4jeq/uarena",
+          "exponent": 0,
+          "aliases": [
+            "uarena"
+          ]
+        },
+        {
+          "denom": "arena",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron129ukd5cwahcjkccujz87rjemjukff7jf6sau72qrhva677xgz9gs4m4jeq/uarena",
+      "name": "Arena Token",
+      "display": "arena",
+      "symbol": "ARENA",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/arena_dao.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/arena_dao.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/arena_dao.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/arena_dao.svg",
+          "theme": {
+            "circle": true,
+            "primary_color_hex": "#FF8000"
+          }
+        }
+      ],
+      "description": "The governance token of the Arena DAO",
+      "socials": {
+        "twitter": "https://x.com/ArenaDAO",
+        "website": "https://arenadao.org/"
+      }
+    },
+    {
+      "description": "Astrovault AXV",
+      "denom_units": [
+        {
+          "denom": "cw20:neutron10dxyft3nv4vpxh5vrpn0xw8geej8dw3g39g7nqp8mrm307ypssksau29af",
+          "exponent": 0
+        },
+        {
+          "denom": "AXV",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "cw20",
+      "address": "neutron10dxyft3nv4vpxh5vrpn0xw8geej8dw3g39g7nqp8mrm307ypssksau29af",
+      "base": "cw20:neutron10dxyft3nv4vpxh5vrpn0xw8geej8dw3g39g7nqp8mrm307ypssksau29af",
+      "name": "Astrovault AXV (Neutron)",
+      "display": "AXV",
+      "symbol": "AXV",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/axv.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/axv.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/axv.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/axv.svg"
+        }
+      ],
+      "socials": {
+        "website": "https://astrovault.io/",
+        "twitter": "https://x.com/axvdex"
+      },
+      "coingecko_id": "astrovault"
+    },
+    {
+      "description": "IBC Axelar wbtc-satoshi through axelar-dojo-1 transfer/channel-2",
+      "denom_units": [
+        {
+          "denom": "ibc/DF8722298D192AAB85D86D0462E8166234A6A9A572DD4A2EA7996029DF4DB363",
+          "exponent": 0,
+          "aliases": [
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "axlwbtc",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/DF8722298D192AAB85D86D0462E8166234A6A9A572DD4A2EA7996029DF4DB363",
+      "name": "Wrapped Bitcoin (Axelar)",
+      "display": "axlwbtc",
+      "symbol": "axlWBTC",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "axelar",
+            "base_denom": "wbtc-satoshi",
+            "channel_id": "channel-78"
+          },
+          "chain": {
+            "channel_id": "channel-2",
+            "path": "transfer/channel-2/wbtc-satoshi"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/wbtc.png"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "axelar",
+            "base_denom": "wbtc-satoshi"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/wbtc.png",
+          "theme": {
+            "primary_color_hex": "#41394d"
+          }
+        }
+      ],
+      "coingecko_id": "axlwbtc"
+    },
+    {
+      "description": "Astrovault xATOM on Neutron Chain",
+      "denom_units": [
+        {
+          "denom": "cw20:neutron1vjl4ze7gr32lar5s4fj776v70j4ml7mlt4aqln2hwgfhqjck8xwqfhx8vj",
+          "exponent": 0
+        },
+        {
+          "denom": "xATOM",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "cw20",
+      "address": "neutron1vjl4ze7gr32lar5s4fj776v70j4ml7mlt4aqln2hwgfhqjck8xwqfhx8vj",
+      "base": "cw20:neutron1vjl4ze7gr32lar5s4fj776v70j4ml7mlt4aqln2hwgfhqjck8xwqfhx8vj",
+      "name": "Astrovault xATOM (Neutron)",
+      "display": "xATOM",
+      "symbol": "xATOM",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "neutron",
+            "base_denom": "ibc/C4CFF46FD6DE35CA4CF4CE031E643C8FDC9BA4B99AE598E9B0ED98FE3A2319F9"
+          },
+          "provider": "Astrovault"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/xatom.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/xatom.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/xatom.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/xatom.svg"
+        }
+      ],
+      "coingecko_id": "astrovault-xatom"
+    },
+    {
+      "description": "The advance token for ATOM denominated vaults on Amulet Protocol",
+      "denom_units": [
+        {
+          "denom": "factory/neutron1shwxlkpdjd8h5wdtrykypwd2v62z5glr95yp0etdcspkkjwm5meq82ndxs/amatom",
+          "exponent": 0
+        },
+        {
+          "denom": "amATOM",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron1shwxlkpdjd8h5wdtrykypwd2v62z5glr95yp0etdcspkkjwm5meq82ndxs/amatom",
+      "name": "amATOM",
+      "display": "amATOM",
+      "symbol": "amATOM",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "neutron",
+            "base_denom": "ibc/C4CFF46FD6DE35CA4CF4CE031E643C8FDC9BA4B99AE598E9B0ED98FE3A2319F9",
+            "contract": "neutron16d4a7q3wfkkawj4jwyzz6g97xtmj0crkyn06ev74fu4xsgkwnreswzfpcy"
+          },
+          "provider": "Amulet"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/amATOM.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/amATOM.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/amATOM.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/amATOM.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Liquid Staked USDC",
+      "denom_units": [
+        {
+          "denom": "factory/neutron1mdy5fhtwdjagp5eallsdhlx6gxylm8rxqk72wjzg6y5d5kt44ysqprkduw/JSD",
+          "exponent": 0
+        },
+        {
+          "denom": "JSD",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron1mdy5fhtwdjagp5eallsdhlx6gxylm8rxqk72wjzg6y5d5kt44ysqprkduw/JSD",
+      "name": "Jade",
+      "display": "JSD",
+      "symbol": "JSD",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/jsd.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/jsd.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/jsd.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/jsd.svg"
+        }
+      ],
+      "socials": {
+        "website": "https://Jade.Money",
+        "twitter": "https://x.com/jadedotmoney"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Boost DAO FUEL",
+      "denom_units": [
+        {
+          "denom": "factory/neutron1zl2htquajn50vxu5ltz0y5hf2qzvkgnjaaza2rssef268xplq6vsjuruxm/fuel",
+          "exponent": 0
+        },
+        {
+          "denom": "FUEL",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron1zl2htquajn50vxu5ltz0y5hf2qzvkgnjaaza2rssef268xplq6vsjuruxm/fuel",
+      "name": "FUEL",
+      "display": "FUEL",
+      "symbol": "FUEL",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/fuel.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/fuel.png"
+        }
+      ],
+      "socials": {
+        "website": "https://www.boostdao.io",
+        "twitter": "https://x.com/boost_dao"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Bonded GopLend USDC",
+      "extended_description": "bglUSDC (Bonded GopLend USDC) is issued in exchange for USDC for the deposit period. These tokens are liquid and generate income in the amount of the set APR on the platform",
+      "denom_units": [
+        {
+          "denom": "factory/neutron16ue9kysgneyqktmjxdfshajgvlrcx9rehxz8x9th7g8fgtnlxwuqvg9mgp/bglUSDC",
+          "exponent": 0
+        },
+        {
+          "denom": "bglUSDC",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron16ue9kysgneyqktmjxdfshajgvlrcx9rehxz8x9th7g8fgtnlxwuqvg9mgp/bglUSDC",
+      "name": "bglUSDC",
+      "display": "bglUSDC",
+      "symbol": "bglUSDC",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/bglUSDC.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/bglUSDC.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Drop staked TIA",
+      "extended_description": "Drop protocol token for the interchain liquidity",
+      "denom_units": [
+        {
+          "denom": "factory/neutron1ut4c6pv4u6vyu97yw48y8g7mle0cat54848v6m97k977022lzxtsaqsgmq/udtia",
+          "exponent": 0
+        },
+        {
+          "denom": "dTIA",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron1ut4c6pv4u6vyu97yw48y8g7mle0cat54848v6m97k977022lzxtsaqsgmq/udtia",
+      "name": "dTIA",
+      "display": "dTIA",
+      "symbol": "dTIA",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "celestia",
+            "base_denom": "utia"
+          },
+          "provider": "Drop Protocol"
+        }
+      ],
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/dTIA.svg"
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/dTIA.svg"
+      },
+      "socials": {
+        "website": "https://www.drop.money/",
+        "twitter": "https://x.com/Dropdotmoney"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "IBC NEPT, Neptune Protocol token, on Neutron chain",
+      "denom_units": [
+        {
+          "denom": "ibc/C084B31AB4906CD6CC65CB779B1527A66B6C98629259E3548B2F20D2753D5837",
+          "exponent": 0
+        },
+        {
+          "denom": "NEPT",
+          "exponent": 6
+        }
+      ],
+      "base": "ibc/C084B31AB4906CD6CC65CB779B1527A66B6C98629259E3548B2F20D2753D5837",
+      "name": "Neptune Finance",
+      "display": "NEPT",
+      "symbol": "NEPT",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "injective",
+            "base_denom": "factory/inj1v3a4zznudwpukpr8y987pu5gnh4xuf7v36jhva/nept",
+            "channel_id": "channel-177"
+          },
+          "chain": {
+            "channel_id": "channel-60",
+            "path": "transfer/channel-60/factory/inj1v3a4zznudwpukpr8y987pu5gnh4xuf7v36jhva/nept"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "injective",
+            "base_denom": "factory/inj1v3a4zznudwpukpr8y987pu5gnh4xuf7v36jhva/nept"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/nept.png",
+          "theme": {
+            "primary_color_hex": "#21549f"
+          }
+        }
+      ],
+      "socials": {
+        "website": "https://nept.finance/",
+        "twitter": "https://x.com/neptune_finance"
+      },
+      "type_asset": "ics20"
+    },
+    {
+      "description": "Dogecoin on Int3face",
+      "denom_units": [
+        {
+          "denom": "ibc/F16C7C5B6F7E96ACDA73E35BCA3A3DE49DDF7164066A359C843E9709041CE6B9",
+          "exponent": 0,
+          "aliases": [
+            "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/dogecoin-doge"
+          ]
+        },
+        {
+          "denom": "doge",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/F16C7C5B6F7E96ACDA73E35BCA3A3DE49DDF7164066A359C843E9709041CE6B9",
+      "name": "Dogecoin (Int3)",
+      "display": "doge",
+      "symbol": "DOGE.int3",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "dogecoin",
+            "base_denom": "shibe"
+          },
+          "provider": "Int3face"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "int3face",
+            "base_denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/dogecoin-doge",
+            "channel_id": "channel-1"
+          },
+          "chain": {
+            "channel_id": "channel-6455",
+            "path": "transfer/channel-6455/factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/dogecoin-doge"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/doge.int3.svg",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/doge.int3.png"
+      },
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/doge.int3.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/doge.int3.png"
+        },
+        {
+          "image_sync": {
+            "chain_name": "int3face",
+            "base_denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/dogecoin-doge"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/doge.int3.png",
+          "theme": {
+            "primary_color_hex": "#3d3d3d"
+          }
         }
       ]
+    },
+    {
+      "description": "Bitcoin on Int3face",
+      "denom_units": [
+        {
+          "denom": "ibc/D9E2128761E0A60C6C7C166BF30A23E9C2029576817F16CD4BD4F598A2077C04",
+          "exponent": 0,
+          "aliases": [
+            "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/bitcoin-btc"
+          ]
+        },
+        {
+          "denom": "btc",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/D9E2128761E0A60C6C7C166BF30A23E9C2029576817F16CD4BD4F598A2077C04",
+      "name": "Bitcoin (Int3)",
+      "display": "btc",
+      "symbol": "BTC.int3",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "bitcoin",
+            "base_denom": "sat"
+          },
+          "provider": "Int3face"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "int3face",
+            "base_denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/bitcoin-btc",
+            "channel_id": "channel-1"
+          },
+          "chain": {
+            "channel_id": "channel-6455",
+            "path": "transfer/channel-6455/factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/bitcoin-btc"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/btc.int3.svg",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/btc.int3.png"
+      },
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/btc.int3.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/btc.int3.png"
+        },
+        {
+          "image_sync": {
+            "chain_name": "int3face",
+            "base_denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/bitcoin-btc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/btc.int3.png",
+          "theme": {
+            "primary_color_hex": "#3d3d3d"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Bitcoin-Cash on Int3face",
+      "denom_units": [
+        {
+          "denom": "ibc/1D45F4770FA033E69A3A3B751263FD774952C2452F65944A1CB914E58C74A35B",
+          "exponent": 0,
+          "aliases": [
+            "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/bitcoin-cash-bch"
+          ]
+        },
+        {
+          "denom": "bch",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/1D45F4770FA033E69A3A3B751263FD774952C2452F65944A1CB914E58C74A35B",
+      "name": "Bitcoin Cash (Int3)",
+      "display": "bch",
+      "symbol": "BCH.int3",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "bitcoincash",
+            "base_denom": "sat"
+          },
+          "provider": "Int3face"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "int3face",
+            "base_denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/bitcoin-cash-bch",
+            "channel_id": "channel-1"
+          },
+          "chain": {
+            "channel_id": "channel-6455",
+            "path": "transfer/channel-6455/factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/bitcoin-cash-bch"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/bch.int3.svg",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/bch.int3.png"
+      },
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/bch.int3.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/bch.int3.png"
+        },
+        {
+          "image_sync": {
+            "chain_name": "int3face",
+            "base_denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/bitcoin-cash-bch"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/bch.int3.png",
+          "theme": {
+            "primary_color_hex": "#3d3d3d"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Litecoin on Int3face",
+      "denom_units": [
+        {
+          "denom": "ibc/C4C791209A16419A4BB3C3177E5E8AE4477C9D7457842E7F531F91C513FA79A0",
+          "exponent": 0,
+          "aliases": [
+            "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/litecoin-ltc"
+          ]
+        },
+        {
+          "denom": "ltc",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/C4C791209A16419A4BB3C3177E5E8AE4477C9D7457842E7F531F91C513FA79A0",
+      "name": "Litecoin (Int3)",
+      "display": "ltc",
+      "symbol": "LTC.int3",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "litecoin",
+            "base_denom": "litoshi"
+          },
+          "provider": "Int3face"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "int3face",
+            "base_denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/litecoin-ltc",
+            "channel_id": "channel-1"
+          },
+          "chain": {
+            "channel_id": "channel-6455",
+            "path": "transfer/channel-6455/factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/litecoin-ltc"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/ltc.int3.svg",
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/ltc.int3.png"
+      },
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/ltc.int3.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/ltc.int3.png"
+        },
+        {
+          "image_sync": {
+            "chain_name": "int3face",
+            "base_denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/litecoin-ltc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/ltc.int3.png",
+          "theme": {
+            "primary_color_hex": "#3d3d3d"
+          }
+        }
+      ]
+    },
+    {
+      "description": "TabCoin",
+      "denom_units": [
+        {
+          "denom": "factory/neutron1r5qx58l3xx2y8gzjtkqjndjgx69mktmapl45vns0pa73z0zpn7fqgltnll/TAB",
+          "exponent": 0
+        },
+        {
+          "denom": "TAB",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/neutron1r5qx58l3xx2y8gzjtkqjndjgx69mktmapl45vns0pa73z0zpn7fqgltnll/TAB",
+      "name": "TabCoin",
+      "display": "TAB",
+      "symbol": "TAB",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/TAB.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/TAB.png"
+        }
+      ],
+      "socials": {
+        "website": "https://TabCo.in"
+      },
+      "type_asset": "sdk.coin"
     }
   ]
 }

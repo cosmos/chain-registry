@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "jackal",
+  "chain_type": "cosmos",
   "chain_id": "jackal-1",
   "website": "https://jackalprotocol.com",
   "pretty_name": "Jackal",
@@ -33,117 +34,23 @@
   },
   "codebase": {
     "git_repo": "https://github.com/JackalLabs/canine-chain",
-    "recommended_version": "v3.2.2",
+    "recommended_version": "v4.0.3",
     "compatible_versions": [
-      "v3.2.1",
-      "v3.2.2"
+      "v4.0.0",
+      "v4.0.1",
+      "v4.0.2",
+      "v4.0.3"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v3.2.2/canined-Linux",
-      "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v3.2.2/canined-macOS"
+      "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v4.0.3/canined-Linux",
+      "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v4.0.3/canined-macOS"
     },
     "genesis": {
       "genesis_url": "https://cdn.discordapp.com/attachments/1002389406650466405/1034968352591986859/updated_genesis2.json"
     },
-    "cosmwasm_enabled": true,
-    "versions": [
-      {
-        "name": "bouncybulldog",
-        "recommended_version": "v1.2.1",
-        "compatible_versions": [
-          "v1.2.1"
-        ],
-        "cosmwasm_enabled": true,
-        "binaries": {
-          "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.2.1/canined-Linux",
-          "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v1.2.1/canined-macOS"
-        },
-        "next_version_name": "recovery"
-      },
-      {
-        "name": "recovery",
-        "tag": "V2.0.1",
-        "proposal": 4,
-        "height": 2631260,
-        "recommended_version": "v2.0.1",
-        "compatible_versions": [
-          "v2.0.0",
-          "v2.0.1"
-        ],
-        "cosmwasm_enabled": true,
-        "binaries": {
-          "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v2.0.2/canined-Linux",
-          "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v2.0.2/canined-macOS"
-        },
-        "next_version_name": "v210"
-      },
-      {
-        "name": "v210",
-        "tag": "V2.1.0",
-        "proposal": 8,
-        "height": 3503000,
-        "recommended_version": "v2.1.0",
-        "compatible_versions": [
-          "v2.1.0"
-        ],
-        "cosmwasm_enabled": true,
-        "binaries": {
-          "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v2.1.0/canined-Linux",
-          "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v2.1.0/canined-macOS"
-        },
-        "next_version_name": "v3"
-      },
-      {
-        "name": "v3",
-        "tag": "V3.0.5",
-        "proposal": 9,
-        "height": 4074200,
-        "recommended_version": "v3.0.5",
-        "compatible_versions": [
-          "v3.0.5"
-        ],
-        "cosmwasm_enabled": true,
-        "binaries": {
-          "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v3.0.5/canined-Linux",
-          "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v3.0.5/canined-macOS"
-        },
-        "next_version_name": "v3.1.1"
-      },
-      {
-        "name": "v3.1.1",
-        "tag": "V3.1.3",
-        "proposal": 11,
-        "height": 6095000,
-        "recommended_version": "v3.1.3",
-        "compatible_versions": [
-          "v3.1.1",
-          "v3.1.3"
-        ],
-        "cosmwasm_enabled": true,
-        "binaries": {
-          "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v3.1.3/canined-Linux",
-          "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v3.1.3/canined-macOS"
-        },
-        "next_version_name": "v320"
-      },
-      {
-        "name": "v3.2.0",
-        "tag": "V3.2.2",
-        "proposal": 12,
-        "height": 6835000,
-        "recommended_version": "v3.2.2",
-        "compatible_versions": [
-          "v3.2.1",
-          "v3.2.2"
-        ],
-        "cosmwasm_enabled": true,
-        "binaries": {
-          "linux/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v3.2.2/canined-Linux",
-          "darwin/amd64": "https://github.com/JackalLabs/canine-chain/releases/download/v3.2.2/canined-macOS"
-        },
-        "next_version_name": ""
-      }
-    ]
+    "cosmwasm": {
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/jackal/images/jkl.png",
@@ -154,12 +61,12 @@
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:17556",
-        "provider": "Lavender.Five Nodes 🐝"
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "jackal-mainnet-seed.autostake.com:26906",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
@@ -174,12 +81,12 @@
       {
         "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:17556",
-        "provider": "WhisperNode 🤐"
+        "provider": "WhisperNode \ud83e\udd10"
       },
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -190,12 +97,12 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "jackal-mainnet-peer.autostake.com:26906",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "26b6255375a592c3b0664bd474a6975f468c3785",
         "address": "jkl.peer.stavr.tech:11126",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "id": "713d202326eedaed41d467b26051aba62727febd",
@@ -225,19 +132,19 @@
         "provider": "Jackal Labs"
       },
       {
-        "address": "https://jackal-rpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rpc.lavenderfive.com:443/jackal",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "http://jkl.rpc.m.stavr.tech:11127",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "https://jackal.rpc.bccnodes.com",
         "provider": "BccNodes"
       },
       {
-        "address": "https://rpc.jackal.nodestake.top",
+        "address": "https://rpc.jackal.nodestake.org",
         "provider": "NodeStake"
       },
       {
@@ -250,15 +157,15 @@
       },
       {
         "address": "https://m-jackal.rpc.utsa.tech",
-        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
+        "provider": "\ud835\udc25\ud835\udc1e\ud835\udc2c\ud835\udc27\ud835\udc22\ud835\udc24 | \ud835\udc14\ud835\udc13\ud835\udc12\ud835\udc00"
       },
       {
         "address": "https://rpc-jackal.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
+        "provider": "WhisperNode \ud83e\udd10"
       },
       {
         "address": "https://jackal-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://jackal.rpc.kjnodes.com",
@@ -299,15 +206,15 @@
         "provider": "Jackal Labs"
       },
       {
-        "address": "https://jackal-api.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rest.lavenderfive.com:443/jackal",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://jkl.api.m.stavr.tech",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
-        "address": "https://api.jackal.nodestake.top",
+        "address": "https://api.jackal.nodestake.org",
         "provider": "NodeStake"
       },
       {
@@ -320,15 +227,15 @@
       },
       {
         "address": "https://m-jackal.api.utsa.tech",
-        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
+        "provider": "\ud835\udc25\ud835\udc1e\ud835\udc2c\ud835\udc27\ud835\udc22\ud835\udc24 | \ud835\udc14\ud835\udc13\ud835\udc12\ud835\udc00"
       },
       {
         "address": "https://jackal-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "https://lcd-jackal.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
+        "provider": "WhisperNode \ud83e\udd10"
       },
       {
         "address": "https://jackal.api.kjnodes.com",
@@ -377,11 +284,11 @@
         "provider": "[NODERS]TEAM"
       },
       {
-        "address": "jackal-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "jackal.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
-        "address": "grpc.jackal.nodestake.top:443",
+        "address": "grpc.jackal.nodestake.org:443",
         "provider": "NodeStake"
       },
       {
@@ -390,11 +297,11 @@
       },
       {
         "address": "http://jkl.grpc.m.stavr.tech:5013",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "jackal-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "address": "jackal.grpc.kjnodes.com:13790",
@@ -411,19 +318,35 @@
       {
         "address": "jackal-grpc.noders.services:26090",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "grpc.jackal.mathnodes.com:443",
+        "provider": "MathNodes"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/jackal",
+      "tx_page": "https://explorer.chainroot.io/jackal/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/jackal/accounts/${accountAddress}"
+    },
     {
       "kind": "ping.pub",
       "url": "https://ping.pub/jackal",
       "tx_page": "https://ping.pub/jackal/tx/${txHash}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/jackal",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=jackal&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=jackal&addr=${accountAddress}"
+    },
+    {
       "kind": "NodeStake",
-      "url": "https://explorer.nodestake.top/jackal",
-      "tx_page": "https://explorer.nodestake.top/jackal/tx/${txHash}"
+      "url": "https://explorer.nodestake.org/jackal",
+      "tx_page": "https://explorer.nodestake.org/jackal/tx/${txHash}"
     },
     {
       "kind": "BccNodes",
@@ -431,12 +354,12 @@
       "tx_page": "https://explorer.bccnodes.com/jackal/tx/${txHash}"
     },
     {
-      "kind": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀",
+      "kind": "\ud835\udc25\ud835\udc1e\ud835\udc2c\ud835\udc27\ud835\udc22\ud835\udc24 | \ud835\udc14\ud835\udc13\ud835\udc12\ud835\udc00",
       "url": "https://exp.utsa.tech/jackal",
       "tx_page": "https://exp.utsa.tech/jackal/tx/${txHash}"
     },
     {
-      "kind": "🔥STAVR🔥",
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
       "url": "https://explorer.stavr.tech/jackal",
       "tx_page": "https://explorer.stavr.tech/jackal/tx/${txHash}"
     },
@@ -451,7 +374,7 @@
       "tx_page": "https://bigdipper.live/jackal/transactions/${txHash}"
     },
     {
-      "kind": "WhisperNode 🤐",
+      "kind": "WhisperNode \ud83e\udd10",
       "url": "https://mainnet.whispernode.com/jackal",
       "tx_page": "https://mainnet.whispernode.com/jackal/tx/${txHash}",
       "account_page": "https://mainnet.whispernode.com/jackal/account/${accountAddress}"
@@ -460,7 +383,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/jackal/images/jkl.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/jackal/images/jkl.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/jackal/images/jkl.svg",
+      "theme": {
+        "primary_color_hex": "#dbdbcb"
+      }
     }
   ]
 }

@@ -1,10 +1,11 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "8ball",
-  "status": "live",
+  "status": "killed",
   "website": "https://8ball.info/",
   "network_type": "mainnet",
   "pretty_name": "8ball",
+  "chain_type": "cosmos",
   "chain_id": "eightball-1",
   "bech32_prefix": "8ball",
   "daemon_name": "8ball",
@@ -37,28 +38,19 @@
     "compatible_versions": [
       "v1"
     ],
-    "cosmos_sdk_version": "0.46.7",
-    "cosmwasm_enabled": true,
     "binaries": {
       "linux/amd64": "https://8ball.info/8ball.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://8ball.info/8ball-genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1",
-        "recommended_version": "v1",
-        "compatible_versions": [
-          "v1"
-        ],
-        "cosmos_sdk_version": "0.46.7",
-        "cosmwasm_enabled": true,
-        "binaries": {
-          "linux/amd64": "https://8ball.info/8ball.tar.gz"
-        }
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46.7"
+    },
+    "cosmwasm": {
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/8ball/images/8ball.png",
@@ -89,10 +81,6 @@
       {
         "address": "https://rpc.8ball.info/",
         "provider": "8ball"
-      },
-      {
-        "address": "https://rpc.8ball.nodestake.top",
-        "provider": "NodeStake"
       }
     ],
     "rest": [
@@ -101,19 +89,11 @@
         "provider": "8ball"
       },
       {
-        "address": "https://api.8ball.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
         "address": "https://api-8ball.nodine.id/",
         "provider": "Nodine.ID"
       }
     ],
     "grpc": [
-      {
-        "address": "grpc.8ball.nodestake.top:443",
-        "provider": "NodeStake"
-      },
       {
         "address": "https://grpc.8ball.nodexcapital.com:443",
         "provider": "NodeX Validator"
@@ -129,11 +109,6 @@
       "kind": "ping.pub",
       "url": "https://ping.pub/8ball",
       "tx_page": "https://ping.pub/8ball/tx/${txHash}"
-    },
-    {
-      "kind": "NodeStake Explorer",
-      "url": "https://explorer.nodestake.top/8ball/",
-      "tx_page": "https://explorer.nodestake.top/8ball/tx/${txHash}"
     },
     {
       "kind": "TC Network",
@@ -154,7 +129,10 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/8ball/images/8ball.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/8ball/images/8ball.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/8ball/images/8ball.svg",
+      "theme": {
+        "primary_color_hex": "#dbdbdb"
+      }
     }
   ]
 }

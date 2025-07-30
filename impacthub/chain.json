@@ -4,7 +4,8 @@
   "status": "live",
   "network_type": "mainnet",
   "website": "https://www.ixo.world/",
-  "pretty_name": "Impacts Hub",
+  "pretty_name": "Impact Hub",
+  "chain_type": "cosmos",
   "chain_id": "ixo-5",
   "bech32_prefix": "ixo",
   "daemon_name": "ixod",
@@ -34,70 +35,25 @@
   },
   "codebase": {
     "git_repo": "https://github.com/ixofoundation/ixo-blockchain",
-    "recommended_version": "v3.0.0",
+    "recommended_version": "v4.0.0",
     "compatible_versions": [
-      "v3.0.0"
+      "v4.0.0"
     ],
-    "cosmos_sdk_version": "v0.45.16",
-    "ibc_go_version": "v4.4.1",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.34.27"
+      "version": "v0.38.12"
     },
     "genesis": {
       "genesis_url": "https://github.com/ixofoundation/genesis/raw/bc042e1223d551b22d55c155de06e662ca24d2f2/ixo-5/genesis.json.tar.gz"
     },
-    "versions": [
-      {
-        "name": "v0.20.0",
-        "proposal": 403,
-        "height": 1254500,
-        "recommended_version": "v0.20.1",
-        "compatible_versions": [
-          "v0.20.0",
-          "v0.20.1"
-        ],
-        "cosmos_sdk_version": "v0.45.12",
-        "ibc_go_version": "v4.3.0",
-        "consensus": {
-          "type": "tendermint",
-          "version": "v0.34.24"
-        },
-        "next_version_name": "v2"
-      },
-      {
-        "name": "v2",
-        "proposal": 439,
-        "height": 2383000,
-        "recommended_version": "v2.0.0",
-        "compatible_versions": [
-          "v2.0.0"
-        ],
-        "cosmos_sdk_version": "v0.45.16",
-        "ibc_go_version": "v4.4.1",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.27"
-        },
-        "next_version_name": "v3"
-      },
-      {
-        "name": "v3",
-        "proposal": 447,
-        "height": 6556300,
-        "recommended_version": "v3.0.0",
-        "compatible_versions": [
-          "v3.0.0"
-        ],
-        "cosmos_sdk_version": "v0.45.16",
-        "ibc_go_version": "v4.4.1",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.27"
-        },
-        "next_version_name": ""
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.10"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.5.1"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/impacthub/images/ixo.png",
@@ -113,17 +69,22 @@
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:16656",
-        "provider": "Lavender.Five Nodes 🐝"
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "id": "9194ed56c5b93a0a7e3bdbcad8f62467f7137f56",
         "address": "seed-ixo.ibs.team:16662",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:28456",
+        "provider": "BlueStake \ud83d\ude80"
       }
     ],
     "persistent_peers": [
@@ -135,7 +96,7 @@
       {
         "id": "d4448c5b10b43d444034533ede7d2e66cbf9e519",
         "address": "ixo.peer.stavr.tech:1016",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       }
     ]
   },
@@ -151,19 +112,27 @@
       },
       {
         "address": "https://ixo.rpc.m.stavr.tech:443",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "https://rpc-ixo-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
       },
       {
-        "address": "https://impacthub-rpc.lavenderfive.com/",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rpc.lavenderfive.com:443/impacthub",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://ixo-rpc.ibs.team",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://ixo-rpc.bluestake.net:443",
+        "provider": "BlueStake \ud83d\ude80"
+      },
+      {
+        "address": "https://impacthub_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
       }
     ],
     "rest": [
@@ -177,19 +146,27 @@
       },
       {
         "address": "https://ixo.api.m.stavr.tech",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
         "address": "https://api-ixo-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
       },
       {
-        "address": "https://impacthub-api.lavenderfive.com/",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rest.lavenderfive.com:443/impacthub",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://ixo-api.ibs.team",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://ixo-api.bluestake.net",
+        "provider": "BlueStake \ud83d\ude80"
+      },
+      {
+        "address": "https://impacthub_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
       }
     ],
     "grpc": [
@@ -199,15 +176,27 @@
       },
       {
         "address": "ixo.grpc.m.stavr.tech:2010",
-        "provider": "🔥STAVR🔥"
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       },
       {
-        "address": "impacthub-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "impacthub.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/ixo",
+      "tx_page": "https://explorer.chainroot.io/ixo/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/ixo/accounts/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/impacthub",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=impacthub&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=impacthub&addr=${accountAddress}"
+    },
     {
       "kind": "ezstaking",
       "url": "https://ezstaking.app/ixo",
@@ -215,7 +204,7 @@
       "account_page": "https://ezstaking.app/ixo/account/${accountAddress}"
     },
     {
-      "kind": "🔥STAVR🔥",
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
       "url": "https://explorer.stavr.tech/IXO-Mainnet",
       "tx_page": "https://explorer.stavr.tech/IXO-Mainnet/txs/${txHash}",
       "account_page": "https://explorer.stavr.tech/IXO-Mainnet/account/${accountAddress}"
@@ -237,16 +226,19 @@
       "account_page": "https://atomscan.com/ixo/accounts/${accountAddress}"
     },
     {
-      "kind": "Mintscan",
-      "url": "https://www.mintscan.io/ixo",
-      "tx_page": "https://www.mintscan.io/ixo/transactions/${txHash}",
-      "account_page": "https://www.mintscan.io/ixo/accounts/${accountAddress}"
+      "kind": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25",
+      "url": "https://explorer.whenmoonwhenlambo.money/ixo",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/ixo/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/ixo/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/impacthub/images/ixo.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/impacthub/images/ixo.svg"
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/impacthub/images/ixo.svg",
+      "theme": {
+        "primary_color_hex": "#2c4484"
+      }
     }
   ]
 }

@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "pretty_name": "Neutron",
+  "chain_type": "cosmos",
   "chain_id": "neutron-1",
   "bech32_prefix": "neutron",
   "website": "https://neutron.org/",
@@ -62,110 +63,39 @@
   },
   "codebase": {
     "git_repo": "https://github.com/neutron-org/neutron",
-    "recommended_version": "v3.0.5",
+    "recommended_version": "v5.0.2",
     "compatible_versions": [
-      "v3.0.5"
+      "v5.0.2"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/neutron-org/neutron/releases/download/v3.0.5/neutrond-linux-amd64"
+      "linux/amd64": "https://github.com/neutron-org/neutron/releases/download/v5.0.2/neutrond-linux-amd64"
     },
-    "cosmos_sdk_version": "neutron-org/cosmos-sdk v0.47.10-neutron",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.4"
+      "version": "v0.38.15"
     },
-    "cosmwasm_version": "neutron-org/wasmd v0.45.0",
-    "cosmwasm_enabled": true,
-    "ibc_go_version": "v7.4.0",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/neutron-org/mainnet-assets/main/neutron-1-genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1.0.1",
-        "recommended_version": "v1.0.4",
-        "compatible_versions": [
-          "v1.0.3",
-          "v1.0.4"
-        ],
-        "cosmos_sdk_version": "0.45",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "cosmwasm_version": "0.31",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "4.3.0",
-        "next_version_name": "v2.0.0"
-      },
-      {
-        "name": "v2.0.0",
-        "proposal": 25,
-        "height": 5416000,
-        "recommended_version": "v2.0.4",
-        "compatible_versions": [
-          "v2.0.4"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/neutron-org/neutron/releases/download/v2.0.4/neutrond-linux-amd64"
-        },
-        "cosmos_sdk_version": "v0.47.6",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.37.2"
-        },
-        "cosmwasm_version": "v0.45.0",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "v7.3.1",
-        "next_version_name": "v3.0.1"
-      },
-      {
-        "name": "v3.0.1",
-        "proposal": 35,
-        "height": 9034900,
-        "recommended_version": "v3.0.2",
-        "compatible_versions": [
-          "v3.0.2"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/neutron-org/neutron/releases/download/v3.0.2/neutrond-linux-amd64"
-        },
-        "cosmos_sdk_version": "neutron-org/cosmos-sdk v0.47.10-neutron",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.37.4"
-        },
-        "cosmwasm_version": "neutron-org/wasmd v0.45.0",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "v7.3.2",
-        "next_version_name": "v3.0.5"
-      },
-      {
-        "name": "v3.0.5",
-        "proposal": 37,
-        "height": 10525000,
-        "recommended_version": "v3.0.5",
-        "compatible_versions": [
-          "v3.0.5"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/neutron-org/neutron/releases/download/v3.0.5/neutrond-linux-amd64"
-        },
-        "cosmos_sdk_version": "neutron-org/cosmos-sdk v0.47.10-neutron",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.37.4"
-        },
-        "cosmwasm_version": "neutron-org/wasmd v0.45.0",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "v7.4.0",
-        "next_version_name": ""
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/neutron-org/cosmos-sdk",
+      "version": "v0.50.10",
+      "tag": "v0.50.10-neutron"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.5.2"
+    },
+    "cosmwasm": {
+      "version": "v0.53.0",
+      "repo": "https://github.com/neutron-org/wasmd",
+      "enabled": true
+    }
   },
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-black-logo.png",
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-black-logo.svg"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-raw.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-raw.svg"
   },
   "description": "The most secure CosmWasm platform in Cosmos, Neutron lets smart-contracts leverage bleeding-edge Interchain technology with minimal overhead.",
   "peers": {
@@ -183,17 +113,22 @@
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:19156",
-        "provider": "Lavender.Five Nodes 🐝"
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:19156",
-        "provider": "WhisperNode 🤐"
+        "provider": "WhisperNode \ud83e\udd10"
       },
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "id": "10ed1e176d874c8bb3c7c065685d2da6a4b86475",
+        "address": "seed-neutron.ibs.team:16686",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "persistent_peers": [
@@ -207,28 +142,44 @@
   "apis": {
     "rpc": [
       {
+        "address": "https://rpc-lb.neutron.org",
+        "provider": "Neutron"
+      },
+      {
+        "address": "https://rpc-solara.neutron-1.neutron.org",
+        "provider": "Neutron"
+      },
+      {
+        "address": "https://rpc-vertexa.neutron-1.neutron.org",
+        "provider": "Neutron"
+      },
+      {
+        "address": "https://rpc-voidara.neutron-1.neutron.org",
+        "provider": "Neutron"
+      },
+      {
+        "address": "https://rpc-pulsarix.neutron-1.neutron.org",
+        "provider": "Neutron"
+      },
+      {
         "address": "https://rpc.novel.remedy.tm.p2p.org",
         "provider": "P2P"
       },
       {
-        "address": "https://neutron-rpc.lavenderfive.com",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rpc.lavenderfive.com:443/neutron",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://rpc-neutron.whispernode.com",
-        "provider": "WhisperNode 🤐"
+        "provider": "WhisperNode \ud83e\udd10"
       },
       {
         "address": "https://rpc-neutron.cosmos-spaces.cloud",
         "provider": "Cosmos Spaces"
       },
       {
-        "address": "http://rpc.neutron.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
         "address": "https://neutron-rpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "https://community.nuxian-node.ch:6797/neutron/trpc",
@@ -237,32 +188,60 @@
       {
         "address": "https://rpc.neutron.bronbro.io:443",
         "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://rpc.neutron.quokkastake.io",
+        "provider": "\ud83d\udc39 Quokka Stake"
+      },
+      {
+        "address": "https://neutron.drpc.org",
+        "provider": "dRPC"
+      },
+      {
+        "address": "https://neutron-rpc.ibs.team",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "rest": [
+      {
+        "address": "https://rest-lb.neutron.org",
+        "provider": "Neutron"
+      },
+      {
+        "address": "https://rest-solara.neutron-1.neutron.org",
+        "provider": "Neutron"
+      },
+      {
+        "address": "https://rest-vertexa.neutron-1.neutron.org",
+        "provider": "Neutron"
+      },
+      {
+        "address": "https://rest-voidara.neutron-1.neutron.org",
+        "provider": "Neutron"
+      },
+      {
+        "address": "https://rest-pulsarix.neutron-1.neutron.org",
+        "provider": "Neutron"
+      },
       {
         "address": "https://api.novel.remedy.tm.p2p.org",
         "provider": "P2P"
       },
       {
-        "address": "https://neutron-api.lavenderfive.com",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rest.lavenderfive.com:443/neutron",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://lcd-neutron.whispernode.com",
-        "provider": "WhisperNode 🤐"
+        "provider": "WhisperNode \ud83e\udd10"
       },
       {
         "address": "https://api-neutron.cosmos-spaces.cloud",
         "provider": "Cosmos Spaces"
       },
       {
-        "address": "http://api.neutron.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
         "address": "https://neutron-rest.publicnode.com",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "https://community.nuxian-node.ch:6797/neutron/crpc",
@@ -271,9 +250,21 @@
       {
         "address": "https://lcd.neutron.bronbro.io:443",
         "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://api.neutron.quokkastake.io",
+        "provider": "\ud83d\udc39 Quokka Stake"
+      },
+      {
+        "address": "https://neutron-api.ibs.team",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "grpc": [
+      {
+        "address": "grpc-lb.neutron.org:80",
+        "provider": "Neutron"
+      },
       {
         "address": "grpc-kralum.neutron-1.neutron.org:80",
         "provider": "Neutron"
@@ -283,28 +274,28 @@
         "provider": "P2P"
       },
       {
-        "address": "neutron-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "neutron.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "grpc-neutron.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
+        "provider": "WhisperNode \ud83e\udd10"
       },
       {
         "address": "grpc-neutron.cosmos-spaces.cloud:3090",
         "provider": "Cosmos Spaces"
       },
       {
-        "address": "grpc.neutron.nodestake.top:9090",
-        "provider": "NodeStake"
-      },
-      {
         "address": "neutron-grpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       },
       {
         "address": "https://grpc.neutron.bronbro.io:443",
         "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "rpc.neutron.quokkastake.io:9090",
+        "provider": "\ud83d\udc39 Quokka Stake"
       }
     ]
   },
@@ -322,13 +313,31 @@
       "account_page": "https://ezstaking.app/neutron/account/${accountAddress}"
     },
     {
-      "kind": "WhisperNode 🤐",
+      "kind": "WhisperNode \ud83e\udd10",
       "url": "https://mainnet.whispernode.com/neutron",
       "tx_page": "https://mainnet.whispernode.com/neutron/tx/${txHash}",
       "account_page": "https://mainnet.whispernode.com/neutron/account/${accountAddress}"
     }
   ],
   "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-raw.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-raw.svg",
+      "theme": {
+        "primary_color_hex": "#000000",
+        "background_color_hex": "#00000000",
+        "circle": false
+      }
+    },
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/ntrn.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/ntrn.svg",
+      "theme": {
+        "primary_color_hex": "#040404",
+        "background_color_hex": "#000000",
+        "circle": true
+      }
+    },
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-black-logo.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-black-logo.svg"
