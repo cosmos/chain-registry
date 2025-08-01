@@ -5,7 +5,7 @@
   "network_type": "testnet",
   "pretty_name": "Sunrise Testnet",
   "chain_type": "cosmos",
-  "chain_id": "sunrise-test-1",
+  "chain_id": "dawn-1",
   "bech32_prefix": "sunrise",
   "daemon_name": "sunrised",
   "node_home": "$HOME/.sunrise",
@@ -38,7 +38,7 @@
       "v1.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v1.0.0/sunrised"
+      "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v1.0.0/sunrised-linux-amd64"
     },
     "consensus": {
       "type": "cometbft",
@@ -58,11 +58,17 @@
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sunrise/images/sunrise.svg"
   },
   "peers": {
-    "seeds": [],
+    "seeds": [
+      {
+        "id": "b63465f5b61b85de1dff99a8d4bff01ae746a2ef",
+        "address": "sunrise-dawn-1.cauchye.com:26656",
+        "provider": "CauchyE"
+      }
+    ],
     "persistent_peers": [
       {
-        "id": "e164c23f97c182595ba4229ad3ea7ee88c3f1843",
-        "address": "a.sunrise-test-1.cauchye.net:26656",
+        "id": "b63465f5b61b85de1dff99a8d4bff01ae746a2ef",
+        "address": "sunrise-dawn-1.cauchye.com:26656",
         "provider": "CauchyE"
       }
     ]
@@ -70,19 +76,19 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://a.sunrise-test-1.cauchye.net",
+        "address": "https://sunrise-dawn-1.cauchye.com",
         "provider": "CauchyE"
       }
     ],
     "rest": [
       {
-        "address": "https://a.sunrise-test-1.cauchye.net:1318",
+        "address": "https://sunrise-dawn-1.cauchye.com:1318",
         "provider": "CauchyE"
       }
     ],
     "grpc": [
       {
-        "address": "https://a.sunrise-test-1.cauchye.net:9092",
+        "address": "https://sunrise-dawn-1.cauchye.com:9092",
         "provider": "CauchyE"
       }
     ]
@@ -90,9 +96,9 @@
   "explorers": [
     {
       "kind": "Risescan",
-      "url": "https://test.risescan.sunriselayer.io",
-      "tx_page": "https://test.risescan.sunriselayer.io/txs/${txHash}",
-      "account_page": "https://test.risescan.sunriselayer.io/accounts/${accountAddress}"
+      "url": "https://dawn-1.risescan.sunriselayer.io",
+      "tx_page": "https://dawn-1.risescan.sunriselayer.io/txs/${txHash}",
+      "account_page": "https://dawn-1.risescan.sunriselayer.io/accounts/${accountAddress}"
     }
   ],
   "images": [
