@@ -1,0 +1,100 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cosmos/chain-registry/master/chain.schema.json",
+  "chain_name": "outbe-devnet-1",
+  "chain_type": "cosmos",
+  "status": "live",
+  "website": "https://www.outbe.com",
+  "network_type": "testnet",
+  "pretty_name": "outbe-node",
+  "chain_id": "outbe-devnet-1",
+  "bech32_prefix": "outbe",
+  "daemon_name": "outbe-noded",
+  "node_home": "$HOME/.outbe-node",
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "unit",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "unit"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/outbe/outbe-node",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v0.9.0"
+    ],
+    "cosmos_sdk_version": "0.50",
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.38"
+    },
+    "cosmwasm_version": "0.50",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "8",
+    "ics_enabled": [
+      "ics20-1"
+    ],
+    "genesis": {
+      "name": "v1",
+      "genesis_url": "https://github.com/outbe/outbe-node/networks/raw/main/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v1.0.0",
+        "tag": "v1.0.0",
+        "height": 0,
+        "next_version_name": "v2",
+        "consensus": {}
+      }
+    ]
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+      "theme": {
+        "primary_color_hex": "#FF2D00"
+      }
+    }
+  ],
+  "peers": {},
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.dev.outbe.net:26657",
+        "provider": "Outbe DevNet"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rpc.dev.outbe.net:1317",
+        "provider": "Outbe DevNet"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "cosmos",
+      "url": "https://example.com",
+      "tx_page": "https://example.com/tx",
+      "account_page": "https://example.com/account"
+    }
+  ],
+  "keywords": [
+    "cosmos"
+  ]
+}
