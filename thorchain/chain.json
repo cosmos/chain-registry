@@ -8,45 +8,69 @@
   "chain_type": "cosmos",
   "chain_id": "thorchain-1",
   "bech32_prefix": "thor",
-  "daemon_name": "thord",
+  "daemon_name": "thornode",
   "node_home": "$HOME/.thornode",
   "slip44": 931,
   "codebase": {
     "git_repo": "https://gitlab.com/thorchain/thornode",
-    "recommended_version": "v2.135.0",
+    "recommended_version": "v3.9.0",
     "compatible_versions": [
-      "v2.135.0"
+      "v3.9.0"
     ],
     "genesis": {
       "genesis_url": "https://storage.googleapis.com/public-snapshots-ninerealms/genesis/17562000.json"
     },
     "sdk": {
       "type": "cosmos",
-      "version": "v0.45.16"
+      "version": "v0.53.0"
     },
     "cosmwasm": {
-      "enabled": false
+      "enabled": true
     }
   },
   "peers": {
     "seeds": [
       {
-        "id": "5e89caf0ca79e0fb3371d5892efd96d66042d0d6",
-        "address": "157.90.34.75:27146"
+        "id": "c3613862c2608b3e861406ad02146f41cf5124e6",
+        "address": "statesync-seed.ninerealms.com:27146"
       },
       {
-        "id": "6c7d780bb7384142f6943543ed4c3ba537f4a411",
-        "address": "138.197.59.244:27146"
-      },
-      {
-        "id": "2d25606076036716a31611185d39880fe8237e97",
-        "address": "3.230.67.253:27146"
+        "id": "dbd1730bff1e8a21aad93bc6083209904d483185",
+        "address": "statesync-seed-2.ninerealms.com:27146"
       }
     ]
   },
   "apis": {
-    "rpc": [],
-    "rest": []
+    "rpc": [
+      {
+        "address": "https://thornode-mainnet-rpc.bryanlabs.net",
+        "provider": "BryanLabs"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "thornode-mainnet-grpc.bryanlabs.net:443",
+        "provider": "BryanLabs"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://thornode-mainnet-rpc.bryanlabs.net",
+        "provider": "BryanLabs"
+      }
+    ],
+    "midgard": [
+      {
+        "address": "https://midgard.ninerealms.com",
+        "provider": "Ninerealms"
+      }
+    ],
+    "rujira": [
+      {
+        "address": "https://api.rujira.network",
+        "provider": "Rujira"
+      }
+    ]
   },
   "explorers": [
     {
@@ -58,6 +82,11 @@
       "kind": "Runescan",
       "url": "https://runescan.io/",
       "tx_page": "https://runescan.io/txs/${txHash}"
+    },
+    {
+      "kind": "Bryanlabs explorer",
+      "url": "https://explore.bryanlabs.net/thorchain",
+      "tx_page": "https://explore.bryanlabs.net/thorchain/#/txs/${txHash}"
     }
   ]
 }
