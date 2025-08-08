@@ -359,7 +359,7 @@ async function main() {
     console.log(`Found ${chainDirs.length} chain directories to validate`);
 
     // Validate each chain
-    for (const chainDir of chainDirs.slice(0, 5)) { // Limit for testing
+    for (const chainDir of chainDirs) { // Full registry validation
       const chainPath = path.join(chainRegistryRoot, chainDir);
       await validator.validateChain(chainPath);
     }
