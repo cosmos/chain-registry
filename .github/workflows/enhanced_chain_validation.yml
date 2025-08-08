@@ -1,0 +1,35 @@
+name: Enhanced Chain Validation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+jobs:
+  validate-chain-metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository 📥
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 🌐
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Install Dependencies
+        run: |
+          npm install -g @chain-registry/cli@1.47.0
+          npm install axios cheerio
+
+      - name: Run Enhanced Chain Validation
+        working-directory: ./.github/workflows/utility
+        run: node enhanced_validation.mjs
+
+      - name: Run Endpoint Health Checks
+        working-directory: ./.github/workflows/utility
+        run: node endpoint_health_checker.mjs
+
+      - name: Generate Validation Report
+        working-directory: ./.github/workflows/utility
+        run: node generate_validation_report.mjs
