@@ -9,25 +9,48 @@ const chainRegistryRoot = "../../..";
 let validationErrors = [];
 let validationWarnings = [];
 
+// Chain IDs that should have errors downgraded to warnings
+const DOWNGRADE_CHAIN_IDS = process.env.DOWNGRADE_CHAIN_IDS 
+  ? process.env.DOWNGRADE_CHAIN_IDS.split(',').map(id => id.trim())
+  : [];
+
 // Field validation functions
 class ChainValidator {
   constructor() {
     this.errors = [];
     this.warnings = [];
+    this.currentChainId = null;
+  }
+
+  // Helper method to add error or warning based on chain ID
+  addError(message) {
+    if (DOWNGRADE_CHAIN_IDS.includes(this.currentChainId)) {
+      this.warnings.push(message.replace('❌', '⚠️'));
+    } else {
+      this.errors.push(message);
+    }
+  }
+
+  // Helper method to add warning (always a warning)
+  addWarning(message) {
+    this.warnings.push(message);
   }
 
   // 1. Chain ID validation
   validateChainId(chainData, chainName) {
     if (!chainData.chain_id) {
-      this.errors.push(`❌ Chain ID missing for ${chainName}`);
+      this.addError(`❌ Chain ID missing for ${chainName}`);
       return false;
     }
+    
+    // Set the current chain ID for error downgrading
+    this.currentChainId = chainData.chain_id;
     
     // Check for duplicate chain IDs across registry
     const chainIds = this.getAllChainIds();
     const duplicates = chainIds.filter(id => id === chainData.chain_id);
     if (duplicates.length > 1) {
-      this.errors.push(`❌ Duplicate Chain ID '${chainData.chain_id}' found for ${chainName}`);
+      this.addError(`❌ Duplicate Chain ID '${chainData.chain_id}' found for ${chainName}`);
     }
     
     console.log(`✅ Chain ID validated: ${chainData.chain_id} for ${chainName}`);
@@ -37,17 +60,17 @@ class ChainValidator {
   // 2. Chain Name validation  
   validateChainName(chainData, directoryName) {
     if (!chainData.chain_name) {
-      this.errors.push(`❌ Chain name missing for ${directoryName}`);
+      this.addError(`❌ Chain name missing for ${directoryName}`);
       return false;
     }
     
     if (chainData.chain_name !== directoryName) {
-      this.errors.push(`❌ Chain name '${chainData.chain_name}' doesn't match directory '${directoryName}'`);
+      this.addError(`❌ Chain name '${chainData.chain_name}' doesn't match directory '${directoryName}'`);
       return false;
     }
     
     if (!chainData.pretty_name) {
-      this.warnings.push(`⚠️ Pretty name missing for ${chainData.chain_name}`);
+      this.addWarning(`⚠️ Pretty name missing for ${chainData.chain_name}`);
     }
     
     console.log(`✅ Chain name validated: ${chainData.chain_name}`);
@@ -58,7 +81,7 @@ class ChainValidator {
   async validateRPC(chainData, chainName) {
     const rpcEndpoints = chainData.apis?.rpc || [];
     if (rpcEndpoints.length === 0) {
-      this.errors.push(`❌ No RPC endpoints found for ${chainName}`);
+      this.addError(`❌ No RPC endpoints found for ${chainName}`);
       return false;
     }
 
@@ -71,12 +94,12 @@ class ChainValidator {
           console.log(`✅ RPC endpoint working: ${endpoint.address} (${endpoint.provider || 'Unknown provider'})`);
         }
       } catch (error) {
-        this.warnings.push(`⚠️ RPC endpoint unreachable: ${endpoint.address} for ${chainName}`);
+        this.addWarning(`⚠️ RPC endpoint unreachable: ${endpoint.address} for ${chainName}`);
       }
     }
 
     if (workingEndpoints === 0) {
-      this.errors.push(`❌ No working RPC endpoints found for ${chainName}`);
+      this.addError(`❌ No working RPC endpoints found for ${chainName}`);
       return false;
     }
 
@@ -87,7 +110,7 @@ class ChainValidator {
   async validateREST(chainData, chainName) {
     const restEndpoints = chainData.apis?.rest || [];
     if (restEndpoints.length === 0) {
-      this.errors.push(`❌ No REST endpoints found for ${chainName}`);
+      this.addError(`❌ No REST endpoints found for ${chainName}`);
       return false;
     }
 
@@ -100,12 +123,12 @@ class ChainValidator {
           console.log(`✅ REST endpoint working: ${endpoint.address} (${endpoint.provider || 'Unknown provider'})`);
         }
       } catch (error) {
-        this.warnings.push(`⚠️ REST endpoint unreachable: ${endpoint.address} for ${chainName}`);
+        this.addWarning(`⚠️ REST endpoint unreachable: ${endpoint.address} for ${chainName}`);
       }
     }
 
     if (workingEndpoints === 0) {
-      this.errors.push(`❌ No working REST endpoints found for ${chainName}`);
+      this.addError(`❌ No working REST endpoints found for ${chainName}`);
       return false;
     }
 
@@ -116,13 +139,13 @@ class ChainValidator {
   validateGRPC(chainData, chainName) {
     const grpcEndpoints = chainData.apis?.grpc || [];
     if (grpcEndpoints.length === 0) {
-      this.warnings.push(`⚠️ No GRPC endpoints found for ${chainName}`);
+      this.addWarning(`⚠️ No GRPC endpoints found for ${chainName}`);
       return true; // Not critical
     }
 
     grpcEndpoints.forEach(endpoint => {
       if (!endpoint.address) {
-        this.errors.push(`❌ GRPC endpoint missing address for ${chainName}`);
+        this.addError(`❌ GRPC endpoint missing address for ${chainName}`);
       } else {
         console.log(`✅ GRPC endpoint found: ${endpoint.address} (${endpoint.provider || 'Unknown provider'})`);
       }
@@ -138,7 +161,7 @@ class ChainValidator {
     // Only check for EVM chains
     if (chainData.extra_codecs?.includes('ethermint') || chainData.key_algos?.includes('ethsecp256k1')) {
       if (evmEndpoints.length === 0) {
-        this.warnings.push(`⚠️ EVM chain ${chainName} missing EVM-RPC endpoints`);
+        this.addWarning(`⚠️ EVM chain ${chainName} missing EVM-RPC endpoints`);
         return true; // Warning, not error
       }
 
@@ -155,7 +178,7 @@ class ChainValidator {
             console.log(`✅ EVM-RPC endpoint working: ${endpoint.address} (${endpoint.provider || 'Unknown provider'})`);
           }
         } catch (error) {
-          this.warnings.push(`⚠️ EVM-RPC endpoint unreachable: ${endpoint.address} for ${chainName}`);
+          this.addWarning(`⚠️ EVM-RPC endpoint unreachable: ${endpoint.address} for ${chainName}`);
         }
       }
     }
@@ -166,14 +189,14 @@ class ChainValidator {
   // 7. Address Prefix validation
   validateAddressPrefix(chainData, chainName) {
     if (!chainData.bech32_prefix) {
-      this.errors.push(`❌ Address prefix (bech32_prefix) missing for ${chainName}`);
+      this.addError(`❌ Address prefix (bech32_prefix) missing for ${chainName}`);
       return false;
     }
 
     // Validate against SLIP-173 (this would require fetching SLIP-173 data)
     // For now, just check format
     if (!/^[a-z0-9]+$/.test(chainData.bech32_prefix)) {
-      this.errors.push(`❌ Invalid address prefix format '${chainData.bech32_prefix}' for ${chainName}`);
+      this.addError(`❌ Invalid address prefix format '${chainData.bech32_prefix}' for ${chainName}`);
       return false;
     }
 
@@ -187,7 +210,7 @@ class ChainValidator {
     const nativeAssets = assets.filter(asset => asset.type_asset === 'sdk.coin');
     
     if (nativeAssets.length === 0) {
-      this.errors.push(`❌ No native assets found for ${chainName}`);
+      this.addError(`❌ No native assets found for ${chainName}`);
       return false;
     }
 
@@ -196,7 +219,7 @@ class ChainValidator {
     feeTokens.forEach(feeToken => {
       const assetExists = assets.some(asset => asset.base === feeToken.denom);
       if (!assetExists) {
-        this.errors.push(`❌ Fee token '${feeToken.denom}' not found in assetlist for ${chainName}`);
+        this.addError(`❌ Fee token '${feeToken.denom}' not found in assetlist for ${chainName}`);
       }
     });
 
@@ -210,12 +233,12 @@ class ChainValidator {
   // 9. Cointype validation
   validateCointype(chainData, chainName) {
     if (chainData.slip44 === undefined) {
-      this.warnings.push(`⚠️ Cointype (slip44) missing for ${chainName}`);
+      this.addWarning(`⚠️ Cointype (slip44) missing for ${chainName}`);
       return true; // Warning, not error
     }
 
     if (typeof chainData.slip44 !== 'number' || chainData.slip44 < 0) {
-      this.errors.push(`❌ Invalid cointype '${chainData.slip44}' for ${chainName}`);
+      this.addError(`❌ Invalid cointype '${chainData.slip44}' for ${chainName}`);
       return false;
     }
 
@@ -233,12 +256,12 @@ class ChainValidator {
       const displayUnit = denomUnits.find(unit => unit.denom === asset.display);
       
       if (!displayUnit) {
-        this.errors.push(`❌ Display denom unit not found for ${asset.symbol} in ${chainName}`);
+        this.addError(`❌ Display denom unit not found for ${asset.symbol} in ${chainName}`);
         return;
       }
 
       if (typeof displayUnit.exponent !== 'number') {
-        this.errors.push(`❌ Invalid decimals (exponent) for ${asset.symbol} in ${chainName}`);
+        this.addError(`❌ Invalid decimals (exponent) for ${asset.symbol} in ${chainName}`);
         return;
       }
 
@@ -252,7 +275,7 @@ class ChainValidator {
   async validateBlockExplorers(chainData, chainName) {
     const explorers = chainData.explorers || [];
     if (explorers.length === 0) {
-      this.warnings.push(`⚠️ No block explorers found for ${chainName}`);
+      this.addWarning(`⚠️ No block explorers found for ${chainName}`);
       return true; // Warning, not error
     }
 
@@ -263,7 +286,7 @@ class ChainValidator {
           console.log(`✅ Block explorer working: ${explorer.url} (${explorer.kind || 'Unknown type'})`);
         }
       } catch (error) {
-        this.warnings.push(`⚠️ Block explorer unreachable: ${explorer.url} for ${chainName}`);
+        this.addWarning(`⚠️ Block explorer unreachable: ${explorer.url} for ${chainName}`);
       }
     }
 
@@ -274,12 +297,12 @@ class ChainValidator {
   validateNetworkType(chainData, chainName) {
     const validTypes = ['mainnet', 'testnet', 'devnet'];
     if (!chainData.network_type) {
-      this.errors.push(`❌ Network type missing for ${chainName}`);
+      this.addError(`❌ Network type missing for ${chainName}`);
       return false;
     }
 
     if (!validTypes.includes(chainData.network_type)) {
-      this.errors.push(`❌ Invalid network type '${chainData.network_type}' for ${chainName}. Must be one of: ${validTypes.join(', ')}`);
+      this.addError(`❌ Invalid network type '${chainData.network_type}' for ${chainName}. Must be one of: ${validTypes.join(', ')}`);
       return false;
     }
 
@@ -304,7 +327,7 @@ class ChainValidator {
       const assetlistJsonPath = path.join(chainPath, 'assetlist.json');
 
       if (!fs.existsSync(chainJsonPath)) {
-        this.errors.push(`❌ chain.json not found for ${chainName}`);
+        this.addError(`❌ chain.json not found for ${chainName}`);
         return false;
       }
 
@@ -335,7 +358,7 @@ class ChainValidator {
       return true;
 
     } catch (error) {
-      this.errors.push(`❌ Error validating ${chainName}: ${error.message}`);
+      this.addError(`❌ Error validating ${chainName}: ${error.message}`);
       return false;
     }
   }
@@ -344,6 +367,10 @@ class ChainValidator {
 // Main validation function
 async function main() {
   console.log('🚀 Starting Enhanced Chain Validation...\n');
+  
+  if (DOWNGRADE_CHAIN_IDS.length > 0) {
+    console.log(`🔧 Error downgrading enabled for chain IDs: ${DOWNGRADE_CHAIN_IDS.join(', ')}\n`);
+  }
 
   const validator = new ChainValidator();
   

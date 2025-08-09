@@ -24,6 +24,10 @@ jobs:
 
       - name: Run Enhanced Chain Validation
         working-directory: ./.github/workflows/utility
+        env:
+          # Chain IDs that should have errors downgraded to warnings (comma-separated)
+          # This allows the workflow to continue to endpoint health checks even if these chains have validation errors
+          DOWNGRADE_CHAIN_IDS: ""
         run: node enhanced_validation.mjs
 
       - name: Run Endpoint Health Checks
