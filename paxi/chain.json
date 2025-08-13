@@ -12,7 +12,6 @@
   "node_home": "$HOME/.paxi",
   "key_algos": ["secp256k1"],
   "slip44": 118,
-
   "fees": {
     "fee_tokens": [
       {
@@ -24,14 +23,14 @@
       }
     ]
   },
-
   "staking": {
     "staking_tokens": [
       { "denom": "upaxi" }
     ],
-    "unbonding_time": "604800s"
+    "lock_duration": {
+      "time": "604800s"
+    }
   },
-
   "codebase": {
     "git_repo": "https://github.com/paxi-web3/paxi",
     "genesis": {
@@ -48,7 +47,6 @@
       }
     }
   ],
-
   "peers": {
     "seeds": [],
     "persistent_peers": [
@@ -84,7 +82,6 @@
       }
     ]
   },
-
   "apis": {
     "rpc": [
       { "address": "https://mainnet-rpc.paxinet.io", "provider": "Paxi Foundation" }
@@ -96,7 +93,6 @@
       { "address": "mainnet-rpc.paxinet.io:443", "provider": "Paxi Foundation" }
     ]
   },
-
   "explorers": [
     {
       "kind": "paxi-explorer",
@@ -105,6 +101,5 @@
       "account_page": "https://explorer.paxinet.io/address/${accountAddress}"
     }
   ],
-
   "keywords": ["ibc", "staking", "dex", "wasm"]
 }
