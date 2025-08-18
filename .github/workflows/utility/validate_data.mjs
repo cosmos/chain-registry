@@ -531,6 +531,21 @@ function checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState) {
     assets_cgidNotInState.push({ chain_name, asset });
     return false; // ID is missing from state
   }
+
+
+
+  //see if it's cosmos origin has the asset
+  //let ibc_origin_asset = chain_reg.getOriginAssetCustom(chain_name, asset.base, ["ibc", "ibc-cw20"]);
+  let ibc_origin_cgid =
+    chain_reg.getAssetPropertyFromOriginWithTraceCustom(
+      chain_name,
+      asset.base,
+      "coingecko_id",
+      ["ibc", "ibc-cw20"]
+    );
+  if (ibc_origin_cgid === asset.coingecko_id) return true;
+
+
   //see if it has the asset listed (bool)
   const assetExists = coingeckoIdGroup.assets.some(
     cgAsset => cgAsset.chain_name === chain_name && cgAsset.base_denom === asset.base
@@ -634,6 +649,15 @@ async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNo
   }
 
   assets_cgidNotInState.forEach((chain_asset_pair) => {
+
+    //temporary
+    if (chain_asset_pair.asset.coingecko_id === "nim-network") {
+      console.log(`${chain_asset_pair.asset.coingecko_id}`);
+      console.log(chain_asset_pair);
+      console.log(chain_asset_pair.asset);
+    }
+    //temporary
+
     const coin = coingecko.api_response?.[coingecko.coingeckoEndpoints.coins_list.name]?.find(
       apiObject => apiObject.id === chain_asset_pair.asset.coingecko_id
     );
