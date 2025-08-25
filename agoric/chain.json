@@ -21,12 +21,6 @@
         "low_gas_price": 0.03,
         "average_gas_price": 0.05,
         "high_gas_price": 0.07
-      },
-      {
-        "denom": "uist",
-        "low_gas_price": 0.0034,
-        "average_gas_price": 0.007,
-        "high_gas_price": 0.02
       }
     ]
   },
@@ -42,15 +36,15 @@
     "genesis": {
       "genesis_url": "https://main.agoric.net/genesis.json"
     },
-    "recommended_version": "agoric-upgrade-19",
+    "recommended_version": "agoric-upgrade-21",
     "compatible_versions": [
-      "agoric-upgrade-19"
+      "agoric-upgrade-21"
     ],
     "consensus": {
       "type": "cometbft",
-      "version": "v0.34.35",
+      "version": "v0.37.15",
       "repo": "https://github.com/agoric-labs/cometbft",
-      "tag": "v0.34.35-alpha.agoric.3"
+      "tag": "v0.37.15-alpha.agoric.1"
     },
     "cosmwasm": {
       "enabled": false
@@ -62,14 +56,14 @@
     "sdk": {
       "type": "cosmos",
       "repo": "https://github.com/agoric-labs/cosmos-sdk",
-      "version": "v0.46.16",
-      "tag": "v0.46.16-alpha.agoric.2.5"
+      "version": "v0.47.17",
+      "tag": "v0.47.17-alpha.agoric.1"
     },
     "ibc": {
       "type": "go",
-      "version": "v6.3.1",
+      "version": "v7.10.0",
       "repo": "https://github.com/agoric-labs/ibc-go",
-      "tag": "v6.3.1-alpha.agoric.4",
+      "tag": "v7.10.0-alpha.agoric.2",
       "ics_enabled": [
         "ics20-1"
       ]
@@ -274,6 +268,12 @@
   },
   "explorers": [
     {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/agoric",
+      "tx_page": "https://explorer.chainroot.io/agoric/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/agoric/accounts/${accountAddress}"
+    },
+    {
       "kind": "explorers.guru",
       "url": "https://agoric.explorers.guru",
       "tx_page": "https://agoric.explorers.guru/transaction/${txHash}",
@@ -312,10 +312,7 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.svg",
-      "theme": {
-        "primary_color_hex": "#bc2c44"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.svg"
     }
   ]
 }
