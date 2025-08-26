@@ -1,13 +1,3 @@
-# 1) Clone your fork and create a branch
-git clone https://github.com/iriumlabs/chain-registry.git
-cd chain-registry
-git checkout -b irium-mainnet
-
-# 2) Create folders and add files
-mkdir -p irium/images
-
-# --- chain.json ---
-cat > irium/chain.json <<'JSON'
 {
   "$schema": "../../chain.schema.json",
   "chain_name": "irium",
@@ -44,53 +34,6 @@ cat > irium/chain.json <<'JSON'
     "cosmos_sdk_version": "v0.47.3",
     "cosmos_sdk_compatible": ["v0.47"]
   },
-  "apis": {
-    "rpc": [],
-    "rest": [],
-    "grpc": []
-  },
-  "peers": {
-    "seeds": [],
-    "persistent_peers": []
-  }
+  "apis": { "rpc": [], "rest": [], "grpc": [] },
+  "peers": { "seeds": [], "persistent_peers": [] }
 }
-JSON
-
-# --- assetlist.json ---
-cat > irium/assetlist.json <<'JSON'
-{
-  "$schema": "../../assetlist.schema.json",
-  "chain_name": "irium",
-  "assets": [
-    {
-      "description": "The native staking and fee token of the Irium blockchain.",
-      "denom_units": [
-        { "denom": "urim", "exponent": 0, "aliases": [] },
-        { "denom": "IRM",  "exponent": 6, "aliases": [] }
-      ],
-      "base": "urim",
-      "name": "IRIUM",
-      "display": "IRM",
-      "symbol": "IRM",
-      "type_asset": "sdk.coin",
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irium/images/irm.png"
-      },
-      "images": [
-        {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irium/images/irm.png"
-        }
-      ]
-    }
-  ]
-}
-JSON
-
-# 3) Put your logo (use your local path to the PNG you added earlier)
-#    IMPORTANT: file must be a valid PNG, under 100KB ideally.
-cp /path/to/your/logo.png irium/images/irm.png
-
-# 4) Commit and push
-git add irium/chain.json irium/assetlist.json irium/images/irm.png
-git commit -m "Irium (irium-1): add chain.json, assetlist.json, and logo"
-git push -u origin irium-mainnet
