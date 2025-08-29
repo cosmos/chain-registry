@@ -1,11 +1,12 @@
 {
-  "$schema": "../chain.schema.json",
+  "$schema": "../../chain.schema.json",
   "chain_name": "migalootestnet",
   "status": "live",
   "network_type": "testnet",
   "website": "https://www.whitewhale.money/",
   "pretty_name": "Migaloo Testnet",
-  "chain_id": "narwhal-1",
+  "chain_type": "cosmos",
+  "chain_id": "narwhal-2",
   "bech32_prefix": "migaloo",
   "daemon_name": "migalood",
   "node_home": "$HOME/.migalood",
@@ -32,41 +33,30 @@
     ]
   },
   "logo_URIs": {
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/migaloo-light.svg",
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/migaloo-light.png"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/migaloo-light.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/migaloo-light.svg"
   },
   "codebase": {
     "git_repo": "https://github.com/White-Whale-Defi-Platform/migaloo-chain",
-    "recommended_version": "v2.0.0",
+    "recommended_version": "v3.0.4",
     "compatible_versions": [
-      "v2.0.0"
+      "v3.0.4"
     ],
-    "cosmos_sdk_version": "0.45",
     "consensus": {
       "type": "tendermint",
       "version": "0.34"
     },
-    "cosmwasm_version": "0.28",
-    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/White-Whale-Defi-Platform/migaloo-chain/release/v2.0.x/networks/testnet/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v2.0.0",
-        "recommended_version": "v2.0.0",
-        "compatible_versions": [
-          "v2.0.0"
-        ],
-        "cosmos_sdk_version": "0.45",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "cosmwasm_version": "0.28",
-        "cosmwasm_enabled": true
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.45"
+    },
+    "cosmwasm": {
+      "version": "0.28",
+      "enabled": true
+    }
   },
   "peers": {
     "seeds": [],
@@ -90,8 +80,14 @@
   "explorers": [
     {
       "kind": "ping.pub",
-      "url": "https://testnet.ping.pub/narwhal",
-      "tx_page": "https://testnet.ping.pub/narwhal/tx/${txHash}"
+      "url": "https://ping.pfc.zone/narwhal-testnet",
+      "tx_page": "https://ping.pfc.zone/narwhal-testnet/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/migaloo-light.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/migaloo-light.svg"
     }
   ]
 }

@@ -5,15 +5,24 @@
   "network_type": "mainnet",
   "website": "https://aura.network/",
   "pretty_name": "Aura Network",
-  "chain_id": "xstaxy-1",
+  "chain_type": "cosmos",
+  "chain_id": "aura_6322-2",
   "bech32_prefix": "aura",
   "daemon_name": "aurad",
   "node_home": "$HOME/.aura",
+  "pre_fork_chain_name": "aura1",
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
-        "denom": "uaura"
+        "denom": "uaura",
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.001,
+        "average_gas_price": 0.002,
+        "high_gas_price": 0.0025
       }
     ]
   },
@@ -22,37 +31,40 @@
       {
         "denom": "uaura"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1209600s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/aura-nw/aura",
-    "recommended_version": "aura_v0.4.5",
+    "recommended_version": "v0.9.3",
     "compatible_versions": [
-      "aura_v0.4.5"
+      "v0.9.3"
     ],
-    "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/aura-nw/mainnet-artifacts/main/xstaxy-1/genesis.json"
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.4",
+      "repo": "https://github.com/aura-nw/cometbft",
+      "tag": "v0.37.4-aura.2"
     },
-    "versions": [
-      {
-        "name": "aura_v0.4.4",
-        "recommended_version": "aura_v0.4.4",
-        "compatible_versions": [
-          "aura_v0.4.4"
-        ],
-        "next_version_name": "v0.4.5"
-      },
-      {
-        "name": "v0.4.5",
-        "proposal": 4,
-        "height": 1292226,
-        "recommended_version": "aura_v0.4.5",
-        "compatible_versions": [
-          "aura_v0.4.5"
-        ],
-        "next_version_name": ""
-      }
-    ]
+    "genesis": {
+      "genesis_url": "https://images.aura.network/aura_6322-2-genesis.tar.gz"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/evmos/cosmos-sdk",
+      "version": "v0.47.12",
+      "tag": "v0.47.12-evmos"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.6.0"
+    },
+    "cosmwasm": {
+      "version": "v0.42.0",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/aura/images/Aura-logo-2.2.png",
@@ -79,14 +91,14 @@
         "provider": "kjnodes"
       },
       {
-        "id": "dc92560346a63ac23e117a8b16207c6adbb57f5e",
-        "address": "seeds.whispernode.com:21756",
-        "provider": "WhisperNode🤐"
-      },
-      {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:21756",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "d05e3f406ed2275ec86957c5983a27768350ac47",
+        "address": "seed-node.mms.team:26656",
+        "provider": "MMS"
       }
     ],
     "persistent_peers": [
@@ -99,6 +111,11 @@
         "id": "ced3a13f4f7200ce1a2392a5738c88532f794359",
         "address": "mainnet-aura.konsortech.xyz:25656",
         "provider": "KonsorTech"
+      },
+      {
+        "id": "dce07d176e5ba4cfdc7b806eb80eabab162a09d0",
+        "address": "45.76.213.229:26656",
+        "provider": "[NODERS]TEAM"
       },
       {
         "id": "57406c041d38af3bac9acdcb2b4bdc90dc7a8852",
@@ -121,9 +138,19 @@
         "provider": "Stake-Take"
       },
       {
-        "id": "da9f07269cac08619190dbce8b0978556315b359",
-        "address": "p2p.aura.safeblock.space:26656",
-        "provider": "Safe Block"
+        "id": "bdd32536c902de9b240a36f0b23641233a080351",
+        "address": "peer-aura.mms.team:27656",
+        "provider": "MMS"
+      },
+      {
+        "id": "2bd24dbac94c3b95707c8f06a57d61a31ae666fa",
+        "address": "138.201.21.197:46656",
+        "provider": "StakeTown"
+      },
+      {
+        "id": "fc9f3b8771bb7deda71ab179f610cff1edb7534d",
+        "address": "aura.peers.stakr.space:21656",
+        "provider": "STAKR.space"
       }
     ]
   },
@@ -134,24 +161,12 @@
         "provider": "Aura Network Foundation"
       },
       {
-        "address": "https://auranetwork-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
         "address": "https://m-aura.rpc.utsa.tech",
         "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
       },
       {
-        "address": "https://rpc.aura.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
         "address": "http://aura.rpc.m.stavr.tech:11047",
         "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "https://rpc-aura.whispernode.com:443",
-        "provider": "WhisperNode🤐"
       },
       {
         "address": "https://aura-rpc.ramuchi.tech",
@@ -166,11 +181,7 @@
         "provider": "KonsorTech"
       },
       {
-        "address": "https://aura-rpc.tienthuattoan.ventures",
-        "provider": "TienThuatToan"
-      },
-      {
-        "address": "https://aura-rpc.lavenderfive.com",
+        "address": "https://rpc.lavenderfive.com:443/aura",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -178,30 +189,38 @@
         "provider": "Staketab"
       },
       {
-        "address": "https://rpc.aura.safeblock.space",
-        "provider": "Safe Block"
-      },
-      {
-        "address": "https://rpc.aura.stake-take.com",
-        "provider": "Stake-Take"
-      },
-      {
         "address": "https://rpc.aura.silentvalidator.com",
         "provider": "silent"
       },
       {
-        "address": "https://aura-rpc.sergo.dev",
-        "provider": "SerGo"
-      }      
+        "address": "https://rpc-aura.mms.team",
+        "provider": "MMS"
+      },
+      {
+        "address": "https://aura-rpc.stake-town.com",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "https://aura-rpc.palamar.io",
+        "provider": "Palamar"
+      },
+      {
+        "address": "https://aura.rpc.srv.stakr.space",
+        "provider": "STAKR.space"
+      },
+      {
+        "address": "https://aura-rpc.highstakes.ch",
+        "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://aura-rpc.noders.services",
+        "provider": "[NODERS]TEAM"
+      }
     ],
     "rest": [
       {
         "address": "https://lcd.aura.network/",
         "provider": "Aura Network Foundation"
-      },
-      {
-        "address": "https://auranetwork-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://m-aura.api.utsa.tech",
@@ -210,14 +229,6 @@
       {
         "address": "https://aura.api.m.stavr.tech",
         "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "https://api.aura.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
-        "address": "https://lcd-aura.whispernode.com:443",
-        "provider": "WhisperNode🤐"
       },
       {
         "address": "https://aura-api.ramuchi.tech",
@@ -232,11 +243,7 @@
         "provider": "KonsorTech"
       },
       {
-        "address": "https://aura-api.tienthuattoan.ventures",
-        "provider": "TienThuatToan"
-      },
-      {
-        "address": "https://aura-api.lavenderfive.com",
+        "address": "https://rest.lavenderfive.com:443/aura",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -244,21 +251,33 @@
         "provider": "Staketab"
       },
       {
-        "address": "https://api.aura.safeblock.space",
-        "provider": "Safe Block"
-      },
-      {
-        "address": "https://api.aura.stake-take.com",
-        "provider": "Stake-Take"
-      },
-      {
         "address": "https://api.aura.silentvalidator.com",
         "provider": "silent"
       },
       {
-        "address": "https://aura-api.sergo.dev",
-        "provider": "SerGo"
-      }      
+        "address": "https://api-aura.mms.team",
+        "provider": "MMS"
+      },
+      {
+        "address": "https://aura-api.stake-town.com",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "https://aura-api.palamar.io",
+        "provider": "Palamar"
+      },
+      {
+        "address": "https://aura.api.srv.stakr.space",
+        "provider": "STAKR.space"
+      },
+      {
+        "address": "https://aura-api.highstakes.ch",
+        "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://aura-api.noders.services",
+        "provider": "[NODERS]TEAM"
+      }
     ],
     "grpc": [
       {
@@ -270,8 +289,8 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://grpc.aura.nodestake.top",
-        "provider": "NodeStake"
+        "address": "aura.mainnet.grpc.nodersteam.com:9100/",
+        "provider": "[NODERS]TEAM"
       },
       {
         "address": "https://aura-grpc.ramuchi.tech:15000",
@@ -285,12 +304,8 @@
         "address": "aura.grpc.kjnodes.com:11790",
         "provider": "kjnodes"
       },
-       {
-        "address": "aura-grpc.tienthuattoan.ventures:9090",
-        "provider": "TienThuatToan"
-      },
       {
-        "address": "aura-grpc.lavenderfive.com:443",
+        "address": "aura.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -300,15 +315,47 @@
       {
         "address": "grpc.aura.silentvalidator.com:443",
         "provider": "silent"
+      },
+      {
+        "address": "grpc-aura.mms.team:443",
+        "provider": "MMS"
+      },
+      {
+        "address": "aura-grpc.stake-town.com:443",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "aura-grpc.palamar.io:443",
+        "provider": "Palamar"
+      },
+      {
+        "address": "aura.grpc.srv.stakr.space:19090",
+        "provider": "STAKR.space"
+      },
+      {
+        "address": "aura-grpc.noders.services:17090",
+        "provider": "[NODERS]TEAM"
       }
     ]
   },
   "explorers": [
     {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/aura",
+      "tx_page": "https://explorer.chainroot.io/aura/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/aura/accounts/${accountAddress}"
+    },
+    {
       "kind": "aurascan",
       "url": "https://aurascan.io",
-      "tx_page": "https://aurascan.io/transaction/${txHash}",
-      "account_page": "https://aurascan.io/account/${accountAddress}"
+      "tx_page": "https://aurascan.io/tx/${txHash}",
+      "account_page": "https://aurascan.io/address/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/aura",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=aura&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=aura&addr=${accountAddress}"
     },
     {
       "kind": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀 Explorer",
@@ -318,15 +365,15 @@
     },
     {
       "kind": "🔥STAVR🔥 Explorer",
-      "url": "https://explorer.stavr.tech/aura-mainnet",
+      "url": "https://explorer.stavr.tech/Aura-Mainnet",
       "tx_page": "https://explorer.stavr.tech/aura-mainnet/tx/${txHash}",
       "account_page": "https://explorer.stavr.tech/aura-mainnet/account/${accountAddress}"
     },
     {
       "kind": "NodeStake Explorer",
-      "url": "https://explorer.nodestake.top/aura",
-      "tx_page": "https://explorer.nodestake.top/aura/tx/${txHash}",
-      "account_page": "https://explorer.nodestake.top/aura/account/${accountAddress}"
+      "url": "https://explorer.nodestake.org/aura",
+      "tx_page": "https://explorer.nodestake.org/aura/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.org/aura/account/${accountAddress}"
     },
     {
       "kind": "TC Network",
@@ -339,6 +386,18 @@
       "url": "https://explorer.stake-take.com/aura",
       "tx_page": "https://explorer.stake-take.com/aura/tx/${txHash}",
       "account_page": "https://explorer.stake-take.com/aura/account/${accountAddress}"
+    },
+    {
+      "kind": "STAKR.space explorer",
+      "url": "https://explorer.stakr.space/aura/",
+      "tx_page": "https://explorer.stakr.space/aura/tx/${txHash}",
+      "account_page": "https://explorer.stakr.space/aura/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/aura/images/Aura-logo-2.2.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/aura/images/Aura-logo-2.2.svg"
     }
   ]
 }

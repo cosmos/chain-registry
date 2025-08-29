@@ -2,20 +2,24 @@
   "$schema": "../../chain.schema.json",
   "chain_name": "babylontestnet",
   "status": "live",
-  "website": "https://www.babylonchain.io",
+  "website": "https://babylonlabs.io/",
   "network_type": "testnet",
   "pretty_name": "Babylon Testnet",
-  "chain_id": "bbn-test1",
+  "chain_type": "cosmos",
+  "chain_id": "bbn-test-5",
+  "pre_fork_chain_name": "babylontestnet1",
   "bech32_prefix": "bbn",
+  "slip44": 118,
   "daemon_name": "babylond",
   "node_home": "$HOME/.babylond",
-  "key_algos": [
-    "secp256k1"
-  ],
+  "key_algos": ["secp256k1"],
   "fees": {
     "fee_tokens": [
       {
-        "denom": "ubbn"
+        "denom": "ubbn",
+        "low_gas_price": 0.007,
+        "average_gas_price": 0.007,
+        "high_gas_price": 0.01
       }
     ]
   },
@@ -27,74 +31,58 @@
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/babylonchain/babylon",
-    "recommended_version": "v0.5.0",
-    "compatible_versions": [
-      "v0.5.0"
-    ],
+    "git_repo": "https://github.com/babylonlabs-io/babylon",
+    "recommended_version": "v1.0.0-rc.4",
+    "compatible_versions": ["v1.0.0-rc.4"],
     "genesis": {
-      "genesis_url": "https://github.com/babylonchain/networks/raw/main/bbn-test1/genesis.tar.bz2"
-    },
-    "versions": [
-      {
-        "name": "v0.5.0",
-        "recommended_version": "v0.5.0",
-        "compatible_versions": [
-          "v0.5.0"
-        ]
-      }
-    ]
+      "genesis_url": "https://github.com/babylonlabs-io/networks/raw/main/bbn-test-5/network-artifacts/genesis.json"
+    }
   },
   "logo_URIs": {
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/babylon/images/logo.svg"
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/babylontestnet/images/logo.svg"
   },
   "peers": {
     "seeds": [
       {
-        "id": "03ce5e1b5be3c9a81517d415f65378943996c864",
-        "address": "18.207.168.204:26656",
-        "provider": "Babylon foundation"
-      },
-      {
-        "id": "a5fabac19c732bf7d814cf22e7ffc23113dc9606",
-        "address": "34.238.169.221:26656",
-        "provider": "Babylon foundation"
+        "id": "be232be53f7ac3c4a6628f98becb48fd25df1adf",
+        "address": "babylon-testnet-seed.nodes.guru:55706",
+        "provider": "Nodes.Guru"
       },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "testnet-seeds.polkachu.com:20656",
         "provider": "Polkachu"
+      },
+      {
+        "id": "59df4b3832446cd0f9c369da01f2aa5fe9647248",
+        "address": "65.109.49.115:16256",
+        "provider": "Contribution DAO"
       }
     ],
     "persistent_peers": [
       {
-        "id": "03ce5e1b5be3c9a81517d415f65378943996c864",
-        "address": "18.207.168.204:26656",
-        "provider": "Babylon foundation"
+        "id": "fe62e0a38eb7694080c83a84225a6bb33be01fed",
+        "address": "babylon-testnet-rpc-pruned-1.nodes.guru:55706",
+        "provider": "Nodes.Guru"
       },
       {
-        "id": "a5fabac19c732bf7d814cf22e7ffc23113dc9606",
-        "address": "34.238.169.221:26656",
-        "provider": "Babylon foundation"
-      },
-      {
-        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
-        "address": "testnet-seeds.polkachu.com:20656",
-        "provider": "Polkachu"
+        "id": "4a3dd7deb4770c06e05849a4128fea1a7439a9d9",
+        "address": "65.109.106.210:20656",
+        "provider": "Contribution DAO"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "rpc.testnet.babylonchain.io:26657",
-        "provider": "Babylon foundation"
+        "address": "https://babylon-testnet-rpc.nodes.guru",
+        "provider": "NodesGuru"
       }
     ],
     "rest": [
       {
-        "address": "rpc.testnet.babylonchain.io:1317",
-        "provider": "Babylon foundation"
+        "address": "https://babylon-testnet-api.nodes.guru",
+        "provider": "NodesGuru"
       }
     ],
     "grpc": []
@@ -102,12 +90,18 @@
   "explorers": [
     {
       "kind": "babylonscan",
-      "url": "https://babylonscan.io"
+      "url": "https://babylon-testnet.l2scan.co",
+      "tx_page": "https://babylon-testnet.l2scan.co/tx/${txHash}"
     },
     {
       "kind": "explorers.guru",
-      "url": "https://babylon.explorers.guru",
-      "tx_page": "https://babylon.explorers.guru/transaction/${txHash}"
+      "url": "https://testnet.babylon.explorers.guru",
+      "tx_page": "https://testnet.babylon.explorers.guru/transaction/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/babylontestnet/images/logo.svg"
     }
   ]
 }

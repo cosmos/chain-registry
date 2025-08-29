@@ -1,13 +1,14 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "composable",
+  "chain_type": "cosmos",
   "chain_id": "centauri-1",
-  "website": "https://www.composable.finance/",
-  "pretty_name": "Centauri",
+  "website": "https://www.picasso.xyz/",
+  "pretty_name": "Picasso",
   "status": "live",
   "network_type": "mainnet",
-  "bech32_prefix": "centauri",
-  "daemon_name": "centaurid",
+  "bech32_prefix": "pica",
+  "daemon_name": "picad",
   "node_home": "$HOME/.banksy",
   "key_algos": [
     "secp256k1"
@@ -32,101 +33,70 @@
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/notional-labs/composable-centauri",
-    "recommended_version": "v3.2.2",
+    "git_repo": "https://github.com/composable/composable-cosmos",
+    "recommended_version": "v6.5.3",
     "compatible_versions": [
-      "v3.2.2"
+      "v6.5.3"
     ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.2",
+      "repo": "https://github.com/composablefi/cometbft",
+      "tag": "v0.37.2-fixed-len-vote-time-tag"
+    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/notional-labs/composable-networks/main/mainnet/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v2.3.5",
-        "tag": "v2.3.5",
-        "recommended_version": "v2.3.5",
-        "compatible_versions": [
-          "v2.3.5"
-        ],
-        "cosmos_sdk_version": "v0.47.1",
-        "ibc_go_version": "v7.0.0",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.0"
-        },
-        "height": 0,
-        "binaries": {
-          "linux/amd64": "https://github.com/notional-labs/composable-centauri/releases/download/v2.3.5/banksyd"
-        },
-        "next_version_name": "centauri"
-      },
-      {
-        "name": "centauri",
-        "tag": "v3.1.0",
-        "recommended_version": "v3.1.2",
-        "compatible_versions": [
-          "v3.1.0",
-          "v3.1.1",
-          "v3.1.2"
-        ],
-        "cosmos_sdk_version": "v0.47.3",
-        "ibc_go_version": "v7.0.0",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.0"
-        },
-        "height": 188500,
-        "proposal": 3,
-        "binaries": {
-          "linux/amd64": "https://github.com/notional-labs/composable-centauri/releases/download/v3.1.2/centaurid"
-        },
-        "next_version_name": "reward"
-      },  
-      {
-        "name": "reward",
-        "tag": "v3.2.2",
-        "recommended_version": "v3.2.2",
-        "compatible_versions": [
-          "v3.2.2"
-        ],
-        "cosmos_sdk_version": "v0.47.3",
-        "ibc_go_version": "v7.0.0",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.1"
-        },
-        "height": 420000,
-        "proposal": 4,
-        "next_version_name": ""
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/rust-ninja/cosmos-sdk",
+      "version": "v0.47.5",
+      "tag": "v0.47.5-patch-validators-trim-tag"
+    },
+    "ibc": {
+      "type": "go",
+      "repo": "https://github.com/notional-labs/ibc-go",
+      "version": "v7.2.1",
+      "tag": "v7.2.1-0.20231010040541-6cf43006971f"
+    }
   },
   "logo_URIs": {
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/composable/images/composable.svg"
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/composable/images/pica.svg"
   },
+  "description": "Picasso is a DeFi infrastructure-focused Layer 1 protocol that leads the industry in building the trust-minimized interoperability solution -Cross-Ecosystem IBC. Complementary to the interoperability work, Picasso is building the first Generalized Restaking Layer starting with deployment on Solana, and expand support for all IBC connected ecosystems.",
   "peers": {
     "seeds": [
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "composable-mainnet-seed.autostake.com:26976",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:22256",
-        "provider": "Lavender.Five Nodes 🐝"
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
-        "id": "d2362ebcdd562500ac8c4cfa2214a89ad811033c",
-        "address": "seeds.whispernode.com:22256",
-        "provider": "WhisperNode🤐"
+        "id": "a3910d1bf22b4dacf66979d6ea75fd134aee00db",
+        "address": "seed.composable.validatus.com:2000",
+        "provider": "Validatus"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+      },
+      {
+        "id": "aa6398f9644e98fa3d04f7dbdd7740c995eb0530",
+        "address": "composable.seed.stavr.tech:20306",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       }
     ],
     "persistent_peers": [
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "composable-mainnet-peer.autostake.com:26976",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
         "id": "63559b939442512ed82d2ded46d02ab1021ea29a",
@@ -134,9 +104,24 @@
         "provider": "genznodes"
       },
       {
-        "id": "cd44c8cae65a4c74281f05dd8aae5780cceae710",
-        "address": "95.216.42.88:37656",
+        "id": "7082a715395427a519e611ed1454b0965fd95ef5",
+        "address": "138.201.21.197:37656",
         "provider": "StakeTown"
+      },
+      {
+        "id": "715af1847e1c785510d4cb94ac29f2bd7d0ddf91",
+        "address": "65.108.206.74:36656",
+        "provider": "vinjan"
+      },
+      {
+        "id": "c6eefdcc5cbe41dd457183c7c3bd7311ddf97638",
+        "address": "composable.peer.stakevillage.net:16156",
+        "provider": "Stake Village"
+      },
+      {
+        "id": "c2e32b6f1e395a39cc48a47bb57cb9a8e6990367",
+        "address": "picasso-rpc.moonbridge.org:19900",
+        "provider": "Moonbridge"
       }
     ]
   },
@@ -147,32 +132,52 @@
         "provider": "Notional"
       },
       {
-        "address": "https://rpc.composable.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
         "address": "https://composable-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
-        "address": "https://composable-rpc.cogwheel.zone:443",
-        "provider": "Cogwheel"
+        "address": "https://picasso-rpc.cogwheel.zone:443",
+        "provider": "Cogwheel \u2699\ufe0f"
       },
       {
-        "address": "https://composable-rpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rpc.lavenderfive.com:443/picasso",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://composable-rpc.genznodes.dev",
         "provider": "genznodes"
       },
       {
-        "address": "https://rpc-composable.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "address": "https://picasso-rpc.stake-town.com",
+        "provider": "StakeTown"
       },
       {
-        "address": "https://composable-rpc.stake-town.com",
-        "provider": "StakeTown"
+        "address": "https://composable.rpc.stakevillage.net:443",
+        "provider": "Stake Village"
+      },
+      {
+        "address": "https://picasso-rpc.stakeandrelax.net",
+        "provider": "Stake&Relax \ud83e\udda5"
+      },
+      {
+        "address": "https://rpc.centauri.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://picasso-rpc.moonbridge.org",
+        "provider": "Moonbridge"
+      },
+      {
+        "address": "https://rpc.composable.citizenweb3.com:443",
+        "provider": "Citizen Web3"
+      },
+      {
+        "address": "https://composable.rpc.m.stavr.tech:443",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "https://composable_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "rest": [
@@ -181,32 +186,48 @@
         "provider": "Notional"
       },
       {
-        "address": "https://api.composable.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
         "address": "https://composable-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
-        "address": "https://composable-api.cogwheel.zone:443",
-        "provider": "Cogwheel"
+        "address": "https://picasso-api.cogwheel.zone:443",
+        "provider": "Cogwheel \u2699\ufe0f"
       },
       {
-        "address": "https://composable-api.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://rest.lavenderfive.com:443/picasso",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "https://composable-api.genznodes.dev",
         "provider": "genznodes"
       },
       {
-        "address": "https://lcd-composable.whispernode.com:443",
-        "provider": "WhisperNode🤐"
+        "address": "https://picasso-api.stake-town.com",
+        "provider": "StakeTown"
       },
       {
-        "address": "https://composable-api.stake-town.com",
-        "provider": "StakeTown"
+        "address": "https://composable.api.stakevillage.net",
+        "provider": "Stake Village"
+      },
+      {
+        "address": "https://picasso-api.stakeandrelax.net",
+        "provider": "Stake&Relax \ud83e\udda5"
+      },
+      {
+        "address": "https://lcd.centauri.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://picasso-api.moonbridge.org",
+        "provider": "Moonbridge"
+      },
+      {
+        "address": "https://composable.api.m.stavr.tech",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "https://composable_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "grpc": [
@@ -220,36 +241,111 @@
       },
       {
         "address": "composable-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
       },
       {
-        "address": "https://composable-grpc.cogwheel.zone:443",
-        "provider": "Cogwheel"
+        "address": "grpc-centauri.cosmos-spaces.cloud:1120",
+        "provider": "Cosmos Spaces"
       },
       {
-        "address": "https://composable-grpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
+        "address": "https://picasso-grpc.cogwheel.zone:443",
+        "provider": "Cogwheel \u2699\ufe0f"
+      },
+      {
+        "address": "picasso.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes \ud83d\udc1d"
       },
       {
         "address": "composable-grpc.genznodes.dev:53090",
         "provider": "genznodes"
       },
       {
-        "address": "composable-grpc.stake-town.com:10190",
+        "address": "picasso-grpc.stake-town.com:443",
         "provider": "StakeTown"
+      },
+      {
+        "address": "grpc-composable.vinjan.xyz:36090",
+        "provider": "vinjan"
+      },
+      {
+        "address": "composable.grpc.skynodejs.net",
+        "provider": "skynodejs"
+      },
+      {
+        "address": "composable.grpc.stakevillage.net:16190",
+        "provider": "Stake Village"
+      },
+      {
+        "address": "picasso-rpc.stakeandrelax.net:22290",
+        "provider": "Stake&Relax \ud83e\udda5"
+      },
+      {
+        "address": "grpc.composable.validatus.com",
+        "provider": "Validatus"
+      },
+      {
+        "address": "https://grpc.centauri.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://picasso-grpc.moonbridge.org",
+        "provider": "Moonbridge"
+      },
+      {
+        "address": "composable.grpc.m.stavr.tech:9907",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
       }
     ]
   },
   "explorers": [
     {
       "kind": "ping.pub",
-      "url": "https://ping.pub/centauri",
-      "tx_page": "https://ping.pub/centauri/tx/${txHash}"
+      "url": "https://ping.pub/composable",
+      "tx_page": "https://ping.pub/composable/tx/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/composable",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=composable&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=composable&addr=${accountAddress}"
     },
     {
       "kind": "NodeStake Explorer",
       "url": "https://explorer.nodestake.top/composable",
       "tx_page": "https://explorer.nodestake.top/composable/tx/${txHash}"
+    },
+    {
+      "kind": "Stake Village",
+      "url": "https://exp.stakevillage.net/composable",
+      "tx_page": "https://exp.stakevillage.net/composable/tx/${txHash}",
+      "account_page": "https://exp.stakevillage.net/composable/account/${accountAddress}"
+    },
+    {
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
+      "url": "https://explorer.stavr.tech/Composable-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Composable-Mainnet/tx/${txHash}"
+    },
+    {
+      "kind": "WhisperNode \ud83e\udd10",
+      "url": "https://mainnet.whispernode.com/picasso",
+      "tx_page": "https://mainnet.whispernode.com/picasso/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/picasso/account/${accountAddress}"
+    },
+    {
+      "kind": "Moonbridge",
+      "url": "https://explorer.moonbridge.org/picasso",
+      "tx_page": "https://explorer.moonbridge.org/picasso/tx/${txHash}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/picasso",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/picasso/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/picasso/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/composable/images/pica.svg"
     }
   ]
 }

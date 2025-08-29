@@ -5,10 +5,12 @@
   "network_type": "mainnet",
   "website": "https://sifchain.finance/",
   "pretty_name": "Sifchain",
+  "chain_type": "cosmos",
   "chain_id": "sifchain-1",
   "bech32_prefix": "sif",
   "daemon_name": "sifnoded",
   "node_home": "$HOME/.sifnoded",
+  "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
@@ -28,28 +30,16 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Sifchain/sifnode.git",
-    "recommended_version": "v1.0.14-beta",
+    "recommended_version": "v1.2.0-beta",
     "compatible_versions": [
-      "v1.0.14-beta"
+      "v1.2.0-beta"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/Sifchain/sifnode/releases/download/v1.0.14-beta/sifnoded-v1.0.14-beta-linux-amd64.zip"
+      "linux/amd64": "https://github.com/Sifchain/sifnode/releases/download/v1.2.0-beta/sifnoded-v1.2.0-beta-linux-amd64.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://github.com/Sifchain/networks/blob/master/betanet/sifchain-1/genesis.json.gz?raw=true"
-    },
-    "versions": [
-      {
-        "name": "v1.0.14-beta",
-        "recommended_version": "v1.0.14-beta",
-        "compatible_versions": [
-          "v1.0.14-beta"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/Sifchain/sifnode/releases/download/v1.0.14-beta/sifnoded-v1.0.14-beta-linux-amd64.zip"
-        }
-      }
-    ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sifchain/images/rowan.png",
@@ -68,9 +58,9 @@
         "provider": "Polkachu"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "sifchain-seed-1.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -100,29 +90,23 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.sifchain.finance:443"
-      },
-      {
         "address": "https://sifchain-rpc.polkachu.com",
         "provider": "Polkachu"
-      },
-      {
-        "address": "https://rpc-sifchain-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
       },
       {
         "address": "https://sifchain-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://sif-rpc.kleomedes.network",
-        "provider": "Kleomedes"
+        "address": "https://sifchain-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://sifchain_mainnet_rpc.chain.whenmoonwhenlambo.money:443",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "rest": [
-      {
-        "address": "https://api.sifchain.finance:443"
-      },
       {
         "address": "https://api-sifchain-ia.cosmosia.notional.ventures/",
         "provider": "Notional"
@@ -132,19 +116,23 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://sif-api.kleomedes.network",
-        "provider": "Kleomedes"
-      },
-      {
         "address": "https://sifchain-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://sifchain-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://sifchain.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://sifchain_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "grpc": [
-      {
-        "address": "grpc-sifchain-ia.cosmosia.notional.ventures:443",
-        "provider": "Notional"
-      },
       {
         "address": "sifchain-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
@@ -152,15 +140,19 @@
       {
         "address": "sifchain-grpc.polkachu.com:13290",
         "provider": "Polkachu"
+      },
+      {
+        "address": "sifchain-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/sifchain",
-      "tx_page": "https://ezstaking.tools/sifchain/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/sifchain/account/${accountAddress}"
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/sifchain",
+      "tx_page": "https://explorer.chainroot.io/sifchain/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/sifchain/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -168,21 +160,34 @@
       "tx_page": "https://ping.pub/sifchain/tx/${txHash}"
     },
     {
-      "kind": "explorers.guru",
-      "url": "https://sifchain.explorers.guru",
-      "tx_page": "https://sifchain.explorers.guru/transaction/${txHash}"
-    },
-    {
-      "kind": "mintscan",
-      "url": "https://www.mintscan.io/sifchain",
-      "tx_page": "https://www.mintscan.io/sifchain/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/sifchain/account/${accountAddress}"
-    },
-    {
       "kind": "atomscan",
       "url": "https://atomscan.com/sifchain",
       "tx_page": "https://atomscan.com/sifchain/transactions/${txHash}",
       "account_page": "https://atomscan.com/sifchain/accounts/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/sifchain",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=sifchain&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=sifchain&addr=${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Sifchain",
+      "tx_page": "https://explorer.stavr.tech/Sifchain/tx/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Sifchain/accounts/${accountAddress}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/sifchain",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/sifchain/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/sifchain/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sifchain/images/rowan.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sifchain/images/rowan.svg"
     }
   ]
 }

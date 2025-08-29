@@ -5,11 +5,14 @@
   "network_type": "mainnet",
   "website": "https://ununifi.io/",
   "pretty_name": "UnUniFi",
+  "chain_type": "cosmos",
   "chain_id": "ununifi-beta-v1",
   "bech32_prefix": "ununifi",
-  "daemon_name": "guu",
-  "node_home": "$HOME/.ununifid",
-  "key_algos": ["secp256k1"],
+  "daemon_name": "ununifid",
+  "node_home": "$HOME/.ununifi",
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -34,67 +37,51 @@
   },
   "codebase": {
     "git_repo": "https://github.com/UnUniFi/chain",
-    "recommended_version": "v2.1.0",
-    "compatible_versions": ["v2.1.0"],
+    "recommended_version": "v4.0.2",
+    "compatible_versions": [
+      "v4.0.2"
+    ],
     "binaries": {
-      "linux/amd64": "https://github.com/UnUniFi/chain/releases/download/v2.1.0/ununifid"
+      "linux/amd64": "https://github.com/UnUniFi/chain/releases/download/v4.0.2/ununifid"
     },
-    "cosmos_sdk_version": "0.47",
     "consensus": {
       "type": "cometbft",
-      "version": "0.34"
+      "version": "0.37.2"
     },
-    "cosmwasm_version": "0.40",
-    "cosmwasm_enabled": true,
-    "ibc_go_version": "7.0.1",
-    "ics_enabled": ["ics20-1"],
     "genesis": {
       "name": "beta-v1",
       "genesis_url": "https://raw.githubusercontent.com/UnUniFi/network/main/launch/ununifi-beta-v1/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v2.0.0",
-        "recommended_version": "v2.0.0",
-        "compatible_versions": ["v2.0.0"],
-        "binaries": {
-          "linux/amd64": "https://github.com/UnUniFi/chain/releases/download/v2.0.0/ununifid"
-        },
-        "cosmos_sdk_version": "0.47",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.34"
-        },
-        "cosmwasm_version": "0.40",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "7.0.0",
-        "ics_enabled": ["ics20-1"]
-      },
-      {
-        "name": "v2.1.0",
-        "recommended_version": "v2.1.0",
-        "compatible_versions": ["v2.1.0"],
-        "binaries": {
-          "linux/amd64": "https://github.com/UnUniFi/chain/releases/download/v2.1.0/ununifid"
-        },
-        "cosmos_sdk_version": "0.47",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.34"
-        },
-        "cosmwasm_version": "0.40",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "7.0.1",
-        "ics_enabled": ["ics20-1"]
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/ununifi/cosmos-sdk",
+      "version": "v0.47.3",
+      "tag": "v0.47.3-custom-bank-1"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.3.1",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "v0.40.1",
+      "enabled": true
+    }
   },
   "logo_URIs": {
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/ununifi/images/ununifi.svg",
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/ununifi/images/ununifi.png"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/ununifi/images/ununifi.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/ununifi/images/ununifi.svg"
   },
   "peers": {
-    "seeds": [],
+    "seeds": [
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "fa38d2a851de43d34d9602956cd907eb3942ae89",
@@ -105,6 +92,11 @@
         "id": "404ea79bd31b1734caacced7a057d78ae5b60348",
         "address": "b.ununifi.cauchye.net:26656",
         "provider": "CauchyE"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "ununifi-mainnet-seed.autostake.com:26746",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "1357ac5cd92b215b05253b25d78cf485dd899d55",
@@ -125,6 +117,11 @@
       {
         "id": "cea8d05b6e01188cf6481c55b7d1bc2f31de0eed",
         "address": "[2600:1f1c:534:8f02:ba43:1f69:e23a:df6b]:26656"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:23256",
+        "provider": "Lavender.Five Nodes 🐝"
       }
     ]
   },
@@ -135,24 +132,16 @@
         "provider": "CauchyE"
       },
       {
-        "address": "http://b.lcd.ununifi.cauchye.net:26657",
-        "provider": "CauchyE"
+        "address": "https://rpc.lavenderfive.com:443/ununifi",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "http://ununifi.mainnet.lcd-01.kabab.io:26657",
-        "provider": "Neukind"
+        "address": "https://rpc.lavenderfive.com:443/ununifi",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "http://ununifi.mainnet.lcd-02.kabab.io:26657",
-        "provider": "Neukind"
-      },
-      {
-        "address": "https://rpc.ununifi.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
-        "address": "https://rpc-ununifi.nodeist.net",
-        "provider": "Nodeist"
+        "address": "https://ununifi-rpc.genznodes.dev",
+        "provider": "genznodes"
       }
     ],
     "rest": [
@@ -165,20 +154,12 @@
         "provider": "CauchyE"
       },
       {
-        "address": "https://ununifi.mainnet.lcd-01.kabab.io:1318",
-        "provider": "Neukind"
+        "address": "https://rest.lavenderfive.com:443/ununifi",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://ununifi.mainnet.lcd-02.kabab.io:1318",
-        "provider": "Neukind"
-      },
-      {
-        "address": "https://api.ununifi.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
-        "address": "https://api-ununifi.nodeist.net",
-        "provider": "Nodeist"
+        "address": "https://ununifi-api.genznodes.dev",
+        "provider": "genznodes"
       }
     ],
     "grpc": [
@@ -191,12 +172,20 @@
         "provider": "CauchyE"
       },
       {
-        "address": "grpc.ununifi.nodestake.top:9090",
-        "provider": "NodeStake"
+        "address": "ununifi-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://grpc-ununifi.nodeist.net",
         "provider": "Nodeist"
+      },
+      {
+        "address": "ununifi.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "ununifi-grpc.genznodes.dev:54090",
+        "provider": "genznodes"
       }
     ]
   },
@@ -208,8 +197,14 @@
     },
     {
       "kind": "NodeStake Explorer",
-      "url": "https://explorer.nodestake.top/ununifi",
-      "tx_page": "https://explorer.nodestake.top/ununifi/tx/${txHash}"
+      "url": "https://explorer.nodestake.org/ununifi",
+      "tx_page": "https://explorer.nodestake.org/ununifi/tx/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/ununifi",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=ununifi&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=ununifi&addr=${accountAddress}"
     },
     {
       "kind": "Nodeist Explorer",
@@ -217,5 +212,16 @@
       "tx_page": "https://exp.nodeist.net/Ununifi/tx/${txHash}"
     }
   ],
-  "keywords": ["staking", "wasm", "assets", "nft"]
+  "keywords": [
+    "staking",
+    "wasm",
+    "assets",
+    "nft"
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/ununifi/images/ununifi.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/ununifi/images/ununifi.svg"
+    }
+  ]
 }

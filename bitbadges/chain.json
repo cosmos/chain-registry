@@ -1,0 +1,129 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "bitbadges",
+  "status": "live",
+  "chain_type": "cosmos",
+  "network_type": "mainnet",
+  "website": "https://bitbadges.io/",
+  "pretty_name": "BitBadges",
+  "chain_id": "bitbadges-1",
+  "daemon_name": "bitbadgeschaind",
+  "bech32_prefix": "bb",
+  "node_home": "$HOME/.bitbadgeschaind",
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ubadge",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.00025,
+        "average_gas_price": 0.0025,
+        "high_gas_price": 0.025
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ubadge"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/bitbadges/bitbadgeschain/",
+    "recommended_version": "v6",
+    "compatible_versions": [
+      "v6"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/BitBadges/bitbadgeschain/releases/download/v6/bitbadgeschain-linux-amd64",
+      "linux/arm64": "https://github.com/BitBadges/bitbadgeschain/releases/download/v6/bitbadgeschain-linux-arm64"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.11"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.3.2"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.12",
+      "repo": "https://github.com/cometbft/cometbft"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/BitBadges/bitbadgeschain/blob/master/genesis.json"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitbadges/images/bitbadgeslogo.png"
+  },
+  "description": "BitBadges is the all-in-one, multi-chain platform for building your digital identity.",
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "2703c1304a70186372aa726a762d60da94c29ffe",
+        "address": "134.122.12.165:26656"
+      },
+      {
+        "id": "9b9dee928a174bcd0272be9127f5f455d418d6b2",
+        "address": "bitbadges_mainnet_peer.chain.whenmoonwhenlambo.money:30001"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "http://134.122.12.165:26657",
+        "provider": "bitbadges"
+      },
+      {
+        "address": "https://bitbadges_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
+      }
+    ],
+    "rest": [
+      {
+        "address": "http://134.122.12.165:1317",
+        "provider": "bitbadges"
+      },
+      {
+        "address": "https://bitbadges_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "http://134.122.12.165:9090",
+        "provider": "bitbadges"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/bitbadges",
+      "tx_page": "https://www.mintscan.io/bitbadges/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/bitbadges/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer.bitbadges.io/BitBadges%20Mainnet",
+      "tx_page": "https://explorer.bitbadges.io/BitBadges%20Mainnet/txs/${txHash}",
+      "account_page": "https://explorer.bitbadges.io/BitBadBitBadges%20Mainnetges/account/${accountAddress}"
+    },
+    {
+      "kind": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25",
+      "url": "https://explorer.whenmoonwhenlambo.money/bitbadges",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/bitbadges/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/bitbadges/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitbadges/images/bitbadgeslogo.png"
+    }
+  ]
+}

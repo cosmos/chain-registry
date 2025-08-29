@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "testnet",
   "pretty_name": "cheqd",
+  "chain_type": "cosmos",
   "chain_id": "cheqd-testnet-6",
   "bech32_prefix": "cheqd",
   "daemon_name": "cheqd-noded",
@@ -13,57 +14,43 @@
     "fee_tokens": [
       {
         "denom": "ncheq",
-        "fixed_min_gas_price": 25,
-        "low_gas_price": 25,
-        "average_gas_price": 50,
-        "high_gas_price": 100
+        "fixed_min_gas_price": 5000,
+        "low_gas_price": 5000,
+        "average_gas_price": 7500,
+        "high_gas_price": 10000
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/cheqd/cheqd-node",
-    "recommended_version": "v1.4.0",
+    "recommended_version": "v4.1.1",
     "compatible_versions": [
-      "v1.2.5",
-      "v1.3.0",
-      "v1.4.0"
+      "v4.1.0",
+      "v4.1.1"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-linux-amd64.tar.gz",
-      "linux/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-linux-arm64.tar.gz",
-      "darwin/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-darwin-amd64.tar.gz",
-      "darwin/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-darwin-arm64.tar.gz"
+      "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v4.1.1/cheqd-noded-4.1.1-linux-amd64.tar.gz",
+      "linux/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v4.1.1/cheqd-noded-4.1.1-linux-arm64.tar.gz",
+      "darwin/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v4.1.1/cheqd-noded-4.1.1-darwin-amd64.tar.gz",
+      "darwin/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v4.1.1/cheqd-noded-4.1.1-darwin-arm64.tar.gz"
     },
-    "cosmos_sdk_version": "0.46.10",
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34.26"
+      "type": "cometbft",
+      "version": "0.38.12"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/cheqd/cheqd-node/main/networks/testnet/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1.4.0",
-        "recommended_version": "v1.4.0",
-        "compatible_versions": [
-          "v1.2.5",
-          "v1.3.0",
-          "v1.4.0"
-        ],
-        "cosmos_sdk_version": "0.46.10",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34.26"
-        },
-        "binaries": {
-          "linux/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-linux-amd64.tar.gz",
-          "linux/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-linux-arm64.tar.gz",
-          "darwin/amd64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-darwin-amd64.tar.gz",
-          "darwin/arm64": "https://github.com/cheqd/cheqd-node/releases/download/v1.4.0/cheqd-noded-1.4.0-darwin-arm64.tar.gz"
-        }
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/cheqd/cosmos-sdk",
+      "version": "v0.50.14",
+      "tag": "v0.50.14-height-mismatch-iavl"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.7.0"
+    }
   },
   "peers": {
     "seeds": [
@@ -80,12 +67,12 @@
     ],
     "persistent_peers": [
       {
-        "id": "8c45237d435247270b95edae33fd1a69341eb1bb",
+        "id": "73325efb4ec17200ee2e54ec43e02b4cc55f9647",
         "address": "sentry1-eu.cheqd.network:26656",
         "provider": "cheqd"
       },
       {
-        "id": "355d3e577b9b1eaadf438694e86364425cf4bb0e",
+        "id": "3c70145db1e3b63a0c51c34f2002d8f1a320f53b",
         "address": "sentry1-ap.cheqd.network:26656",
         "provider": "cheqd"
       }
@@ -121,5 +108,11 @@
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cheqd/images/cheq.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cheqd/images/cheq.svg"
-  }
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cheqd/images/cheq.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cheqd/images/cheq.svg"
+    }
+  ]
 }

@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "pretty_name": "Decentr",
+  "chain_type": "cosmos",
   "chain_id": "mainnet-3",
   "bech32_prefix": "decentr",
   "daemon_name": "decentrd",
@@ -16,7 +17,10 @@
     "fee_tokens": [
       {
         "denom": "udec",
-        "fixed_min_gas_price": 0.025
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.025
       }
     ]
   },
@@ -35,16 +39,7 @@
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/Decentr-net/mainnets/master/3.0/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v1.5.7",
-        "recommended_version": "v1.5.7",
-        "compatible_versions": [
-          "v1.5.7"
-        ]
-      }
-    ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/decentr/images/dec.png",
@@ -111,13 +106,23 @@
         "id": "89f32d5e096eadddb1b3e6e839963503ef4d2d70",
         "address": "rpc.decentr.nodexcapital.com:10856",
         "provider": "NodeX Validator"
+      },
+      {
+        "id": "49963582499c44dc8e119b4112e2f7b227003333",
+        "address": "seed-node.mms.team:39656",
+        "provider": "MMS"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
       {
-        "id": "6afae5a544d74a8581da932aaa6d483ce797a6b1",
-        "address": "75.119.157.167:28656",
-        "provider": "Inter Blockchain Services"
+        "id": "1f5497f2b4f6adb3b803c17c3b005f637fcaec2d",
+        "address": "decentr.peer.stavr.tech:1066",
+        "provider": "🔥STAVR🔥"
       },
       {
         "id": "a6ebaed2c7972941b5cce5d94ec94a1352a600a4",
@@ -133,6 +138,16 @@
         "id": "7678919ce37d6a8dc24a81c20ca8856147455670",
         "address": "rpc.decentr.indonode.net:20656",
         "provider": "Indonode"
+      },
+      {
+        "id": "153656b1037e183368bbf9d03a6b97b1a3a9c976",
+        "address": "peer-decentr.mms.team:26656",
+        "provider": "MMS"
+      },
+      {
+        "id": "0ec21d5e8c86973bfef04e66b2a0e5d6d3d86820",
+        "address": "109.123.234.203:26656",
+        "provider": "MathNodes"
       }
     ]
   },
@@ -143,40 +158,20 @@
         "provider": "decentr"
       },
       {
-        "address": "https://decentr-rpc.badgerbite.io:443",
-        "provider": "BadgerBite"
-      },
-      {
         "address": "https://rpc.decentr.chaintools.tech/",
         "provider": "ChainTools"
       },
       {
-        "address": "https://decentr-rpc.ibs.team/",
-        "provider": "Inter Blockchain Services"
+        "address": "https://decentr.rpc.m.stavr.tech:443",
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "https://rpc-dcntr.nodine.id/",
         "provider": "Nodine.ID"
       },
       {
-        "address": "https://rpc-decentr.sxlzptprjkt.xyz",
-        "provider": "sxlzptprjkt | VALIDATOR"
-      },
-      {
-        "address": "https://rpc.decentr.hexnodes.co",
-        "provider": "Hexnodes"
-      },
-      {
-        "address": "https://rpc.decentr.nodexcapital.com",
-        "provider": "NodeX Validator"
-      },
-      {
-        "address": "https://rpc-decentr.comunitynode.my.id",
-        "provider": "Comunity Node"
-      },
-      {
-        "address": "https://rpc.decentr.indonode.net",
-        "provider": "Indonode"
+        "address": "https://rpc-decentr.mms.team/",
+        "provider": "MMS"
       }
     ],
     "rest": [
@@ -185,36 +180,12 @@
         "provider": "decentr"
       },
       {
+        "address": "https://decentr.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      },
+      {
         "address": "https://api.decentr.chaintools.tech/",
         "provider": "ChainTools"
-      },
-      {
-        "address": "https://decentr-api.ibs.team/",
-        "provider": "Inter Blockchain Services"
-      },
-      {
-        "address": "https://api-dcntr.nodine.id",
-        "provider": "Nodine.ID"
-      },
-      {
-        "address": "https://api-decentr.sxlzptprjkt.xyz",
-        "provider": "sxlzptprjkt | VALIDATOR"
-      },
-      {
-        "address": "https://lcd.decentr.hexnodes.co",
-        "provider": "Hexnodes"
-      },
-      {
-        "address": "https://rest.decentr.nodexcapital.com",
-        "provider": "NodeX Validator"
-      },
-      {
-        "address": "https://api-decentr.comunitynode.my.id",
-        "provider": "Comunity Node"
-      },
-      {
-        "address": "https://api.decentr.indonode.net",
-        "provider": "Indonode"
       }
     ],
     "grpc": [
@@ -223,16 +194,30 @@
         "provider": "sxlzptprjkt | VALIDATOR"
       },
       {
+        "address": "decentr.grpc.m.stavr.tech:2060",
+        "provider": "🔥STAVR🔥"
+      },
+      {
         "address": "https://grpc.decentr.hexnodes.co",
         "provider": "Hexnodes"
       },
       {
         "address": "https://grpc.decentr.nodexcapital.com:443",
         "provider": "NodeX Validator"
+      },
+      {
+        "address": "grpc-decentr.mms.team:443",
+        "provider": "MMS"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/decentr",
+      "tx_page": "https://explorer.chainroot.io/decentr/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/decentr/accounts/${accountAddress}"
+    },
     {
       "kind": "decentr.net",
       "url": "https://explorer.decentr.net",
@@ -242,6 +227,17 @@
       "kind": "ping.pub",
       "url": "https://ping.pub/decentr/",
       "tx_page": "https://ping.pub/decentr/tx/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/decentr",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=decentr&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=decentr&addr=${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Decentr-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Decentr-Mainnet/tx/${txHash}"
     },
     {
       "kind": "atomscan",
@@ -270,9 +266,15 @@
       "tx_page": "https://explorer.nodexcapital.com/decentr/tx/${txHash}"
     },
     {
-      "kind": "Explorer ComunityNode",
+      "kind": "Explorer CommunityNode",
       "url": "https://explorer.comunitynode.my.id/decentr",
       "tx_page": "https://explorer.comunitynode.my.id/decentr/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/decentr/images/dec.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/decentr/images/dec.svg"
     }
   ]
 }

@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://nymtech.net/",
   "pretty_name": "Nym",
+  "chain_type": "cosmos",
   "chain_id": "nyx",
   "bech32_prefix": "n",
   "daemon_name": "nyxd",
@@ -14,39 +15,49 @@
     "fee_tokens": [
       {
         "denom": "unym",
-        "fixed_min_gas_price": 0.25
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      },
+      {
+        "denom": "unyx",
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
       }
     ]
   },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "unyx"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
   "codebase": {
     "git_repo": "https://github.com/nymtech/nyxd/",
-    "recommended_version": "v0.26.1",
+    "recommended_version": "v0.43.0",
     "compatible_versions": [
-      "v0.26.1"
+      "v0.43.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/nymtech/nymd/releases/"
+      "linux/amd64": "https://github.com/nymtech/nyxd/releases/tag/v0.43.0"
     },
     "genesis": {
       "genesis_url": "https://nymtech.net/genesis/genesis.json"
     },
-    "cosmwasm_enabled": true,
-    "versions": [
-      {
-        "name": "v0.26.1",
-        "recommended_version": "v0.26.1",
-        "compatible_versions": [
-          "v0.26.1"
-        ],
-        "cosmwasm_enabled": true,
-        "binaries": {
-          "linux/amd64": "https://github.com/nymtech/nyxd/releases"
-        }
-      }
-    ]
+    "cosmwasm": {
+      "enabled": true
+    }
   },
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nyx.png"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nym_token_light.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nym_token_light.svg"
   },
   "peers": {
     "seeds": [
@@ -54,6 +65,11 @@
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:15356",
         "provider": "Polkachu"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -118,20 +134,16 @@
   "apis": {
     "rpc": [
       {
+        "address": "https://rpc.nymtech.net/",
+        "provider": "Nym"
+      },
+      {
         "address": "https://rpc.nyx.nodes.guru/",
         "provider": "nodes guru"
       },
       {
-        "address": "https://nym.vladiatorlabs.io/",
-        "provider": "vladiatorlabs"
-      },
-      {
         "address": "https://rpc.nym.forbole.com/",
         "provider": "forbole"
-      },
-      {
-        "address": "https://rpc-nyx.testnet.run/",
-        "provider": "testnet-run"
       },
       {
         "address": "https://nym-mainnet-rpc.commodum.io/",
@@ -146,16 +158,34 @@
       {
         "address": "https://nym-api.polkachu.com/",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://api.nyx.nodes.guru/",
+        "provider": "nodes guru"
+      },
+      {
+        "address": "https://api.nymtech.net",
+        "provider": "Nym"
       }
     ],
     "grpc": [
       {
         "address": "nym-grpc.polkachu.com:15390",
         "provider": "Polkachu"
+      },
+      {
+        "address": "grpc.nymtech.net:443",
+        "provider": "Nym"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/nym",
+      "tx_page": "https://explorer.chainroot.io/nym/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/nym/accounts/${accountAddress}"
+    },
     {
       "kind": "Nodes Guru explorer",
       "url": "https://nym.explorers.guru/",
@@ -163,27 +193,48 @@
       "account_page": "https://nym.explorers.guru/account/${accountAddress}"
     },
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/nyx",
-      "tx_page": "https://ezstaking.tools/nyx/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/nyx/account/${accountAddress}"
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/nyx",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=nyx&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=nyx&addr=${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/nyx",
+      "tx_page": "https://ezstaking.app/nyx/txs/${txHash}",
+      "account_page": "https://ezstaking.app/nyx/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/nyx",
-      "tx_page": "https://www.mintscan.io/nyx/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/nyx/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/nyx/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/nyx/accounts/${accountAddress}"
     },
     {
       "kind": "ping.pub",
       "url": "https://ping.pub/nyx",
       "tx_page": "https://ping.pub/nyx/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nym_token_light.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nym_token_light.svg",
+      "theme": {
+        "dark_mode": false,
+        "circle": true
+      }
     },
     {
-      "kind": "bigdipper",
-      "url": "https://bigdipper.live/nym",
-      "tx_page": "https://bigdipper.live/nym/transactions/${txHash}",
-      "account_page": "https://bigdipper.live/nym/accounts/${accountAddress}"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nym_token_dark.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nym_token_dark.svg",
+      "theme": {
+        "dark_mode": true,
+        "circle": true
+      }
+    },
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nyx/images/nym_token_light.png"
     }
   ]
 }

@@ -1,0 +1,92 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "entrypointtestnet",
+  "status": "killed",
+  "network_type": "testnet",
+  "pretty_name": "EntryPoint Testnet",
+  "chain_type": "cosmos",
+  "chain_id": "entrypoint-pubtest-2",
+  "bech32_prefix": "entrypoint",
+  "daemon_name": "entrypointd",
+  "node_home": "$HOME/.entrypointd",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uentry"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/entrypoint-zone/testnets",
+    "recommended_version": "v1.2.0",
+    "compatible_versions": [
+      "v1.2.0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.37.2"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/entrypoint-zone/testnets/2f2bffec8e73db30886bffa67fda1a242a6dc1d1/entrypoint-pubtest-2/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.47.4"
+    }
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://testnet-rpc.entrypoint.zone",
+        "provider": "Simply Staking"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://entry.api.t.stavr.tech",
+        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+      },
+      {
+        "address": "https://testnet-rest.entrypoint.zone",
+        "provider": "Simply Staking"
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/entrypointtestnet/images/entrypoint-chain-logo.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/entrypointtestnet/images/entrypoint-chain-logo.svg"
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer.entrypoint.zone/entrypoint",
+      "tx_page": "https://explorer.entrypoint.zone/entrypoint/tx/${txHash}",
+      "account_page": "https://explorer.entrypoint.zone/entrypoint/account/${accountAddress}"
+    },
+    {
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
+      "url": "https://explorer.stavr.tech/Entrypoint-Testnet",
+      "tx_page": "https://explorer.stavr.tech/Entrypoint-Testnet/tx/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Entrypoint-Testnet/account/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://testnet.ping.pub/entrypoint",
+      "tx_page": "https://testnet.ping.pub/entrypoint/tx/${txHash}",
+      "account_page": "https://testnet.ping.pub/entrypoint/account/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "testnet"
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/entrypointtestnet/images/entrypoint-chain-logo.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/entrypointtestnet/images/entrypoint-chain-logo.svg"
+    }
+  ]
+}

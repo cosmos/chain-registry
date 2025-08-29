@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://tgrade.finance/",
   "pretty_name": "Tgrade",
+  "chain_type": "cosmos",
   "chain_id": "tgrade-mainnet-1",
   "bech32_prefix": "tgrade",
   "daemon_name": "tgrade",
@@ -40,20 +41,18 @@
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/confio/tgrade-networks/main/mainnet-1/config/genesis.json"
     },
-    "cosmwasm_enabled": true,
-    "versions": [
-      {
-        "name": "v2.0.4",
-        "recommended_version": "v2.0.4",
-        "compatible_versions": [
-          "v2.0.4"
-        ],
-        "cosmwasm_enabled": true
-      }
-    ]
+    "cosmwasm": {
+      "enabled": true
+    }
   },
   "peers": {
-    "seeds": [],
+    "seeds": [
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "0a63421f67d02e7fb823ea6d6ceb8acf758df24d",
@@ -96,16 +95,16 @@
       "url": "https://tgrade.aneka.io",
       "tx_page": "https://tgrade.aneka.io/txs/${txHash}",
       "account_page": "https://tgrade.aneka.io/accounts/${accountAddress}"
-    },
-    {
-      "kind": "mintscan",
-      "url": "https://www.mintscan.io/tgrade",
-      "tx_page": "https://www.mintscan.io/tgrade/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/tgrade/account/${accountAddress}"
     }
   ],
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tgrade/images/tgrade-logo-gradient_h.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tgrade/images/tgrade-symbol-gradient.svg"
-  }
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tgrade/images/tgrade-logo-gradient_h.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tgrade/images/tgrade-symbol-gradient.svg"
+    }
+  ]
 }

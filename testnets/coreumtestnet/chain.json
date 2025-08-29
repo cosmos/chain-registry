@@ -5,6 +5,7 @@
   "network_type": "testnet",
   "website": "https://www.coreum.com",
   "pretty_name": "Coreum",
+  "chain_type": "cosmos",
   "chain_id": "coreum-testnet-1",
   "bech32_prefix": "testcore",
   "daemon_name": "cored",
@@ -36,54 +37,34 @@
   },
   "codebase": {
     "git_repo": "https://github.com/CoreumFoundation/coreum",
-    "recommended_version": "v0.1.1",
+    "recommended_version": "v3.0.3",
     "compatible_versions": [
-      "v0.1.1"
+      "v3.0.3"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/CoreumFoundation/coreum/releases/download/v0.1.1/cored-linux-amd64?checksum=sha256:21db2ea1b31d9e8202e0d11f2bee0de78d2e677c07fd75a7db1f3958bf49146c",
-      "linux/arm64": "https://github.com/CoreumFoundation/coreum/releases/download/v0.1.1/cored-linux-arm64?checksum=sha256:7d383d1a1bc9185677b25c05ebbe01cf20dd6c779ca4301065359ea6e3bcefa3"
+      "linux/amd64": "https://github.com/CoreumFoundation/coreum/releases/download/v3.0.3/cored-linux-amd64?checksum=sha256:1719a32e6f8e8813d00cd86e1d8d02e893324d4f59fa7a1b8cedc5836140ecef",
+      "linux/arm64": "https://github.com/CoreumFoundation/coreum/releases/download/v3.0.3/cored-linux-arm64?checksum=sha256:cfbbad6803c0327407e4dd222a108505e6ff9e294d7c86e34b6b895b96b61bbd"
     },
-    "cosmos_sdk_version": "0.45",
-    "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
-    },
-    "cosmwasm_version": "0.30",
-    "cosmwasm_enabled": true,
     "genesis": {
       "name": "v0",
       "genesis_url": "https://raw.githubusercontent.com/CoreumFoundation/coreum/master/genesis/coreum-testnet-1.json"
     },
-    "versions": [
-      {
-        "name": "v0",
-        "tag": "v0.1.1",
-        "height": 0,
-        "recommended_version": "v0.1.1",
-        "compatible_versions": [
-          "v0.1.1"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/CoreumFoundation/coreum/releases/download/v0.1.1/cored-linux-amd64?checksum=sha256:21db2ea1b31d9e8202e0d11f2bee0de78d2e677c07fd75a7db1f3958bf49146c",
-          "linux/arm64": "https://github.com/CoreumFoundation/coreum/releases/download/v0.1.1/cored-linux-arm64?checksum=sha256:7d383d1a1bc9185677b25c05ebbe01cf20dd6c779ca4301065359ea6e3bcefa3"
-        },
-        "cosmos_sdk_version": "0.45",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "cosmwasm_version": "0.30",
-        "cosmwasm_enabled": true
-      }
-    ]
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.37"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.47"
+    },
+    "cosmwasm": {
+      "version": "0.44",
+      "enabled": true
+    }
   },
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/coreum/images/coreum.png",
-      "theme": {
-        "primary_color_hex": "#25d695"
-      }
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/coreum/images/coreum.png"
     }
   ],
   "logo_URIs": {
@@ -98,25 +79,34 @@
       },
       {
         "id": "53f2367d8f8291af8e3b6ca60efded0675ff6314",
-        "address": "seed-antares.mainnet-1.coreum.dev:26656",
+        "address": "seed-antares.testnet-1.coreum.dev:26656",
         "provider": "Coreum Foundation"
+      },
+      {
+        "id": "496ac0ba20188f70f41e0a814dfd4d9a617338f8",
+        "address": "coreum-testnet-seed.ibs.team:16660",
+        "provider": "Inter Blockchain Services"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://full-node-pluto.testnet-1.coreum.dev:26657",
+        "address": "https://full-node.testnet-1.coreum.dev:26657",
         "provider": "Coreum Foundation"
       },
       {
         "address": "https://full-node-eris.testnet-1.coreum.dev:26657",
         "provider": "Coreum Foundation"
+      },
+      {
+        "address": "https://coreum-testnet-rpc.ibs.team:443",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "grpc": [
       {
-        "address": "https://full-node-pluto.testnet-1.coreum.dev:9090",
+        "address": "https://full-node.testnet-1.coreum.dev:9090",
         "provider": "Coreum Foundation"
       },
       {
@@ -128,6 +118,10 @@
       {
         "address": "https://full-node.testnet-1.coreum.dev:1317",
         "provider": "Coreum"
+      },
+      {
+        "address": "https://coreum-testnet-api.ibs.team:443",
+        "provider": "Inter Blockchain Services"
       }
     ]
   },
@@ -137,6 +131,12 @@
       "url": "https://explorer.testnet-1.coreum.dev/coreum",
       "tx_page": "https://explorer.testnet-1.coreum.dev/coreum/transactions/${txHash}",
       "account_page": "https://explorer.testnet-1.coreum.dev/coreum/account/${accountAddress}"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/coreum-testnet",
+      "tx_page": "https://www.mintscan.io/coreum-testnet/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/coreum-testnet/accounts/${accountAddress}"
     }
   ],
   "keywords": [

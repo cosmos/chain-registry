@@ -4,6 +4,7 @@
   "status": "live",
   "network_type": "mainnet",
   "pretty_name": "Crescent",
+  "chain_type": "cosmos",
   "chain_id": "crescent-1",
   "bech32_prefix": "cre",
   "daemon_name": "crescentd",
@@ -42,85 +43,7 @@
     },
     "genesis": {
       "genesis_url": "https://github.com/crescent-network/launch/raw/main/mainnet/crescent-1/genesis.json.tar.gz"
-    },
-    "versions": [
-      {
-        "name": "v1",
-        "tag": "v1.0.0",
-        "height": 0,
-        "recommended_version": "v1.0.0",
-        "compatible_versions": [
-          "v1.0.0"
-        ]
-      },
-      {
-        "name": "v1.1",
-        "tag": "v1.1.0",
-        "height": 48000,
-        "recommended_version": "1.1.0",
-        "compatible_versions": [
-          "v1.1.0"
-        ]
-      },
-      {
-        "name": "v2",
-        "tag": "v2.3.0",
-        "height": 1384100,
-        "proposal": 12,
-        "recommended_version": "v2.3.0",
-        "compatible_versions": [
-          "v2.3.0",
-          "v2.2.0",
-          "v2.1.1",
-          "v2.1.0"
-        ]
-      },
-      {
-        "name": "v3",
-        "tag": "v3.0.0",
-        "height": 3932000,
-        "proposal": 29,
-        "recommended_version": "v3.0.0",
-        "compatible_versions": [
-          "v3.0.0"
-        ]
-      },
-      {
-        "name": "v4",
-        "tag": "v4.0.0",
-        "height": 4415902,
-        "proposal": 35,
-        "recommended_version": "v4.0.0",
-        "compatible_versions": [
-          "v4.0.0"
-        ],
-        "next_version_name": "v4.1"
-      },
-      {
-        "name": "v4.1",
-        "tag": "v4.1.1",
-        "height": 6500000,
-        "recommended_version": "v4.1.1",
-        "compatible_versions": [
-          "v4.1.1",
-          "v4.1.0"
-        ],
-        "next_version_name": "v4.2"
-      },
-      {
-        "name": "v4.2",
-        "tag": "v4.2.0",
-        "height": 6915000,
-        "recommended_version": "v4.2.0",
-        "compatible_versions": [
-          "v4.2.0"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/crescent-network/crescent/releases/download/v4.2.0/crescentd-v4.2.0-linux-amd64",
-          "darwin/arm64": "https://github.com/crescent-network/crescent/releases/download/v4.2.0/crescentd-v4.2.0-darwin-arm64"
-        }
-      }
-    ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/crescent/images/cre.png",
@@ -142,6 +65,11 @@
         "id": "3b60a29d89cd7ef6a8d0c7ba32013d7f2051e082",
         "address": "seed-crescent-01.stakeflow.io:1406",
         "provider": "Stakeflow"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -190,12 +118,20 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
+        "address": "https://rpc-crescent.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://rpc-crescent-01.stakeflow.io",
         "provider": "Stakeflow"
       },
       {
         "address": "https://crescent-rpc.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://rpc.crescent.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ],
     "rest": [
@@ -216,6 +152,10 @@
         "provider": "Stakin"
       },
       {
+        "address": "https://api-crescent.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://crescent-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
@@ -226,6 +166,10 @@
       {
         "address": "https://crescent-api.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://lcd.crescent.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ],
     "grpc": [
@@ -242,21 +186,29 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
+        "address": "grpc-crescent.cosmos-spaces.cloud:2270",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "grpc-crescent-01.stakeflow.io:1402",
         "provider": "Stakeflow"
       },
       {
         "address": "crescent-grpc.w3coins.io:14590",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://grpc.crescent.bronbro.io:443",
+        "provider": "Bro_n_Bro"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "mintscan",
-      "url": "https://www.mintscan.io/crescent",
-      "tx_page": "https://www.mintscan.io/crescent/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/crescent/account/${accountAddress}"
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/crescent",
+      "tx_page": "https://ezstaking.app/crescent/txs/${txHash}",
+      "account_page": "https://ezstaking.app/crescent/account/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -269,21 +221,27 @@
       "tx_page": "https://crescent.explorers.guru/transaction/${txHash}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/crescent",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=crescent&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=crescent&addr=${accountAddress}"
+    },
+    {
       "kind": "atomscan",
       "url": "https://atomscan.com/crescent",
       "tx_page": "https://atomscan.com/crescent/transactions/${txHash}",
       "account_page": "https://atomscan.com/crescent/accounts/${accountAddress}"
     },
     {
-      "kind": "bigdipper",
-      "url": "https://bigdipper.live/crescent",
-      "tx_page": "https://bigdipper.live/crescent/transactions/${txHash}",
-      "account_page": "https://bigdipper.live/crescent/accounts/${accountAddress}"
-    },
-    {
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/crescent",
       "account_page": "https://stakeflow.io/crescent/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/crescent/images/cre.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/crescent/images/cre.svg"
     }
   ]
 }

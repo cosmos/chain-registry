@@ -3,7 +3,9 @@
   "chain_name": "beezee",
   "status": "live",
   "network_type": "mainnet",
+  "website": "https://getbze.com/",
   "pretty_name": "BeeZee",
+  "chain_type": "cosmos",
   "chain_id": "beezee-1",
   "bech32_prefix": "bze",
   "daemon_name": "bzed",
@@ -16,7 +18,10 @@
     "fee_tokens": [
       {
         "denom": "ubze",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
       }
     ]
   },
@@ -29,36 +34,20 @@
   },
   "codebase": {
     "git_repo": "https://github.com/bze-alphateam/bze",
-    "recommended_version": "v6.0.0",
+    "recommended_version": "v7.2.0",
     "compatible_versions": [
-      "v6.0.0"
+      "v7.2.0"
     ],
     "binaries": {
-      "darwin/amd64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-darwin-amd64.tar.gz",
-      "darwin/arm64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-darwin-arm64.tar.gz",
-      "linux/amd64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-linux-amd64.tar.gz",
-      "linux/arm64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-linux-arm64.tar.gz",
-      "windows/amd64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-win64.zip"
+      "darwin/amd64": "https://github.com/bze-alphateam/bze/releases/download/v7.2.0/bze-7.2.0-darwin-amd64.tar.gz",
+      "darwin/arm64": "https://github.com/bze-alphateam/bze/releases/download/v7.2.0/bze-7.2.0-darwin-arm64.tar.gz",
+      "linux/amd64": "https://github.com/bze-alphateam/bze/releases/download/v7.2.0/bze-7.2.0-linux-amd64.tar.gz",
+      "linux/arm64": "https://github.com/bze-alphateam/bze/releases/download/v7.2.0/bze-7.2.0-linux-arm64.tar.gz",
+      "windows/amd64": "https://github.com/bze-alphateam/bze/releases/download/v7.2.0/bze-7.2.0-win64.zip"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/bze-alphateam/bze/main/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v6.0.0",
-        "recommended_version": "v6.0.0",
-        "compatible_versions": [
-          "v6.0.0"
-        ],
-        "binaries": {
-          "darwin/amd64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-darwin-amd64.tar.gz",
-          "darwin/arm64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-darwin-arm64.tar.gz",
-          "linux/amd64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-linux-amd64.tar.gz",
-          "linux/arm64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-linux-arm64.tar.gz",
-          "windows/amd64": "https://github.com/bze-alphateam/bze/releases/download/v6.0.0/bze-6.0.0-win64.zip"
-        }
-      }
-    ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/beezee/images/bze.png",
@@ -67,20 +56,25 @@
   "peers": {
     "seeds": [
       {
-        "id": "6385d5fb198e3a793498019bb8917973325e5eb7",
-        "address": "51.15.138.216:26656",
+        "id": "05da1eaff8f39b9a267871ab789a077a787ac62c",
+        "address": "flames.go.ro:27656",
         "provider": "AlphaTeam"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
       {
-        "id": "6385d5fb198e3a793498019bb8917973325e5eb7",
-        "address": "51.15.228.169:26656",
+        "id": "e110f485635b947fa7c73853c8989aa5aa556213",
+        "address": "75.119.156.205:26656",
         "provider": "AlphaTeam"
       },
       {
-        "id": "ce25088267cef31f3be1ec03263524764c5c80bb",
-        "address": "163.172.130.162:26656",
+        "id": "5716271cd7330ec30ce02129e5a9e149e9647215",
+        "address": "161.97.171.195:26656",
         "provider": "AlphaTeam"
       }
     ]
@@ -98,6 +92,10 @@
       {
         "address": "https://rpc-2.getbze.com",
         "provider": "AlphaTeam"
+      },
+      {
+        "address": "https://beezee_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "rest": [
@@ -112,16 +110,34 @@
       {
         "address": "https://rest-2.getbze.com",
         "provider": "AlphaTeam"
+      },
+      {
+        "address": "https://beezee_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "grpc": [
       {
-        "address": "144.91.122.246:9999",
+        "address": "grpc.getbze.com:9099",
+        "provider": "AlphaTeam"
+      },
+      {
+        "address": "grpc-1.getbze.com:9099",
+        "provider": "AlphaTeam"
+      },
+      {
+        "address": "grpc-2.getbze.com:9099",
         "provider": "AlphaTeam"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/beezee",
+      "tx_page": "https://explorer.chainroot.io/beezee/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/beezee/accounts/${accountAddress}"
+    },
     {
       "kind": "ping.pub",
       "url": "https://ping.pub/beezee",
@@ -129,20 +145,34 @@
       "account_page": "https://ping.pub/beezee/account/${accountAddress}"
     },
     {
-      "kind": "ping.pub",
-      "url": "https://explorers.vidulum.app/beezee",
-      "tx_page": "https://explorers.vidulum.app/beezee/tx/${txHash}"
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/beezee",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=beezee&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=beezee&addr=${accountAddress}"
     },
     {
       "kind": "ping.pub",
-      "url": "https://explorer.erialos.me/beezee",
-      "tx_page": "https://explorer.erialos.me/beezee/tx/${txHash}"
+      "url": "https://explorer.getbze.com/beezee",
+      "tx_page": "https://explorer.getbze.com/beezee/tx/${txHash}",
+      "account_page": "https://explorer.getbze.com/beezee/account/${accountAddress}"
     },
     {
       "kind": "atomscan",
       "url": "https://atomscan.com/beezee",
       "tx_page": "https://atomscan.com/beezee/transactions/${txHash}",
       "account_page": "https://atomscan.com/beezee/accounts/${accountAddress}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/beezee",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/beezee/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/beezee/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/beezee/images/bze.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/beezee/images/bze.svg"
     }
   ]
 }

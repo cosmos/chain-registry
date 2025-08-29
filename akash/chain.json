@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://akash.network/",
   "pretty_name": "Akash",
+  "chain_type": "cosmos",
   "chain_id": "akashnet-2",
   "bech32_prefix": "akash",
   "daemon_name": "akash",
@@ -14,7 +15,10 @@
     "fee_tokens": [
       {
         "denom": "uakt",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.025
       }
     ]
   },
@@ -27,45 +31,39 @@
   },
   "codebase": {
     "git_repo": "https://github.com/akash-network/node/",
-    "recommended_version": "v0.22.7",
+    "recommended_version": "v0.38.1",
     "compatible_versions": [
-      "v0.20.0", "v0.22.7"
+      "v0.38.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.22.7/akash_linux_amd64.zip",
-      "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.22.7/akash_linux_arm64.zip"
+      "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.38.1/akash_linux_amd64.zip",
+      "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.38.1/akash_linux_arm64.zip"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.34.27",
+      "repo": "https://github.com/akash-network/cometbft",
+      "tag": "v0.34.27-akash"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/akash-network/net/master/mainnet/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.22.0",
-        "recommended_version": "v0.22.7",
-        "compatible_versions": [
-          "v0.20.0", "v0.22.7"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/akash-network/node/releases/download/v0.22.7/akash_linux_amd64.zip",
-          "linux/arm64": "https://github.com/akash-network/node/releases/download/v0.22.7/akash_linux_arm64.zip"
-        }
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.45.16"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v4.6.0"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.svg"
   },
+  "description": "Akash is open-source Supercloud that lets users buy and sell computing resources securely and efficiently. Purpose-built for public utility.",
   "peers": {
     "seeds": [
-      {
-        "id": "4acf579e2744268f834c713e894850995bbf0ffa",
-        "address": "50.18.31.225:26656"
-      },
-      {
-        "id": "86afe23f116ba4754a19819a55d153008eb74b48",
-        "address": "15.164.87.75:26656"
-      },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:12856",
@@ -82,94 +80,177 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "id": "5e37aefd2a0b9d036b1609a45d6487606da0204b",
-        "address": "rpc.ny.akash.farm:26656"
-      },
-      {
-        "id": "47f7b7a021497ad7a338ea041f19a1a11ae06795",
-        "address": "rpc.la.akash.farm:26656"
-      },
-      {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "akash-seed-1.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "id": "9aa4c9097c818871e45aaca4118a9fe5e86c60e2",
         "address": "seed-akash-01.stakeflow.io:1506",
         "provider": "Stakeflow"
+      },
+      {
+        "id": "61686e588f0af938484579adbc2093adff06c7aa",
+        "address": "europlots.com:26656"
+      },
+      {
+        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
+        "address": "seeds.whispernode.com:12856",
+        "provider": "WhisperNode 🤐"
       }
     ],
     "persistent_peers": [
       {
-        "id": "4acf579e2744268f834c713e894850995bbf0ffa",
-        "address": "50.18.31.225:26656"
+        "id": "b3d4c223f832a6582be431060efb2a73903dc85b",
+        "address": "85.237.193.106:26656"
       },
       {
-        "id": "86afe23f116ba4754a19819a55d153008eb74b48",
-        "address": "15.164.87.75:26656"
+        "id": "66b74927d51888a25fe94bff2dfeaae125739f26",
+        "address": "79.127.196.36:29656"
       },
       {
-        "id": "20180c45451739668f6e272e007818139dba31e7",
-        "address": "88.198.62.198:2020"
+        "id": "c58852a0c6ee1d1a68b76e5a54a9dbce895065d9",
+        "address": "162.55.245.149:2140"
       },
       {
-        "id": "1bfbbf77beeb2c1ace50443478035a255a7e510f",
-        "address": "136.24.44.100:26656"
+        "id": "ebeea522e069f9037876e13f73310a601cfcff8a",
+        "address": "95.179.212.224:26656"
       },
       {
-        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "akash-mainnet-peer.autostake.com:26696",
-        "provider": "AutoStake 🛡️ Slash Protected"
+        "id": "0d8434034e645d305a0cf294e5670ee59e5e55f0",
+        "address": "148.251.53.24:12856"
+      },
+      {
+        "id": "ef9221336be2f2cda18f3da3fd3733e2b96d03ee",
+        "address": "54.157.107.51:26656"
+      },
+      {
+        "id": "b071f46ff940ea8acf7adbd93a7ea78498431a53",
+        "address": "86.32.69.228:26656"
+      },
+      {
+        "id": "4de4f8839c4afdac12aa3c40b80788e720fcd324",
+        "address": "164.152.163.191:26656"
+      },
+      {
+        "id": "9744e833f44218fb6f0646e2c37aae1331ce1efc",
+        "address": "37.252.186.117:2000"
+      },
+      {
+        "id": "5a7599058e1bb208c6d8fe1e8e514d7bd6559980",
+        "address": "146.59.81.92:29656"
+      },
+      {
+        "id": "be0a6315cbac3a368ff394d314514264d8447057",
+        "address": "141.94.139.219:26856"
+      },
+      {
+        "id": "893429952c41a3485ea63b5af2886c91f090c065",
+        "address": "65.108.76.28:12856"
+      },
+      {
+        "id": "7e1ec5bf83a17fc588c04beb807bba0daa4b54e7",
+        "address": "207.180.193.18:26656"
+      },
+      {
+        "id": "c1606b50f704c787a8db27888f7c620e45ffda8b",
+        "address": "142.132.249.130:26646"
+      },
+      {
+        "id": "d1e47b071859497089c944dc082e920403484c1a",
+        "address": "65.108.128.201:12856"
+      },
+      {
+        "id": "1fb2f4a044c08c96f9b527b8c35b7db4425c75e0",
+        "address": "141.94.195.151:12856"
+      },
+      {
+        "id": "ae80e704ee143075ebd1a92996f4eb5c208ebcee",
+        "address": "172.105.110.122:2020"
+      },
+      {
+        "id": "dda1f59957f767e20b0fc64b1c915b4799fc0cc5",
+        "address": "159.223.201.93:26656"
+      },
+      {
+        "id": "a89ded27c2323388fc0f12e7a08f17424b2b7a45",
+        "address": "135.181.142.60:15607"
+      },
+      {
+        "id": "835c8aab295400dcf52e318f64894f60d84f83b2",
+        "address": "185.233.106.174:26656"
+      },
+      {
+        "id": "79685f65de2bfc391ecbb1d16a275f10bad1c038",
+        "address": "65.109.37.251:26656"
+      },
+      {
+        "id": "bd2525f1a86af8b1a3798c04387f47f0c0627d24",
+        "address": "159.223.201.38:26656"
       },
       {
         "id": "9aa4c9097c818871e45aaca4118a9fe5e86c60e2",
-        "address": "peer-akash-01.stakeflow.io:1506",
-        "provider": "Stakeflow"
+        "address": "135.181.113.227:1506"
+      },
+      {
+        "id": "689b88169a9ea8c0780da57216ca7e188d64d3d5",
+        "address": "209.145.55.218:26656"
+      },
+      {
+        "id": "03493c979e821f9d047715b1aaec0ee969392c76",
+        "address": "95.214.53.119:26656"
+      },
+      {
+        "id": "82c0ece4f15b830a1982fef0fa103d31ecd563b9",
+        "address": "148.251.176.12:2000"
+      },
+      {
+        "id": "9b0d47d9872814d7d66ea15e7a5775d9a3bb4da4",
+        "address": "5.9.77.116:14756"
+      },
+      {
+        "id": "f9215993d48d8e0abc31cea931d573a45d201ac8",
+        "address": "65.108.232.104:12856"
+      },
+      {
+        "id": "6adc00bef235246c90757547d5f0703d6a548460",
+        "address": "178.128.82.28:26656"
+      },
+      {
+        "id": "2719d5a0f2ea29bc3d5d48f8487ac07ca94749f7",
+        "address": "49.13.153.159:26667"
+      },
+      {
+        "id": "59d9af9f89a1c22568ca596184455d644039c104",
+        "address": "144.76.15.125:27656"
+      },
+      {
+        "id": "bc9c4ccacb089ebbaa3fb91bc9aa6348027a2d12",
+        "address": "144.76.115.182:12856"
+      },
+      {
+        "id": "02b5a74f0cc909045efe170da3cc5706de2c0be5",
+        "address": "88.208.243.62:26656"
+      },
+      {
+        "id": "86f866a645bcc25d3d26fe8dffbd603ebfc0d6ee",
+        "address": "142.132.158.93:12856"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.akash.forbole.com:443",
-        "provider": "forbole"
-      },
-      {
         "address": "https://rpc-akash.ecostake.com:443",
         "provider": "ecostake"
-      },
-      {
-        "address": "https://akash-rpc.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes"
       },
       {
         "address": "https://akash-rpc.polkachu.com",
         "provider": "Polkachu"
       },
       {
-        "address": "https://rpc-akash-ia.cosmosia.notional.ventures:443",
-        "provider": "Notional"
-      },
-      {
-        "address": "http://akash.c29r3.xyz:80/rpc",
-        "provider": "c29r3"
-      },
-      {
-        "address": "https://akash-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://akash.rpc.interchain.ivaldilabs.xyz",
-        "provider": "ivaldilabs"
-      },
-      {
         "address": "https://akash-rpc.kleomedes.network",
         "provider": "Kleomedes"
-      },
-      {
-        "address": "https://rpc-akash-01.stakeflow.io",
-        "provider": "Stakeflow"
       },
       {
         "address": "https://akash-mainnet-rpc.cosmonautstakes.com:443",
@@ -178,40 +259,28 @@
       {
         "address": "https://akash-rpc.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://akash-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://akash.rpc.arcturian.tech/",
+        "provider": "Arcturian Tech"
       }
     ],
     "rest": [
       {
-        "address": "https://api.akash.forbole.com:443",
-        "provider": "forbole"
-      },
-      {
         "address": "https://rest-akash.ecostake.com",
         "provider": "ecostake"
-      },
-      {
-        "address": "https://akash-api.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes"
       },
       {
         "address": "https://akash-api.polkachu.com",
         "provider": "Polkachu"
       },
       {
-        "address": "https://api-akash-ia.cosmosia.notional.ventures",
-        "provider": "Notional"
-      },
-      {
         "address": "https://akash.c29r3.xyz:443/api",
         "provider": "c29r3"
-      },
-      {
-        "address": "https://akash-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://akash.rest.interchain.ivaldilabs.xyz",
-        "provider": "ivaldilabs"
       },
       {
         "address": "https://akash-api.kleomedes.network",
@@ -228,61 +297,60 @@
       {
         "address": "https://akash-api.w3coins.io",
         "provider": "w3coins"
+      },
+      {
+        "address": "https://akash-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://akash-api.validatornode.com",
+        "provider": "ValidatorNode"
+      },
+      {
+        "address": "https://akash.api.arcturian.tech",
+        "provider": "Arcturian Tech"
       }
     ],
     "grpc": [
       {
-        "address": "grpc-akash-ia.cosmosia.notional.ventures:443",
-        "provider": "Notional"
-      },
-      {
-        "address": "akash-grpc.lavenderfive.com:443",
+        "address": "akash.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "akash-grpc.polkachu.com:12890",
-        "provider": "Polkachu"
-      },
-      {
-        "address": "akash-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "akash.grpc.interchain.ivaldilabs.xyz:443",
-        "provider": "ivaldilabs"
-      },
-      {
-        "address": "grpc-akash-01.stakeflow.io:1502",
-        "provider": "Stakeflow"
-      },
-      {
-        "address": "akash-grpc.w3coins.io:12890",
-        "provider": "w3coins"
+        "address": "akash-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/akash",
-      "tx_page": "https://ezstaking.tools/akash/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/akash/account/${accountAddress}"
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/akash",
+      "tx_page": "https://explorer.chainroot.io/akash/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/akash/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/akash",
+      "tx_page": "https://ezstaking.app/akash/txs/${txHash}",
+      "account_page": "https://ezstaking.app/akash/account/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/akash",
+      "tx_page": "https://ping.pub/akash-network/tx/${txHash}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/akash",
-      "tx_page": "https://www.mintscan.io/akash/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/akash/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/akash/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/akash/accounts/${accountAddress}"
     },
     {
-      "kind": "ping.pub",
-      "url": "https://ping.pub/akash-network",
-      "tx_page": "https://ping.pub/akash-network/tx/${txHash}"
-    },
-    {
-      "kind": "bigdipper",
-      "url": "https://akash.bigdipper.live/",
-      "tx_page": "https://akash.bigdipper.live/transactions/${txHash}"
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/akash",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=akash&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=akash&addr=${accountAddress}"
     },
     {
       "kind": "atomscan",
@@ -291,14 +359,37 @@
       "account_page": "https://atomscan.com/akash/accounts/${accountAddress}"
     },
     {
-      "kind": "cloudmos",
-      "url": "https://cloudmos.io/blocks",
-      "tx_page": "https://cloudmos.io/transactions/${txHash}"
-    },
-    {
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/akash",
       "account_page": "https://stakeflow.io/akash/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Decloud Nodes Lab",
+      "url": "https://explorer.declab.pro/Akash",
+      "tx_page": "https://explorer.declab.pro/Akash/tx/${txHash}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/akash",
+      "tx_page": "https://mainnet.whispernode.com/akash/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/akash/account/${accountAddress}"
+    },
+    {
+      "kind": "Arcturian Tech",
+      "url": "https://explorer.arcturian.tech",
+      "tx_page": "https://explorer.arcturian.tech/akash/tx/${txHash}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://akash.valopers.com/",
+      "tx_page": "https://akash.valopers.com/transactions/${txHash}",
+      "account_page": "https://akash.valopers.com/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.svg"
     }
   ]
 }

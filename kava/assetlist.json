@@ -3,7 +3,8 @@
   "chain_name": "kava",
   "assets": [
     {
-      "description": "The native staking and governance token of Kava",
+      "description": "Kava is a decentralized finance (DeFi) platform that provides a range of financial services, including lending, borrowing, and stablecoins, leveraging the Cosmos and Ethereum ecosystems.",
+      "extended_description": "Kava offers a suite of DeFi services, such as lending, borrowing, and stablecoin issuance, utilizing a cross-chain platform that integrates the Cosmos SDK and Ethereum interoperability. Users can collateralize their assets to borrow Kava's stablecoin, USDX, or participate in lending and liquidity pools to earn rewards. Kava's native token, KAVA, is used for staking, governance, and securing the network. The platform's goal is to provide a decentralized, efficient, and accessible financial ecosystem that bridges multiple blockchain networks.",
       "denom_units": [
         {
           "denom": "ukava",
@@ -19,10 +20,21 @@
       "display": "kava",
       "symbol": "KAVA",
       "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/kava.svg",
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/kava.png"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/kava.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/kava.svg"
       },
-      "coingecko_id": "kava"
+      "coingecko_id": "kava",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/kava.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/kava.svg"
+        }
+      ],
+      "socials": {
+        "website": "https://www.kava.io/",
+        "twitter": "https://twitter.com/KAVA_CHAIN"
+      },
+      "type_asset": "sdk.coin"
     },
     {
       "description": "Governance token of Kava Lend Protocol",
@@ -37,14 +49,21 @@
         }
       ],
       "base": "hard",
-      "name": "Hard",
+      "name": "Kava Hard",
       "display": "HARD",
       "symbol": "HARD",
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/hard.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/hard.svg"
       },
-      "coingecko_id": "kava-lend"
+      "coingecko_id": "kava-lend",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/hard.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/hard.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "Governance token of Kava Swap Protocol",
@@ -59,14 +78,21 @@
         }
       ],
       "base": "swp",
-      "name": "Swap",
+      "name": "Kava Swap",
       "display": "SWP",
       "symbol": "SWP",
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/swp.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/swp.svg"
       },
-      "coingecko_id": "kava-swap"
+      "coingecko_id": "kava-swap",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/swp.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/swp.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
     },
     {
       "description": "The native stablecoin of Kava",
@@ -81,14 +107,115 @@
         }
       ],
       "base": "usdx",
-      "name": "USDX",
+      "name": "Kava USDX",
       "display": "USDX",
       "symbol": "USDX",
       "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/usdx.svg",
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/usdx.png"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/usdx.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/usdx.svg"
       },
-      "coingecko_id": "usdx"
+      "coingecko_id": "usdx",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/usdx.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/usdx.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "denom_units": [
+        {
+          "denom": "erc20/tether/usdt",
+          "exponent": 0
+        },
+        {
+          "denom": "usdt",
+          "exponent": 6
+        }
+      ],
+      "base": "erc20/tether/usdt",
+      "name": "Tether USD",
+      "display": "usdt",
+      "symbol": "USDT",
+      "coingecko_id": "tether",
+      "traces": [
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+          },
+          "provider": "Tether"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+          "theme": {
+            "circle": true
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "The token of Crowdpunk DAO",
+      "denom_units": [
+        {
+          "denom": "ibc/D4F1F74C6B90168E05B974F2EBB5938D18704B73DE273CAACF7E96F7821B2C3D",
+          "exponent": 0,
+          "aliases": [
+            "erc20/0xfbF4318d24a93753F11d365A6dcF8b830e98Ab0F"
+          ]
+        },
+        {
+          "denom": "crowdp",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/D4F1F74C6B90168E05B974F2EBB5938D18704B73DE273CAACF7E96F7821B2C3D",
+      "name": "Crowdpunk DAO",
+      "display": "crowdp",
+      "symbol": "CROWDP",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "evmos",
+            "base_denom": "erc20/0xfbF4318d24a93753F11d365A6dcF8b830e98Ab0F",
+            "channel_id": "channel-83"
+          },
+          "chain": {
+            "channel_id": "channel-117",
+            "path": "transfer/channel-117/erc20/0xfbF4318d24a93753F11d365A6dcF8b830e98Ab0F"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/crowdp.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/crowdp.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "evmos",
+            "base_denom": "erc20/0xfbF4318d24a93753F11d365A6dcF8b830e98Ab0F"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/crowdp.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/crowdp.svg"
+        }
+      ]
     }
   ]
 }

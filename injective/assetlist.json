@@ -1,28 +1,1527 @@
 {
-    "$schema": "../assetlist.schema.json",
-    "chain_name": "injective",
-    "assets": [
-      {
-        "description": "The INJ token is the native governance token for the Injective chain.",
-        "denom_units": [
-          {
-            "denom": "inj",
-            "exponent": 0
-          },
-          {
-            "denom": "INJ",
-            "exponent": 18
-          }
-        ],
-        "base": "inj",
-        "name": "Injective",
-        "display": "INJ",
-        "symbol": "INJ",
-        "logo_URIs": {
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "injective",
+  "assets": [
+    {
+      "description": "Injective is a decentralized exchange protocol that enables fast, secure, and fully decentralized trading of derivatives, futures, and spot markets.",
+      "extended_description": "Injective Protocol is a cutting-edge decentralized exchange (DEX) platform facilitating fully decentralized trading of derivatives, futures, and spot markets. Built on the Cosmos SDK, Injective leverages layer-2 scaling solutions for high-speed transactions with low fees, ensuring an efficient trading experience. The platform's design eliminates intermediaries, giving users complete control over their assets and trades.\n\nThe Injective ecosystem is powered by its native token, INJ, used for governance, staking, and fee reduction. By staking INJ, users can participate in network governance, influencing key decisions and protocol upgrades. Injective's features include cross-chain trading, allowing seamless asset trading across different blockchains, and a decentralized order book for transparency and security. Injective transforms the DeFi space with a comprehensive, decentralized solution for trading various financial instruments.",
+      "denom_units": [
+        {
+          "denom": "inj",
+          "exponent": 0
+        },
+        {
+          "denom": "INJ",
+          "exponent": 18
+        }
+      ],
+      "base": "inj",
+      "name": "Injective",
+      "display": "INJ",
+      "symbol": "INJ",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg"
+      },
+      "coingecko_id": "injective-protocol",
+      "images": [
+        {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg"
+        }
+      ],
+      "socials": {
+        "website": "https://injective.com/",
+        "twitter": "https://twitter.com/Injective_"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Tether USDt on Injective",
+      "denom_units": [
+        {
+          "denom": "ibc/4ABBEF4C8926DDDB320AE5188CFD63267ABBCEFC0583E4AE05D6E5AA2401DDAB",
+          "exponent": 0
         },
-        "coingecko_id": "injective-protocol"
+        {
+          "denom": "usdt",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/4ABBEF4C8926DDDB320AE5188CFD63267ABBCEFC0583E4AE05D6E5AA2401DDAB",
+      "name": "Tether USDt",
+      "display": "usdt",
+      "symbol": "USDTkv",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "kava",
+            "base_denom": "erc20/tether/usdt",
+            "channel_id": "channel-122"
+          },
+          "chain": {
+            "channel_id": "channel-143",
+            "path": "transfer/channel-143/erc20/tether/usdt"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "kava",
+            "base_denom": "erc20/tether/usdt"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+          "theme": {
+            "circle": true
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+      },
+      "coingecko_id": "tether"
+    },
+    {
+      "description": "Tether USDt from Ethereum via Peggy bridge.",
+      "denom_units": [
+        {
+          "denom": "peggy0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "exponent": 0
+        },
+        {
+          "denom": "usdt",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "peggy0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      "name": "Tether USDT",
+      "display": "usdt",
+      "symbol": "USDT",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+          },
+          "provider": "Peggy"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+          "theme": {
+            "circle": true
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
       }
-    ]
-  }
+    },
+    {
+      "description": "ERIS liquid staked INJ",
+      "denom_units": [
+        {
+          "denom": "factory/inj1cdwt8g7nxgtg2k4fn8sj363mh9ahkw2qt0vrnc/ampINJ",
+          "exponent": 0
+        },
+        {
+          "denom": "ampINJ",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1cdwt8g7nxgtg2k4fn8sj363mh9ahkw2qt0vrnc/ampINJ",
+      "name": "ERIS Amplified INJ",
+      "display": "ampINJ",
+      "symbol": "ampINJ",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ampinj.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ampinj.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "$AUTISM exists to celebrate autism as a superior biological tech stack for a changing world",
+      "denom_units": [
+        {
+          "denom": "factory/inj14lf8xm6fcvlggpa7guxzjqwjmtr24gnvf56hvz/autism",
+          "exponent": 0
+        },
+        {
+          "denom": "autism",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj14lf8xm6fcvlggpa7guxzjqwjmtr24gnvf56hvz/autism",
+      "name": "Autism",
+      "display": "autism",
+      "symbol": "AUTISM",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/autism.png"
+      },
+      "coingecko_id": "autism",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/autism.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "BackBone Labs Liquid Staked Injective",
+      "denom_units": [
+        {
+          "denom": "factory/inj1dxp690rd86xltejgfq2fa7f2nxtgmm5cer3hvu/bINJ",
+          "exponent": 0
+        },
+        {
+          "denom": "bINJ",
+          "exponent": 18
+        }
+      ],
+      "base": "factory/inj1dxp690rd86xltejgfq2fa7f2nxtgmm5cer3hvu/bINJ",
+      "name": "BackBone Labs Liquid Staked Injective",
+      "display": "bINJ",
+      "symbol": "bINJ",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/binj.png"
+      },
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "injective",
+            "base_denom": "inj"
+          },
+          "provider": "BackBoneLabs"
+        }
+      ],
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/binj.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "The first meme coin on Injective. It’s a dog, but he has nunchucks",
+      "extended_description": "$NINJA is the premier meme coin on Injective. There is no formal roadmap and no promises made, but NINJAs are builders and masters of surprise. For all intents and purposes, the coin is completely useless, until it's not. And the dog, he has nunchucks.",
+      "denom_units": [
+        {
+          "denom": "factory/inj1xtel2knkt8hmc9dnzpjz6kdmacgcfmlv5f308w/ninja",
+          "exponent": 0
+        },
+        {
+          "denom": "NINJA",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1xtel2knkt8hmc9dnzpjz6kdmacgcfmlv5f308w/ninja",
+      "name": "Dog wif nunchucks",
+      "display": "NINJA",
+      "symbol": "NINJA",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ninja.png"
+      },
+      "coingecko_id": "dog-wif-nuchucks",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ninja.png",
+          "theme": {
+            "circle": true
+          }
+        }
+      ],
+      "socials": {
+        "website": "https://www.dogwifnunchucks.com/",
+        "twitter": "https://x.com/dogwifnunchucks"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "RWA Commercial fishing operation",
+      "denom_units": [
+        {
+          "denom": "factory/inj1jdt04erw6jdmh6c939u87kldf3mvvmkedsjp3w/OYCI",
+          "exponent": 0
+        },
+        {
+          "denom": "OYCI",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1jdt04erw6jdmh6c939u87kldf3mvvmkedsjp3w/OYCI",
+      "name": "Oyster Cage Initiative",
+      "display": "OYCI",
+      "symbol": "OYCI",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/oyci.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/oyci.png",
+          "theme": {
+            "circle": true
+          }
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "The $WGMI Token - We Gonna Make It. Are you ready?",
+      "denom_units": [
+        {
+          "denom": "factory/inj1rmjzj9fn47kdmfk4f3z39qr6czexxe0yjyc546/WGMI",
+          "exponent": 0
+        },
+        {
+          "denom": "WGMI",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1rmjzj9fn47kdmfk4f3z39qr6czexxe0yjyc546/WGMI",
+      "name": "WGMI",
+      "display": "WGMI",
+      "symbol": "WGMI",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/wgmi.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/wgmi.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "The first memecoin on osmosis.",
+      "denom_units": [
+        {
+          "denom": "ibc/DD648F5D3CDA56D0D8D8820CF703D246B9FC4007725D8B38D23A21FF1A1477E3",
+          "exponent": 0
+        },
+        {
+          "denom": "WOSMO",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/DD648F5D3CDA56D0D8D8820CF703D246B9FC4007725D8B38D23A21FF1A1477E3",
+      "name": "Wosmo",
+      "display": "WOSMO",
+      "symbol": "WOSMO",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "factory/osmo1pfyxruwvtwk00y8z06dh2lqjdj82ldvy74wzm3/WOSMO",
+            "channel_id": "channel-122"
+          },
+          "chain": {
+            "channel_id": "channel-8",
+            "path": "transfer/channel-8/factory/osmo1pfyxruwvtwk00y8z06dh2lqjdj82ldvy74wzm3/WOSMO"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "osmosis",
+            "base_denom": "factory/osmo1pfyxruwvtwk00y8z06dh2lqjdj82ldvy74wzm3/WOSMO"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/wosmo.png"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/wosmo.png"
+      }
+    },
+    {
+      "description": "GLTO-ERC20 on injective",
+      "denom_units": [
+        {
+          "denom": "peggy0xd73175f9eb15eee81745d367ae59309Ca2ceb5e2",
+          "exponent": 0
+        },
+        {
+          "denom": "glto",
+          "exponent": 6
+        }
+      ],
+      "base": "peggy0xd73175f9eb15eee81745d367ae59309Ca2ceb5e2",
+      "name": "Gelotto",
+      "display": "glto",
+      "symbol": "GLTO",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xd73175f9eb15eee81745d367ae59309Ca2ceb5e2"
+          },
+          "provider": "Peggy"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xd73175f9eb15eee81745d367ae59309Ca2ceb5e2"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/glto.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/glto.svg"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/glto.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/glto.svg"
+      },
+      "socials": {
+        "website": "https://gelotto.io/",
+        "twitter": "https://twitter.com/Gelotto2"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Hava Coin is the lifeblood of the Cosmos & Injective networks, rewarding builders and welcoming supporters.",
+      "denom_units": [
+        {
+          "denom": "factory/inj1h0ypsdtjfcjynqu3m75z2zwwz5mmrj8rtk2g52/uhava",
+          "exponent": 0
+        },
+        {
+          "denom": "hava",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1h0ypsdtjfcjynqu3m75z2zwwz5mmrj8rtk2g52/uhava",
+      "name": "Hava Coin",
+      "display": "hava",
+      "symbol": "HAVA",
+      "coingecko_id": "hava-coin",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/hava.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/hava.png"
+        }
+      ],
+      "socials": {
+        "website": "https://havacoin.xyz/",
+        "twitter": "https://twitter.com/Hava_Coin"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "A clan of 11y bad kids crafting chaos on the Cosmos eco. One bad memecoin to rule them all  $BADKID. Airdropped to Badkids NFT holders and $STARS stakers. It's so bad, your wallet's throwing a tantrum for it.",
+      "denom_units": [
+        {
+          "denom": "ibc/A0C5AD197FECAF6636F589071338DC7ECD6B0809CD3A5AB131EAAA5395E7E5E8",
+          "exponent": 0
+        },
+        {
+          "denom": "BADKID",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/A0C5AD197FECAF6636F589071338DC7ECD6B0809CD3A5AB131EAAA5395E7E5E8",
+      "name": "Badkid",
+      "display": "BADKID",
+      "symbol": "BADKID",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "factory/osmo10n8rv8npx870l69248hnp6djy6pll2yuzzn9x8/BADKID",
+            "channel_id": "channel-122"
+          },
+          "chain": {
+            "channel_id": "channel-8",
+            "path": "transfer/channel-8/factory/osmo10n8rv8npx870l69248hnp6djy6pll2yuzzn9x8/BADKID"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "osmosis",
+            "base_denom": "factory/osmo10n8rv8npx870l69248hnp6djy6pll2yuzzn9x8/BADKID"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/badkid.png"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/badkid.png"
+      }
+    },
+    {
+      "description": "The second meme coin on Injective.",
+      "denom_units": [
+        {
+          "denom": "inj1sudjgsyhufqu95yp7rqad3g78ws8g6htf32h88",
+          "exponent": 0
+        },
+        {
+          "denom": "NINPO",
+          "exponent": 6
+        }
+      ],
+      "base": "inj1sudjgsyhufqu95yp7rqad3g78ws8g6htf32h88",
+      "name": "Ninpo",
+      "display": "NINPO",
+      "symbol": "NINPO",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ninpo.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ninpo.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "JUDO is a very futuristic meme token.",
+      "denom_units": [
+        {
+          "denom": "inj16ukv8g2jcmml7gykxn5ws8ykhxjkugl4zhft5h",
+          "exponent": 0
+        },
+        {
+          "denom": "JUDO",
+          "exponent": 6
+        }
+      ],
+      "base": "inj16ukv8g2jcmml7gykxn5ws8ykhxjkugl4zhft5h",
+      "name": "Judo",
+      "display": "JUDO",
+      "symbol": "JUDO",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/judo.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/judo.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "BEAST-ERC20 on injective",
+      "denom_units": [
+        {
+          "denom": "peggy0xA4426666addBE8c4985377d36683D17FB40c31Be",
+          "exponent": 0
+        },
+        {
+          "denom": "beast",
+          "exponent": 6
+        }
+      ],
+      "base": "peggy0xA4426666addBE8c4985377d36683D17FB40c31Be",
+      "name": "Gelotto BEAST",
+      "display": "beast",
+      "symbol": "BEAST",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xA4426666addBE8c4985377d36683D17FB40c31Be"
+          },
+          "provider": "Peggy"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xA4426666addBE8c4985377d36683D17FB40c31Be"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/beast.png"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/beast.png"
+      },
+      "socials": {
+        "website": "https://gelotto.io/",
+        "twitter": "https://twitter.com/Gelotto2"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Astroport is a neutral marketplace where anyone, from anywhere in the galaxy, can dock to trade their wares.",
+      "denom_units": [
+        {
+          "denom": "ibc/063F4461F7317CFF10F50AB044E44932D22AAD84FA7107082744946E6DB7B7A8",
+          "exponent": 0,
+          "aliases": [
+            "uastro"
+          ]
+        },
+        {
+          "denom": "astro",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/063F4461F7317CFF10F50AB044E44932D22AAD84FA7107082744946E6DB7B7A8",
+      "name": "Astroport token",
+      "display": "astro",
+      "symbol": "ASTRO",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "neutron",
+            "base_denom": "factory/neutron1ffus553eet978k024lmssw0czsxwr97mggyv85lpcsdkft8v9ufsz3sa07/astro",
+            "channel_id": "channel-60"
+          },
+          "chain": {
+            "channel_id": "channel-177",
+            "path": "transfer/channel-177/factory/neutron1ffus553eet978k024lmssw0czsxwr97mggyv85lpcsdkft8v9ufsz3sa07/astro"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "neutron",
+            "base_denom": "factory/neutron1ffus553eet978k024lmssw0czsxwr97mggyv85lpcsdkft8v9ufsz3sa07/astro"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.svg"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.svg"
+      },
+      "coingecko_id": "astroport-fi"
+    },
+    {
+      "description": "A receipt token for lent INJ issued by the Neptune Protocol.",
+      "denom_units": [
+        {
+          "denom": "inj1rmzufd7h09sqfrre5dtvu5d09ta7c0t4jzkr2f",
+          "exponent": 0
+        },
+        {
+          "denom": "nINJ",
+          "exponent": 18
+        }
+      ],
+      "base": "inj1rmzufd7h09sqfrre5dtvu5d09ta7c0t4jzkr2f",
+      "name": "Neptune Receipt INJ",
+      "display": "nINJ",
+      "symbol": "nINJ",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ninj.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "A receipt token for lent ATOM issued by the Neptune Protocol.",
+      "denom_units": [
+        {
+          "denom": "inj16jf4qkcarp3lan4wl2qkrelf4kduvvujwg0780",
+          "exponent": 0
+        },
+        {
+          "denom": "nATOM",
+          "exponent": 6
+        }
+      ],
+      "base": "inj16jf4qkcarp3lan4wl2qkrelf4kduvvujwg0780",
+      "name": "Neptune Receipt ATOM",
+      "display": "nATOM",
+      "symbol": "nATOM",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/natom.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "A receipt token for lent WETH issued by the Neptune Protocol.",
+      "denom_units": [
+        {
+          "denom": "inj1kehk5nvreklhylx22p3x0yjydfsz9fv3fvg5xt",
+          "exponent": 0
+        },
+        {
+          "denom": "nWETH",
+          "exponent": 18
+        }
+      ],
+      "base": "inj1kehk5nvreklhylx22p3x0yjydfsz9fv3fvg5xt",
+      "name": "Neptune Receipt WETH",
+      "display": "nWETH",
+      "symbol": "nWETH",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/nweth.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "A receipt token for lent USDT issued by the Neptune Protocol.",
+      "denom_units": [
+        {
+          "denom": "inj1cy9hes20vww2yr6crvs75gxy5hpycya2hmjg9s",
+          "exponent": 0
+        },
+        {
+          "denom": "nUSDT",
+          "exponent": 6
+        }
+      ],
+      "base": "inj1cy9hes20vww2yr6crvs75gxy5hpycya2hmjg9s",
+      "name": "Neptune Receipt USDT",
+      "display": "nUSDT",
+      "symbol": "nUSDT",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/nusdt.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "A receipt token for lent TIA issued by the Neptune Protocol.",
+      "denom_units": [
+        {
+          "denom": "inj1fzquxxxam59z6fzewy2hvvreeh3m04x83zg4vv",
+          "exponent": 0
+        },
+        {
+          "denom": "nTIA",
+          "exponent": 6
+        }
+      ],
+      "base": "inj1fzquxxxam59z6fzewy2hvvreeh3m04x83zg4vv",
+      "name": "Neptune Receipt TIA",
+      "display": "nTIA",
+      "symbol": "nTIA",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ntia.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "name": "Ninja Blaze",
+      "description": "Ninja Blaze is a decentralized multi-chain gaming platform powered by Injective Blockchain.",
+      "extended_description": "The only truly decentralized gaming platform. Shape the future of gaming by owning Ninja Blaze tokens.",
+      "denom_units": [
+        {
+          "denom": "factory/inj1llr45x92t7jrqtxvc02gpkcqhqr82dvyzkr4mz/NBZ",
+          "exponent": 0,
+          "aliases": [
+            "uNBZ"
+          ]
+        },
+        {
+          "denom": "NBZ",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1llr45x92t7jrqtxvc02gpkcqhqr82dvyzkr4mz/NBZ",
+      "display": "NBZ",
+      "symbol": "NBZ",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/NBZ.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/NBZ.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/NBZ.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/NBZ.svg"
+        }
+      ],
+      "socials": {
+        "website": "https://blaze.ninja",
+        "twitter": "https://x.com/NinjaBlazeApp"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Talis governance token",
+      "denom_units": [
+        {
+          "denom": "factory/inj1maeyvxfamtn8lfyxpjca8kuvauuf2qeu6gtxm3/Talis",
+          "exponent": 0
+        },
+        {
+          "denom": "Talis",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1maeyvxfamtn8lfyxpjca8kuvauuf2qeu6gtxm3/Talis",
+      "name": "Talis Token",
+      "display": "Talis",
+      "symbol": "TALIS",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/talis.png"
+        }
+      ],
+      "socials": {
+        "website": "https://talis.art/",
+        "twitter": "https://twitter.com/ProtocolTalis"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Talis revenue sharing token",
+      "denom_units": [
+        {
+          "denom": "factory/inj1maeyvxfamtn8lfyxpjca8kuvauuf2qeu6gtxm3/xTalis",
+          "exponent": 0
+        },
+        {
+          "denom": "xTalis",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1maeyvxfamtn8lfyxpjca8kuvauuf2qeu6gtxm3/xTalis",
+      "name": "xTalis Token",
+      "display": "xTalis",
+      "symbol": "XTALIS",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/xtalis.png"
+        }
+      ],
+      "socials": {
+        "website": "https://talis.art/",
+        "twitter": "https://twitter.com/ProtocolTalis"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "USDC is a fully collateralized US Dollar stablecoin developed by CENTRE, the open source project with Circle being the first of several forthcoming issuers.",
+      "denom_units": [
+        {
+          "denom": "ibc/2CBC2EA121AE42563B08028466F37B600F2D7D4282342DE938283CC3FB2BC00E",
+          "exponent": 0,
+          "aliases": [
+            "microusdc",
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/2CBC2EA121AE42563B08028466F37B600F2D7D4282342DE938283CC3FB2BC00E",
+      "name": "USDC",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "USD"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-31"
+          },
+          "chain": {
+            "channel_id": "channel-148",
+            "path": "transfer/channel-148/uusdc"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "noble",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true
+          }
+        },
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+        }
+      ],
+      "coingecko_id": "usd-coin"
+    },
+    {
+      "description": "The most degenerate NFT on Injective. Gravedigger collection for $bINJ. Giving power back to the community.",
+      "denom_units": [
+        {
+          "denom": "factory/inj1a6xdezq7a94qwamec6n6cnup02nvewvjtz6h6e/SYN",
+          "exponent": 0
+        },
+        {
+          "denom": "SYN",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1a6xdezq7a94qwamec6n6cnup02nvewvjtz6h6e/SYN",
+      "name": "Syndicate",
+      "display": "SYN",
+      "symbol": "SYN",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/syn.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/syn.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "SYN burn Derivative; minted when SYN is burned via The Furnace",
+      "denom_units": [
+        {
+          "denom": "factory/inj1ej2f3lmpxj4djsmmuxvnfuvplrut7zmwrq7zj8/syn.ash",
+          "exponent": 0
+        },
+        {
+          "denom": "ashSYN",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1ej2f3lmpxj4djsmmuxvnfuvplrut7zmwrq7zj8/syn.ash",
+      "name": "ASH Syndicate",
+      "display": "ashSYN",
+      "symbol": "ashSYN",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/syn.ash.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/syn.ash.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Cosmo is the best currency in the universe.",
+      "extended_description": "We aim to build a decentralized community by leveraging cutting-edge technologies.",
+      "denom_units": [
+        {
+          "denom": "factory/inj1je6n5sr4qtx2lhpldfxndntmgls9hf38ncmcez/COSMO",
+          "exponent": 0
+        },
+        {
+          "denom": "COSMO",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1je6n5sr4qtx2lhpldfxndntmgls9hf38ncmcez/COSMO",
+      "name": "Cosmo",
+      "display": "COSMO",
+      "symbol": "COSMO",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/cosmo.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/cosmo.png"
+        }
+      ],
+      "socials": {
+        "website": "https://cosmoport.org",
+        "twitter": "https://x.com/cosmoport_org"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "The Representative factory token for Trump Kemistry",
+      "denom_units": [
+        {
+          "denom": "ibc/5339B0D20986A7C20C2548ED9D6B8DE47BB64E03ABFD051B7792E713036EA20C",
+          "exponent": 0
+        },
+        {
+          "denom": "XTRUMP",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/5339B0D20986A7C20C2548ED9D6B8DE47BB64E03ABFD051B7792E713036EA20C",
+      "name": "XTRUMP",
+      "display": "XTRUMP",
+      "symbol": "XTRUMP",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "factory/osmo1hg0zf0c9can4tvtulh5gmmxe4jpflre3yewxjl/XTRUMP",
+            "channel_id": "channel-122"
+          },
+          "chain": {
+            "channel_id": "channel-8",
+            "path": "transfer/channel-8/factory/osmo1hg0zf0c9can4tvtulh5gmmxe4jpflre3yewxjl/XTRUMP"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "osmosis",
+            "base_denom": "factory/osmo1hg0zf0c9can4tvtulh5gmmxe4jpflre3yewxjl/XTRUMP"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/XTRUMP.png"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/XTRUMP.png"
+      }
+    },
+    {
+      "description": "CW20 DRUGS meme coin",
+      "denom_units": [
+        {
+          "denom": "cw20:inj19vy83ne9tzta2yqynj8yg7dq9ghca6yqn9hyej",
+          "exponent": 0
+        },
+        {
+          "denom": "DRUGS",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "cw20",
+      "address": "inj19vy83ne9tzta2yqynj8yg7dq9ghca6yqn9hyej",
+      "base": "cw20:inj19vy83ne9tzta2yqynj8yg7dq9ghca6yqn9hyej",
+      "name": "cw20 DRUGS",
+      "display": "DRUGS",
+      "symbol": "DRUGS",
+      "traces": [
+        {
+          "type": "legacy-mintage",
+          "counterparty": {
+            "chain_name": "injective",
+            "base_denom": "factory/inj178zy7myyxewek7ka7v9hru8ycpvfnen6xeps89/DRUGS"
+          },
+          "provider": "Drugs"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/cw20drugs.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/cw20drugs.png"
+        }
+      ]
+    },
+    {
+      "description": "Distributing happiness, is a serious business",
+      "denom_units": [
+        {
+          "denom": "factory/inj178zy7myyxewek7ka7v9hru8ycpvfnen6xeps89/DRUGS",
+          "exponent": 0
+        },
+        {
+          "denom": "DRUGS",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj178zy7myyxewek7ka7v9hru8ycpvfnen6xeps89/DRUGS",
+      "name": "DRUGS",
+      "display": "DRUGS",
+      "symbol": "DRUGS",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/drugs.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/drugs.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "The native token of Migaloo Chain",
+      "denom_units": [
+        {
+          "denom": "ibc/D6E6A20ABDD600742D22464340A7701558027759CE14D12590F8EA869CCCF445",
+          "exponent": 0,
+          "aliases": [
+            "uwhale"
+          ]
+        },
+        {
+          "denom": "whale",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/D6E6A20ABDD600742D22464340A7701558027759CE14D12590F8EA869CCCF445",
+      "name": "Migaloo",
+      "display": "whale",
+      "symbol": "WHALE",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "migaloo",
+            "base_denom": "uwhale",
+            "channel_id": "channel-3"
+          },
+          "chain": {
+            "channel_id": "channel-102",
+            "path": "transfer/channel-102/uwhale"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/white-whale.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/white-whale.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "migaloo",
+            "base_denom": "uwhale"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/white-whale.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/images/white-whale.svg"
+        }
+      ]
+    },
+    {
+      "description": "A receipt token for lent USDC issued by the Neptune Protocol.",
+      "denom_units": [
+        {
+          "denom": "inj1dafy7fv7qczzatd98dv8hekx6ssckrflswpjaz",
+          "exponent": 0
+        },
+        {
+          "denom": "nUSDC",
+          "exponent": 6
+        }
+      ],
+      "base": "inj1dafy7fv7qczzatd98dv8hekx6ssckrflswpjaz",
+      "name": "Neptune Receipt USDC",
+      "display": "nUSDC",
+      "symbol": "nUSDC",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "injective",
+            "base_denom": "ibc/2CBC2EA121AE42563B08028466F37B600F2D7D4282342DE938283CC3FB2BC00E",
+            "contract": "inj1nc7gjkf2mhp34a6gquhurg8qahnw5kxs5u3s4u"
+          },
+          "provider": "Neptune"
+        }
+      ],
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/nusdc.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Bridge Solana on Injective chain via Wormhole gateway IBC channel",
+      "denom_units": [
+        {
+          "denom": "ibc/A8B0B746B5AB736C2D8577259B510D56B8AF598008F68041E3D634BCDE72BE97",
+          "exponent": 0
+        },
+        {
+          "denom": "sol",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/A8B0B746B5AB736C2D8577259B510D56B8AF598008F68041E3D634BCDE72BE97",
+      "name": "Solana",
+      "display": "sol",
+      "symbol": "SOL",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "gateway",
+            "base_denom": "factory/wormhole14ejqjyq8um4p3xfqj74yld5waqljf88fz25yxnma0cngspxe3les00fpjx/8sYgCzLRJC3J7qPn2bNbx6PiGcarhyx8rBhVaNnfvHCA",
+            "channel_id": "channel-13"
+          },
+          "chain": {
+            "channel_id": "channel-183",
+            "path": "transfer/channel-183/factory/wormhole14ejqjyq8um4p3xfqj74yld5waqljf88fz25yxnma0cngspxe3les00fpjx/8sYgCzLRJC3J7qPn2bNbx6PiGcarhyx8rBhVaNnfvHCA"
+          }
+        }
+      ]
+    },
+    {
+      "description": "A receipt token for lent SOL issued by the Neptune Protocol.",
+      "denom_units": [
+        {
+          "denom": "inj1zcwr03uqw57g88nqvgpwfkazwutpqz9kplny4s",
+          "exponent": 0
+        },
+        {
+          "denom": "nSOL",
+          "exponent": 8
+        }
+      ],
+      "base": "inj1zcwr03uqw57g88nqvgpwfkazwutpqz9kplny4s",
+      "name": "Neptune Receipt SOL",
+      "display": "nSOL",
+      "symbol": "nSOL",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "injective",
+            "base_denom": "ibc/A8B0B746B5AB736C2D8577259B510D56B8AF598008F68041E3D634BCDE72BE97",
+            "contract": "inj1nc7gjkf2mhp34a6gquhurg8qahnw5kxs5u3s4u"
+          },
+          "provider": "Neptune"
+        }
+      ],
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/nsol.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "The native governance and staking token for the Neptune Finance protocol",
+      "denom_units": [
+        {
+          "denom": "factory/inj1v3a4zznudwpukpr8y987pu5gnh4xuf7v36jhva/nept",
+          "exponent": 0
+        },
+        {
+          "denom": "NEPT",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1v3a4zznudwpukpr8y987pu5gnh4xuf7v36jhva/nept",
+      "name": "Neptune Finance",
+      "display": "NEPT",
+      "symbol": "NEPT",
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/nept.png"
+        }
+      ],
+      "socials": {
+        "website": "https://nept.finance/",
+        "twitter": "https://x.com/neptune_finance"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Cosmos Bitcoin",
+      "denom_units": [
+        {
+          "denom": "factory/inj1s9hr5zfz3xrkzchde94hd2d0edjs4q5mrqrz6x/BITCOIN",
+          "exponent": 0
+        },
+        {
+          "denom": "BITCOIN",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1s9hr5zfz3xrkzchde94hd2d0edjs4q5mrqrz6x/BITCOIN",
+      "name": "Cosmos Bitcoin",
+      "display": "BITCOIN",
+      "symbol": "BITCOIN",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/bitcoin.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/bitcoin.png"
+        }
+      ],
+      "socials": {
+        "website": "https://getbitcoinmeme.com",
+        "twitter": "https://getbitcoinmeme"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Crypto",
+      "denom_units": [
+        {
+          "denom": "factory/inj1s9hr5zfz3xrkzchde94hd2d0edjs4q5mrqrz6x/CRYPTO",
+          "exponent": 0
+        },
+        {
+          "denom": "CRYPTO",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1s9hr5zfz3xrkzchde94hd2d0edjs4q5mrqrz6x/CRYPTO",
+      "name": "Crypto",
+      "display": "CRYPTO",
+      "symbol": "CRYPTO",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/crypto.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/crypto.png"
+        }
+      ],
+      "socials": {
+        "website": "https://getcryptomeme.com",
+        "twitter": "https://x.com/getcryptomeme"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Bricscoin",
+      "denom_units": [
+        {
+          "denom": "factory/inj1s9hr5zfz3xrkzchde94hd2d0edjs4q5mrqrz6x/BRICS",
+          "exponent": 0
+        },
+        {
+          "denom": "BRICS",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1s9hr5zfz3xrkzchde94hd2d0edjs4q5mrqrz6x/BRICS",
+      "name": "Bricscoin",
+      "display": "BRICS",
+      "symbol": "BRICS",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/brics.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/brics.png"
+        }
+      ],
+      "socials": {
+        "website": "https://bricscoin.cash",
+        "twitter": "https://x.com/bricscoincash"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Instant Noodles Coin",
+      "denom_units": [
+        {
+          "denom": "factory/inj1s9hr5zfz3xrkzchde94hd2d0edjs4q5mrqrz6x/INC",
+          "exponent": 0
+        },
+        {
+          "denom": "INC",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1s9hr5zfz3xrkzchde94hd2d0edjs4q5mrqrz6x/INC",
+      "name": "Instant Noodles Coin",
+      "display": "INC",
+      "symbol": "INC",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inc.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inc.png"
+        }
+      ],
+      "socials": {
+        "website": "https://instantnoodles.xyz",
+        "twitter": "https://x.com/instantnoodlesinc"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "CW20 hINJ - Hydro Staked INJ",
+      "denom_units": [
+        {
+          "denom": "cw20:inj18luqttqyckgpddndh8hvaq25d5nfwjc78m56lc",
+          "exponent": 0
+        },
+        {
+          "denom": "hINJ",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "cw20",
+      "address": "inj18luqttqyckgpddndh8hvaq25d5nfwjc78m56lc",
+      "base": "cw20:inj18luqttqyckgpddndh8hvaq25d5nfwjc78m56lc",
+      "name": "cw20 hINJ",
+      "display": "hINJ",
+      "symbol": "hINJ",
+      "traces": [
+        {
+          "type": "legacy-mintage",
+          "counterparty": {
+            "chain_name": "injective",
+            "base_denom": "factory/inj14ejqjyq8um4p3xfqj74yld5waqljf88f9eneuk/inj18luqttqyckgpddndh8hvaq25d5nfwjc78m56lc"
+          },
+          "provider": "Hydro"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/hinj.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/hinj.png"
+        }
+      ]
+    },
+    {
+      "description": "Factory Wrapped hINJ - Hydro Staked INJ",
+      "denom_units": [
+        {
+          "denom": "factory/inj14ejqjyq8um4p3xfqj74yld5waqljf88f9eneuk/inj18luqttqyckgpddndh8hvaq25d5nfwjc78m56lc",
+          "exponent": 0
+        },
+        {
+          "denom": "Hydro Wrapped hINJ",
+          "exponent": 18
+        }
+      ],
+      "base": "factory/inj14ejqjyq8um4p3xfqj74yld5waqljf88f9eneuk/inj18luqttqyckgpddndh8hvaq25d5nfwjc78m56lc",
+      "name": "Hydro Wrapped hINJ",
+      "display": "Hydro Wrapped hINJ",
+      "symbol": "hINJ",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/hinj.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/hinj.png"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Wrapped Bitcoin via Eureka",
+      "denom_units": [
+        {
+          "denom": "ibc/0E293A7622DC9A6439DB60E6D234B5AF446962E27CA3AB44D0590603DFF6968E",
+          "exponent": 0
+        },
+        {
+          "denom": "wbtc",
+          "exponent": 8
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/0E293A7622DC9A6439DB60E6D234B5AF446962E27CA3AB44D0590603DFF6968E",
+      "name": "Wrapped Bitcoin (Eureka)",
+      "display": "wbtc",
+      "symbol": "WBTC.atom",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "ibc/D742E8566B0B8CC8F569D950051C09CF57988A88F0E45574BFB3079D41DE6462",
+            "channel_id": "channel-220"
+          },
+          "chain": {
+            "channel_id": "channel-1",
+            "path": "transfer/channel-1/transfer/08-wasm-1369/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "cosmoshub",
+            "base_denom": "ibc/D742E8566B0B8CC8F569D950051C09CF57988A88F0E45574BFB3079D41DE6462"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.svg"
+        }
+      ]
+    },
+    {
+      "description": "Agora USD Coin",
+      "denom_units": [
+        {
+          "denom": "factory/inj1n636d9gzrqggdk66n2f97th0x8yuhfrtx520e7/ausd",
+          "exponent": 0
+        },
+        {
+          "denom": "AUSD",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj1n636d9gzrqggdk66n2f97th0x8yuhfrtx520e7/ausd",
+      "name": "Agora USD",
+      "display": "AUSD",
+      "symbol": "AUSD",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ausd.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/ausd.png"
+        }
+      ],
+      "socials": {
+        "website": "https://agora.finance"
+      },
+      "type_asset": "sdk.coin"
+    }
+  ]
+}

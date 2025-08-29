@@ -1,0 +1,289 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "sei",
+  "status": "live",
+  "website": "https://www.sei.io/",
+  "network_type": "mainnet",
+  "pretty_name": "Sei",
+  "chain_type": "cosmos",
+  "chain_id": "pacific-1",
+  "bech32_prefix": "sei",
+  "daemon_name": "seid",
+  "node_home": "$HOME/.sei",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "usei",
+        "fixed_min_gas_price": 0.02,
+        "low_gas_price": 0.02,
+        "average_gas_price": 0.02,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "usei"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/sei-protocol/sei-chain",
+    "recommended_version": "v5.9.0",
+    "compatible_versions": [
+      "v5.9.0"
+    ],
+    "consensus": {
+      "type": "sei-tendermint",
+      "version": "v0.3.8"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/sei-protocol/testnet/main/pacific-1/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/sei-protocol/sei-cosmos",
+      "version": "v0.3.37"
+    },
+    "ibc": {
+      "type": "go",
+      "repo": "https://github.com/sei-protocol/sei-ibc-go",
+      "version": "v3.3.2"
+    },
+    "cosmwasm": {
+      "version": "v0.2.4",
+      "repo": "https://github.com/sei-protocol/sei-wasmd",
+      "path": "$HOME/.sei/wasm",
+      "enabled": true
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sei/images/sei.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sei/images/sei.svg"
+  },
+  "description": "Sei is the fastest Layer 1 blockchain, designed to scale with the industry.",
+  "peers": {
+    "seeds": [
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:11956",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "sei-mainnet-seed.autostake.com:26806",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
+        "address": "seeds.whispernode.com:11956",
+        "provider": "WhisperNode 🤐"
+      },
+      {
+        "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
+        "address": "sei.rpc.kjnodes.com:16859",
+        "provider": "kjnodes"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
+        "address": "seed.rhinostake.com:11956",
+        "provider": "RHINO 🦏"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:11956",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "sei-mainnet-peer.autostake.com:26806",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "d9bfa29e0cf9c4ce0cc9c26d98e5d97228f93b0b",
+        "address": "sei.rpc.kjnodes.com:16856",
+        "provider": "kjnodes"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.sei-apis.com",
+        "provider": "RHINO 🦏"
+      },
+      {
+        "address": "https://rpc.lavenderfive.com:443/sei",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://sei-rpc.polkachu.com",
+        "provider": "polkachu.com"
+      },
+      {
+        "address": "https://sei-rpc.brocha.in",
+        "provider": "Brochain"
+      },
+      {
+        "address": "https://rpc-sei.stingray.plus",
+        "provider": "StingRay"
+      },
+      {
+        "address": "https://rpc-sei.whispernode.com:443",
+        "provider": "WhisperNode 🤐"
+      },
+      {
+        "address": "https://sei.rpc.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://sei-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://sei.drpc.org",
+        "provider": "dRPC - All chains in one place"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.sei-apis.com",
+        "provider": "RHINO 🦏"
+      },
+      {
+        "address": "https://rest.lavenderfive.com:443/sei",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://sei-api.polkachu.com",
+        "provider": "polkachu.com"
+      },
+      {
+        "address": "https://sei-rest.brocha.in",
+        "provider": "Brochain"
+      },
+      {
+        "address": "https://api-sei.stingray.plus",
+        "provider": "StingRay"
+      },
+      {
+        "address": "https://lcd-sei.whispernode.com:443",
+        "provider": "WhisperNode 🤐"
+      },
+      {
+        "address": "https://sei.api.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://sei-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.sei-apis.com:443",
+        "provider": "RHINO 🦏"
+      },
+      {
+        "address": "sei.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://sei-grpc.polkachu.com:11990",
+        "provider": "polkachu.com"
+      },
+      {
+        "address": "sei-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "grpc-sei.whispernode.com:443",
+        "provider": "WhisperNode 🤐"
+      },
+      {
+        "address": "sei.grpc.kjnodes.com:443",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "sei-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://evm-rpc.sei-apis.com",
+        "provider": "RHINO 🦏"
+      },
+      {
+        "address": "https://seievm-rpc.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://jsonrpc.lavenderfive.com:443/sei",
+        "provider": "Lavender.Five Nodes"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/sei",
+      "tx_page": "https://explorer.chainroot.io/sei/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/sei/accounts/${accountAddress}"
+    },
+    {
+      "kind": "blockscout",
+      "url": "https://seitrace.com",
+      "tx_page": "https://seitrace.com/tx/${txHash}?chain=pacific-1",
+      "account_page": "https://seitrace.com/address/${accountAddress}?chain=pacific-1"
+    },
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/sei",
+      "tx_page": "https://www.mintscan.io/sei/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/sei/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/sei",
+      "tx_page": "https://ezstaking.app/sei/txs/${txHash}",
+      "account_page": "https://ezstaking.app/sei/account/${accountAddress}"
+    },
+    {
+      "kind": "celatone",
+      "url": "https://www.seiscan.app/pacific-1",
+      "tx_page": "https://www.seiscan.app/pacific-1/txs/${txHash}",
+      "account_page": "https://www.seiscan.app/pacific-1/accounts/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/sei",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=sei&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=sei&addr=${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/sei",
+      "tx_page": "https://mainnet.whispernode.com/sei/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/sei/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sei/images/sei.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sei/images/sei.svg"
+    }
+  ]
+}

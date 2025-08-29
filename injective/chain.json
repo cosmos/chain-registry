@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://injective.com/",
   "pretty_name": "Injective",
+  "chain_type": "cosmos",
   "chain_id": "injective-1",
   "bech32_prefix": "inj",
   "extra_codecs": [
@@ -12,15 +13,18 @@
   ],
   "slip44": 60,
   "daemon_name": "injectived",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
   "node_home": "$HOME/.injectived",
   "fees": {
     "fee_tokens": [
       {
         "denom": "inj",
-        "fixed_min_gas_price": 500000000,
-        "low_gas_price": 500000000,
-        "average_gas_price": 700000000,
-        "high_gas_price": 900000000
+        "fixed_min_gas_price": 160000000,
+        "low_gas_price": 160000000,
+        "average_gas_price": 160000000,
+        "high_gas_price": 160000000
       }
     ]
   },
@@ -32,54 +36,23 @@
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/InjectiveLabs/injective-chain-releases",
-    "recommended_version": "v1.11.5-1687535916",
+    "git_repo": "https://github.com/InjectiveFoundation/injective-core/",
+    "recommended_version": "v1.13.2",
     "compatible_versions": [
-      "v1.11", 
-      "v1.11.3-1686246472",
-      "v1.11.4-1686608669",
-      "v1.11.5-1687535916"
+      "v1.13.2"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.11.5-1687535916/linux-amd64.zip"
+      "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.13.2-1723753267/linux-amd64.zip"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/InjectiveLabs/mainnet-config/master/10001/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v1.10",
-        "recommended_version": "v1.10",
-        "compatible_versions": [
-          "v1.10"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.10.0-1679065799/linux-amd64.zip",
-          "darwin/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.10.0-1679065799/darwin-amd64.zip"
-        },
-        "next_version_name": "v1.11"
-      },
-      {
-        "name": "v1.11",
-        "proposal": 231,
-        "height": 34775000,
-        "recommended_version": "v1.11.5-1687535916",
-        "compatible_versions": [
-          "v1.11", 
-          "v1.11.3-1686246472",
-          "v1.11.4-1686608669",
-          "v1.11.5-1687535916"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/InjectiveLabs/injective-chain-releases/releases/download/v1.11.5-1687535916/linux-amd64.zip"
-        }
-      }
-    ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg"
   },
+  "description": "Injective’s mission is to create a truly free and inclusive financial system through decentralization.",
   "peers": {
     "seeds": [
       {
@@ -120,7 +93,7 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "injective-mainnet-seed.autostake.com:26726",
-        "provider": "AutoStake.com"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
@@ -138,19 +111,14 @@
         "provider": "Golden Ratio Staking"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "injective-seed-1.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
-        "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "injective-seed-2.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "62ae24dfc6841ff1ab513522255c94914861df7c",
+        "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:14356",
-        "provider": "WhisperNode🤐"
+        "provider": "WhisperNode 🤐"
       },
       {
         "id": "858c86e2590f82934b8483ed184afd88416a7b31",
@@ -192,7 +160,7 @@
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "injective-mainnet-peer.autostake.com:26726",
-        "provider": "AutoStake.com"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "858c86e2590f82934b8483ed184afd88416a7b31",
@@ -204,11 +172,11 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://injective-rpc.quickapi.com:443",
-        "provider": "Chainlayer"
+        "address": "https://6d0ff611-9009-4bd1-a7a7-acec7c70d454.injective-1.mesa-rpc.newmetric.xyz",
+        "provider": "NewMetric"
       },
       {
-        "address": "https://rpc-injective.goldenratiostaking.net",
+        "address": "https://rpc.injective.goldenratiostaking.net",
         "provider": "Golden Ratio Staking"
       },
       {
@@ -216,7 +184,7 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://injective-rpc.lavenderfive.com:443",
+        "address": "https://rpc.lavenderfive.com:443/injective",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -224,42 +192,50 @@
         "provider": "Notional"
       },
       {
-        "address": "https://rpc-cached-injective.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
-      },
-      {
         "address": "https://injective-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake.com"
-      },
-      {
-        "address": "https://rpc.injective.posthuman.digital:443",
-        "provider": "POSTHUMAN ꝏ DVS"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://rpc-injective.whispernode.com:443",
-        "provider": "WhisperNode🤐"
-      },
-      {
-        "address": "https://rpc-injective.architectnodes.com",
-        "provider": "Architect Nodes"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://rpc-injective-01.stakeflow.io",
         "provider": "Stakeflow"
       },
       {
-        "address": "https://injective-rpc.publicnode.com",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "address": "https://injective-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
-        "address": "https://injective-rpc.w3coins.io",
-        "provider": "w3coins"
+        "address": "https://injective-rpc.highstakes.ch",
+        "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/injective/rpc",
+        "provider": "Stakewolle"
+      },
+      {
+        "address": "https://rpc.injective.bronbro.io/",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://injective-rpc.noders.services",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://rpc-injective.ecostake.com",
+        "provider": "ecostake"
+      },
+      {
+        "address": "https://rpc-injective.kewrnode.com",
+        "provider": "Kewr Node"
       }
     ],
     "rest": [
       {
-        "address": "https://injective-lcd.quickapi.com:443",
-        "provider": "Chainlayer"
+        "address": "https://6d0ff611-9009-4bd1-a7a7-acec7c70d454.injective-1.mesa-rest.newmetric.xyz",
+        "provider": "NewMetric"
       },
       {
         "address": "https://api-injective-ia.cosmosia.notional.ventures/",
@@ -270,53 +246,65 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://injective-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/injective",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://rest.injective.posthuman.digital:443",
-        "provider": "POSTHUMAN ꝏ DVS"
-      },
-      {
-        "address": "https://api-injective.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
-      },
-      {
-        "address": "https://injective-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake.com"
-      },
-      {
         "address": "https://lcd-injective.whispernode.com:443",
-        "provider": "WhisperNode🤐"
-      },
-      {
-        "address": "https://rest-injective.architectnodes.com",
-        "provider": "Architect Nodes"
+        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://api-injective-01.stakeflow.io",
         "provider": "Stakeflow"
       },
       {
-        "address": "https://rest-injective.goldenratiostaking.net",
+        "address": "https://rest.injective.goldenratiostaking.net",
         "provider": "Golden Ratio Staking"
       },
       {
         "address": "https://injective-rest.publicnode.com",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
-        "address": "https://injective-api.w3coins.io",
-        "provider": "w3coins"
+        "address": "injective-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://injective-api.highstakes.ch",
+        "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/injective/rest",
+        "provider": "Stakewolle"
+      },
+      {
+        "address": "https://lcd.injective.bronbro.io/",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "https://injective-api.noders.services",
+        "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://rest-injective.ecostake.com",
+        "provider": "ecostake"
+      },
+      {
+        "address": "https://rest-injective.kewrnode.com",
+        "provider": "Kewr Node"
       }
     ],
     "grpc": [
+      {
+        "address": "6d0ff611-9009-4bd1-a7a7-acec7c70d454.injective-1.mesa-grpc.newmetric.xyz:80",
+        "provider": "NewMetric"
+      },
       {
         "address": "grpc-injective-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
       },
       {
-        "address": "injective-grpc.lavenderfive.com:443",
+        "address": "injective.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
@@ -325,7 +313,7 @@
       },
       {
         "address": "injective-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake.com"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "grpc-injective.cosmos-spaces.cloud:9900",
@@ -345,15 +333,39 @@
       },
       {
         "address": "injective-grpc.publicnode.com:443",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "injective-grpc.w3coins.io:14390",
         "provider": "w3coins"
+      },
+      {
+        "address": "grpc-injective.whispernode.com:443",
+        "provider": "WhisperNode 🤐"
+      },
+      {
+        "address": "grpc.injective.bronbro.io:443",
+        "provider": "Bro_n_Bro"
+      },
+      {
+        "address": "injective-grpc.noders.services:33090",
+        "provider": "[NODERS]TEAM"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/injective",
+      "tx_page": "https://explorer.chainroot.io/injective/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/injective/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/injective",
+      "tx_page": "https://ezstaking.app/injective/txs/${txHash}",
+      "account_page": "https://ezstaking.app/injective/account/${accountAddress}"
+    },
     {
       "kind": "injectiveprotocol",
       "url": "https://explorer.injective.network/",
@@ -373,13 +385,37 @@
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/injective",
-      "tx_page": "https://www.mintscan.io/injective/${txHash}",
-      "account_page": "https://www.mintscan.io/injective/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/injective/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/injective/accounts/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/injective",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=injective&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=injective&addr=${accountAddress}"
     },
     {
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/injective",
       "account_page": "https://stakeflow.io/injective/accounts/${accountAddress}"
+    },
+    {
+      "kind": "WhisperNode 🤐",
+      "url": "https://mainnet.whispernode.com/injective",
+      "tx_page": "https://mainnet.whispernode.com/injective/tx/${txHash}",
+      "account_page": "https://mainnet.whispernode.com/injective/account/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://injective.valopers.com/",
+      "tx_page": "https://injective.valopers.com/transactions/${txHash}",
+      "account_page": "https://injective.valopers.com/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg"
     }
   ]
 }

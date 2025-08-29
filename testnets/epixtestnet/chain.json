@@ -1,0 +1,90 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "epixtestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://epix.zone/",
+  "pretty_name": "Epix Testnet",
+  "chain_type": "cosmos",
+  "chain_id": "epix_1917-1",
+  "bech32_prefix": "epix",
+  "daemon_name": "epixd",
+  "node_home": "$HOME/.epixd",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "aepix",
+        "low_gas_price": 20000000000,
+        "average_gas_price": 25000000000,
+        "high_gas_price": 40000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "aepix"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/EpixZone/Epix",
+    "recommended_version": "v12.0.0-rc4",
+    "compatible_versions": [
+      "v12.0.0-rc4"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/EpixZone/Epix/refs/heads/main/Networks/Testnet/epix_1917-0/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.testnet.epix.zone",
+        "provider": "Epix Testnet"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.testnet.epix.zone",
+        "provider": "Epix Testnet"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.testnet.epix.zone:443",
+        "provider": "Epix Testnet"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://evmrpc.testnet.epix.zone/",
+        "provider": "Epix Testnet"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Epix Explorer",
+      "url": "https://testnet.epix.zone/epix",
+      "tx_page": "https://testnet.epix.zone/epix/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/epix/images/epix.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/epix/images/epix.svg"
+    }
+  ]
+}

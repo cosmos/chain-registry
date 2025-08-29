@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://bluzelle.com/",
   "pretty_name": "Bluzelle",
+  "chain_type": "cosmos",
   "chain_id": "bluzelle-9",
   "bech32_prefix": "bluzelle",
   "daemon_name": "curiumd",
@@ -36,50 +37,38 @@
   },
   "codebase": {
     "git_repo": "https://github.com/bluzelle/bluzelle-public",
-    "recommended_version": "v9.0",
+    "recommended_version": "v10.0",
     "compatible_versions": [
-      "v9.0"
+      "v10.0"
     ],
-    "cosmos_sdk_version": "0.45.11",
     "consensus": {
-      "type": "tendermint",
+      "type": "cometbft",
       "version": "0.34.23"
     },
     "genesis": {
       "genesis_url": "https://a.client.sentry.net.bluzelle.com:26657/genesis"
     },
-    "versions": [
-       {
-        "name": "v2.0",
-        "recommended_version": "v2.0",
-        "compatible_versions": [
-          "v2.0"
-        ],
-        "cosmos_sdk_version": "0.44.3",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34.14"
-        }
-      },
-      {
-        "name": "v9.0",
-        "recommended_version": "v9.0",
-        "compatible_versions": [
-          "v9.0"
-        ],
-        "cosmos_sdk_version": "0.45.11",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34.23"
-        }
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.45.11"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v3.4.0"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bluzelle/images/bluzelle.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bluzelle/images/bluzelle.svg"
   },
   "peers": {
+    "seeds": [
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "58fb5ba6e285a4b785c597f9ed480ced7bd06329",
@@ -113,12 +102,8 @@
         "provider": "Bluzelle"
       },
       {
-        "address": "https://bluzelle-rpc.genznodes.dev",
-        "provider": "genznodes"
-      },
-      {
-        "address": "https://rpc-curium.nodine.id",
-        "provider": "Nodine.ID"
+        "address": "https://bluzelle_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "rest": [
@@ -139,12 +124,8 @@
         "provider": "genznodes"
       },
       {
-        "address": "https://api-bluzelle.nodeist.net",
-        "provider": "Nodeist"
-      },
-      {
-        "address": "https://api-curium.nodine.id",
-        "provider": "Nodine.ID"
+        "address": "https://bluzelle_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "grpc": [
@@ -161,7 +142,7 @@
         "provider": "Bluzelle"
       },
       {
-        "address": "bluzelle-grpc.genznodes.dev:29090",
+        "address": "bluzelle-grpc.genznodes.dev:34090",
         "provider": "genznodes"
       },
       {
@@ -192,6 +173,12 @@
       "kind": "Nodine.ID",
       "url": "https://explorer.co.id/bluzelle",
       "tx_page": "https://explorer.co.id/bluzelle/transaction/${txHash}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/bluzelle",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/bluzelle/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/bluzelle/account/${accountAddress}"
     }
   ],
   "keywords": [
@@ -199,5 +186,11 @@
     "game",
     "gamma4",
     "nft"
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bluzelle/images/bluzelle.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bluzelle/images/bluzelle.svg"
+    }
   ]
 }

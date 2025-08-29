@@ -5,6 +5,7 @@
   "network_type": "mainnet",
   "website": "https://lum.network/",
   "pretty_name": "Lum Network",
+  "chain_type": "cosmos",
   "chain_id": "lum-network-1",
   "bech32_prefix": "lum",
   "daemon_name": "lumd",
@@ -33,53 +34,33 @@
   },
   "codebase": {
     "git_repo": "https://github.com/lum-network/chain",
-    "recommended_version": "v1.4.5",
+    "recommended_version": "v1.6.7",
     "compatible_versions": [
-      "v1.4.5"
+      "v1.6.7"
     ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.5"
+    },
+    "binaries": {
+      "linux/amd64": "https://github.com/lum-network/chain/releases/download/v1.6.7/lumd_ubuntu-latest_amd64.zip",
+      "linux/arm64": "https://github.com/lum-network/chain/releases/download/v1.6.7/lumd_ubuntu-latest_arm64.zip",
+      "darwin/amd64": "https://github.com/lum-network/chain/releases/download/v1.6.7/lumd_macos-latest_amd64.zip",
+      "darwin/arm64": "https://github.com/lum-network/chain/releases/download/v1.6.7/lumd_macos-latest_arm64.zip",
+      "windows/amd64": "https://github.com/lum-network/chain/releases/download/v1.6.7/lumd_windows-latest_amd64.zip",
+      "windows/arm64": "https://github.com/lum-network/chain/releases/download/v1.6.7/lumd_windows-latest_arm64.zip"
+    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/lum-network/mainnet/master/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1.3.1",
-        "recommended_version": "v1.3.1",
-        "compatible_versions": [
-          "v1.3.1"
-        ],
-        "next_version_name": "v1.4.0"
-      },
-      {
-        "name": "v1.4.0",
-        "height": 7652000,
-        "proposal": 61,
-        "recommended_version": "v1.4.0",
-        "compatible_versions": [
-          "v1.4.0"
-        ],
-        "next_version_name": "v1.4.1"
-      },
-      {
-        "name": "v1.4.1",
-        "height": 7740000,
-        "proposal": 64,
-        "recommended_version": "v1.4.2",
-        "compatible_versions": [
-          "v1.4.1",
-          "v1.4.2"
-        ],
-        "next_version_name": "v1.4.5"
-      },
-      {
-        "name": "v1.4.5",
-        "height": 7950600,
-        "proposal": 71,
-        "recommended_version": "v1.4.5",
-        "compatible_versions": [
-          "v1.4.5"
-        ]
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.11"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.4.0"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lumnetwork/images/lum.png",
@@ -93,14 +74,29 @@
         "provider": "lum foundation"
       },
       {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "lum-mainnet-seed.autostake.com:27416",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "42d79514ca40e942004e94f90557644cf36e986a",
+        "address": "lum.seed.stavr.tech:31316",
+        "provider": "🔥STAVR🔥"
+      },
+      {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:16756",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "id": "0df233b1eb62504f96a856ce358014b2fb8ce91b",
-        "address": "lum-seed.panthea.eu:43656",
-        "provider": "Panthea EU"
+        "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
+        "address": "seeds.stakerhouse.com:10756",
+        "provider": "StakerHouse"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -108,6 +104,11 @@
         "id": "b47626b9d78ed7ed3c413304387026f907c70cbe",
         "address": "peer-0.mainnet.lum.network:26656",
         "provider": "lum foundation"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "lum-mainnet-peer.autostake.com:27416",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "fbaeeff89ec94a4f6c4a2a61e24af7d06b3be0c8",
@@ -118,67 +119,66 @@
         "id": "433c60a5bc0a693484b7af26208922b84773117e",
         "address": "34.209.132.0:26656",
         "provider": "cosmostation"
-      },
-      {
-        "id": "43216584c1e6b1056566a4825b15cdfbfc79d9e8",
-        "address": "lum-peer.panthea.eu:33656",
-        "provider": "Panthea EU"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://node0.mainnet.lum.network/rpc",
+        "address": "https://rpc.node0.mainnet.lum.network",
         "provider": "Lum Foundation"
       },
       {
-        "address": "https://lumnetwork-rpc.lavenderfive.com/",
+        "address": "https://lum.rpc.m.stavr.tech:443",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://rpc.lavenderfive.com:443/lumnetwork",
         "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://rpc.lum.bh.rocks",
-        "provider": "BlockHunters 🎯"
-      },
-      {
-        "address": "https://lum-rpc.ibs.team",
-        "provider": "Inter Blockchain Services"
       },
       {
         "address": "https://lum-rpc.stakerhouse.com",
         "provider": "StakerHouse"
+      },
+      {
+        "address": "https://lumnetwork_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "rest": [
       {
-        "address": "https://node0.mainnet.lum.network/rest",
+        "address": "https://rest.node0.mainnet.lum.network",
         "provider": "Lum Foundation"
       },
       {
-        "address": "https://lumnetwork-api.lavenderfive.com/",
+        "address": "https://rest.lavenderfive.com:443/lumnetwork",
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://api-lum.starsquid.io",
-        "provider": "Starsquid"
+        "address": "https://lum.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
       },
       {
-        "address": "https://api.lum.bh.rocks",
-        "provider": "BlockHunters 🎯"
-      },
-      {
-        "address": "https://lum-api.ibs.team",
-        "provider": "Inter Blockchain Services"
-      },
-      {
-        "address": "https://lum-api.stakerhouse.com",
+        "address": "https://lum-rest.stakerhouse.com",
         "provider": "StakerHouse"
+      },
+      {
+        "address": "https://lumnetwork_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ],
     "grpc": [
       {
-        "address": "lumnetwork-grpc.lavenderfive.com:443",
+        "address": "lumnetwork.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "lum.grpc.m.stavr.tech:2277",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "lum-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "lum-grpc.stakerhouse.com:443",
@@ -188,16 +188,33 @@
   },
   "explorers": [
     {
-      "kind": "EZ Staking Tools",
-      "url": "https://ezstaking.tools/lumnetwork",
-      "tx_page": "https://ezstaking.tools/lumnetwork/txs/${txHash}",
-      "account_page": "https://ezstaking.tools/lumnetwork/account/${accountAddress}"
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/lum",
+      "tx_page": "https://explorer.chainroot.io/lum/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/lum/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/lumnetwork",
+      "tx_page": "https://ezstaking.app/lumnetwork/txs/${txHash}",
+      "account_page": "https://ezstaking.app/lumnetwork/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/lum",
-      "tx_page": "https://www.mintscan.io/lum/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/lum/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/lum/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/lum/accounts/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/lumnetwork",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=lumnetwork&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=lumnetwork&addr=${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/LumNetwork-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/LumNetwork-Mainnet/tx/${txHash}"
     },
     {
       "kind": "lum-network",
@@ -214,6 +231,18 @@
       "url": "https://atomscan.com/lum-network",
       "tx_page": "https://atomscan.com/lum-network/transactions/${txHash}",
       "account_page": "https://atomscan.com/lum-network/accounts/${accountAddress}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/lum-network",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/lum-network/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/lum-network/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lumnetwork/images/lum.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lumnetwork/images/lum.svg"
     }
   ]
 }

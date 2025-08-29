@@ -5,6 +5,7 @@
   "website": "https://xpla.io",
   "network_type": "mainnet",
   "pretty_name": "XPLA",
+  "chain_type": "cosmos",
   "chain_id": "dimension_37-1",
   "bech32_prefix": "xpla",
   "daemon_name": "xplad",
@@ -17,7 +18,10 @@
     "fee_tokens": [
       {
         "denom": "axpla",
-        "fixed_min_gas_price": 850000000000
+        "fixed_min_gas_price": 280000000000,
+        "low_gas_price": 280000000000,
+        "average_gas_price": 280000000000,
+        "high_gas_price": 280000000000
       }
     ]
   },
@@ -30,22 +34,31 @@
   },
   "codebase": {
     "git_repo": "https://github.com/xpladev/xpla",
-    "recommended_version": "v1.2.1",
+    "recommended_version": "v1.7.1",
     "compatible_versions": [
-      "v1.2.1"
+      "v1.7.0",
+      "v1.7.1"
     ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.12"
+    },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/xpladev/mainnet/main/dimension_37-1/genesis.json"
     },
-    "versions": [
-      {
-        "name": "evm",
-        "recommended_version": "v1.2.1",
-        "compatible_versions": [
-          "v1.2.1"
-        ]
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/xpladev/cosmos-sdk",
+      "version": "v0.50.11",
+      "tag": "v0.50.11-xpla"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.4.0"
+    },
+    "cosmwasm": {
+      "version": "v0.53.2"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.png",
@@ -62,6 +75,21 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:20157",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "466c9c2e8b128389059bf4e7e68888fdde8cbebc",
+        "address": "xpla.seed.stavr.tech:2066",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:25156",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -104,6 +132,11 @@
         "id": "15d365ce8bfaff27ad4260e5db3fba480d334c39",
         "address": "52.28.248.241:26656",
         "provider": "Blockdaemon"
+      },
+      {
+        "id": "466c9c2e8b128389059bf4e7e68888fdde8cbebc",
+        "address": "xpla.seed.stavr.tech:2066",
+        "provider": "🔥STAVR🔥"
       }
     ]
   },
@@ -114,8 +147,20 @@
         "provider": "Holdings"
       },
       {
-        "address": "https://xpla-rpc.lavenderfive.com:443",
+        "address": "https://xpla.rpc.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://rpc.lavenderfive.com:443/xpla",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://xpla-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://xpla.rpc.m.stavr.tech:443",
+        "provider": "🔥STAVR🔥"
       }
     ],
     "rest": [
@@ -128,26 +173,53 @@
         "provider": "Holdings"
       },
       {
-        "address": "http://xpla.api.staking-explorer.com",
-        "provider": "xpla.staking-explorer.com"
+        "address": "https://xpla.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
       },
       {
-        "address": "https://xpla-api.lavenderfive.com:443",
+        "address": "https://rest.lavenderfive.com:443/xpla",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://xpla-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://xpla.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
       }
     ],
-    "grpc": [],
+    "grpc": [
+      {
+        "address": "xpla-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "xpla.grpc.m.stavr.tech:112",
+        "provider": "🔥STAVR🔥"
+      }
+    ],
     "evm-http-jsonrpc": [
       {
         "address": "https://dimension-evm-rpc.xpla.dev",
         "provider": "Holdings"
+      },
+      {
+        "address": "https://xpla-evm-rpc.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ]
   },
   "explorers": [
     {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/xpla",
+      "tx_page": "https://explorer.chainroot.io/xpla/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/xpla/accounts/${accountAddress}"
+    },
+    {
       "kind": "explorer.xpla",
-      "url": "https://explorer.xpla.io",
+      "url": "https://explorer.xpla.io/mainnet",
       "tx_page": "https://explorer.xpla.io/mainnet/tx/${txHash}"
     },
     {
@@ -156,9 +228,39 @@
       "tx_page": "https://finder.xpla.io/mainnet/tx/${txHash}"
     },
     {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Xpla-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Xpla-Mainnet/tx/${txHash}"
+    },
+    {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/xpla",
-      "tx_page": "https://www.mintscan.io/xpla/txs/${txHash}"
+      "tx_page": "https://www.mintscan.io/xpla/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/xpla/accounts/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/xpla",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=xpla&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=xpla&addr=${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/xpla",
+      "tx_page": "https://ezstaking.app/xpla/txs/${txHash}",
+      "account_page": "https://ezstaking.app/xpla/account/${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Xpla-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Xpla-Mainnet/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Xpla-Mainnet/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.svg"
     }
   ]
 }

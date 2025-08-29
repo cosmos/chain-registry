@@ -1,0 +1,237 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "mantrachain",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "MANTRA",
+  "chain_type": "cosmos",
+  "chain_id": "mantra-1",
+  "bech32_prefix": "mantra",
+  "daemon_name": "mantrachaind",
+  "node_home": "$HOME/.mantrachain",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uom",
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.01,
+        "high_gas_price": 0.03
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uom"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/MANTRA-Chain/mantrachain",
+    "recommended_version": "v3.0.1",
+    "compatible_versions": [
+      "v3.0.0",
+      "v3.0.1"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.17"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.12",
+      "repo": "https://github.com/MANTRA-Chain/cosmos-sdk",
+      "tag": "v0.50.12-v2-mantra-1"
+    },
+    "cosmwasm": {
+      "version": "v0.54.0",
+      "enabled": true
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.7.0"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/MANTRA-Chain/mantrachain/refs/heads/main/networks/mantra-1/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "32276da966637722914411e16ca91bd37dcd1c28",
+        "address": "35.220.157.87:26656"
+      },
+      {
+        "id": "9f5235b418c87af4302619705d0bf4748249ca6b",
+        "address": "34.18.33.96:26656"
+      },
+      {
+        "id": "b0acfd505bb4bc0c39d095663d310c253de18210",
+        "address": "34.130.121.222:26656"
+      },
+      {
+        "id": "f153213f0fe5d3cbe6e1f75d7ac0b4a27e70d31b",
+        "address": "seed-mantra.r93axnodes.cloud:13156"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "mantrachain-mainnet-seed.autostake.com:27536",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "id": "16ab08754dd0dc8b4d9202db16cb354ff618e3d9",
+        "address": "mantra-mainnet-seed.itrocket.net:22656",
+        "provider": "ITRocket"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "mantrachain-mainnet-peer.autostake.com:27536",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "5cb41a850a2d41a28ff908e0e984a2a8deb7498a",
+        "address": "mantra-mainnet-peer.itrocket.net:22656",
+        "provider": "ITRocket"
+      },
+      {
+        "id": "0e7fddfd9a398dbda4f7773a00ea377304a03527",
+        "address": "mantra-m.peer.stavr.tech:36056",
+        "provider": "🔥STAVR🔥"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.mantrachain.io",
+        "provider": "MANTRACHAIN"
+      },
+      {
+        "address": "https://rpc-mantra.r93axnodes.cloud:443",
+        "provider": "r93AX Nodes"
+      },
+      {
+        "address": "https://mantrachain-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://mantra-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://mantra-mainnet-rpc.itrocket.net:443",
+        "provider": "ITRocket"
+      },
+      {
+        "address": "https://mantra.rpc.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.mantrachain.io",
+        "provider": "MANTRACHAIN"
+      },
+      {
+        "address": "https://api-mantra.r93axnodes.cloud:443",
+        "provider": "r93AX Nodes"
+      },
+      {
+        "address": "https://mantrachain-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://mantra-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://mantra-mainnet-api.itrocket.net",
+        "provider": "ITRocket"
+      },
+      {
+        "address": "https://mantra.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.mantrachain.io",
+        "provider": "MANTRACHAIN"
+      },
+      {
+        "address": "grpc-mantra.r93axnodes.cloud:443",
+        "provider": "r93AX Nodes"
+      },
+      {
+        "address": "mantrachain-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "mantra-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "mantra-mainnet-grpc.itrocket.net:443",
+        "provider": "ITRocket"
+      },
+      {
+        "address": "mantra.grpc.m.stavr.tech:3601",
+        "provider": "🔥STAVR🔥"
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Prim-Col.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Prim-Col.svg"
+  },
+  "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/mantra",
+      "tx_page": "https://explorer.chainroot.io/mantra/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/mantra/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ITRocket",
+      "url": "https://mainnet.itrocket.net/mantra",
+      "tx_page": "https://mainnet.itrocket.net/mantra/transaction/${txHash}",
+      "account_page": "https://mainnet.itrocket.net/mantra/account/${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Mantra-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Mantra-Mainnet/transaction/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Mantra-Mainnet/account/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "rwa",
+    "wasm",
+    "staking"
+  ],
+  "images": [
+    {
+      "image_sync": {
+        "chain_name": "mantrachain",
+        "base_denom": "uom"
+      },
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Prim-Col.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Prim-Col.svg",
+      "theme": {
+        "circle": true
+      }
+    }
+  ]
+}

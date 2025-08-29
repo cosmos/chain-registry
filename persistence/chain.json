@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "persistence",
+  "chain_type": "cosmos",
   "chain_id": "core-1",
   "pretty_name": "Persistence",
   "status": "live",
@@ -32,37 +33,52 @@
       {
         "denom": "uxprt"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/persistenceOne/persistenceCore",
-    "recommended_version": "v7.0.0",
+    "recommended_version": "v12.0.0",
     "compatible_versions": [
-      "v7.0.0"
+      "v12.0.0"
     ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.15"
+    },
     "binaries": {
-      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v7.0.0/persistenceCore-v7.0.0-linux-amd64.tar.gz"
+      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v12.0.0/persistenceCore-v12.0.0-linux-amd64.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/persistenceOne/genesisTransactions/master/core-1/final_genesis.json"
     },
-    "versions": [
-      {
-        "name": "v7.0.0",
-        "recommended_version": "v7.0.0",
-        "compatible_versions": [
-          "v7.0.0"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v7.0.0/persistenceCore-v7.0.0-linux-amd64.tar.gz"
-        }
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/persistenceOne/cosmos-sdk",
+      "version": "v0.47.14",
+      "tag": "v0.47.14-lsm"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.10.0",
+      "ics_enabled": [
+        "ics20-1",
+        "ics27-1"
+      ]
+    },
+    "cosmwasm": {
+      "version": "v0.46.0",
+      "path": "$HOME/.persistenceCore/wasm",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.svg"
   },
+  "description": "Persistence is an app chain for Liquid Staking powering an ecosystem of DeFi applications focused on unlocking the liquidity of staked assets.",
   "peers": {
     "seeds": [
       {
@@ -80,19 +96,29 @@
         "provider": "Polkachu"
       },
       {
-        "id": "e1b058e5cfa2b836ddaa496b10911da62dcf182e",
-        "address": "persistence-seed-1.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
+        "address": "seed.publicnode.com:26656",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
-        "id": "e726816f42831689eab9378d5d577f1d06d25716",
-        "address": "persistence-seed-2.allnodes.me:26656",
-        "provider": "Allnodes.com ⚡️ Nodes & Staking"
+        "id": "ab7fc0b9b3c523dacec0500c9f9f1f7f4699d551",
+        "address": "persis-m.seed.stavr.tech:4056",
+        "provider": "🔥STAVR🔥"
       },
       {
         "id": "ce9dc9467af943bf35f17f04cfcdf3895914d867",
         "address": "seed-persistence-01.stakeflow.io:33656",
         "provider": "Stakeflow"
+      },
+      {
+        "id": "ba6ca269cfcf412c175dd6259c1ae15ee5370b08",
+        "address": "seed.persistence.validatus.com:3000",
+        "provider": "Validatus"
+      },
+      {
+        "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
+        "address": "seeds.bluestake.net:28556",
+        "provider": "BlueStake 🚀"
       }
     ],
     "persistent_peers": [
@@ -120,6 +146,11 @@
         "id": "ce9dc9467af943bf35f17f04cfcdf3895914d867",
         "address": "peer-persistence-01.stakeflow.io:33656",
         "provider": "Stakeflow"
+      },
+      {
+        "id": "aba2148170161c274d2d786bffbe6a692c535dfe",
+        "address": "65.108.195.213:53656",
+        "provider": "StakeTown"
       }
     ]
   },
@@ -134,6 +165,10 @@
         "provider": "Notional"
       },
       {
+        "address": "https://persistence.rpc.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      },
+      {
         "address": "https://persistence-rpc.polkachu.com",
         "provider": "Polkachu"
       },
@@ -146,11 +181,15 @@
         "provider": "Architect Nodes"
       },
       {
+        "address": "https://rpc-persistence.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "https://persistence-mainnet-rpc.cosmonautstakes.com",
         "provider": "Cosmonaut Stakes"
       },
       {
-        "address": "https://persistence-rpc.quantnode.tech",
+        "address": "https://persistence.rpc.quantnode.xyz",
         "provider": "QuantNode"
       },
       {
@@ -170,16 +209,36 @@
         "provider": "POSTHUMAN∞DVS"
       },
       {
-        "address": "http://141.95.33.97:21657/websocket",
-        "provider": "Stakewolle.com | Auto-compound"
-      },
-      {
         "address": "https://rpc-persistence-01.stakeflow.io",
         "provider": "Stakeflow"
       },
       {
-        "address": "https://persistence-rpc.w3coins.io",
-        "provider": "w3coins"
+        "address": "https://persistence-rpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://persistence-rpc.highstakes.ch",
+        "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://persistence-rpc.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
+      },
+      {
+        "address": "https://rpc.persistence.validatus.com",
+        "provider": "Validatus"
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/persistence/rpc",
+        "provider": "Stakewolle"
+      },
+      {
+        "address": "https://xprt-rpc.antrixy.org/",
+        "provider": "Antrix Validators"
+      },
+      {
+        "address": "https://persistence-rpc.stake-town.com",
+        "provider": "StakeTown"
       }
     ],
     "rest": [
@@ -192,12 +251,16 @@
         "provider": "Notional"
       },
       {
-        "address": "https://api-persistence.starsquid.io",
-        "provider": "Starsquid"
+        "address": "https://persistence.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "https://persistence-api.polkachu.com",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://api-persistence.cosmos-spaces.cloud",
+        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://persistence-api.kleomedes.network",
@@ -216,7 +279,7 @@
         "provider": "Cosmonaut Stakes"
       },
       {
-        "address": "https://persistence-lcd.quantnode.tech",
+        "address": "https://persistence.lcd.quantnode.xyz",
         "provider": "QuantNode"
       },
       {
@@ -232,16 +295,36 @@
         "provider": "POSTHUMAN∞DVS"
       },
       {
-        "address": "http://141.95.33.97:1317",
-        "provider": "Stakewolle.com | Auto-compound"
-      },
-      {
         "address": "https://api-persistence-01.stakeflow.io",
         "provider": "Stakeflow"
       },
       {
-        "address": "https://persistence-api.w3coins.io",
-        "provider": "w3coins"
+        "address": "https://persistence-rest.publicnode.com",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "https://persistence-api.highstakes.ch",
+        "provider": "High Stakes 🇨🇭"
+      },
+      {
+        "address": "https://persistence-api.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
+      },
+      {
+        "address": "https://api.persistence.validatus.com",
+        "provider": "Validatus"
+      },
+      {
+        "address": "https://public.stakewolle.com/cosmos/persistence/rest",
+        "provider": "Stakewolle"
+      },
+      {
+        "address": "https://xprt-rest.antrixy.org/",
+        "provider": "Antrix Validators"
+      },
+      {
+        "address": "https://persistence-api.stake-town.com",
+        "provider": "StakeTown"
       }
     ],
     "grpc": [
@@ -252,6 +335,10 @@
       {
         "address": "grpc-persistent-ia.cosmosia.notional.ventures:443",
         "provider": "Notional"
+      },
+      {
+        "address": "persistence.grpc.m.stavr.tech:410",
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "persistence-grpc.polkachu.com:15490",
@@ -266,6 +353,10 @@
         "provider": "POSTHUMAN∞DVS"
       },
       {
+        "address": "grpc-persistence.cosmos-spaces.cloud:1180",
+        "provider": "Cosmos Spaces"
+      },
+      {
         "address": "141.95.33.97:9090",
         "provider": "Stakewolle.com | Auto-compound"
       },
@@ -276,20 +367,67 @@
       {
         "address": "persistence-grpc.w3coins.io:15490",
         "provider": "w3coins"
+      },
+      {
+        "address": "persistence-grpc.publicnode.com:443",
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "persistence-grpc.stakeandrelax.net:15490",
+        "provider": "Stake&Relax 🦥"
+      },
+      {
+        "address": "grpc.persistence.validatus.com",
+        "provider": "Validatus"
+      },
+      {
+        "address": "https://xprt-grpc.antrixy.org/",
+        "provider": "Antrix Validators"
+      },
+      {
+        "address": "persistence-grpc.stake-town.com:443",
+        "provider": "StakeTown"
+      },
+      {
+        "address": "persistence.grpc.quantnode.xyz:22990",
+        "provider": "QuantNode"
       }
     ]
   },
   "explorers": [
     {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/persistence",
+      "tx_page": "https://explorer.chainroot.io/persistence/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/persistence/accounts/${accountAddress}"
+    },
+    {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/persistence",
-      "tx_page": "https://www.mintscan.io/persistence/txs/${txHash}",
-      "account_page": "https://www.mintscan.io/persistence/account/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/persistence/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/persistence/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ezstaking",
+      "url": "https://ezstaking.app/persistence",
+      "tx_page": "https://ezstaking.app/persistence/txs/${txHash}",
+      "account_page": "https://ezstaking.app/persistence/account/${accountAddress}"
     },
     {
       "kind": "ping.pub",
       "url": "https://ping.pub/persistence",
       "tx_page": "https://ping.pub/persistence/tx/${txHash}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Persistence-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Persistence-Mainnet/tx/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/persistence",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=persistence&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=persistence&addr=${accountAddress}"
     },
     {
       "kind": "atomscan",
@@ -298,15 +436,21 @@
       "account_page": "https://atomscan.com/persistence/accounts/${accountAddress}"
     },
     {
-      "kind": "bigdipper",
-      "url": "https://bigdipper.live/persistence",
-      "tx_page": "https://bigdipper.live/persistence/transactions/${txHash}",
-      "account_page": "https://bigdipper.live/persistence/accounts/${accountAddress}"
-    },
-    {
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/persistence",
       "account_page": "https://stakeflow.io/persistence/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://persistence.valopers.com/",
+      "tx_page": "https://persistence.valopers.com/transactions/${txHash}",
+      "account_page": "https://persistence.valopers.com/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.svg"
     }
   ]
 }
