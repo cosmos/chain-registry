@@ -1,1 +1,122 @@
-
+{
+  "$schema": "../../assetlist.schema.json",
+  "chain_name": "bitrock",
+  "assets": [
+    {
+      "description": "Bitrock (BROCK) is the native currency of the Bitrock chain.",
+      "extended_description": "Bitrock is an Ethereum sidechain with IBFT 2.0 PoA consensus, offering near-zero gas fees, 1-second block times, and high scalability. It supports EVM-compatible dApps and includes tools like Rockswap DEX and cross-chain bridges.",
+      "type_asset": "evm-base",
+      "denom_units": [
+        {
+          "denom": "wei",
+          "exponent": 0
+        },
+        {
+          "denom": "brock",
+          "exponent": 18
+        }
+      ],
+      "base": "wei",
+      "display": "brock",
+      "name": "Bitrock",
+      "symbol": "BROCK",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xde67d97b8770dc98c746a3fc0093c538666eb493"
+          },
+          "provider": "Bitrock Bridge"
+        }
+      ],
+      "coingecko_id": "bitrock",
+      "logo_URIs": {
+        "png": "https://assets.coingecko.com/coins/images/31099/standard/BITROCK_200x200.png?1696529833"
+      },
+      "images": [
+        {
+          "png": "https://assets.coingecko.com/coins/images/31099/standard/BITROCK_200x200.png?1696529833"
+        }
+      ]
+    },
+    {
+      "description": "WBROCK is 'wrapped BROCK'",
+      "type_asset": "erc20",
+      "address": "0x4168a3152c2fff6a34f71e93e7804336d4c82d5",
+      "denom_units": [
+        {
+          "denom": "0x4168a3152c2fff6a34f71e93e7804336d4c82d5",
+          "exponent": 0
+        },
+        {
+          "denom": "wbrock",
+          "exponent": 18
+        }
+      ],
+      "base": "0x4168a3152c2fff6a34f71e93e7804336d4c82d5",
+      "display": "wbrock",
+      "name": "Wrapped Bitrock",
+      "symbol": "WBROCK",
+      "traces": [
+        {
+          "type": "wrapped",
+          "counterparty": {
+            "chain_name": "bitrock",
+            "base_denom": "wei"
+          },
+          "provider": "Bitrock"
+        }
+      ],
+      "coingecko_id": "wrapped-bitrock",
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "bitrock",
+            "base_denom": "wei"
+          },
+          "png": "https://assets.coingecko.com/coins/images/31099/standard/BITROCK_200x200.png?1696529833"
+        }
+      ]
+    },
+    {
+      "description": "USDBrock is the stablecoin on Bitrock, bridged 1:1 from USDT on Ethereum.",
+      "type_asset": "erc20",
+      "address": "0xd647a6e1f898c39ba594443c19de0872ea935310",
+      "denom_units": [
+        {
+          "denom": "0xd647a6e1f898c39ba594443c19de0872ea935310",
+          "exponent": 0
+        },
+        {
+          "denom": "usdb",
+          "exponent": 6
+        }
+      ],
+      "base": "0xd647a6e1f898c39ba594443c19de0872ea935310",
+      "name": "USDBrock",
+      "display": "usdb",
+      "symbol": "USDB",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+          },
+          "provider": "Bitrock Bridge"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png"
+        }
+      ]
+    }
+  ]
+}
