@@ -868,10 +868,10 @@
       }
     },
     {
-    "description": "Quark ($QUARK) is the first permissionless CosmWasm token launched on the Cosmos Hub.",
+    "description": "Quark ($QUARK) is an Osmosis token launched on the Cosmos Hub.",
     "denom_units": [
       {
-        "denom": "factory/cosmos1n6asrjy9754q8y9jsxqf557zmsv3s3xa5m9eg5/quark",
+        "denom": "ibc/7B6EBFC446E50DFF981C994E207BFB398889706C2B0DF8A14D8B87F6C0E33A1A",
         "exponent": 0
       },
       {
@@ -880,15 +880,32 @@
       }
     ],
     "type_asset": "sdk.coin",
-    "base": "factory/cosmos1n6asrjy9754q8y9jsxqf557zmsv3s3xa5m9eg5/quark",
+    "base": "ibc/7B6EBFC446E50DFF981C994E207BFB398889706C2B0DF8A14D8B87F6C0E33A1A",
     "name": "Quark",
     "display": "quark",
     "symbol": "QUARK",
+    "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "factory/osmo1x7s7a2erqspkm6e79n7yh7fw3yh7xx4lt54mxg/uquark",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "channel-141",
+            "path": "transfer/channel-141/factory/osmo1x7s7a2erqspkm6e79n7yh7fw3yh7xx4lt54mxg/uquark"
+          }
+        }
+      ]
     "logo_URIs": {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/quark.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/quark.svg"
     },
-    "keywords": ["memecoin"]
+    "keywords": ["memecoin"],
+    "socials": {
+        "twitter": "https://x.com/quark_on_cosmos"
+      }
     }
   ]
 }
