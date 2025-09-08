@@ -9,9 +9,7 @@
   "bech32_prefix": "elys",
   "daemon_name": "elysd",
   "node_home": "$HOME/.elys",
-  "key_algos": [
-    "secp256k1"
-  ],
+  "key_algos": ["secp256k1"],
   "slip44": 118,
   "staking": {
     "staking_tokens": [
@@ -45,15 +43,20 @@
         "low_gas_price": 0.01,
         "average_gas_price": 0.025,
         "high_gas_price": 0.03
+      },
+      {
+        "denom": "ibc/8464A63954C0350A26C8588E20719F3A0AC8705E4CA0F7450B60C3F16B2D3421",
+        "fixed_min_gas_price": 11395000000,
+        "low_gas_price": 11395000000,
+        "average_gas_price": 21395000000,
+        "high_gas_price": 31395000000
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/elys-network/elys",
     "recommended_version": "v1.4.0",
-    "compatible_versions": [
-      "v1.4.0"
-    ],
+    "compatible_versions": ["v1.4.0"],
     "consensus": {
       "type": "cometbft",
       "version": "0.38.12"
@@ -263,11 +266,7 @@
         "provider": "Node39"
       },
       {
-        "address": "https://elys.rpc.mtl.vnodesv.net:443",
-        "provider": "vNodes[V] Ser[V]ices"
-      },
-      {
-        "address": "https://elys.rpc.fr.vnodesv.net:443",
+        "address": "https://rpc.elys.srvs.vnodesv.net",
         "provider": "vNodes[V] Ser[V]ices"
       },
       {
@@ -353,13 +352,9 @@
         "provider": "Node39"
       },
       {
-        "address": "https://elys.rest.mtl.vnodesv.net:443",
+        "address": "https://rest.elys.srvs.vnodesv.net:443",
         "provider": "vNodes[V] Ser[V]ices"
       },
-      {
-        "address": "https://elys.rest.fr.vnodesv.net:443",
-        "provider": "vNodes[V] Ser[V]ices"
-      },      
       {
         "address": "https://elys-api.kleomedes.network/",
         "provider": "Kleomedes"
@@ -373,10 +368,6 @@
       {
         "address": "elys-grpc.polkachu.com:22090",
         "provider": "Polkachu"
-      },
-      {
-        "address": "elys-testnet-grpc.itrocket.net:38090",
-        "provider": "itrocket"
       },
       {
         "address": "elys-grpc.publicnode.com:443",
@@ -431,12 +422,18 @@
         "provider": "Pro-Nodes75"
       },
       {
-        "address": "https://elys.grpc.fr.vnodesv.net:443",
+        "address": "https://grpc.elys.srvs.vnodesv.net:443",
         "provider": "vNodes[V] Ser[V]ices"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/elys",
+      "tx_page": "https://explorer.chainroot.io/elys/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/elys/accounts/${accountAddress}"
+    },
     {
       "kind": "NodeStake",
       "url": "https://explorer.nodestake.org/elys",
@@ -489,7 +486,7 @@
       "kind": "Stake-Hub by Kleomedes",
       "url": "https://www.stake-hub.xyz/elys"
     },
-        {
+    {
       "kind": "ElysScan by Kwak",
       "url": "https://elysscan.io",
       "tx_page": "https://elysscan.io/tx/${txHash}",
