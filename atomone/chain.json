@@ -17,6 +17,13 @@
   "fees": {
     "fee_tokens": [
       {
+        "denom": "uphoton",
+        "fixed_min_gas_price": 0.225,
+        "low_gas_price": 0.225,
+        "average_gas_price": 0.3,
+        "high_gas_price": 0.5
+      },
+      {
         "denom": "uatone",
         "fixed_min_gas_price": 0.025,
         "low_gas_price": 0.025,
@@ -34,17 +41,17 @@
   },
   "codebase": {
     "git_repo": "https://github.com/atomone-hub/atomone",
-    "recommended_version": "v1.1.2",
+    "recommended_version": "v2.0.0",
     "compatible_versions": [
-      "v1.1.2"
+      "v2.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.1.2/atomoned-v1.1.2-linux-amd64",
-      "linux/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.1.2/atomoned-v1.1.2-linux-arm64",
-      "darwin/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.1.2/atomoned-v1.1.2-darwin-amd64",
-      "darwin/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.1.2/atomoned-v1.1.2-darwin-arm64",
-      "windows/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.1.2/atomoned-v1.1.2-windows-amd64.exe",
-      "windows/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.1.2/atomoned-v1.1.2-windows-arm64.exe"
+      "linux/amd64": "https://github.com/atomone-hub/atomone/releases/download/v2.0.0/atomoned-v2.0.0-linux-amd64",
+      "linux/arm64": "https://github.com/atomone-hub/atomone/releases/download/v2.0.0/atomoned-v2.0.0-linux-arm64",
+      "darwin/amd64": "https://github.com/atomone-hub/atomone/releases/download/v2.0.0/atomoned-v2.0.0-darwin-amd64",
+      "darwin/arm64": "https://github.com/atomone-hub/atomone/releases/download/v2.0.0/atomoned-v2.0.0-darwin-arm64",
+      "windows/amd64": "https://github.com/atomone-hub/atomone/releases/download/v2.0.0/atomoned-v2.0.0-windows-amd64.exe",
+      "windows/arm64": "https://github.com/atomone-hub/atomone/releases/download/v2.0.0/atomoned-v2.0.0-windows-arm64.exe"
     },
     "genesis": {
       "genesis_url": "https://atomone.fra1.digitaloceanspaces.com/atomone-1/genesis.json"
@@ -55,7 +62,7 @@
     },
     "sdk": {
       "type": "cosmos",
-      "version": "v0.47.13"
+      "version": "v0.47.17"
     }
   },
   "logo_URIs": {
@@ -99,6 +106,11 @@
         "id": "08bc9afd0cac4ae6cf8f1877920b0cc7e58a6f42",
         "address": "seeds.tendermint.roomit.xyz:40011",
         "provider": "Roomit"
+      },
+      {
+        "id": "92e80e4f4d1103a7bcfe7258fb3a4cdf585def2d",
+        "address": "seed-m-atomone.ruangnode.com:12656",
+        "provider": "ruangnode"
       }
     ],
     "persistent_peers": [
@@ -135,6 +147,11 @@
         "id": "5afef6e45590e9509a982b6d2a160fde8893dbec",
         "address": "p2p.tendermint.roomit.xyz:16611",
         "provider": "Roomit"
+      },
+      {
+        "id": "9dac79c27e4dba77cb22b0b25933fee6c8121cf7", 
+        "address": "peer-m-atomone.ruangnode.com:12656",
+        "provider": "ruangnode"
       }
     ]
   },
@@ -223,7 +240,15 @@
       {
         "address": "https://atomone-mainnet-rpc.shazoes.xyz",
         "provider": "Shazoes"
-      }
+      },
+      {
+        "address": "https://rpc-atomone.22node.xyz",
+        "provider": "22node"
+      },
+      {
+        "address": "https://m-atomone-rpc.ruangnode.com:443",
+        "provider": "ruangnode"
+      } 
     ],
     "rest": [
       {
@@ -309,6 +334,14 @@
       {
         "address": "https://atomone-mainnet-api.shazoes.xyz",
         "provider": "Shazoes"
+      },
+      {
+        "address": "https://rest-atomone.22node.xyz",
+        "provider": "22node"
+      },
+      {
+        "address": "https://m-atomone-api.ruangnode.com:443",
+        "provider": "ruangnode"
       }
     ],
     "grpc": [
@@ -350,7 +383,7 @@
       },
       {
         "address": "atomone-mainnet-grpc.itrocket.net:443",
-        "provider": "ITRocket"
+        "provider": "ITRocket"    
       },
       {
         "address": "grpc.atomone.roomit.xyz:8443",
@@ -367,7 +400,15 @@
       {
         "address": "atomone-mainnet-grpc.shazoes.xyz:12090",
         "provider": "Shazoes"
-      }
+      },
+      {
+        "address": "grpc-atomone.22node.xyz",
+        "provider": "Shazoes"
+      },
+      {
+        "address": "m-atomone-grpc.ruangnode.com:12090",
+        "provider": "ruangnode"
+      } 
     ]
   },
   "explorers": [
@@ -436,7 +477,19 @@
       "url": "https://explorer.bonynode.online/atomone",
       "tx_page": "https://explorer.bonynode.online/atomone/transactions/${txHash}",
       "account_page": "https://explorer.bonynode.online/atomone/account/${accountAddress}"
-    }      
+    },
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/atomone",
+      "tx_page": "https://explorer.chainroot.io/atomone/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/atomone/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Ruangnode Explorer",
+      "url": "https://explorer.ruangnode.com/atomone",
+      "tx_page": "https://explorer.ruangnode.com/atomone/tx/${txHash}",
+      "account_page": "https://explorer.ruangnode.com/atomone/account/${accountAddress}"
+    }     
   ],
   "images": [
     {

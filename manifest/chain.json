@@ -15,10 +15,10 @@
     "fee_tokens": [
       {
         "denom": "umfx",
-        "fixed_min_gas_price": 0.05,
-        "low_gas_price": 0.5,
-        "average_gas_price": 1.0,
-        "high_gas_price": 5.0
+        "fixed_min_gas_price": 1.0,
+        "low_gas_price": 1.05,
+        "average_gas_price": 1.1,
+        "high_gas_price": 3.0
       }
     ]
   },
@@ -31,10 +31,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/liftedinit/manifest-ledger",
-    "recommended_version": "v1.0.3",
-    "compatible_versions": ["v1.0.3"],
+    "recommended_version": "v1.0.5",
+    "compatible_versions": [
+      "v1.0.3",
+      "v1.0.5"
+    ],
     "binaries": {
-      "linux/amd64": "https://github.com/liftedinit/manifest-ledger/releases/download/v1.0.3/manifest-ledger-v1.0.3-linux-amd64.tar.gz"
+      "linux/amd64": "https://github.com/liftedinit/manifest-ledger/releases/download/v1.0.5/manifest-ledger-v1.0.5-linux-amd64.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://nodes.liftedinit.app/manifest/rpc/genesis?"
@@ -71,8 +74,9 @@
   "explorers": [
     {
       "kind": "Default Explorer",
-      "url": "https://manifest.explorers.guru/",
-      "tx_page": "https://manifest.explorers.guru/transactions"
+      "url": "https://explorer.manifest.network/",
+      "tx_page": "https://explorer.manifest.network/transaction/${txHash}",
+      "account_page": "https://explorer.manifest.network/account/${accountAddress}"
     }
   ],
   "logo_URIs": {
@@ -85,10 +89,7 @@
         "chain_name": "manifest"
       },
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg",
-      "theme": {
-        "primary_color_hex": "#A087FF"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
     }
   ]
 }
