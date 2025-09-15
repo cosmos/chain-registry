@@ -34,21 +34,20 @@
   },
   "codebase": {
     "git_repo": "https://github.com/sedaprotocol/seda-chain",
-    "recommended_version": "v0.1.9",
+    "recommended_version": "v1.0.0",
     "compatible_versions": [
-      "v0.1.8-hotfix.3",
-      "v0.1.9"
+      "v1.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/sedaprotocol/seda-chain/releases/download/v0.1.9/sedad-amd64",
-      "linux/arm64": "https://github.com/sedaprotocol/seda-chain/releases/download/v0.1.9/sedad-arm64"
+      "linux/amd64": "https://github.com/sedaprotocol/seda-chain/releases/download/v1.0.0/sedad-amd64",
+      "linux/arm64": "https://github.com/sedaprotocol/seda-chain/releases/download/v1.0.0/sedad-arm64"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/sedaprotocol/seda-networks/main/mainnet/genesis.json"
     },
     "language": {
       "type": "go",
-      "version": "1.22.11"
+      "version": "1.23.5"
     },
     "consensus": {
       "type": "cometbft",
@@ -56,16 +55,16 @@
     },
     "sdk": {
       "type": "cosmos",
-      "version": "v0.50.12"
+      "version": "v0.50.14"
     },
     "cosmwasm": {
-      "version": "0.50.0",
+      "version": "v0.53.3",
       "repo": "https://github.com/CosmWasm/wasmd",
       "enabled": true
     },
     "ibc": {
       "type": "go",
-      "version": "v8.6.1"
+      "version": "v8.7.0"
     }
   },
   "logo_URIs": {
@@ -122,7 +121,7 @@
       {
         "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
         "address": "seed.rhinostake.com:25856",
-        "provider": "RHINO \ud83e\udd8f"
+        "provider": "RHINO 🦏"
       }
     ],
     "persistent_peers": [
@@ -206,11 +205,23 @@
       },
       {
         "address": "https://seda-rpc.cosmos-apis.com:443",
-        "provider": "RHINO \ud83e\udd8f"
+        "provider": "RHINO 🦏"
       },
       {
-        "address": "https://seda-mainnet-rpc.shazoe.xyz",
-        "provider": "Shazoe"
+        "address": "https://seda-mainnet-rpc.shazoes.xyz",
+        "provider": "Shazoes"
+      },
+      {
+        "address": "https://seda.rpc.cumulo.org.es",
+        "provider": "Cumulo"
+      },
+      {
+        "address": "https://rpc.seda.tcnetwork.io",
+        "provider": "TC Network"
+      },
+      {
+        "address": "https://seda-rpc.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
       }
     ],
     "rest": [
@@ -276,11 +287,23 @@
       },
       {
         "address": "https://seda-rest.cosmos-apis.com:443",
-        "provider": "RHINO \ud83e\udd8f"
+        "provider": "RHINO 🦏"
       },
       {
-        "address": "https://seda-mainnet-api.shazoe.xyz",
-        "provider": "Shazoe"
+        "address": "https://seda-mainnet-api.shazoes.xyz",
+        "provider": "Shazoes"
+      },
+      {
+        "address": "https://seda.api.cumulo.org.es",
+        "provider": "Cumulo"
+      },
+      {
+        "address": "https://rest.seda.tcnetwork.io",
+        "provider": "TC Network"
+      },
+      {
+        "address": "https://seda-api.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
       }
     ],
     "grpc": [
@@ -318,15 +341,34 @@
       },
       {
         "address": "seda-grpc.cosmos-apis.com:443",
-        "provider": "RHINO \ud83e\udd8f"
+        "provider": "RHINO 🦏"
       },
       {
-        "address": "seda-mainnet-grpc.shazoe.xyz:6090",
-        "provider": "Shazoe"
+        "address": "seda-mainnet-grpc.shazoes.xyz:6090",
+        "provider": "Shazoes"
+      },
+      {
+        "address": "seda.grpc.cumulo.org.es:443",
+        "provider": "Cumulo"
+      },
+      {
+        "address": "http://seda-grpc.stakeandrelax.net:25890",
+        "provider": "Stake&Relax 🦥"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "TC Network",
+      "url": "https://explorer.tcnetwork.io/seda",
+      "tx_page": "https://explorer.tcnetwork.io/seda/transaction/${txHash}"
+    },
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/seda",
+      "tx_page": "https://explorer.chainroot.io/seda/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/seda/accounts/${accountAddress}"
+    },
     {
       "kind": "sedaexplorer",
       "url": "https://explorer.seda.xyz/",
@@ -368,15 +410,18 @@
       "url": "https://explorer.node39.top/Seda",
       "tx_page": "https://explorer.node39.top/Seda/tx/${txHash}",
       "account_page": "https://explorer.node39.top/Seda/account/${accountAddress}"
+    },
+    {
+      "kind": "Stake&Relax 🦥 explorer",
+      "url": "https://explorer.stakeandrelax.net/seda",
+      "tx_page": "https://explorer.stakeandrelax.net/seda/tx/${txHash}",
+      "account_page": "https://explorer.stakeandrelax.net/seda/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/seda/images/seda.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/seda/images/seda.svg",
-      "theme": {
-        "primary_color_hex": "#8178d1"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/seda/images/seda.svg"
     }
   ]
 }
