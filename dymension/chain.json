@@ -11,6 +11,9 @@
   "slip44": 60,
   "node_home": "$HOME/.dymension",
   "daemon_name": "dymd",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
   "fees": {
     "fee_tokens": [
       {
@@ -37,10 +40,7 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.svg",
-      "theme": {
-        "primary_color_hex": "#f4e4d4"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.svg"
     }
   ],
   "codebase": {
@@ -530,6 +530,12 @@
   },
   "explorers": [
     {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/dymension",
+      "tx_page": "https://explorer.chainroot.io/dymension/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/dymension/accounts/${accountAddress}"
+    },
+    {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/dymension",
       "tx_page": "https://www.mintscan.io/dymension/tx/${txHash}",
@@ -600,6 +606,12 @@
       "url": "https://explorer.mainnet.dteam.tech/dymension",
       "tx_page": "https://explorer.mainnet.dteam.tech/dymension/tx/${txHash}",
       "account_page": "https://explorer.mainnet.dteam.tech/dymension/account/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://dymension.valopers.com/",
+      "tx_page": "https://dymension.valopers.com/transactions/${txHash}",
+      "account_page": "https://dymension.valopers.com/account/${accountAddress}"
     }
   ]
 }

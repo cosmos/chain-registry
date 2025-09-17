@@ -16,7 +16,7 @@ Once schemas have matured and client needs are better understood Chain Registry 
 
 ## Web Endpoints
 - https://registry.ping.pub (Update every 24H)
-- https://proxy.atomscan.com/directory/ (Update every 24H)
+- https://atomscan.com/directory (Update every 24H)
 - https://cosmoschains.thesilverfox.pro (Updated every 24H)
 
 ## APIs
@@ -26,7 +26,6 @@ Once schemas have matured and client needs are better understood Chain Registry 
 
 ## Web Interfaces
 - https://cosmos.directory
-- https://chain-registry.netlify.com
 - https://atomscan.com/directory
 
 ## Tooling

@@ -1,0 +1,127 @@
+{
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "bitway",
+  "assets": [
+    {
+      "description": "The native token of Bitway.",
+      "denom_units": [
+        {
+          "denom": "ubtw",
+          "exponent": 0
+        },
+        {
+          "denom": "btw",
+          "exponent": 6
+        }
+      ],
+      "base": "ubtw",
+      "name": "Bitway native token",
+      "display": "btw",
+      "symbol": "BTW",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.svg"
+        }
+      ],
+      "socials": {
+        "website": "https://bitway.com",
+        "twitter": "https://x.com/BitwayOfficial"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "BTC-pegged token on Bitway.",
+      "extended_description": "BTCT is the native token of the Bitway, fully pegged 1:1 to BTC held in a vault secured by 21 TSS signers on the Bitcoin mainnet. As a synthetic asset, BTCT enables Bitcoin liquidity to seamlessly flow into the Bitway and the broader Cosmos ecosystem.",
+      "denom_units": [
+        {
+          "denom": "sat",
+          "exponent": 0
+        },
+        {
+          "denom": "BTCT",
+          "exponent": 8
+        }
+      ],
+      "base": "sat",
+      "name": "Bitway Bitcoin",
+      "display": "BTCT",
+      "symbol": "BTCT",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "bitcoin",
+            "base_denom": "sat"
+          },
+          "provider": "Bitway"
+        }
+      ],
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/BTCT.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/BTCT.png"
+        }
+      ],
+      "socials": {
+        "website": "https://bitway.com",
+        "twitter": "https://x.com/BitwayOfficial"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Noble USDC on Bitway.",
+      "denom_units": [
+        {
+          "denom": "ibc/B9E4FD154C92D3A23BEA029906C4C5FF2FE74CB7E3A058290B77197A263CF88B",
+          "exponent": 0
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/B9E4FD154C92D3A23BEA029906C4C5FF2FE74CB7E3A058290B77197A263CF88B",
+      "name": "Noble USDC",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-172"
+          },
+          "chain": {
+            "channel_id": "channel-13",
+            "path": "transfer/channel-13/uusdc"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "noble",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      },
+      "coingecko_id": "usd-coin"
+    }
+  ]
+}
