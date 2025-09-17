@@ -78,6 +78,32 @@ const codebaseVersionProperties = [
   "ibc"
 ];
 
+function deepEqual(obj1, obj2) {
+  if (obj1 === obj2) return true;
+
+  if (
+    typeof obj1 !== "object" ||
+    obj1 === null ||
+    typeof obj2 !== "object" ||
+    obj2 === null
+  ) {
+    return false;
+  }
+
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  if (keys1.length !== keys2.length) return false;
+
+  for (const key of keys1) {
+    if (!keys2.includes(key)) return false;
+    if (!deepEqual(obj1[key], obj2[key])) return false;
+  }
+
+  return true;
+}
+
+
 function combineAllCompatibleVersions(versionObject) {
 
   let UPDATED = false;
@@ -95,14 +121,22 @@ function combineAllCompatibleVersions(versionObject) {
 function writeCodebaseVersionProperties(source, destination) {
 
   let UPDATED = false;
+
+  //first set the name
+  if (!source.name && !destination.name) {
+    destination.name = "";
+  }
+
+  //then all the other properties
   for (const propertyName of codebaseVersionProperties) {
-    if (source[propertyName] && source[propertyName] !== destination[propertyName]) {
+    if (source[propertyName] && !deepEqual(source[propertyName], destination[propertyName])) {
       destination[propertyName] = source[propertyName];
       UPDATED = true;
     }
   }
 
-  UPDATED ||= combineAllCompatibleVersions(destination);
+  //combine compatible_versions
+  UPDATED = combineAllCompatibleVersions(destination) || UPDATED;
 
   return UPDATED;
 
@@ -123,8 +157,6 @@ function existsCompatibleVersionMatch(versionA, versionB) {
 }
 
 function updateVersionDataForChain(chain) {
-
-  console.log(chain);
 
   //   look at chain.json::codebase{}
   let codebase = chain_reg.getFileProperty(chain, "chain", "codebase");
@@ -150,11 +182,8 @@ function updateVersionDataForChain(chain) {
   //     if so,
   //       look at verions.json. Does it exist?
   //         if not (no versions.json), then create it (with a versions array)
-  let versions = chain_reg.getFileProperty(chain, "versions", "versions");
+  let versions = chain_reg.getFileProperty(chain, "versions", "versions") || [];
   let VERSIONS_UPDATED = false;
-  if (!versions || versions.length <= 0) {
-    versions = [];
-  }
 
   //         if so,
   //           does there exist a version compatible with the current version?
@@ -166,8 +195,8 @@ function updateVersionDataForChain(chain) {
   //             if not, create a new version object with the same compatible versions from the current
   //             copy all version data from chain.json over to the version object
   if (!compatibleVersion) {
+    currentVersion.name = currentVersion.compatible_versions[0];
     versions.push(currentVersion);
-    if (!currentVersion.name) currentVersion.name = currentVersion.compatible_versions[0];
     VERSIONS_UPDATED = true;
   } else {
     VERSIONS_UPDATED = writeCodebaseVersionProperties(currentVersion, compatibleVersion);
@@ -179,7 +208,6 @@ function updateVersionDataForChain(chain) {
     chain_reg.setFileProperty(chain, "versions", "versions", versions);
     console.log(`Versions Updated for ${chain}`);
   }
-  //if (VERSIONS_UPDATED) console.log(versions);
 
   // within the same round of iterating each chain...
   //   is there a current version in the version history?
@@ -190,12 +218,10 @@ function updateVersionDataForChain(chain) {
   CODEBASE_UPDATED = writeCodebaseVersionProperties(compatibleVersion, codebase);
 
   //       save changes to chain.json
-  //if (CODEBASE_UPDATED) chain_reg.setFileProperty(chain, "chain", "codebase");
   if (CODEBASE_UPDATED) {
     chain_reg.setFileProperty(chain, "chain", "codebase", codebase);
     console.log(`Codebase Updated for ${chain}`);
   }
-  //if (CODEBASE_UPDATED) console.log(codebase);
     
 }
 
@@ -208,7 +234,7 @@ async function updateVersionDataForChains() {
 
   async function processItems(chains) {
     await Promise.all(chains.map(chain => updateVersionDataForChain(chain)));
-    console.log("All done in parallel!");
+    console.log("Finished!");
   }
 
   await processItems(chains);
