@@ -331,9 +331,9 @@ An example ibc metadata file contains the following structure:
 
 ## Versions
 
-The metadata contained in these files represents a path abstraction between two IBC-connected networks. This information is particularly useful when relaying packets and acknowledgments across chains.
+The versions.json is an optional record of version history for a chain. Through automation (sync_versions), version data will periodically be copid from the chain.json::codebase object into the versions.json file.
 
-An example ibc metadata file contains the following structure:
+An example versions file uses the following structure:
 
 ```json
 {

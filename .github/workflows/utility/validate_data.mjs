@@ -777,10 +777,12 @@ export async function validate_chain_files() {
     checkStakingTokensAreRegistered(chain_name);
 
     //ensure that and version properties in codebase are also defined in the versions file.
-    compare_CodebaseVersionData_to_VersionsFile(chain_name);
+    //compare_CodebaseVersionData_to_VersionsFile(chain_name);
+    //this way removed because version data can now just be recorded in the chain.json file
+    //version data recorded in the versions file will be overwitten by what's in codebase
 
     //get chain's network Type (mainet vs testnet vs...)
-    const chainNetworkType = chain_reg.getFileProperty(chain_name, "chain", "network_type");
+    //const chainNetworkType = chain_reg.getFileProperty(chain_name, "chain", "network_type");
 
     //get chain's assets
     const chainAssets = chain_reg.getFileProperty(chain_name, "assetlist", "assets");
