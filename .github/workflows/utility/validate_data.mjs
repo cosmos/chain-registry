@@ -333,9 +333,16 @@ function uriToRelativePath(uri) {
   return parts.slice(6).join('/');
 }
 
-function fileExists(relativePath) {
-  const fullPath = path.join(chainRegistryRoot, relativePath);
-  return fs.existsSync(fullPath);
+function existsCaseSensitive(relativePath) {
+  let current = chainRegistryRoot; // repo root
+  for (const part of relativePath.split('/')) {
+    const entries = fs.readdirSync(current);
+    if (!entries.includes(part)) {
+      return false; // mismatch in case
+    }
+    current = path.join(current, part);
+  }
+  return true;
 }
 
 function checkImageExistence(image, formatsMissing) {
@@ -345,7 +352,7 @@ function checkImageExistence(image, formatsMissing) {
     const uri = image[format]
     if (uri) {
       const relativePath = uriToRelativePath(uri);
-      if (!fileExists(relativePath)) formatsMissing.push(format);
+      if (!existsCaseSensitive(relativePath)) formatsMissing.push(format);
     }
   });
 
