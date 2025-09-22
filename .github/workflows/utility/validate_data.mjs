@@ -1,4 +1,4 @@
-// Purpose:
+﻿// Purpose:
 //   to validate various data throughout the Chain Registry, prioritizing data that often gets missed by manual review
 //   e.g., whether fee assets are registered to the chain's assetlist
 
@@ -301,17 +301,27 @@ async function checkIbcDenomAccuracy(chain_name, asset) {
 }
 
 
-function checkImageSyncIsValid(chain_name, asset) {
+function checkImageSyncIsValid(chain_name, asset, assets_imageSyncInvalid) {
 
   if (!asset.base) { return; }
   asset.images?.forEach((image) => {
     if (!image.image_sync) { return; }
+    //origin assets can't use image sync
+    if (!asset.traces) {
+      const chainStatus = chain_reg.getFileProperty(chain_name, "chain", "status")
+      if (!chainStatus || chainStatus === "live") {
+        const errorMsg = `Image Sync Pointer used for ${chain_name}, ${asset.base}, but using image sync requires traces.`;
+        assets_imageSyncInvalid.push(errorMsg);
+      }
+    }
     let base = chain_reg.getAssetProperty(image.image_sync.chain_name, image.image_sync.base_denom, "base");
     if (!base) {
-      throw new Error(`Image Sync Pointer of ${chain_name}, ${asset.base} makes invalid reference to ${image.image_sync.chain_name}, ${image.image_sync.base_denom}.`);
+      const errorMsg = `Image Sync Pointer of ${chain_name}, ${asset.base} makes invalid reference to ${image.image_sync.chain_name}, ${image.image_sync.base_denom}.`;
+      assets_imageSyncInvalid.push(errorMsg);
     }
     if (asset.base === image.image_sync.base_denom && chain_name === image.image_sync.chain_name) {
-      throw new Error(`Image_sync of ${chain_name}, ${asset.base} makes reference to self.`);
+      const errorMsg = `Image_sync of ${chain_name}, ${asset.base} makes reference to self.`;
+      assets_imageSyncInvalid.push(errorMsg);
     }
   });
 
@@ -696,7 +706,12 @@ Error: Coingecko ID: ${chain_asset_pair.asset.coingecko_id} is not in the Coinge
 
 }
 
-function reportErrors(assets_cgidInvalid, assets_ibcInvalid, assets_cgidOriginConflict) {
+function reportErrors(
+  assets_cgidInvalid,
+  assets_ibcInvalid,
+  assets_cgidOriginConflict,
+  assets_imageSyncInvalid
+) {
 
   let err = false;
   if (assets_cgidInvalid.length > 0) {
@@ -709,6 +724,10 @@ function reportErrors(assets_cgidInvalid, assets_ibcInvalid, assets_cgidOriginCo
   }
   if (assets_cgidOriginConflict.length > 0) {
     console.log(`Some Assets with the same Coingecko ID have different origins! ${assets_cgidOriginConflict}`);
+    err = true;
+  }
+  if (assets_imageSyncInvalid.length > 0) {
+    console.log(`Some Image Sync configurations are invalid! ${assets_imageSyncInvalid}`);
     err = true;
   }
 
@@ -735,6 +754,8 @@ export async function validate_chain_files() {
   let assets_cgidOriginConflict = [];
   let assets_ibcInvalid = [];
 
+  let assets_imageSyncInvalid = [];
+
   //iterate each chain
   chainRegChains.forEach((chain_name) => {
 
@@ -756,10 +777,12 @@ export async function validate_chain_files() {
     checkStakingTokensAreRegistered(chain_name);
 
     //ensure that and version properties in codebase are also defined in the versions file.
-    compare_CodebaseVersionData_to_VersionsFile(chain_name);
+    //compare_CodebaseVersionData_to_VersionsFile(chain_name);
+    //this way removed because version data can now just be recorded in the chain.json file
+    //version data recorded in the versions file will be overwitten by what's in codebase
 
     //get chain's network Type (mainet vs testnet vs...)
-    const chainNetworkType = chain_reg.getFileProperty(chain_name, "chain", "network_type");
+    //const chainNetworkType = chain_reg.getFileProperty(chain_name, "chain", "network_type");
 
     //get chain's assets
     const chainAssets = chain_reg.getFileProperty(chain_name, "assetlist", "assets");
@@ -785,7 +808,7 @@ export async function validate_chain_files() {
       checkIbcDenomAccuracy(chain_name, asset);
 
       //check image_sync pointers of images
-      checkImageSyncIsValid(chain_name, asset);
+      checkImageSyncIsValid(chain_name, asset, assets_imageSyncInvalid);
 
       //check that base denom is unique within the assetlist
       checkUniqueBaseDenom(chain_name, asset);
@@ -806,7 +829,12 @@ export async function validate_chain_files() {
   checkCoingeckoIdAssetsShareOrigin(assets_cgidNotInState, assets_cgidOriginConflict);
 
   //now that we've collected errors in bulk, throw error if positive
-  reportErrors(assets_cgidInvalid, assets_ibcInvalid, assets_cgidOriginConflict);
+  reportErrors(
+    assets_cgidInvalid,
+    assets_ibcInvalid,
+    assets_cgidOriginConflict,
+    assets_imageSyncInvalid
+  );
 
 }
 
