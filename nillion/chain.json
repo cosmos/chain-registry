@@ -1,0 +1,173 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "nillion",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Nillion",
+  "chain_type": "cosmos",
+  "chain_id": "nillion-1",
+  "bech32_prefix": "nillion",
+  "daemon_name": "nilchaind",
+  "node_home": "$HOME/.nillionapp",
+  "key_algos": [
+    "ed25519"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "unil",
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.1
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "unil"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/NillionNetwork/nilchain",
+    "recommended_version": "v0.2.5",
+    "compatible_versions": [
+      "v0.2.5"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.12"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/NillionNetwork/networks/main/nillion-1/genesis.json.xz"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.11"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "8.2.1"
+    },
+    "cosmwasm": {
+      "enabled": false
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:28156"
+      },
+      {
+        "id": "ff5d57b8e9b99cb8105ea21ef2264bd737401a82",
+        "address": "185.182.194.186:26656"
+      },
+      {
+        "id": "c06d93fb95cfbbe69bffea605661e8cc53d15733",
+        "address": "38.242.150.63:26766"
+      },
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "seeds.lavenderfive.com:28156"
+      },
+      {
+        "id": "327fb4151de9f78f29ff10714085e347a4e3c836",
+        "address": "rpc.nodestake.org.com:666"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "nillion-mainnet-seed.autostake.com:27076",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
+        "address": "seed.rhinostake.com:28156",
+        "provider": "RHINO 🦏"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://nillion-rpc.lavenderfive.com",
+        "provider": "lavenderfive"
+      },
+      {
+        "address": "https://rpc.nillion.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://nillion-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://nillion-api.lavenderfive.com",
+        "provider": "lavenderfive"
+      },
+      {
+        "address": "https://api.nillion.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://nillion-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://nillion-grpc.lavenderfive.com",
+        "provider": "lavenderfive"
+      },
+      {
+        "address": "https://grpc.nillion.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "nillion-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/nillion",
+      "tx_page": "https://explorer.chainroot.io/nillion/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/nillion/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Nillionhub [Noders]",
+      "url": "https://nillionhub.org/explorer/dashboard",
+      "tx_page": "https://nillionhub.org/explorer/transactions/${txHash}",
+      "account_page": "https://nillionhub.org/explorer/accounts/${accountAddress}"
+    },
+    {
+      "url": "https://nillion.explorers.guru",
+      "tx_page": "https://nillion.explorers.guru/transaction/${txHash}",
+      "account_page": "https://nillion.explorers.guru/account/${accountAddress}"
+    },
+    {
+      "url": "https://www.mintscan.io/nillion",
+      "tx_page": "https://www.mintscan.io/nillion/tx/${txHash}",
+      "account_page": "https://www.mintscan.io/nillion/address/${accountAddress}"
+    },
+    {
+      "kind": "NodeStake",
+      "url": "https://explorer.nodestake.org/nillion/",
+      "tx_page": "https://explorer.nodestake.org/nillion/txs/${txHash}",
+      "account_page": "https://explorer.nodestake.org/nillion/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nillion/images/nil.svg",
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nillion/images/nil.png"
+    }
+  ],
+  "description": "Nillion is the first Blind Computer – a private computation and storage network. The network uses PETs (Privacy-Enhancing Technologies) to enable computation and storage on data while maintaining privacy, making possible use cases like private personalized AI, encrypted databases, data marketplace, and privacy-preserving applications.\n\n$NIL is the native utility token of the network that is used for:\n-Network fees for blind computation and payments across the Coordination Layer and Petnet\n-Staking to secure the network\n-Governance participation the onchain governance module\n\n$NIL enables access to Nillion modules and services such as:\n-DB: an encrypted database with data split up across multiple nodes. Calculations can still be performed on data while in encrypted form\n-AI: AI-focused privacy technologies that include:\n--AI Virtual Machine (AIVM) – a secure AI inference platform co-developed with Meta for private inference\n--Nada-AI – a library for nilVM, offering an interface for running small AI models\n--nilTEE – uses Trusted Execution Environments (TEEs) to run faster private inference where speed is important\n-nilVM: VM with libraries that simplify program development for AI devs by letting them use Python and Javascript to write web3 programs."
+}

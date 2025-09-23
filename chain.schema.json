@@ -264,16 +264,6 @@
           "theme": {
             "type": "object",
             "properties": {
-              "primary_color_hex": {
-                "type": "string",
-                "minLength": 1,
-                "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
-              },
-              "background_color_hex": {
-                "type": "string",
-                "minLength": 1,
-                "pattern": "^(#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})|none)$"
-              },
               "circle": {
                 "type": "boolean"
               },
@@ -542,8 +532,8 @@
     "tag": {
       "type": "string",
       "minLength": 1,
-      "pattern": "^v?\\d+(\\.\\d+){0,2}(-[\\w\\.\\-]+)?$",
-      "description": "Detailed version identifier (e.g., 'v1.0.0-a1s2f43g')."
+      "pattern": "^[A-Za-z0-9._/@-]+$",
+      "description": "Git Upgrade Tag"
     },
     "sdk": {
       "type": "object",

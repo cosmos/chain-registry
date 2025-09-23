@@ -33,25 +33,46 @@
   },
   "codebase": {
     "git_repo": "https://github.com/osmosis-labs/osmosis",
-    "recommended_version": "v15.0.0",
+    "recommended_version": "29.0.0",
     "compatible_versions": [
-      "v15.0.0-rc3",
-      "v15.0.0"
+      "29.0.0-rc1",
+      "29.0.0"
     ],
-    "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
+    "tag": "v29.0.0",
+    "language": {
+      "type": "go",
+      "version": "1.22.11"
     },
-    "genesis": {
-      "genesis_url": "https://genesis.osmotest5.osmosis.zone/genesis.json"
+    "binaries": {
+      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v29.0.0/osmosisd-29.0.0-linux-amd64?checksum=6999331507e5119228456a64f733eb1d945f5392ffcfd4673bdad25886b19a7e",
+      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v29.0.0/osmosisd-29.0.0-linux-arm64?checksum=079d836d1bf009aab09149eb79d3c187980c5116b8319e09c66a8cae7fa0704c"
     },
     "sdk": {
       "type": "cosmos",
-      "version": "0.45"
+      "version": "0.50.11",
+      "repo": "https://github.com/osmosis-labs/cosmos-sdk",
+      "tag": "v0.50.11-v28-osmo-1"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.17",
+      "repo": "https://github.com/osmosis-labs/cometbft",
+      "tag": "v0.38.17-v28-osmo-1"
     },
     "cosmwasm": {
-      "version": "0.30",
+      "version": "0.53.2",
+      "repo": "https://github.com/CosmWasm/wasmd",
+      "tag": "v0.53.2",
       "enabled": true
+    },
+    "ibc": {
+      "type": "go",
+      "version": "8.7.0",
+      "repo": "https://github.com/cosmos/ibc-go",
+      "tag": "v8.7.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
     }
   },
   "peers": {
@@ -81,12 +102,20 @@
       {
         "address": "https://rpc.osmotest5.osmosis.zone/",
         "provider": "Osmosis"
+      },
+      {
+        "address": "https://osmosis-testnet-tendermint.reliableninjas.com",
+        "provider": "Reliable Ninjas"
       }
     ],
     "rest": [
       {
         "address": "https://lcd.osmotest5.osmosis.zone/",
         "provider": "Osmosis"
+      },
+      {
+        "address": "https://osmosis-testnet-cosmos.reliableninjas.com",
+        "provider": "Reliable Ninjas"
       }
     ],
     "grpc": [

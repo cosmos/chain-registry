@@ -211,17 +211,33 @@ export function getFileProperty(chainName, file, property) {
   }
 }
 
+function getFileSchema(chainName, file) {
+  let schema = schemas.get(file);
+  schema = "../" + schema;
+  if (getFileProperty(chainName, "chain", "network_type") === "testnet") {
+    schema = "../" + schema;
+  }
+  if (getFileProperty(chainName, "chain", "chain_type") !== "cosmos") {
+    schema = "../" + schema;
+  }
+  return schema;
+}
+
 export function setFileProperty(chainName, file, property, value) {
   const chainDirectory = chainNameToDirectoryMap.get(chainName);
   if(chainDirectory) {
     const filePath = path.join(chainDirectory,fileToFileNameMap.get(file));
     const FILE_EXISTS = fs.existsSync(filePath);
-    if(FILE_EXISTS) {
-      let json = readJsonFile(filePath);
-      json[property] = value;
-      writeJsonFile(filePath, json);
-      return;
+    let json = {};
+    if (FILE_EXISTS) {
+      json = readJsonFile(filePath);
+    } else {
+      json.$schema = getFileSchema(chainName, file);
+      json.chain_name = chainName;
     }
+    json[property] = value;
+    writeJsonFile(filePath, json);
+
   }
 }
 
@@ -239,7 +255,12 @@ export function getIBCFileProperty(chainName1, chainName2, property) {
     ibcDirectory = path.join(chain1Directory, "..", "_IBC");
   } else if (fs.existsSync(path.join(chain2Directory, "..", "_IBC"))) {
     ibcDirectory = path.join(chain2Directory, "..", "_IBC");
+  } else if (fs.existsSync(path.join(chainRegistryRoot, "_IBC"))) {
+    ibcDirectory = path.join(chainRegistryRoot, "_IBC");
+  } else if (fs.existsSync(path.join(chainRegistryRoot, "testnets", "_IBC"))) {
+    ibcDirectory = path.join(chainRegistryRoot, "testnets", "_IBC");
   } else {
+    console.log("No _IBC directory found!");
     return; // No _IBC directory found
   }
 

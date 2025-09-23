@@ -3,7 +3,7 @@
   "chain_name": "manifest",
   "status": "live",
   "network_type": "mainnet",
-  "website": "https://liftedinit.org/",
+  "website": "https://manifestai.org/",
   "pretty_name": "Manifest",
   "chain_id": "manifest-ledger-mainnet",
   "chain_type": "cosmos",
@@ -15,10 +15,10 @@
     "fee_tokens": [
       {
         "denom": "umfx",
-        "fixed_min_gas_price": 0.001,
-        "low_gas_price": 0.01,
-        "average_gas_price": 0.02,
-        "high_gas_price": 0.1
+        "fixed_min_gas_price": 1,
+        "low_gas_price": 1.05,
+        "average_gas_price": 1.1,
+        "high_gas_price": 3
       }
     ]
   },
@@ -31,13 +31,16 @@
   },
   "codebase": {
     "git_repo": "https://github.com/liftedinit/manifest-ledger",
-    "recommended_version": "v1.0.1",
-    "compatible_versions": ["v1.0.1"],
+    "recommended_version": "v1.0.5",
+    "compatible_versions": [
+      "v1.0.3",
+      "v1.0.5"
+    ],
     "binaries": {
-      "linux/amd64": "https://github.com/liftedinit/manifest-ledger/releases/download/v1.0.1/manifest-ledger-v1.0.1-linux-amd64.tar.gz"
+      "linux/amd64": "https://github.com/liftedinit/manifest-ledger/releases/download/v1.0.5/manifest-ledger-v1.0.5-linux-amd64.tar.gz"
     },
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/liftedinit/manifest-ledger-genesis/refs/heads/main/mainnet/genesis.json"
+      "genesis_url": "https://nodes.liftedinit.app/manifest/rpc/genesis?"
     }
   },
   "apis": {
@@ -71,8 +74,9 @@
   "explorers": [
     {
       "kind": "Default Explorer",
-      "url": "https://manifest.explorers.guru/",
-      "tx_page": "https://manifest.explorers.guru/transactions"
+      "url": "https://explorer.manifest.network/",
+      "tx_page": "https://explorer.manifest.network/transaction/${txHash}",
+      "account_page": "https://explorer.manifest.network/account/${accountAddress}"
     }
   ],
   "logo_URIs": {
@@ -85,10 +89,7 @@
         "chain_name": "manifest"
       },
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg",
-      "theme": {
-        "primary_color_hex": "#A087FF"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
     }
   ]
 }

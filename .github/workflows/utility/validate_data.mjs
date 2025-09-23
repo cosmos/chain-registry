@@ -1,4 +1,4 @@
-// Purpose:
+﻿// Purpose:
 //   to validate various data throughout the Chain Registry, prioritizing data that often gets missed by manual review
 //   e.g., whether fee assets are registered to the chain's assetlist
 
@@ -12,6 +12,7 @@
 //       chaeck if staking token exists in the assetlist
 //
 
+import * as fs from 'fs';
 import * as path from 'path';
 import * as chain_reg from './chain_registry.mjs';
 
@@ -84,7 +85,7 @@ function checkSlip44(chain_name) {
   let chain_status = chain_reg.getFileProperty(chain_name, "chain", "status");
   if (!chain_status || chain_status === "upcoming" || chain_status === "killed") { return; }
   let slip44 = chain_reg.getFileProperty(chain_name, "chain", "slip44");
-  if (!slip44) {
+  if (slip44 === undefined) {
     throw new Error(`Chain ${chain_name} missing slip44!`);
   }
 
@@ -301,19 +302,105 @@ async function checkIbcDenomAccuracy(chain_name, asset) {
 }
 
 
-function checkImageSyncIsValid(chain_name, asset) {
+function checkImageSyncIsValid(chain_name, asset, assets_imageSyncInvalid) {
 
   if (!asset.base) { return; }
   asset.images?.forEach((image) => {
     if (!image.image_sync) { return; }
+    //origin assets can't use image sync
+    if (!asset.traces) {
+      const chainStatus = chain_reg.getFileProperty(chain_name, "chain", "status")
+      if (!chainStatus || chainStatus === "live") {
+        const errorMsg = `Image Sync Pointer used for ${chain_name}, ${asset.base}, but using image sync requires traces.`;
+        assets_imageSyncInvalid.push(errorMsg);
+      }
+    }
     let base = chain_reg.getAssetProperty(image.image_sync.chain_name, image.image_sync.base_denom, "base");
     if (!base) {
-      throw new Error(`Image Sync Pointer of ${chain_name}, ${asset.base} makes invalid reference to ${image.image_sync.chain_name}, ${image.image_sync.base_denom}.`);
+      const errorMsg = `Image Sync Pointer of ${chain_name}, ${asset.base} makes invalid reference to ${image.image_sync.chain_name}, ${image.image_sync.base_denom}.`;
+      assets_imageSyncInvalid.push(errorMsg);
     }
     if (asset.base === image.image_sync.base_denom && chain_name === image.image_sync.chain_name) {
-      throw new Error(`Image_sync of ${chain_name}, ${asset.base} makes reference to self.`);
+      const errorMsg = `Image_sync of ${chain_name}, ${asset.base} makes reference to self.`;
+      assets_imageSyncInvalid.push(errorMsg);
     }
   });
+
+}
+
+function uriToRelativePath(uri) {
+  const parts = uri.split('/');
+  return parts.slice(6).join('/');
+}
+
+function existsCaseSensitive(relativePath) {
+  let current = chainRegistryRoot; // repo root
+  for (const part of relativePath.split('/')) {
+    const entries = fs.readdirSync(current);
+    if (!entries.includes(part)) {
+      return false; // mismatch in case
+    }
+    current = path.join(current, part);
+  }
+  return true;
+}
+
+function checkImageExistence(image, formatsMissing) {
+
+  const formatsToCheck = ["png", "svg"];
+  formatsToCheck.forEach(format => {
+    const uri = image[format]
+    if (uri) {
+      const relativePath = uriToRelativePath(uri);
+      if (!existsCaseSensitive(relativePath)) formatsMissing.push(format);
+    }
+  });
+
+}
+
+function checkImageExistence_Asset(chain_name, asset, errorMsgs) {
+
+  if (!asset) return;
+  asset.images?.forEach(image => {
+    let formatsMissing = [];
+    checkImageExistence(image, formatsMissing);
+    if (formatsMissing.length > 0) {
+      const errorMsg = `images[]: Image at ${chain_name}, ${asset.base} is missing for these formats: ${formatsMissing}.`;
+      errorMsgs.assets_imagesNotExist.instances.push(errorMsg);
+    }
+  });
+
+  if (!asset.logo_URIs) return;
+  const image = asset.logo_URIs;
+  let formatsMissing = [];
+  checkImageExistence(image, formatsMissing);
+  if (formatsMissing.length > 0) {
+    const errorMsg = `logo_URIs: Image at ${chain_name}, ${asset.base} is missing for these formats: ${formatsMissing}.`;
+    errorMsgs.assets_imagesNotExist.instances.push(errorMsg);
+  }
+
+}
+
+function checkImageExistence_Chain(chain_name, errorMsgs) {
+
+  const images = chain_reg.getFileProperty(chain_name, "chain", "images");
+  images?.forEach(image => {
+    let formatsMissing = [];
+    checkImageExistence(image, formatsMissing);
+    if (formatsMissing.length > 0) {
+      const errorMsg = `images[]: Image at ${chain_name} is missing for these formats: ${formatsMissing}.`;
+      errorMsgs.chains_imagesNotExist.instances.push(errorMsg);
+    }
+  });
+
+  const image = chain_reg.getFileProperty(chain_name, "chain", "logo_URIs");
+  if (!image) return;
+  let formatsMissing = [];
+  checkImageExistence(image, formatsMissing);
+  if (formatsMissing.length > 0) {
+    const errorMsg = `logo_URIs: Image at ${chain_name} is missing for these formats: ${formatsMissing}.`;
+    errorMsgs.chains_imagesNotExist.instances.push(errorMsg);
+  }
 
 }
 
@@ -531,6 +618,21 @@ function checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState) {
     assets_cgidNotInState.push({ chain_name, asset });
     return false; // ID is missing from state
   }
+
+
+
+  //see if it's cosmos origin has the asset
+  //let ibc_origin_asset = chain_reg.getOriginAssetCustom(chain_name, asset.base, ["ibc", "ibc-cw20"]);
+  let ibc_origin_cgid =
+    chain_reg.getAssetPropertyFromOriginWithTraceCustom(
+      chain_name,
+      asset.base,
+      "coingecko_id",
+      ["ibc", "ibc-cw20"]
+    );
+  if (ibc_origin_cgid === asset.coingecko_id) return true;
+
+
   //see if it has the asset listed (bool)
   const assetExists = coingeckoIdGroup.assets.some(
     cgAsset => cgAsset.chain_name === chain_name && cgAsset.base_denom === asset.base
@@ -634,6 +736,15 @@ async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNo
   }
 
   assets_cgidNotInState.forEach((chain_asset_pair) => {
+
+    //temporary
+    if (chain_asset_pair.asset.coingecko_id === "nim-network") {
+      console.log(`${chain_asset_pair.asset.coingecko_id}`);
+      console.log(chain_asset_pair);
+      console.log(chain_asset_pair.asset);
+    }
+    //temporary
+
     const coin = coingecko.api_response?.[coingecko.coingeckoEndpoints.coins_list.name]?.find(
       apiObject => apiObject.id === chain_asset_pair.asset.coingecko_id
     );
@@ -672,29 +783,74 @@ Error: Coingecko ID: ${chain_asset_pair.asset.coingecko_id} is not in the Coinge
 
 }
 
-function reportErrors(assets_cgidInvalid, assets_ibcInvalid, assets_cgidOriginConflict) {
+function prepareErrorMessages(errorMsgs) {
 
-  let err = false;
+  //Chain Errors
+  errorMsgs.chains_imagesNotExist = {
+    category: "chains_imagesNotExist",
+    notice: "Some Chain Images do not exist!",
+    instances: []
+  }
+
+  //Asset Errors
+  errorMsgs.assets_imagesNotExist = {
+    category: "assets_imagesNotExist",
+    notice: "Some Asset Images do not exist!",
+    instances: []
+  }
+
+}
+
+function reportErrors(
+  assets_cgidInvalid,
+  assets_ibcInvalid,
+  assets_cgidOriginConflict,
+  assets_imageSyncInvalid,
+  errorMsgs
+) {
+
+  let ERRORS_DETECTED = false;
+
+  //Asset Errors
   if (assets_cgidInvalid.length > 0) {
     console.log(`Some Coingecko IDs are not valid! ${assets_cgidInvalid}`);
-    err = true;
+    console.log(`Detected ${errorMsgs.assets_imagesNotExist.length} errors!`);
+    ERRORS_DETECTED = true;
   }
   if (assets_ibcInvalid.length > 0) {
     console.log(`Some Trace IBC references are not valid! ${assets_ibcInvalid}`);
-    err = true;
+    console.log(`Detected ${errorMsgs.assets_imagesNotExist.length} errors!`);
+    ERRORS_DETECTED = true;
   }
   if (assets_cgidOriginConflict.length > 0) {
     console.log(`Some Assets with the same Coingecko ID have different origins! ${assets_cgidOriginConflict}`);
-    err = true;
+    console.log(`Detected ${errorMsgs.assets_imagesNotExist.length} errors!`);
+    ERRORS_DETECTED = true;
+  }
+  if (assets_imageSyncInvalid.length > 0) {
+    console.log(`Some Image Sync configurations are invalid! ${assets_imageSyncInvalid}`);
+    console.log(`Detected ${errorMsgs.assets_imagesNotExist.length} errors!`);
+    ERRORS_DETECTED = true;
   }
 
-  if (err) {
+  Object.values(errorMsgs).forEach(errorCategory => {
+    if (errorCategory.instances.length <= 0) return;
+    ERRORS_DETECTED = true;
+    console.log(errorCategory.notice);
+    errorCategory.instances.forEach(instance => {
+      console.log(instance);
+    });
+    console.log(`Count: ${errorCategory.instances.length}`);
+  });
+
+  //Final throw (at least one error detected)
+  if (ERRORS_DETECTED) {
     throw new Error(`Some asset metadata is invalid! (See console logs)`);
   }
 
 }
 
-export async function validate_chain_files() {
+export async function validate_chain_files(errorMsgs) {
 
   //get Chain Names
   const chainRegChains = chain_reg.getChains();
@@ -710,6 +866,7 @@ export async function validate_chain_files() {
   let assets_cgidInvalid = [];
   let assets_cgidOriginConflict = [];
   let assets_ibcInvalid = [];
+  let assets_imageSyncInvalid = [];
 
   //iterate each chain
   chainRegChains.forEach((chain_name) => {
@@ -731,11 +888,16 @@ export async function validate_chain_files() {
     //check if all staking tokens are registered
     checkStakingTokensAreRegistered(chain_name);
 
+    //check image existence
+    checkImageExistence_Chain(chain_name, errorMsgs);
+
     //ensure that and version properties in codebase are also defined in the versions file.
-    compare_CodebaseVersionData_to_VersionsFile(chain_name);
+    //compare_CodebaseVersionData_to_VersionsFile(chain_name);
+    //this way removed because version data can now just be recorded in the chain.json file
+    //version data recorded in the versions file will be overwitten by what's in codebase
 
     //get chain's network Type (mainet vs testnet vs...)
-    const chainNetworkType = chain_reg.getFileProperty(chain_name, "chain", "network_type");
+    //const chainNetworkType = chain_reg.getFileProperty(chain_name, "chain", "network_type");
 
     //get chain's assets
     const chainAssets = chain_reg.getFileProperty(chain_name, "assetlist", "assets");
@@ -761,7 +923,10 @@ export async function validate_chain_files() {
       checkIbcDenomAccuracy(chain_name, asset);
 
       //check image_sync pointers of images
-      checkImageSyncIsValid(chain_name, asset);
+      checkImageSyncIsValid(chain_name, asset, assets_imageSyncInvalid);
+
+      //check image existence
+      checkImageExistence_Asset(chain_name, asset, errorMsgs);
 
       //check that base denom is unique within the assetlist
       checkUniqueBaseDenom(chain_name, asset);
@@ -782,7 +947,15 @@ export async function validate_chain_files() {
   checkCoingeckoIdAssetsShareOrigin(assets_cgidNotInState, assets_cgidOriginConflict);
 
   //now that we've collected errors in bulk, throw error if positive
-  reportErrors(assets_cgidInvalid, assets_ibcInvalid, assets_cgidOriginConflict);
+  reportErrors(
+    assets_cgidInvalid,
+    assets_ibcInvalid,
+    assets_cgidOriginConflict,
+    assets_imageSyncInvalid,
+    errorMsgs
+    //chains_imagesNotExist
+    //assets_imagesNotExist
+  );
 
 }
 
@@ -854,8 +1027,12 @@ function main() {
   //setup chain registry
   chain_reg.setup(chainRegistryRoot);
 
+  //prepare error catching
+  let errorMsgs = {};
+  prepareErrorMessages(errorMsgs);
+
   //check all chains
-  validate_chain_files();
+  validate_chain_files(errorMsgs);
 
   //check all IBC channels
   validate_ibc_files();
