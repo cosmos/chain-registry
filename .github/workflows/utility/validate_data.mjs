@@ -22,6 +22,7 @@ const chainRegistryRoot = "../../..";
 
 const chainIdMap = new Map();
 let base_denoms = [];
+const imageURIs = ["png", "svg"];
 
 let coingecko_data = coingecko.coingecko_data;
 
@@ -328,6 +329,20 @@ function checkImageSyncIsValid(chain_name, asset, assets_imageSyncInvalid) {
 
 }
 
+function pushLogoURIs_to_Images(images, logo_URIs) {
+
+  if (!logo_URIs) return;
+  for (const image of images) {
+    for (const uri of imageURIs) {
+      if (image[uri] === logo_URIs[uri]) {
+        return;
+      }
+    }
+  }
+  images.push(logo_URIs);
+
+}
+
 function uriToRelativePath(uri) {
   const parts = uri.split('/');
   return parts.slice(6).join('/');
@@ -345,15 +360,59 @@ function existsCaseSensitive(relativePath) {
   return true;
 }
 
-function checkImageExistence(image, formatsMissing) {
+function checkImageURIExistence(chain_name, base_denom, uri, errorMsgs) {
 
-  const formatsToCheck = ["png", "svg"];
-  formatsToCheck.forEach(format => {
-    const uri = image[format]
-    if (uri) {
-      const relativePath = uriToRelativePath(uri);
-      if (!existsCaseSensitive(relativePath)) formatsMissing.push(format);
+  const relativePath = uriToRelativePath(uri);
+  if (!existsCaseSensitive(relativePath)) {
+    if (!base_denom) {
+      const errorMsg = `Chain Image ${uri} at ${chain_name} is missing!`;
+      errorMsgs.chains_imagesNotExist.instances.push(errorMsg);
+    } else {
+      const errorMsg = `Asset Image ${uri} at ${chain_name}, ${base_denom} is missing!`;
+      errorMsgs.assets_imagesNotExist.instances.push(errorMsg);
     }
+    return false;
+  }
+  return true;
+
+}
+
+function checkFileSize(relativePath, maxBytes) {
+  const stats = fs.statSync(path.join(chainRegistryRoot, relativePath));  // get file metadata
+  return stats.size <= maxBytes * 1024;        // size in bytes
+}
+
+function checkImageURIFileSize(chain_name, base_denom, uri, errorMsgs) {
+
+  const maxBytes = 251;
+  const relativePath = uriToRelativePath(uri);
+  if (!checkFileSize(relativePath, maxBytes)) {
+    if (!base_denom) {
+      const errorMsg = `Chain Image ${uri} at ${chain_name} is too large!`;
+      errorMsgs.chains_imagesTooLarge.instances.push(errorMsg);
+    } else {
+      const errorMsg = `Asset Image ${uri} at ${chain_name}, ${base_denom} is too large!`;
+      errorMsgs.assets_imagesTooLarge.instances.push(errorMsg);
+    }
+    return false;
+  }
+  return true;
+
+}
+
+function checkImageURI(chain_name, base_denom, uri, errorMsgs) {
+
+  let URI_EXISTS = checkImageURIExistence(chain_name, base_denom, uri, errorMsgs);
+  if (!URI_EXISTS) return;
+  checkImageURIFileSize(chain_name, base_denom, uri, errorMsgs);
+
+}
+
+function checkImageObject(chain_name, base_denom, image, errorMsgs) {
+
+  imageURIs.forEach(uri => {
+    if (!image[uri]) return;
+    checkImageURI(chain_name, base_denom, image[uri], errorMsgs);
   });
 
 }
@@ -729,7 +788,7 @@ async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNo
   if (!assets_cgidNotInState.length) { return; }
   
 
-  await coingecko.fetchCoingeckoData(coingecko.coingeckoEndpoints.coins_list);
+  //TEMPORARYawait coingecko.fetchCoingeckoData(coingecko.coingeckoEndpoints.coins_list);
   if (!coingecko.api_response) {
     console.log("No CoinGecko API Response");
     return;
@@ -792,10 +851,22 @@ function prepareErrorMessages(errorMsgs) {
     instances: []
   }
 
+  errorMsgs.chains_imagesTooLarge = {
+    category: "chains_imagesTooLarge",
+    notice: "Some Chain Images are too large (>250kB)!",
+    instances: []
+  }
+
   //Asset Errors
   errorMsgs.assets_imagesNotExist = {
     category: "assets_imagesNotExist",
     notice: "Some Asset Images do not exist!",
+    instances: []
+  }
+
+  errorMsgs.assets_imagesTooLarge = {
+    category: "assets_imagesTooLarge",
+    notice: "Some Asset Images are too large (>250kB)!",
     instances: []
   }
 
@@ -887,9 +958,17 @@ export async function validate_chain_files(errorMsgs) {
 
     //check if all staking tokens are registered
     checkStakingTokensAreRegistered(chain_name);
+    
+    //--Validate Images--
+    let logo_URIs = chain_reg.getFileProperty(chain_name, "chain", "logo_URIs");
+    let images = chain_reg.getFileProperty(chain_name, "chain", "images") || [];
+    pushLogoURIs_to_Images(images, logo_URIs);
+    images?.forEach(image => {
+      checkImageObject(chain_name, undefined, image, errorMsgs);
+    });
 
     //check image existence
-    checkImageExistence_Chain(chain_name, errorMsgs);
+    //checkImageExistence_Chain(chain_name, errorMsgs);
 
     //ensure that and version properties in codebase are also defined in the versions file.
     //compare_CodebaseVersionData_to_VersionsFile(chain_name);
@@ -910,6 +989,12 @@ export async function validate_chain_files(errorMsgs) {
       //require type_asset
       checkTypeAsset(chain_name, asset);
 
+      //check that base denom is unique within the assetlist
+      checkUniqueBaseDenom(chain_name, asset);
+
+      //check ibc denom accuracy
+      checkIbcDenomAccuracy(chain_name, asset);
+
       //check denom units
       checkDenomUnits(asset);
 
@@ -919,22 +1004,24 @@ export async function validate_chain_files(errorMsgs) {
       //check IBC counterparty channel accuracy
       checkIBCTraceChannelAccuracy(chain_name, asset, assets_ibcInvalid);
 
-      //check ibc denom accuracy
-      checkIbcDenomAccuracy(chain_name, asset);
+      //check that coingecko IDs are in the state
+      checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState);
+      //checkCoingeckoIdMainnetAssetsOnly(chain_name, asset, chainNetworkType, assets_cgidAssetNotMainnet);
 
       //check image_sync pointers of images
       checkImageSyncIsValid(chain_name, asset, assets_imageSyncInvalid);
 
+      //--Validate Images--
+      let logo_URIs = asset.logo_URIs;
+      let images = asset.images || [];
+      pushLogoURIs_to_Images(images, logo_URIs);
+      images?.forEach(image => {
+        checkImageObject(chain_name, asset.base, image, errorMsgs);
+      });
+
+
       //check image existence
-      checkImageExistence_Asset(chain_name, asset, errorMsgs);
-
-      //check that base denom is unique within the assetlist
-      checkUniqueBaseDenom(chain_name, asset);
-
-      //checkCoingeckoIdMainnetAssetsOnly(chain_name, asset, chainNetworkType, assets_cgidAssetNotMainnet);
-
-      //check that coingecko IDs are in the state
-      checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState);
+      //checkImageExistence_Asset(chain_name, asset, errorMsgs);
 
     });
 

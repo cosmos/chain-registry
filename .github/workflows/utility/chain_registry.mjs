@@ -182,6 +182,12 @@ export async function calculateIbcHash(ibcHashInput) {
 
 // -- CHAIN REGISTRY MODULES --
 
+function isChainDirectory(directory) {
+  const CHAIN_FILE_EXISTS = fs.existsSync(path.join(directory, fileToFileNameMap.get("chain")));
+  const ASSETLIST_FILE_EXISTS = fs.existsSync(path.join(directory, fileToFileNameMap.get("assetlist")));
+  return CHAIN_FILE_EXISTS || ASSETLIST_FILE_EXISTS;
+}
+
 
 export function populateChainDirectories() {
   for (let [networkType, networkTypeDirectoryName] of networkTypeToDirectoryNameMap) {
@@ -189,6 +195,9 @@ export function populateChainDirectories() {
       chains = setDifferenceArray(
         getDirectoryContents(path.join(chainRegistryRoot, networkTypeDirectoryName, domainDirectoryName)),
         nonChainDirectories
+      );
+      chains = chains.filter(directoryName =>
+        isChainDirectory(path.join(chainRegistryRoot, networkTypeDirectoryName, domainDirectoryName, directoryName))
       );
       chains.forEach((chainName) => {
         chainNameToDirectoryMap.set(
