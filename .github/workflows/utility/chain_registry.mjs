@@ -154,7 +154,7 @@ export function getDirectoryContents(directory) {
       return list;
     });
   } catch (err) {
-    console.log(err);
+    //console.log(err);
   }
   return array;
 }
@@ -183,6 +183,7 @@ export async function calculateIbcHash(ibcHashInput) {
 // -- CHAIN REGISTRY MODULES --
 
 function isChainDirectory(directory) {
+  if (!fs.statSync(directory).isDirectory()) return false;
   const CHAIN_FILE_EXISTS = fs.existsSync(path.join(directory, fileToFileNameMap.get("chain")));
   const ASSETLIST_FILE_EXISTS = fs.existsSync(path.join(directory, fileToFileNameMap.get("assetlist")));
   return CHAIN_FILE_EXISTS || ASSETLIST_FILE_EXISTS;
