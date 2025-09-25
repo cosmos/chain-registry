@@ -14,6 +14,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
+
 import * as chain_reg from './chain_registry.mjs';
 
 import * as coingecko from './coingecko_data.mjs';
@@ -348,6 +349,10 @@ function uriToRelativePath(uri) {
   return parts.slice(6).join('/');
 }
 
+function executionPath(relativePath) {
+  return path.join(chainRegistryRoot, relativePath);
+}
+
 function existsCaseSensitive(relativePath) {
   let current = chainRegistryRoot; // repo root
   for (const part of relativePath.split('/')) {
@@ -378,7 +383,7 @@ function checkImageURIExistence(chain_name, base_denom, uri, errorMsgs) {
 }
 
 function checkFileSize(relativePath, maxBytes) {
-  const stats = fs.statSync(path.join(chainRegistryRoot, relativePath));  // get file metadata
+  const stats = fs.statSync(executionPath(relativePath));  // get file metadata
   return stats.size <= maxBytes * 1024;        // size in bytes
 }
 
@@ -400,10 +405,65 @@ function checkImageURIFileSize(chain_name, base_denom, uri, errorMsgs) {
 
 }
 
+function analyzeSVG(relativePath) {
+  const path = executionPath(relativePath);
+  if (!fs.existsSync(path)) {
+    throw new Error(`File not found: ${path}`);
+  }
+
+  const data = fs.readFileSync(path, 'utf-8');
+
+  // Count <path> tags
+  const pathCount = (data.match(/<path[\s>]/gi) || []).length;
+  const rectCount = (data.match(/<rect[\s>]/gi) || []).length;
+  const circleCount = (data.match(/<circle[\s>]/gi) || []).length;
+  const polygonCount = (data.match(/<polygon[\s>]/gi) || []).length;
+  const polylineCount = (data.match(/<polyline[\s>]/gi) || []).length;
+  const shapesCount = pathCount + rectCount + circleCount + polygonCount + polylineCount;
+
+  // Count <image> tags
+  const imageCount = (data.match(/<image[\s>]/gi) || []).length;
+
+  return { shapesCount, imageCount };
+}
+
+function checkSVG(chain_name, base_denom, uri, errorMsgs) {
+
+  const svgAnalysis = analyzeSVG(uriToRelativePath(uri));
+  if (svgAnalysis.shapesCount > 1000) {
+    console.log(uri);
+    console.log("suspicios");
+    if (!base_denom) {
+      const errorMsg = `Chain SVG ${uri} at ${chain_name} has too many elements!`;
+      errorMsgs.chains_imagesSVGElements.instances.push(errorMsg);
+    } else {
+      const errorMsg = `Asset SVG ${uri} at ${chain_name}, ${base_denom} has too many elements!`;
+      errorMsgs.assets_imagesSVGElements.instances.push(errorMsg);
+    }
+    return false;
+  }
+  if (svgAnalysis.shapesCount < 3 && svgAnalysis.imageCount > 0) {
+    console.log(uri);
+    console.log("suspicios");
+    if (!base_denom) {
+      const errorMsg = `Chain SVG ${uri} at ${chain_name} has embedded images!`;
+      errorMsgs.chains_imagesSVGEmbed.instances.push(errorMsg);
+    } else {
+      const errorMsg = `Asset SVG ${uri} at ${chain_name}, ${base_denom} has embedded images!`;
+      errorMsgs.assets_imagesSVGEmbed.instances.push(errorMsg);
+    }
+    return false;
+  }
+  return true;
+
+}
+
 function checkImageURI(chain_name, base_denom, uri, errorMsgs) {
 
   let URI_EXISTS = checkImageURIExistence(chain_name, base_denom, uri, errorMsgs);
   if (!URI_EXISTS) return;
+  if (uri.endsWith("svg"))
+    checkSVG(chain_name, base_denom, uri, errorMsgs);
   checkImageURIFileSize(chain_name, base_denom, uri, errorMsgs);
 
 }
@@ -414,52 +474,6 @@ function checkImageObject(chain_name, base_denom, image, errorMsgs) {
     if (!image[uri]) return;
     checkImageURI(chain_name, base_denom, image[uri], errorMsgs);
   });
-
-}
-
-function checkImageExistence_Asset(chain_name, asset, errorMsgs) {
-
-  if (!asset) return;
-  asset.images?.forEach(image => {
-    let formatsMissing = [];
-    checkImageExistence(image, formatsMissing);
-    if (formatsMissing.length > 0) {
-      const errorMsg = `images[]: Image at ${chain_name}, ${asset.base} is missing for these formats: ${formatsMissing}.`;
-      errorMsgs.assets_imagesNotExist.instances.push(errorMsg);
-    }
-  });
-
-  if (!asset.logo_URIs) return;
-  const image = asset.logo_URIs;
-  let formatsMissing = [];
-  checkImageExistence(image, formatsMissing);
-  if (formatsMissing.length > 0) {
-    const errorMsg = `logo_URIs: Image at ${chain_name}, ${asset.base} is missing for these formats: ${formatsMissing}.`;
-    errorMsgs.assets_imagesNotExist.instances.push(errorMsg);
-  }
-
-}
-
-function checkImageExistence_Chain(chain_name, errorMsgs) {
-
-  const images = chain_reg.getFileProperty(chain_name, "chain", "images");
-  images?.forEach(image => {
-    let formatsMissing = [];
-    checkImageExistence(image, formatsMissing);
-    if (formatsMissing.length > 0) {
-      const errorMsg = `images[]: Image at ${chain_name} is missing for these formats: ${formatsMissing}.`;
-      errorMsgs.chains_imagesNotExist.instances.push(errorMsg);
-    }
-  });
-
-  const image = chain_reg.getFileProperty(chain_name, "chain", "logo_URIs");
-  if (!image) return;
-  let formatsMissing = [];
-  checkImageExistence(image, formatsMissing);
-  if (formatsMissing.length > 0) {
-    const errorMsg = `logo_URIs: Image at ${chain_name} is missing for these formats: ${formatsMissing}.`;
-    errorMsgs.chains_imagesNotExist.instances.push(errorMsg);
-  }
 
 }
 
@@ -857,6 +871,18 @@ function prepareErrorMessages(errorMsgs) {
     instances: []
   }
 
+  errorMsgs.chains_imagesSVGElements = {
+    category: "chains_imagesSVGElements",
+    notice: "Some Chain SVGs have too many elements (>1000)!",
+    instances: []
+  }
+
+  errorMsgs.chains_imagesSVGEmbed = {
+    category: "chains_imagesSVGElements",
+    notice: "Some Chain SVGs have embedded images (>2)!",
+    instances: []
+  }
+
   //Asset Errors
   errorMsgs.assets_imagesNotExist = {
     category: "assets_imagesNotExist",
@@ -867,6 +893,18 @@ function prepareErrorMessages(errorMsgs) {
   errorMsgs.assets_imagesTooLarge = {
     category: "assets_imagesTooLarge",
     notice: "Some Asset Images are too large (>250kB)!",
+    instances: []
+  }
+
+  errorMsgs.assets_imagesSVGElements = {
+    category: "assets_imagesSVGElements",
+    notice: "Some Asset SVGs have too many elements (>1000)!",
+    instances: []
+  }
+
+  errorMsgs.assets_imagesSVGEmbed = {
+    category: "assets_imagesSVGElements",
+    notice: "Some Asset SVGs have embedded images (>2)!",
     instances: []
   }
 
