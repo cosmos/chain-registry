@@ -424,10 +424,37 @@ function analyzeSVG(relativePath) {
   // Count <image> tags
   const imageCount = (data.match(/<image[\s>]/gi) || []).length;
 
-  return { shapesCount, imageCount };
+  // Count masks
+  const maskMatches = data.match(/<mask[\s\S]*?<\/mask>/gi) || [];
+  let maskCommaCount = 0;
+  maskMatches.forEach(mask => {
+    // Count commas inside <path d="..."> attributes within the mask
+    const pathDMatches = mask.match(/<path[^>]*d="([^"]+)"/gi) || [];
+    pathDMatches.forEach(dAttr => {
+      // Extract the d attribute string
+      const dMatch = dAttr.match(/d="([^"]+)"/i);
+      if (dMatch && dMatch[1]) {
+        // Count commas in this path
+        maskCommaCount += (dMatch[1].match(/,/g) || []).length;
+      }
+    });
+  });
+  // Count clipPaths as well
+  const clipPathMatches = data.match(/<clipPath[\s\S]*?<\/clipPath>/gi) || [];
+  clipPathMatches.forEach(clip => {
+    const pathDMatches = clip.match(/<path[^>]*d="([^"]+)"/gi) || [];
+    pathDMatches.forEach(dAttr => {
+      const dMatch = dAttr.match(/d="([^"]+)"/i);
+      if (dMatch && dMatch[1]) {
+        maskCommaCount += (dMatch[1].match(/,/g) || []).length;
+      }
+    });
+  });
+
+  return { shapesCount, imageCount, maskCommaCount };
 }
 
-function checkSVG(chain_name, base_denom, uri, errorMsgs) {
+function checkSVG(chain_name, base_denom, uri, image, errorMsgs) {
 
   const svgAnalysis = analyzeSVG(uriToRelativePath(uri));
   if (svgAnalysis.shapesCount > 1000) {
@@ -442,9 +469,9 @@ function checkSVG(chain_name, base_denom, uri, errorMsgs) {
     }
     return false;
   }
-  if (svgAnalysis.shapesCount < 3 && svgAnalysis.imageCount > 0) {
+  if (svgAnalysis.imageCount > 0 && svgAnalysis.shapesCount < 2 && svgAnalysis.maskCommaCount < 20) {
     console.log(uri);
-    console.log("suspicios");
+    console.log("suspicious");
     if (!base_denom) {
       const errorMsg = `Chain SVG ${uri} at ${chain_name} has embedded images!`;
       errorMsgs.chains_imagesSVGEmbed.instances.push(errorMsg);
@@ -462,8 +489,6 @@ function checkImageURI(chain_name, base_denom, uri, errorMsgs) {
 
   let URI_EXISTS = checkImageURIExistence(chain_name, base_denom, uri, errorMsgs);
   if (!URI_EXISTS) return;
-  if (uri.endsWith("svg"))
-    checkSVG(chain_name, base_denom, uri, errorMsgs);
   checkImageURIFileSize(chain_name, base_denom, uri, errorMsgs);
 
 }
@@ -472,7 +497,9 @@ function checkImageObject(chain_name, base_denom, image, errorMsgs) {
 
   imageURIs.forEach(uri => {
     if (!image[uri]) return;
-    checkImageURI(chain_name, base_denom, image[uri], errorMsgs);
+    let valid = checkImageURI(chain_name, base_denom, image[uri], errorMsgs);
+    if (valid && image[uri].endsWith("svg"))
+      checkSVG(chain_name, base_denom, image[uri], image, errorMsgs);
   });
 
 }
