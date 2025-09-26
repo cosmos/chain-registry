@@ -137,12 +137,13 @@ export function readJsonFile(file) {
 }
 
 export function writeJsonFile(file, object) {
+
   try {
-    fs.writeFileSync((file), JSON.stringify(object,null,2), (err) => {
-      if (err) throw err;
-    });
+    fs.writeFileSync(file, JSON.stringify(object, null, 2));//, (err)) => {
+      //if (err) throw err;
+    //});
   } catch (err) {
-    console.log(err);
+    console.log("Failed to write file:", file, err);
   }
 }
 

@@ -454,12 +454,14 @@ function analyzeSVG(relativePath) {
   return { shapesCount, imageCount, maskCommaCount };
 }
 
-function checkSVG(chain_name, base_denom, uri, image, errorMsgs) {
+function checkSVG(chain_name, base_denom, image, errorMsgs) {
+
+  const uri = image.svg;
+  if (!uri) return false;
 
   const svgAnalysis = analyzeSVG(uriToRelativePath(uri));
+
   if (svgAnalysis.shapesCount > 1000) {
-    console.log(uri);
-    console.log("suspicios");
     if (!base_denom) {
       const errorMsg = `Chain SVG ${uri} at ${chain_name} has too many elements!`;
       errorMsgs.chains_imagesSVGElements.instances.push(errorMsg);
@@ -469,9 +471,17 @@ function checkSVG(chain_name, base_denom, uri, image, errorMsgs) {
     }
     return false;
   }
-  if (svgAnalysis.imageCount > 0 && svgAnalysis.shapesCount < 2 && svgAnalysis.maskCommaCount < 20) {
-    console.log(uri);
-    console.log("suspicious");
+
+  let checkForEmbeddedRasterImage = false;
+  if (image.png) {
+    const pngSize = fs.statSync(executionPath(uriToRelativePath(image.png))).size;
+    const svgSize = fs.statSync(executionPath(uriToRelativePath(uri))).size;
+    if (svgSize > pngSize) {
+      checkForEmbeddedRasterImage = true;
+    }
+  }
+  if (!checkForEmbeddedRasterImage) return false;
+  if (svgAnalysis.imageCount > 0 && svgAnalysis.shapesCount < 2 && svgAnalysis.maskCommaCount < 10) {
     if (!base_denom) {
       const errorMsg = `Chain SVG ${uri} at ${chain_name} has embedded images!`;
       errorMsgs.chains_imagesSVGEmbed.instances.push(errorMsg);
@@ -481,26 +491,30 @@ function checkSVG(chain_name, base_denom, uri, image, errorMsgs) {
     }
     return false;
   }
+
   return true;
 
 }
 
-function checkImageURI(chain_name, base_denom, uri, errorMsgs) {
+/*function checkImageURI(chain_name, base_denom, uri, errorMsgs) {
 
-  let URI_EXISTS = checkImageURIExistence(chain_name, base_denom, uri, errorMsgs);
-  if (!URI_EXISTS) return;
+  //let URI_EXISTS = checkImageURIExistence(chain_name, base_denom, uri, errorMsgs);
+  //if (!URI_EXISTS) return;
   checkImageURIFileSize(chain_name, base_denom, uri, errorMsgs);
 
-}
+}*/
 
 function checkImageObject(chain_name, base_denom, image, errorMsgs) {
 
-  imageURIs.forEach(uri => {
-    if (!image[uri]) return;
-    let valid = checkImageURI(chain_name, base_denom, image[uri], errorMsgs);
-    if (valid && image[uri].endsWith("svg"))
-      checkSVG(chain_name, base_denom, image[uri], image, errorMsgs);
-  });
+  //imageURIs.forEach(uri => {
+  for (const uri of imageURIs) {
+    if (!image[uri]) continue;
+    let URI_EXISTS = checkImageURIExistence(chain_name, base_denom, image[uri], errorMsgs);
+    if (!URI_EXISTS) continue;
+    if (uri === "svg")
+      checkSVG(chain_name, base_denom, image, errorMsgs);
+    checkImageURIFileSize(chain_name, base_denom, image[uri], errorMsgs);
+  }
 
 }
 
@@ -906,7 +920,7 @@ function prepareErrorMessages(errorMsgs) {
 
   errorMsgs.chains_imagesSVGEmbed = {
     category: "chains_imagesSVGElements",
-    notice: "Some Chain SVGs have embedded images (>2)!",
+    notice: "Some Chain SVGs have embedded images!",
     instances: []
   }
 
@@ -931,7 +945,7 @@ function prepareErrorMessages(errorMsgs) {
 
   errorMsgs.assets_imagesSVGEmbed = {
     category: "assets_imagesSVGElements",
-    notice: "Some Asset SVGs have embedded images (>2)!",
+    notice: "Some Asset SVGs have embedded images!",
     instances: []
   }
 
