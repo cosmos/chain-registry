@@ -834,21 +834,13 @@ async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNo
   if (!assets_cgidNotInState.length) { return; }
   
 
-  //TEMPORARYawait coingecko.fetchCoingeckoData(coingecko.coingeckoEndpoints.coins_list);
+  await coingecko.fetchCoingeckoData(coingecko.coingeckoEndpoints.coins_list);
   if (!coingecko.api_response) {
     console.log("No CoinGecko API Response");
     return;
   }
 
   assets_cgidNotInState.forEach((chain_asset_pair) => {
-
-    //temporary
-    if (chain_asset_pair.asset.coingecko_id === "nim-network") {
-      console.log(`${chain_asset_pair.asset.coingecko_id}`);
-      console.log(chain_asset_pair);
-      console.log(chain_asset_pair.asset);
-    }
-    //temporary
 
     const coin = coingecko.api_response?.[coingecko.coingeckoEndpoints.coins_list.name]?.find(
       apiObject => apiObject.id === chain_asset_pair.asset.coingecko_id
@@ -1037,16 +1029,13 @@ export async function validate_chain_files(errorMsgs) {
       checkImageObject(chain_name, undefined, image, errorMsgs);
     });
 
-    //check image existence
-    //checkImageExistence_Chain(chain_name, errorMsgs);
-
     //ensure that and version properties in codebase are also defined in the versions file.
     //compare_CodebaseVersionData_to_VersionsFile(chain_name);
     //this way removed because version data can now just be recorded in the chain.json file
     //version data recorded in the versions file will be overwitten by what's in codebase
 
     //get chain's network Type (mainet vs testnet vs...)
-    //const chainNetworkType = chain_reg.getFileProperty(chain_name, "chain", "network_type");
+    const chainNetworkType = chain_reg.getFileProperty(chain_name, "chain", "network_type");
 
     //get chain's assets
     const chainAssets = chain_reg.getFileProperty(chain_name, "assetlist", "assets");
@@ -1076,6 +1065,10 @@ export async function validate_chain_files(errorMsgs) {
 
       //check that coingecko IDs are in the state
       checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState);
+
+      //Update: We no longer require that coingecko ids be registered to mainnet assets only.
+      //  : this is because chains and be bulk copy-and-pasted including coingecko ids
+      //  : testnet assets with coingecko_id must have relationship defined to mainnet counterpart.
       //checkCoingeckoIdMainnetAssetsOnly(chain_name, asset, chainNetworkType, assets_cgidAssetNotMainnet);
 
       //check image_sync pointers of images
@@ -1089,9 +1082,6 @@ export async function validate_chain_files(errorMsgs) {
         checkImageObject(chain_name, asset.base, image, errorMsgs);
       });
 
-
-      //check image existence
-      //checkImageExistence_Asset(chain_name, asset, errorMsgs);
 
     });
 
