@@ -496,17 +496,8 @@ function checkSVG(chain_name, base_denom, image, errorMsgs) {
 
 }
 
-/*function checkImageURI(chain_name, base_denom, uri, errorMsgs) {
-
-  //let URI_EXISTS = checkImageURIExistence(chain_name, base_denom, uri, errorMsgs);
-  //if (!URI_EXISTS) return;
-  checkImageURIFileSize(chain_name, base_denom, uri, errorMsgs);
-
-}*/
-
 function checkImageObject(chain_name, base_denom, image, errorMsgs) {
 
-  //imageURIs.forEach(uri => {
   for (const uri of imageURIs) {
     if (!image[uri]) continue;
     let URI_EXISTS = checkImageURIExistence(chain_name, base_denom, image[uri], errorMsgs);
