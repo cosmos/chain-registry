@@ -405,6 +405,98 @@ function checkImageURIFileSize(chain_name, base_denom, uri, errorMsgs) {
 
 }
 
+function isPNG(relativePath) {
+  const filePath = executionPath(relativePath);
+
+  const fd = fs.openSync(filePath, "r"); // open for reading
+  const header = Buffer.alloc(8);
+  fs.readSync(fd, header, 0, 8, 0); // read first 8 bytes
+  fs.closeSync(fd);
+
+  const pngSig = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+  let fileType = "unknown";
+
+  if (header.equals(pngSig)) {
+    fileType = "png";
+  } else if (header[0] === 0xff && header[1] === 0xd8) {
+    fileType = "jpeg";
+  } else if (header.toString("ascii", 0, 4) === "GIF8") {
+    fileType = "gif";
+  } else if (header.toString("ascii", 0, 2) === "BM") {
+    fileType = "bmp";
+  } else if (header.toString("ascii", 0, 4) === "%PDF") {
+    fileType = "pdf";
+  } else if (
+    header.toString("ascii", 0, 4) === "RIFF" &&
+    header.toString("ascii", 8, 12) === "WEBP"
+  ) {
+    fileType = "webp";
+  }
+
+  return {
+    isPNG: header.equals(pngSig),
+    fileType,
+  };
+}
+
+function getPngDimensions(relativePath) {
+
+  const path = executionPath(relativePath);
+  const fd = fs.openSync(path, "r");
+
+  // IHDR comes right after 8-byte signature and 4-byte length + 4-byte type
+  const ihdrOffset = 8 + 4 + 4;
+  const buffer = Buffer.alloc(8);
+
+  fs.readSync(fd, buffer, 0, 8, ihdrOffset);
+  fs.closeSync(fd);
+
+  const width = buffer.readUInt32BE(0);
+  const height = buffer.readUInt32BE(4);
+
+  return { width, height };
+}
+
+function getSvgDimensions(relativePath) {
+
+  const path = executionPath(relativePath);
+  if (!fs.existsSync(path)) {
+    throw new Error(`File not found: ${path}`);
+  }
+  const data = fs.readFileSync(path, "utf-8");
+
+  // Try viewBox first
+  const viewBoxMatch = data.match(/viewBox\s*=\s*["']([\d.\s-]+)["']/i);
+  if (viewBoxMatch) {
+    const parts = viewBoxMatch[1].trim().split(/\s+/);
+    if (parts.length === 4) {
+      const width = parseFloat(parts[2]);
+      const height = parseFloat(parts[3]);
+      return { width, height, source: "viewBox" };
+    }
+  }
+
+  // Try width + height attributes
+  const widthMatch = data.match(/width\s*=\s*["']([\d.]+)(px)?["']/i);
+  const heightMatch = data.match(/height\s*=\s*["']([\d.]+)(px)?["']/i);
+  if (widthMatch && heightMatch) {
+    return {
+      width: parseFloat(widthMatch[1]),
+      height: parseFloat(heightMatch[1]),
+      source: "width/height",
+    };
+  }
+
+  // Nothing reliable found
+  return { width: null, height: null, source: "indeterminate" };
+}
+
+function isSquareish(dimensions) {
+  //console.log(dimensions);
+  if (dimensions.width === null || dimensions.height === null) return true;
+  return Math.abs(dimensions.width - dimensions.height) <= 1;
+}
+
 function analyzeSVG(relativePath) {
   const path = executionPath(relativePath);
   if (!fs.existsSync(path)) {
@@ -459,8 +551,11 @@ function checkSVG(chain_name, base_denom, image, errorMsgs) {
   const uri = image.svg;
   if (!uri) return false;
 
-  const svgAnalysis = analyzeSVG(uriToRelativePath(uri));
+  const relativePath = uriToRelativePath(uri);
 
+  const svgAnalysis = analyzeSVG(relativePath);
+
+  //Too many shapes
   if (svgAnalysis.shapesCount > 1000) {
     if (!base_denom) {
       const errorMsg = `Chain SVG ${uri} at ${chain_name} has too many elements!`;
@@ -472,10 +567,11 @@ function checkSVG(chain_name, base_denom, image, errorMsgs) {
     return false;
   }
 
+  //Embedded Raster Image
   let checkForEmbeddedRasterImage = false;
   if (image.png) {
     const pngSize = fs.statSync(executionPath(uriToRelativePath(image.png))).size;
-    const svgSize = fs.statSync(executionPath(uriToRelativePath(uri))).size;
+    const svgSize = fs.statSync(executionPath(relativePath)).size;
     if (svgSize > pngSize) {
       checkForEmbeddedRasterImage = true;
     }
@@ -492,9 +588,62 @@ function checkSVG(chain_name, base_denom, image, errorMsgs) {
     return false;
   }
 
+  //Square Dimensions (1:1 AR)
+  if (!isSquareish(getSvgDimensions(relativePath))) {
+    if (!base_denom) {
+      const errorMsg = `Chain SVG ${uri} at ${chain_name} isn't square!`;
+      errorMsgs.chains_imagesSVGSquare.instances.push(errorMsg);
+    } else {
+      const errorMsg = `Asset SVG ${uri} at ${chain_name}, ${base_denom} isn't square!`;
+      errorMsgs.assets_imagesSVGSquare.instances.push(errorMsg);
+    }
+    return false;
+  }
+
   return true;
 
 }
+
+function checkPNG(chain_name, base_denom, image, errorMsgs) {
+
+  const uri = image.png;
+  if (!uri) return false;
+
+  const relativePath = uriToRelativePath(uri);
+
+  let passesChecks = true;
+
+  //Actually a PNG
+  const isPNGFile = isPNG(relativePath);
+  if (!isPNGFile.isPNG) {
+    if (!base_denom) {
+      const errorMsg = `Chain PNG ${uri} at ${chain_name} isn't a PNG! ${isPNGFile.fileType}`;
+      errorMsgs.chains_imagesPNGisPNG.instances.push(errorMsg);
+    } else {
+      const errorMsg = `Asset PNG ${uri} at ${chain_name}, ${base_denom} isn't a PNG! ${isPNGFile.fileType}`;
+      errorMsgs.assets_imagesPNGisPNG.instances.push(errorMsg);
+    }
+    passesChecks = false;
+    return passesChecks;
+  }
+
+  //Square Dimensions (1:1 AR)
+  const dimensions = getPngDimensions(relativePath);
+  if (!isSquareish(dimensions)) {
+    if (!base_denom) {
+      const errorMsg = `Chain PNG ${uri} at ${chain_name} isn't square! Width: ${dimensions.width}, Height: ${dimensions.height}`;
+      errorMsgs.chains_imagesPNGSquare.instances.push(errorMsg);
+    } else {
+      const errorMsg = `Asset PNG ${uri} at ${chain_name}, ${base_denom} isn't square! Width: ${dimensions.width}, Height: ${dimensions.height}`;
+      errorMsgs.assets_imagesPNGSquare.instances.push(errorMsg);
+    }
+    passesChecks = false;
+  }
+
+  return true;
+
+}
+
 
 function checkImageObject(chain_name, base_denom, image, errorMsgs) {
 
@@ -502,8 +651,12 @@ function checkImageObject(chain_name, base_denom, image, errorMsgs) {
     if (!image[uri]) continue;
     let URI_EXISTS = checkImageURIExistence(chain_name, base_denom, image[uri], errorMsgs);
     if (!URI_EXISTS) continue;
-    if (uri === "svg")
+    if (uri === "svg") {
       checkSVG(chain_name, base_denom, image, errorMsgs);
+    }
+    else if (uri === "png") {
+      checkPNG(chain_name, base_denom, image, errorMsgs);
+    }
     checkImageURIFileSize(chain_name, base_denom, image[uri], errorMsgs);
   }
 
@@ -546,7 +699,6 @@ function compare_CodebaseVersionData_to_VersionsFile(chain_name) {
   }
 
 }
-
 
 function checkFileSchemaReference(fileLocation, fileName, extraParentDirectories, schema) {
 
@@ -902,8 +1054,26 @@ function prepareErrorMessages(errorMsgs) {
   }
 
   errorMsgs.chains_imagesSVGEmbed = {
-    category: "chains_imagesSVGElements",
+    category: "chains_imagesSVGEmbed",
     notice: "Some Chain SVGs have embedded images!",
+    instances: []
+  }
+
+  errorMsgs.chains_imagesSVGSquare = {
+    category: "chains_imagesSVGSquare",
+    notice: "Some Chain SVGs aren't square!",
+    instances: []
+  }
+
+  errorMsgs.chains_imagesPNGisPNG = {
+    category: "chains_imagesPNGisPNG",
+    notice: "Some Chain PNGs aren't PNGs!",
+    instances: []
+  }
+
+  errorMsgs.chains_imagesPNGSquare = {
+    category: "chains_imagesPNGSquare",
+    notice: "Some Chain PNGs aren't square!",
     instances: []
   }
 
@@ -929,6 +1099,24 @@ function prepareErrorMessages(errorMsgs) {
   errorMsgs.assets_imagesSVGEmbed = {
     category: "assets_imagesSVGElements",
     notice: "Some Asset SVGs have embedded images!",
+    instances: []
+  }
+
+  errorMsgs.assets_imagesSVGSquare = {
+    category: "assets_imagesSVGSquare",
+    notice: "Some Asset SVGs aren't square!",
+    instances: []
+  }
+
+  errorMsgs.assets_imagesPNGisPNG = {
+    category: "assets_imagesPNGisPNG",
+    notice: "Some Asset PNGs aren't PNGs!",
+    instances: []
+  }
+
+  errorMsgs.assets_imagesPNGSquare = {
+    category: "assets_imagesPNGSquare",
+    notice: "Some Asset PNGs aren't square!",
     instances: []
   }
 
