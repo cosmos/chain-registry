@@ -493,6 +493,10 @@ function getSvgDimensions(relativePath) {
 
 function isSquareish(dimensions) {
   //console.log(dimensions);
+  if (dimensions.width === null || dimensions.height === null) {
+    console.log("unkown");
+    console.log(dimensions);
+  }
   if (dimensions.width === null || dimensions.height === null) return true;
   return Math.abs(dimensions.width - dimensions.height) <= 1;
 }
@@ -553,6 +557,8 @@ function checkSVG(chain_name, base_denom, image, errorMsgs) {
 
   const relativePath = uriToRelativePath(uri);
 
+  let passesChecks = true;
+
   const svgAnalysis = analyzeSVG(relativePath);
 
   //Too many shapes
@@ -564,7 +570,7 @@ function checkSVG(chain_name, base_denom, image, errorMsgs) {
       const errorMsg = `Asset SVG ${uri} at ${chain_name}, ${base_denom} has too many elements!`;
       errorMsgs.assets_imagesSVGElements.instances.push(errorMsg);
     }
-    return false;
+    passesChecks = false;
   }
 
   //Embedded Raster Image
@@ -576,31 +582,34 @@ function checkSVG(chain_name, base_denom, image, errorMsgs) {
       checkForEmbeddedRasterImage = true;
     }
   }
-  if (!checkForEmbeddedRasterImage) return false;
-  if (svgAnalysis.imageCount > 0 && svgAnalysis.shapesCount < 2 && svgAnalysis.maskCommaCount < 10) {
-    if (!base_denom) {
-      const errorMsg = `Chain SVG ${uri} at ${chain_name} has embedded images!`;
-      errorMsgs.chains_imagesSVGEmbed.instances.push(errorMsg);
-    } else {
-      const errorMsg = `Asset SVG ${uri} at ${chain_name}, ${base_denom} has embedded images!`;
-      errorMsgs.assets_imagesSVGEmbed.instances.push(errorMsg);
+  if (checkForEmbeddedRasterImage) {
+    if (svgAnalysis.imageCount > 0 && svgAnalysis.shapesCount < 2 && svgAnalysis.maskCommaCount < 10) {
+      if (!base_denom) {
+        const errorMsg = `Chain SVG ${uri} at ${chain_name} has embedded images!`;
+        errorMsgs.chains_imagesSVGEmbed.instances.push(errorMsg);
+      } else {
+        const errorMsg = `Asset SVG ${uri} at ${chain_name}, ${base_denom} has embedded images!`;
+        errorMsgs.assets_imagesSVGEmbed.instances.push(errorMsg);
+      }
+      passesChecks = false;
     }
-    return false;
   }
 
   //Square Dimensions (1:1 AR)
-  if (!isSquareish(getSvgDimensions(relativePath))) {
+  const dimensions = getSvgDimensions(relativePath);
+  //console.log(`${chain_name}, ${base_denom}, ${dimensions}`);
+  if (!isSquareish(dimensions)) {
     if (!base_denom) {
-      const errorMsg = `Chain SVG ${uri} at ${chain_name} isn't square!`;
+      const errorMsg = `Chain SVG ${uri} at ${chain_name} isn't square! Width: ${dimensions.width}, Height: ${dimensions.height}`;
       errorMsgs.chains_imagesSVGSquare.instances.push(errorMsg);
     } else {
-      const errorMsg = `Asset SVG ${uri} at ${chain_name}, ${base_denom} isn't square!`;
+      const errorMsg = `Asset SVG ${uri} at ${chain_name}, ${base_denom} isn't square! Width: ${dimensions.width}, Height: ${dimensions.height}`;
       errorMsgs.assets_imagesSVGSquare.instances.push(errorMsg);
     }
-    return false;
+    passesChecks = false;
   }
 
-  return true;
+  return passesChecks;
 
 }
 
@@ -640,7 +649,7 @@ function checkPNG(chain_name, base_denom, image, errorMsgs) {
     passesChecks = false;
   }
 
-  return true;
+  return passesChecks;
 
 }
 
