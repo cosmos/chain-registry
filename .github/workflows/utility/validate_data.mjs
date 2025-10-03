@@ -465,8 +465,21 @@ function getSvgDimensions(relativePath) {
   }
   const data = fs.readFileSync(path, "utf-8");
 
+  const svgTag = data.match(/<svg\b[^>]*>/i)?.[0];
+
+  // Try width + height attributes
+  const widthMatch = svgTag.match(/[\s]width\s*=\s*["']([\d.]+)(px)?["']/i);
+  const heightMatch = svgTag.match(/[\s]height\s*=\s*["']([\d.]+)(px)?["']/i);
+  if (widthMatch && heightMatch) {
+    return {
+      width: parseFloat(widthMatch[1]),
+      height: parseFloat(heightMatch[1]),
+      source: "width/height",
+    };
+  }
+
   // Try viewBox first
-  const viewBoxMatch = data.match(/viewBox\s*=\s*["']([\d.\s-]+)["']/i);
+  const viewBoxMatch = svgTag.match(/viewBox\s*=\s*["']([\d.\s-]+)["']/i);
   if (viewBoxMatch) {
     const parts = viewBoxMatch[1].trim().split(/\s+/);
     if (parts.length === 4) {
@@ -474,17 +487,6 @@ function getSvgDimensions(relativePath) {
       const height = parseFloat(parts[3]);
       return { width, height, source: "viewBox" };
     }
-  }
-
-  // Try width + height attributes
-  const widthMatch = data.match(/width\s*=\s*["']([\d.]+)(px)?["']/i);
-  const heightMatch = data.match(/height\s*=\s*["']([\d.]+)(px)?["']/i);
-  if (widthMatch && heightMatch) {
-    return {
-      width: parseFloat(widthMatch[1]),
-      height: parseFloat(heightMatch[1]),
-      source: "width/height",
-    };
   }
 
   // Nothing reliable found
