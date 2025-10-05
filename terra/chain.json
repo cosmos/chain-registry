@@ -162,13 +162,38 @@
   },
   "codebase": {
     "git_repo": "https://github.com/classic-terra/core",
-    "recommended_version": "v2.1.1",
+    "recommended_version": "v3.5.0",
     "compatible_versions": [
-      "v2.1.1"
+      "v3.5.0"
     ],
     "genesis": {
       "name": "1.0.5",
-      "genesis_url": "https://tfl-columbus-5.s3.amazonaws.com/genesis.json"
+      "genesis_url": "https://snapshots.hexxagon.io/cosmos/terra-classic/columbus-5/genesis.json"
+    },
+    "tag": "v3.5.0",
+    "binaries": {
+      "linux/arm64": "https://github.com/classic-terra/core/releases/download/v3.5.0/terra_3.5.0_Linux_arm64.tar.gz",
+      "linux/amd64": "https://github.com/classic-terra/core/releases/download/v3.5.0/terra_3.5.0_Linux_x86_64.tar.gz"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/cosmos/cosmos-sdk",
+      "version": "v0.47.17",
+      "tag": "v0.47.17"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.37.15"
+    },
+    "cosmwasm": {
+      "version": "0.46.0",
+      "enabled": true
+    },
+    "ibc": {
+      "type": "go",
+      "repo": "https://github.com/cosmos/ibc-go",
+      "version": "v7.10.0",
+      "tag": "v7.10.0"
     }
   },
   "logo_URIs": {
@@ -213,6 +238,11 @@
         "id": "65d86ab6024153286b823a3950e9055478effb04",
         "address": "terra.inotel.ro:26656",
         "provider": "www.inotel.ro"
+      },
+      {
+        "id": "0afa9af6f83cf7e6b560b3c32e56007a85672736",
+        "address": "109.239.30.196:26656",
+        "provider": "Hexxagon"
       }
     ]
   },
@@ -223,20 +253,16 @@
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
-        "address": "https://rpc-terra-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
-      },
-      {
-        "address": "https://terraclassic-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://terraclassic-rpc-server-01.stakely.io",
-        "provider": "Stakely"
+        "address": "https://rpc.terra-classic.hexxagon.io/",
+        "provider": "Hexxagon"
       },
       {
         "address": "https://api-lunc-rpc.binodes.com",
         "provider": "BInodes"
+      },
+      {
+        "address": "https://terraclassic-rpc-server-01.stakely.io",
+        "provider": "Stakely"
       }
     ],
     "rest": [
@@ -245,16 +271,12 @@
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
-        "address": "https://api-terra-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
+        "address": "https://lcd.terra-classic.hexxagon.io/",
+        "provider": "Hexxagon"
       },
       {
         "address": "https://terraclassic-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://terraclassic-lcd-server-01.stakely.io",
-        "provider": "Stakely"
       },
       {
         "address": "https://api-lunc-lcd.binodes.com",
@@ -263,20 +285,12 @@
     ],
     "grpc": [
       {
-        "address": "grpc.terrarebels.net",
-        "provider": "Terra Rebels"
+        "address": "grpc.terra-classic.hexxagon.io/",
+        "provider": "Hexxagon"
       },
       {
         "address": "terra-classic-grpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
-      },
-      {
-        "address": "grpc-terra-ia.cosmosia.notional.ventures:443",
-        "provider": "Notional"
-      },
-      {
-        "address": "terraclassic-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "api-lunc-grpc.binodes.com:443",
@@ -286,10 +300,16 @@
   },
   "explorers": [
     {
-      "kind": "ezstaking",
-      "url": "https://ezstaking.app/terra",
-      "tx_page": "https://ezstaking.app/terra/txs/${txHash}",
-      "account_page": "https://ezstaking.app/terra/account/${accountAddress}"
+      "kind": "hexxagon-finder",
+      "url": "https://finder.terra-classic.hexxagon.io/",
+      "tx_page": "https://finder.terra-classic.hexxagon.io/mainnet/tx/${txHash}",
+      "account_page": "https://finder.terra-classic.hexxagon.io/mainnet/address/${accountAddress}"
+    },
+    {
+      "kind": "hexxagon2-finder",
+      "url": "https://finder.terraclassic.community/",
+      "tx_page": "https://finder.terraclassic.community/mainnet/tx/${txHash}",
+      "account_page": "https://finder.terraclassic.community/mainnet/address/${accountAddress}"
     },
     {
       "kind": "ping.pub",
@@ -309,16 +329,10 @@
       "account_page": "https://staking-explorer.com/account.php?chain=terra&addr=${accountAddress}"
     },
     {
-      "kind": "finder",
-      "url": "https://finder.terra.money/classic",
-      "tx_page": "https://finder.terra.money/classic/tx/${txHash}",
-      "account_page": "https://finder.terra.money/classic/address/${accountAddress}"
-    },
-    {
-      "kind": "finder",
-      "url": "https://finder.terrarebels.net/classic",
-      "tx_page": "https://finder.terrarebels.net/classic/tx/${txHash}",
-      "account_page": "https://finder.terrarebels.net/classic/address/${accountAddress}"
+      "kind": "terraport-finder",
+      "url": "https://finder.terraport.finance/",
+      "tx_page": "https://finder.terraport.finance/mainnet/tx/${txHash}",
+      "account_page": "https://finder.terraport.finance/mainnet/address/${accountAddress}"
     }
   ],
   "images": [

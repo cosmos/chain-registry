@@ -1,4 +1,4 @@
-// Purpose:
+﻿// Purpose:
 //   to validate various data throughout the Chain Registry, prioritizing data that often gets missed by manual review
 //   e.g., whether fee assets are registered to the chain's assetlist
 
@@ -12,7 +12,9 @@
 //       chaeck if staking token exists in the assetlist
 //
 
+import * as fs from 'fs';
 import * as path from 'path';
+
 import * as chain_reg from './chain_registry.mjs';
 
 import * as coingecko from './coingecko_data.mjs';
@@ -21,6 +23,7 @@ const chainRegistryRoot = "../../..";
 
 const chainIdMap = new Map();
 let base_denoms = [];
+const imageURIs = ["png", "svg"];
 
 let coingecko_data = coingecko.coingecko_data;
 
@@ -301,19 +304,372 @@ async function checkIbcDenomAccuracy(chain_name, asset) {
 }
 
 
-function checkImageSyncIsValid(chain_name, asset) {
+function checkImageSyncIsValid(chain_name, asset, assets_imageSyncInvalid) {
 
   if (!asset.base) { return; }
   asset.images?.forEach((image) => {
     if (!image.image_sync) { return; }
+    //origin assets can't use image sync
+    if (!asset.traces) {
+      const chainStatus = chain_reg.getFileProperty(chain_name, "chain", "status")
+      if (!chainStatus || chainStatus === "live") {
+        const errorMsg = `Image Sync Pointer used for ${chain_name}, ${asset.base}, but using image sync requires traces.`;
+        assets_imageSyncInvalid.push(errorMsg);
+      }
+    }
     let base = chain_reg.getAssetProperty(image.image_sync.chain_name, image.image_sync.base_denom, "base");
     if (!base) {
-      throw new Error(`Image Sync Pointer of ${chain_name}, ${asset.base} makes invalid reference to ${image.image_sync.chain_name}, ${image.image_sync.base_denom}.`);
+      const errorMsg = `Image Sync Pointer of ${chain_name}, ${asset.base} makes invalid reference to ${image.image_sync.chain_name}, ${image.image_sync.base_denom}.`;
+      assets_imageSyncInvalid.push(errorMsg);
     }
     if (asset.base === image.image_sync.base_denom && chain_name === image.image_sync.chain_name) {
-      throw new Error(`Image_sync of ${chain_name}, ${asset.base} makes reference to self.`);
+      const errorMsg = `Image_sync of ${chain_name}, ${asset.base} makes reference to self.`;
+      assets_imageSyncInvalid.push(errorMsg);
     }
   });
+
+}
+
+function pushLogoURIs_to_Images(images, logo_URIs) {
+
+  if (!logo_URIs) return;
+  for (const image of images) {
+    for (const uri of imageURIs) {
+      if (image[uri] === logo_URIs[uri]) {
+        return;
+      }
+    }
+  }
+  images.push(logo_URIs);
+
+}
+
+function uriToRelativePath(uri) {
+  const parts = uri.split('/');
+  return parts.slice(6).join('/');
+}
+
+function executionPath(relativePath) {
+  return path.join(chainRegistryRoot, relativePath);
+}
+
+function existsCaseSensitive(relativePath) {
+  let current = chainRegistryRoot; // repo root
+  for (const part of relativePath.split('/')) {
+    const entries = fs.readdirSync(current);
+    if (!entries.includes(part)) {
+      return false; // mismatch in case
+    }
+    current = path.join(current, part);
+  }
+  return true;
+}
+
+function checkImageURIExistence(chain_name, base_denom, uri, errorMsgs) {
+
+  const relativePath = uriToRelativePath(uri);
+  if (!existsCaseSensitive(relativePath)) {
+    if (!base_denom) {
+      const errorMsg = `Chain Image ${uri} at ${chain_name} is missing!`;
+      errorMsgs.chains_imagesNotExist.instances.push(errorMsg);
+    } else {
+      const errorMsg = `Asset Image ${uri} at ${chain_name}, ${base_denom} is missing!`;
+      errorMsgs.assets_imagesNotExist.instances.push(errorMsg);
+    }
+    return false;
+  }
+  return true;
+
+}
+
+function checkFileSize(relativePath, maxBytes) {
+  const stats = fs.statSync(executionPath(relativePath));  // get file metadata
+  return stats.size <= maxBytes * 1024;        // size in bytes
+}
+
+function checkImageURIFileSize(chain_name, base_denom, uri, errorMsgs) {
+
+  const maxBytes = 251;
+  const relativePath = uriToRelativePath(uri);
+  if (!checkFileSize(relativePath, maxBytes)) {
+    if (!base_denom) {
+      const errorMsg = `Chain Image ${uri} at ${chain_name} is too large!`;
+      errorMsgs.chains_imagesTooLarge.instances.push(errorMsg);
+    } else {
+      const errorMsg = `Asset Image ${uri} at ${chain_name}, ${base_denom} is too large!`;
+      errorMsgs.assets_imagesTooLarge.instances.push(errorMsg);
+    }
+    return false;
+  }
+  return true;
+
+}
+
+function isPNG(relativePath) {
+  const filePath = executionPath(relativePath);
+
+  const fd = fs.openSync(filePath, "r"); // open for reading
+  const header = Buffer.alloc(8);
+  fs.readSync(fd, header, 0, 8, 0); // read first 8 bytes
+  fs.closeSync(fd);
+
+  const pngSig = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+  let fileType = "unknown";
+
+  if (header.equals(pngSig)) {
+    fileType = "png";
+  } else if (header[0] === 0xff && header[1] === 0xd8) {
+    fileType = "jpeg";
+  } else if (header.toString("ascii", 0, 4) === "GIF8") {
+    fileType = "gif";
+  } else if (header.toString("ascii", 0, 2) === "BM") {
+    fileType = "bmp";
+  } else if (header.toString("ascii", 0, 4) === "%PDF") {
+    fileType = "pdf";
+  } else if (
+    header.toString("ascii", 0, 4) === "RIFF" &&
+    header.toString("ascii", 8, 12) === "WEBP"
+  ) {
+    fileType = "webp";
+  }
+
+  return {
+    isPNG: header.equals(pngSig),
+    fileType,
+  };
+}
+
+function getPngDimensions(relativePath) {
+
+  const path = executionPath(relativePath);
+  const fd = fs.openSync(path, "r");
+
+  // IHDR comes right after 8-byte signature and 4-byte length + 4-byte type
+  const ihdrOffset = 8 + 4 + 4;
+  const buffer = Buffer.alloc(8);
+
+  fs.readSync(fd, buffer, 0, 8, ihdrOffset);
+  fs.closeSync(fd);
+
+  const width = buffer.readUInt32BE(0);
+  const height = buffer.readUInt32BE(4);
+
+  return { width, height };
+}
+
+function getSvgDimensions(relativePath) {
+
+  const path = executionPath(relativePath);
+  if (!fs.existsSync(path)) {
+    throw new Error(`File not found: ${path}`);
+  }
+  const data = fs.readFileSync(path, "utf-8");
+
+  const svgTag = data.match(/<svg\b[^>]*>/i)?.[0];
+
+  // Try width + height attributes
+  const widthMatch = svgTag.match(/[\s]width\s*=\s*["']([\d.]+)(px)?["']/i);
+  const heightMatch = svgTag.match(/[\s]height\s*=\s*["']([\d.]+)(px)?["']/i);
+  if (widthMatch && heightMatch) {
+    return {
+      width: parseFloat(widthMatch[1]),
+      height: parseFloat(heightMatch[1]),
+      source: "width/height",
+    };
+  }
+
+  // Try viewBox first
+  const viewBoxMatch = svgTag.match(/viewBox\s*=\s*["']([\d.\s-]+)["']/i);
+  if (viewBoxMatch) {
+    const parts = viewBoxMatch[1].trim().split(/\s+/);
+    if (parts.length === 4) {
+      const width = parseFloat(parts[2]);
+      const height = parseFloat(parts[3]);
+      return { width, height, source: "viewBox" };
+    }
+  }
+
+  // Nothing reliable found
+  return { width: null, height: null, source: "indeterminate" };
+}
+
+function isSquareish(dimensions) {
+  //console.log(dimensions);
+  if (dimensions.width === null || dimensions.height === null) {
+    console.log("unkown");
+    console.log(dimensions);
+  }
+  if (dimensions.width === null || dimensions.height === null) return true;
+  return Math.abs(dimensions.width - dimensions.height) <= 1;
+}
+
+function analyzeSVG(relativePath) {
+  const path = executionPath(relativePath);
+  if (!fs.existsSync(path)) {
+    throw new Error(`File not found: ${path}`);
+  }
+
+  const data = fs.readFileSync(path, 'utf-8');
+
+  // Count <path> tags
+  const pathCount = (data.match(/<path[\s>]/gi) || []).length;
+  const rectCount = (data.match(/<rect[\s>]/gi) || []).length;
+  const circleCount = (data.match(/<circle[\s>]/gi) || []).length;
+  const polygonCount = (data.match(/<polygon[\s>]/gi) || []).length;
+  const polylineCount = (data.match(/<polyline[\s>]/gi) || []).length;
+  const shapesCount = pathCount + rectCount + circleCount + polygonCount + polylineCount;
+
+  // Count <image> tags
+  const imageCount = (data.match(/<image[\s>]/gi) || []).length;
+
+  // Count masks
+  const maskMatches = data.match(/<mask[\s\S]*?<\/mask>/gi) || [];
+  let maskCommaCount = 0;
+  maskMatches.forEach(mask => {
+    // Count commas inside <path d="..."> attributes within the mask
+    const pathDMatches = mask.match(/<path[^>]*d="([^"]+)"/gi) || [];
+    pathDMatches.forEach(dAttr => {
+      // Extract the d attribute string
+      const dMatch = dAttr.match(/d="([^"]+)"/i);
+      if (dMatch && dMatch[1]) {
+        // Count commas in this path
+        maskCommaCount += (dMatch[1].match(/,/g) || []).length;
+      }
+    });
+  });
+  // Count clipPaths as well
+  const clipPathMatches = data.match(/<clipPath[\s\S]*?<\/clipPath>/gi) || [];
+  clipPathMatches.forEach(clip => {
+    const pathDMatches = clip.match(/<path[^>]*d="([^"]+)"/gi) || [];
+    pathDMatches.forEach(dAttr => {
+      const dMatch = dAttr.match(/d="([^"]+)"/i);
+      if (dMatch && dMatch[1]) {
+        maskCommaCount += (dMatch[1].match(/,/g) || []).length;
+      }
+    });
+  });
+
+  return { shapesCount, imageCount, maskCommaCount };
+}
+
+function checkSVG(chain_name, base_denom, image, errorMsgs) {
+
+  const uri = image.svg;
+  if (!uri) return false;
+
+  const relativePath = uriToRelativePath(uri);
+
+  let passesChecks = true;
+
+  const svgAnalysis = analyzeSVG(relativePath);
+
+  //Too many shapes
+  if (svgAnalysis.shapesCount > 1000) {
+    if (!base_denom) {
+      const errorMsg = `Chain SVG ${uri} at ${chain_name} has too many elements!`;
+      errorMsgs.chains_imagesSVGElements.instances.push(errorMsg);
+    } else {
+      const errorMsg = `Asset SVG ${uri} at ${chain_name}, ${base_denom} has too many elements!`;
+      errorMsgs.assets_imagesSVGElements.instances.push(errorMsg);
+    }
+    passesChecks = false;
+  }
+
+  //Embedded Raster Image
+  let checkForEmbeddedRasterImage = false;
+  if (image.png) {
+    const pngSize = fs.statSync(executionPath(uriToRelativePath(image.png))).size;
+    const svgSize = fs.statSync(executionPath(relativePath)).size;
+    if (svgSize > pngSize) {
+      checkForEmbeddedRasterImage = true;
+    }
+  }
+  if (checkForEmbeddedRasterImage) {
+    if (svgAnalysis.imageCount > 0 && svgAnalysis.shapesCount < 2 && svgAnalysis.maskCommaCount < 10) {
+      if (!base_denom) {
+        const errorMsg = `Chain SVG ${uri} at ${chain_name} has embedded images!`;
+        errorMsgs.chains_imagesSVGEmbed.instances.push(errorMsg);
+      } else {
+        const errorMsg = `Asset SVG ${uri} at ${chain_name}, ${base_denom} has embedded images!`;
+        errorMsgs.assets_imagesSVGEmbed.instances.push(errorMsg);
+      }
+      passesChecks = false;
+    }
+  }
+
+  //Square Dimensions (1:1 AR)
+  const dimensions = getSvgDimensions(relativePath);
+  //console.log(`${chain_name}, ${base_denom}, ${dimensions}`);
+  if (!isSquareish(dimensions)) {
+    if (!base_denom) {
+      const errorMsg = `Chain SVG ${uri} at ${chain_name} isn't square! Width: ${dimensions.width}, Height: ${dimensions.height}`;
+      errorMsgs.chains_imagesSVGSquare.instances.push(errorMsg);
+    } else {
+      const errorMsg = `Asset SVG ${uri} at ${chain_name}, ${base_denom} isn't square! Width: ${dimensions.width}, Height: ${dimensions.height}`;
+      errorMsgs.assets_imagesSVGSquare.instances.push(errorMsg);
+    }
+    passesChecks = false;
+  }
+
+  return passesChecks;
+
+}
+
+function checkPNG(chain_name, base_denom, image, errorMsgs) {
+
+  const uri = image.png;
+  if (!uri) return false;
+
+  const relativePath = uriToRelativePath(uri);
+
+  let passesChecks = true;
+
+  //Actually a PNG
+  const isPNGFile = isPNG(relativePath);
+  if (!isPNGFile.isPNG) {
+    if (!base_denom) {
+      const errorMsg = `Chain PNG ${uri} at ${chain_name} isn't a PNG! ${isPNGFile.fileType}`;
+      errorMsgs.chains_imagesPNGisPNG.instances.push(errorMsg);
+    } else {
+      const errorMsg = `Asset PNG ${uri} at ${chain_name}, ${base_denom} isn't a PNG! ${isPNGFile.fileType}`;
+      errorMsgs.assets_imagesPNGisPNG.instances.push(errorMsg);
+    }
+    passesChecks = false;
+    return passesChecks;
+  }
+
+  //Square Dimensions (1:1 AR)
+  const dimensions = getPngDimensions(relativePath);
+  if (!isSquareish(dimensions)) {
+    if (!base_denom) {
+      const errorMsg = `Chain PNG ${uri} at ${chain_name} isn't square! Width: ${dimensions.width}, Height: ${dimensions.height}`;
+      errorMsgs.chains_imagesPNGSquare.instances.push(errorMsg);
+    } else {
+      const errorMsg = `Asset PNG ${uri} at ${chain_name}, ${base_denom} isn't square! Width: ${dimensions.width}, Height: ${dimensions.height}`;
+      errorMsgs.assets_imagesPNGSquare.instances.push(errorMsg);
+    }
+    passesChecks = false;
+  }
+
+  return passesChecks;
+
+}
+
+
+function checkImageObject(chain_name, base_denom, image, errorMsgs) {
+
+  for (const uri of imageURIs) {
+    if (!image[uri]) continue;
+    let URI_EXISTS = checkImageURIExistence(chain_name, base_denom, image[uri], errorMsgs);
+    if (!URI_EXISTS) continue;
+    if (uri === "svg") {
+      checkSVG(chain_name, base_denom, image, errorMsgs);
+    }
+    else if (uri === "png") {
+      checkPNG(chain_name, base_denom, image, errorMsgs);
+    }
+    checkImageURIFileSize(chain_name, base_denom, image[uri], errorMsgs);
+  }
 
 }
 
@@ -354,7 +710,6 @@ function compare_CodebaseVersionData_to_VersionsFile(chain_name) {
   }
 
 }
-
 
 function checkFileSchemaReference(fileLocation, fileName, extraParentDirectories, schema) {
 
@@ -531,6 +886,21 @@ function checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState) {
     assets_cgidNotInState.push({ chain_name, asset });
     return false; // ID is missing from state
   }
+
+
+
+  //see if it's cosmos origin has the asset
+  //let ibc_origin_asset = chain_reg.getOriginAssetCustom(chain_name, asset.base, ["ibc", "ibc-cw20"]);
+  let ibc_origin_cgid =
+    chain_reg.getAssetPropertyFromOriginWithTraceCustom(
+      chain_name,
+      asset.base,
+      "coingecko_id",
+      ["ibc", "ibc-cw20"]
+    );
+  if (ibc_origin_cgid === asset.coingecko_id) return true;
+
+
   //see if it has the asset listed (bool)
   const assetExists = coingeckoIdGroup.assets.some(
     cgAsset => cgAsset.chain_name === chain_name && cgAsset.base_denom === asset.base
@@ -634,6 +1004,7 @@ async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNo
   }
 
   assets_cgidNotInState.forEach((chain_asset_pair) => {
+
     const coin = coingecko.api_response?.[coingecko.coingeckoEndpoints.coins_list.name]?.find(
       apiObject => apiObject.id === chain_asset_pair.asset.coingecko_id
     );
@@ -672,29 +1043,146 @@ Error: Coingecko ID: ${chain_asset_pair.asset.coingecko_id} is not in the Coinge
 
 }
 
-function reportErrors(assets_cgidInvalid, assets_ibcInvalid, assets_cgidOriginConflict) {
+function prepareErrorMessages(errorMsgs) {
 
-  let err = false;
+  //Chain Errors
+  errorMsgs.chains_imagesNotExist = {
+    category: "chains_imagesNotExist",
+    notice: "Some Chain Images do not exist!",
+    instances: []
+  }
+
+  errorMsgs.chains_imagesTooLarge = {
+    category: "chains_imagesTooLarge",
+    notice: "Some Chain Images are too large (>250kB)!",
+    instances: []
+  }
+
+  errorMsgs.chains_imagesSVGElements = {
+    category: "chains_imagesSVGElements",
+    notice: "Some Chain SVGs have too many elements (>1000)!",
+    instances: []
+  }
+
+  errorMsgs.chains_imagesSVGEmbed = {
+    category: "chains_imagesSVGEmbed",
+    notice: "Some Chain SVGs have embedded images!",
+    instances: []
+  }
+
+  errorMsgs.chains_imagesSVGSquare = {
+    category: "chains_imagesSVGSquare",
+    notice: "Some Chain SVGs aren't square!",
+    instances: []
+  }
+
+  errorMsgs.chains_imagesPNGisPNG = {
+    category: "chains_imagesPNGisPNG",
+    notice: "Some Chain PNGs aren't PNGs!",
+    instances: []
+  }
+
+  errorMsgs.chains_imagesPNGSquare = {
+    category: "chains_imagesPNGSquare",
+    notice: "Some Chain PNGs aren't square!",
+    instances: []
+  }
+
+  //Asset Errors
+  errorMsgs.assets_imagesNotExist = {
+    category: "assets_imagesNotExist",
+    notice: "Some Asset Images do not exist!",
+    instances: []
+  }
+
+  errorMsgs.assets_imagesTooLarge = {
+    category: "assets_imagesTooLarge",
+    notice: "Some Asset Images are too large (>250kB)!",
+    instances: []
+  }
+
+  errorMsgs.assets_imagesSVGElements = {
+    category: "assets_imagesSVGElements",
+    notice: "Some Asset SVGs have too many elements (>1000)!",
+    instances: []
+  }
+
+  errorMsgs.assets_imagesSVGEmbed = {
+    category: "assets_imagesSVGElements",
+    notice: "Some Asset SVGs have embedded images!",
+    instances: []
+  }
+
+  errorMsgs.assets_imagesSVGSquare = {
+    category: "assets_imagesSVGSquare",
+    notice: "Some Asset SVGs aren't square!",
+    instances: []
+  }
+
+  errorMsgs.assets_imagesPNGisPNG = {
+    category: "assets_imagesPNGisPNG",
+    notice: "Some Asset PNGs aren't PNGs!",
+    instances: []
+  }
+
+  errorMsgs.assets_imagesPNGSquare = {
+    category: "assets_imagesPNGSquare",
+    notice: "Some Asset PNGs aren't square!",
+    instances: []
+  }
+
+}
+
+function reportErrors(
+  assets_cgidInvalid,
+  assets_ibcInvalid,
+  assets_cgidOriginConflict,
+  assets_imageSyncInvalid,
+  errorMsgs
+) {
+
+  let ERRORS_DETECTED = false;
+
+  //Asset Errors
   if (assets_cgidInvalid.length > 0) {
     console.log(`Some Coingecko IDs are not valid! ${assets_cgidInvalid}`);
-    err = true;
+    console.log(`Detected ${errorMsgs.assets_imagesNotExist.length} errors!`);
+    ERRORS_DETECTED = true;
   }
   if (assets_ibcInvalid.length > 0) {
     console.log(`Some Trace IBC references are not valid! ${assets_ibcInvalid}`);
-    err = true;
+    console.log(`Detected ${errorMsgs.assets_imagesNotExist.length} errors!`);
+    ERRORS_DETECTED = true;
   }
   if (assets_cgidOriginConflict.length > 0) {
     console.log(`Some Assets with the same Coingecko ID have different origins! ${assets_cgidOriginConflict}`);
-    err = true;
+    console.log(`Detected ${errorMsgs.assets_imagesNotExist.length} errors!`);
+    ERRORS_DETECTED = true;
+  }
+  if (assets_imageSyncInvalid.length > 0) {
+    console.log(`Some Image Sync configurations are invalid! ${assets_imageSyncInvalid}`);
+    console.log(`Detected ${errorMsgs.assets_imagesNotExist.length} errors!`);
+    ERRORS_DETECTED = true;
   }
 
-  if (err) {
+  Object.values(errorMsgs).forEach(errorCategory => {
+    if (errorCategory.instances.length <= 0) return;
+    ERRORS_DETECTED = true;
+    console.log(errorCategory.notice);
+    errorCategory.instances.forEach(instance => {
+      console.log(instance);
+    });
+    console.log(`Count: ${errorCategory.instances.length}`);
+  });
+
+  //Final throw (at least one error detected)
+  if (ERRORS_DETECTED) {
     throw new Error(`Some asset metadata is invalid! (See console logs)`);
   }
 
 }
 
-export async function validate_chain_files() {
+export async function validate_chain_files(errorMsgs) {
 
   //get Chain Names
   const chainRegChains = chain_reg.getChains();
@@ -710,6 +1198,7 @@ export async function validate_chain_files() {
   let assets_cgidInvalid = [];
   let assets_cgidOriginConflict = [];
   let assets_ibcInvalid = [];
+  let assets_imageSyncInvalid = [];
 
   //iterate each chain
   chainRegChains.forEach((chain_name) => {
@@ -730,9 +1219,19 @@ export async function validate_chain_files() {
 
     //check if all staking tokens are registered
     checkStakingTokensAreRegistered(chain_name);
+    
+    //--Validate Images--
+    let logo_URIs = chain_reg.getFileProperty(chain_name, "chain", "logo_URIs");
+    let images = chain_reg.getFileProperty(chain_name, "chain", "images") || [];
+    pushLogoURIs_to_Images(images, logo_URIs);
+    images?.forEach(image => {
+      checkImageObject(chain_name, undefined, image, errorMsgs);
+    });
 
     //ensure that and version properties in codebase are also defined in the versions file.
-    compare_CodebaseVersionData_to_VersionsFile(chain_name);
+    //compare_CodebaseVersionData_to_VersionsFile(chain_name);
+    //this way removed because version data can now just be recorded in the chain.json file
+    //version data recorded in the versions file will be overwitten by what's in codebase
 
     //get chain's network Type (mainet vs testnet vs...)
     const chainNetworkType = chain_reg.getFileProperty(chain_name, "chain", "network_type");
@@ -748,6 +1247,12 @@ export async function validate_chain_files() {
       //require type_asset
       checkTypeAsset(chain_name, asset);
 
+      //check that base denom is unique within the assetlist
+      checkUniqueBaseDenom(chain_name, asset);
+
+      //check ibc denom accuracy
+      checkIbcDenomAccuracy(chain_name, asset);
+
       //check denom units
       checkDenomUnits(asset);
 
@@ -757,19 +1262,25 @@ export async function validate_chain_files() {
       //check IBC counterparty channel accuracy
       checkIBCTraceChannelAccuracy(chain_name, asset, assets_ibcInvalid);
 
-      //check ibc denom accuracy
-      checkIbcDenomAccuracy(chain_name, asset);
-
-      //check image_sync pointers of images
-      checkImageSyncIsValid(chain_name, asset);
-
-      //check that base denom is unique within the assetlist
-      checkUniqueBaseDenom(chain_name, asset);
-
-      //checkCoingeckoIdMainnetAssetsOnly(chain_name, asset, chainNetworkType, assets_cgidAssetNotMainnet);
-
       //check that coingecko IDs are in the state
       checkCoingeckoId_in_State(chain_name, asset, assets_cgidNotInState);
+
+      //Update: We no longer require that coingecko ids be registered to mainnet assets only.
+      //  : this is because chains and be bulk copy-and-pasted including coingecko ids
+      //  : testnet assets with coingecko_id must have relationship defined to mainnet counterpart.
+      //checkCoingeckoIdMainnetAssetsOnly(chain_name, asset, chainNetworkType, assets_cgidAssetNotMainnet);
+
+      //check image_sync pointers of images
+      checkImageSyncIsValid(chain_name, asset, assets_imageSyncInvalid);
+
+      //--Validate Images--
+      let logo_URIs = asset.logo_URIs;
+      let images = asset.images || [];
+      pushLogoURIs_to_Images(images, logo_URIs);
+      images?.forEach(image => {
+        checkImageObject(chain_name, asset.base, image, errorMsgs);
+      });
+
 
     });
 
@@ -782,7 +1293,15 @@ export async function validate_chain_files() {
   checkCoingeckoIdAssetsShareOrigin(assets_cgidNotInState, assets_cgidOriginConflict);
 
   //now that we've collected errors in bulk, throw error if positive
-  reportErrors(assets_cgidInvalid, assets_ibcInvalid, assets_cgidOriginConflict);
+  reportErrors(
+    assets_cgidInvalid,
+    assets_ibcInvalid,
+    assets_cgidOriginConflict,
+    assets_imageSyncInvalid,
+    errorMsgs
+    //chains_imagesNotExist
+    //assets_imagesNotExist
+  );
 
 }
 
@@ -854,8 +1373,12 @@ function main() {
   //setup chain registry
   chain_reg.setup(chainRegistryRoot);
 
+  //prepare error catching
+  let errorMsgs = {};
+  prepareErrorMessages(errorMsgs);
+
   //check all chains
-  validate_chain_files();
+  validate_chain_files(errorMsgs);
 
   //check all IBC channels
   validate_ibc_files();
