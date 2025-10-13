@@ -709,6 +709,52 @@ function checkAllImages(context, objectType, checks, errorMsgs) {
 
 }
 
+async function checkChainDirectoryImageUsage(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkChainDirectoryImageUsage";
+  const errorNotice = "Some Images are not referenced by any chain or asset!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  const chainDirectory = (chain_reg.chainNameToDirectoryMap.get(id.chain_name));
+  const imagesDirectoryName = "images";
+
+  try {
+    for (const image of await fs.promises.readdir(path.join(chainDirectory, imagesDirectoryName))) {
+      const uriBase = "https://raw.githubusercontent.com/cosmos/chain-registry/master/";
+      const chainDirectoryFromRoot = path.join(
+        path
+          .normalize(chainDirectory)
+          .split(path.sep)
+          .filter(segment => segment !== '..' && segment !== '')
+          .join(path.sep)
+      );
+      const imageUri = new URL(path.join(chainDirectoryFromRoot, imagesDirectoryName, image), uriBase).toString();
+
+      const IMAGE_HAS_REFERENCE = context.allImages.find(imageObject => {
+        return imageObject.png === imageUri || imageObject.svg === imageUri;
+      });
+
+      if (!IMAGE_HAS_REFERENCE) {
+        //--Error--
+        const errorMsg = `Image ${image} within ${id.chain_name}'s /images/ directory is not referenced!`;
+        addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+        //setCheckStatus(checks, id, checkType, false);
+        continue;
+      }
+    }
+  } catch (err) {
+    if (err.code !== 'ENOENT') throw err;
+  }
+
+}
+
 function compare_CodebaseVersionData_to_VersionsFile(chain_name) {
 
   const codebase = chain_reg.getFileProperty(chain_name, "chain", "codebase");
@@ -1728,11 +1774,18 @@ export async function validate_chains(errorMsgs) {
   //check that assets with a newly defined CGID have the same origin asset as other assets that share the same CGID
   checkCoingeckoIdAssetsShareOrigin(context, "Asset", checks, errorMsgs);
 
-  //console.log(context.allImages);
   checkAllImages(context, "Image", checks, errorMsgs);
 
+  //check that all image files are referenced as an image by a chain or asset
+  await Promise.all(
+    chainNames.map(
+      chain_name => {
+        const id = { chain_name: chain_name };
+        return checkChainDirectoryImageUsage(id, context, "Chain", checks, errorMsgs);
+      }
+    )
+  );
   
-
 }
 
 function validate_ibc_files() {
