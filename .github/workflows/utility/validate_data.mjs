@@ -1584,12 +1584,12 @@ function pushLogoURIs_to_Images(images, logo_URIs) {
   if (!logo_URIs) return;
   for (const image of images) {
     for (const uri of imageURIs) {
-      if (image[uri] !== logo_URIs[uri]) {
-        images.push(logo_URIs);
+      if (image[uri] && image[uri] === logo_URIs[uri]) {
         return;
       }
     }
   }
+  images.push(logo_URIs);
   
 }
 
