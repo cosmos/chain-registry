@@ -22,7 +22,7 @@ const chainRegistryRoot = "../../..";
 
 //--APIs--
 import * as coingecko from './coingecko_data.mjs';
-const API_FETCHING = false;// set to false for local testing, true for GitHub validation
+const API_FETCHING = true;// set to false for local testing, true for GitHub validation
 
 
 const imageURIs = ["png", "svg"];
