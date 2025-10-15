@@ -22,12 +22,11 @@ const chainRegistryRoot = "../../..";
 
 //--APIs--
 import * as coingecko from './coingecko_data.mjs';
-const API_FETCHING = false;// set to false for local testing, true for GitHub validation
+const API_FETCHING = true;// set to false for local testing, true for GitHub validation
 
 
 const imageURIs = ["png", "svg"];
-const ibcChannelStatuses = ["live", "upcoming", "killed"];
-//const ibcChannelStatus = ["ACTIVE", "INACTIVE", "CLOSED", "PENDING"];
+const ibcChannelStatuses = ["ACTIVE", "INACTIVE", "CLOSED", "PENDING"];
 
 let coingecko_data = coingecko.coingecko_data;
 
@@ -1817,11 +1816,11 @@ function checkIbcChannelStatus(id, context, objectType, checks, errorMsgs) {
 
 }
 
-function checkNumActiveDefaultChannels(id, context, objectType, checks, errorMsgs) {
+function checkNumPreferredDefaultChannels(id, context, objectType, checks, errorMsgs) {
 
   //--Name--
-  const checkType = "checkNumActiveDefaultChannels";
-  const errorNotice = "Some IBC Connections more than 1 active default (transfer/transfer) IBC Channel!";
+  const checkType = "checkNumPreferredDefaultChannels";
+  const errorNotice = "Some IBC Connections more than 1 default (transfer/transfer) IBC Channel with no clear preference!";
 
   //--Prerequisistes--
   const prerequisites = [];
@@ -1831,29 +1830,29 @@ function checkNumActiveDefaultChannels(id, context, objectType, checks, errorMsg
 
   //--Logic--
   const mainnetNetworkType = "mainnet";
-  const activeStatus = "live"; //todo -> change to "ACTIVE"
-
   const CHAIN_1_IS_MAINNET = chain_reg.getFileProperty(context.ibcConnection.chain_1.chain_name, "chain", "network_type") === mainnetNetworkType;
   const CHAIN_2_IS_MAINNET = chain_reg.getFileProperty(context.ibcConnection.chain_2.chain_name, "chain", "network_type") === mainnetNetworkType;
   if (CHAIN_1_IS_MAINNET && CHAIN_2_IS_MAINNET) {
 
-    let activeDefaultChannels = [];
+    let defaultChannels = [];
+    let numPreferredChannels = 0;
     for (const key in context.ibcConnection.channels) {
-
-      const CHANNEL_IS_ACTIVE = context.ibcConnection.channels[key].tags?.status === activeStatus;
-      if (!CHANNEL_IS_ACTIVE) continue;
 
       const CHANNEL_IS_DEFAULT = (
         context.ibcConnection.channels[key].chain_1.port_id === "transfer" &&
         context.ibcConnection.channels[key].chain_2.port_id === "transfer"
       );
+      if (!CHANNEL_IS_DEFAULT) continue;
+      defaultChannels.push(key);
 
-      if (CHANNEL_IS_DEFAULT && CHANNEL_IS_ACTIVE) activeDefaultChannels.push(key);
+      const CHANNEL_IS_PREFERRED = context.ibcConnection.channels[key].tags?.preferred;
+      if (CHANNEL_IS_PREFERRED) numPreferredChannels++;
 
     }
-    if (activeDefaultChannels.length > 1) {
+    if (defaultChannels.length > 1 && numPreferredChannels !== 1) {
       //--Error--
-      const errorMsg = `IBC Connection: ${id.ibcConnection} has more than 1 active default channel. ${activeDefaultChannels}`;
+      const errorMsg = `IBC Connection: ${id.ibcConnection} has more than 1 default channel,
+but either many or none of them are marked as "preferred": true. [${defaultChannels}]`;
       addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
       setCheckStatus(checks, id, checkType, false);
       return false;
@@ -1899,7 +1898,7 @@ function validate_ibc_files(errorMsgs) {
       }
 
       //check for only 1 active default channel
-      checkNumActiveDefaultChannels(id, context, objectType, checks, errorMsgs);
+      checkNumPreferredDefaultChannels(id, context, objectType, checks, errorMsgs);
 
       for (const key in context.ibcConnection.channels) {
 
@@ -1954,7 +1953,7 @@ async function main() {
   let errorMsgs = {};
 
   //check all chains
-  //await validate_chains(errorMsgs); // todo, turn back on
+  await validate_chains(errorMsgs); // todo, turn back on
 
   //check all IBC channels
   validate_ibc_files(errorMsgs);
