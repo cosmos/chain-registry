@@ -1,4 +1,8 @@
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:   # manual trigger
+  schedule:
+    - cron: '0 0 1,15 * *'  # runs at midnight on the 1st and 15th
+
 name: Update Coingecko Data
 jobs:
   update_coingecko_data:
@@ -52,3 +56,4 @@ jobs:
           new_string: "** Automatic pull request**"
           get_diff: true
           ignore_users: "dependabot"
+
