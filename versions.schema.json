@@ -31,6 +31,8 @@
           },
           "tag": {
             "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._/@-]+$",
             "description": "Git Upgrade Tag"
           },
           "height": {
@@ -187,7 +189,7 @@
         "type": {
           "type": "string",
           "minLength": 1,
-          "enum": [ "tendermint", "cometbft", "sei-tendermint" ]
+          "enum": [ "tendermint", "cometbft", "sei-tendermint", "cometbls" ]
         },
         "version": {
           "$ref": "#/$defs/version"

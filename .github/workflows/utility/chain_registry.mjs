@@ -137,12 +137,13 @@ export function readJsonFile(file) {
 }
 
 export function writeJsonFile(file, object) {
+
   try {
-    fs.writeFileSync((file), JSON.stringify(object,null,2), (err) => {
-      if (err) throw err;
-    });
+    fs.writeFileSync(file, JSON.stringify(object, null, 2));//, (err)) => {
+      //if (err) throw err;
+    //});
   } catch (err) {
-    console.log(err);
+    console.log("Failed to write file:", file, err);
   }
 }
 
@@ -154,7 +155,7 @@ export function getDirectoryContents(directory) {
       return list;
     });
   } catch (err) {
-    console.log(err);
+    //console.log(err);
   }
   return array;
 }
@@ -182,6 +183,13 @@ export async function calculateIbcHash(ibcHashInput) {
 
 // -- CHAIN REGISTRY MODULES --
 
+function isChainDirectory(directory) {
+  if (!fs.statSync(directory).isDirectory()) return false;
+  const CHAIN_FILE_EXISTS = fs.existsSync(path.join(directory, fileToFileNameMap.get("chain")));
+  const ASSETLIST_FILE_EXISTS = fs.existsSync(path.join(directory, fileToFileNameMap.get("assetlist")));
+  return CHAIN_FILE_EXISTS || ASSETLIST_FILE_EXISTS;
+}
+
 
 export function populateChainDirectories() {
   for (let [networkType, networkTypeDirectoryName] of networkTypeToDirectoryNameMap) {
@@ -189,6 +197,9 @@ export function populateChainDirectories() {
       chains = setDifferenceArray(
         getDirectoryContents(path.join(chainRegistryRoot, networkTypeDirectoryName, domainDirectoryName)),
         nonChainDirectories
+      );
+      chains = chains.filter(directoryName =>
+        isChainDirectory(path.join(chainRegistryRoot, networkTypeDirectoryName, domainDirectoryName, directoryName))
       );
       chains.forEach((chainName) => {
         chainNameToDirectoryMap.set(
@@ -211,17 +222,33 @@ export function getFileProperty(chainName, file, property) {
   }
 }
 
+function getFileSchema(chainName, file) {
+  let schema = schemas.get(file);
+  schema = "../" + schema;
+  if (getFileProperty(chainName, "chain", "network_type") === "testnet") {
+    schema = "../" + schema;
+  }
+  if (getFileProperty(chainName, "chain", "chain_type") !== "cosmos") {
+    schema = "../" + schema;
+  }
+  return schema;
+}
+
 export function setFileProperty(chainName, file, property, value) {
   const chainDirectory = chainNameToDirectoryMap.get(chainName);
   if(chainDirectory) {
     const filePath = path.join(chainDirectory,fileToFileNameMap.get(file));
     const FILE_EXISTS = fs.existsSync(filePath);
-    if(FILE_EXISTS) {
-      let json = readJsonFile(filePath);
-      json[property] = value;
-      writeJsonFile(filePath, json);
-      return;
+    let json = {};
+    if (FILE_EXISTS) {
+      json = readJsonFile(filePath);
+    } else {
+      json.$schema = getFileSchema(chainName, file);
+      json.chain_name = chainName;
     }
+    json[property] = value;
+    writeJsonFile(filePath, json);
+
   }
 }
 
