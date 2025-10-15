@@ -1,4 +1,8 @@
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:   # manual trigger
+  schedule:
+    - cron: '0 0 8,22 * *'  # runs at midnight on the 1st and 15th
+
 name: Sync Images
 jobs:
   sync_images:
@@ -48,3 +52,4 @@ jobs:
           new_string: "** Automatic pull request**"
           get_diff: true
           ignore_users: "dependabot"
+
