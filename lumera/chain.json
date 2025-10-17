@@ -69,7 +69,10 @@
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/LumeraProtocol/lumera-networks/refs/heads/master/mainnet/genesis.json"
-    }
+    },
+    "compatible_versions": [
+      "v1.6.1"
+    ]
   },
   "peers": {
     "seeds": [
@@ -82,6 +85,11 @@
         "id": "10ed1e176d874c8bb3c7c065685d2da6a4b86475",
         "address": "seed-lumera.ibs.team:16656",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "id": "df949a46ae6529ae1e09b034b49716468d5cc7e9",
+        "address": "seeds.stakerhouse.com:12756",
+        "provider": "StakerHouse"
       }
     ],
     "persistent_peers": [
@@ -99,8 +107,16 @@
         "provider": "LumeraProtocol"
       },
       {
-        "address": "https://lumera-rpc.ibs.team",
+        "address": "https://lumera.ibs.team:443/rpc",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://lumera-rpc.stakerhouse.com",
+        "provider": "StakerHouse"
+      },
+      {
+        "address": "https://lumera.archive.data.nexus",
+        "provider": "Data Nexus"
       }
     ],
     "rest": [
@@ -109,14 +125,26 @@
         "provider": "LumeraProtocol"
       },
       {
-        "address": "https://lumera-api.ibs.team",
+        "address": "https://lumera.ibs.team:443/api",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "address": "https://lumera-rest.stakerhouse.com",
+        "provider": "StakerHouse"
+      },
+      {
+        "address": "https://rest.lumera.archive.data.nexus",
+        "provider": "Data Nexus"
       }
     ],
     "grpc": [
       {
         "address": "https://grpc.lumera.io:443",
         "provider": "LumeraProtocol"
+      },
+      {
+        "address": "https://grpc.lumera.archive.data.nexus:443",
+        "provider": "Data Nexus"
       }
     ]
   },
@@ -126,6 +154,12 @@
       "url": "https://portal.lumera.io/lumera-mainnet-1/",
       "tx_page": "https://portal.lumera.io/lumera-mainnet-1/tx/${txHash}",
       "account_page": "https://portal.lumera.io/lumera-mainnet-1/account/${accountAddress}"
+    },
+    {
+      "kind": "Cosmotracker",
+      "url": "https://cosmotracker.com/lumera/",
+      "tx_page": "https://cosmotracker.com/lumera/tx/${txHash}",
+      "account_page": "https://cosmotracker.com/lumera/account/${accountAddress}"
     }
   ],
   "images": [
