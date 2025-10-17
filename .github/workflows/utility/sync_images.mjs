@@ -261,7 +261,7 @@ function getLinkedImage(chain_name, base_denom){
   if (base_denom) {
     images = chain_reg.getAssetProperty(chain_name, base_denom, "images");
   } else {
-    images = chain_reg.getFileProperty(chain_name, "chain", "images")
+    images = chain_reg.getFileProperty(chain_name, "chain", "images");
   }
   if (!images) { return; }
   let image = images[0];

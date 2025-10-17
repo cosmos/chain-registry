@@ -1,4 +1,8 @@
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:   # manual trigger
+  schedule:
+    - cron: '0 0 8,22 * *'  # runs at midnight on the 8th and 22nd
+
 name: Sync Images
 jobs:
   sync_images:
@@ -43,8 +47,11 @@ jobs:
           source_branch: update/images
           target_branch: master
           title: Sync Images
-          body: "**Automated pull request**"
+          body: "**Automated pull request** If closing, remember to delete the branch!"
           old_string: "**THIS IS AN AUTOMATED UPDATE OF IMAGES**"
           new_string: "** Automatic pull request**"
           get_diff: true
           ignore_users: "dependabot"
+
+
+
