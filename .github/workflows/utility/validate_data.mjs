@@ -1134,6 +1134,35 @@ function checkDenomUnits(id, context, objectType, checks, errorMsgs) {
 
 }
 
+function checkSymbol(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkSymbol";
+  const errorNotice = "Some Asset Symbols are using invalid characters!";
+
+  //--Prerequisistes--
+  const prerequisites = [
+    "checkUniqueBaseDenom"
+  ];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  const regexRequirement = /^[a-zA-Z0-9._-]+$/i;
+  if (!regexRequirement.test(context.asset.symbol)) {
+    //--Error--
+    const errorMsg = `Symbol: ${context.asset.symbol} of asset ${id.chain_name}, ${id.base_denom} is invalid.`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
 function checkTraceCounterpartyIsValid(id, context, objectType, checks, errorMsgs) {
 
   //--Name--
@@ -1737,6 +1766,9 @@ export async function validate_chains(errorMsgs) {
 
       //check denom units
       checkDenomUnits(id, context, objectType, checks, errorMsgs);
+
+      //check symbol
+      checkSymbol(id, context, objectType, checks, errorMsgs);
 
       //check counterparty pointers of traces
       checkTraceCounterpartyIsValid(id, context, objectType, checks, errorMsgs);
