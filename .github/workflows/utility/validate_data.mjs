@@ -26,6 +26,7 @@ const API_FETCHING = true;// set to false for local testing, true for GitHub val
 
 
 const imageURIs = ["png", "svg"];
+const ibcChannelStatuses = ["ACTIVE", "INACTIVE", "CLOSED", "PENDING"];
 
 let coingecko_data = coingecko.coingecko_data;
 
@@ -1584,12 +1585,12 @@ function pushLogoURIs_to_Images(images, logo_URIs) {
   if (!logo_URIs) return;
   for (const image of images) {
     for (const uri of imageURIs) {
-      if (image[uri] !== logo_URIs[uri]) {
-        images.push(logo_URIs);
+      if (image[uri] && image[uri] === logo_URIs[uri]) {
         return;
       }
     }
   }
+  images.push(logo_URIs);
   
 }
 
@@ -1788,13 +1789,94 @@ export async function validate_chains(errorMsgs) {
   
 }
 
-function validate_ibc_files() {
+function checkIbcChannelStatus(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkIbcChannelStatus";
+  const errorNotice = "Some IBC Channels have an Invalid Status!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  const ibcChannelStatus = context.channel.tags?.status;
+  if (ibcChannelStatus && !ibcChannelStatuses.includes(ibcChannelStatus)) {
+    //--Error--
+    const errorMsg = `Status "${ibcChannelStatus}" of IBC Channel [${id.ibcChannel}] of IBC Connection: ${id.ibcConnection} is invalid.`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function checkNumPreferredDefaultChannels(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkNumPreferredDefaultChannels";
+  const errorNotice = "Some IBC Connections more than 1 default (transfer/transfer) IBC Channel with no clear preference!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  const mainnetNetworkType = "mainnet";
+  const CHAIN_1_IS_MAINNET = chain_reg.getFileProperty(context.ibcConnection.chain_1.chain_name, "chain", "network_type") === mainnetNetworkType;
+  const CHAIN_2_IS_MAINNET = chain_reg.getFileProperty(context.ibcConnection.chain_2.chain_name, "chain", "network_type") === mainnetNetworkType;
+  if (CHAIN_1_IS_MAINNET && CHAIN_2_IS_MAINNET) {
+
+    let defaultChannels = [];
+    let numPreferredChannels = 0;
+    for (const key in context.ibcConnection.channels) {
+
+      const CHANNEL_IS_DEFAULT = (
+        context.ibcConnection.channels[key].chain_1.port_id === "transfer" &&
+        context.ibcConnection.channels[key].chain_2.port_id === "transfer"
+      );
+      if (!CHANNEL_IS_DEFAULT) continue;
+      defaultChannels.push(key);
+
+      const CHANNEL_IS_PREFERRED = context.ibcConnection.channels[key].tags?.preferred;
+      if (CHANNEL_IS_PREFERRED) numPreferredChannels++;
+
+    }
+    if (defaultChannels.length > 1 && numPreferredChannels !== 1) {
+      //--Error--
+      const errorMsg = `IBC Connection: ${id.ibcConnection} has more than 1 default channel,
+but either many or none of them are marked as "preferred": true. [${defaultChannels}]`;
+      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+      setCheckStatus(checks, id, checkType, false);
+      return false;
+    }
+
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function validate_ibc_files(errorMsgs) {
+
+  const objectType = "IBC"
 
   //IBC directory name
   const ibcDirectoryName = "_IBC";
 
+  let checks = {};
+  let context = {};
+
   //create maps of chains and channels
-  const chainNameToIbcChannelsMap = new Map();
+  context.chainNameToIbcChannelsMap = new Map();
 
   Array.from(chain_reg.networkTypeToDirectoryMap.keys()).forEach((networkType) => {
 
@@ -1808,18 +1890,29 @@ function validate_ibc_files() {
 
     ibcFiles.forEach((ibcFile) => {
 
-      //check for ibc channel duplicates
-      const ibcFileContents = chain_reg.readJsonFile(path.join(directory, ibcFile));
-      const chain1 = ibcFileContents.chain_1.chain_name;
-      const chain2 = ibcFileContents.chain_2.chain_name;
-      const channels = ibcFileContents.channels;
-      channels.forEach((channel) => {
+      context.ibcConnection = chain_reg.readJsonFile(path.join(directory, ibcFile));
+      const chain1 = context.ibcConnection.chain_1.chain_name;
+      const chain2 = context.ibcConnection.chain_2.chain_name;
+      const id = {
+        ibcConnection: chain1 + ":" + chain2
+      }
+
+      //check for only 1 active default channel
+      checkNumPreferredDefaultChannels(id, context, objectType, checks, errorMsgs);
+
+      for (const key in context.ibcConnection.channels) {
+
+        id.ibcChannel = key;
+        context.channel = context.ibcConnection.channels[key];
+
+        //check for valid channel status
+        checkIbcChannelStatus(id, context, objectType, checks, errorMsgs);
 
         //check for duplicate channel-ids
-        checkDuplicateChannels(channel.chain_1.channel_id, chain1, chain2, chainNameToIbcChannelsMap);
-        checkDuplicateChannels(channel.chain_2.channel_id, chain2, chain1, chainNameToIbcChannelsMap);
+        checkDuplicateChannels(context.channel.chain_1.channel_id, chain1, chain2, context.chainNameToIbcChannelsMap);
+        checkDuplicateChannels(context.channel.chain_2.channel_id, chain2, chain1, context.chainNameToIbcChannelsMap);
 
-      });
+      }
 
     });
 
@@ -1860,10 +1953,10 @@ async function main() {
   let errorMsgs = {};
 
   //check all chains
-  await validate_chains(errorMsgs);
+  await validate_chains(errorMsgs); // todo, turn back on
 
   //check all IBC channels
-  validate_ibc_files();
+  validate_ibc_files(errorMsgs);
 
   //check file schema references
   checkFileSchemaReferences();

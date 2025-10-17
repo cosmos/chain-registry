@@ -54,33 +54,23 @@
             "type": "string",
             "description": "Fee Version"
           },
-          "description": {
-            "type": "string",
-            "description": "Human readable description of the channel."
-          },
           "tags": {
             "type": "object",
             "description": "Human readable key:value pairs that help describe and distinguish channels.",
             "properties": {
-              "status": {
-                "enum": [
-                  "live",
-                  "upcoming",
-                  "killed"
-                ]
-              },
               "preferred": {
                 "type": "boolean"
               },
-              "dex": {
-                "type": "string"
-              },
-              "properties": {
-                "type": "string",
-                "description": "String that helps describe non-dex use cases ex: interchain accounts(ICA)."
+              "status": {
+                "enum": [
+                  "ACTIVE",
+                  "INACTIVE",
+                  "CLOSED",
+                  "PENDING"
+                ]
               }
             },
-            "additionalProperties": true
+            "additionalProperties": false
           }
         },
         "additionalProperties": false

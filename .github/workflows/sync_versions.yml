@@ -1,0 +1,54 @@
+on:
+  workflow_dispatch:   # manual trigger
+  schedule:
+    - cron: '0 0 1,15 * *'  # runs at midnight on the 1st and 15th
+
+name: Sync Images
+jobs:
+  sync_images:
+    name: Sync Images
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        shell: bash
+    
+    steps:
+    
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
+          
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 19.6.0
+          
+      - name: Run code to Sync Versions
+        working-directory: ./.github/workflows/utility
+        run: node sync_versions.mjs
+      
+      - name: Add Commit Push
+        uses: devops-infra/action-commit-push@master
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          add_timestamp: false
+          commit_prefix: "[AUTO]"
+          commit_message: "Sync Versions"
+          force: false
+          target_branch: update/versions
+      
+      - name: Create A PR
+        uses: devops-infra/action-pull-request@v0.4.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_branch: update/versions
+          target_branch: master
+          title: Sync Versions
+          body: "**Automated pull request** If closing, remember to delete the branch!"
+          old_string: "**THIS IS AN AUTOMATED UPDATE OF IMAGES**"
+          new_string: "** Automatic pull request**"
+          get_diff: true
+          ignore_users: "dependabot"
