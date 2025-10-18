@@ -1,0 +1,120 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "optio",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://www.optio.community/",
+  "pretty_name": "Optio",
+  "chain_type": "cosmos",
+  "chain_id": "optio",
+  "bech32_prefix": "optio",
+  "daemon_name": "optiod",
+  "node_home": "$HOME/.optio",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uOPT",
+        "fixed_min_gas_price": 1
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uOPT"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/OptioNetwork/optio",
+    "genesis": {
+      "name": "v1",
+      "genesis_url": "https://raw.githubusercontent.com/OptioNetwork/mainnet/refs/heads/main/genesis.json"
+    },
+    "recommended_version": "2.0.0",
+    "compatible_versions": [
+      "2.0.0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.12",
+      "repo": "https://github.com/cometbft/cometbft",
+      "tag": "v0.38.12"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50.12",
+      "repo": "https://github.com/cosmos/cosmos-sdk",
+      "tag": "v0.50.12"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "8.5.1",
+      "repo": "https://github.com/cosmos/ibc-go",
+      "tag": "v8.5.1",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "language": {
+      "type": "go",
+      "version": "1.23.1"
+    },
+    "tag": "v2.0.0"
+  },
+  "images": [
+    {
+      "image_sync": {
+        "chain_name": "optio",
+        "base_denom": "uOPT"
+      },
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/optio/images/opt.png"
+    }
+  ],
+  "description": "Optio empowers people worldwide with decentralized tools for data ownership, fair rewards, and freedom of digital expression.",
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "6d60cfa5c7ee20b05398c41bcb34dda17634b5ee",
+        "address": "147.182.206.218:26656",
+        "provider": "Optio Team"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.optio.zone:443",
+        "provider": "Optio Team"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.optio.zone:443",
+        "provider": "Optio Team"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.optio.zone:443",
+        "provider": "Optio Team"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Big Dipper",
+      "url": "https://optioscan.io",
+      "tx_page": "https://optioscan.io/optio/transactions",
+      "account_page": "https://optioscan.io/optio/accounts/${accountAddress}"
+    }
+  ]
+}
