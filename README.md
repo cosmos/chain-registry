@@ -102,8 +102,7 @@ A sample `chain.json` includes the following information.
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg",
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
       "theme": {
-        "circle": true,
-        "primary_color_hex": "#231D4B"
+        "circle": true
       }
     }
   ],
@@ -176,6 +175,15 @@ A sample `chain.json` includes the following information.
 #### Bech32 Prefix
 Although it is not a requirement that bech32 prefixes be unique, it is highly recommended for each chain to have its bech32 prefix registered at the Satoshi Labs Registry (see [SLIP-0173 : Registered human-readable parts for BIP-0173](https://github.com/satoshilabs/slips/blob/master/slip-0173.md)), or consider picking an uncliamed prefix if the chosen prefix has already be registered to another project.
 
+#### Images
+Images must meet specific requirements to be accepted into the chain registry:
+- **Square dimensions** (width must equal height)
+- **File size < 250 KB**
+- **PNG or SVG format only**
+- **lowercase filenames**
+
+For complete image requirements, best practices, and examples, see **[IMAGE-GUIDELINES.md](./IMAGE-GUIDELINES.md)**.
+
 # Assetlists
 
 Asset Lists are inspired by the [Token Lists](https://tokenlists.org/) project on Ethereum which helps discoverability of ERC20 tokens by providing a mapping between erc20 contract addresses and their associated metadata.
@@ -215,8 +223,7 @@ An example assetlist json contains the following structure:
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg",
           "theme": {
-            "circle": false,
-            "primary_color_hex": "#5c09a0"
+            "circle": false
           }
         }
       ],
@@ -272,10 +279,7 @@ An example assetlist json contains the following structure:
             "base_denom": "uatom"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg",
-          "theme": {
-            "primary_color_hex": "#272d45"
-          }
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
         }
       ]
     }
@@ -331,9 +335,9 @@ An example ibc metadata file contains the following structure:
 
 ## Versions
 
-The metadata contained in these files represents a path abstraction between two IBC-connected networks. This information is particularly useful when relaying packets and acknowledgments across chains.
+The versions.json is an optional record of version history for a chain. Through automation (sync_versions), version data will periodically be copid from the chain.json::codebase object into the versions.json file.
 
-An example ibc metadata file contains the following structure:
+An example versions file uses the following structure:
 
 ```json
 {

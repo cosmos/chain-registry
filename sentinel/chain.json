@@ -3,7 +3,7 @@
   "chain_name": "sentinel",
   "status": "live",
   "network_type": "mainnet",
-  "website": "https://sentinel.co/",
+  "website": "https://sentinel.co",
   "pretty_name": "Sentinel",
   "chain_type": "cosmos",
   "chain_id": "sentinelhub-2",
@@ -35,8 +35,9 @@
     "git_repo": "https://github.com/sentinel-official/hub",
     "recommended_version": "v0.11.3",
     "compatible_versions": [
+      "v0.11.1",
       "v0.11.2",
-      "v0.11.1"
+      "v0.11.3"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/sentinel-official/networks/main/sentinelhub-2/genesis.zip"
@@ -73,11 +74,6 @@
         "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
         "address": "seeds.bluestake.net:26556",
         "provider": "BlueStake 🚀"
-      },
-      {
-        "id": "10ed1e176d874c8bb3c7c065685d2da6a4b86475",
-        "address": "seed-sentinel.ibs.team:16683",
-        "provider": "Inter Blockchain Services"
       }
     ],
     "persistent_peers": [
@@ -322,10 +318,6 @@
         "provider": "chainvibes"
       },
       {
-        "address": "https://sentinel-rpc.ibs.team:443",
-        "provider": "Inter Blockchain Services"
-      },
-      {
         "address": "https://sentinel.rpc.quasarstaking.ai:443",
         "provider": "Quasar"
       }
@@ -396,10 +388,6 @@
         "provider": "chainvibes"
       },
       {
-        "address": "https://sentinel-api.ibs.team:443",
-        "provider": "Inter Blockchain Services"
-      },
-      {
         "address": "https://sentinel.api.quasarstaking.ai:443",
         "provider": "Quasar"
       }
@@ -465,25 +453,25 @@
   },
   "explorers": [
     {
-      "kind": "Chainroot",
+      "kind": "Sentinel",
+      "url": "https://explorer.sentinel.co",
+      "tx_page": "https://explorer.sentinel.co/transactions/${txHash}",
+      "account_page": "https://explorer.sentinel.co/accounts/${accountAddress}"
+    },
+    {
+      "kind": "ChainRoot",
       "url": "https://explorer.chainroot.io/sentinel",
       "tx_page": "https://explorer.chainroot.io/sentinel/transactions/${txHash}",
       "account_page": "https://explorer.chainroot.io/sentinel/accounts/${accountAddress}"
     },
     {
-      "kind": "mintscan",
-      "url": "https://www.mintscan.io/sentinel",
-      "tx_page": "https://www.mintscan.io/sentinel/transactions/${txHash}",
-      "account_page": "https://www.mintscan.io/sentinel/accounts/${accountAddress}"
-    },
-    {
-      "kind": "ezstaking",
+      "kind": "EZ Staking App",
       "url": "https://ezstaking.app/sentinel",
       "tx_page": "https://ezstaking.app/sentinel/txs/${txHash}",
       "account_page": "https://ezstaking.app/sentinel/account/${accountAddress}"
     },
     {
-      "kind": "atomscan",
+      "kind": "ATOMScan",
       "url": "https://atomscan.com/sentinel",
       "tx_page": "https://atomscan.com/sentinel/transactions/${txHash}",
       "account_page": "https://atomscan.com/sentinel/accounts/${accountAddress}"
@@ -506,21 +494,15 @@
       "tx_page": "https://explorer.validatornode.com/sentinel/tx/${txHash}"
     },
     {
-      "kind": "Decloud Nodes Lab",
+      "kind": "DNL Explorer",
       "url": "https://explorer.declab.pro/Sentinel",
       "tx_page": "https://explorer.declab.pro/Sentinel/tx/${txHash}"
     },
     {
-      "kind": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅",
+      "kind": "NodesHub",
       "url": "https://explorer.nodeshub.online/sentinel/",
       "tx_page": "https://explorer.nodeshub.online/sentinel/tx/${txHash}",
       "account_page": "https://explorer.nodeshub.online/sentinel/accounts/${accountAddress}"
-    },
-    {
-      "kind": "WhisperNode 🤐",
-      "url": "https://mainnet.whispernode.com/sentinel",
-      "tx_page": "https://mainnet.whispernode.com/sentinel/tx/${txHash}",
-      "account_page": "https://mainnet.whispernode.com/sentinel/account/${accountAddress}"
     }
   ],
   "images": [
