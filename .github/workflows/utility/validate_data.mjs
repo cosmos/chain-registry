@@ -21,8 +21,11 @@ import * as chain_reg from './chain_registry.mjs';
 const chainRegistryRoot = "../../..";
 
 //--APIs--
+const args = process.argv.slice(2);
+const NO_API = args.includes('NO_API');
+const API_FETCHING = !NO_API;// set to false for local testing, true for GitHub validation
+
 import * as coingecko from './coingecko_data.mjs';
-const API_FETCHING = true;// set to false for local testing, true for GitHub validation
 
 
 const imageURIs = ["png", "svg"];
@@ -198,6 +201,37 @@ function checkChainIdConflict(id, context, objectType, checks, errorMsgs) {
     return false;
   }
   context.chainIdMap.set(chain_id, id.chain_name);
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function checkStatus(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkStatus";
+  const errorNotice = "Some Chains are missing a status!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  const chainStatuses = ["live", "upcoming", "killed"];
+
+  //--Logic--
+  let chain_name = chain_reg.getFileProperty(id.chain_name, "chain", "chain_name"); //just to see if there exists a chain.json file
+  if (!chain_name) return; //Skip check is there is no chain.json file
+  let chain_status = chain_reg.getFileProperty(id.chain_name, "chain", "status");
+  if (!chain_status || !chainStatuses.includes(chain_status)) {
+    //--Error--
+    const errorMsg = `Chain ${id.chain_name} missing a valid status (Status: ${chain_status})!`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
 
   setCheckStatus(checks, id, checkType, true);
   return true;
@@ -1717,6 +1751,9 @@ export async function validate_chains(errorMsgs) {
     //check if chain_id is registered by another chain
     checkChainIdConflict(id, context, objectType, checks, errorMsgs);
 
+    //check chain status
+    checkStatus(id, context, objectType, checks, errorMsgs);
+
     //check for slip44
     checkSlip44(id, context, objectType, checks, errorMsgs);
 
@@ -1976,7 +2013,7 @@ function checkDuplicateChannels(channel_id, chain, counterparty, chainNameToIbcC
 
 }
 
-async function main() {
+async function validateAll() {
 
   //setup chain registry
   chain_reg.setup(chainRegistryRoot);
@@ -1997,6 +2034,17 @@ async function main() {
   reportErrors(errorMsgs);//why doesn't this work!!!
   
 
+}
+
+async function main() {
+  if (API_FETCHING) {
+    console.log('Including API calls (server mode)');
+    console.log('Run with arg "NO_API" for local testing');
+    console.log('> node validate_data.mjs NO_API');
+  } else {
+    console.log('Skipping API calls (local mode)');
+  }
+  await validateAll();
 }
 
 main();
