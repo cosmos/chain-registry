@@ -2098,7 +2098,7 @@ async function validateAll() {
   let errorMsgs = {};
 
   //check all chains
-  //await validate_chains(errorMsgs);
+  await validate_chains(errorMsgs);
 
   //check all IBC channels
   validate_ibc_files(errorMsgs);
