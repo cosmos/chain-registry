@@ -1885,6 +1885,35 @@ function checkIbcChannelStatus(id, context, objectType, checks, errorMsgs) {
 
 }
 
+function checkIbcChainId(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkIbcChainIds";
+  const errorNotice = "Some IBC Connections don't have the correct chain_id defined!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  const ibcChain_chainId = context.ibcChain.chain_id;
+  const ibcChain_lookupChainId = chain_reg.getFileProperty(context.ibcChain.chain_name, "chain", "chain_id");
+  if (!ibcChain_chainId || ibcChain_chainId !== ibcChain_lookupChainId) {
+    //--Error--
+    const errorMsg = `Chain ID ${ibcChain_chainId} defined under ${id.chainNumber} of IBC Connection: ${id.ibcConnection} is incorrect.
+chain_name: ${context.ibcChain.chain_name} corresponds to chain_id ${ibcChain_lookupChainId} in its chain.json.`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
 function checkNumPreferredDefaultChannels(id, context, objectType, checks, errorMsgs) {
 
   //--Name--
@@ -1944,6 +1973,8 @@ function validate_ibc_files(errorMsgs) {
   let checks = {};
   let context = {};
 
+  const ibcConnectionChainNumbers = ["chain_1", "chain_2"];
+
   //create maps of chains and channels
   context.chainNameToIbcChannelsMap = new Map();
 
@@ -1966,9 +1997,23 @@ function validate_ibc_files(errorMsgs) {
         ibcConnection: chain1 + ":" + chain2
       }
 
+      //chain_1, chain_2
+      for (const chainNumber of ibcConnectionChainNumbers) {
+
+        id.chainNumber = chainNumber;
+        context.ibcChain = context.ibcConnection[chainNumber];
+
+        //check chain_name exists
+
+        //check chain_id accuracy
+        checkIbcChainId(id, context, objectType, checks, errorMsgs);
+
+      }
+
       //check for only 1 active default channel
       checkNumPreferredDefaultChannels(id, context, objectType, checks, errorMsgs);
 
+      //Channels[]
       for (const key in context.ibcConnection.channels) {
 
         id.ibcChannel = key;
@@ -2022,7 +2067,7 @@ async function validateAll() {
   let errorMsgs = {};
 
   //check all chains
-  await validate_chains(errorMsgs); // todo, turn back on
+  await validate_chains(errorMsgs);
 
   //check all IBC channels
   validate_ibc_files(errorMsgs);

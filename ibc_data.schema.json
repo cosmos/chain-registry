@@ -127,12 +127,18 @@
       "description": "Top level IBC data pertaining to the chain. `chain_1` and `chain_2` should be in alphabetical order.",
       "required": [
         "chain_name",
+        "chain_id",
         "client_id",
         "connection_id"
       ],
       "properties": {
         "chain_name": {
           "type": "string"
+        },
+        "chain_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The ID/chain_id of the corresponding chain (NOT the chain_id of the chain represented by the IBC light client of this chain, as that would correspond to the counterparty chain)."
         },
         "client_id": {
           "type": "string",

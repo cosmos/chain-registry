@@ -286,6 +286,43 @@ export function getIBCFileProperty(chainName1, chainName2, property) {
 
 }
 
+export function setIBCFileProperty(chainName1, chainName2, property, value) {
+  const chain1Directory = chainNameToDirectoryMap.get(chainName1);
+  const chain2Directory = chainNameToDirectoryMap.get(chainName2);
+  if (!chain1Directory || !chain2Directory) {
+    return; // One or both chains are missing from the directory map
+  }
+
+
+  // Check which directory has the _IBC folder
+  let ibcDirectory;
+  if (fs.existsSync(path.join(chain1Directory, "..", "_IBC"))) {
+    ibcDirectory = path.join(chain1Directory, "..", "_IBC");
+  } else if (fs.existsSync(path.join(chain2Directory, "..", "_IBC"))) {
+    ibcDirectory = path.join(chain2Directory, "..", "_IBC");
+  } else if (fs.existsSync(path.join(chainRegistryRoot, "_IBC"))) {
+    ibcDirectory = path.join(chainRegistryRoot, "_IBC");
+  } else if (fs.existsSync(path.join(chainRegistryRoot, "testnets", "_IBC"))) {
+    ibcDirectory = path.join(chainRegistryRoot, "testnets", "_IBC");
+  } else {
+    console.log("No _IBC directory found!");
+    return; // No _IBC directory found
+  }
+
+  // Ensure file ordering is consistent
+  let list = [chainName1, chainName2].sort();
+  const fileName = `${list[0]}-${list[1]}.json`;
+  const filePath = path.join(ibcDirectory, fileName);
+
+  let jsonFile;
+  if (fs.existsSync(filePath)) {
+    jsonFile = readJsonFile(filePath);
+    jsonFile[property] = value;
+    writeJsonFile(filePath, jsonFile);
+  }
+
+}
+
 export function getAssetProperty(chainName, baseDenom, property) {
   const assets = getFileProperty(chainName, "assetlist", "assets");
   if(assets) {
