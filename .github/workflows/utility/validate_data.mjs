@@ -1900,28 +1900,12 @@ function checkIbcChainId(id, context, objectType, checks, errorMsgs) {
   //--Logic--
   const ibcChain_chainId = context.ibcChain.chain_id;
   const ibcChain_lookupChainId = chain_reg.getFileProperty(context.ibcChain.chain_name, "chain", "chain_id");
-  //if (!ibcChain_chainId || ibcChain_chainId !== ibcChain_lookupChainId) {
-  if (!ibcChain_lookupChainId) {
+  if (!ibcChain_chainId || ibcChain_chainId !== ibcChain_lookupChainId) {
     //--Error--
     const errorMsg = `Chain ID ${ibcChain_chainId} defined under ${id.chainNumber} of IBC Connection: ${id.ibcConnection} is incorrect.
 chain_name: ${context.ibcChain.chain_name} corresponds to chain_id ${ibcChain_lookupChainId} in its chain.json.`;
     addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
     setCheckStatus(checks, id, checkType, false);
-    const [chain1, chain2] = id.ibcConnection.split(':');
-    //console.log(chain2);
-    if (id.ibcConnection === "8ball:osmosis") {
-      chain_reg.setIBCFileProperty(
-        chain1,
-        chain2,
-        `${id.chainNumber}`,
-        {
-          chain_name: context.ibcChain.chain_name,
-          chain_id: ibcChain_lookupChainId,
-          client_id: context.ibcChain.client_id,
-          connection_id: context.ibcChain.connection_id
-        }
-      );
-    }
     return false;
   }
 
@@ -2083,7 +2067,7 @@ async function validateAll() {
   let errorMsgs = {};
 
   //check all chains
-  //await validate_chains(errorMsgs);
+  await validate_chains(errorMsgs);
 
   //check all IBC channels
   validate_ibc_files(errorMsgs);
