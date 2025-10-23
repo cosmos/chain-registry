@@ -1963,6 +1963,49 @@ but either many or none of them are marked as "preferred": true. [${defaultChann
 
 }
 
+function addChannelIdObject(id, context) {
+
+  const channelId = context.channelChainInfo.channel_id;
+  if (channelId === "*") { return; }
+  const chainName = context.ibcConnection[id.channelChainNumber].chain_name;
+  
+  if (!context.allChannelIdsByChainName) context.allChannelIdsByChainName = new Map();
+  if (!context.allChannelIdsByChainName.get(chainName)) context.allChannelIdsByChainName.set(chainName, new Map());
+  let chainChannelIdMap = context.allChannelIdsByChainName.get(chainName);
+
+  if (!chainChannelIdMap.get(channelId)) chainChannelIdMap.set(channelId, []);
+  chainChannelIdMap.get(channelId).push(id);
+
+}
+
+function checkAllChannelIds(context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkAllChannelIds";
+  const errorNotice = "Some channel IDs for the same chain are not unique!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  context?.allChannelIdsByChainName?.forEach((chainChannelIdMap, chainName) => {
+    chainChannelIdMap.forEach((idArray, channelId) => {
+      if (idArray.length <= 1) return;
+
+      //--Error--
+      const errorMsg = `For chain: ${chainName}, the channel_id: ${channelId} is registered ${idArray.length} times:
+${JSON.stringify(idArray, null, 2)}`;
+      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+      return false;
+
+    });
+  });
+
+  return true;
+}
+
 function validate_ibc_files(errorMsgs) {
 
   const objectType = "IBC"
@@ -2009,6 +2052,7 @@ function validate_ibc_files(errorMsgs) {
         checkIbcChainId(id, context, objectType, checks, errorMsgs);
 
       }
+      delete id.chainNumber;
 
       //check for only 1 active default channel
       checkNumPreferredDefaultChannels(id, context, objectType, checks, errorMsgs);
@@ -2022,9 +2066,16 @@ function validate_ibc_files(errorMsgs) {
         //check for valid channel status
         checkIbcChannelStatus(id, context, objectType, checks, errorMsgs);
 
-        //check for duplicate channel-ids
-        checkDuplicateChannels(context.channel.chain_1.channel_id, chain1, chain2, context.chainNameToIbcChannelsMap);
-        checkDuplicateChannels(context.channel.chain_2.channel_id, chain2, chain1, context.chainNameToIbcChannelsMap);
+        //chain_1, chain_2
+        for (const chainNumber of ibcConnectionChainNumbers) {
+
+          id.channelChainNumber = chainNumber;
+          context.channelChainInfo = context.channel[chainNumber];
+
+          //Adding channel ids to Map structure to check for duplicates later
+          addChannelIdObject(id, context);
+
+        }
 
       }
 
@@ -2032,29 +2083,9 @@ function validate_ibc_files(errorMsgs) {
 
   });
 
-}
-
-function checkDuplicateChannels(channel_id, chain, counterparty, chainNameToIbcChannelsMap) {
-
-  if (channel_id === "*") { return; }
-  let duplicateChannel = undefined;
-  let chainChannels = chainNameToIbcChannelsMap.get(chain);
-  if (!chainChannels) {
-    chainChannels = [];
-  } else {
-    duplicateChannel = chainChannels.find(obj => obj.channel_id === channel_id);
-  }
-  if (duplicateChannel) {
-    //report duplicate
-    throw new Error(`For chain: ${chain}, channel_id: ${channel_id} is registered for both: ${duplicateChannel.chain_name} and ${counterparty}.`);
-  } else {
-    const obj = {
-      channel_id: channel_id,
-      chain_name: counterparty
-    };
-    chainChannels.push(obj);
-    chainNameToIbcChannelsMap.set(chain, chainChannels);
-  }
+  //Now that all IBC files have been iterated, we can check our temporary holding structures
+  //Check for IBC channel duplicates
+  checkAllChannelIds(context, "ChannelId", checks, errorMsgs);
 
 }
 
@@ -2067,7 +2098,7 @@ async function validateAll() {
   let errorMsgs = {};
 
   //check all chains
-  await validate_chains(errorMsgs);
+  //await validate_chains(errorMsgs);
 
   //check all IBC channels
   validate_ibc_files(errorMsgs);
