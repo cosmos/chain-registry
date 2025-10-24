@@ -1168,6 +1168,50 @@ function checkDenomUnits(id, context, objectType, checks, errorMsgs) {
 
 }
 
+function checkDecimals(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkDecimals";
+  const errorNotice = "Some IBC-transferred Assets have the wrong amount of decimal places/exponent!";
+
+  //--Prerequisistes--
+  const prerequisites = [
+    "checkUniqueBaseDenom",
+    "checkDenomUnits"
+  ];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  const ibcTypes = [
+    "ibc",
+    "ibc-cw20",
+    "ibc-bridge"
+  ];
+
+  //--Logic--
+  const traces = context.asset.traces;
+  if (traces && traces.length) {
+    const lastTrace = traces[traces.length - 1];
+    if (ibcTypes.includes(lastTrace.type)) {
+      const decimals = chain_reg.getAssetDecimals(id.chain_name, id.base_denom);
+      const sourceAssetDecimals = chain_reg.getAssetDecimals(lastTrace.counterparty?.chain_name, lastTrace.counterparty?.base_denom);
+      if (decimals == undefined || decimals !== sourceAssetDecimals) {
+        //--Error--
+        const errorMsg = `Decimals: ${decimals} for IBC-transferred asset: ${id.chain_name}, ${id.base_denom}
+doesn't match the decimals (${sourceAssetDecimals}) for its source assset: ${lastTrace.counterparty?.chain_name}, ${lastTrace.counterparty?.base_denom}.`;
+        addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+        setCheckStatus(checks, id, checkType, false);
+        return false;
+      }
+    }
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
 function checkSymbol(id, context, objectType, checks, errorMsgs) {
 
   //--Name--
@@ -1803,6 +1847,9 @@ export async function validate_chains(errorMsgs) {
 
       //check denom units
       checkDenomUnits(id, context, objectType, checks, errorMsgs);
+
+      //check decimals for IBC-transferred assets
+      checkDecimals(id, context, objectType, checks, errorMsgs);
 
       //check symbol
       checkSymbol(id, context, objectType, checks, errorMsgs);
