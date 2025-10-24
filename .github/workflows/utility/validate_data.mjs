@@ -1932,6 +1932,33 @@ function checkIbcChannelStatus(id, context, objectType, checks, errorMsgs) {
 
 }
 
+function checkIbcChainName(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkIbcChainName";
+  const errorNotice = "Some IBC Connections refer to unregistered Chains!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  const ibcChain_lookupChainName = chain_reg.getFileProperty(context.ibcChain.chain_name, "chain", "chain_name");
+  if (!ibcChain_lookupChainName) {
+    //--Error--
+    const errorMsg = `Chain Name ${context.ibcChain.chain_name} defined under ${id.chainNumber} of IBC Connection: ${id.ibcConnection} is not registered.`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
 function checkIbcChainId(id, context, objectType, checks, errorMsgs) {
 
   //--Name--
@@ -1939,7 +1966,9 @@ function checkIbcChainId(id, context, objectType, checks, errorMsgs) {
   const errorNotice = "Some IBC Connections don't have the correct chain_id defined!";
 
   //--Prerequisistes--
-  const prerequisites = [];
+  const prerequisites = [
+    "checkIbcChainName"
+  ];
   for (const checkType of prerequisites) {
     if (!getCheckStatus(checks, id, checkType)) return false;
   }
@@ -2094,6 +2123,7 @@ function validate_ibc_files(errorMsgs) {
         context.ibcChain = context.ibcConnection[chainNumber];
 
         //check chain_name exists
+        checkIbcChainName(id, context, objectType, checks, errorMsgs);
 
         //check chain_id accuracy
         checkIbcChainId(id, context, objectType, checks, errorMsgs);
