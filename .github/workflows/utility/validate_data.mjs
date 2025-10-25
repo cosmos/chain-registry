@@ -1168,6 +1168,50 @@ function checkDenomUnits(id, context, objectType, checks, errorMsgs) {
 
 }
 
+function checkDecimals(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkDecimals";
+  const errorNotice = "Some IBC-transferred Assets have the wrong amount of decimal places/exponent!";
+
+  //--Prerequisistes--
+  const prerequisites = [
+    "checkUniqueBaseDenom",
+    "checkDenomUnits"
+  ];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  const ibcTypes = [
+    "ibc",
+    "ibc-cw20",
+    "ibc-bridge"
+  ];
+
+  //--Logic--
+  const traces = context.asset.traces;
+  if (traces && traces.length) {
+    const lastTrace = traces[traces.length - 1];
+    if (ibcTypes.includes(lastTrace.type)) {
+      const decimals = chain_reg.getAssetDecimals(id.chain_name, id.base_denom);
+      const sourceAssetDecimals = chain_reg.getAssetDecimals(lastTrace.counterparty?.chain_name, lastTrace.counterparty?.base_denom);
+      if (decimals == undefined || decimals !== sourceAssetDecimals) {
+        //--Error--
+        const errorMsg = `Decimals: ${decimals} for IBC-transferred asset: ${id.chain_name}, ${id.base_denom}
+doesn't match the decimals (${sourceAssetDecimals}) for its source assset: ${lastTrace.counterparty?.chain_name}, ${lastTrace.counterparty?.base_denom}.`;
+        addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+        setCheckStatus(checks, id, checkType, false);
+        return false;
+      }
+    }
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
 function checkSymbol(id, context, objectType, checks, errorMsgs) {
 
   //--Name--
@@ -1804,6 +1848,9 @@ export async function validate_chains(errorMsgs) {
       //check denom units
       checkDenomUnits(id, context, objectType, checks, errorMsgs);
 
+      //check decimals for IBC-transferred assets
+      checkDecimals(id, context, objectType, checks, errorMsgs);
+
       //check symbol
       checkSymbol(id, context, objectType, checks, errorMsgs);
 
@@ -1885,6 +1932,64 @@ function checkIbcChannelStatus(id, context, objectType, checks, errorMsgs) {
 
 }
 
+function checkIbcChainName(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkIbcChainName";
+  const errorNotice = "Some IBC Connections refer to unregistered Chains!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  const ibcChain_lookupChainName = chain_reg.getFileProperty(context.ibcChain.chain_name, "chain", "chain_name");
+  if (!ibcChain_lookupChainName) {
+    //--Error--
+    const errorMsg = `Chain Name ${context.ibcChain.chain_name} defined under ${id.chainNumber} of IBC Connection: ${id.ibcConnection} is not registered.`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function checkIbcChainId(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkIbcChainIds";
+  const errorNotice = "Some IBC Connections don't have the correct chain_id defined!";
+
+  //--Prerequisistes--
+  const prerequisites = [
+    "checkIbcChainName"
+  ];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  const ibcChain_chainId = context.ibcChain.chain_id;
+  const ibcChain_lookupChainId = chain_reg.getFileProperty(context.ibcChain.chain_name, "chain", "chain_id");
+  if (!ibcChain_chainId || ibcChain_chainId !== ibcChain_lookupChainId) {
+    //--Error--
+    const errorMsg = `Chain ID ${ibcChain_chainId} defined under ${id.chainNumber} of IBC Connection: ${id.ibcConnection} is incorrect.
+chain_name: ${context.ibcChain.chain_name} corresponds to chain_id ${ibcChain_lookupChainId} in its chain.json.`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
 function checkNumPreferredDefaultChannels(id, context, objectType, checks, errorMsgs) {
 
   //--Name--
@@ -1934,6 +2039,49 @@ but either many or none of them are marked as "preferred": true. [${defaultChann
 
 }
 
+function addChannelIdObject(id, context) {
+
+  const channelId = context.channelChainInfo.channel_id;
+  if (channelId === "*") { return; }
+  const chainName = context.ibcConnection[id.channelChainNumber].chain_name;
+  
+  if (!context.allChannelIdsByChainName) context.allChannelIdsByChainName = new Map();
+  if (!context.allChannelIdsByChainName.get(chainName)) context.allChannelIdsByChainName.set(chainName, new Map());
+  let chainChannelIdMap = context.allChannelIdsByChainName.get(chainName);
+
+  if (!chainChannelIdMap.get(channelId)) chainChannelIdMap.set(channelId, []);
+  chainChannelIdMap.get(channelId).push(id);
+
+}
+
+function checkAllChannelIds(context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkAllChannelIds";
+  const errorNotice = "Some channel IDs for the same chain are not unique!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  context?.allChannelIdsByChainName?.forEach((chainChannelIdMap, chainName) => {
+    chainChannelIdMap.forEach((idArray, channelId) => {
+      if (idArray.length <= 1) return;
+
+      //--Error--
+      const errorMsg = `For chain: ${chainName}, the channel_id: ${channelId} is registered ${idArray.length} times:
+${JSON.stringify(idArray, null, 2)}`;
+      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+      return false;
+
+    });
+  });
+
+  return true;
+}
+
 function validate_ibc_files(errorMsgs) {
 
   const objectType = "IBC"
@@ -1943,6 +2091,8 @@ function validate_ibc_files(errorMsgs) {
 
   let checks = {};
   let context = {};
+
+  const ibcConnectionChainNumbers = ["chain_1", "chain_2"];
 
   //create maps of chains and channels
   context.chainNameToIbcChannelsMap = new Map();
@@ -1966,9 +2116,25 @@ function validate_ibc_files(errorMsgs) {
         ibcConnection: chain1 + ":" + chain2
       }
 
+      //chain_1, chain_2
+      for (const chainNumber of ibcConnectionChainNumbers) {
+
+        id.chainNumber = chainNumber;
+        context.ibcChain = context.ibcConnection[chainNumber];
+
+        //check chain_name exists
+        checkIbcChainName(id, context, objectType, checks, errorMsgs);
+
+        //check chain_id accuracy
+        checkIbcChainId(id, context, objectType, checks, errorMsgs);
+
+      }
+      delete id.chainNumber;
+
       //check for only 1 active default channel
       checkNumPreferredDefaultChannels(id, context, objectType, checks, errorMsgs);
 
+      //Channels[]
       for (const key in context.ibcConnection.channels) {
 
         id.ibcChannel = key;
@@ -1977,9 +2143,16 @@ function validate_ibc_files(errorMsgs) {
         //check for valid channel status
         checkIbcChannelStatus(id, context, objectType, checks, errorMsgs);
 
-        //check for duplicate channel-ids
-        checkDuplicateChannels(context.channel.chain_1.channel_id, chain1, chain2, context.chainNameToIbcChannelsMap);
-        checkDuplicateChannels(context.channel.chain_2.channel_id, chain2, chain1, context.chainNameToIbcChannelsMap);
+        //chain_1, chain_2
+        for (const chainNumber of ibcConnectionChainNumbers) {
+
+          id.channelChainNumber = chainNumber;
+          context.channelChainInfo = context.channel[chainNumber];
+
+          //Adding channel ids to Map structure to check for duplicates later
+          addChannelIdObject(id, context);
+
+        }
 
       }
 
@@ -1987,29 +2160,9 @@ function validate_ibc_files(errorMsgs) {
 
   });
 
-}
-
-function checkDuplicateChannels(channel_id, chain, counterparty, chainNameToIbcChannelsMap) {
-
-  if (channel_id === "*") { return; }
-  let duplicateChannel = undefined;
-  let chainChannels = chainNameToIbcChannelsMap.get(chain);
-  if (!chainChannels) {
-    chainChannels = [];
-  } else {
-    duplicateChannel = chainChannels.find(obj => obj.channel_id === channel_id);
-  }
-  if (duplicateChannel) {
-    //report duplicate
-    throw new Error(`For chain: ${chain}, channel_id: ${channel_id} is registered for both: ${duplicateChannel.chain_name} and ${counterparty}.`);
-  } else {
-    const obj = {
-      channel_id: channel_id,
-      chain_name: counterparty
-    };
-    chainChannels.push(obj);
-    chainNameToIbcChannelsMap.set(chain, chainChannels);
-  }
+  //Now that all IBC files have been iterated, we can check our temporary holding structures
+  //Check for IBC channel duplicates
+  checkAllChannelIds(context, "ChannelId", checks, errorMsgs);
 
 }
 
@@ -2022,7 +2175,7 @@ async function validateAll() {
   let errorMsgs = {};
 
   //check all chains
-  await validate_chains(errorMsgs); // todo, turn back on
+  await validate_chains(errorMsgs);
 
   //check all IBC channels
   validate_ibc_files(errorMsgs);
