@@ -1,49 +1,49 @@
 {
-    "$schema": "../ibc_data.schema.json",
-    "chain_1": {
-      "chain_name": "chihuahua",
-      "client_id": "07-tendermint-45",
-      "connection_id": "connection-25"
-    },
-    "chain_2": {
-      "chain_name": "osmosis",
-      "client_id": "07-tendermint-1666",
-      "connection_id": "connection-1278"
-    },
-    "channels": [
-      {
-        "chain_1": {
-          "channel_id": "channel-7",
-          "port_id": "transfer"
-        },
-        "chain_2": {
-          "channel_id": "channel-113",
-          "port_id": "transfer"
-        },
-        "ordering": "unordered",
-        "version": "ics20-1",
-        "tags": {
-          "status": "live",
-          "preferred": true,
-          "dex": "osmosis"
-        }
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "chihuahua",
+    "chain_id": "chihuahua-1",
+    "client_id": "07-tendermint-45",
+    "connection_id": "connection-25"
+  },
+  "chain_2": {
+    "chain_name": "osmosis",
+    "chain_id": "osmosis-1",
+    "client_id": "07-tendermint-1666",
+    "connection_id": "connection-1278"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-7",
+        "port_id": "transfer"
       },
-      {
-        "chain_1": {
-          "channel_id": "channel-73",
-          "port_id": "wasm.chihuahua1jwkag4yvhyj9fuddtkygvavya8hmdjuzmgxwg9vp3lw9twv6lrcq9mgl52"
-        },
-        "chain_2": {
-          "channel_id": "channel-11348",
-          "port_id": "transfer"
-        },
-        "ordering": "unordered",
-        "version": "ics20-1",
-        "tags": {
-          "status": "live",
-          "preferred": true,
-          "dex": "osmosis"
-        }
+      "chain_2": {
+        "channel_id": "channel-113",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
       }
-    ]
-  }
+    },
+    {
+      "chain_1": {
+        "channel_id": "channel-73",
+        "port_id": "wasm.chihuahua1jwkag4yvhyj9fuddtkygvavya8hmdjuzmgxwg9vp3lw9twv6lrcq9mgl52"
+      },
+      "chain_2": {
+        "channel_id": "channel-11348",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
+      }
+    }
+  ]
+}

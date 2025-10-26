@@ -43,6 +43,18 @@
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/EpixZone/Epix/refs/heads/main/Networks/Mainnet/epix_1916-0/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46"
+    },
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v6.1.0"
     }
   },
   "logo_URIs": {
@@ -56,43 +68,45 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://epix.rpc.silknodes.io/",
-        "provider": "Silk Nodes"
+        "address": "https://rpc.epix.zone",
+        "provider": "Epix"
       }
     ],
     "rest": [
       {
-        "address": "https://epix.api.silknodes.io",
-        "provider": "Silk Nodes"
+        "address": "https://api.epix.zone",
+        "provider": "Epix"
       }
     ],
     "grpc": [
       {
-        "address": "https://epix.grpc.silknodes.io:443",
-        "provider": "Silk Nodes"
+        "address": "grpc.epix.zone:15067",
+        "provider": "Epix"
       }
     ],
     "evm-http-jsonrpc": [
       {
-        "address": "https://epix.emvrpc.silknodes.io/",
-        "provider": "Silk Nodes"
+        "address": "https://evmrpc.epix.zone/",
+        "provider": "Epix"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "Silk Nodes Explorer",
-      "url": "https://explorer.silknodes.io/epix",
-      "tx_page": "https://explorer.silknodes.io/osmosis/tx/${txHash}"
+      "kind": "L1",
+      "url": "https://explorer.epix.zone/",
+      "tx_page": "https://explorer.epix.zone/epix/tx/${txHash}"
+    },
+    {
+      "kind": "EVM",
+      "url": "https://scan.epix.zone/",
+      "tx_page": "https://scan.epix.zone/tx/${txHash}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/epix/images/epix.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/epix/images/epix.svg",
-      "theme": {
-        "primary_color_hex": "#69e9f5"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/epix/images/epix.svg"
     }
   ]
 }

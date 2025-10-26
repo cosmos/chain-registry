@@ -1,31 +1,33 @@
 {
-    "$schema": "../ibc_data.schema.json",
-    "chain_1": {
-      "chain_name": "comdex",
-      "client_id": "07-tendermint-83",
-      "connection_id": "connection-50"
-    },
-    "chain_2": {
-      "chain_name": "stride",
-      "client_id": "07-tendermint-41",
-      "connection_id": "connection-28"
-    },
-    "channels": [
-      {
-        "chain_1": {
-          "channel_id": "channel-45",
-          "port_id": "transfer"
-        },
-        "chain_2": {
-          "channel_id": "channel-49",
-          "port_id": "transfer"
-        },
-        "ordering": "unordered",
-        "version": "ics20-1",
-        "tags": {
-          "status": "live",
-          "preferred": true
-        }
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "comdex",
+    "chain_id": "comdex-1",
+    "client_id": "07-tendermint-83",
+    "connection_id": "connection-50"
+  },
+  "chain_2": {
+    "chain_name": "stride",
+    "chain_id": "stride-1",
+    "client_id": "07-tendermint-41",
+    "connection_id": "connection-28"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-45",
+        "port_id": "transfer"
+      },
+      "chain_2": {
+        "channel_id": "channel-49",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
       }
-    ]
-  }
+    }
+  ]
+}

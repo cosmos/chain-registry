@@ -1,0 +1,263 @@
+{
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "zigchain",
+  "assets": [
+    {
+      "description": "The native token of ZIGChain",
+      "extended_description": "ZIGChain (ZIG) is a Layer 1 blockchain focused on unlocking financial opportunities for everyone - regardless of their income, location, or level of knowledge.",
+      "denom_units": [
+        {
+          "denom": "uzig",
+          "exponent": 0,
+          "aliases": [
+            "microzig"
+          ]
+        },
+        {
+          "denom": "mzig",
+          "exponent": 3,
+          "aliases": [
+            "millizig"
+          ]
+        },
+        {
+          "denom": "zig",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "uzig",
+      "name": "ZIG",
+      "display": "zig",
+      "symbol": "ZIG",
+      "coingecko_id": "zignaly",
+      "keywords": [
+        "zigchain",
+        "rwa",
+        "wealth generation infrastructure",
+        "wasm"
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.svg"
+        }
+      ],
+      "socials": {
+        "website": "https://zigchain.com/",
+        "twitter": "https://x.com/zigchain",
+        "telegram": "https://t.me/ZignalyHQ",
+        "discord": "https://discord.zignaly.com",
+        "medium": "https://medium.com/zignaly"
+      }
+    },
+    {
+      "description": "Staked Zig Token by Valdora Finance - Decentralized staking with stZIG",
+      "denom_units": [
+        {
+          "denom": "coin.zig109f7g2rzl2aqee7z6gffn8kfe9cpqx0mjkk7ethmx8m2hq4xpe9snmaam2.stzig",
+          "exponent": 0
+        },
+        {
+          "denom": "stzig",
+          "exponent": 6
+        }
+      ],
+      "base": "coin.zig109f7g2rzl2aqee7z6gffn8kfe9cpqx0mjkk7ethmx8m2hq4xpe9snmaam2.stzig",
+      "name": "Staked Zig",
+      "display": "stzig",
+      "symbol": "STZIG",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/stzig.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/stzig.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/stzig.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/stzig.svg"
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "socials": {
+        "website": "https://valdora.finance",
+        "twitter": "https://x.com/Valdora_finance",
+        "telegram": "https://t.me/ValdoraWarriors",
+        "discord": "http://discord.gg/valdora"
+      }
+    },
+    {
+      "description": "Noble USDC on ZIGChain",
+      "denom_units": [
+        {
+          "denom": "ibc/6490A7EAB61059BFC1CDDEB05917DD70BDF3A611654162A1A47DB930D40D8AF4",
+          "exponent": 0,
+          "aliases": [
+            "microusdc",
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/6490A7EAB61059BFC1CDDEB05917DD70BDF3A611654162A1A47DB930D40D8AF4",
+      "name": "Noble USDC",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "USD"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-175"
+          },
+          "chain": {
+            "channel_id": "channel-3",
+            "path": "transfer/channel-3/uusdc"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "noble",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true
+          }
+        }
+      ],
+      "coingecko_id": "usd-coin"
+    },
+    {
+      "description": "Cosmos Hub Atom on ZIGChain",
+      "denom_units": [
+        {
+          "denom": "ibc/EF48E6B1A1A19F47ECAEA62F5670C37C0580E86A9E88498B7E393EB6F49F33C0",
+          "exponent": 0,
+          "aliases": [
+            "uatom"
+          ]
+        },
+        {
+          "denom": "atom",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/EF48E6B1A1A19F47ECAEA62F5670C37C0580E86A9E88498B7E393EB6F49F33C0",
+      "name": "Cosmos Hub Atom",
+      "display": "atom",
+      "symbol": "ATOM",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom",
+            "channel_id": "channel-1555"
+          },
+          "chain": {
+            "channel_id": "channel-4",
+            "path": "transfer/channel-4/uatom"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
+        }
+      ],
+      "coingecko_id": "cosmos"
+    },
+    {
+      "description": "ZIG bridged via Axelar on ZIGChain",
+      "denom_units": [
+        {
+          "denom": "ibc/9BEE293E6559ED860CC702685996F394D4991D6DFFD60A19ABC3723E6F34788A",
+          "exponent": 0,
+          "aliases": [
+            "weizig.axl"
+          ]
+        },
+        {
+          "denom": "zig.axl",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/9BEE293E6559ED860CC702685996F394D4991D6DFFD60A19ABC3723E6F34788A",
+      "name": "ZIG (Axelar)",
+      "display": "zig.axl",
+      "symbol": "ZIG.axl",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "axelar",
+            "base_denom": "unit-zig",
+            "channel_id": "channel-182"
+          },
+          "chain": {
+            "channel_id": "channel-1",
+            "path": "transfer/channel-1/unit-zig"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "zigchain",
+            "base_denom": "uzig"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.svg"
+        }
+      ],
+      "coingecko_id": "zignaly"
+    }
+  ]
+}
