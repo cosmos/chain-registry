@@ -5,6 +5,7 @@
   "description": "Asset lists are a similar mechanism to allow frontends and other UIs to fetch metadata associated with Cosmos SDK denoms, especially for assets sent over IBC.",
   "type": "object",
   "required": [
+    "$schema",
     "chain_name",
     "assets"
   ],
@@ -104,6 +105,7 @@
         "symbol": {
           "type": "string",
           "minLength": 1,
+          "pattern": "[A-Za-z0-9._\\-]+",
           "description": "The symbol of an asset. For example BTC."
         },
         "traces": {
@@ -193,9 +195,6 @@
                     "type": "boolean"
                   },
                   "dark_mode": {
-                    "type": "boolean"
-                  },
-                  "monochrome": {
                     "type": "boolean"
                   }
                 },

@@ -102,8 +102,7 @@ A sample `chain.json` includes the following information.
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg",
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
       "theme": {
-        "circle": true,
-        "primary_color_hex": "#231D4B"
+        "circle": true
       }
     }
   ],
@@ -224,8 +223,7 @@ An example assetlist json contains the following structure:
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg",
           "theme": {
-            "circle": false,
-            "primary_color_hex": "#5c09a0"
+            "circle": false
           }
         }
       ],
@@ -281,10 +279,7 @@ An example assetlist json contains the following structure:
             "base_denom": "uatom"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg",
-          "theme": {
-            "primary_color_hex": "#272d45"
-          }
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
         }
       ]
     }
