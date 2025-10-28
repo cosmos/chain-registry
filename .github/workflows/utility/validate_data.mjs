@@ -269,11 +269,11 @@ function checkSlip44(id, context, objectType, checks, errorMsgs) {
 
 }
 
-function checkFeeTokensAreRegistered(id, context, objectType, checks, errorMsgs) {
+function checkFeeTokenHasDenom(id, context, objectType, checks, errorMsgs) {
 
   //--Name--
-  const checkType = "checkFeeTokensAreRegistered";
-  const errorNotice = "Some Chains' Fee Tokens aren't registered!";
+  const checkType = "checkFeeTokenHasDenom";
+  const errorNotice = "Some Fee Tokens are missing 'denom'!";
 
   //--Prerequisistes--
   const prerequisites = [];
@@ -282,22 +282,125 @@ function checkFeeTokensAreRegistered(id, context, objectType, checks, errorMsgs)
   }
 
   //--Logic--
+  if (!context.fee_token.denom) {
+    //--Error--
+    const errorMsg = `Fee Token [${id.i}] of chain: ${id.chain_name} does not have 'denom' defined. ${JSON.stringify(context.fee_token)}`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function checkFeeTokenInAssetlist(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkFeeTokenInAssetlist";
+  const errorNotice = "Some Fee Tokens are not their chain's assetlist!";
+
+  //--Prerequisistes--
+  const prerequisites = [
+    "checkFeeTokenHasDenom"
+  ];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  if (!chain_reg.getAssetProperty(id.chain_name, context.fee_token.denom, "base")) {
+    //--Error--
+    const errorMsg = `Chain ${id.chain_name} does not have fee token [${id.i}] (${context.fee_token.denom}) defined in its Assetlist.`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function checkFeeTokenGasPrices(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkFeeTokenGasPrices";
+  const errorNotice = "Some Fee Tokens have invalid gas prices (minimum/low/average/high)!";
+
+  //--Prerequisistes--
+  const prerequisites = [
+    "checkFeeTokenHasDenom"
+  ];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  const fixed_min_gas_price = context.fee_token.fixed_min_gas_price;
+  const low_gas_price = context.fee_token.low_gas_price;
+  const average_gas_price = context.fee_token.average_gas_price;
+  const high_gas_price = context.fee_token.high_gas_price;
+
+  if (
+    (fixed_min_gas_price && low_gas_price && !(fixed_min_gas_price <= low_gas_price)) ||
+    (fixed_min_gas_price && average_gas_price && !(fixed_min_gas_price <= average_gas_price)) ||
+    (fixed_min_gas_price && high_gas_price && !(fixed_min_gas_price <= high_gas_price)) ||
+    (low_gas_price && average_gas_price && !(low_gas_price <= average_gas_price)) ||
+    (low_gas_price && high_gas_price && !(low_gas_price <= high_gas_price)) ||
+    (average_gas_price && high_gas_price && !(average_gas_price <= high_gas_price))
+  ) {
+    //--Error--
+    const errorMsg = `Chain ${id.chain_name}'s fee token [${id.i}] (${context.fee_token.denom}) has invalid gas prices defined.
+${JSON.stringify(context.fee_token)}`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function checkFeeTokens(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkFeeTokens";
+  const errorNotice = "Some Chains' Fees are invlaid!";
+
+  //--Prerequisistes--
+  const prerequisites = [
+    "checkChainNameMatchDirectory"
+  ];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  let ANY_INVALID = false;
   let fees = chain_reg.getFileProperty(id.chain_name, "chain", "fees");
-  for (const fee_token of fees?.fee_tokens ?? []) {
-    if (!fee_token.denom) {
-      //--Error--
-      const errorMsg = `One of the staking tokens for chain: ${id.chain_name} does not have 'denom' specified. ${JSON.stringify(fee_token)}`;
-      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
-      setCheckStatus(checks, id, checkType, false);
-      return false;
-    }
-    if (!chain_reg.getAssetProperty(id.chain_name, fee_token.denom, "base")) {
-      //--Error--
-      const errorMsg = `Chain ${id.chain_name} does not have fee token ${fee_token.denom} defined in its Assetlist.`;
-      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
-      setCheckStatus(checks, id, checkType, false);
-      return false;
-    }
+  for (const [i, fee_token] of (fees?.fee_tokens ?? []).entries()) {
+
+    id.i = i;
+    context.fee_token = fee_token;
+
+    ANY_INVALID = !checkFeeTokenHasDenom(id, context, objectType, checks, errorMsgs) || ANY_INVALID;
+
+    ANY_INVALID = !checkFeeTokenInAssetlist(id, context, objectType, checks, errorMsgs) || ANY_INVALID;
+
+    ANY_INVALID = !checkFeeTokenGasPrices(id, context, objectType, checks, errorMsgs) || ANY_INVALID;
+
+    delete id.i;
+
+  }
+  if (ANY_INVALID) {
+    //--Error--
+    const errorMsg = `Chain ${id.chain_name} has invalid fee tokens.`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
   }
 
   setCheckStatus(checks, id, checkType, true);
@@ -1788,7 +1891,10 @@ export async function validate_chains(errorMsgs) {
     checkSlip44(id, context, objectType, checks, errorMsgs);
 
     //check if all fee tokens are registered
-    checkFeeTokensAreRegistered(id, context, objectType, checks, errorMsgs);
+    //checkFeeTokensAreRegistered(id, context, objectType, checks, errorMsgs);
+
+    //check fee_tokens
+    checkFeeTokens(id, context, objectType, checks, errorMsgs);
 
     //check if all staking tokens are registered
     checkStakingTokensAreRegistered(id, context, objectType, checks, errorMsgs);
