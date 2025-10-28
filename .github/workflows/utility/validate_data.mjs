@@ -21,8 +21,11 @@ import * as chain_reg from './chain_registry.mjs';
 const chainRegistryRoot = "../../..";
 
 //--APIs--
+const args = process.argv.slice(2);
+const NO_API = args.includes('NO_API');
+const API_FETCHING = !NO_API;// set to false for local testing, true for GitHub validation
+
 import * as coingecko from './coingecko_data.mjs';
-const API_FETCHING = true;// set to false for local testing, true for GitHub validation
 
 
 const imageURIs = ["png", "svg"];
@@ -198,6 +201,37 @@ function checkChainIdConflict(id, context, objectType, checks, errorMsgs) {
     return false;
   }
   context.chainIdMap.set(chain_id, id.chain_name);
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function checkStatus(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkStatus";
+  const errorNotice = "Some Chains are missing a status!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  const chainStatuses = ["live", "upcoming", "killed"];
+
+  //--Logic--
+  let chain_name = chain_reg.getFileProperty(id.chain_name, "chain", "chain_name"); //just to see if there exists a chain.json file
+  if (!chain_name) return; //Skip check is there is no chain.json file
+  let chain_status = chain_reg.getFileProperty(id.chain_name, "chain", "status");
+  if (!chain_status || !chainStatuses.includes(chain_status)) {
+    //--Error--
+    const errorMsg = `Chain ${id.chain_name} missing a valid status (Status: ${chain_status})!`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
 
   setCheckStatus(checks, id, checkType, true);
   return true;
@@ -1134,6 +1168,50 @@ function checkDenomUnits(id, context, objectType, checks, errorMsgs) {
 
 }
 
+function checkDecimals(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkDecimals";
+  const errorNotice = "Some IBC-transferred Assets have the wrong amount of decimal places/exponent!";
+
+  //--Prerequisistes--
+  const prerequisites = [
+    "checkUniqueBaseDenom",
+    "checkDenomUnits"
+  ];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  const ibcTypes = [
+    "ibc",
+    "ibc-cw20",
+    "ibc-bridge"
+  ];
+
+  //--Logic--
+  const traces = context.asset.traces;
+  if (traces && traces.length) {
+    const lastTrace = traces[traces.length - 1];
+    if (ibcTypes.includes(lastTrace.type)) {
+      const decimals = chain_reg.getAssetDecimals(id.chain_name, id.base_denom);
+      const sourceAssetDecimals = chain_reg.getAssetDecimals(lastTrace.counterparty?.chain_name, lastTrace.counterparty?.base_denom);
+      if (decimals == undefined || decimals !== sourceAssetDecimals) {
+        //--Error--
+        const errorMsg = `Decimals: ${decimals} for IBC-transferred asset: ${id.chain_name}, ${id.base_denom}
+doesn't match the decimals (${sourceAssetDecimals}) for its source assset: ${lastTrace.counterparty?.chain_name}, ${lastTrace.counterparty?.base_denom}.`;
+        addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+        setCheckStatus(checks, id, checkType, false);
+        return false;
+      }
+    }
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
 function checkSymbol(id, context, objectType, checks, errorMsgs) {
 
   //--Name--
@@ -1345,18 +1423,7 @@ function checkCoingeckoId_in_State(id, context, objectType, checks, errorMsgs) {
     return false;
   }
 
-  //see if it's cosmos origin has the asset
-  let ibc_origin_cgid =
-    chain_reg.getAssetPropertyFromOriginWithTraceCustom(
-      id.chain_name,
-      id.base_denom,
-      "coingecko_id",
-      ["ibc", "ibc-cw20"]
-    );
-  if (ibc_origin_cgid === coingecko_id) return true;
-
-
-  //see if it has the asset listed (bool)
+  //see if state's coingecko group has this asset listed (bool)
   const assetExists = coingeckoIdGroup.assets.some(
     cgAsset => cgAsset.chain_name === id.chain_name && cgAsset.base_denom === id.base_denom
   );
@@ -1367,6 +1434,7 @@ function checkCoingeckoId_in_State(id, context, objectType, checks, errorMsgs) {
     //addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
     setCheckStatus(checks, id, checkType, false);
     context.assets_cgidNotInState.push(chain_asset_pair);
+    console.log(id.base_denom);
     return false;
   }
 
@@ -1388,7 +1456,6 @@ function checkCoingeckoIdAssetsShareOrigin(context, objectType, checks, errorMsg
   }
 
   //--Logic--
-  //if (assets_cgidNotInState.length <= 0) { return true; }
   if (context.assets_cgidNotInState.length <= 0) { return true; }
 
   let coingeckoIdGroupsToCheck = [];
@@ -1416,7 +1483,7 @@ function checkCoingeckoIdAssetsShareOrigin(context, objectType, checks, errorMsg
 
   coingeckoIdGroupsToCheck.forEach((coingeckoIdGroup) => {
 
-    const cgidGroupOriginAsset = coingeckoIdGroup.originAsset ?? coingecko.getCoingeckoIdGroupOriginAsset(coingeckoIdGroup);
+    let cgidGroupOriginAsset = coingeckoIdGroup.originAsset ?? coingecko.getCoingeckoIdGroupOriginAsset(coingeckoIdGroup);
 
     coingeckoIdGroup.assets.forEach((asset) => {
 
@@ -1426,36 +1493,30 @@ function checkCoingeckoIdAssetsShareOrigin(context, objectType, checks, errorMsg
         coingecko.traceTypesCoingeckoId
       );
 
-      if (deepEqual(cgidGroupOriginAsset, originAsset)) {
+      if (!cgidGroupOriginAsset) {
+        cgidGroupOriginAsset = originAsset;
         return;
       }
 
-      const originAssetLastTrace = chain_reg
-        .getAssetMetadata(originAsset.chain_name, originAsset.base_denom, "traces")
-        ?.at(-1); // Get the last element safely
+      if (!deepEqual(cgidGroupOriginAsset, originAsset)) {
 
-      const cgidGroupOriginAssetLastTrace = chain_reg
-        .getAssetMetadata(cgidGroupOriginAsset.chain_name, cgidGroupOriginAsset.base_denom, "traces")
-        ?.at(-1);
-
-      if (
-        originAssetLastTrace?.type === cgidGroupOriginAssetLastTrace?.type &&
-        originAssetLastTrace?.provider === cgidGroupOriginAssetLastTrace?.provider
-      ) {
-        return;
+        //--Error--
+        const errorMsg = `Within Coingecko Id Group: '${coingeckoIdGroup.coingecko_id}'
+  Origin (${originAsset.chain_name}, ${originAsset.base_denom}) of Asset: ${asset.chain_name}, ${asset.base_denom}
+  does not match origin: ${cgidGroupOriginAsset.chain_name}, ${cgidGroupOriginAsset.base_denom}.`;
+        addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+        setCheckStatus(
+          checks,
+          {
+            chain_name: asset.chain_name,
+            base_denom: asset.base_denom
+          },
+          checkType,
+          false
+        );
+        return false;
       }
 
-      /*console.warn(`
-Coingecko Id Group (ID: ${coingeckoIdGroup.coingecko_id}) Origin Asset: ${cgidGroupOriginAsset.chain_name}, ${cgidGroupOriginAsset.base_denom}
-does not match origin (${originAsset.chain_name}, ${originAsset.base_denom}) of this asset (${asset.chain_name}, ${asset.base_denom}}).
-`);*/
-      //assets_cgidOriginConflict.push(asset);
-
-      //--Error--
-      const errorMsg = `Coingecko Id Group (ID: ${coingeckoIdGroup.coingecko_id}) Origin Asset: ${cgidGroupOriginAsset.chain_name}, ${cgidGroupOriginAsset.base_denom}
-does not match origin (${originAsset.chain_name}, ${originAsset.base_denom}) of this asset (${asset.chain_name}, ${asset.base_denom}}).
-`;
-      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
       setCheckStatus(
         checks,
         {
@@ -1463,16 +1524,19 @@ does not match origin (${originAsset.chain_name}, ${originAsset.base_denom}) of 
           base_denom: asset.base_denom
         },
         checkType,
-        false
+        true
       );
-      return false;
+      return true;
           
     });
+
+    
   });
+
+  
 
 }
 
-//async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid) {
 async function checkCoingeckoId_in_API(context, objectType, checks, errorMsgs) {
 
   //--Name--
@@ -1717,6 +1781,9 @@ export async function validate_chains(errorMsgs) {
     //check if chain_id is registered by another chain
     checkChainIdConflict(id, context, objectType, checks, errorMsgs);
 
+    //check chain status
+    checkStatus(id, context, objectType, checks, errorMsgs);
+
     //check for slip44
     checkSlip44(id, context, objectType, checks, errorMsgs);
 
@@ -1735,6 +1802,7 @@ export async function validate_chains(errorMsgs) {
       context.image = imageReferences[key];
       addImageObject(id, context);
     }
+    delete id.key;
 
     //ensure that and version properties in codebase are also defined in the versions file.
     //compare_CodebaseVersionData_to_VersionsFile(chain_name);
@@ -1767,6 +1835,9 @@ export async function validate_chains(errorMsgs) {
       //check denom units
       checkDenomUnits(id, context, objectType, checks, errorMsgs);
 
+      //check decimals for IBC-transferred assets
+      checkDecimals(id, context, objectType, checks, errorMsgs);
+
       //check symbol
       checkSymbol(id, context, objectType, checks, errorMsgs);
 
@@ -1796,6 +1867,7 @@ export async function validate_chains(errorMsgs) {
         context.image = imageReferences[key];
         addImageObject(id, context);
       }
+      delete id.key;
 
     }
 
@@ -1838,6 +1910,64 @@ function checkIbcChannelStatus(id, context, objectType, checks, errorMsgs) {
   if (ibcChannelStatus && !ibcChannelStatuses.includes(ibcChannelStatus)) {
     //--Error--
     const errorMsg = `Status "${ibcChannelStatus}" of IBC Channel [${id.ibcChannel}] of IBC Connection: ${id.ibcConnection} is invalid.`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function checkIbcChainName(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkIbcChainName";
+  const errorNotice = "Some IBC Connections refer to unregistered Chains!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  const ibcChain_lookupChainName = chain_reg.getFileProperty(context.ibcChain.chain_name, "chain", "chain_name");
+  if (!ibcChain_lookupChainName) {
+    //--Error--
+    const errorMsg = `Chain Name ${context.ibcChain.chain_name} defined under ${id.chainNumber} of IBC Connection: ${id.ibcConnection} is not registered.`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function checkIbcChainId(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkIbcChainIds";
+  const errorNotice = "Some IBC Connections don't have the correct chain_id defined!";
+
+  //--Prerequisistes--
+  const prerequisites = [
+    "checkIbcChainName"
+  ];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  const ibcChain_chainId = context.ibcChain.chain_id;
+  const ibcChain_lookupChainId = chain_reg.getFileProperty(context.ibcChain.chain_name, "chain", "chain_id");
+  if (!ibcChain_chainId || ibcChain_chainId !== ibcChain_lookupChainId) {
+    //--Error--
+    const errorMsg = `Chain ID ${ibcChain_chainId} defined under ${id.chainNumber} of IBC Connection: ${id.ibcConnection} is incorrect.
+chain_name: ${context.ibcChain.chain_name} corresponds to chain_id ${ibcChain_lookupChainId} in its chain.json.`;
     addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
     setCheckStatus(checks, id, checkType, false);
     return false;
@@ -1897,6 +2027,49 @@ but either many or none of them are marked as "preferred": true. [${defaultChann
 
 }
 
+function addChannelIdObject(id, context) {
+
+  const channelId = context.channelChainInfo.channel_id;
+  if (channelId === "*") { return; }
+  const chainName = context.ibcConnection[id.channelChainNumber].chain_name;
+  
+  if (!context.allChannelIdsByChainName) context.allChannelIdsByChainName = new Map();
+  if (!context.allChannelIdsByChainName.get(chainName)) context.allChannelIdsByChainName.set(chainName, new Map());
+  let chainChannelIdMap = context.allChannelIdsByChainName.get(chainName);
+
+  if (!chainChannelIdMap.get(channelId)) chainChannelIdMap.set(channelId, []);
+  chainChannelIdMap.get(channelId).push(id);
+
+}
+
+function checkAllChannelIds(context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkAllChannelIds";
+  const errorNotice = "Some channel IDs for the same chain are not unique!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  context?.allChannelIdsByChainName?.forEach((chainChannelIdMap, chainName) => {
+    chainChannelIdMap.forEach((idArray, channelId) => {
+      if (idArray.length <= 1) return;
+
+      //--Error--
+      const errorMsg = `For chain: ${chainName}, the channel_id: ${channelId} is registered ${idArray.length} times:
+${JSON.stringify(idArray, null, 2)}`;
+      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+      return false;
+
+    });
+  });
+
+  return true;
+}
+
 function validate_ibc_files(errorMsgs) {
 
   const objectType = "IBC"
@@ -1906,6 +2079,8 @@ function validate_ibc_files(errorMsgs) {
 
   let checks = {};
   let context = {};
+
+  const ibcConnectionChainNumbers = ["chain_1", "chain_2"];
 
   //create maps of chains and channels
   context.chainNameToIbcChannelsMap = new Map();
@@ -1929,9 +2104,25 @@ function validate_ibc_files(errorMsgs) {
         ibcConnection: chain1 + ":" + chain2
       }
 
+      //chain_1, chain_2
+      for (const chainNumber of ibcConnectionChainNumbers) {
+
+        id.chainNumber = chainNumber;
+        context.ibcChain = context.ibcConnection[chainNumber];
+
+        //check chain_name exists
+        checkIbcChainName(id, context, objectType, checks, errorMsgs);
+
+        //check chain_id accuracy
+        checkIbcChainId(id, context, objectType, checks, errorMsgs);
+
+      }
+      delete id.chainNumber;
+
       //check for only 1 active default channel
       checkNumPreferredDefaultChannels(id, context, objectType, checks, errorMsgs);
 
+      //Channels[]
       for (const key in context.ibcConnection.channels) {
 
         id.ibcChannel = key;
@@ -1940,9 +2131,16 @@ function validate_ibc_files(errorMsgs) {
         //check for valid channel status
         checkIbcChannelStatus(id, context, objectType, checks, errorMsgs);
 
-        //check for duplicate channel-ids
-        checkDuplicateChannels(context.channel.chain_1.channel_id, chain1, chain2, context.chainNameToIbcChannelsMap);
-        checkDuplicateChannels(context.channel.chain_2.channel_id, chain2, chain1, context.chainNameToIbcChannelsMap);
+        //chain_1, chain_2
+        for (const chainNumber of ibcConnectionChainNumbers) {
+
+          id.channelChainNumber = chainNumber;
+          context.channelChainInfo = context.channel[chainNumber];
+
+          //Adding channel ids to Map structure to check for duplicates later
+          addChannelIdObject(id, context);
+
+        }
 
       }
 
@@ -1950,33 +2148,13 @@ function validate_ibc_files(errorMsgs) {
 
   });
 
-}
-
-function checkDuplicateChannels(channel_id, chain, counterparty, chainNameToIbcChannelsMap) {
-
-  if (channel_id === "*") { return; }
-  let duplicateChannel = undefined;
-  let chainChannels = chainNameToIbcChannelsMap.get(chain);
-  if (!chainChannels) {
-    chainChannels = [];
-  } else {
-    duplicateChannel = chainChannels.find(obj => obj.channel_id === channel_id);
-  }
-  if (duplicateChannel) {
-    //report duplicate
-    throw new Error(`For chain: ${chain}, channel_id: ${channel_id} is registered for both: ${duplicateChannel.chain_name} and ${counterparty}.`);
-  } else {
-    const obj = {
-      channel_id: channel_id,
-      chain_name: counterparty
-    };
-    chainChannels.push(obj);
-    chainNameToIbcChannelsMap.set(chain, chainChannels);
-  }
+  //Now that all IBC files have been iterated, we can check our temporary holding structures
+  //Check for IBC channel duplicates
+  checkAllChannelIds(context, "ChannelId", checks, errorMsgs);
 
 }
 
-async function main() {
+async function validateAll() {
 
   //setup chain registry
   chain_reg.setup(chainRegistryRoot);
@@ -1985,7 +2163,7 @@ async function main() {
   let errorMsgs = {};
 
   //check all chains
-  await validate_chains(errorMsgs); // todo, turn back on
+  await validate_chains(errorMsgs);
 
   //check all IBC channels
   validate_ibc_files(errorMsgs);
@@ -1997,6 +2175,17 @@ async function main() {
   reportErrors(errorMsgs);//why doesn't this work!!!
   
 
+}
+
+async function main() {
+  if (API_FETCHING) {
+    console.log('Including API calls (server mode)');
+    console.log('Run with arg "NO_API" for local testing');
+    console.log('> node validate_data.mjs NO_API');
+  } else {
+    console.log('Skipping API calls (local mode)');
+  }
+  await validateAll();
 }
 
 main();
