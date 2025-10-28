@@ -1423,18 +1423,7 @@ function checkCoingeckoId_in_State(id, context, objectType, checks, errorMsgs) {
     return false;
   }
 
-  //see if it's cosmos origin has the asset
-  let ibc_origin_cgid =
-    chain_reg.getAssetPropertyFromOriginWithTraceCustom(
-      id.chain_name,
-      id.base_denom,
-      "coingecko_id",
-      ["ibc", "ibc-cw20"]
-    );
-  if (ibc_origin_cgid === coingecko_id) return true;
-
-
-  //see if it has the asset listed (bool)
+  //see if state's coingecko group has this asset listed (bool)
   const assetExists = coingeckoIdGroup.assets.some(
     cgAsset => cgAsset.chain_name === id.chain_name && cgAsset.base_denom === id.base_denom
   );
@@ -1445,6 +1434,7 @@ function checkCoingeckoId_in_State(id, context, objectType, checks, errorMsgs) {
     //addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
     setCheckStatus(checks, id, checkType, false);
     context.assets_cgidNotInState.push(chain_asset_pair);
+    console.log(id.base_denom);
     return false;
   }
 
@@ -1466,7 +1456,6 @@ function checkCoingeckoIdAssetsShareOrigin(context, objectType, checks, errorMsg
   }
 
   //--Logic--
-  //if (assets_cgidNotInState.length <= 0) { return true; }
   if (context.assets_cgidNotInState.length <= 0) { return true; }
 
   let coingeckoIdGroupsToCheck = [];
@@ -1494,7 +1483,7 @@ function checkCoingeckoIdAssetsShareOrigin(context, objectType, checks, errorMsg
 
   coingeckoIdGroupsToCheck.forEach((coingeckoIdGroup) => {
 
-    const cgidGroupOriginAsset = coingeckoIdGroup.originAsset ?? coingecko.getCoingeckoIdGroupOriginAsset(coingeckoIdGroup);
+    let cgidGroupOriginAsset = coingeckoIdGroup.originAsset ?? coingecko.getCoingeckoIdGroupOriginAsset(coingeckoIdGroup);
 
     coingeckoIdGroup.assets.forEach((asset) => {
 
@@ -1504,36 +1493,30 @@ function checkCoingeckoIdAssetsShareOrigin(context, objectType, checks, errorMsg
         coingecko.traceTypesCoingeckoId
       );
 
-      if (deepEqual(cgidGroupOriginAsset, originAsset)) {
+      if (!cgidGroupOriginAsset) {
+        cgidGroupOriginAsset = originAsset;
         return;
       }
 
-      const originAssetLastTrace = chain_reg
-        .getAssetMetadata(originAsset.chain_name, originAsset.base_denom, "traces")
-        ?.at(-1); // Get the last element safely
+      if (!deepEqual(cgidGroupOriginAsset, originAsset)) {
 
-      const cgidGroupOriginAssetLastTrace = chain_reg
-        .getAssetMetadata(cgidGroupOriginAsset.chain_name, cgidGroupOriginAsset.base_denom, "traces")
-        ?.at(-1);
-
-      if (
-        originAssetLastTrace?.type === cgidGroupOriginAssetLastTrace?.type &&
-        originAssetLastTrace?.provider === cgidGroupOriginAssetLastTrace?.provider
-      ) {
-        return;
+        //--Error--
+        const errorMsg = `Within Coingecko Id Group: '${coingeckoIdGroup.coingecko_id}'
+  Origin (${originAsset.chain_name}, ${originAsset.base_denom}) of Asset: ${asset.chain_name}, ${asset.base_denom}
+  does not match origin: ${cgidGroupOriginAsset.chain_name}, ${cgidGroupOriginAsset.base_denom}.`;
+        addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+        setCheckStatus(
+          checks,
+          {
+            chain_name: asset.chain_name,
+            base_denom: asset.base_denom
+          },
+          checkType,
+          false
+        );
+        return false;
       }
 
-      /*console.warn(`
-Coingecko Id Group (ID: ${coingeckoIdGroup.coingecko_id}) Origin Asset: ${cgidGroupOriginAsset.chain_name}, ${cgidGroupOriginAsset.base_denom}
-does not match origin (${originAsset.chain_name}, ${originAsset.base_denom}) of this asset (${asset.chain_name}, ${asset.base_denom}}).
-`);*/
-      //assets_cgidOriginConflict.push(asset);
-
-      //--Error--
-      const errorMsg = `Coingecko Id Group (ID: ${coingeckoIdGroup.coingecko_id}) Origin Asset: ${cgidGroupOriginAsset.chain_name}, ${cgidGroupOriginAsset.base_denom}
-does not match origin (${originAsset.chain_name}, ${originAsset.base_denom}) of this asset (${asset.chain_name}, ${asset.base_denom}}).
-`;
-      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
       setCheckStatus(
         checks,
         {
@@ -1541,16 +1524,19 @@ does not match origin (${originAsset.chain_name}, ${originAsset.base_denom}) of 
           base_denom: asset.base_denom
         },
         checkType,
-        false
+        true
       );
-      return false;
+      return true;
           
     });
+
+    
   });
+
+  
 
 }
 
-//async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid) {
 async function checkCoingeckoId_in_API(context, objectType, checks, errorMsgs) {
 
   //--Name--
@@ -1816,6 +1802,7 @@ export async function validate_chains(errorMsgs) {
       context.image = imageReferences[key];
       addImageObject(id, context);
     }
+    delete id.key;
 
     //ensure that and version properties in codebase are also defined in the versions file.
     //compare_CodebaseVersionData_to_VersionsFile(chain_name);
@@ -1880,6 +1867,7 @@ export async function validate_chains(errorMsgs) {
         context.image = imageReferences[key];
         addImageObject(id, context);
       }
+      delete id.key;
 
     }
 
