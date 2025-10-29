@@ -10,6 +10,7 @@
 //       check if fee token exists in the assetlist.
 //     read staking
 //       chaeck if staking token exists in the assetlist
+//     etc.
 //
 
 //--FileSystem--
@@ -207,6 +208,52 @@ function checkChainIdConflict(id, context, objectType, checks, errorMsgs) {
 
 }
 
+function checkChainDirectoryLocation(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkChainDirectoryLocation";
+  const errorNotice = "Some Chains have disagreement between directory location vs their defined network_type and/or chain_type!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  const networkType = chain_reg.getFileProperty(id.chain_name, "chain", "network_type");
+  const networkTypeDirName = chain_reg.networkTypeToDirectoryNameMap.get(networkType);
+  const chainType = chain_reg.getFileProperty(id.chain_name, "chain", "chain_type");
+  const domain = chainType === "cosmos" ? "cosmos" : "non-cosmos";
+  const chainTypeDirName = chain_reg.domainToDirectoryNameMap.get(domain);
+  if (networkTypeDirName !== undefined && chainTypeDirName !== undefined) {
+    const calculatedDirectoryLocation = path.join(
+      chainRegistryRoot,
+      networkTypeDirName,
+      chainTypeDirName,
+      id.chain_name
+    );
+    const chainDirectoryLocation = chain_reg.chainNameToDirectoryMap.get(id.chain_name);
+    const MATCHING_LOCATIONS = calculatedDirectoryLocation === chainDirectoryLocation;
+
+    if (!MATCHING_LOCATIONS) {
+      //--Error--
+      const errorMsg = `The \\${id.chain_name}\\ directory is either placed in the wrong sub-directory, or has incorrect network type and/or chain type.
+network_type: ${networkType}
+chain_type: ${chainType}
+Calculated directory location: ${calculatedDirectoryLocation}
+Actual directory location: ${chainDirectoryLocation}`;
+      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+      setCheckStatus(checks, id, checkType, false);
+      return false;
+    }
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
 function checkStatus(id, context, objectType, checks, errorMsgs) {
 
   //--Name--
@@ -269,11 +316,11 @@ function checkSlip44(id, context, objectType, checks, errorMsgs) {
 
 }
 
-function checkFeeTokensAreRegistered(id, context, objectType, checks, errorMsgs) {
+function checkFeeTokenHasDenom(id, context, objectType, checks, errorMsgs) {
 
   //--Name--
-  const checkType = "checkFeeTokensAreRegistered";
-  const errorNotice = "Some Chains' Fee Tokens aren't registered!";
+  const checkType = "checkFeeTokenHasDenom";
+  const errorNotice = "Some Fee Tokens are missing 'denom'!";
 
   //--Prerequisistes--
   const prerequisites = [];
@@ -282,22 +329,125 @@ function checkFeeTokensAreRegistered(id, context, objectType, checks, errorMsgs)
   }
 
   //--Logic--
+  if (!context.fee_token.denom) {
+    //--Error--
+    const errorMsg = `Fee Token [${id.i}] of chain: ${id.chain_name} does not have 'denom' defined. ${JSON.stringify(context.fee_token)}`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function checkFeeTokenInAssetlist(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkFeeTokenInAssetlist";
+  const errorNotice = "Some Fee Tokens are not their chain's assetlist!";
+
+  //--Prerequisistes--
+  const prerequisites = [
+    "checkFeeTokenHasDenom"
+  ];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  if (!chain_reg.getAssetProperty(id.chain_name, context.fee_token.denom, "base")) {
+    //--Error--
+    const errorMsg = `Chain ${id.chain_name} does not have fee token [${id.i}] (${context.fee_token.denom}) defined in its Assetlist.`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function checkFeeTokenGasPrices(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkFeeTokenGasPrices";
+  const errorNotice = "Some Fee Tokens have invalid gas prices (minimum/low/average/high)!";
+
+  //--Prerequisistes--
+  const prerequisites = [
+    "checkFeeTokenHasDenom"
+  ];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  const fixed_min_gas_price = context.fee_token.fixed_min_gas_price;
+  const low_gas_price = context.fee_token.low_gas_price;
+  const average_gas_price = context.fee_token.average_gas_price;
+  const high_gas_price = context.fee_token.high_gas_price;
+
+  if (
+    (fixed_min_gas_price && low_gas_price && !(fixed_min_gas_price <= low_gas_price)) ||
+    (fixed_min_gas_price && average_gas_price && !(fixed_min_gas_price <= average_gas_price)) ||
+    (fixed_min_gas_price && high_gas_price && !(fixed_min_gas_price <= high_gas_price)) ||
+    (low_gas_price && average_gas_price && !(low_gas_price <= average_gas_price)) ||
+    (low_gas_price && high_gas_price && !(low_gas_price <= high_gas_price)) ||
+    (average_gas_price && high_gas_price && !(average_gas_price <= high_gas_price))
+  ) {
+    //--Error--
+    const errorMsg = `Chain ${id.chain_name}'s fee token [${id.i}] (${context.fee_token.denom}) has invalid gas prices defined.
+${JSON.stringify(context.fee_token)}`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function checkFeeTokens(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkFeeTokens";
+  const errorNotice = "Some Chains' Fees are invlaid!";
+
+  //--Prerequisistes--
+  const prerequisites = [
+    "checkChainNameMatchDirectory"
+  ];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  let ANY_INVALID = false;
   let fees = chain_reg.getFileProperty(id.chain_name, "chain", "fees");
-  for (const fee_token of fees?.fee_tokens ?? []) {
-    if (!fee_token.denom) {
-      //--Error--
-      const errorMsg = `One of the staking tokens for chain: ${id.chain_name} does not have 'denom' specified. ${JSON.stringify(fee_token)}`;
-      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
-      setCheckStatus(checks, id, checkType, false);
-      return false;
-    }
-    if (!chain_reg.getAssetProperty(id.chain_name, fee_token.denom, "base")) {
-      //--Error--
-      const errorMsg = `Chain ${id.chain_name} does not have fee token ${fee_token.denom} defined in its Assetlist.`;
-      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
-      setCheckStatus(checks, id, checkType, false);
-      return false;
-    }
+  for (const [i, fee_token] of (fees?.fee_tokens ?? []).entries()) {
+
+    id.i = i;
+    context.fee_token = fee_token;
+
+    ANY_INVALID = !checkFeeTokenHasDenom(id, context, objectType, checks, errorMsgs) || ANY_INVALID;
+
+    ANY_INVALID = !checkFeeTokenInAssetlist(id, context, objectType, checks, errorMsgs) || ANY_INVALID;
+
+    ANY_INVALID = !checkFeeTokenGasPrices(id, context, objectType, checks, errorMsgs) || ANY_INVALID;
+
+    delete id.i;
+
+  }
+  if (ANY_INVALID) {
+    //--Error--
+    const errorMsg = `Chain ${id.chain_name} has invalid fee tokens.`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
   }
 
   setCheckStatus(checks, id, checkType, true);
@@ -1423,18 +1573,7 @@ function checkCoingeckoId_in_State(id, context, objectType, checks, errorMsgs) {
     return false;
   }
 
-  //see if it's cosmos origin has the asset
-  let ibc_origin_cgid =
-    chain_reg.getAssetPropertyFromOriginWithTraceCustom(
-      id.chain_name,
-      id.base_denom,
-      "coingecko_id",
-      ["ibc", "ibc-cw20"]
-    );
-  if (ibc_origin_cgid === coingecko_id) return true;
-
-
-  //see if it has the asset listed (bool)
+  //see if state's coingecko group has this asset listed (bool)
   const assetExists = coingeckoIdGroup.assets.some(
     cgAsset => cgAsset.chain_name === id.chain_name && cgAsset.base_denom === id.base_denom
   );
@@ -1445,6 +1584,7 @@ function checkCoingeckoId_in_State(id, context, objectType, checks, errorMsgs) {
     //addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
     setCheckStatus(checks, id, checkType, false);
     context.assets_cgidNotInState.push(chain_asset_pair);
+    console.log(id.base_denom);
     return false;
   }
 
@@ -1466,7 +1606,6 @@ function checkCoingeckoIdAssetsShareOrigin(context, objectType, checks, errorMsg
   }
 
   //--Logic--
-  //if (assets_cgidNotInState.length <= 0) { return true; }
   if (context.assets_cgidNotInState.length <= 0) { return true; }
 
   let coingeckoIdGroupsToCheck = [];
@@ -1494,7 +1633,7 @@ function checkCoingeckoIdAssetsShareOrigin(context, objectType, checks, errorMsg
 
   coingeckoIdGroupsToCheck.forEach((coingeckoIdGroup) => {
 
-    const cgidGroupOriginAsset = coingeckoIdGroup.originAsset ?? coingecko.getCoingeckoIdGroupOriginAsset(coingeckoIdGroup);
+    let cgidGroupOriginAsset = coingeckoIdGroup.originAsset ?? coingecko.getCoingeckoIdGroupOriginAsset(coingeckoIdGroup);
 
     coingeckoIdGroup.assets.forEach((asset) => {
 
@@ -1504,36 +1643,30 @@ function checkCoingeckoIdAssetsShareOrigin(context, objectType, checks, errorMsg
         coingecko.traceTypesCoingeckoId
       );
 
-      if (deepEqual(cgidGroupOriginAsset, originAsset)) {
+      if (!cgidGroupOriginAsset) {
+        cgidGroupOriginAsset = originAsset;
         return;
       }
 
-      const originAssetLastTrace = chain_reg
-        .getAssetMetadata(originAsset.chain_name, originAsset.base_denom, "traces")
-        ?.at(-1); // Get the last element safely
+      if (!deepEqual(cgidGroupOriginAsset, originAsset)) {
 
-      const cgidGroupOriginAssetLastTrace = chain_reg
-        .getAssetMetadata(cgidGroupOriginAsset.chain_name, cgidGroupOriginAsset.base_denom, "traces")
-        ?.at(-1);
-
-      if (
-        originAssetLastTrace?.type === cgidGroupOriginAssetLastTrace?.type &&
-        originAssetLastTrace?.provider === cgidGroupOriginAssetLastTrace?.provider
-      ) {
-        return;
+        //--Error--
+        const errorMsg = `Within Coingecko Id Group: '${coingeckoIdGroup.coingecko_id}'
+  Origin (${originAsset.chain_name}, ${originAsset.base_denom}) of Asset: ${asset.chain_name}, ${asset.base_denom}
+  does not match origin: ${cgidGroupOriginAsset.chain_name}, ${cgidGroupOriginAsset.base_denom}.`;
+        addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+        setCheckStatus(
+          checks,
+          {
+            chain_name: asset.chain_name,
+            base_denom: asset.base_denom
+          },
+          checkType,
+          false
+        );
+        return false;
       }
 
-      /*console.warn(`
-Coingecko Id Group (ID: ${coingeckoIdGroup.coingecko_id}) Origin Asset: ${cgidGroupOriginAsset.chain_name}, ${cgidGroupOriginAsset.base_denom}
-does not match origin (${originAsset.chain_name}, ${originAsset.base_denom}) of this asset (${asset.chain_name}, ${asset.base_denom}}).
-`);*/
-      //assets_cgidOriginConflict.push(asset);
-
-      //--Error--
-      const errorMsg = `Coingecko Id Group (ID: ${coingeckoIdGroup.coingecko_id}) Origin Asset: ${cgidGroupOriginAsset.chain_name}, ${cgidGroupOriginAsset.base_denom}
-does not match origin (${originAsset.chain_name}, ${originAsset.base_denom}) of this asset (${asset.chain_name}, ${asset.base_denom}}).
-`;
-      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
       setCheckStatus(
         checks,
         {
@@ -1541,16 +1674,19 @@ does not match origin (${originAsset.chain_name}, ${originAsset.base_denom}) of 
           base_denom: asset.base_denom
         },
         checkType,
-        false
+        true
       );
-      return false;
+      return true;
           
     });
+
+    
   });
+
+  
 
 }
 
-//async function checkCoingeckoId_in_API(assets_cgidAssetNotMainnet, assets_cgidNotInState, assets_cgidInvalid) {
 async function checkCoingeckoId_in_API(context, objectType, checks, errorMsgs) {
 
   //--Name--
@@ -1795,14 +1931,17 @@ export async function validate_chains(errorMsgs) {
     //check if chain_id is registered by another chain
     checkChainIdConflict(id, context, objectType, checks, errorMsgs);
 
+    //check chain directory location based on network type and chain type
+    checkChainDirectoryLocation(id, context, objectType, checks, errorMsgs);
+
     //check chain status
     checkStatus(id, context, objectType, checks, errorMsgs);
 
     //check for slip44
     checkSlip44(id, context, objectType, checks, errorMsgs);
 
-    //check if all fee tokens are registered
-    checkFeeTokensAreRegistered(id, context, objectType, checks, errorMsgs);
+    //check fee_tokens
+    checkFeeTokens(id, context, objectType, checks, errorMsgs);
 
     //check if all staking tokens are registered
     checkStakingTokensAreRegistered(id, context, objectType, checks, errorMsgs);
@@ -1816,6 +1955,7 @@ export async function validate_chains(errorMsgs) {
       context.image = imageReferences[key];
       addImageObject(id, context);
     }
+    delete id.key;
 
     //ensure that and version properties in codebase are also defined in the versions file.
     //compare_CodebaseVersionData_to_VersionsFile(chain_name);
@@ -1880,6 +2020,7 @@ export async function validate_chains(errorMsgs) {
         context.image = imageReferences[key];
         addImageObject(id, context);
       }
+      delete id.key;
 
     }
 
