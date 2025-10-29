@@ -10,6 +10,7 @@
 //       check if fee token exists in the assetlist.
 //     read staking
 //       chaeck if staking token exists in the assetlist
+//     etc.
 //
 
 //--FileSystem--
@@ -201,6 +202,52 @@ function checkChainIdConflict(id, context, objectType, checks, errorMsgs) {
     return false;
   }
   context.chainIdMap.set(chain_id, id.chain_name);
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function checkChainDirectoryLocation(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkChainDirectoryLocation";
+  const errorNotice = "Some Chains have disagreement between directory location vs their defined network_type and/or chain_type!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  const networkType = chain_reg.getFileProperty(id.chain_name, "chain", "network_type");
+  const networkTypeDirName = chain_reg.networkTypeToDirectoryNameMap.get(networkType);
+  const chainType = chain_reg.getFileProperty(id.chain_name, "chain", "chain_type");
+  const domain = chainType === "cosmos" ? "cosmos" : "non-cosmos";
+  const chainTypeDirName = chain_reg.domainToDirectoryNameMap.get(domain);
+  if (networkTypeDirName !== undefined && chainTypeDirName !== undefined) {
+    const calculatedDirectoryLocation = path.join(
+      chainRegistryRoot,
+      networkTypeDirName,
+      chainTypeDirName,
+      id.chain_name
+    );
+    const chainDirectoryLocation = chain_reg.chainNameToDirectoryMap.get(id.chain_name);
+    const MATCHING_LOCATIONS = calculatedDirectoryLocation === chainDirectoryLocation;
+
+    if (!MATCHING_LOCATIONS) {
+      //--Error--
+      const errorMsg = `The \\${id.chain_name}\\ directory is either placed in the wrong sub-directory, or has incorrect network type and/or chain type.
+network_type: ${networkType}
+chain_type: ${chainType}
+Calculated directory location: ${calculatedDirectoryLocation}
+Actual directory location: ${chainDirectoryLocation}`;
+      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+      setCheckStatus(checks, id, checkType, false);
+      return false;
+    }
+  }
 
   setCheckStatus(checks, id, checkType, true);
   return true;
@@ -1884,14 +1931,14 @@ export async function validate_chains(errorMsgs) {
     //check if chain_id is registered by another chain
     checkChainIdConflict(id, context, objectType, checks, errorMsgs);
 
+    //check chain directory location based on network type and chain type
+    checkChainDirectoryLocation(id, context, objectType, checks, errorMsgs);
+
     //check chain status
     checkStatus(id, context, objectType, checks, errorMsgs);
 
     //check for slip44
     checkSlip44(id, context, objectType, checks, errorMsgs);
-
-    //check if all fee tokens are registered
-    //checkFeeTokensAreRegistered(id, context, objectType, checks, errorMsgs);
 
     //check fee_tokens
     checkFeeTokens(id, context, objectType, checks, errorMsgs);
