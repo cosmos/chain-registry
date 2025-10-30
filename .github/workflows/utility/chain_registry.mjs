@@ -16,6 +16,7 @@ export let chainRegistryRoot = "../../../chain-registry"; //default assumption i
 export const networkTypeToDirectoryNameMap = new Map();
 networkTypeToDirectoryNameMap.set("mainnet", "");
 networkTypeToDirectoryNameMap.set("testnet", "testnets");
+networkTypeToDirectoryNameMap.set("devnet", "testnets");
 const networkTypes = Array.from(networkTypeToDirectoryNameMap.keys());
 
 export const domainToDirectoryNameMap = new Map();
