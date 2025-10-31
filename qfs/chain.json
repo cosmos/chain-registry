@@ -3,21 +3,21 @@
   "chain_name": "qfs",
   "status": "live",
   "network_type": "mainnet",
-  "website": "https://qfs.com/",
+  "website": "https://qfsone.com/",
   "pretty_name": "Quantum Financial Systems",
   "chain_type": "cosmos",
   "chain_id": "qfs-1",
   "bech32_prefix": "qfs",
-  "daemon_name": "qfs",
-  "node_home": "$HOME/.ssc",
+  "daemon_name": "qfsd",
+  "node_home": "$HOME/.qfsd",
   "key_algos": [
     "secp256k1"
   ],
-  "slip44": 1179993431,
+  "slip44": 118,
   "staking": {
     "staking_tokens": [
       {
-        "denom": "qfs"
+        "denom": "uqfs"
       }
     ],
     "lock_duration": {
@@ -27,17 +27,17 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "qfs",
-        "low_gas_price": 0.000001,
-        "average_gas_price": 0.000005,
-        "high_gas_price": 0.0001
+        "denom": "uqfs",
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.03,
+        "high_gas_price": 0.035
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rcp.qfsone.com",
+        "address": "https://rpc.qfsone.com",
         "provider": "qfs"
       }
     ],
@@ -49,7 +49,7 @@
     ],
     "grpc": [
       {
-        "address": "https://grc.qfsone.com:9090",
+        "address": "https://grpc.qfsone.com",
         "provider": "qfs"
       }
     ]
@@ -61,7 +61,7 @@
   "explorers": [
     {
       "kind": "ping.pub",
-      "url": "https://blockexplorer.qfsone.com/qfs",
+      "url": "https://blockexplorer.qfsone.com",
       "tx_page": "https://blockexplorer.qfsone.com/qfs/tx/${txHash}",
       "account_page": "https://blockexplorer.qfsone.com/qfs/accounts/${accountAddress}"
     }
@@ -70,10 +70,7 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/qfs/images/qfs.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/qfs/images/qfs.svg",
-      "theme": {
-        "primary_color_hex": "#2979dc"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/qfs/images/qfs.svg"
     }
   ]
 }

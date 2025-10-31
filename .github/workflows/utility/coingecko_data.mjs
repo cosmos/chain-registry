@@ -133,7 +133,7 @@ export function getCoingeckoIdGroupOriginAsset(coingecko_id_group) {
 }
 
 export function getCoingeckoIdGroupFromState(coingeckoId) {
-  return state?.coingekco_id_groups?.find(group => group.coingecko_id === coingeckoId);
+  return state?.coingecko_id_groups?.find(group => group.coingecko_id === coingeckoId);
 }
 
 function main() {

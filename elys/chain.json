@@ -45,6 +45,13 @@
         "low_gas_price": 0.01,
         "average_gas_price": 0.025,
         "high_gas_price": 0.03
+      },
+      {
+        "denom": "ibc/8464A63954C0350A26C8588E20719F3A0AC8705E4CA0F7450B60C3F16B2D3421",
+        "fixed_min_gas_price": 11395000000,
+        "low_gas_price": 11395000000,
+        "average_gas_price": 21395000000,
+        "high_gas_price": 31395000000
       }
     ]
   },
@@ -71,6 +78,9 @@
     },
     "cosmwasm": {
       "enabled": false
+    },
+    "binaries": {
+      "linux/amd64": "https://github.com/elys-network/elys/releases/download/v1.4.0/elysd-v1.4.0-linux-amd64.tar.gz"
     }
   },
   "logo_URIs": {
@@ -127,7 +137,7 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -200,7 +210,7 @@
       },
       {
         "address": "https://elys-rpc.publicnode.com:443",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "https://elys-mainnet-rpc.itrocket.net:443",
@@ -231,7 +241,7 @@
         "provider": "🔥STAVR🔥"
       },
       {
-        "address": "https://elys-rpc.ibs.team",
+        "address": "https://elys.ibs.team:443/rpc",
         "provider": "Inter Blockchain Services"
       },
       {
@@ -263,12 +273,8 @@
         "provider": "Node39"
       },
       {
-        "address": "https://rpc.elys.mtl.vnodesv.net",
-        "provider": "vNodes[V] [NA] Ser[V]ices"
-      },
-      {
-        "address": "https://elys.rpc.fr.vnodesv.net",
-        "provider": "vNodes[V] [EUR] Ser[V]ices"
+        "address": "https://elys.srvs.vnodesv.net/rpc",
+        "provider": "vNodes[V] Ser[V]ices"
       },
       {
         "address": "https://elys-rpc.kleomedes.network/",
@@ -290,7 +296,7 @@
       },
       {
         "address": "https://elys-rest.publicnode.com",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "https://elys-mainnet-api.itrocket.net",
@@ -321,7 +327,7 @@
         "provider": "🔥STAVR🔥"
       },
       {
-        "address": "https://elys-api.ibs.team",
+        "address": "https://elys.ibs.team:443/api",
         "provider": "Inter Blockchain Services"
       },
       {
@@ -353,13 +359,9 @@
         "provider": "Node39"
       },
       {
-        "address": "https://rest.elys.mtl.vnodesv.net",
-        "provider": "vNodes[V] [NA] Ser[V]ices"
+        "address": "https://elys.srvs.vnodesv.net/rest",
+        "provider": "vNodes[V] Ser[V]ices"
       },
-      {
-        "address": "https://elys.rest.fr.vnodesv.net:443",
-        "provider": "vNodes[V] [EUR] Ser[V]ices"
-      },      
       {
         "address": "https://elys-api.kleomedes.network/",
         "provider": "Kleomedes"
@@ -375,12 +377,8 @@
         "provider": "Polkachu"
       },
       {
-        "address": "elys-testnet-grpc.itrocket.net:38090",
-        "provider": "itrocket"
-      },
-      {
         "address": "elys-grpc.publicnode.com:443",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "elys-mainnet-grpc.itrocket.net:443",
@@ -431,12 +429,18 @@
         "provider": "Pro-Nodes75"
       },
       {
-        "address": "https://elys.grpc.fr.vnodesv.net:443",
+        "address": "https://elys.srvs.vnodesv.net/grpc",
         "provider": "vNodes[V] Ser[V]ices"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/elys",
+      "tx_page": "https://explorer.chainroot.io/elys/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/elys/accounts/${accountAddress}"
+    },
     {
       "kind": "NodeStake",
       "url": "https://explorer.nodestake.org/elys",
@@ -489,11 +493,16 @@
       "kind": "Stake-Hub by Kleomedes",
       "url": "https://www.stake-hub.xyz/elys"
     },
-        {
+    {
       "kind": "ElysScan by Kwak",
       "url": "https://elysscan.io",
       "tx_page": "https://elysscan.io/tx/${txHash}",
       "account_page": "https://elysscan.io/address/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/elys/images/elys.png"
     }
   ]
 }
