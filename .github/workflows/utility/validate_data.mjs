@@ -743,22 +743,35 @@ function checkSVGEmbeddedRasterImage(id, context, objectType, checks, errorMsgs)
   }
 
   //--Logic--
-  let checkForEmbeddedRasterImage = false;
+  //let checkForEmbeddedRasterImage = false;
   if (context.image.png) {
     const pngSize = fs.statSync(executionPath(uriToRelativePath(context.image.png))).size;
     const svgSize = fs.statSync(executionPath(context.relativePath)).size;
-    if (svgSize > pngSize) {
-      checkForEmbeddedRasterImage = true;
-    }
-  }
-  if (checkForEmbeddedRasterImage) {
-    if (context.svgAnalysis.imageCount > 0 && context.svgAnalysis.shapesCount < 2 && context.svgAnalysis.maskCommaCount < 10) {
+    if (svgSize > pngSize && svgSize > 10 && 1 == 0) {
       //--Error--
-      const errorMsg = `SVG ${id} has embedded images! Referenced at: ${JSON.stringify(context.image.references)}`;
+      const errorMsg = `SVG ${id} is larger (${svgSize}) than corresponding PNG (indicating likelihood of embedded raster images)!
+Referenced at: ${JSON.stringify(context.image.references)}`;
       addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
       setCheckStatus(checks, id, checkType, false);
       return false;
+      //checkForEmbeddedRasterImage = true;
     }
+  }
+  /*if (checkForEmbeddedRasterImage && svgSize > 10 && 1 == 0) { // remove this check if images get limited to just one image
+    //--Error--
+    const errorMsg = `SVG ${id} is larger (${svgSize}) than corresponding PNG (indicating likelihood of embedded raster images)!
+Referenced at: ${JSON.stringify(context.image.references)}`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }*/
+  if (context.svgAnalysis.imageCount > 0 && context.svgAnalysis.shapesCount < 2 && context.svgAnalysis.maskCommaCount < 10) {
+    //--Error--
+    const errorMsg = `SVG ${id} very few shapes and at least one image (indicating likelihood of being an embedded image)!
+Referenced at: ${JSON.stringify(context.image.references)}`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
   }
 
   setCheckStatus(checks, id, checkType, true);
