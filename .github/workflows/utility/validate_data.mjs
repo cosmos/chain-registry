@@ -1398,32 +1398,28 @@ function checkTraceCounterpartyIsValid(id, context, objectType, checks, errorMsg
   const errorNotice = "Some Asset::Traces[]::Counterparties are invalid!";
 
   //--Prerequisistes--
-  const prerequisites = [
-    "checkUniqueBaseDenom"
-  ];
+  const prerequisites = [];
   for (const checkType of prerequisites) {
     if (!getCheckStatus(checks, id, checkType)) return false;
   }
 
   //--Logic--
-  const base = id.base_denom; 
-  context.asset.traces?.forEach((trace) => {
-    let counterpartyBase = chain_reg.getAssetProperty(trace.counterparty.chain_name, trace.counterparty.base_denom, "base");
-    if (!counterpartyBase) {
-      //--Error--
-      const errorMsg = `Trace of ${id.chain_name}, ${base} makes invalid reference to ${trace.counterparty.chain_name}, ${trace.counterparty.base_denom}.`;
-      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
-      setCheckStatus(checks, id, checkType, false);
-      return false;
-    }
-    if (base === trace.counterparty.base_denom && id.chain_name === trace.counterparty.chain_name) {
-      //--Error--
-      const errorMsg = `Trace of ${id.chain_name}, ${base} makes reference to self.`;
-      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
-      setCheckStatus(checks, id, checkType, false);
-      return false;
-    }
-  });
+  const trace = context.trace;
+  let counterpartyBase = chain_reg.getAssetProperty(trace.counterparty.chain_name, trace.counterparty.base_denom, "base");
+  if (!counterpartyBase) {
+    //--Error--
+    const errorMsg = `Trace [${id.i}] of ${id.chain_name}, ${id.base_denom} makes invalid reference to ${trace.counterparty.chain_name}, ${trace.counterparty.base_denom}.`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+  if (id.base_denom === trace.counterparty.base_denom && id.chain_name === trace.counterparty.chain_name) {
+    //--Error--
+    const errorMsg = `Trace [${id.i}] of ${id.chain_name}, ${id.base_denom} makes reference to self.`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
 
   setCheckStatus(checks, id, checkType, true);
   return true;
@@ -1438,7 +1434,6 @@ function checkIBCTraceChannelAccuracy(id, context, objectType, checks, errorMsgs
 
   //--Prerequisistes--
   const prerequisites = [
-    "checkUniqueBaseDenom",
     "checkTraceCounterpartyIsValid"
   ];
   for (const checkType of prerequisites) {
@@ -1447,9 +1442,10 @@ function checkIBCTraceChannelAccuracy(id, context, objectType, checks, errorMsgs
 
   //--Logic--
   const base = context.asset.base;
-  if (!context.asset.traces || context.asset.traces.length === 0) { return; }
+  //if (!context.asset.traces || context.asset.traces.length === 0) { return; }
 
-  const lastTrace = context.asset.traces?.[context.asset.traces.length - 1];
+  //const lastTrace = context.asset.traces?.[context.asset.traces.length - 1];
+  const lastTrace = context.trace;
   if (lastTrace.type !== "ibc" && lastTrace.type !== "ibc-cw20") { return; }
 
   // Sort chains alphabetically
@@ -1525,10 +1521,98 @@ function checkIBCTraceChannelAccuracy(id, context, objectType, checks, errorMsgs
 
   if (!valid) {
     //--Error--
-    const errorMsg = `Trace of ${id.chain_name}, ${base} makes reference to IBC channels not registered. (
+    const errorMsg = `Trace [${id.i}] of ${id.chain_name}, ${base} makes reference to IBC channels not registered. (
 ${lastTrace.counterparty.channel_id}, ${counterparty.channel_id}
 ${lastTrace.chain.channel_id}, ${chain.channel_id}
 )`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function checkWrappedTrace(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkWrappedTrace";
+  const errorNotice = "Some 'wrapped' Asset::Traces[] are invalid!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  const WRAPPED_TRACE_TYPE = "wrapped";
+  if (context.trace.type !== WRAPPED_TRACE_TYPE) return true;
+  const destinationChainName
+    = context.asset.traces.length > Number(id.i) + 1
+    ? context.asset.traces[Number(id.i) + 1]?.counterparty?.chain_name
+    : id.chain_name;
+
+  if (
+    context.trace.type === WRAPPED_TRACE_TYPE               //is wrapped
+      &&
+    context.trace.counterparty.chain_name !== destinationChainName //must come from the same chain
+  ) {
+    //--Error--
+    const errorMsg = `Trace [${id.i}] of ${id.chain_name}, ${id.base_denom} is defined as type: '${WRAPPED_TRACE_TYPE}',
+but the destination asset (on: ${context.trace.counterparty.chain_name}) isn't issued on the same chain as the counterparty asset (issued on: ${destinationChainName}).`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  setCheckStatus(checks, id, checkType, true);
+  return true;
+
+}
+
+function checkTraces(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkTraces";
+  const errorNotice = "Some Asset Traces are invalid!";
+
+  //--Prerequisistes--
+  const prerequisites = [
+    "checkUniqueBaseDenom"
+  ];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  //--Logic--
+  let ANY_INVALID = false;
+  for (const i in context.asset.traces) {
+
+    id.i = i;
+    context.trace = context.asset.traces[i];
+
+    //check counterparty pointers of traces
+    ANY_INVALID = !checkTraceCounterpartyIsValid(id, context, objectType, checks, errorMsgs) || ANY_INVALID;
+
+    //check wrapped traces for same chain counterparty
+    ANY_INVALID = !checkWrappedTrace(id, context, objectType, checks, errorMsgs) || ANY_INVALID;
+
+    //only for last Trace...
+    if (i === context.asset.traces.length - 1) {
+      //check IBC counterparty channel accuracy
+      ANY_INVALID = !checkIBCTraceChannelAccuracy(id, context, objectType, checks, errorMsgs) || ANY_INVALID;
+    }
+
+    delete id.i;
+
+  }
+
+  if (ANY_INVALID) {
+    //--Error--
+    const errorMsg = `Asset: ${id.chain_name}, ${id.base_denom} has invalid traces.`;
     addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
     setCheckStatus(checks, id, checkType, false);
     return false;
@@ -1994,11 +2078,8 @@ export async function validate_chains(errorMsgs) {
       //check symbol
       checkSymbol(id, context, objectType, checks, errorMsgs);
 
-      //check counterparty pointers of traces
-      checkTraceCounterpartyIsValid(id, context, objectType, checks, errorMsgs);
-
-      //check IBC counterparty channel accuracy
-      checkIBCTraceChannelAccuracy(id, context, objectType, checks, errorMsgs);
+      //check traces
+      checkTraces(id, context, objectType, checks, errorMsgs);
 
       //check that coingecko IDs are in the state
       checkCoingeckoId_in_State(id, context, objectType, checks, errorMsgs);
