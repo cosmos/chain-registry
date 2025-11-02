@@ -732,7 +732,7 @@ function checkSVGEmbeddedRasterImage(id, context, objectType, checks, errorMsgs)
 
   //--Name--
   const checkType = "checkSVGEmbeddedRasterImage";
-  const errorNotice = "Some SVGs have an embedded raster image!";
+  const errorNotice = "Some SVGs may have an embedded raster image!";
 
   //--Prerequisistes--
   const prerequisites = [
@@ -743,36 +743,51 @@ function checkSVGEmbeddedRasterImage(id, context, objectType, checks, errorMsgs)
   }
 
   //--Logic--
-  //let checkForEmbeddedRasterImage = false;
+  const svgSize = fs.statSync(executionPath(context.relativePath)).size;
+
+  //Compare with PNG <-- remove this once image objects are limited to a single image file
   if (context.image.png) {
     const pngSize = fs.statSync(executionPath(uriToRelativePath(context.image.png))).size;
-    const svgSize = fs.statSync(executionPath(context.relativePath)).size;
-    if (svgSize > pngSize && svgSize > 10 && 1 == 0) {
+    if (
+      context.svgAnalysis.imageCount > 0 //at least one image object
+      && svgSize > pngSize
+      && svgSize > 25000) {
       //--Error--
       const errorMsg = `SVG ${id} is larger (${svgSize}) than corresponding PNG (indicating likelihood of embedded raster images)!
 Referenced at: ${JSON.stringify(context.image.references)}`;
       addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
       setCheckStatus(checks, id, checkType, false);
       return false;
-      //checkForEmbeddedRasterImage = true;
     }
   }
-  /*if (checkForEmbeddedRasterImage && svgSize > 10 && 1 == 0) { // remove this check if images get limited to just one image
+
+  //Check for <image> while lacking supplementry elements
+  if (
+    context.svgAnalysis.imageCount > 0 //at least one image object
+    && context.svgAnalysis.shapesCount < 3
+    && context.svgAnalysis.maskCommaCount < 3
+    && svgSize > 25000 // over 25kB signals that the embedded image(s) may be large
+  ) {
     //--Error--
-    const errorMsg = `SVG ${id} is larger (${svgSize}) than corresponding PNG (indicating likelihood of embedded raster images)!
+    const errorMsg = `SVG ${id} very few shapes and at least one image element (indicating likelihood of embedded raster images)!
+Referenced at: ${JSON.stringify(context.image.references)}`;
+    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+    setCheckStatus(checks, id, checkType, false);
+    return false;
+  }
+
+  //Check for large svgs
+  /*if (
+    context.svgAnalysis.imageCount > 0 //at least one image object
+    && svgSize > 50000 // over 50kB signals that the embedded image(s) may be large
+  ) {
+    //--Error--
+    const errorMsg = `SVG ${id} is unusualy large (indicating likelihood of embedded raster images)!
 Referenced at: ${JSON.stringify(context.image.references)}`;
     addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
     setCheckStatus(checks, id, checkType, false);
     return false;
   }*/
-  if (context.svgAnalysis.imageCount > 0 && context.svgAnalysis.shapesCount < 2 && context.svgAnalysis.maskCommaCount < 10) {
-    //--Error--
-    const errorMsg = `SVG ${id} very few shapes and at least one image (indicating likelihood of being an embedded image)!
-Referenced at: ${JSON.stringify(context.image.references)}`;
-    addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
-    setCheckStatus(checks, id, checkType, false);
-    return false;
-  }
 
   setCheckStatus(checks, id, checkType, true);
   return true;
@@ -1941,11 +1956,12 @@ function addImageObject(id, context) {
   let detectedImage = context.allImages.find(existingImage => {
     return existingImage.png === newImage.png && existingImage.svg === newImage.svg;
   });
+  const idCopy = { ...id }; // make a shallow copy of id
   if (detectedImage) {
-    detectedImage.references.push(id);
+    detectedImage.references.push(idCopy);
   } else {
     newImage.references = [];
-    newImage.references.push(id);
+    newImage.references.push(idCopy);
     context.allImages.push(newImage);
   }
 
@@ -2117,6 +2133,7 @@ export async function validate_chains(errorMsgs) {
       delete id.key;
 
     }
+    delete id.base_denom;
 
   }
 
