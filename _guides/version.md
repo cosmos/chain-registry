@@ -3,7 +3,9 @@
 `versions.json` is a **metadata file** that tracks the version history of a Cosmos SDK-based blockchain, documenting all upgrades, their configurations, and software dependencies over time.
 
 **Location:** `{chain-name}/versions.json`
+
 **Schema:** `../versions.schema.json`
+
 **Optional:** Yes (but recommended for mainnet chains with upgrades)
 
 ### Relationship with chain.json
@@ -116,7 +118,9 @@ All other fields are **optional** but highly recommended.
 ## 📝 Version Object Fields (Detailed)
 
 ### 1. `name` ⭐ **REQUIRED**
+
 **Type:** `string`
+
 **Description:** Official upgrade name
 
 **Examples:**
@@ -135,8 +139,11 @@ All other fields are **optional** but highly recommended.
 ---
 
 ### 2. `tag`
+
 **Type:** `string`
+
 **Pattern:** `^[A-Za-z0-9._/@-]+$`
+
 **Description:** Git tag for the upgrade
 
 **Examples:**
@@ -153,7 +160,9 @@ All other fields are **optional** but highly recommended.
 ---
 
 ### 3. `height`
+
 **Type:** `number`
+
 **Description:** Block height where upgrade activates
 
 **Examples:**
@@ -170,7 +179,9 @@ All other fields are **optional** but highly recommended.
 ---
 
 ### 4. `proposal`
+
 **Type:** `number`
+
 **Description:** Governance proposal number
 
 **Examples:**
@@ -186,7 +197,9 @@ All other fields are **optional** but highly recommended.
 ---
 
 ### 5. `recommended_version`
+
 **Type:** `string`
+
 **Description:** Recommended software version to run
 
 **Examples:**
@@ -203,7 +216,9 @@ All other fields are **optional** but highly recommended.
 ---
 
 ### 6. `compatible_versions`
+
 **Type:** `array` of `string`
+
 **Description:** All versions compatible with this upgrade
 
 **What does "compatible" mean?**
@@ -254,7 +269,9 @@ In practice, this means:
 ---
 
 ### 7. `previous_version_name`
+
 **Type:** `string`
+
 **Description:** Name of the previous version (for linking)
 
 ```json
@@ -268,7 +285,9 @@ In practice, this means:
 ---
 
 ### 8. `next_version_name`
+
 **Type:** `string`
+
 **Description:** Name of the following version
 
 ```json
@@ -287,6 +306,7 @@ In practice, this means:
 ### 9. `sdk` - Cosmos SDK Version
 
 **Type:** `object`
+
 **Required:** `type`
 
 ```json
@@ -299,6 +319,7 @@ In practice, this means:
 ```
 
 **Version Pattern:** `^v?\\d+(\\.\\d+){0,2}$` (e.g., `v1`, `v1.0`, `v1.0.0`)
+
 **Tag Pattern:** `^v?\\d+(\\.\\d+){0,2}(-[\\w\\.\\-]+)?$` (allows suffixes)
 
 **Examples:**
@@ -329,6 +350,7 @@ In practice, this means:
 ### 10. `consensus` - Consensus Engine
 
 **Type:** `object`
+
 **Required:** `type`
 
 ```json
@@ -374,6 +396,7 @@ In practice, this means:
 ### 11. `ibc` - IBC Version
 
 **Type:** `object`
+
 **Required:** `type`
 
 ```json
@@ -418,6 +441,7 @@ In practice, this means:
 ### 12. `cosmwasm` - CosmWasm Support
 
 **Type:** `object`
+
 **No required fields** (but must have at least 1 property)
 
 ```json
@@ -460,6 +484,7 @@ In practice, this means:
 ### 13. `language` - Programming Language
 
 **Type:** `object`
+
 **Required:** `type`
 
 ```json
@@ -491,6 +516,7 @@ In practice, this means:
 ### 14. `binaries` - Downloadable Binaries
 
 **Type:** `object`
+
 **No required fields** (but must have at least 1 platform)
 
 ```json
