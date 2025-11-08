@@ -1,0 +1,43 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "rizqprotocol",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Rizq Protocol",
+  "chain_id": "rizqprotocol-1",
+  "bech32_prefix": "cosmos",
+  "daemon_name": "rizqd",
+  "node_home": "$HOME/.rizqprotocol",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ualif",
+        "fixed_min_gas_price": 0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ualif"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://ddf36d5c6096.ngrok-free.app",
+        "provider": "Rizq Team"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "pingpub",
+      "url": "https://ping.pub/rizqprotocol",
+      "tx_page": "https://ping.pub/rizqprotocol/tx/${txHash}"
+    }
+  ]
+}
