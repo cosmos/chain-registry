@@ -18,10 +18,10 @@
     "fee_tokens": [
       {
         "denom": "uosmo",
-        "fixed_min_gas_price": 0.0025,
-        "low_gas_price": 0.0025,
-        "average_gas_price": 0.025,
-        "high_gas_price": 0.04
+        "fixed_min_gas_price": 0.03,
+        "low_gas_price": 0.03,
+        "average_gas_price": 0.1,
+        "high_gas_price": 0.16
       },
       {
         "denom": "factory/osmo10c4y9csfs8q7mtvfg4p9gd8d0acx0hpc2mte9xqzthd7rd3348tsfhaesm/sICP-native-ICP"
@@ -527,9 +527,9 @@
       "name": "v3",
       "genesis_url": "https://github.com/osmosis-labs/networks/raw/main/osmosis-1/genesis.json"
     },
-    "recommended_version": "29.0.0",
+    "recommended_version": "31.0.0",
     "compatible_versions": [
-      "29.0.0"
+      "31.0.0"
     ],
     "consensus": {
       "type": "cometbft",
@@ -538,16 +538,16 @@
       "tag": "v0.38.17-v28-osmo-1"
     },
     "cosmwasm": {
-      "version": "0.53.2",
+      "version": "0.53.3",
       "repo": "https://github.com/CosmWasm/wasmd",
-      "tag": "v0.53.2",
+      "tag": "v0.53.3",
       "enabled": true
     },
     "sdk": {
       "type": "cosmos",
-      "version": "0.50.11",
+      "version": "0.50.14",
       "repo": "https://github.com/osmosis-labs/cosmos-sdk",
-      "tag": "v0.50.11-v28-osmo-1"
+      "tag": "v0.50.14-v30-osmo"
     },
     "ibc": {
       "type": "go",
@@ -560,12 +560,13 @@
     },
     "language": {
       "type": "go",
-      "version": "1.22.11"
+      "version": "1.23.4"
     },
     "binaries": {
-      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v29.0.0/osmosisd-29.0.0-linux-amd64?checksum=6999331507e5119228456a64f733eb1d945f5392ffcfd4673bdad25886b19a7e",
-      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v29.0.0/osmosisd-29.0.0-linux-arm64?checksum=079d836d1bf009aab09149eb79d3c187980c5116b8319e09c66a8cae7fa0704c"
-    }
+      "linux/amd64": "https://github.com/osmosis-labs/osmosis/releases/download/v31.0.0/osmosisd-31.0.0-linux-amd64?checksum=d435408b845e79a2594594a315d9d22797fdbb7871a5936df68f51f0df557957",
+      "linux/arm64": "https://github.com/osmosis-labs/osmosis/releases/download/v31.0.0/osmosisd-31.0.0-linux-arm64?checksum=b5c44e74c4dc484f8492d10a24fcd3f75a43dccaa40ab083662741beeeaa20cc"
+    },
+    "tag": "v31.0.0"
   },
   "images": [
     {
@@ -574,10 +575,7 @@
         "base_denom": "uosmo"
       },
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg",
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
-      "theme": {
-        "primary_color_hex": "#760dbb"
-      }
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png"
     }
   ],
   "logo_URIs": {
@@ -703,22 +701,6 @@
         "provider": "Osmosis Foundation"
       },
       {
-        "address": "https://rpc-osmosis.blockapsis.com",
-        "provider": "chainapsis"
-      },
-      {
-        "address": "https://osmosis-rpc.onivalidator.com",
-        "provider": "Oni Validator ⛩️"
-      },
-      {
-        "address": "https://osmosis-rpc.quickapi.com:443",
-        "provider": "Chainlayer"
-      },
-      {
-        "address": "https://rpc-osmosis.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
-      },
-      {
         "address": "https://rpc.lavenderfive.com:443/osmosis",
         "provider": "Lavender.Five Nodes 🐝"
       },
@@ -727,36 +709,12 @@
         "provider": "ecostake"
       },
       {
-        "address": "https://rpc-osmosis.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
-      },
-      {
         "address": "https://osmosis-rpc.polkachu.com",
         "provider": "Polkachu"
       },
       {
-        "address": "https://rpc-osmosis-ia.cosmosia.notional.ventures",
-        "provider": "Notional"
-      },
-      {
         "address": "https://osmosis.rpc.stakin-nodes.com",
         "provider": "Stakin"
-      },
-      {
-        "address": "https://osmosis-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://osmosis.api.onfinality.io/public",
-        "provider": "OnFinality"
-      },
-      {
-        "address": "https://rpc-osmosis-01.stakeflow.io",
-        "provider": "Stakeflow"
-      },
-      {
-        "address": "https://osmosis-rpc.w3coins.io",
-        "provider": "w3coins"
       },
       {
         "address": "https://osmosis-rpc.publicnode.com:443",
@@ -775,24 +733,8 @@
         "provider": "StakeTown"
       },
       {
-        "address": "https://osmosis-mainnet.rpc.l0vd.com:443",
-        "provider": "L0vd.com ❤️"
-      },
-      {
-        "address": "https://osmosis-rpc.reece.sh",
-        "provider": "Reecepbcups"
-      },
-      {
         "address": "https://rpc.osmosis.validatus.com",
         "provider": "Validatus"
-      },
-      {
-        "address": "https://rpc.osmosis.bronbro.io:443",
-        "provider": "Bro_n_Bro"
-      },
-      {
-        "address": "https://osmosis.interstellar-lounge.org",
-        "provider": "Interstellar Lounge 🍸"
       },
       {
         "address": "https://public.stakewolle.com/cosmos/osmosis/rpc",
@@ -803,10 +745,6 @@
         "provider": "Crosnest"
       },
       {
-        "address": "https://rpc-osmo.kewrnode.com",
-        "provider": "Kewr Node"
-      },
-      {
         "address": "https://rpc.osmosis.goldenratiostaking.net",
         "provider": "Golden Ratio Staking"
       },
@@ -815,20 +753,8 @@
         "provider": "[NODERS]TEAM"
       },
       {
-        "address": "https://osmosis.drpc.org",
-        "provider": "dRPC"
-      },
-      {
-        "address": "https://osmosis-rpc.chainroot.io",
-        "provider": "Chainroot"
-      },
-      {
-        "address": "https://osmosis.rpc.quasarstaking.ai:443",
-        "provider": "Quasar"
-      },
-      {
-        "address": "https://osmosis-mainnet-tendermint.reliableninjas.com",
-        "provider": "Reliable Ninjas"
+        "address": "https://osmosis-rpc.highstakes.ch",
+        "provider": "High Stakes 🇨🇭"
       }
     ],
     "rest": [
@@ -841,14 +767,6 @@
         "provider": "Golden Ratio Staking"
       },
       {
-        "address": "https://osmosis-lcd.quickapi.com:443",
-        "provider": "Chainlayer"
-      },
-      {
-        "address": "https://lcd-osmosis.blockapsis.com",
-        "provider": "chainapsis"
-      },
-      {
         "address": "https://rest.lavenderfive.com:443/osmosis",
         "provider": "Lavender.Five Nodes 🐝"
       },
@@ -857,36 +775,12 @@
         "provider": "ecostake"
       },
       {
-        "address": "https://api-osmosis-ia.cosmosia.notional.ventures",
-        "provider": "Notional"
-      },
-      {
-        "address": "https://api-osmosis.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
-      },
-      {
         "address": "https://osmosis-api.polkachu.com",
         "provider": "Polkachu"
       },
       {
         "address": "https://osmosis.rest.stakin-nodes.com",
         "provider": "Stakin"
-      },
-      {
-        "address": "https://osmosis-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://api-osmosis-01.stakeflow.io",
-        "provider": "Stakeflow"
-      },
-      {
-        "address": "https://osmosis-api.w3coins.io",
-        "provider": "w3coins"
-      },
-      {
-        "address": "https://lcd-osmosis.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
       },
       {
         "address": "https://osmosis-rest.publicnode.com",
@@ -901,20 +795,8 @@
         "provider": "StakeTown"
       },
       {
-        "address": "https://osmosis-api.reece.sh",
-        "provider": "Reecepbcups"
-      },
-      {
         "address": "https://api.osmosis.validatus.com:443",
         "provider": "Validatus"
-      },
-      {
-        "address": "https://lcd.osmosis.bronbro.io:443",
-        "provider": "Bro_n_Bro"
-      },
-      {
-        "address": "https://osmosis-rest.interstellar-lounge.org",
-        "provider": "Interstellar Lounge 🍸"
       },
       {
         "address": "https://public.stakewolle.com/cosmos/osmosis/rest",
@@ -925,24 +807,12 @@
         "provider": "Crosnest"
       },
       {
-        "address": "https://rest-osmo.kewrnode.com",
-        "provider": "Kewr Node"
-      },
-      {
         "address": "https://osmosis-api.noders.services",
         "provider": "[NODERS]TEAM"
       },
       {
-        "address": "https://osmosis-api.chainroot.io",
-        "provider": "Chainroot"
-      },
-      {
-        "address": "https://osmosis.api.quasarstaking.ai:443",
-        "provider": "Quasar"
-      },
-      {
-        "address": "https://osmosis-mainnet-cosmos.reliableninjas.com",
-        "provider": "Reliable Ninjas"
+        "address": "https://osmosis-api.highstakes.ch",
+        "provider": "High Stakes 🇨🇭"
       }
     ],
     "grpc": [
@@ -951,36 +821,12 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "grpc-osmosis-ia.cosmosia.notional.ventures:443",
-        "provider": "Notional"
-      },
-      {
         "address": "osmosis.grpc.stakin-nodes.com:443",
         "provider": "Stakin"
       },
       {
-        "address": "osmosis-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "grpc-osmosis.cosmos-spaces.cloud:1130",
-        "provider": "Cosmos Spaces"
-      },
-      {
         "address": "grpc-osmosis-01.stakeflow.io:6754",
         "provider": "Stakeflow"
-      },
-      {
-        "address": "services.staketab.com:9010",
-        "provider": "Staketab"
-      },
-      {
-        "address": "osmosis-grpc.w3coins.io:12590",
-        "provider": "w3coins"
-      },
-      {
-        "address": "grpc-osmosis.mms.team:443",
-        "provider": "MMS"
       },
       {
         "address": "osmosis-grpc.publicnode.com:443",
@@ -991,36 +837,8 @@
         "provider": "StakeTown"
       },
       {
-        "address": "https://grpc-osmosis.nodeist.net",
-        "provider": "Nodeist"
-      },
-      {
-        "address": "osmosis-mainnet.grpc.l0vd.com:80",
-        "provider": "L0vd.com ❤️"
-      },
-      {
-        "address": "grpc-osmosis.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
-      },
-      {
         "address": "grpc.osmosis.validatus.com:443",
         "provider": "Validatus"
-      },
-      {
-        "address": "https://grpc.osmosis.bronbro.io:443",
-        "provider": "Bro_n_Bro"
-      },
-      {
-        "address": "osmosis-grpc.noders.services:10090",
-        "provider": "[NODERS]TEAM"
-      },
-      {
-        "address": "osmosis-grpc.chainroot.io:443",
-        "provider": "Chainroot"
-      },
-      {
-        "address": "osmosis.grpc.quasarstaking.ai:443",
-        "provider": "Quasar"
       }
     ]
   },

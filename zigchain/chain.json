@@ -1,0 +1,145 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "zigchain",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://zigchain.com/",
+  "pretty_name": "ZIGChain",
+  "chain_type": "cosmos",
+  "chain_id": "zigchain-1",
+  "bech32_prefix": "zig",
+  "daemon_name": "zigchaind",
+  "node_home": "$HOME/.zigchain",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "description": "ZIGChain (ZIG) is a Layer 1 blockchain focused on unlocking financial opportunities for everyone - regardless of their income, location, or level of knowledge.",
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uzig",
+        "fixed_min_gas_price": 0.0025,
+        "low_gas_price": 0.0025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.05
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uzig"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/ZIGChain/zigchain",
+    "recommended_version": "1.2.0",
+    "compatible_versions": [
+      "1.2.0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.17"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50.14"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "8.4.0"
+    },
+    "cosmwasm": {
+      "version": "0.55.1",
+      "enabled": true
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/ZIGChain/networks/raw/main/zigchain-1/genesis.json"
+    },
+    "binaries": {
+      "linux/amd64": "https://github.com/ZIGChain/networks/raw/refs/heads/main/zig-test-2/binaries/zigchaind-v1.2.0-linux-amd64.tar.gz",
+      "darwin/amd64": "https://github.com/ZIGChain/networks/raw/refs/heads/main/zig-test-2/binaries/zigchaind-v1.2.0-darwin-amd64.tar.gz",
+      "darwin/arm64": "https://github.com/ZIGChain/networks/raw/refs/heads/main/zig-test-2/binaries/zigchaind-v1.2.0-darwin-amd64.tar.gz"
+    },
+    "tag": "1.2.0"
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.svg"
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.svg"
+    }
+  ],
+  "peers": {
+    "seeds": [
+      {
+        "id": "782836bc3631ccece23edb9aba62d927956f7c5c",
+        "address": "seed0.zigchain.com:26656",
+        "provider": "ZIGCHAIN"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "782836bc3631ccece23edb9aba62d927956f7c5c",
+        "address": "seed0.zigchain.com:26656",
+        "provider": "ZIGCHAIN"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://public-zigchain-rpc.numia.xyz/",
+        "provider": "Numia"
+      },
+      {
+        "address": "https://rpc.zigchain.com",
+        "provider": "ZIGCHAIN"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://public-zigchain-lcd.numia.xyz/",
+        "provider": "Numia"
+      },
+      {
+        "address": "https://api.zigchain.com",
+        "provider": "ZIGCHAIN"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.zigchain.com:9090",
+        "provider": "ZIGCHAIN"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "range",
+      "url": "https://app.range.org/address/zigchain/zigchain",
+      "tx_page": "https://app.range.org/tx/zigchain/${txHash}",
+      "account_page": "https://app.range.org/address/zigchain/${accountAddress}"
+    },
+    {
+      "kind": "zigscan",
+      "url": "https://zigscan.org",
+      "tx_page": "https://zigscan.org/tx/${txHash}",
+      "account_page": "https://zigscan.org/address/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "zigchain",
+    "rwa",
+    "wealth generation infrastructure",
+    "wasm"
+  ]
+}

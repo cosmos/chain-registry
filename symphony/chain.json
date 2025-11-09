@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "symphony",
+  "description": "The stablecoin chain.  Stablecoins for any and every currency.",
   "status": "live",
   "network_type": "mainnet",
   "pretty_name": "Symphony",
@@ -9,7 +10,9 @@
   "bech32_prefix": "symphony",
   "daemon_name": "symphonyd",
   "node_home": "$HOME/.symphonyd",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -32,7 +35,9 @@
   "codebase": {
     "git_repo": "https://github.com/Orchestra-Labs/symphony",
     "recommended_version": "v1.0.0",
-    "compatible_versions": ["v1.0.0"],
+    "compatible_versions": [
+      "v1.0.0"
+    ],
     "consensus": {
       "type": "cometbft",
       "version": "0.38.11"
@@ -47,6 +52,10 @@
     "cosmwasm": {
       "version": "0.53.0",
       "enabled": true
+    },
+    "tag": "v1.0.0",
+    "binaries": {
+      "linux/amd64": "https://github.com/Orchestra-Labs/symphony/releases/download/v1.0.0/symphonyd"
     }
   },
   "peers": {
@@ -83,11 +92,15 @@
       },
       {
         "address": "https://symphony-rpc.cogwheel.zone/",
-        "provider": "Cogwheel \u2699\ufe0f"
+        "provider": "Cogwheel ⚙️"
       },
       {
         "address": "https://rpc-main-symphony.vinjan.xyz",
-        "provider": "Vinjan.Inc"  
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "https://rpc-symphony.sr20de.xyz",
+        "provider": "Sr20de"
       }
     ],
     "rest": [
@@ -97,11 +110,15 @@
       },
       {
         "address": "https://symphony-api.cogwheel.zone/",
-        "provider": "Cogwheel \u2699\ufe0f"
+        "provider": "Cogwheel ⚙️"
       },
       {
         "address": "https://api-main-symphony.vinjan.xyz",
-        "provider": "Vinjan.Inc"  
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "https://api-symphony.sr20de.xyz",
+        "provider": "Sr20de"
       }
     ],
     "grpc": [
@@ -111,11 +128,15 @@
       },
       {
         "address": "https://symphony-grpc.cogwheel.zone:443",
-        "provider": "Cogwheel \u2699\ufe0f"
+        "provider": "Cogwheel ⚙️"
       },
       {
         "address": "grpc-main-symphony.vinjan.xyz:21090",
-        "provider": "Vinjan.Inc"  
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "https://grpc-symphony.sr20de.xyz",
+        "provider": "Sr20de"
       }
     ]
   },
@@ -125,6 +146,12 @@
       "url": "https://xplorer.vinjan.xyz/symphony",
       "tx_page": "https://xplorer.vinjan.xyz/symphony/tx/${txHash}",
       "account_page": "https://xplorer.vinjan.xyz/symphony/account/${accountAddress}"
+    },
+    {
+      "kind": "Sr20de Explorer",
+      "url": "https://explorer.sr20de.xyz/symphony",
+      "tx_page": "https://explorer.sr20de.xyz/symphony/tx/${txHash}",
+      "account_page": "https://explorer.sr20de.xyz/symphony/account/${accountAddress}"
     }
   ],
   "logo_URIs": {
