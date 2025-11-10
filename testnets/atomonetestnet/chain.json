@@ -10,16 +10,18 @@
   "bech32_prefix": "atone",
   "daemon_name": "atomoned",
   "node_home": "$HOME/.atomone",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
-        "denom": "uatone",
-        "fixed_min_gas_price": 0.001,
-        "low_gas_price": 0.006,
-        "average_gas_price": 0.006,
-        "high_gas_price": 0.009
+        "denom": "uphoton",
+        "fixed_min_gas_price": 0.225,
+        "low_gas_price": 0.225,
+        "average_gas_price": 0.3,
+        "high_gas_price": 0.5
       }
     ]
   },
@@ -32,15 +34,17 @@
   },
   "codebase": {
     "git_repo": "https://github.com/atomone-hub/atomone",
-    "recommended_version": "v1.0.1",
-    "compatible_versions": ["v1.0.0","v1.0.1"],
+    "recommended_version": "v3.0.1",
+    "compatible_versions": [
+      "v3.0.1"
+    ],
     "binaries": {
-      "linux/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.1/atomoned-v1.0.1-linux-amd64",
-      "linux/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.1/atomoned-v1.0.1-linux-arm64",
-      "darwin/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.1/atomoned-v1.0.1-darwin-amd64",
-      "darwin/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.1/atomoned-v1.0.1-darwin-arm64",
-      "windows/amd64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.1/atomoned-v1.0.1-windows-amd64.exe",
-      "windows/arm64": "https://github.com/atomone-hub/atomone/releases/download/v1.0.1/atomoned-v1.0.1-windows-arm64.exe"
+      "linux/amd64": "https://github.com/atomone-hub/atomone/releases/download/v3.0.1/atomoned-v3.0.1-linux-amd64",
+      "linux/arm64": "https://github.com/atomone-hub/atomone/releases/download/v3.0.1/atomoned-v3.0.1-linux-arm64",
+      "darwin/amd64": "https://github.com/atomone-hub/atomone/releases/download/v3.0.1/atomoned-v3.0.1-darwin-amd64",
+      "darwin/arm64": "https://github.com/atomone-hub/atomone/releases/download/v3.0.1/atomoned-v3.0.1-darwin-arm64",
+      "windows/amd64": "https://github.com/atomone-hub/atomone/releases/download/v3.0.1/atomoned-v3.0.1-windows-amd64.exe",
+      "windows/arm64": "https://github.com/atomone-hub/atomone/releases/download/v3.0.1/atomoned-v3.0.1-windows-arm64.exe"
     },
     "genesis": {
       "genesis_url": "https://atomone.fra1.digitaloceanspaces.com/atomone-testnet-1/genesis.json"
@@ -51,8 +55,9 @@
     },
     "sdk": {
       "type": "cosmos",
-      "version": "v0.47.13"
-    }
+      "version": "v0.47.17"
+    },
+    "tag": "v3.0.1"
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/atomone.png",
@@ -108,6 +113,10 @@
       {
         "address": "https://rpc.atomone-testnet-1.atomone.aviaone.com:443",
         "provider": "AVIAONE.com 🟢"
+      },
+      {
+        "address": "https://atomone-testnet-rpc.cogwheel.zone",
+        "provider": "Cogwheel ⚙️"
       }
     ],
     "rest": [
@@ -122,6 +131,10 @@
       {
         "address": "https://api-test.atomone.vinjan.xyz",
         "provider": "Vinjan"
+      },
+      {
+        "address": "https://atomone-testnet-api.cogwheel.zone",
+        "provider": "Cogwheel ⚙️"
       }
     ],
     "grpc": [
@@ -132,12 +145,16 @@
       {
         "address": "https://grpc-testnet-atomone.nodeist.net:443",
         "provider": "Nodeist"
+      },
+      {
+        "address": "atomone-testnet-grpc.cogwheel.zone:443",
+        "provider": "Cogwheel ⚙️"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "Nodes Hub \ud83d\udee1\ufe0f 100% Slash Protected \ud83d\udee1\ufe0f",
+      "kind": "NodesHub",
       "url": "https://testnet.explorer.nodeshub.online/atomone/",
       "tx_page": "https://testnet.explorer.nodeshub.online/atomone/tx/${txHash}",
       "account_page": "https://testnet.explorer.nodeshub.online/atomone/accounts/${accountAddress}"
@@ -149,7 +166,7 @@
       "account_page": "https://explorer.ist/atomone/account/${accountAddress}"
     },
     {
-      "kind": "\ud83d\ude80 WHEN MOON \ud83c\udf15 WHEN LAMBO \ud83d\udd25",
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
       "url": "https://explorer.whenmoonwhenlambo.money/atomone-testnet",
       "tx_page": "https://explorer.whenmoonwhenlambo.money/atomone-testnet/tx/${txHash}",
       "account_page": "https://explorer.whenmoonwhenlambo.money/atomone-testnet/account/${accountAddress}"

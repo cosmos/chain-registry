@@ -2,28 +2,35 @@
   "$schema": "../../ibc_data.schema.json",
   "chain_1": {
     "chain_name": "manifesttestnet",
-    "client_id": "07-tendermint-0",
-    "connection_id": "connection-0"
+    "chain_id": "manifest-ledger-testnet",
+    "client_id": "07-tendermint-8",
+    "connection_id": "connection-9"
   },
   "chain_2": {
     "chain_name": "osmosistestnet",
-    "client_id": "07-tendermint-4314",
-    "connection_id": "connection-3774"
+    "chain_id": "osmo-test-5",
+    "client_id": "07-tendermint-4456",
+    "connection_id": "connection-3898"
   },
   "channels": [
     {
       "chain_1": {
-        "channel_id": "channel-0",
-        "port_id": "transfer"
+        "channel_id": "channel-5",
+        "port_id": "transfer",
+        "client_id": "07-tendermint-8",
+        "connection_id": "connection-9"
       },
       "chain_2": {
-        "channel_id": "channel-10016",
-        "port_id": "transfer"
+        "channel_id": "channel-10183",
+        "port_id": "transfer",
+        "client_id": "07-tendermint-4456",
+        "connection_id": "connection-3898"
       },
       "ordering": "unordered",
       "version": "ics20-1",
       "tags": {
-        "status": "live"
+        "preferred": true,
+        "status": "ACTIVE"
       }
     }
   ]

@@ -19,7 +19,7 @@
         "denom": "uom",
         "fixed_min_gas_price": 0.01,
         "low_gas_price": 0.01,
-        "average_gas_price": 0.01,
+        "average_gas_price": 0.025,
         "high_gas_price": 0.03
       }
     ]
@@ -33,19 +33,20 @@
   },
   "codebase": {
     "git_repo": "https://github.com/MANTRA-Chain/mantrachain",
-    "recommended_version": "v2.0.0",
+    "recommended_version": "v3.0.1",
     "compatible_versions": [
-      "v2.0.0"
+      "v3.0.0",
+      "v3.0.1"
     ],
     "consensus": {
       "type": "cometbft",
-      "version": "v0.38.15"
+      "version": "v0.38.17"
     },
     "sdk": {
       "type": "cosmos",
-      "version": "v0.50.11",
+      "version": "v0.50.12",
       "repo": "https://github.com/MANTRA-Chain/cosmos-sdk",
-      "tag": "v0.50.11-v2-mantra-1"
+      "tag": "v0.50.12-v2-mantra-1"
     },
     "cosmwasm": {
       "version": "v0.54.0",
@@ -53,7 +54,7 @@
     },
     "ibc": {
       "type": "go",
-      "version": "v8.5.2"
+      "version": "v8.7.0"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/MANTRA-Chain/mantrachain/refs/heads/main/networks/mantra-dukong-1/genesis.json"
@@ -68,7 +69,7 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ]
   },
@@ -80,7 +81,7 @@
       },
       {
         "address": "https://mantra-testnet-rpc.publicnode.com:443",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "rest": [
@@ -90,7 +91,7 @@
       },
       {
         "address": "https://mantra-testnet-rest.publicnode.com",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "grpc": [
@@ -100,7 +101,17 @@
       },
       {
         "address": "mantra-testnet-grpc.publicnode.com:443",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://evm.dukong.mantrachain.io",
+        "provider": "MANTRACHAIN"
+      },
+      {
+        "address": "https://rpc.evm.mantra.testnet.cosmostation.io",
+        "provider": "Cosmostation"
       }
     ]
   },
@@ -120,6 +131,12 @@
       "url": "https://explorer.mantrachain.io",
       "tx_page": "https://explorer.mantrachain.io/MANTRA-Dukong/tx/${txHash}",
       "account_page": "https://explorer.mantrachain.io/MANTRA-Dukong/account/${accountAddress}"
+    },
+    {
+      "kind": "mantrascan",
+      "url": "https://mantrascan.io/dukong",
+      "tx_page": "https://mantrascan.io/dukong/tx/${txHash}",
+      "account_page": "https://mantrascan.io/dukong/address/${accountAddress}"
     }
   ],
   "keywords": [
@@ -137,8 +154,7 @@
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Prim-Col.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Prim-Col.svg",
       "theme": {
-        "circle": true,
-        "primary_color_hex": "#fba0c1"
+        "circle": true
       }
     }
   ]

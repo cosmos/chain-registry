@@ -1,0 +1,143 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "sedatestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://www.seda.xyz/",
+  "pretty_name": "SEDA",
+  "chain_type": "cosmos",
+  "chain_id": "seda-1-testnet",
+  "bech32_prefix": "seda",
+  "daemon_name": "sedad",
+  "node_home": "$HOME/.sedad",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "aseda",
+        "fixed_min_gas_price": 10000000000,
+        "low_gas_price": 10000000000,
+        "average_gas_price": 10000000000,
+        "high_gas_price": 14000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "aseda"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/sedaprotocol/seda-chain",
+    "recommended_version": "v1.0.0-rc.6",
+    "compatible_versions": [
+      "v1.0.0-rc.6"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/sedaprotocol/seda-chain/releases/download/v1.0.0-rc.6/sedad-amd64",
+      "linux/arm64": "https://github.com/sedaprotocol/seda-chain/releases/download/v1.0.0-rc.6/sedad-arm64"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/sedaprotocol/seda-networks/main/testnet/genesis.json"
+    },
+    "language": {
+      "type": "go",
+      "version": "1.23.5"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.17"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.13"
+    },
+    "cosmwasm": {
+      "version": "v0.53.3",
+      "repo": "https://github.com/CosmWasm/wasmd",
+      "enabled": true
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.7.0"
+    },
+    "tag": "v1.0.0-rc.6"
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/seda/images/seda.png"
+  },
+  "description": "SEDA is a standard for modular data transport and querying. Any data type, for all networks.",
+  "peers": {
+    "seeds": [
+      {
+        "id": "cb75c263cff51a14a4f10694046bb81414d10064",
+        "address": "18.171.36.35:26656"
+      },
+      {
+        "id": "9b6de59e38faa31ac0f2ae2469954be562fc167f",
+        "address": "13.41.125.154:26656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.testnet.seda.xyz/",
+        "provider": "SEDA"
+      },
+      {
+        "address": "https://seda-testnet-rpc.polkachu.com/",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://seda-testnet.rpc.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://seda-testnet-rpc.synergynodes.com/",
+        "provider": "Synergy Nodes"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lcd.testnet.seda.xyz/",
+        "provider": "SEDA"
+      },
+      {
+        "address": "https://seda-testnet-api.polkachu.com/",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://seda-testnet.api.kjnodes.com",
+        "provider": "kjnodes"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "seda-testnet-grpc.polkachu.com:25890",
+        "provider": "Polkachu"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "sedaexplorer",
+      "url": "https://testnet.explorer.seda.xyz/",
+      "tx_page": "https://testnet.explorer.seda.xyz/txs/${txHash}",
+      "account_page": "https://testnet.explorer.seda.xyz/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/seda/images/seda.png",
+      "image_sync": {
+        "chain_name": "seda"
+      }
+    }
+  ]
+}

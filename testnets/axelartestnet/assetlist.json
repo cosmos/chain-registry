@@ -35,6 +35,10 @@
       "coingecko_id": "axelar",
       "images": [
         {
+          "image_sync": {
+            "chain_name": "axelar",
+            "base_denom": "uaxl"
+          },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axl.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axl.svg"
         }
@@ -73,10 +77,15 @@
             "chain_name": "ethereumtestnet",
             "base_denom": "0x254d06f33bDc5b8ee05b2ea472107E300226659A"
           },
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "theme": {
+            "circle": true
+          }
         }
       ],
       "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
       },
       "type_asset": "sdk.coin"
@@ -153,10 +162,12 @@
             "chain_name": "moonbeamtestnet",
             "base_denom": "0x1436aE0dF0A8663F18c0Ec51d7e2E46591730715"
           },
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/moonbeam/images/glmr.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/moonbeam/images/glmr.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/moonbeam/images/glmr.png"
         }
       ],
       "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/moonbeam/images/glmr.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/moonbeam/images/glmr.svg"
       },
       "type_asset": "sdk.coin"
@@ -324,33 +335,33 @@
       "type_asset": "sdk.coin"
     },
     {
-      "description": "The native token of Manifest Ledger",
+      "description": "ADAM Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/EAC654CC560CC03D82AE4BAA808BD0B6E06E9F29F62194B46C0502D967349E24",
+          "denom": "ibc/005F5CE5A688F0673C896F32E670F83AB818E8D3A96F987A877CF3A7430C2253",
           "exponent": 0
         },
         {
-          "denom": "mfx",
+          "denom": "adam",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/EAC654CC560CC03D82AE4BAA808BD0B6E06E9F29F62194B46C0502D967349E24",
-      "name": "Manifest",
-      "display": "mfx",
-      "symbol": "MFX",
+      "base": "ibc/005F5CE5A688F0673C896F32E670F83AB818E8D3A96F987A877CF3A7430C2253",
+      "name": "ADAM",
+      "display": "adam",
+      "symbol": "ADAM",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "umfx",
-            "channel_id": "channel-3"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/uadam",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/umfx"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/uadam"
           }
         }
       ],
@@ -358,482 +369,22 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "umfx"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/uadam"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifest/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifest/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifest/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifest/images/manifest.svg"
-      }
-    },
-    {
-      "description": "BLERG Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/08D22E7A5470B28E5AB7215267B0A4FA27CC7917D4694C6807E3C401F99DDB31",
-          "exponent": 0
-        },
-        {
-          "denom": "blerg",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/08D22E7A5470B28E5AB7215267B0A4FA27CC7917D4694C6807E3C401F99DDB31",
-      "name": "BLERG",
-      "display": "blerg",
-      "symbol": "BLERG",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ublerg",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ublerg"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ublerg"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "PWRZT Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/092E2EF01F40CBAC11798FFD1EF9261C878E58098FF2476DD54711972B70D83F",
-          "exponent": 0
-        },
-        {
-          "denom": "pwrzt",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/092E2EF01F40CBAC11798FFD1EF9261C878E58098FF2476DD54711972B70D83F",
-      "name": "PWRZT",
-      "display": "pwrzt",
-      "symbol": "PWRZT",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzt",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzt"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzt"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "DBLT Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/0DCAB4EA43429494FE337A45660AF6CD02AEF27147BE374A02952E5AF0A2A6D4",
-          "exponent": 0
-        },
-        {
-          "denom": "dblt",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/0DCAB4EA43429494FE337A45660AF6CD02AEF27147BE374A02952E5AF0A2A6D4",
-      "name": "DBLT",
-      "display": "dblt",
-      "symbol": "DBLT",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/udblt",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/udblt"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/udblt"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "MEGA Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/0E32CFB5D3BA17EA69EC9082ACC1FBBE4E5503988B98B82AB358B9D7CB070581",
-          "exponent": 0
-        },
-        {
-          "denom": "mega",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/0E32CFB5D3BA17EA69EC9082ACC1FBBE4E5503988B98B82AB358B9D7CB070581",
-      "name": "MEGA",
-      "display": "mega",
-      "symbol": "MEGA",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/umega",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/umega"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/umega"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "GWATT Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/2522E7054B26702E4C0DB983A1696BC9C357A8274D529E2D07D09D34D860DB53",
-          "exponent": 0
-        },
-        {
-          "denom": "gwatt",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/2522E7054B26702E4C0DB983A1696BC9C357A8274D529E2D07D09D34D860DB53",
-      "name": "GWATT",
-      "display": "gwatt",
-      "symbol": "GWATT",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ugwatt",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ugwatt"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ugwatt"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "INDIS Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/2BEBBC54C36EDD3B6BA8D9B25C03C572FD6D996962A7081F8FA7BDE38DF1D5A3",
-          "exponent": 0
-        },
-        {
-          "denom": "indis",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/2BEBBC54C36EDD3B6BA8D9B25C03C572FD6D996962A7081F8FA7BDE38DF1D5A3",
-      "name": "INDIS",
-      "display": "indis",
-      "symbol": "INDIS",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/uindis",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/uindis"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/uindis"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "SOLD Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/3280BDE7F440D3EF0DE6AEA6632F84E07D54F1908ADBCCDF03F0EFD63831D901",
-          "exponent": 0
-        },
-        {
-          "denom": "sold",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/3280BDE7F440D3EF0DE6AEA6632F84E07D54F1908ADBCCDF03F0EFD63831D901",
-      "name": "SOLD",
-      "display": "sold",
-      "symbol": "SOLD",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/usold",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/usold"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/usold"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "SOLB Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/3E0F68951BF66F229E01AD3E35EC9E82F37F2C0EAC3EB109F234AD08F85B7979",
-          "exponent": 0
-        },
-        {
-          "denom": "solb",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/3E0F68951BF66F229E01AD3E35EC9E82F37F2C0EAC3EB109F234AD08F85B7979",
-      "name": "SOLB",
-      "display": "solb",
-      "symbol": "SOLB",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/usolb",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/usolb"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/usolb"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "GREY Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/3F08DE9963E4E5EB44570FA63049B820A239A4081EB1C7884309E039D01EEEAB",
-          "exponent": 0
-        },
-        {
-          "denom": "grey",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/3F08DE9963E4E5EB44570FA63049B820A239A4081EB1C7884309E039D01EEEAB",
-      "name": "GREY",
-      "display": "grey",
-      "symbol": "GREY",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ugrey",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ugrey"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ugrey"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "ABUS Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/470F9D29B01DA444830AE6C3392A9CA55F05C40F5B64C076F5FC0E4DBBE9A4C3",
-          "exponent": 0
-        },
-        {
-          "denom": "abus",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/470F9D29B01DA444830AE6C3392A9CA55F05C40F5B64C076F5FC0E4DBBE9A4C3",
-      "name": "ABUS",
-      "display": "abus",
-      "symbol": "ABUS",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/uabus",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/uabus"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/uabus"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
       "description": "SNOOP Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/4FB0428DD0B1C18995DB966671A3438FA6758C8BB71B4BBA1D76A2146C325662",
+          "denom": "ibc/074B3B7B88AFD65707CF016455C9E24D1E05226CB733870AA3FD198C173EBE30",
           "exponent": 0
         },
         {
@@ -842,7 +393,7 @@
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/4FB0428DD0B1C18995DB966671A3438FA6758C8BB71B4BBA1D76A2146C325662",
+      "base": "ibc/074B3B7B88AFD65707CF016455C9E24D1E05226CB733870AA3FD198C173EBE30",
       "name": "SNOOP",
       "display": "snoop",
       "symbol": "SNOOP",
@@ -852,11 +403,11 @@
           "counterparty": {
             "chain_name": "manifesttestnet",
             "base_denom": "factory/manifest1rme50egv6kwxq5skm60s0n7hd6ynuf33p5g87e/usnoop",
-            "channel_id": "channel-3"
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1rme50egv6kwxq5skm60s0n7hd6ynuf33p5g87e/usnoop"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1rme50egv6kwxq5skm60s0n7hd6ynuf33p5g87e/usnoop"
           }
         }
       ],
@@ -866,43 +417,43 @@
             "chain_name": "manifesttestnet",
             "base_denom": "factory/manifest1rme50egv6kwxq5skm60s0n7hd6ynuf33p5g87e/usnoop"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
-      "description": "HIVE Token on Manifest Ledger Testnet",
+      "description": "TACO Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/54A09933C80A962FD4263DFD362F033D29D064B710F825CCA2577AFEF6F69413",
+          "denom": "ibc/13142566F3D6C9BD33F42962929378F8479710E863AB74C1BB4247053ADFD4A0",
           "exponent": 0
         },
         {
-          "denom": "hive",
+          "denom": "taco",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/54A09933C80A962FD4263DFD362F033D29D064B710F825CCA2577AFEF6F69413",
-      "name": "HIVE",
-      "display": "hive",
-      "symbol": "HIVE",
+      "base": "ibc/13142566F3D6C9BD33F42962929378F8479710E863AB74C1BB4247053ADFD4A0",
+      "name": "TACO",
+      "display": "taco",
+      "symbol": "TACO",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/uhive",
-            "channel_id": "channel-3"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/utaco",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/uhive"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/utaco"
           }
         }
       ],
@@ -910,45 +461,45 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/uhive"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/utaco"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
-      "description": "PWROZ Token on Manifest Ledger Testnet",
+      "description": "DANCINGPENGUIN Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/5BFC58E86BBA9C769BC7A04D434F9B0EB47EC1163BB279F82984D350F18ECA76",
+          "denom": "ibc/20AB09D9296F97112E44E3E9D5F92E1AFB1B7ED76008FF3E9974473985E12ACA",
           "exponent": 0
         },
         {
-          "denom": "pwroz",
+          "denom": "dancingpenguin",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/5BFC58E86BBA9C769BC7A04D434F9B0EB47EC1163BB279F82984D350F18ECA76",
-      "name": "PWROZ",
-      "display": "pwroz",
-      "symbol": "PWROZ",
+      "base": "ibc/20AB09D9296F97112E44E3E9D5F92E1AFB1B7ED76008FF3E9974473985E12ACA",
+      "name": "DANCINGPENGUIN",
+      "display": "dancingpenguin",
+      "symbol": "DANCINGPENGUIN",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwroz",
-            "channel_id": "channel-3"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/udancingpenguin",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwroz"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/udancingpenguin"
           }
         }
       ],
@@ -956,45 +507,45 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwroz"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/udancingpenguin"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
-      "description": "BITCH Token on Manifest Ledger Testnet",
+      "description": "CUTE Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/601F6AF6EA660D6CDFCAA206B2F8ABB0AE4C7436654F7BBFD82A50182F45CA2F",
+          "denom": "ibc/236B1550CAF803837218C0E44EA8055EDF1D634CC171D60791FC598E48D20977",
           "exponent": 0
         },
         {
-          "denom": "bitch",
+          "denom": "cute",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/601F6AF6EA660D6CDFCAA206B2F8ABB0AE4C7436654F7BBFD82A50182F45CA2F",
-      "name": "BITCH",
-      "display": "bitch",
-      "symbol": "BITCH",
+      "base": "ibc/236B1550CAF803837218C0E44EA8055EDF1D634CC171D60791FC598E48D20977",
+      "name": "CUTE",
+      "display": "cute",
+      "symbol": "CUTE",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ubitch",
-            "channel_id": "channel-3"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/ucute",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ubitch"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/ucute"
           }
         }
       ],
@@ -1002,45 +553,45 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ubitch"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/ucute"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
-      "description": "PWRZF Token on Manifest Ledger Testnet",
+      "description": "ASDASDASD Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/66A40F06F75985D01F989F88F433E085C8AD3A085CFBA661F86244D3DC8718F8",
+          "denom": "ibc/2940C9733B3E81E4914A9EE22C9D444AE0039D0C4BCE75F3B9ABACC293E93AF6",
           "exponent": 0
         },
         {
-          "denom": "pwrzf",
+          "denom": "asdasdasd",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/66A40F06F75985D01F989F88F433E085C8AD3A085CFBA661F86244D3DC8718F8",
-      "name": "PWRZF",
-      "display": "pwrzf",
-      "symbol": "PWRZF",
+      "base": "ibc/2940C9733B3E81E4914A9EE22C9D444AE0039D0C4BCE75F3B9ABACC293E93AF6",
+      "name": "ASDASDASD",
+      "display": "asdasdasd",
+      "symbol": "ASDASDASD",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzf",
-            "channel_id": "channel-3"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/uasdasdasd",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzf"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/uasdasdasd"
           }
         }
       ],
@@ -1048,45 +599,45 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzf"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/uasdasdasd"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
-      "description": "GCATT Token on Manifest Ledger Testnet",
+      "description": "UMEGA Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/6774AA33A63A5A6C880282EB2A0F8AE279346FF394A7BAF1FD81D99F5B8C22A7",
+          "denom": "ibc/3E55458BB86CB338A22C150D917D192BFFBF7BFE37F6AA80EA2EB7B11846C6D1",
           "exponent": 0
         },
         {
-          "denom": "gcatt",
+          "denom": "umega",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/6774AA33A63A5A6C880282EB2A0F8AE279346FF394A7BAF1FD81D99F5B8C22A7",
-      "name": "GCATT",
-      "display": "gcatt",
-      "symbol": "GCATT",
+      "base": "ibc/3E55458BB86CB338A22C150D917D192BFFBF7BFE37F6AA80EA2EB7B11846C6D1",
+      "name": "UMEGA",
+      "display": "umega",
+      "symbol": "UMEGA",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ugcatt",
-            "channel_id": "channel-3"
+            "base_denom": "factory/manifest1czvrq3ufn045q5k50tjl4qu8kcmagve9ghty3c/uumega",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ugcatt"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1czvrq3ufn045q5k50tjl4qu8kcmagve9ghty3c/uumega"
           }
         }
       ],
@@ -1094,45 +645,45 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ugcatt"
+            "base_denom": "factory/manifest1czvrq3ufn045q5k50tjl4qu8kcmagve9ghty3c/uumega"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
-      "description": "FRAME Token on Manifest Ledger Testnet",
+      "description": "WMVT Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/68B9C8D0E1DDCB3EB6B33D66B19B3B4197025BE8CB3D953031EC6A1EE745328F",
+          "denom": "ibc/48FEAC3670B7F5F4064990611BE0BC0BF8E1A270839599D6FFADB29381632B81",
           "exponent": 0
         },
         {
-          "denom": "frame",
+          "denom": "wmvt",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/68B9C8D0E1DDCB3EB6B33D66B19B3B4197025BE8CB3D953031EC6A1EE745328F",
-      "name": "FRAME",
-      "display": "frame",
-      "symbol": "FRAME",
+      "base": "ibc/48FEAC3670B7F5F4064990611BE0BC0BF8E1A270839599D6FFADB29381632B81",
+      "name": "WMVT",
+      "display": "wmvt",
+      "symbol": "WMVT",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/uframe",
-            "channel_id": "channel-3"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/uwmvt",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/uframe"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/uwmvt"
           }
         }
       ],
@@ -1140,45 +691,45 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/uframe"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/uwmvt"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
-      "description": "PWRZE Token on Manifest Ledger Testnet",
+      "description": "DRIPPY Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/73307294FA4018ED2A8ED954BE39561A4D545772371F1C433DBBB72294CA6538",
+          "denom": "ibc/5F2BDDD68BD357FC76514CD0E44228899C2ADAF2580886A4ACC38B2BAF8E9F6A",
           "exponent": 0
         },
         {
-          "denom": "pwrze",
+          "denom": "drippy",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/73307294FA4018ED2A8ED954BE39561A4D545772371F1C433DBBB72294CA6538",
-      "name": "PWRZE",
-      "display": "pwrze",
-      "symbol": "PWRZE",
+      "base": "ibc/5F2BDDD68BD357FC76514CD0E44228899C2ADAF2580886A4ACC38B2BAF8E9F6A",
+      "name": "DRIPPY",
+      "display": "drippy",
+      "symbol": "DRIPPY",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrze",
-            "channel_id": "channel-3"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/udrippy",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrze"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/udrippy"
           }
         }
       ],
@@ -1186,45 +737,45 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrze"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/udrippy"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
-      "description": "SOLA Token on Manifest Ledger Testnet",
+      "description": "GAS Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/773C68967FD08D6FAF2F364A2C7DA52DA8FCD5C9E73437F35DF5AB69B32AB352",
+          "denom": "ibc/5FD9768DA0B68C4B2EE28A57496C2B03F149BF58E0A4DC8DEEFD3F8EDE7634F5",
           "exponent": 0
         },
         {
-          "denom": "sola",
+          "denom": "gas",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/773C68967FD08D6FAF2F364A2C7DA52DA8FCD5C9E73437F35DF5AB69B32AB352",
-      "name": "SOLA",
-      "display": "sola",
-      "symbol": "SOLA",
+      "base": "ibc/5FD9768DA0B68C4B2EE28A57496C2B03F149BF58E0A4DC8DEEFD3F8EDE7634F5",
+      "name": "GAS",
+      "display": "gas",
+      "symbol": "GAS",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/usola",
-            "channel_id": "channel-3"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/ugas",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/usola"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/ugas"
           }
         }
       ],
@@ -1232,45 +783,45 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/usola"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/ugas"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
-      "description": "PWRZN Token on Manifest Ledger Testnet",
+      "description": "GOZER Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/88B6ADC91FE64C67A610CC1AD0F4F9946CDDB057E73228461381C3A8FDE92493",
+          "denom": "ibc/6561010EA61B8C9B2984417926379FFC45FFBC5BF9560D84DE4B164B4502AA32",
           "exponent": 0
         },
         {
-          "denom": "pwrzn",
+          "denom": "gozer",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/88B6ADC91FE64C67A610CC1AD0F4F9946CDDB057E73228461381C3A8FDE92493",
-      "name": "PWRZN",
-      "display": "pwrzn",
-      "symbol": "PWRZN",
+      "base": "ibc/6561010EA61B8C9B2984417926379FFC45FFBC5BF9560D84DE4B164B4502AA32",
+      "name": "GOZER",
+      "display": "gozer",
+      "symbol": "GOZER",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzn",
-            "channel_id": "channel-3"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/ugozer",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzn"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/ugozer"
           }
         }
       ],
@@ -1278,45 +829,45 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzn"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/ugozer"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
-      "description": "SOLE Token on Manifest Ledger Testnet",
+      "description": "SIMPLE Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/8AAC95A1AD0047A9CD7F6D13DDDADB93776E32544036227F9A66C27BF76D8C52",
+          "denom": "ibc/65E7A9F142C7C5BCD7551AF2311B3137FC5CBFF693DCADC15FCC9AEF12A778F7",
           "exponent": 0
         },
         {
-          "denom": "sole",
+          "denom": "simple",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/8AAC95A1AD0047A9CD7F6D13DDDADB93776E32544036227F9A66C27BF76D8C52",
-      "name": "SOLE",
-      "display": "sole",
-      "symbol": "SOLE",
+      "base": "ibc/65E7A9F142C7C5BCD7551AF2311B3137FC5CBFF693DCADC15FCC9AEF12A778F7",
+      "name": "SIMPLE",
+      "display": "simple",
+      "symbol": "SIMPLE",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/usole",
-            "channel_id": "channel-3"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/usimple",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/usole"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/usimple"
           }
         }
       ],
@@ -1324,45 +875,45 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/usole"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/usimple"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
-      "description": "PWRZO Token on Manifest Ledger Testnet",
+      "description": "TIMMY Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/8B868E456E431A79F5681BA217B4BABA7A34CEE39389FE8D4DF5E3ACACDAE0B6",
+          "denom": "ibc/7902BAE3A32BF67C5713C35A1610127D331008F3C54AF37FA35AC46045E86744",
           "exponent": 0
         },
         {
-          "denom": "pwrzo",
+          "denom": "timmy",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/8B868E456E431A79F5681BA217B4BABA7A34CEE39389FE8D4DF5E3ACACDAE0B6",
-      "name": "PWRZO",
-      "display": "pwrzo",
-      "symbol": "PWRZO",
+      "base": "ibc/7902BAE3A32BF67C5713C35A1610127D331008F3C54AF37FA35AC46045E86744",
+      "name": "TIMMY",
+      "display": "timmy",
+      "symbol": "TIMMY",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzo",
-            "channel_id": "channel-3"
+            "base_denom": "factory/manifest1c799jddmlz7segvg6jrw6w2k6svwafganjdznard3tc74n7td7rqdqe6ks/utimmy",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzo"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1c799jddmlz7segvg6jrw6w2k6svwafganjdznard3tc74n7td7rqdqe6ks/utimmy"
           }
         }
       ],
@@ -1370,45 +921,45 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzo"
+            "base_denom": "factory/manifest1c799jddmlz7segvg6jrw6w2k6svwafganjdznard3tc74n7td7rqdqe6ks/utimmy"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
-      "description": "PWROO Token on Manifest Ledger Testnet",
+      "description": "AGA Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/8BE93E121E24D268DC77E2A61AA0AF18BBA8F5E6AB105DB8B6AEA664CD6E8AAA",
+          "denom": "ibc/81F5BD52ADAB15EE8E9E0ECA7F7214A51AC4A06F4A2837261F2604F31A1649DA",
           "exponent": 0
         },
         {
-          "denom": "pwroo",
+          "denom": "aga",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/8BE93E121E24D268DC77E2A61AA0AF18BBA8F5E6AB105DB8B6AEA664CD6E8AAA",
-      "name": "PWROO",
-      "display": "pwroo",
-      "symbol": "PWROO",
+      "base": "ibc/81F5BD52ADAB15EE8E9E0ECA7F7214A51AC4A06F4A2837261F2604F31A1649DA",
+      "name": "AGA",
+      "display": "aga",
+      "symbol": "AGA",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwroo",
-            "channel_id": "channel-3"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/uaga",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwroo"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/uaga"
           }
         }
       ],
@@ -1416,45 +967,45 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwroo"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/uaga"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
-      "description": "PWRZS Token on Manifest Ledger Testnet",
+      "description": "MFX Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/8D2F83EEBEE8A34BA1403BDAA3C04457E08D9B8694AD2C232321E19F923B3172",
+          "denom": "ibc/FBB845E40F35378F2CDD02E0A8E9A42DECDBE1067F3E5CB08DBCF616B029569C",
           "exponent": 0
         },
         {
-          "denom": "pwrzs",
+          "denom": "mfx",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/8D2F83EEBEE8A34BA1403BDAA3C04457E08D9B8694AD2C232321E19F923B3172",
-      "name": "PWRZS",
-      "display": "pwrzs",
-      "symbol": "PWRZS",
+      "base": "ibc/FBB845E40F35378F2CDD02E0A8E9A42DECDBE1067F3E5CB08DBCF616B029569C",
+      "name": "MFX",
+      "display": "mfx",
+      "symbol": "MFX",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzs",
-            "channel_id": "channel-3"
+            "base_denom": "umfx",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzs"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/umfx"
           }
         }
       ],
@@ -1462,45 +1013,45 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzs"
+            "base_denom": "umfx"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
-      "description": "PWRZR Token on Manifest Ledger Testnet",
+      "description": "FUNZIE Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/919046A89B91F9995D086C3CFECBF12842831C99206DC2465C19C600BFB29C45",
+          "denom": "ibc/8F0FD15E8A195360783298BF16A64463AB2F1F793946213F475549C637E91C18",
           "exponent": 0
         },
         {
-          "denom": "pwrzr",
+          "denom": "funzie",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/919046A89B91F9995D086C3CFECBF12842831C99206DC2465C19C600BFB29C45",
-      "name": "PWRZR",
-      "display": "pwrzr",
-      "symbol": "PWRZR",
+      "base": "ibc/8F0FD15E8A195360783298BF16A64463AB2F1F793946213F475549C637E91C18",
+      "name": "FUNZIE",
+      "display": "funzie",
+      "symbol": "FUNZIE",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzr",
-            "channel_id": "channel-3"
+            "base_denom": "factory/manifest1rme50egv6kwxq5skm60s0n7hd6ynuf33p5g87e/ufunzie",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzr"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1rme50egv6kwxq5skm60s0n7hd6ynuf33p5g87e/ufunzie"
           }
         }
       ],
@@ -1508,45 +1059,45 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzr"
+            "base_denom": "factory/manifest1rme50egv6kwxq5skm60s0n7hd6ynuf33p5g87e/ufunzie"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     },
     {
-      "description": "CURES Token on Manifest Ledger Testnet",
+      "description": "SPOOF Token on Manifest Ledger Testnet",
       "denom_units": [
         {
-          "denom": "ibc/95A248CB8B6BA779D278BD2A6C044C1E32B37BA67C735940F9CDDF991F1664AA",
+          "denom": "ibc/CFE74816F2A422812BAEFC344A61536B408C61E7B506CB9D2AD061A459EE48C6",
           "exponent": 0
         },
         {
-          "denom": "cures",
+          "denom": "spoof",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
-      "base": "ibc/95A248CB8B6BA779D278BD2A6C044C1E32B37BA67C735940F9CDDF991F1664AA",
-      "name": "CURES",
-      "display": "cures",
-      "symbol": "CURES",
+      "base": "ibc/CFE74816F2A422812BAEFC344A61536B408C61E7B506CB9D2AD061A459EE48C6",
+      "name": "SPOOF",
+      "display": "spoof",
+      "symbol": "SPOOF",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ucures",
-            "channel_id": "channel-3"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/uspoof",
+            "channel_id": "channel-6"
           },
           "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ucures"
+            "channel_id": "channel-594",
+            "path": "transfer/channel-594/factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/uspoof"
           }
         }
       ],
@@ -1554,475 +1105,15 @@
         {
           "image_sync": {
             "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ucures"
+            "base_denom": "factory/manifest1hj5fveer5cjtn4wd6wstzugjfdxzl0xp8ws9ct/uspoof"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "LENDX Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/99439DB1A5D64002F7202A6AE4F56CAF7CE42A22C5EB77B14780C583E6ACE141",
-          "exponent": 0
-        },
-        {
-          "denom": "lendx",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/99439DB1A5D64002F7202A6AE4F56CAF7CE42A22C5EB77B14780C583E6ACE141",
-      "name": "LENDX",
-      "display": "lendx",
-      "symbol": "LENDX",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ulendx",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ulendx"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ulendx"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "SOLC Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/A98E89DCB8859D3D10FC624A03E25BD89905E810BA194C6430ACB6B1FA334F66",
-          "exponent": 0
-        },
-        {
-          "denom": "solc",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/A98E89DCB8859D3D10FC624A03E25BD89905E810BA194C6430ACB6B1FA334F66",
-      "name": "SOLC",
-      "display": "solc",
-      "symbol": "SOLC",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/usolc",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/usolc"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/usolc"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "CORAL Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/AFAE8779ADBB6009B78C233C846FFE1BB67D96F19DCD54451DD36CDEC276F5D9",
-          "exponent": 0
-        },
-        {
-          "denom": "coral",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/AFAE8779ADBB6009B78C233C846FFE1BB67D96F19DCD54451DD36CDEC276F5D9",
-      "name": "CORAL",
-      "display": "coral",
-      "symbol": "CORAL",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ucoral",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ucoral"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ucoral"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "PWRZX Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/B1EF6EE90168D486824E76700ED280B5B127B32F5194C8D063844D573A0A22EB",
-          "exponent": 0
-        },
-        {
-          "denom": "pwrzx",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/B1EF6EE90168D486824E76700ED280B5B127B32F5194C8D063844D573A0A22EB",
-      "name": "PWRZX",
-      "display": "pwrzx",
-      "symbol": "PWRZX",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzx",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzx"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzx"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "FOCAL Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/C40D0997D88A8193E3AD627EF58A2998989F1187A5277B1BDE07FEF909533982",
-          "exponent": 0
-        },
-        {
-          "denom": "focal",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/C40D0997D88A8193E3AD627EF58A2998989F1187A5277B1BDE07FEF909533982",
-      "name": "FOCAL",
-      "display": "focal",
-      "symbol": "FOCAL",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ufocal",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ufocal"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ufocal"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "CATS Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/D1495D28D71F69CE0DD7B1FD104A2088066C346DBD96F7F162CDF98EBD38D962",
-          "exponent": 0
-        },
-        {
-          "denom": "cats",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/D1495D28D71F69CE0DD7B1FD104A2088066C346DBD96F7F162CDF98EBD38D962",
-      "name": "CATS",
-      "display": "cats",
-      "symbol": "CATS",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ucats",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ucats"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/ucats"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "PWRZZ Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/E238A7B212BE6E11028E1D8F50A4DCB3F8E1BBEFA73CB5A79699F16ADF84E861",
-          "exponent": 0
-        },
-        {
-          "denom": "pwrzz",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/E238A7B212BE6E11028E1D8F50A4DCB3F8E1BBEFA73CB5A79699F16ADF84E861",
-      "name": "PWRZZ",
-      "display": "pwrzz",
-      "symbol": "PWRZZ",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzz",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzz"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzz"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "AAA Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/E40FC73EDA77AE168D681405B975C48B5B515BFBBCD200E03738F48D5AFF722B",
-          "exponent": 0
-        },
-        {
-          "denom": "aaa",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/E40FC73EDA77AE168D681405B975C48B5B515BFBBCD200E03738F48D5AFF722B",
-      "name": "AAA",
-      "display": "aaa",
-      "symbol": "AAA",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/uaaa",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/uaaa"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/uaaa"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "PWRZV Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/E6A50DB535B23AA672122EF5B321DD5B69A480A38F27707AE76AAB408C06A425",
-          "exponent": 0
-        },
-        {
-          "denom": "pwrzv",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/E6A50DB535B23AA672122EF5B321DD5B69A480A38F27707AE76AAB408C06A425",
-      "name": "PWRZV",
-      "display": "pwrzv",
-      "symbol": "PWRZV",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzv",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzv"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upwrzv"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-      }
-    },
-    {
-      "description": "PGSQL Token on Manifest Ledger Testnet",
-      "denom_units": [
-        {
-          "denom": "ibc/FBF7018905686DB873D482FF5ECF31A661F604EFBFEB0517F1FD1CBC1D301BF0",
-          "exponent": 0
-        },
-        {
-          "denom": "pgsql",
-          "exponent": 6
-        }
-      ],
-      "type_asset": "ics20",
-      "base": "ibc/FBF7018905686DB873D482FF5ECF31A661F604EFBFEB0517F1FD1CBC1D301BF0",
-      "name": "PGSQL",
-      "display": "pgsql",
-      "symbol": "PGSQL",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upgsql",
-            "channel_id": "channel-3"
-          },
-          "chain": {
-            "channel_id": "channel-590",
-            "path": "transfer/channel-590/factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upgsql"
-          }
-        }
-      ],
-      "images": [
-        {
-          "image_sync": {
-            "chain_name": "manifesttestnet",
-            "base_denom": "factory/manifest1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsfmy9qj/upgsql"
-          },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
-        }
-      ],
-      "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/manifesttestnet/images/manifest.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
       }
     }
   ]

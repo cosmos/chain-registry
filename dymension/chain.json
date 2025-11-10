@@ -11,6 +11,9 @@
   "slip44": 60,
   "node_home": "$HOME/.dymension",
   "daemon_name": "dymd",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
   "fees": {
     "fee_tokens": [
       {
@@ -37,10 +40,7 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.svg",
-      "theme": {
-        "primary_color_hex": "#f4e4d4"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.svg"
     }
   ],
   "codebase": {
@@ -225,7 +225,7 @@
         "provider": "Enigma"
       },
       {
-        "address": "https://dymension-rpc.ibs.team",
+        "address": "https://dymension.ibs.team:443/rpc",
         "provider": "Inter Blockchain Services"
       },
       {
@@ -351,7 +351,7 @@
         "provider": "Enigma"
       },
       {
-        "address": "https://dymension-api.ibs.team",
+        "address": "https://dymension.ibs.team:443/api",
         "provider": "Inter Blockchain Services"
       },
       {
@@ -495,7 +495,7 @@
         "provider": "AgoraNodes"
       },
       {
-        "address": "https://dymension-jsonrpc.ibs.team",
+        "address": "https://dymension.ibs.team:443/ethrpc/",
         "provider": "Inter Blockchain Services"
       },
       {
@@ -529,6 +529,12 @@
     ]
   },
   "explorers": [
+    {
+      "kind": "Chainroot",
+      "url": "https://explorer.chainroot.io/dymension",
+      "tx_page": "https://explorer.chainroot.io/dymension/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/dymension/accounts/${accountAddress}"
+    },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/dymension",
@@ -600,6 +606,12 @@
       "url": "https://explorer.mainnet.dteam.tech/dymension",
       "tx_page": "https://explorer.mainnet.dteam.tech/dymension/tx/${txHash}",
       "account_page": "https://explorer.mainnet.dteam.tech/dymension/account/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://dymension.valopers.com/",
+      "tx_page": "https://dymension.valopers.com/transactions/${txHash}",
+      "account_page": "https://dymension.valopers.com/account/${accountAddress}"
     }
   ]
 }
