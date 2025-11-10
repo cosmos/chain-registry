@@ -234,7 +234,7 @@ An example assetlist json contains the following structure:
       ],
       "socials": {
         "website": "https://osmosis.zone",
-        "twitter": "https://twitter.com/osmosiszone"
+        "x": "https://x.com/osmosis"
       }
     },
     ..
