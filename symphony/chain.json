@@ -1,0 +1,165 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "symphony",
+  "description": "The stablecoin chain.  Stablecoins for any and every currency.",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Symphony",
+  "chain_type": "cosmos",
+  "chain_id": "symphony-1",
+  "bech32_prefix": "symphony",
+  "daemon_name": "symphonyd",
+  "node_home": "$HOME/.symphonyd",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "note",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.00025,
+        "average_gas_price": 0.0025,
+        "high_gas_price": 0.004
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "note"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Orchestra-Labs/symphony",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.11"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/Orchestra-Labs/symphony/refs/heads/main/networks/symphony-1/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50.9"
+    },
+    "cosmwasm": {
+      "version": "0.53.0",
+      "enabled": true
+    },
+    "tag": "v1.0.0",
+    "binaries": {
+      "linux/amd64": "https://github.com/Orchestra-Labs/symphony/releases/download/v1.0.0/symphonyd"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "6f6a3a908634b79b6fe7c4988efec2553f188234",
+        "address": "symphony.seed.nodeshub.online:29156"
+      },
+      {
+        "id": "23a0e967a5423e0163cee0041f82d8fb202a48d5",
+        "address": "mainnet-seed.konsortech.xyz:15265"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "637077d431f618181597706810a65c826524fd74",
+        "address": "176.9.120.85:29156"
+      },
+      {
+        "id": "cc795fd3be0ccf51295d1a5c51543ea662f8ac0a",
+        "address": "mainnet-symphony.konsortech.xyz:21656"
+      },
+      {
+        "id": "d45190c9ce7cff612154710f22137ce7ea0096ee",
+        "address": "185.227.135.165:12056"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://symphony.rpc.nodeshub.online/",
+        "provider": "Nodes Hub"
+      },
+      {
+        "address": "https://symphony-rpc.cogwheel.zone/",
+        "provider": "Cogwheel ⚙️"
+      },
+      {
+        "address": "https://rpc-main-symphony.vinjan.xyz",
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "https://rpc-symphony.sr20de.xyz",
+        "provider": "Sr20de"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://symphony.api.nodeshub.online/",
+        "provider": "Nodes Hub"
+      },
+      {
+        "address": "https://symphony-api.cogwheel.zone/",
+        "provider": "Cogwheel ⚙️"
+      },
+      {
+        "address": "https://api-main-symphony.vinjan.xyz",
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "https://api-symphony.sr20de.xyz",
+        "provider": "Sr20de"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://symphony.grpc.nodeshub.online/",
+        "provider": "Nodes Hub"
+      },
+      {
+        "address": "https://symphony-grpc.cogwheel.zone:443",
+        "provider": "Cogwheel ⚙️"
+      },
+      {
+        "address": "grpc-main-symphony.vinjan.xyz:21090",
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "https://grpc-symphony.sr20de.xyz",
+        "provider": "Sr20de"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "VinjanXplorer",
+      "url": "https://xplorer.vinjan.xyz/symphony",
+      "tx_page": "https://xplorer.vinjan.xyz/symphony/tx/${txHash}",
+      "account_page": "https://xplorer.vinjan.xyz/symphony/account/${accountAddress}"
+    },
+    {
+      "kind": "Sr20de Explorer",
+      "url": "https://explorer.sr20de.xyz/symphony",
+      "tx_page": "https://explorer.sr20de.xyz/symphony/tx/${txHash}",
+      "account_page": "https://explorer.sr20de.xyz/symphony/account/${accountAddress}"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/symphony/images/symphony_logo.png"
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/symphony/images/symphony_logo.png"
+    }
+  ]
+}
