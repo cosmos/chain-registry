@@ -133,6 +133,7 @@ export function readJsonFile(file) {
   try {
     return JSON.parse(fs.readFileSync(file));
   } catch (err) {
+    console.log(file);
     console.log(err);
   }
 }
