@@ -32,7 +32,7 @@
       ],
       "socials": {
         "website": "https://cosmos.network",
-        "twitter": "https://twitter.com/cosmoshub"
+        "x": "https://x.com/cosmoshub"
       },
       "type_asset": "sdk.coin"
     },
@@ -95,12 +95,16 @@
           "aliases": [
             "FX"
           ]
+        },
+        {
+          "denom": "WFX",
+          "exponent": 18
         }
       ],
       "type_asset": "ics20",
       "base": "ibc/4925E6ABA571A44D2BE0286D2D29AF42A294D0FF2BB16490149A1B26EAD33729",
       "name": "Function X",
-      "display": "FX",
+      "display": "WFX",
       "symbol": "FX",
       "traces": [
         {
@@ -860,7 +864,7 @@
       },
       "socials": {
         "website": "https://www.ophirdao.com",
-        "twitter": "https://x.com/OphirDAO"
+        "x": "https://x.com/OphirDAO"
       },
       "keywords": [
         "dao"
@@ -1001,14 +1005,13 @@
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/quark.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/quark.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/quark.png"
       },
       "keywords": [
         "memecoin"
       ],
       "socials": {
-        "twitter": "https://x.com/quark_on_cosmos"
+        "x": "https://x.com/quark_on_cosmos"
       },
       "images": [
         {
@@ -1016,8 +1019,7 @@
             "chain_name": "osmosis",
             "base_denom": "factory/osmo1x7s7a2erqspkm6e79n7yh7fw3yh7xx4lt54mxg/uquark"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/quark.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/quark.svg"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/quark.png"
         }
       ]
     },
@@ -1067,6 +1069,103 @@
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/intento/images/into.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/intento/images/into.svg"
+        }
+      ]
+    },
+    {
+      "description": "Tether Gold bridged via Eureka on Cosmos Hub.",
+      "denom_units": [
+        {
+          "denom": "ibc/A96C4DBCB7E36F8D265E92240510DB0F29F39CE4AAF52DBDE686E448BA447886",
+          "exponent": 0,
+          "aliases": [
+            "uxaut"
+          ]
+        },
+        {
+          "denom": "xaut",
+          "exponent": 6
+        },
+        {
+          "denom": "xaut.atom",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/A96C4DBCB7E36F8D265E92240510DB0F29F39CE4AAF52DBDE686E448BA447886",
+      "name": "Eureka Bridged Tether Gold (ATOM)",
+      "display": "xaut",
+      "symbol": "XAUt",
+      "traces": [
+        {
+          "type": "ibc-bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x68749665ff8d2d112fa859aa293f07a622782f38",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "08-wasm-1369",
+            "path": "transfer/08-wasm-1369/0x68749665ff8d2d112fa859aa293f07a622782f38"
+          },
+          "provider": "Eureka"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/xaut.png"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0x68749665ff8d2d112fa859aa293f07a622782f38"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/xaut.png"
+        }
+      ]
+    },
+    {
+      "description": "Neiro bridged via Eureka on Cosmos Hub.",
+      "denom_units": [
+        {
+          "denom": "ibc/F7C4726BF9F1B1872C48BA39688A1AC741E9D77B3182662CF6D42A149C86B758",
+          "exponent": 0
+        },
+        {
+          "denom": "neiro",
+          "exponent": 9
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/F7C4726BF9F1B1872C48BA39688A1AC741E9D77B3182662CF6D42A149C86B758",
+      "name": "Eureka Bridged Neiro (NEIRO)",
+      "display": "neiro",
+      "symbol": "NEIRO",
+      "traces": [
+        {
+          "type": "ibc-bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0x812ba41e071c7b7fa4ebcfb62df5f45f6fa853ee",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "08-wasm-1369",
+            "path": "transfer/08-wasm-1369/0x812ba41e071c7b7fa4ebcfb62df5f45f6fa853ee"
+          },
+          "provider": "Eureka"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/neiro.png"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0x812ba41e071c7b7fa4ebcfb62df5f45f6fa853ee"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/neiro.png"
         }
       ]
     }
