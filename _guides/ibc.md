@@ -1460,5 +1460,6 @@ cat _IBC/cosmoshub-osmosis.json | jq '.'
 
 ---
 
+**Last Updated:** 2025-11-13
 
 ---
