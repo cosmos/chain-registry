@@ -24,3 +24,34 @@
 9. [Additional Resources](#additional-resources)
 
 ---
+
+## Required Properties
+
+According to `chain.schema.json`, **3 properties** are formally REQUIRED by JSON schema validation:
+
+### ✅ Required (Schema)
+```json
+{
+  "$schema": "../chain.schema.json",  // REQUIRED by JSON schema
+  "chain_name": "example",            // REQUIRED by JSON schema
+  "chain_type": "cosmos"              // REQUIRED by JSON schema
+}
+```
+
+### ✅ Required (Node Validation)
+**Note:** While `status` is not in the schema's required array, it is **enforced by node validation** (`validate_data.mjs`). PRs without this field will fail CI checks.
+
+```json
+{
+  "status": "live"            // REQUIRED by node validation: "live", "upcoming", or "killed"
+}
+```
+
+### ✅ Recommended (Practice)
+While not strictly enforced, this property should always be provided:
+
+```json
+{
+  "network_type": "mainnet"   // RECOMMENDED: "mainnet", "testnet", or "devnet"
+}
+```
