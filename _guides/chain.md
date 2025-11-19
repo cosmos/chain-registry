@@ -55,3 +55,23 @@ While not strictly enforced, this property should always be provided:
   "network_type": "mainnet"   // RECOMMENDED: "mainnet", "testnet", or "devnet"
 }
 ```
+
+### ⚠️ Conditionally Required
+
+**IF `chain_type` is "cosmos":**
+```json
+{
+  "chain_type": "cosmos",
+  "bech32_prefix": "osmo"     // REQUIRED for cosmos chains
+}
+```
+
+**IF `chain_type` is "cosmos" OR "eip155":**
+```json
+{
+  "chain_type": "cosmos",
+  "chain_id": "osmosis-1"     // REQUIRED for cosmos and eip155 chains
+}
+```
+
+---
