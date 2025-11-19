@@ -75,3 +75,58 @@ While not strictly enforced, this property should always be provided:
 ```
 
 ---
+
+## Core Identification Properties
+
+### 1. `$schema` (REQUIRED)
+
+**Type:** `string`
+
+**Pattern:** `^(\\.\\./)+chain\\.schema\\.json$`
+
+**Purpose:** Points to the schema file for validation. Used by editors like VS Code to link the JSON file to the defining schema for real-time validation.
+
+```json
+"$schema": "../chain.schema.json"         // Mainnet
+"$schema": "../../chain.schema.json"      // Testnet
+"$schema": "../../../chain.schema.json"   // _non-cosmos/ (e.g., ethereumtestnet)
+```
+
+**Note:** When in a `/_non-cosmos/` or `/testnets/_non-cosmos/` directory, add an extra `../` level to reach the schema at the repository root.
+
+---
+
+### 2. `chain_name` (REQUIRED)
+
+**Type:** `string`
+
+**Pattern:** `[a-z0-9]+` (lowercase alphanumeric only, no hyphens/underscores)
+
+**Purpose:** Unique identifier for the chain
+
+**⚠️ Important:** `chain_name` **cannot be changed once set**. It becomes the permanent identifier in the registry. However, since users typically never see this value directly (they see `pretty_name` instead), this should not be a problem if a chain undergoes rebranding.
+
+```json
+"chain_name": "osmosis"      // ✅ Valid
+"chain_name": "cosmoshub"    // ✅ Valid
+"chain_name": "cosmos-hub"   // ❌ Invalid (no hyphens)
+"chain_name": "Osmosis"      // ❌ Invalid (no uppercase)
+```
+
+---
+
+### 3. `chain_type` (REQUIRED)
+
+**Type:** `string` (enum)
+
+**Options:**
+- `cosmos` - Cosmos SDK chains
+- `eip155` - Ethereum/EVM chains
+- `bip122` - Bitcoin-based chains
+- `polkadot`, `solana`, `algorand`, `arweave`, `ergo`, `fil`, `hedera`, `monero`, `reef`, `stacks`, `starknet`, `stellar`, `tezos`, `vechain`, `waves`, `xrpl`, `unknown`
+
+```json
+"chain_type": "cosmos"       // Most common for Cosmos chains
+```
+
+---
