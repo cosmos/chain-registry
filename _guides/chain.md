@@ -738,3 +738,587 @@ high_gas_price >= average_gas_price >= low_gas_price >= fixed_min_gas_price
 ```
 
 ---
+
+### 24. `description`
+
+**Type:** `string`
+
+**Min length:** 1
+
+**Max length:** 3000 characters
+
+```json
+"description": "Osmosis (OSMO) is the premier DEX and cross-chain DeFi hub within the Cosmos ecosystem..."
+```
+
+---
+
+### 25. `keywords` (Optional)
+
+**Type:** `array` of strings
+
+**Max items:** 20
+
+```json
+"keywords": ["dex", "defi", "amm"]
+```
+
+---
+
+### 26. `extra_codecs` (Optional)
+
+**Type:** `array` of strings (enum)
+
+**Options:** `"ethermint"`, `"injective"`
+
+**Unique items only**
+
+```json
+"extra_codecs": ["ethermint"]
+```
+
+---
+
+### 27. `pre_fork_chain_name` (Optional)
+
+**Type:** `string`
+
+**Pattern:** `[a-z0-9]+`
+
+**Purpose:** Reference to chain before a hard fork
+
+```json
+"pre_fork_chain_name": "terra"   // For Terra 2.0 referencing Terra Classic
+```
+
+---
+
+## Quick Reference Table
+
+| Property | Required | Type | Notes |
+|----------|----------|------|-------|
+| `$schema` | ✅ | string | Path to chain.schema.json |
+| `chain_name` | ✅ | string | Lowercase alphanumeric only |
+| `chain_type` | ✅ | enum | "cosmos", "eip155", etc. |
+| `status` | ✅ | enum | "live", "upcoming", "killed" - **Enforced by node validation** |
+| `network_type` | 🔵 | enum | "mainnet", "testnet", "devnet" |
+| `chain_id` | ⚠️ | string | Required for cosmos/eip155 |
+| `bech32_prefix` | ⚠️ | string | Required for cosmos chains |
+| `slip44` | ⚠️ | number | Required for live cosmos mainnets (validation script) |
+| `fees` | 🔵 | object | Fee token information (best practice) |
+| `logo_URIs` | 🔵 | object | PNG/SVG logos (best practice) |
+| `images` | 🔵 | array | Extended image metadata (best practice) |
+| `pretty_name` | ❌ | string | Display name |
+| `website` | ❌ | URI | Official URL |
+| `staking` | ❌ | object | Staking token information |
+| `codebase` | ❌ | object | Version & build information |
+| `peers` | ❌ | object | Seeds & persistent peers |
+| `apis` | ❌ | object | RPC, REST, gRPC endpoints |
+| `explorers` | ❌ | array | Block explorer links |
+| `description` | ❌ | string | Max 3000 chars |
+| `keywords` | ❌ | array | Max 20 items |
+
+Legend:
+- ✅ = Required (enforced by JSON schema or node validation - will fail CI)
+- 🔵 = Recommended (best practice - should be provided)
+- ⚠️ = Conditionally required
+- ❌ = Optional
+
+---
+
+## Chain Forks & Hard Forks - Archival Process
+
+### When Chain ID Changes - Hard Fork Handling
+
+**IMPORTANT:** When a chain upgrades or resets with a **different `chain_id`**, this is considered a **hard fork**. The previous chain must be **archived**, and the new chain gets its own directory.
+
+**⚠️ Hard Fork vs Rebrand - Key Distinction:**
+
+| Scenario | `chain_id` Changes? | Action Required |
+|----------|---------------------|-----------------|
+| **Hard Fork** | ✅ YES | Follow full archival process (this section) |
+| **Rebrand** | ❌ NO | Just update `pretty_name` and logos (see Section 5) |
+
+**Examples:**
+- **Hard Fork:** `cosmoshub-4` → `cosmoshub-5` (chain_id changed) → Archive cosmoshub-4
+- **Rebrand:** Chain changes name/logo but keeps `juno-1` → Just update `pretty_name`
+
+---
+
+### Overview of Hard Fork Process
+
+When a chain forks (e.g., `cosmoshub-4` → `cosmoshub-5`):
+1. **Archive the old chain** (cosmoshub-4) → Rename directory to `/cosmoshub4/`
+2. **Create new chain** (cosmoshub-5) → Uses original directory `/cosmoshub/`
+3. **Update all references** across chain.json, assetlist.json, IBC files, traces, images
+
+---
+
+### Step 1: Archive the Pre-Fork Chain
+
+#### 1.1 Update `chain_name` and `status`
+
+Add an identifying number to the chain_name. Choose either:
+- **Incrementing counter** starting from 1: `cosmoshub` → `cosmoshub1`
+- **Chain ID number**: `cosmoshub-4` → `cosmoshub4` (preferred if chain_id has number)
+
+Also update the `status` field to `"killed"` to indicate the chain is no longer active.
+
+**Example:**
+```json
+// OLD (before fork):
+{
+  "chain_name": "cosmoshub",
+  "chain_id": "cosmoshub-4",
+  "status": "live"
+}
+
+// ARCHIVED (after fork):
+{
+  "chain_name": "cosmoshub4",  // ← Number added
+  "chain_id": "cosmoshub-4",   // ← Unchanged
+  "status": "killed"           // ← Updated to "killed"
+}
+```
+
+#### 1.2 Update ALL References to chain_name
+
+When changing `chain_name`, update these locations:
+
+**✅ 1. Chain metadata files:**
+- `chain.json` → Update `chain_name` property
+- `assetlist.json` → Update `chain_name` property
+- `versions.json` → Update `chain_name` property (if exists)
+
+**✅ 2. IBC connection files:**
+
+**Filename change:**
+```bash
+# OLD filename:
+_IBC/cosmoshub-osmosis.json
+
+# NEW filename:
+_IBC/cosmoshub4-osmosis.json
+```
+
+**Inside the file - Before Archive:**
+```json
+{
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "cosmoshub",  // ← OLD: uses original name
+    "client_id": "07-tendermint-259",
+    "connection_id": "connection-257"
+  },
+  "chain_2": {
+    "chain_name": "osmosis",
+    "client_id": "07-tendermint-1",
+    "connection_id": "connection-0"
+  },
+  "channels": [{
+    "chain_1": {
+      "channel_id": "channel-141",
+      "port_id": "transfer"
+    },
+    "chain_2": {
+      "channel_id": "channel-0",
+      "port_id": "transfer"
+    },
+    "ordering": "unordered",
+    "version": "ics20-1"
+  }]
+}
+```
+
+**Inside the file - After Archive:**
+```json
+{
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "cosmoshub4",  // ← UPDATED: now points to archived chain
+    "client_id": "07-tendermint-259",
+    "connection_id": "connection-257"
+  },
+  "chain_2": {
+    "chain_name": "osmosis",  // ← Unchanged (Osmosis wasn't archived)
+    "client_id": "07-tendermint-1",
+    "connection_id": "connection-0"
+  },
+  "channels": [{
+    "chain_1": {
+      "channel_id": "channel-141",  // ← All IDs stay the same
+      "port_id": "transfer"
+    },
+    "chain_2": {
+      "channel_id": "channel-0",
+      "port_id": "transfer"
+    },
+    "ordering": "unordered",
+    "version": "ics20-1"
+  }]
+}
+```
+
+**Key Points:**
+- ✅ Only `chain_name` changes (from `cosmoshub` → `cosmoshub4`)
+- ✅ All IBC identifiers stay the same (channel IDs, connection IDs, client IDs)
+- ✅ The counterparty chain (`osmosis`) remains unchanged
+- ✅ File must be renamed to match the new chain_name
+
+**✅ 3. Asset traces on OTHER chains:**
+
+Any asset that originated from the archived chain needs trace updates.
+
+**Example:** ATOM on Osmosis that came from cosmoshub-4
+```json
+// In osmosis/assetlist.json:
+{
+  "base": "ibc/...",
+  "name": "Cosmos Hub Atom",
+  "traces": [{
+    "type": "ibc",
+    "counterparty": {
+      "chain_name": "cosmoshub4",  // ← Updated from "cosmoshub"
+      "base_denom": "uatom"
+    }
+  }]
+}
+```
+
+**✅ 4. Image sync pointers:**
+```json
+// Update image_sync references:
+{
+  "image_sync": {
+    "chain_name": "cosmoshub4",  // ← Updated
+    "base_denom": "uatom"
+  }
+}
+```
+
+**✅ 5. Image URI paths:**
+
+Update image paths in the archived chain's directory:
+```json
+// OLD:
+"png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png"
+
+// NEW:
+"png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub4/images/atom.png"
+```
+
+**Exception:** Images moving to the post-fork chain keep original paths (see Step 2.3).
+
+#### 1.3 Rename Directory
+
+```bash
+# Rename directory to match new chain_name:
+mv cosmoshub/ cosmoshub4/
+```
+
+#### 1.4 Add Legacy Mintage Traces (When Needed)
+
+### When to Use `legacy-mintage`:
+
+**Use `legacy-mintage` when a team or chain issues a **replacement version** of the asset**, meaning the asset on the old pre-fork chain becomes **deprecated**.
+
+### Real Examples:
+
+**Example 1: Chain Restart with Replacement Token**
+```json
+// dungeon1/assetlist.json (archived chain)
+{
+  "base": "udgn",
+  "name": "Dragon Coin",
+  "symbol": "DGN",
+  "description": "Deprecated Dragon Token...",  // ← Note "Deprecated"
+  "traces": [{
+    "type": "legacy-mintage",
+    "counterparty": {
+      "chain_name": "dungeon",    // ← Points to NEW chain
+      "base_denom": "udgn"
+    },
+    "provider": "Dungeon Chain"
+  }]
+}
+```
+**Why:** Chain restarted with fresh genesis. Old DGN tokens are deprecated, new DGN tokens issued as replacement.
+
+**Example 2: Token Migration to New Chain**
+```json
+// terra/assetlist.json (Terra Classic)
+{
+  "base": "cw20:terra1php5m8a6qd68z02t3zpw4jv2pj4vgw4wz0t8mz",
+  "symbol": "WHALE",
+  "traces": [{
+    "type": "legacy-mintage",
+    "counterparty": {
+      "chain_name": "migaloo",
+      "base_denom": "uwhale"
+    },
+    "provider": "Migaloo"
+  }]
+}
+```
+**Why:** WHALE token migrated from Terra Classic (CW20) to Migaloo (native token). Terra Classic version is deprecated, Migaloo version is the replacement.
+
+### Purpose of `legacy-mintage`:
+
+Warns applications and users that **this old token no longer retains its purpose**. Therefore, the functionality and value once tied to the asset can no longer be assumed.
+
+---
+
+### Step 2: Set Up the Post-Fork (New) Chain
+
+#### 2.1 Use Original chain_name
+
+The new chain takes the **original chain_name**:
+
+```json
+// New chain (cosmoshub-5):
+{
+  "chain_name": "cosmoshub",   // ← Takes original name
+  "chain_id": "cosmoshub-5"    // ← New chain ID
+}
+```
+
+#### 2.2 Add `pre_fork_chain_name` Property
+
+Reference the archived chain:
+
+```json
+{
+  "chain_name": "cosmoshub",
+  "chain_id": "cosmoshub-5",
+  "pre_fork_chain_name": "cosmoshub4"  // ← Points to archived chain
+}
+```
+
+**Purpose:** Indicates that the pre-fork chain's state was bundled into genesis.
+
+**When to use:**
+- ✅ **State continuation:** Pre-fork state included in new genesis
+- ❌ **Clean slate:** New chain starts fresh with no previous state
+- ⚠️ **Testnet from mainnet:** Testnet uses mainnet state (not previous testnet)
+
+#### 2.3 Use Original Directory
+
+The new chain uses the **original directory name**:
+
+```bash
+/cosmoshub/          # ← New chain (cosmoshub-5) goes here
+/cosmoshub4/         # ← Old chain (cosmoshub-4) archived here
+```
+
+#### 2.4 Image Inheritance
+
+Assets continuing to the new chain can **keep original image URIs** because the new chain uses the original directory:
+
+```json
+// Both old and new ATOM use same path:
+"png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png"
+
+// cosmoshub4/ has its own copy (if needed)
+// cosmoshub/ has the current version
+```
+
+---
+
+### Complete Example: Cosmos Hub Fork
+
+#### Before Fork (cosmoshub-4):
+```
+/cosmoshub/
+├── chain.json          ("chain_name": "cosmoshub", "chain_id": "cosmoshub-4", "status": "live")
+├── assetlist.json
+└── images/atom.png
+
+/_IBC/cosmoshub-osmosis.json
+```
+
+#### After Fork (cosmoshub-4 → cosmoshub-5):
+
+**Archived Chain:**
+```
+/cosmoshub4/            ← Directory renamed
+├── chain.json          ("chain_name": "cosmoshub4", "chain_id": "cosmoshub-4", "status": "killed")
+├── assetlist.json      (chain_name updated, legacy-mintage traces if needed)
+└── images/atom.png     (URI updated to cosmoshub4/...)
+
+/_IBC/cosmoshub4-osmosis.json  ← Filename changed, chain_name inside updated
+```
+
+**Content of `_IBC/cosmoshub4-osmosis.json` (archived):**
+```json
+{
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "cosmoshub4",  // ← Updated to archived name
+    "client_id": "07-tendermint-259",
+    "connection_id": "connection-257"
+  },
+  "chain_2": {
+    "chain_name": "osmosis",
+    "client_id": "07-tendermint-1",
+    "connection_id": "connection-0"
+  },
+  "channels": [{
+    "chain_1": { "channel_id": "channel-141", "port_id": "transfer" },
+    "chain_2": { "channel_id": "channel-0", "port_id": "transfer" },
+    "ordering": "unordered",
+    "version": "ics20-1"
+  }]
+}
+```
+
+**New Chain:**
+```
+/cosmoshub/             ← Original directory
+├── chain.json          ("chain_name": "cosmoshub", "chain_id": "cosmoshub-5",
+│                        "pre_fork_chain_name": "cosmoshub4")
+├── assetlist.json
+└── images/atom.png     (URI keeps cosmoshub/... path)
+
+/_IBC/cosmoshub-osmosis.json  ← New file for new chain (if IBC continues)
+```
+
+**Content of `_IBC/cosmoshub-osmosis.json` (new chain):**
+```json
+{
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "cosmoshub",  // ← Back to original name for new chain
+    "client_id": "07-tendermint-300",  // ← NEW client ID
+    "connection_id": "connection-280"  // ← NEW connection ID
+  },
+  "chain_2": {
+    "chain_name": "osmosis",
+    "client_id": "07-tendermint-50",  // ← NEW client ID on Osmosis side
+    "connection_id": "connection-45"  // ← NEW connection ID
+  },
+  "channels": [{
+    "chain_1": { "channel_id": "channel-200", "port_id": "transfer" },  // ← NEW channel
+    "chain_2": { "channel_id": "channel-150", "port_id": "transfer" },  // ← NEW channel
+    "ordering": "unordered",
+    "version": "ics20-1"
+  }]
+}
+```
+
+**Important Notes:**
+- The archived IBC file keeps the old IDs (they still reference valid historical connections)
+- The new chain needs NEW IBC connections established (new client IDs, connection IDs, channel IDs)
+- Both files coexist in `_IBC/` directory with different filenames
+
+---
+
+### Quick Checklist: Hard Fork Process
+
+**Archiving Pre-Fork Chain:**
+- [ ] Update `chain_name` with number suffix
+- [ ] Update `status` to `"killed"` in chain.json
+- [ ] Update `chain_name` in chain.json, assetlist.json, versions.json
+- [ ] Rename IBC files (e.g., `cosmoshub-osmosis.json` → `cosmoshub4-osmosis.json`)
+- [ ] Update `chain_name` references in IBC files
+- [ ] Update trace `counterparty.chain_name` on all external chains
+- [ ] Update `image_sync` references
+- [ ] Update image URI paths (if staying in archived directory)
+- [ ] Rename directory (e.g., `/cosmoshub/` → `/cosmoshub4/`)
+- [ ] Add `legacy-mintage` traces if asset has been replaced by new version (see Section 1.4)
+
+**Creating Post-Fork Chain:**
+- [ ] Create new directory with original chain_name (e.g., `/cosmoshub/`)
+- [ ] Set `chain_name` to original name
+- [ ] Set `chain_id` to new value
+- [ ] Add `pre_fork_chain_name` pointing to archived chain (if state continuation)
+- [ ] Create new IBC files if needed
+- [ ] Images can use original URIs (now in new directory)
+
+---
+
+### Common Fork Scenarios
+
+#### Scenario 1: State Continuation (Most Common)
+```json
+// cosmoshub-5 genesis includes cosmoshub-4 state
+{
+  "chain_name": "cosmoshub",
+  "chain_id": "cosmoshub-5",
+  "pre_fork_chain_name": "cosmoshub4"  // ✅ Include this
+}
+```
+
+#### Scenario 2: Clean Slate
+```json
+// New chain, fresh start, no previous state
+{
+  "chain_name": "newchain",
+  "chain_id": "newchain-1"
+  // ❌ No pre_fork_chain_name (nothing to reference)
+}
+```
+
+#### Scenario 3: Testnet from Mainnet State
+```json
+// Testnet uses mainnet state, not previous testnet
+{
+  "chain_name": "osmosistestnet",
+  "chain_id": "osmo-test-6",
+  "pre_fork_chain_name": "osmosis"  // ← Points to mainnet, not osmo-test-5
+}
+```
+
+---
+
+### Important Notes
+
+1. **Hard Fork Definition:** Any change to `chain_id` is a hard fork requiring archival
+2. **Numbering:** Use chain_id number if available (`cosmoshub-4` → `cosmoshub4`)
+3. **Original Name:** Post-fork chain always gets the original `chain_name`
+4. **Legacy Mintage:** Mark replaced assets so users know they don't have same value
+5. **IBC Files:** Must update both filenames AND content
+6. **Comprehensive Update:** Missing any reference update will cause validation failures
+
+---
+
+## Validation Rules
+
+### Pattern Validations
+
+1. **chain_name:** `[a-z0-9]+` (lowercase alphanumeric only)
+2. **version:** `^v?\\d+(\\.\\d+){0,2}$` (e.g., "v1.0.0" or "1.0.0")
+3. **tag:** `^[A-Za-z0-9._/@-]+$` (Git tags)
+4. **cosmwasm path:** `^\\$HOME.*$` (Must start with $HOME)
+5. **image URLs:** Must match GitHub raw URL pattern
+
+### Conditional Requirements
+
+```javascript
+// IF chain_type = "cosmos" THEN bech32_prefix IS REQUIRED
+if (chain_type === "cosmos") {
+  required.push("bech32_prefix");
+}
+
+// IF chain_type = "cosmos" OR "eip155" THEN chain_id IS REQUIRED
+if (chain_type === "cosmos" || chain_type === "eip155") {
+  required.push("chain_id");
+}
+```
+
+### Nested Object Requirements
+
+- `fees.fee_tokens[].denom` - REQUIRED if fees object exists
+- `staking.staking_tokens[].denom` - REQUIRED if staking object exists
+- `codebase.genesis.genesis_url` - REQUIRED if genesis object exists
+- `codebase.sdk.type` - REQUIRED if sdk object exists
+- `codebase.consensus.type` - REQUIRED if consensus object exists
+- `codebase.ibc.type` - REQUIRED if ibc object exists
+- `codebase.language.type` - REQUIRED if language object exists
+- `peers.seeds[].id` - REQUIRED for each seed
+- `peers.seeds[].address` - REQUIRED for each seed
+- `peers.persistent_peers[].id` - REQUIRED for each persistent peer
+- `peers.persistent_peers[].address` - REQUIRED for each persistent peer
+- `apis.*.address` - REQUIRED for each endpoint
+- `images[]` - Must have at least one of `png` or `svg`
+
+---
