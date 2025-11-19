@@ -8,7 +8,7 @@
 ## Table of Contents
 1. [Quick Reference Table](#quick-reference-table)
 2. [Required Properties](#required-properties)
-3. **Property Categories:**
+3. [Property Categories](#property-categories)
    - [Core Identification Properties](#core-identification-properties)
    - [Network & Status Properties](#network--status-properties)
    - [Blockchain Configuration](#blockchain-configuration)
