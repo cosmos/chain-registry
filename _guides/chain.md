@@ -130,3 +130,125 @@ While not strictly enforced, this property should always be provided:
 ```
 
 ---
+
+### 4. `chain_id` (Conditionally Required)
+
+**Type:** `string`
+
+**Purpose:** On-chain identifier
+
+**Required for:** `cosmos` and `eip155` chains
+
+```json
+// Cosmos chains
+"chain_id": "osmosis-1"      // Osmosis mainnet
+"chain_id": "cosmoshub-4"    // Cosmos Hub
+"chain_id": "osmo-test-5"    // Osmosis testnet
+
+// EVM chains
+"chain_id": "1"              // Ethereum mainnet
+"chain_id": "137"            // Polygon
+```
+
+---
+
+### 5. `pretty_name`
+
+**Type:** `string`
+
+**Purpose:** Human-readable display name
+
+```json
+"chain_name": "osmosis",
+"pretty_name": "Osmosis"
+```
+
+**Rebranding Note:**
+If a chain rebrands (changes its public-facing name/identity) but keeps the same `chain_id`, you can simply update:
+- ✅ `pretty_name` - The new brand name
+- ✅ Logo images - New branding assets
+- ❌ **DO NOT** change `chain_name` - This remains permanent
+
+**Example: Simple Rebrand (NOT a hard fork)**
+```json
+// Before rebrand:
+{
+  "chain_name": "juno",
+  "chain_id": "juno-1",
+  "pretty_name": "Juno"
+}
+
+// After rebrand:
+{
+  "chain_name": "juno",        // ← Stays the same
+  "chain_id": "juno-1",        // ← Stays the same
+  "pretty_name": "Juno Network" // ← Updated for new branding
+}
+```
+
+**Rebrand vs Hard Fork:**
+- **Rebrand:** `chain_id` stays same → Just update `pretty_name` and logos
+- **Hard Fork:** `chain_id` changes → Follow full archival process (see Section 9)
+
+---
+
+### 6. `website` (Optional)
+
+**Type:** `string` (URI format)
+
+**Purpose:** Official website URL
+
+**Best Practice:** Maintainers should be able to verify this by seeing a reference to the same website from official documentation or social media accounts (e.g., the project's Twitter/X page).
+
+```json
+"website": "https://osmosis.zone/"
+```
+
+---
+
+## Network & Status Properties
+
+**Note:** `status` is **enforced by node validation** (`validate_data.mjs`) and will cause CI checks to fail if missing. `network_type` is strongly recommended but not strictly enforced.
+
+### 7. `status` (Required by Node Validation)
+
+**Type:** `string` (enum)
+
+**Options:** `"live"`, `"upcoming"`, `"killed"`
+
+```json
+"status": "live"      // Production network
+"status": "upcoming"  // Not yet launched
+"status": "killed"    // Deprecated/shut down
+```
+
+---
+
+### 8. `network_type`
+
+**Type:** `string` (enum)
+
+**Options:** `"mainnet"`, `"testnet"`, `"devnet"`
+
+```json
+"network_type": "mainnet"
+```
+
+---
+
+## Blockchain Configuration
+
+### 9. `bech32_prefix` (Required for Cosmos)
+
+**Type:** `string`
+
+**Purpose:** Human-readable part of addresses
+
+**Note on SLIP-0173:** Registration with [SLIP-0173](https://github.com/satoshilabs/slips/blob/master/slip-0173.md) is **recommended but no longer validated**. While it's best practice to register your prefix, the registry does not enforce this requirement. SLIP-0173 requires different prefixes for testnet and devnet, but Cosmos chains often use the same prefix across environments, which can make registration difficult.
+
+```json
+"bech32_prefix": "osmo"     // Osmosis addresses: osmo1...
+"bech32_prefix": "cosmos"   // Cosmos Hub addresses: cosmos1...
+```
+
+---
