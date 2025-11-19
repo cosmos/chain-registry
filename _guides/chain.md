@@ -1322,3 +1322,198 @@ if (chain_type === "cosmos" || chain_type === "eip155") {
 - `images[]` - Must have at least one of `png` or `svg`
 
 ---
+
+## Common Patterns
+
+### Minimal Valid chain.json (Non-Cosmos)
+```json
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "bitcoin",
+  "chain_type": "bip122",
+  "status": "live"
+}
+```
+
+### Minimal Valid chain.json (Cosmos)
+```json
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "examplechain",
+  "chain_type": "cosmos",
+  "chain_id": "example-1",
+  "bech32_prefix": "example",
+  "status": "live"
+}
+```
+
+### Typical Mainnet chain.json
+```json
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "examplechain",
+  "chain_type": "cosmos",
+  "chain_id": "example-1",
+  "website": "https://example.com",
+  "pretty_name": "Example Chain",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "example",
+  "daemon_name": "exampled",
+  "node_home": "$HOME/.exampled",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uexample",
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.03
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uexample"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/example/example",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": ["v1.0.0"],
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.11"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50.9"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "8.5.1"
+    },
+    "genesis": {
+      "genesis_url": "https://example.com/genesis.json"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/examplechain/images/example.png"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "abc123...",
+        "address": "seed.example.com:26656",
+        "provider": "Example Foundation"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.example.com",
+        "provider": "Example Foundation"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.example.com",
+        "provider": "Example Foundation"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/examplechain",
+      "tx_page": "https://www.mintscan.io/examplechain/transactions/${txHash}"
+    }
+  ]
+}
+```
+
+---
+
+## Common Mistakes
+
+### 1. ❌ Using uppercase or hyphens in chain_name
+```json
+"chain_name": "Example-Chain"   // WRONG
+"chain_name": "examplechain"    // CORRECT
+```
+
+### 2. ❌ Missing required fields for Cosmos chains
+```json
+{
+  "chain_name": "example",
+  "chain_type": "cosmos"
+  // Missing: chain_id, bech32_prefix
+}
+```
+
+### 3. ❌ Missing slip44 for live cosmos mainnets
+```json
+{
+  "chain_type": "cosmos",
+  "status": "live",
+  "network_type": "mainnet"
+  // ❌ ERROR: Missing "slip44": 118
+  // Validation script will flag this
+}
+```
+
+### 4. ❌ Wrong image URL format
+```json
+"png": "https://example.com/logo.png"  // WRONG - must be GitHub raw URL
+"png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/examplechain/images/example.png"  // CORRECT
+```
+
+### 5. ❌ Invalid version format
+```json
+"version": "version-1.0.0"    // WRONG
+"version": "v1.0.0"           // CORRECT
+"version": "1.0.0"            // ALSO CORRECT
+```
+
+### 6. ❌ Missing required nested properties
+```json
+"fees": {
+  "fee_tokens": [
+    {
+      // Missing "denom" - REQUIRED
+      "low_gas_price": 0.01
+    }
+  ]
+}
+```
+
+---
+
+## Schema Location
+
+**Mainnet:** `/chain.schema.json` (root level)
+**Reference:** `"$schema": "../chain.schema.json"`
+
+**Testnet:** `/chain.schema.json` (root level)
+**Reference:** `"$schema": "../../chain.schema.json"`
+
+---
+
+## Additional Resources
+
+- **Schema file:** `chain.schema.json` (lines 1-742)
+- **Real examples:**
+  - [Osmosis chain.json](https://github.com/cosmos/chain-registry/blob/master/osmosis/chain.json)
+  - [Cosmos Hub chain.json](https://github.com/cosmos/chain-registry/blob/master/cosmoshub/chain.json)
+- **SLIP-0044:** https://github.com/satoshilabs/slips/blob/master/slip-0044.md (HD wallet coin types)
+- **SLIP-0173:** https://github.com/satoshilabs/slips/blob/master/slip-0173.md (Bech32 prefix registry)
+- **CAIP-2 Namespaces:** https://github.com/ChainAgnostic/namespaces
+
+---
+
+**Last Updated:** 2025-11-19
