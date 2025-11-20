@@ -6,8 +6,9 @@
 ---
 
 ## Table of Contents
-1. [Required Properties](#required-properties)
-2. **Property Categories:**
+1. [Quick Reference Table](#quick-reference-table)
+2. [Required Properties](#required-properties)
+3. [Property Categories](#property-categories)
    - [Core Identification Properties](#core-identification-properties)
    - [Network & Status Properties](#network--status-properties)
    - [Blockchain Configuration](#blockchain-configuration)
@@ -15,13 +16,45 @@
    - [Codebase Information](#codebase-information)
    - [Network Connectivity](#network-connectivity)
    - [Images & Branding](#images--branding)
-3. [Quick Reference Table](#quick-reference-table)
 4. [Chain Forks & Hard Forks - Archival Process](#chain-forks--hard-forks---archival-process)
 5. [Validation Rules](#validation-rules)
 6. [Common Patterns](#common-patterns)
 7. [Common Mistakes](#common-mistakes)
 8. [Schema Location](#schema-location)
 9. [Additional Resources](#additional-resources)
+
+---
+
+## Quick Reference Table
+
+| Property | Required | Type | Notes |
+|----------|----------|------|-------|
+| `$schema` | ✅ | string | Path to chain.schema.json |
+| `chain_name` | ✅ | string | Lowercase alphanumeric only |
+| `chain_type` | ✅ | enum | "cosmos", "eip155", etc. |
+| `status` | ✅ | enum | "live", "upcoming", "killed" - **Enforced by node validation** |
+| `network_type` | 🔵 | enum | "mainnet", "testnet", "devnet" |
+| `chain_id` | ⚠️ | string | Required for cosmos/eip155 |
+| `bech32_prefix` | ⚠️ | string | Required for cosmos chains |
+| `slip44` | ⚠️ | number | Required for live cosmos mainnets (validation script) |
+| `fees` | 🔵 | object | Fee token information (best practice) |
+| `logo_URIs` | 🔵 | object | PNG/SVG logos (best practice) |
+| `images` | 🔵 | array | Extended image metadata (best practice) |
+| `pretty_name` | ❌ | string | Display name |
+| `website` | ❌ | URI | Official URL |
+| `staking` | ❌ | object | Staking token information |
+| `codebase` | ❌ | object | Version & build information |
+| `peers` | ❌ | object | Seeds & persistent peers |
+| `apis` | ❌ | object | RPC, REST, gRPC endpoints |
+| `explorers` | ❌ | array | Block explorer links |
+| `description` | ❌ | string | Max 3000 chars |
+| `keywords` | ❌ | array | Max 20 items |
+
+Legend:
+- ✅ = Required (enforced by JSON schema or node validation - will fail CI)
+- 🔵 = Recommended (best practice - should be provided)
+- ⚠️ = Conditionally required
+- ❌ = Optional
 
 ---
 
@@ -790,39 +823,6 @@ high_gas_price >= average_gas_price >= low_gas_price >= fixed_min_gas_price
 ```json
 "pre_fork_chain_name": "terra"   // For Terra 2.0 referencing Terra Classic
 ```
-
----
-
-## Quick Reference Table
-
-| Property | Required | Type | Notes |
-|----------|----------|------|-------|
-| `$schema` | ✅ | string | Path to chain.schema.json |
-| `chain_name` | ✅ | string | Lowercase alphanumeric only |
-| `chain_type` | ✅ | enum | "cosmos", "eip155", etc. |
-| `status` | ✅ | enum | "live", "upcoming", "killed" - **Enforced by node validation** |
-| `network_type` | 🔵 | enum | "mainnet", "testnet", "devnet" |
-| `chain_id` | ⚠️ | string | Required for cosmos/eip155 |
-| `bech32_prefix` | ⚠️ | string | Required for cosmos chains |
-| `slip44` | ⚠️ | number | Required for live cosmos mainnets (validation script) |
-| `fees` | 🔵 | object | Fee token information (best practice) |
-| `logo_URIs` | 🔵 | object | PNG/SVG logos (best practice) |
-| `images` | 🔵 | array | Extended image metadata (best practice) |
-| `pretty_name` | ❌ | string | Display name |
-| `website` | ❌ | URI | Official URL |
-| `staking` | ❌ | object | Staking token information |
-| `codebase` | ❌ | object | Version & build information |
-| `peers` | ❌ | object | Seeds & persistent peers |
-| `apis` | ❌ | object | RPC, REST, gRPC endpoints |
-| `explorers` | ❌ | array | Block explorer links |
-| `description` | ❌ | string | Max 3000 chars |
-| `keywords` | ❌ | array | Max 20 items |
-
-Legend:
-- ✅ = Required (enforced by JSON schema or node validation - will fail CI)
-- 🔵 = Recommended (best practice - should be provided)
-- ⚠️ = Conditionally required
-- ❌ = Optional
 
 ---
 
