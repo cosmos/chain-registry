@@ -1,0 +1,100 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "tstoctestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://www.stochain.io/",
+  "pretty_name": "STO Chain Testnet",
+  "chain_type": "cosmos",
+  "chain_id": "tstoc",
+  "bech32_prefix": "stoc",
+  "daemon_name": "stocd",
+  "node_home": "$HOME/.stoc",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "utstoc",
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.015,
+        "high_gas_price": 0.02
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "utstoc"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/stochainassociation/stoc-blockchain-mainnet",
+    "recommended_version": "latest-2525d3e6",
+    "compatible_versions": [
+      "latest-2525d3e6"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.17"
+    },
+    "genesis": {
+      "genesis_url": "https://rpc-stoc-testnet.stochainscan.io/genesis"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.53.0"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.7.0"
+    }
+  },
+  "description": "STO Chain Testnet is a Cosmos-based blockchain network designed to enable the digitization, compliance, and cross-chain circulation of real assets such as real estate, stocks, and commodities through blockchain technology.",
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/tstoctestnet/images/stoc-logo.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/tstoctestnet/images/stoc-logo.svg"
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-stoc-testnet.stochainscan.io/",
+        "provider": "STO Chain"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-stoc-testnet.stochainscan.io/",
+        "provider": "STO Chain"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc-stoc-testnet.stochainscan.io:443",
+        "provider": "STO Chain"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "stochainscan",
+      "url": "https://stochainscan.io/en",
+      "tx_page": "https://stochainscan.io/en/transaction/${txHash}",
+      "account_page": "https://stochainscan.io/en/address/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/tstoctestnet/images/stoc-logo.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/tstoctestnet/images/stoc-logo.svg"
+    }
+  ]
+}
