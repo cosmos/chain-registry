@@ -58,7 +58,7 @@ A sample `chain.json` includes the following information.
   "status": "live",
   "website": "https://osmosis.zone/",
   "network_type": "mainnet",
-  "chain_type": "cosmos"
+  "chain_type": "cosmos",
   "pretty_name": "Osmosis",
   "chain_id": "osmosis-1",
   "bech32_prefix": "osmo",
