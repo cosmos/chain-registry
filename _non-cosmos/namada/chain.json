@@ -10,9 +10,8 @@
   "slip44": 877,
   "bech32_prefix": "tnam",
   "daemon_name": "unam",
-  "key_algos": [
-    "ed25519"
-  ],
+  "node_home": "$HOME/.local/share/namada",
+  "key_algos": ["ed25519"],
   "fees": {
     "fee_tokens": [
       {
@@ -35,10 +34,27 @@
     }
   },
   "codebase": {
-    "git_repo": "https://github.com/anoma/namada"
+    "git_repo": "https://github.com/namada-net/namada",
+    "language": {
+      "type": "rust"
+    },
+    "consensus": {
+      "type": "cometbft"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/namada-net/namada-mainnet-genesis/tree/main/genesis"
+    },
+    "ibc": {
+      "type": "go"
+    }
   },
+  "description": "Namada is a composable privacy layer for the multichain ecosystem. It's a proof-of-stake Layer 1 designed to protect user data through a shielded asset hub and shielded cross-chain transactions. Namada can support any asset and helps bring data protection to existing chains, dapps, tokens, and NFTs. Built primarily in Rust, Namada uses CometBFT consensus and the IBC (Inter-Blockchain Communication) protocol for multichain interoperability, with the ability to expand to additional ecosystems beyond IBC. By leveraging advanced cryptography such as zk-SNARKs and a strong interoperability model, Namada serves as a privacy-preserving building block for users interacting across many blockchains and protocols.",
   "apis": {
     "rpc": [
+      {
+        "provider": "Heliax",
+        "address": "https://rpc.namada.net"
+      },
       {
         "provider": "TuDudes",
         "address": "https://rpc.namada.tududes.com"
@@ -46,14 +62,6 @@
       {
         "provider": "Mandragora",
         "address": "https://namada-rpc.mandragora.io"
-      },
-      {
-        "provider": "PowerStaking",
-        "address": "https://namadam.powerstaking.tech"
-      },
-      {
-        "provider": "stake.systems",
-        "address": "https://namada-main.stakesystems.io"
       },
       {
         "provider": "5ElementsNodes",
@@ -64,20 +72,12 @@
         "address": "https://namada-mainnet-rpc.itrocket.net"
       },
       {
-        "provider": "Sproutstake",
-        "address": "https://namada-rpc.sproutstake.space"
-      },
-      {
         "provider": "Papadritta",
         "address": "https://rpc.papadritta.com"
       },
       {
         "provider": "Decentrio",
         "address": "https://namada.rpc.decentrio.ventures"
-      },
-      {
-        "provider": "StakePool",
-        "address": "https://rpc.namada.stakepool.dev.br"
       },
       {
         "provider": "TNSO",
@@ -89,15 +89,11 @@
       },
       {
         "provider": "L0vd",
-        "address": "https://namada-mainnet.rpc.l0vd.com:443"
+        "address": "https://namada-mainnet.rpc.l0vd.com"
       },
       {
         "provider": "Loser",
         "address": "https://namada.loserboy.xyz"
-      },
-      {
-        "provider": "jacky1988",
-        "address": "https://namada.itudou.xyz"
       },
       {
         "provider": "Validatus",
@@ -106,10 +102,204 @@
       {
         "provider": "anodeofzen",
         "address": "https://namada-rpc.zenode.app"
+      },
+      {
+        "provider": "max-02",
+        "address": "https://rpc.namada.max-02.xyz"
+      },
+      {
+        "provider": "Grand Valley",
+        "address": "https://lightnode-rpc-mainnet-namada.grandvalleys.com"
+      },
+      {
+        "provider": "deNodes",
+        "address": "https://namada-mainnet-rpc.denodes.xyz"
+      },
+      {
+        "provider": "shield-crypto",
+        "address": "https://namada-public-rpc.shield-crypto.com"
+      },
+      {
+        "provider": "EmberStake",
+        "address": "https://namada-rpc.emberstake.xyz"
+      },
+      {
+        "provider": "NODERS",
+        "address": "https://namada-rpc.noders.services"
+      },
+      {
+        "provider": "Wavefive",
+        "address": "https://namada-rpc.wavefive.xyz"
+      },
+      {
+        "provider": "Architect Nodes",
+        "address": "https://rpc-namada.architectnodes.com"
+      },
+      {
+        "provider": "Citizen Web3",
+        "address": "https://rpc.namada-archive.citizenweb3.com"
+      },
+      {
+        "provider": "Coverlet",
+        "address": "https://rpc.namada.coverlet.io"
+      },
+      {
+        "provider": "CroutonDigital",
+        "address": "https://namada-mainnet-rpc.crouton.digital"
+      },
+      {
+        "provider": "0xWave",
+        "address": "https://namada-rpc.0xwave.com"
+      },
+      {
+        "provider": "Cosmic Validator",
+        "address": "https://namada-rpc.cosmicvalidator.com"
+      },
+      {
+        "provider": "Hadesguard",
+        "address": "https://namada-rpc.hadesguard.tech"
+      },
+      {
+        "provider": "LiveRaveN",
+        "address": "https://namada.rpc.liveraven.net"
+      },
+      {
+        "provider": "TdrSys",
+        "address": "https://namada.tdrsys.com"
+      },
+      {
+        "provider": "Nodes.Guru",
+        "address": "https://rpc-1.namada.nodes.guru"
+      },
+      {
+        "provider": "StakeUp",
+        "address": "https://rpc.namada.stakeup.tech"
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "94b60575033a7bb366101cb57ccb78073d97a446",
+        "address": "95.216.78.215:26656",
+        "provider": "max-02"
+      },
+      {
+        "id": "04affb50117ef548cbf7d1ddb1e6416dec0645ae",
+        "address": "namada-mainnet-seed.itrocket.net:14656",
+        "provider": "itrocket-team"
+      },
+      {
+        "id": "4ea9acb8ef3b55147a38513829c20fc8681983af",
+        "address": "namada-mainnet.seed.l0vd.com:26056",
+        "provider": "L0vd"
+      },
+      {
+        "id": "796ec24b09599dd38033e2a24390ec0cdee7ed26",
+        "address": "34.88.25.91:26656",
+        "provider": "Unknown"
+      },
+      {
+        "id": "d882a10dec0da40b045aeb13175a6d4f97194888",
+        "address": "62.3.101.89:26656",
+        "provider": "Unknown"
+      },
+      {
+        "id": "e461529f0cfc2520dbad23d402906924fef602f9",
+        "address": "65.109.26.242:26656",
+        "provider": "Stake&Relax 🦥"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "94b60575033a7bb366101cb57ccb78073d97a446",
+        "address": "95.216.78.215:26656",
+        "provider": "max-02"
+      },
+      {
+        "id": "b3ecb2072b9a470ec06851027191c49f17603036",
+        "address": "65.109.32.148:26906",
+        "provider": "Architect Nodes"
+      },
+      {
+        "id": "2f32fc015e29e942ccefca600a8ec8bf828ba848",
+        "address": "65.108.201.106:26656",
+        "provider": "CroutonDigital"
+      },
+      {
+        "id": "af99610063d2fb0f5974d026da0521ab5d21c44e",
+        "address": "74.50.74.186:15659",
+        "provider": "TdrSys"
+      },
+      {
+        "id": "3879583b9c6b1ac29d38fefb5a14815dd79282d6",
+        "address": "peer-mainnet-namada.grandvalleys.com:38656",
+        "provider": "Grand Valley"
+      },
+      {
+        "id": "805ba1297ee4e4d64e2d5ec17423365b0489dafb",
+        "address": "namada-mainnet-peer.itrocket.net:14656",
+        "provider": "itrocket-team"
+      },
+      {
+        "id": "d5a2383cdcdde08149f809e7e98ab37b03f5444d",
+        "address": "namada-mainnet.peers.l0vd.com:26656",
+        "provider": "L0vd"
+      },
+      {
+        "id": "c8f1e8090686493e947c84e26ee124c6b1d855b0",
+        "address": "peer-namada.5elementsnodes.com:26655",
+        "provider": "5ElementsNodes"
+      },
+      {
+        "id": "d83cd082b8973644e381fad9421ca29fb50fe059",
+        "address": "namada-peer.emberstake.xyz:20400",
+        "provider": "EmberStake"
+      },
+      {
+        "id": "7fcc4c4c79a3a2d918158d3e0ea86c7d9e0884a1",
+        "address": "116.202.220.238:33656",
+        "provider": "LiveRaveN"
+      },
+      {
+        "id": "4c22830f5bd6784a52572ade7b035ce30f0a8bbf",
+        "address": "35.246.167.255:26656",
+        "provider": "Unknown"
+      },
+      {
+        "id": "05309c2cce2d163027a47c662066907e89cd6b99",
+        "address": "104.251.123.123:26656",
+        "provider": "Unknown"
+      },
+      {
+        "id": "d882a10dec0da40b045aeb13175a6d4f97194888",
+        "address": "62.3.101.89:26656",
+        "provider": "Unknown"
+      },
+      {
+        "id": "2291abd220086ebe0fe104e899ebbe215d80478d",
+        "address": "216.158.67.230:26656",
+        "provider": "Unknown"
+      },
+      {
+        "id": "54386c1252ecabe5ba1fae2f083b37ca5ebd57dc",
+        "address": "192.64.82.62:26656",
+        "provider": "Unknown"
+      },
+      {
+        "id": "c1410f11db5522e176e69100816ea5bbe8c99e36",
+        "address": "188.214.130.102:26670",
+        "provider": "Unknown"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Namada Explorer",
+      "url": "https://namada.world/",
+      "tx_page": "https://namada.world/transactions/${txHash}",
+      "account_page": "https://namada.world/account/${accountAddress}"
+    },
     {
       "kind": "Explorer75",
       "url": "https://explorer75.org/namada",
@@ -137,7 +327,8 @@
     {
       "kind": "Coverlet",
       "url": "https://namada.coverlet.io/",
-      "tx_page": "https://namada.coverlet.io/tx/${txHash}"
+      "tx_page": "https://namada.coverlet.io/tx/${txHash}",
+      "account_page": "https://namada.coverlet.io/address/${accountAddress}"
     }
   ],
   "logo_URIs": {
