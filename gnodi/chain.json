@@ -1,0 +1,123 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "gnodi",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://www.gnodi.community/",
+  "pretty_name": "Gnodi",
+  "chain_type": "cosmos",
+  "chain_id": "gnodi",
+  "bech32_prefix": "gnodi",
+  "daemon_name": "gnodid",
+  "node_home": "$HOME/.gnodi",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uGNOD",
+        "fixed_min_gas_price": 1,
+        "low_gas_price": 1,
+        "average_gas_price": 1.5,
+        "high_gas_price": 2
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uGNOD"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/gnodi-network/gnodi",
+    "genesis": {
+      "name": "v1",
+      "genesis_url": "https://raw.githubusercontent.com/gnodi-network/mainnet/refs/heads/main/genesis.json"
+    },
+    "recommended_version": "1.0.1",
+    "compatible_versions": [
+      "1.0.1"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.17",
+      "repo": "https://github.com/cometbft/cometbft",
+      "tag": "v0.38.17"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.53.3",
+      "repo": "https://github.com/cosmos/cosmos-sdk",
+      "tag": "v0.53.3"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "10.2.0",
+      "repo": "https://github.com/cosmos/ibc-go",
+      "tag": "v10.2.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "language": {
+      "type": "go",
+      "version": "1.24.0"
+    },
+    "tag": "v1.0.1"
+  },
+  "images": [
+    {
+      "image_sync": {
+        "chain_name": "gnodi",
+        "base_denom": "uGNOD"
+      },
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gnodi/images/gnod.png"
+    }
+  ],
+  "description": "The Gnodi Blockchain is a community-governed, decentralized infrastructure that empowers individuals to own their digital identity and data. Guided by principles of autonomy, transparency, and equity, it bridges today’s internet with a fair, participatory digital future.",
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "cd0f4a3e82fa723b5b2d41480d72b0488b49ef34",
+        "address": "146.190.38.60:26656",
+        "provider": "Gnodi Team"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.gnodi.zone:443",
+        "provider": "Gnodi Team"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.gnodi.zone:443",
+        "provider": "Gnodi Team"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.gnodi.zone:443",
+        "provider": "Gnodi Team"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Big Dipper",
+      "url": "https://explore.gnodi.org/gnodi",
+      "tx_page": "https://explore.gnodi.org/gnodi/transactions",
+      "account_page": "https://explore.gnodi.org/gnodi/accounts/${accountAddress}"
+    }
+  ]
+}
