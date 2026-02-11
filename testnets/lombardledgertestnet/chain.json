@@ -1,0 +1,62 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "lombardledgertestnet",
+  "chain_type": "cosmos",
+  "chain_id": "ledger-testnet-1",
+  "status": "live",
+  "network_type": "testnet",
+  "bech32_prefix": "lom",
+  "daemon_name": "ledgerd",
+  "node_home": "$HOME/.ledgerd",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "pretty_name": "Lombard Ledger Testnet",
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ulom",
+        "fixed_min_gas_price": 1,
+        "low_gas_price": 1,
+        "average_gas_price": 1,
+        "high_gas_price": 1
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ustake"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/lombard-finance/ledger",
+    "recommended_version": "v1.2.0",
+    "genesis": {
+      "genesis_url": "https://github.com/lombard-finance/ledger-testnets/blob/d9a6a4e1ca48bd6f9cbe5330d3e10eb157c38252/gastald/config/genesis.json"
+    },
+    "compatible_versions": [
+      "v1.2.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/lombard-finance/ledger/releases/download/v1.2.0/ledgerd-v1.1.0-linux-amd64",
+      "darwin/amd64": "https://github.com/lombard-finance/ledger/releases/download/v1.2.0/ledgerd-v1.1.0-darwin-amd64",
+      "darwin/arm64": "https://github.com/lombard-finance/ledger/releases/download/v1.2.0/ledgerd-v1.1.0-darwin-arm64"
+    }
+  },
+  "peers": {},
+  "apis": {
+    "rpc": [],
+    "rest": [],
+    "grpc": []
+  },
+  "explorers": [
+    {
+      "kind": "Mintscan",
+      "url": "https://www.mintscan.io/lombard-testnet",
+      "tx_page": "https://www.mintscan.io/lombard-testnet/tx/${txHash}"
+    }
+  ]
+}

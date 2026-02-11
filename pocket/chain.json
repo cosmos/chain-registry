@@ -1,0 +1,135 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "pocket",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://pocket.network/",
+  "pretty_name": "Pocket Network",
+  "chain_type": "cosmos",
+  "chain_id": "pocket",
+  "bech32_prefix": "pokt",
+  "daemon_name": "pocketd",
+  "node_home": "$HOME/.pocket",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "description": "Pocket Network is a decentralized infrastructure protocol that incentivizes a global network of node operators to provide reliable and cost-effective data access for applications across multiple platforms, including blockchains, AI services, and other APIs.",
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "upokt",
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.001,
+        "average_gas_price": 0.002,
+        "high_gas_price": 0.0025
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "upokt"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/pokt-network/poktroll",
+    "recommended_version": "v0.1.1",
+    "compatible_versions": [
+      "v0.1.1"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/pokt-network/poktroll/releases/download/v0.1.1/pocket_linux_amd64.tar.gz",
+      "linux/arm64": "https://github.com/pokt-network/poktroll/releases/download/v0.1.1/pocket_linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/pokt-network/poktroll/releases/download/v0.1.1/pocket_darwin_amd64.tar.gz",
+      "darwin/arm64": "https://github.com/pokt-network/poktroll/releases/download/v0.1.1/pocket_darwin_arm64.tar.gz"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.12"
+    },
+    "genesis": {
+      "name": "v0.1.1",
+      "genesis_url": "https://raw.githubusercontent.com/pokt-network/pocket-network-genesis/refs/heads/master/shannon/mainnet/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.13"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.7.0"
+    },
+    "cosmwasm": {
+      "enabled": false
+    },
+    "tag": "v0.1.1"
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pocket/images/pokt-icon.png",
+      "theme": {
+        "circle": true
+      }
+    },
+    {
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pocket/images/pokt-icon.svg",
+      "theme": {
+        "circle": true
+      }
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/pocket/images/pokt-icon.png"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "b5b11240b89c9fb86fb8dc78915d454fa0527465",
+        "address": "shannon-grove-seed1.mainnet.poktroll.com:26656",
+        "provider": "Grove"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://shannon-grove-rpc.mainnet.poktroll.com",
+        "provider": "Grove"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://shannon-grove-api.mainnet.poktroll.com",
+        "provider": "Grove"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "🔍 Pocket Explorer by Soothe 🔎",
+      "url": "https://shannon.trustsoothe.io",
+      "tx_page": "https://shannon.trustsoothe.io/tx/${txHash}",
+      "account_page": "https://shannon.trustsoothe.io/accounts/${accountAddress}"
+    },
+    {
+      "kind": "🗺 Pocket Explorer by Stakenodes.org 🗺",
+      "url": "https://shannon.pokt.network",
+      "tx_page": "https://shannon.pokt.network/tx/${txHash}",
+      "account_page": "https://shannon.pokt.network/poktroll/account/${accountAddress}"
+    },
+    {
+      "kind": "🗺 Ping Pub fork Explorer by Blockval",
+      "url": "https://explorer.blockval.io/pocket",
+      "tx_page": "https://explorer.blockval.io/pocket/tx/${txHash}",
+      "account_page": "https://explorer.blockval.io/pocket/account/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "rpc",
+    "api",
+    "modular",
+    "data"
+  ]
+}
