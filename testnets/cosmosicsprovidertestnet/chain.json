@@ -19,7 +19,7 @@
         "denom": "uatom",
         "fixed_min_gas_price": 0.005,
         "low_gas_price": 0.01,
-        "average_gas_price": 0.025,
+        "average_gas_price": 0.02,
         "high_gas_price": 0.03
       }
     ]
@@ -33,48 +33,59 @@
   },
   "codebase": {
     "git_repo": "https://github.com/cosmos/gaia",
-    "recommended_version": "v22.0.0-rc0",
+    "recommended_version": "v26.0.0-rc0",
     "compatible_versions": [
-      "v22.0.0-rc0"
+      "v26.0.0-rc0"
     ],
     "consensus": {
       "type": "cometbft",
-      "version": "v0.38.15"
+      "version": "v0.38.21"
     },
     "binaries": {
-      "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v22.0.0-rc0/gaiad-v22.0.0-rc0-linux-amd64",
-      "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v22.0.0-rc0/gaiad-v22.0.0-rc0-darwin-amd64",
-      "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v22.0.0-rc0/gaiad-v22.0.0-rc0-darwin-arm64"
+      "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v26.0.0-rc0/gaiad-v26.0.0-rc0-linux-amd64",
+      "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v26.0.0-rc0/gaiad-v26.0.0-rc0-darwin-amd64",
+      "darwin/arm64": "https://github.com/cosmos/gaia/releases/download/v26.0.0-rc0/gaiad-v26.0.0-rc0-darwin-arm64"
     },
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/cosmos/testnets/master/interchain-security/provider/provider-genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/cosmos/testnets/master/provider/provider-genesis.json"
     },
     "sdk": {
       "type": "cosmos",
-      "version": "v0.50.11",
-      "tag": "v0.50.11-lsm"
+      "version": "v0.53.4",
+      "tag": "v0.53.4"
     },
     "ibc": {
       "type": "go",
-      "version": "v8.5.2"
-    }
+      "version": "v10.5.0"
+    },
+    "cosmwasm": {
+      "version": "v0.60.2",
+      "repo": "https://github.com/CosmWasm/wasmd",
+      "tag": "v0.60.2"
+    },
+    "tag": "v26.0.0-rc0"
   },
   "peers": {
     "seeds": [
       {
         "id": "08ec17e86dac67b9da70deb20177655495a55407",
-        "address": "provider-seed-01.ics-testnet.polypore.xyz:26656",
+        "address": "provider-seed-01.hub-testnet.polypore.xyz:26656",
         "provider": "Hypha"
       },
       {
         "id": "4ea6e56300a2f37b90e58de5ee27d1c9065cf871",
-        "address": "provider-seed-02.ics-testnet.polypore.xyz:26656",
+        "address": "provider-seed-02.hub-testnet.polypore.xyz:26656",
         "provider": "Hypha"
       },
       {
         "id": "84871382a3ffa5e781034b6519126f2d5ea29f15",
         "address": "cosmos-testnet-seed.itrocket.net:21656",
         "provider": "ITRocket"
+      },
+      {
+        "id": "496ac0ba20188f70f41e0a814dfd4d9a617338f8",
+        "address": "cosmos-testnet-seed.ibs.team:16673",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "persistent_peers": [
@@ -88,67 +99,75 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.provider-sentry-01.ics-testnet.polypore.xyz",
+        "address": "https://rpc.provider-sentry-01.hub-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://rpc.provider-sentry-02.ics-testnet.polypore.xyz",
+        "address": "https://rpc.provider-sentry-02.hub-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://rpc.provider-state-sync-01.ics-testnet.polypore.xyz",
+        "address": "https://rpc.provider-state-sync-01.hub-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://rpc.provider-state-sync-02.ics-testnet.polypore.xyz",
+        "address": "https://rpc.provider-state-sync-02.hub-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
         "address": "https://cosmos-testnet-rpc.itrocket.net",
         "provider": "ITRocket"
+      },
+      {
+        "address": "https://cosmos-testnet-rpc.ibs.team",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "rest": [
       {
-        "address": "https://rest.provider-sentry-01.ics-testnet.polypore.xyz",
+        "address": "https://rest.provider-sentry-01.hub-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://rest.provider-sentry-02.ics-testnet.polypore.xyz",
+        "address": "https://rest.provider-sentry-02.hub-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://rest.provider-state-sync-01.ics-testnet.polypore.xyz",
+        "address": "https://rest.provider-state-sync-01.hub-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://rest.provider-state-sync-02.ics-testnet.polypore.xyz",
+        "address": "https://rest.provider-state-sync-02.hub-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
         "address": "https://cosmos-testnet-api.itrocket.net",
         "provider": "ITRocket"
+      },
+      {
+        "address": "https://cosmos-testnet-api.ibs.team",
+        "provider": "Inter Blockchain Services"
       }
     ],
     "grpc": [
       {
-        "address": "https://grpc.provider-sentry-01.ics-testnet.polypore.xyz",
+        "address": "https://grpc.provider-sentry-01.hub-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://grpc.provider-sentry-02.ics-testnet.polypore.xyz",
+        "address": "https://grpc.provider-sentry-02.hub-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://grpc.provider-state-sync-01.ics-testnet.polypore.xyz",
+        "address": "https://grpc.provider-state-sync-01.hub-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://grpc.provider-state-sync-02.ics-testnet.polypore.xyz",
+        "address": "https://grpc.provider-state-sync-02.hub-testnet.polypore.xyz",
         "provider": "Hypha"
       },
       {
-        "address": "https://cosmos-testnet-grpc.itrocket.net",
+        "address": "cosmos-testnet-grpc.itrocket.net:443",
         "provider": "ITRocket"
       }
     ]

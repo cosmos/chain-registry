@@ -37,15 +37,38 @@
   },
   "codebase": {
     "git_repo": "https://github.com/persistenceOne/persistenceCore",
-    "recommended_version": "v9.1.1",
+    "recommended_version": "v16.0.0-rc0",
     "compatible_versions": [
-      "v9.1.1"
+      "v16.0.0-rc0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v9.1.1/persistenceCore-v9.1.1-linux-amd64.tar.gz"
+      "linux/amd64": "https://github.com/persistenceOne/persistenceCore/releases/download/v16.0.0-rc0/persistenceCore-v16.0.0-rc0-linux-amd64.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/persistenceOne/networks/auditOne/test-core-2/test-core-2/genesis.json"
+    },
+    "tag": "v16.0.0-rc0",
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.53.4",
+      "tag": "v0.53.4",
+      "repo": "https://github.com/cosmos/cosmos-sdk"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.19"
+    },
+    "cosmwasm": {
+      "version": "v0.60.2",
+      "enabled": true
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v10.4.0",
+      "ics_enabled": [
+        "ics20-1",
+        "ics27-1"
+      ]
     }
   },
   "peers": {
@@ -165,6 +188,12 @@
       "url": "https://testnet-explorer.baryon.dev/test-core-2",
       "tx_page": "https://testnet-explorer.baryon.dev/test-core-2/tx/{txHash}",
       "account_page": "https://testnet-explorer.baryon.dev/test-core-2/account/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://testnet.persistence.valopers.com/",
+      "tx_page": "https://testnet.persistence.valopers.com/transactions/${txHash}",
+      "account_page": "https://testnet.persistence.valopers.com/account/${accountAddress}"
     }
   ]
 }

@@ -16,7 +16,19 @@
       {
         "denom": "ukopi",
         "low_gas_price": 0.01,
-        "average_gas_price":  0.025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.03
+      },
+      {
+        "denom": "ukusd",
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.03
+      },
+      {
+        "denom": "ibc/295548A78785A1007F232DE286149A6FF512F180AF5657780FC89C009E2C348F",
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
         "high_gas_price": 0.03
       }
     ]
@@ -33,7 +45,10 @@
     "recommended_version": "v0.6.5.1",
     "genesis": {
       "genesis_url": "https://data.kopi.money/genesis.json"
-    }
+    },
+    "compatible_versions": [
+      "v0.6.5.1"
+    ]
   },
   "logo_URIs": {
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/kopi.svg"
@@ -81,11 +96,21 @@
         "id": "db38ce21eb11a9d9d45cfac6fa7694e79e7336ca",
         "address": "95.217.154.60:26656",
         "provider": "Chaintools"
-      },  
+      },
       {
         "id": "2f53870a9c535760a8dadb2f8bca2e060afa78c5",
         "address": "kopi-rpc.moonbridge.org:19904",
         "provider": "Moonbridge"
+      },
+      {
+        "id": "8b5df241783a2cb6ae1e299db2757933927e14a0",
+        "address": "kopi-peers.node39.top:15656",
+        "provider": "Node39"
+      },
+      {
+        "id": "feba2b9885f836d7224b5d13e60c7f1b5bfc10ed",
+        "address": "91.223.3.148:16656",
+        "provider": "Quasar"
       }
     ]
   },
@@ -142,6 +167,14 @@
       {
         "address": "https://rpc.kopi.nodestake.org",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://kopi-rpc.node39.top:443",
+        "provider": "Node39"
+      },
+      {
+        "address": "https://kopi.rpc.quasarstaking.ai:443",
+        "provider": "Quasar"
       }
     ],
     "rest": [
@@ -150,7 +183,7 @@
         "provider": "Kopi Foundation"
       },
       {
-        "address": "https://rpc.kopi.chaintools.tech",
+        "address": "https://api.kopi.chaintools.tech",
         "provider": "Chaintools"
       },
       {
@@ -192,6 +225,14 @@
       {
         "address": "https://api.kopi.nodestake.org",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://kopi-api.node39.top:443",
+        "provider": "Node39"
+      },
+      {
+        "address": "https://kopi.api.quasarstaking.ai:443",
+        "provider": "Quasar"
       }
     ],
     "grpc": [
@@ -222,6 +263,14 @@
       {
         "address": "https://grpc.kopi.nodestake.org:443",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://kopi-grpc.node39.top:15090",
+        "provider": "Node39"
+      },
+      {
+        "address": "kopi.grpc.quasarstaking.ai:80",
+        "provider": "Quasar"
       }
     ]
   },
@@ -273,6 +322,12 @@
       "url": "https://explorer.nodestake.org/kopi/",
       "tx_page": "https://explorer.nodestake.org/kopi/txs/${txHash}",
       "account_page": "https://explorer.nodestake.org/kopi/account/${accountAddress}"
+    },
+    {
+      "kind": "Node39 Explorer",
+      "url": "https://explorer.node39.top/kopi/",
+      "tx_page": "https://explorer.node39.top/kopi/txs/${txHash}",
+      "account_page": "https://explorer.node39.top/kopi/account/${accountAddress}"
     }
   ],
   "images": [

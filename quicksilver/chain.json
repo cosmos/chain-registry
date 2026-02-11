@@ -1,11 +1,11 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "quicksilver",
+  "chain_type": "cosmos",
   "status": "live",
   "network_type": "mainnet",
   "website": "https://quicksilver.zone/",
   "pretty_name": "Quicksilver",
-  "chain_type": "cosmos",
   "chain_id": "quicksilver-2",
   "daemon_name": "quicksilverd",
   "node_home": "$HOME/.quicksilverd",
@@ -27,31 +27,38 @@
       {
         "denom": "uqck"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
   },
   "codebase": {
-    "git_repo": "https://github.com/ingenuity-build/quicksilver",
-    "recommended_version": "v1.6.3",
+    "git_repo": "https://github.com/quicksilver-zone/quicksilver",
+    "recommended_version": "v1.7.7",
     "compatible_versions": [
-      "v1.6.3"
+      "v1.7.7"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/ingenuity-build/quicksilver/releases/download/v1.6.3/quicksilverd-v1.6.3-amd64"
-    },
-    "consensus": {
-      "type": "cometbft",
-      "version": "v0.34.33"
-    },
-    "genesis": {
-      "genesis_url": "https://github.com/ingenuity-build/mainnet/raw/main/genesis.json"
+      "linux/amd64": "https://github.com/quicksilver-zone/quicksilver/releases/download/v1.7.7/quicksilverd-v1.7.7-amd64"
     },
     "sdk": {
       "type": "cosmos",
       "version": "v0.46.16"
     },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.34.33"
+    },
     "ibc": {
       "type": "go",
       "version": "v6.3.1"
+    },
+    "language": {
+      "type": "go",
+      "version": "1.23.3"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/quicksilver-zone/networks/refs/heads/main/mainnet/quicksilver-2/genesis.json"
     }
   },
   "logo_URIs": {
@@ -74,22 +81,17 @@
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:11156",
-        "provider": "Lavender.Five Nodes \ud83d\udc1d"
-      },
-      {
-        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
-        "address": "seed.rhinostake.com:11156",
-        "provider": "rhinostake"
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "quicksilver-mainnet-seed.autostake.com:27026",
-        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
@@ -102,26 +104,26 @@
         "provider": "TAKESHI"
       },
       {
-        "id": "559e316b30830ddd5e93617592ef70330ecce86d",
-        "address": "seed-quicksilver.ibs.team:16668",
-        "provider": "Inter Blockchain Services"
-      },
-      {
         "id": "95fe6a416dff4150e0394f8b429743db60ea1327",
         "address": "seed-node.mms.team:27656",
         "provider": "MMS"
       },
       {
-        "id": "20783f43c3b574e9020d22be3415f8a545f0617f",
-        "address": "seed.quicksilver.validatus.com:4000",
+        "id": "c18308eea67858b94c0c83bb26974440401d9923",
+        "address": "seed.quicksilver.validatus.com:2040",
         "provider": "Validatus"
+      },
+      {
+        "id": "719ddc260d5bbd17a7c6ed4219bdbad60d423d96",
+        "address": "mainnet.seednode.citizenweb3.com:28656",
+        "provider": "Citizen Web3"
       }
     ],
     "persistent_peers": [
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "quicksilver-mainnet-peer.autostake.com:27026",
-        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "id": "3461638afd470034067392e5dba8dcf6de49f81f",
@@ -136,7 +138,7 @@
       {
         "id": "ae44851a5d63d70382c1621bc7727db2a40d10d0",
         "address": "quick.peers.stavr.tech:21026",
-        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+        "provider": "🔥STAVR🔥"
       },
       {
         "id": "58fe3a7b075e7302f8b46b8171a0aa19ff4a427a",
@@ -167,46 +169,31 @@
         "id": "66a0cd5eff87ec7b1ea2e3b41032c1c2d22aa284",
         "address": "mainnet-quicksilver.konsortech.xyz:46657",
         "provider": "KonsorTech"
+      },
+      {
+        "id": "719ddc260d5bbd17a7c6ed4219bdbad60d423d96",
+        "address": "78.46.79.242:28656",
+        "provider": "Citizen Web3"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-quicksilver.takeshi.team:443",
-        "provider": "TAKESHI"
-      },
-      {
         "address": "https://rpc.quicksilver.zone:443",
         "provider": "Quicksilver"
       },
       {
-        "address": "https://rpc-quicksilver-ia.cosmosia.notional.ventures:443",
-        "provider": "Notional"
-      },
-      {
-        "address": "https://rpc.lavenderfive.com:443/quicksilver",
-        "provider": "Lavender.Five Nodes \ud83d\udc1d"
-      },
-      {
-        "address": "https://rpc-quicksilver.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
+        "address": "https://quicksilver-rpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://m-quicksilver.rpc.utsa.tech",
-        "provider": "\ud835\udc25\ud835\udc1e\ud835\udc2c\ud835\udc27\ud835\udc22\ud835\udc24 | \ud835\udc14\ud835\udc13\ud835\udc12\ud835\udc00"
+        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
       },
       {
         "address": "http://quick.rpc.m.stavr.tech:21027",
-        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
-      },
-      {
-        "address": "https://quicksilver-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
-      },
-      {
-        "address": "https://quicksilver-rpc.ibs.team:443",
-        "provider": "Inter Blockchain Services"
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "https://quicksilver.rpc.kjnodes.com",
@@ -217,28 +204,12 @@
         "provider": "Architect Nodes"
       },
       {
-        "address": "https://rpc.quicksilver.indonode.net",
-        "provider": "Indonode"
-      },
-      {
         "address": "https://quicksilver-rpc.staketab.org:443",
         "provider": "Staketab"
       },
       {
-        "address": "https://quicksilver-rpc.theamsolutions.info",
-        "provider": "AM Solutions"
-      },
-      {
-        "address": "https://quicksilver-rpc.w3coins.io",
-        "provider": "w3coins"
-      },
-      {
-        "address": "https://rpc-quicksilver.mms.team/",
-        "provider": "MMS"
-      },
-      {
         "address": "https://quicksilver-rpc.publicnode.com:443",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "https://quicksilver-rpc.stake-town.com",
@@ -259,68 +230,40 @@
       {
         "address": "https://quicksilver-rpc.noders.services",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://rpc.quicksilver.citizenweb3.com",
+        "provider": "Citizen Web3"
       }
     ],
     "rest": [
       {
-        "address": "https://api-quicksilver.takeshi.team:443",
-        "provider": "TAKESHI"
+        "address": "https://lcd.quicksilver.zone:443",
+        "provider": "Quicksilver"
       },
       {
-        "address": "https://api-quicksilver-ia.cosmosia.notional.ventures:443",
-        "provider": "Notional"
-      },
-      {
-        "address": "https://rest.lavenderfive.com:443/quicksilver",
-        "provider": "Lavender.Five Nodes \ud83d\udc1d"
-      },
-      {
-        "address": "https://api-quicksilver.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
-      },
-      {
-        "address": "https://quicksilver-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
+        "address": "https://quicksilver-api.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://m-quicksilver.api.utsa.tech",
-        "provider": "\ud835\udc25\ud835\udc1e\ud835\udc2c\ud835\udc27\ud835\udc22\ud835\udc24 | \ud835\udc14\ud835\udc13\ud835\udc12\ud835\udc00"
+        "provider": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀"
       },
       {
         "address": "https://quick.api.m.stavr.tech",
-        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
-      },
-      {
-        "address": "https://quicksilver.api.kjnodes.com",
-        "provider": "kjnodes"
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "https://rest-quicksilver.architectnodes.com",
         "provider": "Architect Nodes"
       },
       {
-        "address": "https://api.quicksilver.indonode.net",
-        "provider": "Indonode"
-      },
-      {
         "address": "https://quicksilver-rest.staketab.org",
         "provider": "Staketab"
       },
       {
-        "address": "https://quicksilver-api.theamsolutions.info",
-        "provider": "AM Solutions"
-      },
-      {
-        "address": "https://quicksilver-api.w3coins.io",
-        "provider": "w3coins"
-      },
-      {
-        "address": "https://api-quicksilver.mms.team",
-        "provider": "MMS"
-      },
-      {
         "address": "https://quicksilver-rest.publicnode.com",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "https://quicksilver-api.stake-town.com",
@@ -341,72 +284,28 @@
       {
         "address": "https://quicksilver-api.noders.services",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://api.quicksilver.citizenweb3.com",
+        "provider": "Citizen Web3"
       }
     ],
     "grpc": [
       {
-        "address": "grpc-quicksilver.takeshi.team:443",
-        "provider": "TAKESHI"
-      },
-      {
-        "address": "grpc-quicksilver-ia.cosmosia.notional.ventures:443",
-        "provider": "Notional"
-      },
-      {
-        "address": "quicksilver.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes \ud83d\udc1d"
-      },
-      {
-        "address": "quicksilver.grpc.nodersteam.com:9161",
-        "provider": "[NODERS]TEAM"
-      },
-      {
-        "address": "grpc-quicksilver.cosmos-spaces.cloud:3300",
-        "provider": "Cosmos Spaces"
-      },
-      {
-        "address": "quicksilver-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake \ud83d\udee1\ufe0f Slash Protected"
-      },
-      {
-        "address": "quicksilver.grpc.kjnodes.com:11190",
-        "provider": "kjnodes"
+        "address": "quicksilver-grpc.lavenderfive.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "quick.grpc.m.stavr.tech:9113",
-        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+        "provider": "🔥STAVR🔥"
       },
       {
         "address": "grpc-quicksilver.architectnodes.com:1443",
         "provider": "Architect Nodes"
       },
       {
-        "address": "archive-grpc-quicksilver.huginn.tech:9090",
-        "provider": "Huginn"
-      },
-      {
-        "address": "https://grpc.quicksilver.indonode.net:28090",
-        "provider": "Indonode"
-      },
-      {
-        "address": "services.staketab.com:9034",
-        "provider": "Staketab"
-      },
-      {
-        "address": "https://quicksilver-grpc.theamsolutions.info:9797",
-        "provider": "AM Solutions"
-      },
-      {
-        "address": "quicksilver-grpc.w3coins.io:11190",
-        "provider": "w3coins"
-      },
-      {
-        "address": "grpc-quicksilver.mms.team:443",
-        "provider": "MMS"
-      },
-      {
         "address": "quicksilver-grpc.publicnode.com:443",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "quicksilver-grpc.stake-town.com:443",
@@ -417,25 +316,25 @@
         "provider": "KonsorTech"
       },
       {
-        "address": "https://quicksilver.tdrsys.com:2083",
+        "address": "quicksilver.tdrsys.com:2083",
         "provider": "TdrSys"
       },
       {
-        "address": "grpc.quicksilver.validatus.com",
-        "provider": "Validatus"
+        "address": "grpc.quicksilver.citizenweb3.com:443",
+        "provider": "Citizen Web3"
       },
       {
-        "address": "quicksilver-grpc.noders.services:16090",
-        "provider": "[NODERS]TEAM"
+        "address": "grpc.quicksilver.validatus.com:443",
+        "provider": "Validatus"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "mintscan",
-      "url": "https://www.mintscan.io/quicksilver",
-      "tx_page": "https://www.mintscan.io/quicksilver/transactions/${txHash}",
-      "account_page": "https://www.mintscan.io/quicksilver/accounts/${accountAddress}"
+      "kind": "stakeme",
+      "url": "https://explorer.quicksilver.zone",
+      "tx_page": "https://explorer.quicksilver.zone/transactions/${txHash}",
+      "account_page": "https://explorer.quicksilver.zone/account/${accountAddress}"
     },
     {
       "kind": "ezstaking",
@@ -444,44 +343,31 @@
       "account_page": "https://ezstaking.app/quicksilver/account/${accountAddress}"
     },
     {
-      "kind": "staking-explorer.com",
-      "url": "https://staking-explorer.com/explorer/quicksilver",
-      "tx_page": "https://staking-explorer.com/transaction.php?chain=quicksilver&tx=${txHash}",
-      "account_page": "https://staking-explorer.com/account.php?chain=quicksilver&addr=${accountAddress}"
-    },
-    {
-      "kind": "\ud835\udc25\ud835\udc1e\ud835\udc2c\ud835\udc27\ud835\udc22\ud835\udc24 | \ud835\udc14\ud835\udc13\ud835\udc12\ud835\udc00 explorer",
+      "kind": "𝐥𝐞𝐬𝐧𝐢𝐤 | 𝐔𝐓𝐒𝐀 explorer",
       "url": "https://exp.utsa.tech/quicksilver",
       "tx_page": "https://exp.utsa.tech/quicksilver/tx/${txHash}"
     },
     {
-      "kind": "\ud83d\udd25STAVR\ud83d\udd25 explorer",
+      "kind": "🔥STAVR🔥 explorer",
       "url": "https://explorer.stavr.tech/quicksilver-mainnet",
       "tx_page": "https://explorer.stavr.tech/quicksilver-mainnet/tx/${txHash}"
-    },
-    {
-      "kind": "Stake-Take",
-      "url": "https://explorer.stake-take.com/quicksilver",
-      "tx_page": "https://explorer.stake-take.com/quicksilver/tx/${txHash}"
-    },
-    {
-      "kind": "AM Solutions Explorers",
-      "url": "https://explorer.theamsolutions.info/quicksilver-main/staking",
-      "tx_page": "https://explorer.theamsolutions.info/quicksilver-main/tx/${txHash}"
     },
     {
       "kind": "KonsorTech",
       "url": "https://explorer.konsortech.xyz/quicksilver/staking",
       "tx_page": "https://explorer.konsortech.xyz/quicksilver/tx/${txHash}"
+    },
+    {
+      "kind": "Validatorinfo",
+      "url": "https://validatorinfo.com/networks/quicksilver/overview",
+      "validator_page": "https://validatorinfo.com/networks/quicksilver/validators",
+      "proposal_page": "https://validatorinfo.com/networks/quicksilver/governance"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quicksilver/images/qck.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quicksilver/images/qck.svg",
-      "theme": {
-        "primary_color_hex": "#b2b2b2"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quicksilver/images/qck.svg"
     }
   ]
 }

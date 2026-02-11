@@ -18,6 +18,16 @@
       "name": "Injective",
       "display": "INJ",
       "symbol": "INJ",
+      "traces": [
+        {
+          "type": "test-mintage",
+          "counterparty": {
+            "chain_name": "injective",
+            "base_denom": "inj"
+          },
+          "provider": "Injective"
+        }
+      ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg"
@@ -25,8 +35,150 @@
       "coingecko_id": "injective-protocol",
       "images": [
         {
+          "image_sync": {
+            "chain_name": "injective",
+            "base_denom": "inj"
+          },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg"
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "USDC is a USD-pegged stablecoin available on the Injective testnet.",
+      "denom_units": [
+        {
+          "denom": "factory/inj17vytdwqczqz72j65saukplrktd4gyfme5agf6c/usdc",
+          "exponent": 0
+        },
+        {
+          "denom": "USDC",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/inj17vytdwqczqz72j65saukplrktd4gyfme5agf6c/usdc",
+      "name": "USD Coin",
+      "display": "USDC",
+      "symbol": "USDC",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      },
+      "coingecko_id": "usd-coin",
+      "traces": [
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "ethereumtestnet",
+            "base_denom": "0x254d06f33bDc5b8ee05b2ea472107E300226659A"
+          },
+          "provider": "Circle"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereumtestnet",
+            "base_denom": "0x254d06f33bDc5b8ee05b2ea472107E300226659A"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true
+          }
+        }
+      ],
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "OSMO is the native token of the Osmosis blockchain, bridged over to the Injective testnet.",
+      "denom_units": [
+        {
+          "denom": "ibc/FA130DEB2B506FA0A7258B46A6B72DE12370B25E474E6679F054D95277164186",
+          "exponent": 0
+        },
+        {
+          "denom": "OSMO",
+          "exponent": 6
+        }
+      ],
+      "base": "ibc/FA130DEB2B506FA0A7258B46A6B72DE12370B25E474E6679F054D95277164186",
+      "name": "Osmosis",
+      "display": "OSMO",
+      "symbol": "OSMO",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
+      },
+      "coingecko_id": "osmosis",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosistestnet",
+            "base_denom": "uosmo",
+            "channel_id": "channel-10092"
+          },
+          "chain": {
+            "channel_id": "channel-77026",
+            "path": "transfer/channel-77026/uosmo"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "osmosistestnet",
+            "base_denom": "uosmo"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
+        }
+      ],
+      "type_asset": "ics20"
+    },
+    {
+      "description": "USDT is a USD-pegged stablecoin available on the Injective testnet.",
+      "denom_units": [
+        {
+          "denom": "peggy0x87aB3B4C8661e07D6372361211B96ed4Dc36B1B5",
+          "exponent": 0
+        },
+        {
+          "denom": "USDT",
+          "exponent": 6
+        }
+      ],
+      "base": "peggy0x87aB3B4C8661e07D6372361211B96ed4Dc36B1B5",
+      "name": "Tether",
+      "display": "USDT",
+      "symbol": "USDT",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+      },
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "ethereumtestnet",
+            "base_denom": "0xaA8E23Fb1079EA71e0a56F48a2aA51851D8433D0"
+          },
+          "provider": "Peggy"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereumtestnet",
+            "base_denom": "0xaA8E23Fb1079EA71e0a56F48a2aA51851D8433D0"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
+          "theme": {
+            "circle": true
+          }
         }
       ],
       "type_asset": "sdk.coin"

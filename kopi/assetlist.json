@@ -4,6 +4,7 @@
   "assets": [
     {
       "description": "The native token of kopi",
+      "extended_description": "Kopi provides a full suite of DeFi applications all built into the native L1 and automations that will allow users to automate all things defi without a single line of code, has it's own stablecoin and a 'global' liquidity pool. ",
       "denom_units": [
         {
           "denom": "ukopi",
@@ -33,8 +34,9 @@
         "automations"
       ],
       "socials": {
-        "twitter": "https://x.com/kopi_money",
-        "discord": "https://discord.gg/kopi-money"
+        "website": "https://kopi.money/",
+        "discord": "https://discord.gg/kopi-money",
+        "x": "https://x.com/kopi_money"
       },
       "type_asset": "sdk.coin"
     },
@@ -79,8 +81,8 @@
         "arbitrage"
       ],
       "socials": {
-        "twitter": "https://x.com/kopi_money",
-        "discord": "https://discord.gg/kopi-money"
+        "discord": "https://discord.gg/kopi-money",
+        "x": "https://x.com/kopi_money"
       },
       "type_asset": "sdk.coin"
     },
@@ -101,11 +103,11 @@
       "display": "ckUSD",
       "symbol": "CKUSD",
       "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/kusd.svg"
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/ckusd.svg"
       },
       "images": [
         {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/kusd.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/ckusd.svg"
         }
       ],
       "keywords": [
@@ -113,8 +115,8 @@
         "mm"
       ],
       "socials": {
-        "twitter": "https://x.com/kopi_money",
-        "discord": "https://discord.gg/kopi-money"
+        "discord": "https://discord.gg/kopi-money",
+        "x": "https://x.com/kopi_money"
       },
       "type_asset": "sdk.coin"
     },
@@ -135,11 +137,11 @@
       "display": "cUSDC",
       "symbol": "CUSDC",
       "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/cusdc.svg"
       },
       "images": [
         {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/cusdc.svg"
         }
       ],
       "keywords": [
@@ -163,13 +165,13 @@
       "base": "ucusdtinj",
       "name": "cUSDT.inj",
       "display": "cUSDT.inj",
-      "symbol": "CUSDT.inj",
+      "symbol": "cUSDT.inj",
       "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/cusdt.svg"
       },
       "images": [
         {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/cusdt.svg"
         }
       ],
       "keywords": [
@@ -177,13 +179,12 @@
         "mm"
       ],
       "type_asset": "sdk.coin"
-     
     },
     {
       "description": "USDC from Noble Chain",
       "denom_units": [
         {
-          "denom": "ibc/8E27BA2D5493AF5636760E354E46004562C46AB7EC0CC4C1CA14E9E20E2545B5",
+          "denom": "ibc/295548A78785A1007F232DE286149A6FF512F180AF5657780FC89C009E2C348F",
           "exponent": 0
         },
         {
@@ -191,16 +192,25 @@
           "exponent": 6
         }
       ],
-      "base": "ibc/8E27BA2D5493AF5636760E354E46004562C46AB7EC0CC4C1CA14E9E20E2545B5",
+      "base": "ibc/295548A78785A1007F232DE286149A6FF512F180AF5657780FC89C009E2C348F",
       "name": "USDC",
       "display": "USDC",
       "symbol": "USDC",
       "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
       },
       "images": [
         {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+          "image_sync": {
+            "chain_name": "noble",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true
+          }
         }
       ],
       "keywords": [
@@ -214,14 +224,15 @@
           "counterparty": {
             "chain_name": "noble",
             "base_denom": "uusdc",
-            "channel_id": "channel-109"
+            "channel_id": "channel-122"
           },
           "chain": {
-            "channel_id": "channel-0",
-            "path": "transfer/channel-0/uusdc"
+            "channel_id": "channel-9",
+            "path": "transfer/channel-9/uusdc"
           }
         }
-      ]
+      ],
+      "coingecko_id": "usd-coin"
     },
     {
       "description": "USDT from injective Chain",
@@ -240,11 +251,20 @@
       "display": "USDT.inj",
       "symbol": "USDT.inj",
       "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
       },
       "images": [
         {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+          "image_sync": {
+            "chain_name": "injective",
+            "base_denom": "peggy0xdAC17F958D2ee523a2206206994597C13D831ec7"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
+          "theme": {
+            "circle": true
+          }
         }
       ],
       "keywords": [
@@ -284,10 +304,16 @@
       "display": "INJ",
       "symbol": "INJ",
       "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg"
       },
       "images": [
         {
+          "image_sync": {
+            "chain_name": "injective",
+            "base_denom": "inj"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg"
         }
       ],
@@ -309,7 +335,8 @@
             "path": "transfer/channel-1/inj"
           }
         }
-      ]
+      ],
+      "coingecko_id": "injective-protocol"
     },
     {
       "description": "Luna from Terra2 Chain",
@@ -328,10 +355,16 @@
       "display": "Luna",
       "symbol": "LUNA",
       "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.svg"
       },
       "images": [
         {
+          "image_sync": {
+            "chain_name": "terra2",
+            "base_denom": "uluna"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.svg"
         }
       ],
@@ -353,13 +386,14 @@
             "path": "transfer/channel-5/uluna"
           }
         }
-      ]
+      ],
+      "coingecko_id": "terra-luna-2"
     },
     {
       "description": "Osmosis from Osmosis Chain",
       "denom_units": [
         {
-          "denom": "ibc/646315E3B0461F5FA4C5C8968A88FC45D4D5D04A45B98F1B8294DD82F386DD85",
+          "denom": "ibc/376222D6D9DAE23092E29740E56B758580935A6D77C24C2ABD57A6A78A1F3955",
           "exponent": 0
         },
         {
@@ -367,15 +401,21 @@
           "exponent": 6
         }
       ],
-      "base": "ibc/646315E3B0461F5FA4C5C8968A88FC45D4D5D04A45B98F1B8294DD82F386DD85",
+      "base": "ibc/376222D6D9DAE23092E29740E56B758580935A6D77C24C2ABD57A6A78A1F3955",
       "name": "OSMO",
       "display": "osmo",
       "symbol": "OSMO",
       "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
       },
       "images": [
         {
+          "image_sync": {
+            "chain_name": "osmosis",
+            "base_denom": "uosmo"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
         }
       ],
@@ -390,20 +430,21 @@
           "counterparty": {
             "chain_name": "osmosis",
             "base_denom": "uosmo",
-            "channel_id": "channel-88475"
+            "channel_id": "channel-97998"
           },
           "chain": {
-            "channel_id": "channel-6",
-            "path": "transfer/channel-6/uosmo"
+            "channel_id": "channel-10",
+            "path": "transfer/channel-10/uosmo"
           }
         }
-      ]
+      ],
+      "coingecko_id": "osmosis"
     },
     {
       "description": "Atom from cosmoshub Chain",
       "denom_units": [
         {
-          "denom": "ibc/25418646C017D377ADF3202FF1E43590D0DAE3346E594E8D78176A139A928F88",
+          "denom": "ibc/A2E2EEC9057A4A1C2C0A6A4C78B0239118DF5F278830F50B4A6BDD7A66506B78",
           "exponent": 0
         },
         {
@@ -411,15 +452,21 @@
           "exponent": 6
         }
       ],
-      "base": "ibc/25418646C017D377ADF3202FF1E43590D0DAE3346E594E8D78176A139A928F88",
+      "base": "ibc/A2E2EEC9057A4A1C2C0A6A4C78B0239118DF5F278830F50B4A6BDD7A66506B78",
       "name": "ATOM",
       "display": "Atom",
       "symbol": "ATOM",
       "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
       },
       "images": [
         {
+          "image_sync": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
         }
       ],
@@ -434,14 +481,15 @@
           "counterparty": {
             "chain_name": "cosmoshub",
             "base_denom": "uatom",
-            "channel_id": "channel-1253"
+            "channel_id": "channel-1351"
           },
           "chain": {
-            "channel_id": "channel-7",
-            "path": "transfer/channel-7/uatom"
+            "channel_id": "channel-15",
+            "path": "transfer/channel-15/uatom"
           }
         }
-      ]
+      ],
+      "coingecko_id": "cosmos"
     },
     {
       "description": "arbitrage receipt token of cUSDT",
@@ -458,13 +506,13 @@
       "base": "uasusdtinj",
       "name": "asUSDT.inj",
       "display": "asusdtinj",
-      "symbol": "ASUSDT.inj",
+      "symbol": "asUSDT.inj",
       "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/asusdt.svg"
       },
       "images": [
         {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/asusdt.svg"
         }
       ],
       "keywords": [
@@ -490,11 +538,11 @@
       "display": "asUSDC",
       "symbol": "ASUSDC",
       "logo_URIs": {
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/asusdc.svg"
       },
       "images": [
         {
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kopi/images/asusdc.svg"
         }
       ],
       "keywords": [

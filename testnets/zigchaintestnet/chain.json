@@ -1,0 +1,150 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "zigchaintestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "ZIGChain Testnet",
+  "website": "https://zigchain.com/",
+  "chain_type": "cosmos",
+  "chain_id": "zig-test-2",
+  "bech32_prefix": "zig",
+  "daemon_name": "zigchaind",
+  "node_home": "$HOME/.zigchain",
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.svg"
+  },
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "description": "ZIGChain (ZIG) is a Layer 1 blockchain focused on unlocking financial opportunities for everyone - regardless of their income, location, or level of knowledge.",
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uzig",
+        "fixed_min_gas_price": 0.0025,
+        "low_gas_price": 0.0025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.05
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uzig"
+      }
+    ],
+    "lock_duration": {
+      "time": "604800s"
+    }
+  },
+  "apis": {
+    "rest": [
+      {
+        "address": "https://testnet-api.zigchain.com",
+        "provider": "ZIGCHAIN"
+      },
+      {
+        "address": "https://public-zigchain-testnet-lcd.numia.xyz/",
+        "provider": "Numia"
+      }
+    ],
+    "rpc": [
+      {
+        "address": "https://testnet-rpc.zigchain.com",
+        "provider": "ZIGCHAIN"
+      },
+      {
+        "address": "https://public-zigchain-testnet-rpc.numia.xyz/",
+        "provider": "Numia"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "zigchain-grpc.327oz4i6b04df1e27394zieudsh.g.eu.link.numia.xyz:9090",
+        "provider": "Numia"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/ZIGChain/zigchain",
+    "recommended_version": "2.0.0",
+    "compatible_versions": [
+      "2.0.0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.19"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.53.4"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "10.1.0"
+    },
+    "cosmwasm": {
+      "version": "0.55.1",
+      "enabled": true
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/ZIGChain/networks/raw/main/zig-test-2/genesis.json"
+    },
+    "binaries": {
+      "linux/amd64": "https://github.com/ZIGChain/networks/raw/refs/heads/main/zig-test-2/binaries/zigchaind-v2.0.0-linux-amd64.tar.gz?checksum=sha256:8f2a4a51fa2d73b7bc61c33d30332fb61e76ed0be4a381a37d27aa17115a9040",
+      "darwin/amd64": "https://github.com/ZIGChain/networks/raw/refs/heads/main/zig-test-2/binaries/zigchaind-v2.0.0-darwin-amd64.tar.gz?checksum=sha256:6269882ccb1caf0af7600f2d24f5aeae7710290aba299d0d4ed607c6e63da803",
+      "darwin/arm64": "https://github.com/ZIGChain/networks/raw/refs/heads/main/zig-test-2/binaries/zigchaind-v2.0.0-darwin-arm64.tar.gz?checksum=sha256:07f59514973d67e0d09c27b1be50da78f3b824518f1ee4735c09322ec1bd3789"
+    },
+    "tag": "v2.0.0"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "dc9725eac15e7887a4b8deb4eddfbf4cf641778f",
+        "address": "testnet-seed0.zigchain.com:26656",
+        "provider": "ZIGCHAIN"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "dc9725eac15e7887a4b8deb4eddfbf4cf641778f",
+        "address": "testnet-seed0.zigchain.com:26656",
+        "provider": "ZIGCHAIN"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "range",
+      "url": "https://app.range.org/address/zigchain-testnet/zigchain",
+      "tx_page": "https://app.range.org/tx/zig-test-2/${txHash}",
+      "account_page": "https://app.range.org/address/zig-test-2/${accountAddress}"
+    },
+    {
+      "kind": "zigscan",
+      "url": "https://testnet.zigscan.org",
+      "tx_page": "https://testnet.zigscan.org/tx/${txHash}",
+      "account_page": "https://testnet.zigscan.org/address/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "wealth generation",
+    "rwa",
+    "staking",
+    "wasm",
+    "testnet"
+  ],
+  "images": [
+    {
+      "image_sync": {
+        "chain_name": "zigchaintestnet",
+        "base_denom": "uzig"
+      },
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.svg"
+    }
+  ]
+}

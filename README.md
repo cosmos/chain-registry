@@ -16,7 +16,7 @@ Once schemas have matured and client needs are better understood Chain Registry 
 
 ## Web Endpoints
 - https://registry.ping.pub (Update every 24H)
-- https://proxy.atomscan.com/directory/ (Update every 24H)
+- https://atomscan.com/directory (Update every 24H)
 - https://cosmoschains.thesilverfox.pro (Updated every 24H)
 
 ## APIs
@@ -26,7 +26,6 @@ Once schemas have matured and client needs are better understood Chain Registry 
 
 ## Web Interfaces
 - https://cosmos.directory
-- https://chain-registry.netlify.com
 - https://atomscan.com/directory
 
 ## Tooling
@@ -39,10 +38,10 @@ Please give Pull Requests a title that somewhat describes the change more precis
 ### Endpoints reachability
 
 The endpoints added here are being tested via CI daily at 00:00 UTC. It is expected that your endpoints return an HTTP 200 in the following paths:
-- rest: `/status`
-- rpc: `/cosmos/base/tendermint/v1beta1/syncing`
+- rest: `/cosmos/base/tendermint/v1beta1/syncing`
+- rpc: `/status`
 - grpc: not tested
-Endpoints that consistently fail to repond successfully may be removed without warning.
+Endpoints that consistently fail to respond successfully may be removed without warning.
 
 Providers ready to be tested daily should be whitelisted here: `.github/workflows/tests/apis.py`
 
@@ -59,7 +58,7 @@ A sample `chain.json` includes the following information.
   "status": "live",
   "website": "https://osmosis.zone/",
   "network_type": "mainnet",
-  "chain_type": "cosmos"
+  "chain_type": "cosmos",
   "pretty_name": "Osmosis",
   "chain_id": "osmosis-1",
   "bech32_prefix": "osmo",
@@ -103,8 +102,7 @@ A sample `chain.json` includes the following information.
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.svg",
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmosis-chain-logo.png",
       "theme": {
-        "circle": true,
-        "primary_color_hex": "#231D4B"
+        "circle": true
       }
     }
   ],
@@ -177,6 +175,15 @@ A sample `chain.json` includes the following information.
 #### Bech32 Prefix
 Although it is not a requirement that bech32 prefixes be unique, it is highly recommended for each chain to have its bech32 prefix registered at the Satoshi Labs Registry (see [SLIP-0173 : Registered human-readable parts for BIP-0173](https://github.com/satoshilabs/slips/blob/master/slip-0173.md)), or consider picking an uncliamed prefix if the chosen prefix has already be registered to another project.
 
+#### Images
+Images must meet specific requirements to be accepted into the chain registry:
+- **Square dimensions** (width must equal height)
+- **File size < 250 KB**
+- **PNG or SVG format only**
+- **lowercase filenames**
+
+For complete image requirements, best practices, and examples, see **[IMAGE-GUIDELINES.md](./IMAGE-GUIDELINES.md)**.
+
 # Assetlists
 
 Asset Lists are inspired by the [Token Lists](https://tokenlists.org/) project on Ethereum which helps discoverability of ERC20 tokens by providing a mapping between erc20 contract addresses and their associated metadata.
@@ -216,8 +223,7 @@ An example assetlist json contains the following structure:
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg",
           "theme": {
-            "circle": false,
-            "primary_color_hex": "#5c09a0"
+            "circle": false
           }
         }
       ],
@@ -228,7 +234,7 @@ An example assetlist json contains the following structure:
       ],
       "socials": {
         "website": "https://osmosis.zone",
-        "twitter": "https://twitter.com/osmosiszone"
+        "x": "https://x.com/osmosis"
       }
     },
     ..
@@ -273,10 +279,7 @@ An example assetlist json contains the following structure:
             "base_denom": "uatom"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg",
-          "theme": {
-            "primary_color_hex": "#272d45"
-          }
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
         }
       ]
     }
@@ -332,9 +335,9 @@ An example ibc metadata file contains the following structure:
 
 ## Versions
 
-The metadata contained in these files represents a path abstraction between two IBC-connected networks. This information is particularly useful when relaying packets and acknowledgments across chains.
+The versions.json is an optional record of version history for a chain. Through automation (sync_versions), version data will periodically be copid from the chain.json::codebase object into the versions.json file.
 
-An example ibc metadata file contains the following structure:
+An example versions file uses the following structure:
 
 ```json
 {

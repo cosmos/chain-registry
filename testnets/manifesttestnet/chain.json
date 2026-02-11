@@ -3,7 +3,7 @@
   "chain_name": "manifesttestnet",
   "status": "live",
   "network_type": "testnet",
-  "website": "https://liftedinit.org/",
+  "website": "https://manifestai.org/",
   "pretty_name": "Manifest Testnet",
   "chain_id": "manifest-ledger-testnet",
   "chain_type": "cosmos",
@@ -15,10 +15,10 @@
     "fee_tokens": [
       {
         "denom": "umfx",
-        "fixed_min_gas_price": 0.001,
-        "low_gas_price": 0.01,
-        "average_gas_price": 0.007,
-        "high_gas_price": 0.1
+        "fixed_min_gas_price": 1,
+        "low_gas_price": 1.05,
+        "average_gas_price": 1.1,
+        "high_gas_price": 3
       }
     ]
   },
@@ -31,15 +31,15 @@
   },
   "codebase": {
     "git_repo": "https://github.com/liftedinit/manifest-ledger",
-    "recommended_version": "v0.0.1-rc.1",
+    "recommended_version": "v1.0.3",
     "compatible_versions": [
-      "v0.0.1-rc.1"
+      "v1.0.3"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/liftedinit/manifest-ledger/releases/download/v0.0.1-rc.1/manifest-ledger-v0.0.1-rc.1-linux-amd64.tar.gz"
+      "linux/amd64": "https://github.com/liftedinit/manifest-ledger/releases/download/v1.0.3/manifest-ledger-v1.0.3-linux-amd64.tar.gz"
     },
     "genesis": {
-      "genesis_url": "https://github.com/liftedinit/manifest-ledger/blob/main/network/manifest-1/manifest-1_genesis.json"
+      "genesis_url": "https://nodes.liftedinit.tech/manifest/testnet/rpc/genesis?"
     }
   },
   "apis": {
@@ -66,7 +66,21 @@
     {
       "kind": "Default Explorer",
       "url": "https://testnet.manifest.explorers.guru/",
-      "tx_page": "https://testnet.manifest.explorers.guru/transactions"
+      "tx_page": "https://testnet.manifest.explorers.guru/transaction/${txHash}",
+      "account_page": "https://testnet.manifest.explorers.guru/account/${accountAddress}"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
+  },
+  "images": [
+    {
+      "image_sync": {
+        "chain_name": "manifesttestnet"
+      },
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/manifest/images/manifest.svg"
     }
   ]
 }

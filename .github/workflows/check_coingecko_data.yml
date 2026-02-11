@@ -1,0 +1,60 @@
+on:
+  workflow_dispatch:   # manual trigger
+  schedule:
+    - cron: '0 0 1,15 * *'  # runs at midnight on the 1st and 15th
+
+name: Update Coingecko Data
+jobs:
+  update_coingecko_data:
+    name: Update Coingecko Data
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        shell: bash
+    
+    steps:
+    
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
+          
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 19.6.0
+          
+      - name: Run code to Generate Coingecko State File
+        working-directory: ./.github/workflows/utility
+        run: node update_coingecko_data.mjs generateCoingeckoStateFile
+
+      - name: Run code to Remove Invalid Coingecko Ids
+        working-directory: ./.github/workflows/utility
+        run: node update_coingecko_data.mjs removeInvalidCoingeckoIds
+      
+      - name: Add Commit Push
+        uses: devops-infra/action-commit-push@master
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          add_timestamp: false
+          commit_prefix: "[AUTO]"
+          commit_message: "Update Coingecko Data"
+          force: false
+          target_branch: update/coingecko
+      
+      - name: Create A PR
+        uses: devops-infra/action-pull-request@v0.4.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_branch: update/coingecko
+          target_branch: master
+          title: Update Coingecko Data
+          body: "**Automated pull request**  If closing, remember to delete the branch!"
+          old_string: "**THIS IS AN AUTOMATED UPDATE OF COINGECKO DATA**"
+          new_string: "** Automatic pull request**"
+          get_diff: true
+          ignore_users: "dependabot"
+
+

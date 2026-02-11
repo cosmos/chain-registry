@@ -34,33 +34,42 @@
   },
   "codebase": {
     "git_repo": "https://github.com/sedaprotocol/seda-chain",
-    "recommended_version": "v0.1.1",
+    "recommended_version": "v1.0.0",
     "compatible_versions": [
-      "v0.1.1"
+      "v1.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/sedaprotocol/seda-chain/releases/download/v0.1.1/sedad-amd64",
-      "linux/arm64": "https://github.com/sedaprotocol/seda-chain/releases/download/v0.1.1/sedad-arm64"
-    },
-    "consensus": {
-      "type": "cometbft",
-      "version": "v0.38.6"
+      "linux/amd64": "https://github.com/sedaprotocol/seda-chain/releases/download/v1.0.0/sedad-amd64",
+      "linux/arm64": "https://github.com/sedaprotocol/seda-chain/releases/download/v1.0.0/sedad-arm64"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/sedaprotocol/seda-networks/main/mainnet/genesis.json"
     },
+    "language": {
+      "type": "go",
+      "version": "1.23.5"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.17"
+    },
     "sdk": {
       "type": "cosmos",
-      "version": "v0.50.5"
+      "version": "v0.50.14"
+    },
+    "cosmwasm": {
+      "version": "v0.53.3",
+      "repo": "https://github.com/CosmWasm/wasmd",
+      "enabled": true
     },
     "ibc": {
       "type": "go",
-      "version": "v8.2.0"
-    }
+      "version": "v8.7.0"
+    },
+    "tag": "v1.0.0"
   },
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/seda/images/seda.png",
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/seda/images/seda.svg"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/seda/images/seda.png"
   },
   "description": "SEDA is a standard for modular data transport and querying. Any data type, for all networks.",
   "peers": {
@@ -73,11 +82,6 @@
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "seeds.polkachu.com:25856",
         "provider": "Polkachu"
-      },
-      {
-        "id": "cec848e7d4c5a7ae305b27cda133d213435c110f",
-        "address": "seed-seda.ibs.team:16679",
-        "provider": "Inter Blockchain Services"
       },
       {
         "id": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc",
@@ -108,6 +112,11 @@
         "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
         "address": "seeds.bluestake.net:24656",
         "provider": "BlueStake 🚀"
+      },
+      {
+        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
+        "address": "seed.rhinostake.com:25856",
+        "provider": "RHINO 🦏"
       }
     ],
     "persistent_peers": [
@@ -119,6 +128,11 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "seda-mainnet-peer.autostake.com:26866",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "id": "1067a3d13bc82129b14078edb053be07966c15fe",
+        "address": "seda-peers.node39.top:13656",
+        "provider": "Node39.TOP"
       }
     ]
   },
@@ -137,10 +151,6 @@
         "provider": "kjnodes"
       },
       {
-        "address": "https://seda-rpc.synergynodes.com/",
-        "provider": "Synergy Nodes"
-      },
-      {
         "address": "https://rpc.lavenderfive.com:443/seda",
         "provider": "Lavender.Five Nodes 🐝"
       },
@@ -149,36 +159,40 @@
         "provider": "Kleomedes"
       },
       {
-        "address": "https://seda-rpc.ibs.team:443",
+        "address": "https://seda.ibs.team:443/rpc",
         "provider": "Inter Blockchain Services"
-      },
-      {
-        "address": "https://seda-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://rpc.seda.bronbro.io:443",
         "provider": "Bro_n_Bro"
       },
       {
-        "address": "https://rpc-seda.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
-      },
-      {
-        "address": "https://seda-rpc.applejuice.256x25.tech:443",
-        "provider": "Apple juice 🧃"
-      },
-      {
-        "address": "https://seda-rpc.bluestake.net:443",
-        "provider": "BlueStake 🚀"
-      },
-      {
         "address": "https://seda_mainnet_rpc.chain.whenmoonwhenlambo.money:443",
         "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       },
       {
-        "address": "https://rpc-seda-mainnet.keepitstaked.com:443",
-        "provider": "KeepItStaked.com"
+        "address": "https://seda-rpc.node39.top:443",
+        "provider": "Node39.TOP"
+      },
+      {
+        "address": "https://seda-rpc.cosmos-apis.com:443",
+        "provider": "RHINO 🦏"
+      },
+      {
+        "address": "https://seda.rpc.cumulo.org.es",
+        "provider": "Cumulo"
+      },
+      {
+        "address": "https://rpc.seda.tcnetwork.io",
+        "provider": "TC Network"
+      },
+      {
+        "address": "https://seda-rpc.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
+      },
+      {
+        "address": "https://rpc.cros-nest.com/seda",
+        "provider": "Crosnest"
       }
     ],
     "rest": [
@@ -195,10 +209,6 @@
         "provider": "kjnodes"
       },
       {
-        "address": "https://seda-api.synergynodes.com/",
-        "provider": "Synergy Nodes"
-      },
-      {
         "address": "https://rest.lavenderfive.com:443/seda",
         "provider": "Lavender.Five Nodes 🐝"
       },
@@ -207,46 +217,46 @@
         "provider": "Kleomedes"
       },
       {
-        "address": "https://seda-api.ibs.team:443",
+        "address": "https://seda.ibs.team:443/api",
         "provider": "Inter Blockchain Services"
-      },
-      {
-        "address": "https://seda-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://lcd.seda.bronbro.io:443",
         "provider": "Bro_n_Bro"
       },
       {
-        "address": "https://api-seda.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
-      },
-      {
-        "address": "https://seda-api.applejuice.256x25.tech:443",
-        "provider": "Apple juice 🧃"
-      },
-      {
-        "address": "https://seda-api.bluestake.net",
-        "provider": "BlueStake 🚀"
-      },
-      {
         "address": "https://seda_mainnet_api.chain.whenmoonwhenlambo.money",
         "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       },
       {
-        "address": "https://api-seda-mainnet.keepitstaked.com:443",
-        "provider": "KeepItStaked.com"
+        "address": "https://seda-api.node39.top:443",
+        "provider": "Node39.TOP"
+      },
+      {
+        "address": "https://seda-rest.cosmos-apis.com:443",
+        "provider": "RHINO 🦏"
+      },
+      {
+        "address": "https://seda.api.cumulo.org.es",
+        "provider": "Cumulo"
+      },
+      {
+        "address": "https://rest.seda.tcnetwork.io",
+        "provider": "TC Network"
+      },
+      {
+        "address": "https://seda-api.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
+      },
+      {
+        "address": "https://rest.cros-nest.com/seda",
+        "provider": "Crosnest"
       }
     ],
     "grpc": [
       {
         "address": "seda-grpc.polkachu.com:25890",
         "provider": "Polkachu"
-      },
-      {
-        "address": "https://seda-grpc.synergynodes.com/",
-        "provider": "Synergy Nodes"
       },
       {
         "address": "seda.grpc.kjnodes.com:443",
@@ -257,20 +267,29 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "seda-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
         "address": "https://grpc.seda.bronbro.io:443",
         "provider": "Bro_n_Bro"
       },
       {
-        "address": "grpc-seda.whispernode.com:443",
-        "provider": "WhisperNode 🤐"
+        "address": "seda-grpc.cosmos-apis.com:443",
+        "provider": "RHINO 🦏"
+      },
+      {
+        "address": "seda.grpc.cumulo.org.es:443",
+        "provider": "Cumulo"
+      },
+      {
+        "address": "http://seda-grpc.stakeandrelax.net:25890",
+        "provider": "Stake&Relax 🦥"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "TC Network",
+      "url": "https://explorer.tcnetwork.io/seda",
+      "tx_page": "https://explorer.tcnetwork.io/seda/transaction/${txHash}"
+    },
     {
       "kind": "sedaexplorer",
       "url": "https://explorer.seda.xyz/",
@@ -290,12 +309,6 @@
       "account_page": "https://staking-explorer.com/account.php?chain=seda&addr=${accountAddress}"
     },
     {
-      "kind": "WhisperNode 🤐",
-      "url": "https://mainnet.whispernode.com/seda",
-      "tx_page": "https://mainnet.whispernode.com/seda/tx/${txHash}",
-      "account_page": "https://mainnet.whispernode.com/seda/account/${accountAddress}"
-    },
-    {
       "kind": "Apple juice 🧃",
       "url": "https://explorer.256x25.tech/seda-mainnet",
       "tx_page": "https://explorer.256x25.tech/seda-mainnet/tx/${txHash}",
@@ -306,15 +319,23 @@
       "url": "https://explorer.whenmoonwhenlambo.money/seda",
       "tx_page": "https://explorer.whenmoonwhenlambo.money/seda/tx/${txHash}",
       "account_page": "https://explorer.whenmoonwhenlambo.money/seda/account/${accountAddress}"
+    },
+    {
+      "kind": "Node39.TOP",
+      "url": "https://explorer.node39.top/Seda",
+      "tx_page": "https://explorer.node39.top/Seda/tx/${txHash}",
+      "account_page": "https://explorer.node39.top/Seda/account/${accountAddress}"
+    },
+    {
+      "kind": "Stake&Relax 🦥 explorer",
+      "url": "https://explorer.stakeandrelax.net/seda",
+      "tx_page": "https://explorer.stakeandrelax.net/seda/tx/${txHash}",
+      "account_page": "https://explorer.stakeandrelax.net/seda/account/${accountAddress}"
     }
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/seda/images/seda.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/seda/images/seda.svg",
-      "theme": {
-        "primary_color_hex": "#8178d1"
-      }
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/seda/images/seda.png"
     }
   ]
 }

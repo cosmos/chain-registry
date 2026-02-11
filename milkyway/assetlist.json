@@ -21,16 +21,13 @@
       "display": "milk",
       "symbol": "MILK",
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkyway.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkyway.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milk.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milk.svg"
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkyway.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkyway.svg",
-          "theme": {
-            "primary_color_hex": "#760dbb"
-          }
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milk.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milk.svg"
         }
       ],
       "keywords": [
@@ -39,7 +36,7 @@
       ],
       "socials": {
         "website": "https://milkyway.zone",
-        "twitter": "https://x.com/milky_way_zone"
+        "x": "https://x.com/milky_way_zone"
       }
     },
     {
@@ -87,12 +84,10 @@
             "base_denom": "utia"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg",
-          "theme": {
-            "primary_color_hex": "#7c2cfb"
-          }
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg"
         }
-      ]
+      ],
+      "coingecko_id": "celestia"
     },
     {
       "description": "The native token of the Celestia blockchain.",
@@ -151,12 +146,10 @@
             "base_denom": "utia"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg",
-          "theme": {
-            "primary_color_hex": "#7c2cfb"
-          }
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg"
         }
-      ]
+      ],
+      "coingecko_id": "celestia"
     },
     {
       "description": "MilkyWay's liquid staked TIA",
@@ -207,10 +200,7 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milktia.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milktia.svg",
-          "theme": {
-            "primary_color_hex": "#d18dfc"
-          }
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milktia.svg"
         }
       ],
       "coingecko_id": "milkyway-staked-tia"
@@ -280,10 +270,7 @@
             "base_denom": "stutia"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/sttia.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/sttia.svg",
-          "theme": {
-            "primary_color_hex": "#e40474"
-          }
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/sttia.svg"
         }
       ]
     },
@@ -351,6 +338,127 @@
             "base_denom": "factory/neutron1ut4c6pv4u6vyu97yw48y8g7mle0cat54848v6m97k977022lzxtsaqsgmq/udtia"
           },
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/dTIA.svg"
+        }
+      ]
+    },
+    {
+      "description": "USDC is a fully collateralized US Dollar stablecoin developed by CENTRE, the open source project with Circle being the first of several forthcoming issuers.",
+      "denom_units": [
+        {
+          "denom": "ibc/F5FABF52B54E65064B57BF6DBD8E5FAD22CEE9F4B8A57ADBB20CCD0173AA72A4",
+          "exponent": 0,
+          "aliases": [
+            "microusdc",
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "USDC",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/F5FABF52B54E65064B57BF6DBD8E5FAD22CEE9F4B8A57ADBB20CCD0173AA72A4",
+      "name": "USDC",
+      "display": "USDC",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "USD"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "additional-mintage",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-1"
+          },
+          "chain": {
+            "channel_id": "channel-750",
+            "path": "transfer/channel-750/uusdc"
+          }
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "ibc/498A0751C798A0D9A389AA3691123DADA57DAA4FE165D5C75894505B876BA6E4",
+            "channel_id": "channel-89298"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/transfer/channel-750/uusdc"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "theme": {
+            "circle": true
+          }
+        }
+      ],
+      "coingecko_id": "usd-coin"
+    },
+    {
+      "description": "MilkyWay's liquid staked BABY",
+      "denom_units": [
+        {
+          "denom": "factory/milk1qg5ega6dykkxc307y25pecuufrjkxkaggkkxh7nad0vhyhtuhw3ssgcye4/umilkBBN",
+          "exponent": 0,
+          "aliases": []
+        },
+        {
+          "denom": "milkBABY",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "factory/milk1qg5ega6dykkxc307y25pecuufrjkxkaggkkxh7nad0vhyhtuhw3ssgcye4/umilkBBN",
+      "name": "milkBABY",
+      "display": "milkBABY",
+      "symbol": "milkBABY",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "babylon",
+            "base_denom": "ubbn"
+          },
+          "provider": "MilkyWay"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkbaby.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkbaby.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkbaby.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/milkyway/images/milkbaby.svg"
         }
       ]
     }

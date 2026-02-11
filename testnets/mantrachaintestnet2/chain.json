@@ -10,44 +10,59 @@
   "daemon_name": "mantrachaind",
   "node_home": "$HOME/.mantrachain",
   "key_algos": [
-    "secp256k1"
+    "ethsecp256k1"
   ],
-  "slip44": 118,
+  "extra_codecs": [
+    "ethermint"
+  ],
+  "slip44": 60,
   "fees": {
     "fee_tokens": [
       {
-        "denom": "uom",
-        "fixed_min_gas_price": 0.01,
-        "low_gas_price": 0.01,
-        "average_gas_price": 0.02,
-        "high_gas_price": 0.03
+        "denom": "amantra",
+        "fixed_min_gas_price": 40000000000,
+        "low_gas_price": 40000000000,
+        "average_gas_price": 80000000000,
+        "high_gas_price": 120000000000
       }
     ]
   },
   "staking": {
     "staking_tokens": [
       {
-        "denom": "uom"
+        "denom": "amantra"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "691200s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/MANTRA-Chain/mantrachain",
-    "recommended_version": "1.0.0-rc3",
+    "recommended_version": "v7.0.0-rc2",
     "compatible_versions": [
-      "1.0.0-rc3"
+      "v7.0.0-rc2"
     ],
     "consensus": {
       "type": "cometbft",
-      "version": "0.38"
+      "version": "v0.38.19"
     },
     "sdk": {
       "type": "cosmos",
-      "version": "0.50.10"
+      "version": "v0.53.4",
+      "repo": "https://github.com/MANTRA-Chain/cosmos-sdk",
+      "tag": "v0.53.4-v7-mantra-2"
     },
     "cosmwasm": {
-      "version": "0.53",
+      "version": "v0.61.1",
       "enabled": true
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v10.4.0"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/MANTRA-Chain/net/refs/heads/main/mantra-dukong-1/genesis.json"
     }
   },
   "peers": {
@@ -59,7 +74,7 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ]
   },
@@ -68,10 +83,6 @@
       {
         "address": "https://rpc.dukong.mantrachain.io",
         "provider": "MANTRACHAIN"
-      },
-      {
-        "address": "https://mantra-testnet-rpc.publicnode.com:443",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
       }
     ],
     "rest": [
@@ -80,8 +91,8 @@
         "provider": "MANTRACHAIN"
       },
       {
-        "address": "https://mantra-testnet-rest.publicnode.com",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "address": "https://lcd-office.cosmostation.io/mantra-testnet/",
+        "provider": "Cosmostation"
       }
     ],
     "grpc": [
@@ -90,8 +101,14 @@
         "provider": "MANTRACHAIN"
       },
       {
-        "address": "mantra-testnet-grpc.publicnode.com:443",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "address": "grpc-office-mantra.cosmostation.io:443",
+        "provider": "Cosmostation"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://evm.dukong.mantrachain.io",
+        "provider": "MANTRACHAIN"
       }
     ]
   },
@@ -107,15 +124,28 @@
       "account_page": "https://mintscan.io/mantra-testnet/account/${accountAddress}"
     },
     {
+      "kind": "mantrascan",
+      "url": "https://mantrascan.io/dukong",
+      "tx_page": "https://mantrascan.io/dukong/tx/${txHash}",
+      "account_page": "https://mantrascan.io/dukong/address/${accountAddress}"
+    },
+    {
       "kind": "ping.pub",
       "url": "https://explorer.mantrachain.io",
       "tx_page": "https://explorer.mantrachain.io/MANTRA-Dukong/tx/${txHash}",
       "account_page": "https://explorer.mantrachain.io/MANTRA-Dukong/account/${accountAddress}"
+    },
+    {
+      "kind": "mantrascan",
+      "url": "https://mantrascan.io/dukong",
+      "tx_page": "https://mantrascan.io/dukong/tx/${txHash}",
+      "account_page": "https://mantrascan.io/dukong/address/${accountAddress}"
     }
   ],
   "keywords": [
     "rwa",
     "wasm",
+    "evm",
     "staking",
     "testnet"
   ],
@@ -128,8 +158,7 @@
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Prim-Col.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Prim-Col.svg",
       "theme": {
-        "circle": true,
-        "primary_color_hex": "#fba0c1"
+        "circle": true
       }
     }
   ]

@@ -1,0 +1,368 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "sidechain",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://side.one/",
+  "pretty_name": "Side Chain",
+  "chain_type": "cosmos",
+  "chain_id": "sidechain-1",
+  "bech32_prefix": "bc",
+  "daemon_name": "sided",
+  "node_home": "$HOME/.side",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uside",
+        "fixed_min_gas_price": 0.0006,
+        "low_gas_price": 0.0006,
+        "average_gas_price": 0.0008,
+        "high_gas_price": 0.001
+      },
+      {
+        "denom": "sat",
+        "fixed_min_gas_price": 0.000001,
+        "low_gas_price": 0.000001,
+        "average_gas_price": 0.0000015,
+        "high_gas_price": 0.000002
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uside"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/sideprotocol/side",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.11"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/sideprotocol/networks/raw/main/mainnet/sidechain-1/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.9"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.4.0"
+    },
+    "cosmwasm": {
+      "version": "v0.53.0",
+      "enabled": true
+    },
+    "tag": "v1.0.0"
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sidechain/images/side.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sidechain/images/side.svg"
+  },
+  "description": "The other side of Bitcoin, a fully Bitcoin-Compatible L1 blockchain for the BTCFi",
+  "peers": {
+    "seeds": [
+      {
+        "id": "a1c99cc234a524e53db8eb44e0c7df7115edd1b4",
+        "address": "rpc.side.nodestake.org:666",
+        "provider": "NodeStake"
+      },
+      {
+        "id": "b7cd1f30e931e622d94956c7adbbceb01e5506a3",
+        "address": "side-seed.synergynodes.com:22656",
+        "provider": "Synergy Nodes"
+      },
+      {
+        "id": "3f472746f46493309650e5a033076689996c8881",
+        "address": "side.rpc.kjnodes.com:17459",
+        "provider": "kjnodes"
+      },
+      {
+        "id": "9355d3fe49475485444f64db4745dd8a970d7a72",
+        "address": "side-mainnet-seed.itrocket.net:18656",
+        "provider": "ITRocket"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "0ca21af519767961a10a9b96a10ebcbc8ab7b5e6",
+        "address": "209.250.232.135:26656",
+        "provider": "Side Protocol"
+      },
+      {
+        "id": "2b77dadd110bd9a3f9610e6a199bfd6fbb189592",
+        "address": "202.182.119.24:26656",
+        "provider": "Ping Pub"
+      },
+      {
+        "id": "7e86044d07b4a9e77a2eacc6f4777ac0ae304126",
+        "address": "138.197.185.133:26656",
+        "provider": "NodeStake"
+      },
+      {
+        "id": "e726816f42831689eab9378d5d577f1d06d25716",
+        "address": "169.155.171.78:26656",
+        "provider": "NodeStake"
+      },
+      {
+        "id": "15d4e2cd8442cdc78e9fb886530b49404764e96b",
+        "address": "65.109.30.13:26656",
+        "provider": "NodeStake"
+      },
+      {
+        "id": "e726816f42831689eab9378d5d577f1d06d25716",
+        "address": "169.155.171.78:26656",
+        "provider": "kjnodes"
+      },
+      {
+        "id": "cfc22ac13d20a6f3bd394a8a2dba787bc10c1b32",
+        "address": "side-mainnet-peer.itrocket.net:14656",
+        "provider": "ITRocket"
+      },
+      {
+        "id": "db1df6aed42324c975209edceeba0daf6e8b0bab",
+        "address": "160.202.131.55:24656"
+      },
+      {
+        "id": "c063d6312ba3680ed3bf85261b00819b6faf12c3",
+        "address": "213.239.207.175:12156"
+      },
+      {
+        "id": "3be59c1a02b86ae2547221b072c77f2dbfb05171",
+        "address": "148.251.151.76:36656"
+      },
+      {
+        "id": "ef3cc9fcfbe59e4d060ebf3a30be4ef6bb0e68c3",
+        "address": "176.9.90.222:56656"
+      },
+      {
+        "id": "11d47c07903c8c52892009938f78e2cd1e85f26a",
+        "address": "23.227.222.185:32657"
+      },
+      {
+        "id": "c8d0602154f085d3bbfc983cbe316e3a9bd10256",
+        "address": "65.21.11.18:26656"
+      },
+      {
+        "id": "4a3be9d1b36ba074e8926d78f1a1d383906bdad5",
+        "address": "65.108.232.93:26356"
+      },
+      {
+        "id": "53d09672e99c31e77fc999d38710704a4084f39d",
+        "address": "142.132.194.124:30004"
+      },
+      {
+        "id": "e58b4c12e2f27f29320a083f632b64c588700daf",
+        "address": "37.27.110.40:26656"
+      },
+      {
+        "id": "b34c1431376443769554d89a3737ad65015a16a7@",
+        "address": "91.134.9.162:26356"
+      },
+      {
+        "id": "f8cb27469ce24afc501a733624a34c4e6b26ad40",
+        "address": "142.132.199.236:25656"
+      },
+      {
+        "id": "9842abbf41d8017c8ec94f5689e15e7341c111fc",
+        "address": "54.254.49.128:26656"
+      },
+      {
+        "id": "6486634a4814e93be0795b54a5692766ae3d75be",
+        "address": "142.132.248.253:26656"
+      },
+      {
+        "id": "6237ecbb967654d60810452752bf273d3aa92389",
+        "address": "207.148.66.82:26656"
+      },
+      {
+        "id": "f3be170caeba509128fe98652c42a27e048573f3",
+        "address": "65.21.11.19:26656"
+      },
+      {
+        "id": "956fd129998c458820a098247739bfff4950d4c0",
+        "address": "65.109.61.125:26356"
+      },
+      {
+        "id": "730d9077b7e108f5f680b5a6ac6e40dd08f2799c",
+        "address": "65.108.230.113:21306"
+      },
+      {
+        "id": "72e4d985b83a4f89f957066b59e98ba64781840f",
+        "address": "98.142.250.185:26656"
+      },
+      {
+        "id": "64b68df0f25aa2af3b0f43a37707b98df4d0c222",
+        "address": "95.217.204.48:11656"
+      },
+      {
+        "id": "ac4c86833d167eb2e7cf648df92ba31658f3c892",
+        "address": "65.109.112.148:21306"
+      },
+      {
+        "id": "fe54f3964664592b3be89eb685cc72e9aecb14e9",
+        "address": "side-m.peer.stavr.tech:21306",
+        "provider": "🔥STAVR🔥"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.side.one",
+        "provider": "Side Protocol"
+      },
+      {
+        "address": "https://rpc.side.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://side-rpc.synergynodes.com",
+        "provider": "Synergy Nodes"
+      },
+      {
+        "address": "https://side.publicnode.com",
+        "provider": "Allnodes"
+      },
+      {
+        "address": "https://side.rpc.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://side-mainnet-rpc.itrocket.net",
+        "provider": "ITRocket"
+      },
+      {
+        "address": "https://rpc.side.bh.rocks",
+        "provider": "BlockHunters"
+      },
+      {
+        "address": "https://side.rpc.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.side.one",
+        "provider": "Side Protocol"
+      },
+      {
+        "address": "https://api.side.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://side-api.synergynodes.com",
+        "provider": "Synergy Nodes"
+      },
+      {
+        "address": "https://side-rest.publicnode.com",
+        "provider": "Allnodes"
+      },
+      {
+        "address": "https://side.api.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://side-mainnet-api.itrocket.net",
+        "provider": "ITRocket"
+      },
+      {
+        "address": "https://api.side.bh.rocks",
+        "provider": "BlockHunters"
+      },
+      {
+        "address": "https://side.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.side.one:443",
+        "provider": "Side Protocol"
+      },
+      {
+        "address": "grpc.sided.nodestake.org:443",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "side-grpc.synergynodes.com:443",
+        "provider": "Synergy Nodes"
+      },
+      {
+        "address": "side-grpc.publicnode.com:443",
+        "provider": "Allnodes"
+      },
+      {
+        "address": "side.grpc.kjnodes.com:443",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "side-mainnet-grpc.itrocket.net:443",
+        "provider": "ITRocket"
+      },
+      {
+        "address": "grpc.side.bh.rocks:443",
+        "provider": "BlockHunters"
+      },
+      {
+        "address": "side.grpc.m.stavr.tech:9917",
+        "provider": "🔥STAVR🔥"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Ping Pub",
+      "url": "https://ping.pub/side",
+      "tx_page": "https://ping.pub/side/tx/${txHash}",
+      "account_page": "https://ping.pub/side/account/${accountAddress}"
+    },
+    {
+      "kind": "Ping Pub",
+      "url": "https://explorer.nodestake.org/side",
+      "tx_page": "https://explorer.nodestake.org/side/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.org/side/account/${accountAddress}"
+    },
+    {
+      "kind": "Ping Pub",
+      "url": "https://cosmosrun.info/side",
+      "tx_page": "https://cosmosrun.info/side/tx/${txHash}",
+      "account_page": "https://cosmosrun.info/side/account/${accountAddress}"
+    },
+    {
+      "kind": "Ping Pub",
+      "url": "https://explorer.kjnodes.com/side",
+      "tx_page": "https://explorer.kjnodes.com/side/tx/${txHash}",
+      "account_page": "https://explorer.kjnodes.com/side/account/${accountAddress}"
+    },
+    {
+      "kind": "Ping Pub",
+      "url": "https://bh.rocks/side",
+      "tx_page": "https://bh.rocks/side/tx/${txHash}",
+      "account_page": "https://bh.rocks/side/account/${accountAddress}"
+    },
+    {
+      "kind": "🔥STAVR🔥",
+      "url": "https://explorer.stavr.tech/Side-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Side-Mainnet/tx/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Side-Mainnet/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sidechain/images/side.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sidechain/images/side.svg"
+    }
+  ]
+}
