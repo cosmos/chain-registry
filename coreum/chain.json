@@ -1,14 +1,14 @@
 {
   "$schema": "../chain.schema.json",
-  "chain_name": "coreum",
+  "chain_name": "tx",
   "status": "live",
   "network_type": "mainnet",
-  "website": "https://www.coreum.com",
-  "pretty_name": "Coreum",
+  "website": "https://tx.org/",
+  "pretty_name": "TX",
   "chain_type": "cosmos",
   "chain_id": "coreum-mainnet-1",
   "bech32_prefix": "core",
-  "daemon_name": "cored",
+  "daemon_name": "txd",
   "node_home": "$HOME/.core/coreum-mainnet-1",
   "key_algos": [
     "secp256k1"
@@ -36,10 +36,10 @@
     }
   },
   "codebase": {
-    "git_repo": "https://github.com/CoreumFoundation/coreum",
-    "recommended_version": "v5.0.0",
+    "git_repo": "https://github.com/tokenize-x/tx-chain",
+    "recommended_version": "v6.0.1",
     "compatible_versions": [
-      "v5.0.0"
+      "v6.0.1"
     ],
     "binaries": {
       "linux/amd64": "https://github.com/CoreumFoundation/coreum/releases/download/v5.0.0/cored-linux-amd64?checksum=sha256:bb32768a1114733dc9a90db70a32dd8cd25828a725a57fc9831301ceb648c0f9",
@@ -65,18 +65,28 @@
   },
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/coreum/images/coreum.png"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/coreum/images/tx.png"
     },
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/coreum/images/coreum.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/coreum/images/coreum.svg"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/coreum/images/tx.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/coreum/images/tx.svg"
     }
   ],
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/coreum/images/coreum.png"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/coreum/images/tx.png"
   },
   "peers": {
     "seeds": [
+      {
+        "id": "0df493af80fbaad41b9b26d6f4520b39ceb1d210",
+        "address": "seed-01.mainnet-1.tx.org:26656",
+        "provider": "tx"
+      },
+      {
+        "id": "0df493af80fbaad41b9b26d6f4520b39ceb1d210",
+        "address": "seed-02.mainnet-1.tx.org:26656",
+        "provider": "tx"
+      },
       {
         "id": "0df493af80fbaad41b9b26d6f4520b39ceb1d210",
         "address": "seed-iron.mainnet-1.coreum.dev:26656",
@@ -113,6 +123,14 @@
   },
   "apis": {
     "rpc": [
+      {
+        "address": "https://rpc-01.mainnet-1.tx.org/",
+        "provider": "tx"
+      },
+      {
+        "address": "https://archive.rpc.mainnet-1.tx.org/",
+        "provider": "tx"
+      },
       {
         "address": "https://full-node.mainnet-1.coreum.dev:26657",
         "provider": "Coreum Foundation"
@@ -164,6 +182,14 @@
     ],
     "grpc": [
       {
+        "address": "https://grpc-01.devnet-1.tx.org",
+        "provider": "tx"
+      },
+      {
+        "address": "https://archive.grpc.devnet-1.tx.org",
+        "provider": "tx"
+      },
+      {
         "address": "https://full-node.mainnet-1.coreum.dev:9090",
         "provider": "Coreum Foundation"
       },
@@ -197,6 +223,14 @@
       }
     ],
     "rest": [
+      {
+        "address": "https://rest-01.devnet-1.tx.org/",
+        "provider": "tx"
+      },
+      {
+        "address": "https://archive.rest.devnet-1.tx.org/",
+        "provider": "tx"
+      },
       {
         "address": "https://rest-coreum.ecostake.com",
         "provider": "ecostake"
@@ -237,10 +271,10 @@
   },
   "explorers": [
     {
-      "kind": "Coreum",
-      "url": "https://explorer.coreum.com/coreum",
-      "tx_page": "https://explorer.coreum.com/coreum/transactions/${txHash}",
-      "account_page": "https://explorer.coreum.com/coreum/account/${accountAddress}"
+      "kind": "TX",
+      "url": "https://explorer.tx.org/tx",
+      "tx_page": "https://explorer.tx.org/tx/transactions/${txHash}",
+      "account_page": "https://explorer.tx.org/tx/account/${accountAddress}"
     },
     {
       "kind": "mintscan",
@@ -286,11 +320,10 @@
     }
   ],
   "keywords": [
-    "dex",
-    "staking",
-    "wasm",
-    "assets",
-    "nft",
-    "XRPL"
+    "L1",
+    "RWA",
+    "RWA Protocol",
+    "RWA Marketplace",
+    "tokenization"
   ]
 }
