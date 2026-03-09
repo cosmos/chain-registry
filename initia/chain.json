@@ -1,0 +1,154 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "initia",
+  "chain_id": "interwoven-1",
+  "chain_type": "cosmos",
+  "website": "https://initia.xyz",
+  "pretty_name": "Initia",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "init",
+  "daemon_name": "initiad",
+  "node_home": "$HOME/.initia",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uinit",
+        "fixed_min_gas_price": 0.015,
+        "low_gas_price": 0.015,
+        "average_gas_price": 0.015,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uinit"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/initia-labs/initia",
+    "recommended_version": "v1.0.0-rc.1",
+    "compatible_versions": [
+      "v1.0.0-rc.1"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/initia-labs/initia/releases/download/v1.0.0-rc.1/initia_v1.0.0-rc.1_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/initia-labs/initia/releases/download/v1.0.0-rc.1/initia_v1.0.0-rc.1_Linux_aarch64.tar.gz",
+      "darwin/amd64": "https://github.com/initia-labs/initia/releases/download/v1.0.0-rc.1/initia_v1.0.0-rc.1_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/initia-labs/initia/releases/download/v1.0.0-rc.1/initia_v1.0.0-rc.1_Darwin_aarch64.tar.gz"
+    },
+    "genesis": {
+      "genesis_url": "https://storage.googleapis.com/init-common-genesis/interwoven-1/genesis.json"
+    }
+  },
+  "description": "Initia L1 is a Layer 1 blockchain designed to serve as the coordination layer and central hub for all Initia rollups. This layer provides essential services to Rollups, including: Network Security, Governance, Liquidity Solutions, Bridging and Interoperability.",
+  "peers": {
+    "seeds": [
+      {
+        "id": "80e8870743458d1a28ce9f9da939e4ddcb7cedfe",
+        "address": "34.142.172.124:26656"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "initia-mainnet-seed.autostake.com:26686",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "80e8870743458d1a28ce9f9da939e4ddcb7cedfe",
+        "address": "34.142.172.124:26656"
+      },
+      {
+        "id": "c02d9c632bcbc7af974399c122eae36a8ed466bb",
+        "address": "34.126.106.6:26656"
+      },
+      {
+        "id": "b58e3dacc8c8009514c14e36730b564962028adc",
+        "address": "34.124.183.130:26656"
+      },
+      {
+        "id": "a29410f6c0b6aae3386d5b7ed24a038f1e4edab4",
+        "address": "91.223.3.148:16656",
+        "provider": "Quasar"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "initia-mainnet-peer.autostake.com:26686",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.initia.xyz",
+        "provider": "Initia Labs"
+      },
+      {
+        "address": "https://initia.rpc.quasarstaking.ai:443",
+        "provider": "Quasar"
+      },
+      {
+        "address": "https://initia-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.initia.xyz",
+        "provider": "Initia Labs"
+      },
+      {
+        "address": "https://initia.api.quasarstaking.ai:443",
+        "provider": "Quasar"
+      },
+      {
+        "address": "https://initia-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.initia.xyz:443",
+        "provider": "Initia Labs"
+      },
+      {
+        "address": "initia.grpc.quasarstaking.ai:80",
+        "provider": "Quasar"
+      },
+      {
+        "address": "initia-mainnet-grpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "initia scan",
+      "url": "https://scan.initia.xyz/interwoven-1",
+      "tx_page": "https://scan.initia.xyz/interwoven-1/txs/${txHash}",
+      "account_page": "https://scan.initia.xyz/interwoven-1/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/initia/images/INIT.svg",
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/initia/images/INIT.png",
+      "theme": {
+        "circle": true
+      }
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/initia/images/INIT.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/initia/images/INIT.svg"
+  }
+}

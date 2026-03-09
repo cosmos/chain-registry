@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 
 import * as chain_reg from './chain_registry.mjs';
 
-const COINGECKO_JSON_PATH = './state/coingecko.json';
+const COINGECKO_JSON_PATH = '../../state/coingecko.json';
 
 const COINGECKO_API_BASE_URL = 'https://api.coingecko.com/api/';
 export const coingeckoEndpoints = {
@@ -133,7 +133,7 @@ export function getCoingeckoIdGroupOriginAsset(coingecko_id_group) {
 }
 
 export function getCoingeckoIdGroupFromState(coingeckoId) {
-  return state?.coingekco_id_groups?.find(group => group.coingecko_id === coingeckoId);
+  return state?.coingecko_id_groups?.find(group => group.coingecko_id === coingeckoId);
 }
 
 function main() {

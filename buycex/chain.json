@@ -1,0 +1,70 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "buycex",
+  "chain_id": "bcx_323-1",
+  "pretty_name": "BuyCex Infinity Chain",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://infinity.buycex.com",
+  "bech32_prefix": "bcx",
+  "daemon_name": "bcxd",
+  "node_home": "$HOME/.bcxd",
+  "chain_type": "cosmos",
+  "slip44": 60,
+  "codebase": {
+    "genesis": {
+      "genesis_url": "https://buycex.net/genesis.json"
+    },
+    "git_repo": "https://github.com/cosvmlabs/buycex-chain",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.45.16"
+    },
+    "binaries": {
+      "linux/amd64": "https://buycex.net/bcxd-v1.0.0-linux-amd64.tar.gz"
+    }
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://endpoint.buycex.net",
+        "provider": "buycex"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.buycex.net",
+        "provider": "buycex"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.buycex.net",
+        "provider": "buycex"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "pingpub",
+      "url": "https://cosmos.buycex.net",
+      "tx_page": "https://cosmos.buycex.net/tx/${txHash}"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/buycex/images/bcx.png"
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/buycex/images/bcx.png"
+    }
+  ]
+}

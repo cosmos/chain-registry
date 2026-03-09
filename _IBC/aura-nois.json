@@ -1,48 +1,49 @@
 {
-    "$schema": "../ibc_data.schema.json",
-    "chain_1": {
-      "chain_name": "aura",
-      "client_id": "07-tendermint-13",
-      "connection_id": "connection-10"
-    },
-    "chain_2": {
-      "chain_name": "nois",
-      "client_id": "07-tendermint-4",
-      "connection_id": "connection-4"
-    },
-    "channels": [
-      {
-        "chain_1": {
-          "channel_id": "channel-3",
-          "port_id": "transfer"
-        },
-        "chain_2": {
-          "channel_id": "channel-16",
-          "port_id": "transfer"
-        },
-        "ordering": "unordered",
-        "version": "ics20-1",
-        "tags": {
-          "status": "live",
-          "preferred": true
-        }
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "aura",
+    "chain_id": "aura_6322-2",
+    "client_id": "07-tendermint-13",
+    "connection_id": "connection-10"
+  },
+  "chain_2": {
+    "chain_name": "nois",
+    "chain_id": "nois-1",
+    "client_id": "07-tendermint-4",
+    "connection_id": "connection-4"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-3",
+        "port_id": "transfer"
       },
-      {
-        "chain_1": {
-          "channel_id": "channel-8",
-          "port_id": "wasm.aura1r3zgdsn3dcze07a4r60rxxx7ppvkxfshn9np0pwtkgarrld0786s72jtjt"
-        },
-        "chain_2": {
-          "channel_id": "channel-35",
-          "port_id": "wasm.nois1acyc05v6fgcdgj88nmz2t40aex9nlnptqpwp5hf8hwg7rhce9uuqgqz5wp"
-        },
-        "ordering": "unordered",
-        "version": "nois-v7",
-        "tags": {
-          "status": "live",
-          "preferred": true
-        }
+      "chain_2": {
+        "channel_id": "channel-16",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
       }
-    ]
-  }
-  
+    },
+    {
+      "chain_1": {
+        "channel_id": "channel-8",
+        "port_id": "wasm.aura1r3zgdsn3dcze07a4r60rxxx7ppvkxfshn9np0pwtkgarrld0786s72jtjt"
+      },
+      "chain_2": {
+        "channel_id": "channel-35",
+        "port_id": "wasm.nois1acyc05v6fgcdgj88nmz2t40aex9nlnptqpwp5hf8hwg7rhce9uuqgqz5wp"
+      },
+      "ordering": "unordered",
+      "version": "nois-v7",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
+      }
+    }
+  ]
+}

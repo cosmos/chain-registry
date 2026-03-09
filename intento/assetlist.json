@@ -1,0 +1,139 @@
+{
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "intento",
+  "assets": [
+    {
+      "description": "The native token of Intento",
+      "extended_description": "Intento is a purpose-built blockchain for orchestrating intent-driven actions across chains. It enables secure, self-custodial execution of flows using real-time inputs, and IBC — no smart contracts required. At its core is the intent engine, supported by trustless agents that execute cross-chain actions in a self-custodial manner. This design allows users to build anything from streaming tokens to complex interchain workflows, turning intent into action across the interchain.",
+      "denom_units": [
+        {
+          "denom": "uinto",
+          "exponent": 0
+        },
+        {
+          "denom": "into",
+          "exponent": 6
+        }
+      ],
+      "base": "uinto",
+      "name": "Intento",
+      "display": "into",
+      "symbol": "INTO",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/intento/images/into.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/intento/images/into.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/intento/images/into.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/intento/images/into.svg"
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "socials": {
+        "website": "https://intento.zone",
+        "x": "https://x.com/intentozone"
+      }
+    },
+    {
+      "description": "The staking token of the Cosmos Hub",
+      "extended_description": "ATOM secures the Cosmos Hub and is one of the most widely used IBC tokens. It can be used for staking, governance, and gas across the Cosmos ecosystem.",
+      "denom_units": [
+        {
+          "denom": "ibc/C4CFF46FD6DE35CA4CF4CE031E643C8FDC9BA4B99AE598E9B0ED98FE3A2319F9",
+          "exponent": 0,
+          "aliases": [
+            "uatom"
+          ]
+        },
+        {
+          "denom": "ATOM",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/C4CFF46FD6DE35CA4CF4CE031E643C8FDC9BA4B99AE598E9B0ED98FE3A2319F9",
+      "name": "Cosmos Hub",
+      "display": "ATOM",
+      "symbol": "ATOM",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
+      },
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom",
+            "channel_id": "channel-1492"
+          },
+          "chain": {
+            "channel_id": "channel-1",
+            "path": "transfer/channel-1/uatom"
+          }
+        }
+      ],
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg",
+          "image_sync": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom"
+          }
+        }
+      ]
+    },
+    {
+      "description": "The native token of Osmosis",
+      "extended_description": "OSMO is the staking and governance token of Osmosis, the leading interchain DEX. It is also widely used as an IBC gas token.",
+      "denom_units": [
+        {
+          "denom": "ibc/47BD209179859CDE4A2806763D7189B6E6FE13A17880FE2B42DE1E6C1E329E23",
+          "exponent": 0,
+          "aliases": [
+            "uosmo"
+          ]
+        },
+        {
+          "denom": "OSMO",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/47BD209179859CDE4A2806763D7189B6E6FE13A17880FE2B42DE1E6C1E329E23",
+      "name": "Osmosis",
+      "display": "OSMO",
+      "symbol": "OSMO",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
+      },
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "uosmo",
+            "channel_id": "channel-106076"
+          },
+          "chain": {
+            "channel_id": "channel-3",
+            "path": "transfer/channel-3/uosmo"
+          }
+        }
+      ],
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg",
+          "image_sync": {
+            "chain_name": "osmosis",
+            "base_denom": "uosmo"
+          }
+        }
+      ]
+    }
+  ]
+}

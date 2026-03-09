@@ -1,0 +1,112 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "fandomchain",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://fandom-chain-website.vercel.app",
+  "pretty_name": "fandomChain",
+  "chain_type": "cosmos",
+  "chain_id": "fandomChain",
+  "bech32_prefix": "fandom",
+  "daemon_name": "fandomChaind",
+  "node_home": "$HOME/.fandomChaind",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ufandomChain",
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ufandomChain"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/fandomchain-network/fandomchain",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/fandomchain-network/fandomchain/archive/refs/tags/1.0.0.tar.gz"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.17"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/fandomchain-network/fandomchain/blob/1.0.0/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.53.3"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v10.2.0"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/fandomchain/images/fandomchain.png"
+  },
+  "description": "FandomChain is the L1 blockchain dedicated to streamers.",
+  "peers": {
+    "seeds": [
+      {
+        "id": "1fcb80b277e98b2399053177741b3ce648756f25",
+        "address": "51.91.102.167",
+        "provider": "FandomChain"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "1fcb80b277e98b2399053177741b3ce648756f25",
+        "address": "51.91.102.167",
+        "provider": "FandomChain"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.fandomchain.com",
+        "provider": "FandomChain"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.fandomchain.com",
+        "provider": "FandomChain"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.fandomchain.com",
+        "provider": "FandomChain"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Ping",
+      "url": "https://explorer.fandomchain.com",
+      "tx_page": "https://explorer.fandomchain.com/fandomchain/transactions/${txHash}",
+      "account_page": "https://explorer.fandomchain.com/fandomchain/accounts/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/fandomchain/images/fandomchain.png"
+    }
+  ]
+}

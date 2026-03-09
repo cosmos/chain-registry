@@ -1,0 +1,124 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "xarchaintestnet",
+  "chain_type": "cosmos",
+  "chain_id": "xardev",
+  "website": "https://arcana.network/",
+  "pretty_name": "XarChain Ceries Testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "bech32_prefix": "arcana",
+  "daemon_name": "xarchaind",
+  "node_home": "$HOME/.xarchain",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "stake",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "stake"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/arcana/xarchain",
+    "recommended_version": "v0.0.4-alpha.3",
+    "compatible_versions": [
+      "v0.0.4-alpha.3"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.15"
+    },
+    "binaries": {
+      "linux/amd64": "https://github.com/arcana-network/xarchain/releases/download/v0.0.4-alpha.3/v0.0.4-alpha.3_linux_amd64.tar.gz:checksum=sha256:22b129d75c3824f8cefe58feeec559441952b78bda8c92addc3f55c82cfc88ce"
+    },
+    "genesis": {
+      "genesis_url": "https://cosmos01-dev.arcana.network:26650/genesis"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.10",
+      "tag": "v0.50.10"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.5.2"
+    },
+    "cosmwasm": {
+      "version": "v0.53.0",
+      "repo": "https://github.com/CosmWasm/wasmd",
+      "tag": "v0.53.0"
+    },
+    "tag": "v0.0.4-alpha.3",
+    "language": {
+      "type": "go",
+      "version": "v1.23"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/xarchaintestnet/images/arcana_logo.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/xarchaintestnet/images/arcana_logo.svg"
+  },
+  "description": "Arcana's Chain Abstraction provides a unified balance on apps to spend on any chain, without swapping, bridging, or refuelling gas",
+  "peers": {
+    "seeds": [
+      {
+        "id": "e47a42c4236c5b9cf2dc26c410cbd13fe0aaa290",
+        "address": "cosmos01-dev.arcana.network:26656",
+        "provider": "arcana"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "e47a42c4236c5b9cf2dc26c410cbd13fe0aaa290",
+        "address": "cosmos01-dev.arcana.network:26656",
+        "provider": "arcana"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://cosmos01-dev.arcana.network:26650",
+        "provider": "arcana"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://cosmos01-dev.arcana.network",
+        "provider": "arcana"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://cosmos01-dev.arcana.network:9091",
+        "provider": "arcana"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "arcana ceries intent explorer",
+      "url": "https://explorer.dev.arcana.network"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/xarchaintestnet/images/arcana_logo.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/xarchaintestnet/images/arcana_logo.svg"
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "$schema": "../../assetlist.schema.json",
+  "chain_name": "bitwaydevnet",
+  "assets": [
+    {
+      "description": "The native token of Bitway Devnet.",
+      "denom_units": [
+        {
+          "denom": "ubtw",
+          "exponent": 0
+        },
+        {
+          "denom": "btw",
+          "exponent": 6
+        }
+      ],
+      "base": "ubtw",
+      "name": "Bitway Devnet native token",
+      "display": "btw",
+      "symbol": "BTW",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.svg"
+      },
+      "traces": [
+        {
+          "type": "test-mintage",
+          "counterparty": {
+            "chain_name": "bitway",
+            "base_denom": "ubtw"
+          },
+          "provider": "Bitway"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "bitway",
+            "base_denom": "ubtw"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.svg"
+        }
+      ],
+      "socials": {
+        "website": "https://devnet.bitway.com",
+        "x": "https://x.com/BitwayOfficial"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "BTC-pegged token on Bitway Devnet.",
+      "extended_description": "BTCT is the native token of the Bitway Devnet, fully pegged 1:1 to BTC held in a vault secured by 21 TSS signers on the Bitcoin testnet. As a synthetic asset, BTCT enables Bitcoin liquidity to seamlessly flow into the Bitway and the broader Cosmos ecosystem.",
+      "denom_units": [
+        {
+          "denom": "sat",
+          "exponent": 0
+        },
+        {
+          "denom": "BTCT",
+          "exponent": 8
+        }
+      ],
+      "base": "sat",
+      "name": "Bitway Devnet Bitcoin",
+      "display": "BTCT",
+      "symbol": "BTCT",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "bitcointestnet",
+            "base_denom": "sat"
+          },
+          "provider": "Bitway"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "bitway",
+            "base_denom": "sat"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/BTCT.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/BTCT.png"
+        }
+      ],
+      "socials": {
+        "website": "https://devnet.bitway.com",
+        "x": "https://x.com/BitwayOfficial"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Noble Testnet USDC on Bitway Devnet.",
+      "denom_units": [
+        {
+          "denom": "ibc/F082B65C88E4B6D5EF1DB243CDA1D331D002759E938A0F5CD3FFDC5D53B3E349",
+          "exponent": 0
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/F082B65C88E4B6D5EF1DB243CDA1D331D002759E938A0F5CD3FFDC5D53B3E349",
+      "name": "Noble Testnet USDC",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "nobletestnet",
+            "base_denom": "uusdc",
+            "channel_id": "channel-774"
+          },
+          "chain": {
+            "channel_id": "channel-2",
+            "path": "transfer/channel-2/uusdc"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "nobletestnet",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      }
+    }
+  ]
+}

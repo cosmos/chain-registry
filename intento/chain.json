@@ -1,0 +1,96 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "intento",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "Intento",
+  "chain_type": "cosmos",
+  "chain_id": "intento-1",
+  "bech32_prefix": "into",
+  "daemon_name": "intentod",
+  "node_home": "$HOME/.intento",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uinto",
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.02,
+        "high_gas_price": 0.03
+      },
+      {
+        "denom": "ibc/C4CFF46FD6DE35CA4CF4CE031E643C8FDC9BA4B99AE598E9B0ED98FE3A2319F9",
+        "fixed_min_gas_price": 0.003,
+        "low_gas_price": 0.003,
+        "average_gas_price": 0.007,
+        "high_gas_price": 0.015
+      },
+      {
+        "denom": "ibc/47BD209179859CDE4A2806763D7189B6E6FE13A17880FE2B42DE1E6C1E329E23",
+        "fixed_min_gas_price": 0.005,
+        "low_gas_price": 0.005,
+        "average_gas_price": 0.01,
+        "high_gas_price": 0.02
+      }
+    ]
+  },
+  "slip44": 118,
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uinto"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/trstlabs/intento",
+    "recommended_version": "v1.0.1",
+    "compatible_versions": [
+      "v1.0.1"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.17"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/trstlabs/networks/refs/heads/main/mainnet/intento-1/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50.14"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.7.0"
+    }
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-mainnet.intento.zone",
+        "provider": "Intento"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lcd-mainnet.intento.zone",
+        "provider": "Intento"
+      }
+    ],
+    "grpc": []
+  },
+  "explorers": [
+    {
+      "kind": "PingPub",
+      "url": "https://explorer.intento.zone",
+      "tx_page": "https://explorer.intento.zone/intento-mainnet/tx/${txHash}"
+    }
+  ]
+}

@@ -1,47 +1,49 @@
 {
-    "$schema": "../ibc_data.schema.json",
-    "chain_1": {
-      "chain_name": "neutron",
-      "client_id": "07-tendermint-19",
-      "connection_id": "connection-18"
-    },
-    "chain_2": {
-      "chain_name": "osmosis",
-      "client_id": "07-tendermint-2823",
-      "connection_id": "connection-2338"
-    },
-    "channels": [
-      {
-        "chain_1": {
-          "channel_id": "channel-10",
-          "port_id": "transfer"
-        },
-        "chain_2": {
-          "channel_id": "channel-874",
-          "port_id": "transfer"
-        },
-        "ordering": "unordered",
-        "version": "ics20-1",
-        "tags": {
-          "status": "live",
-          "preferred": true
-        }
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "neutron",
+    "chain_id": "neutron-1",
+    "client_id": "07-tendermint-19",
+    "connection_id": "connection-18"
+  },
+  "chain_2": {
+    "chain_name": "osmosis",
+    "chain_id": "osmosis-1",
+    "client_id": "07-tendermint-2823",
+    "connection_id": "connection-2338"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-10",
+        "port_id": "transfer"
       },
-      {
-        "chain_1": {
-          "channel_id": "channel-2107",
-          "port_id": "wasm.neutron1ffus553eet978k024lmssw0czsxwr97mggyv85lpcsdkft8v9ufsz3sa07"
-        },
-        "chain_2": {
-          "channel_id": "channel-39589",
-          "port_id": "wasm.osmo1pfeve3esg5rhhkfhlujxtthc25akcf3zpa3t9whghvvp2v5v92ps0z30r6"
-        },
-        "ordering": "unordered",
-        "version": "astroport-ibc-v1",
-        "tags": {
-          "status": "live",
-          "preferred": true
-        }
+      "chain_2": {
+        "channel_id": "channel-874",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
       }
-    ]
-  }
+    },
+    {
+      "chain_1": {
+        "channel_id": "channel-2107",
+        "port_id": "wasm.neutron1ffus553eet978k024lmssw0czsxwr97mggyv85lpcsdkft8v9ufsz3sa07"
+      },
+      "chain_2": {
+        "channel_id": "channel-39589",
+        "port_id": "wasm.osmo1pfeve3esg5rhhkfhlujxtthc25akcf3zpa3t9whghvvp2v5v92ps0z30r6"
+      },
+      "ordering": "unordered",
+      "version": "astroport-ibc-v1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
+      }
+    }
+  ]
+}

@@ -52,6 +52,7 @@ whitelist = {
         # "Lava",
         # "Golden Ratio Staking",
         # "Stargaze Foundation",
+        # "Pocket Network",
     ]
 } if use_whitelist else {'chains': [], 'providers': []}
 

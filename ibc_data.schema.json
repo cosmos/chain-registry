@@ -3,6 +3,7 @@
   "title": "IBCData",
   "type": "object",
   "required": [
+    "$schema",
     "chain_1",
     "chain_2",
     "channels"
@@ -54,33 +55,23 @@
             "type": "string",
             "description": "Fee Version"
           },
-          "description": {
-            "type": "string",
-            "description": "Human readable description of the channel."
-          },
           "tags": {
             "type": "object",
             "description": "Human readable key:value pairs that help describe and distinguish channels.",
             "properties": {
-              "status": {
-                "enum": [
-                  "live",
-                  "upcoming",
-                  "killed"
-                ]
-              },
               "preferred": {
                 "type": "boolean"
               },
-              "dex": {
-                "type": "string"
-              },
-              "properties": {
-                "type": "string",
-                "description": "String that helps describe non-dex use cases ex: interchain accounts(ICA)."
+              "status": {
+                "enum": [
+                  "ACTIVE",
+                  "INACTIVE",
+                  "CLOSED",
+                  "PENDING"
+                ]
               }
             },
-            "additionalProperties": true
+            "additionalProperties": false
           }
         },
         "additionalProperties": false
@@ -136,12 +127,18 @@
       "description": "Top level IBC data pertaining to the chain. `chain_1` and `chain_2` should be in alphabetical order.",
       "required": [
         "chain_name",
+        "chain_id",
         "client_id",
         "connection_id"
       ],
       "properties": {
         "chain_name": {
           "type": "string"
+        },
+        "chain_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The ID/chain_id of the corresponding chain (NOT the chain_id of the chain represented by the IBC light client of this chain, as that would correspond to the counterparty chain)."
         },
         "client_id": {
           "type": "string",

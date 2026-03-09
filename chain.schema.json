@@ -4,7 +4,12 @@
   "title": "Chain",
   "description": "Chain.json is a metadata file that contains information about a blockchain.",
   "type": "object",
-  "required": [ "chain_name", "chain_type" ],
+  "required": [
+    "$schema",
+    "chain_name",
+    "chain_type",
+    "status"
+  ],
   "properties": {
     "$schema": {
       "type": "string",
@@ -264,23 +269,10 @@
           "theme": {
             "type": "object",
             "properties": {
-              "primary_color_hex": {
-                "type": "string",
-                "minLength": 1,
-                "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
-              },
-              "background_color_hex": {
-                "type": "string",
-                "minLength": 1,
-                "pattern": "^(#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})|none)$"
-              },
               "circle": {
                 "type": "boolean"
               },
               "dark_mode": {
-                "type": "boolean"
-              },
-              "monochrome": {
                 "type": "boolean"
               }
             },
@@ -542,8 +534,8 @@
     "tag": {
       "type": "string",
       "minLength": 1,
-      "pattern": "^v?\\d+(\\.\\d+){0,2}(-[\\w\\.\\-]+)?$",
-      "description": "Detailed version identifier (e.g., 'v1.0.0-a1s2f43g')."
+      "pattern": "^[A-Za-z0-9._/@-]+$",
+      "description": "Git Upgrade Tag"
     },
     "sdk": {
       "type": "object",
@@ -631,7 +623,7 @@
         "type": {
           "type": "string",
           "minLength": 1,
-          "enum": [ "tendermint", "cometbft", "sei-tendermint" ]
+          "enum": [ "tendermint", "cometbft", "sei-tendermint", "cometbls" ]
         },
         "version": {
           "$ref": "#/$defs/version"

@@ -1,0 +1,115 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "bitwaydevnet",
+  "status": "live",
+  "network_type": "devnet",
+  "website": "https://devnet.bitway.com/",
+  "pretty_name": "BitwayDevnet",
+  "chain_type": "cosmos",
+  "chain_id": "bitway-devnet-1",
+  "bech32_prefix": "bitway",
+  "daemon_name": "bitwayd",
+  "node_home": "$HOME/.bitway",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ubtw",
+        "fixed_min_gas_price": 0.0006,
+        "low_gas_price": 0.0006,
+        "average_gas_price": 0.0008,
+        "high_gas_price": 0.001
+      },
+      {
+        "denom": "sat",
+        "fixed_min_gas_price": 0.000001,
+        "low_gas_price": 0.000001,
+        "average_gas_price": 0.0000015,
+        "high_gas_price": 0.000002
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ubtw"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/bitwaylabs/bitway",
+    "recommended_version": "v2.0.1",
+    "compatible_versions": [
+      "v2.0.1"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.12"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/bitwaylabs/networks/raw/main/devnet/bitway-devnet-1/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.14"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.5.3"
+    },
+    "cosmwasm": {
+      "version": "v0.53.0",
+      "enabled": true
+    },
+    "tag": "v2.0.1"
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.svg"
+  },
+  "description": "Devnet for Bitway",
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "ed5059001c4a0f2a595a85e21629f4b345bea9c6",
+        "address": "45.77.249.30:26656",
+        "provider": "Bitway Labs"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "http://45.77.249.30:26657",
+        "provider": "Bitway Labs"
+      }
+    ],
+    "rest": [
+      {
+        "address": "http://45.77.249.30:1317",
+        "provider": "Bitway Labs"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "45.77.249.30:9090",
+        "provider": "Bitway Labs"
+      }
+    ]
+  },
+  "explorers": [],
+  "images": [
+    {
+      "image_sync": {
+        "chain_name": "bitway",
+        "base_denom": "ubtw"
+      },
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.svg"
+    }
+  ]
+}

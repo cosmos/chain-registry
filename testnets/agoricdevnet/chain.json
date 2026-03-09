@@ -1,0 +1,119 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "agoricdevnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Agoric",
+  "chain_type": "cosmos",
+  "chain_id": "agoricdev-25",
+  "bech32_prefix": "agoric",
+  "daemon_name": "agd",
+  "node_home": "$HOME/.agoric",
+  "slip44": 564,
+  "alternative_slip44s": [
+    118
+  ],
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ubld"
+      }
+    ]
+  },
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ubld",
+        "low_gas_price": 0.03,
+        "average_gas_price": 0.05,
+        "high_gas_price": 0.07
+      },
+      {
+        "denom": "uist",
+        "low_gas_price": 0.0034,
+        "average_gas_price": 0.007,
+        "high_gas_price": 0.02
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Agoric/agoric-sdk/",
+    "genesis": {
+      "genesis_url": "https://main.agoric.net/genesis.json"
+    },
+    "recommended_version": "agoric-upgrade-20-rc0",
+    "compatible_versions": [
+      "agoric-upgrade-20-rc0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.34.35",
+      "repo": "https://github.com/agoric-labs/cometbft",
+      "tag": "v0.34.35-alpha.agoric.3"
+    },
+    "cosmwasm": {
+      "enabled": false
+    },
+    "language": {
+      "type": "go",
+      "version": "1.22.12"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/agoric-labs/cosmos-sdk",
+      "version": "v0.46.16",
+      "tag": "v0.46.16-alpha.agoric.2.5"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v6.3.1",
+      "repo": "https://github.com/agoric-labs/ibc-go",
+      "tag": "v6.3.1-alpha.agoric.4",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.svg"
+  },
+  "description": "The Agoric platform makes it safe and seamless to build decentralized apps using your existing JavaScript knowledge.",
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "0f04c4610b7511a64b8644944b907416db568590@",
+        "address": "34.123.169.175:26656"
+      },
+      {
+        "id": "a7b2c18c390313ca0b0975453836210f01d284a0",
+        "address": "162.55.245.144:8000"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://devnet.rpc.agoric.net:443"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://devnet.api.agoric.net:443"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "devnet.grpc.agoric.net:443"
+      }
+    ]
+  },
+  "explorers": [],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/agoric/images/Agoric-logo-color.svg"
+    }
+  ]
+}
