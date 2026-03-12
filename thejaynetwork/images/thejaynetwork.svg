@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d2ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3a7bd5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6c5ce7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d2ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#6c5ce7;stop-opacity:0.8" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="250" fill="url(#bg)" stroke="url(#ring)" stroke-width="4"/>
+  
+  <!-- Outer orbital ring -->
+  <ellipse cx="256" cy="256" rx="190" ry="190" fill="none" stroke="url(#ring)" stroke-width="2" stroke-dasharray="12,8" opacity="0.4"/>
+  
+  <!-- Inner orbital ring -->
+  <ellipse cx="256" cy="256" rx="140" ry="140" fill="none" stroke="url(#ring)" stroke-width="1.5" stroke-dasharray="8,6" opacity="0.3"/>
+  
+  <!-- Blockchain nodes (hexagonal pattern) -->
+  <circle cx="256" cy="100" r="8" fill="url(#accent)" filter="url(#glow)" opacity="0.7"/>
+  <circle cx="390" cy="178" r="8" fill="url(#accent)" filter="url(#glow)" opacity="0.7"/>
+  <circle cx="390" cy="334" r="8" fill="url(#accent)" filter="url(#glow)" opacity="0.7"/>
+  <circle cx="256" cy="412" r="8" fill="url(#accent)" filter="url(#glow)" opacity="0.7"/>
+  <circle cx="122" cy="334" r="8" fill="url(#accent)" filter="url(#glow)" opacity="0.7"/>
+  <circle cx="122" cy="178" r="8" fill="url(#accent)" filter="url(#glow)" opacity="0.7"/>
+  
+  <!-- Connecting lines between nodes -->
+  <line x1="256" y1="100" x2="390" y2="178" stroke="url(#accent)" stroke-width="1" opacity="0.3"/>
+  <line x1="390" y1="178" x2="390" y2="334" stroke="url(#accent)" stroke-width="1" opacity="0.3"/>
+  <line x1="390" y1="334" x2="256" y2="412" stroke="url(#accent)" stroke-width="1" opacity="0.3"/>
+  <line x1="256" y1="412" x2="122" y2="334" stroke="url(#accent)" stroke-width="1" opacity="0.3"/>
+  <line x1="122" y1="334" x2="122" y2="178" stroke="url(#accent)" stroke-width="1" opacity="0.3"/>
+  <line x1="122" y1="178" x2="256" y2="100" stroke="url(#accent)" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Cross lines -->
+  <line x1="256" y1="100" x2="256" y2="412" stroke="url(#accent)" stroke-width="0.5" opacity="0.15"/>
+  <line x1="122" y1="178" x2="390" y2="334" stroke="url(#accent)" stroke-width="0.5" opacity="0.15"/>
+  <line x1="390" y1="178" x2="122" y2="334" stroke="url(#accent)" stroke-width="0.5" opacity="0.15"/>
+  
+  <!-- Main "J" letter -->
+  <text x="256" y="290" font-family="'Segoe UI', Arial, sans-serif" font-size="180" font-weight="700" fill="url(#accent)" text-anchor="middle" filter="url(#glow)">J</text>
+  
+  <!-- "JAY" text below -->
+  <text x="256" y="385" font-family="'Segoe UI', Arial, sans-serif" font-size="36" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="12" opacity="0.9">JAY</text>
+  
+  <!-- "NETWORK" subtitle -->
+  <text x="256" y="418" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="300" fill="#ffffff" text-anchor="middle" letter-spacing="8" opacity="0.5">NETWORK</text>
+</svg>
+
