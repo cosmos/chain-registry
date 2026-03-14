@@ -1,6 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "thejaynetwork",
+  "chain_type": "cosmos",
   "chain_id": "thejaynetwork-1",
   "pretty_name": "The Jay Network",
   "status": "live",
@@ -9,7 +10,9 @@
   "bech32_prefix": "yjay",
   "daemon_name": "jaynd",
   "node_home": "$HOME/.jayn",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -32,34 +35,34 @@
   "codebase": {
     "git_repo": "https://github.com/jmjm4911/thejaynetwork",
     "recommended_version": "v1.0.0",
-    "compatible_versions": ["v1.0.0"],
-    "cosmos_sdk_version": "v0.53.6",
-    "ibc_go_version": "v10.4.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
     "consensus": {
       "type": "cometbft",
       "version": "v0.38.21"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.53.6"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v10.4.0"
     },
     "binaries": {
       "linux/amd64": "https://github.com/jmjm4911/thejaynetwork/releases/download/v1.0.0/jaynd-linux-amd64",
       "linux/arm64": "https://github.com/jmjm4911/thejaynetwork/releases/download/v1.0.0/jaynd-linux-arm64"
     },
     "genesis": {
+      "name": "v1",
       "genesis_url": "https://raw.githubusercontent.com/jmjm4911/thejaynetwork/main/genesis/genesis.json"
     }
   },
   "logo_URIs": {
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/thejaynetwork/images/thejaynetwork.svg",
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/thejaynetwork/images/thejaynetwork.png"
   },
-  "images": [
-    {
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/thejaynetwork/images/thejaynetwork.svg",
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/thejaynetwork/images/thejaynetwork.png",
-      "theme": {
-        "primary_color_hex": "#3a7bd5"
-      }
-    }
-  ],
+  "description": "The Jay Network is a Cosmos SDK-based blockchain providing fast, secure, and scalable infrastructure for decentralized applications.",
   "peers": {
     "seeds": [],
     "persistent_peers": [
@@ -94,31 +97,31 @@
     "rpc": [
       {
         "address": "http://34.67.101.201:26657",
-        "provider": "Jay Network - node4"
+        "provider": "Jay Network"
       },
       {
         "address": "http://34.171.203.84:26657",
-        "provider": "Jay Network - node5"
+        "provider": "Jay Network"
       }
     ],
     "rest": [
       {
         "address": "http://34.67.101.201:1317",
-        "provider": "Jay Network - node4"
+        "provider": "Jay Network"
       },
       {
         "address": "http://34.171.203.84:1317",
-        "provider": "Jay Network - node5"
+        "provider": "Jay Network"
       }
     ],
     "grpc": [
       {
         "address": "34.67.101.201:9090",
-        "provider": "Jay Network - node4"
+        "provider": "Jay Network"
       },
       {
         "address": "34.171.203.84:9090",
-        "provider": "Jay Network - node5"
+        "provider": "Jay Network"
       }
     ]
   },
@@ -128,6 +131,11 @@
       "url": "https://ping.pub/thejaynetwork",
       "tx_page": "https://ping.pub/thejaynetwork/tx/${txHash}",
       "account_page": "https://ping.pub/thejaynetwork/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/thejaynetwork/images/thejaynetwork.png"
     }
   ]
 }
