@@ -1,0 +1,49 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "lumiwaveprotocoltestnet",
+  "pretty_name": "LumiWave Protocol Testnet",
+  "chain_id": "lumiwaveprotocol-testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "chain_type": "cosmos",
+  "bech32_prefix": "lumi",
+  "daemon_name": "lumiwave-protocold",
+  "node_home": "$HOME/.lumiwave-protocol",
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ulwp",
+        "fixed_min_gas_price": 0.005
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ulwp"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://lwp-testnet.lumiwavelab.com/tendermint",
+        "provider": "pdx-validator"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lwp-testnet.lumiwavelab.com",
+        "provider": "pdx-validator"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://testnet.ping.pub/LumiWave",
+      "tx_page": "https://testnet.ping.pub/LumiWave/tx/${txHash}"
+    }
+  ]
+}
