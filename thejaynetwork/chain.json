@@ -1,0 +1,141 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "thejaynetwork",
+  "chain_type": "cosmos",
+  "chain_id": "thejaynetwork",
+  "pretty_name": "The Jay Network",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://jaynwk.gt.tc",
+  "bech32_prefix": "yjay",
+  "daemon_name": "jaynd",
+  "node_home": "$HOME/.jayn",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ujay",
+        "fixed_min_gas_price": 0.0025,
+        "low_gas_price": 0.0025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ujay"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/bbtccore/thejaynetwork",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.19"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.53.6"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v10.4.0"
+    },
+    "binaries": {
+      "linux/amd64": "https://github.com/bbtccore/thejaynetwork/releases/download/v1.0.0/jaynd-linux-amd64",
+      "linux/arm64": "https://github.com/bbtccore/thejaynetwork/releases/download/v1.0.0/jaynd-linux-arm64"
+    },
+    "genesis": {
+      "name": "v1",
+      "genesis_url": "https://raw.githubusercontent.com/bbtccore/thejaynetwork/master/genesis/genesis.json"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/thejaynetwork/images/thejaynetwork.png"
+  },
+  "description": "The Jay Network is a Cosmos SDK-based blockchain providing fast, secure, and scalable infrastructure for decentralized applications.",
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "cea71d779368994c9251824706bf6ff2b66e1a3f",
+        "address": "34.69.40.9:26656",
+        "provider": "Jay Network"
+      },
+      {
+        "id": "e641e8705053ad4b86584a17c502467581301e1a",
+        "address": "35.222.85.162:26656",
+        "provider": "Jay Network"
+      },
+      {
+        "id": "1680c6d2c5b6a03dd09462451b36896342c831f4",
+        "address": "34.41.163.143:26656",
+        "provider": "Jay Network"
+      },
+      {
+        "id": "ca48bdf23d9898aa9017bbc44ac8380a35655ffa",
+        "address": "34.67.101.201:26656",
+        "provider": "Jay Network"
+      },
+      {
+        "id": "9f345d6fa162459bc32e220aabd04e07f99eba04",
+        "address": "34.171.203.84:26656",
+        "provider": "Jay Network"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://jayscan.duckdns.org/rpc",
+        "provider": "Jay Network"
+      },
+      {
+        "address": "http://34.67.101.201:26657",
+        "provider": "Jay Network (direct)"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://jayscan.duckdns.org/api",
+        "provider": "Jay Network"
+      },
+      {
+        "address": "http://34.67.101.201:1317",
+        "provider": "Jay Network (direct)"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "34.67.101.201:9090",
+        "provider": "Jay Network"
+      },
+      {
+        "address": "34.171.203.84:9090",
+        "provider": "Jay Network"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Jayscan",
+      "url": "https://jayscan.duckdns.org",
+      "tx_page": "https://jayscan.duckdns.org/?tx=${txHash}",
+      "account_page": "https://jayscan.duckdns.org/?account=${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/thejaynetwork/images/thejaynetwork.png"
+    }
+  ]
+}
