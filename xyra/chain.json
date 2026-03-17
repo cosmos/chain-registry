@@ -1,125 +1,67 @@
 {
-
   "$schema": "../chain.schema.json",
-
   "chain_name": "xyra",
-
   "status": "live",
-
   "network_type": "mainnet",
-
   "chain_type": "cosmos",
-
   "pretty_name": "Xyra Chain",
-
   "chain_id": "xyra-2",
-
   "bech32_prefix": "xyra",
-
   "daemon_name": "xyrad",
-
   "node_home": "$HOME/.xyrad",
-
   "key_algos": ["secp256k1"],
-
   "slip44": 118,
-
   "fees": {
-
     "fee_tokens": [
-
       {
-
         "denom": "uXyrium",
-
         "fixed_min_gas_price": 0.0025,
-
         "low_gas_price": 0.01,
-
         "average_gas_price": 0.025,
-
         "high_gas_price": 0.04
-
       }
-
     ]
-
   },
-
   "staking": {
-
-    "staking_tokens": [
-
-      {
-
-        "denom": "uXyrium"
-
-      }
-
-    ]
-
+    "staking_tokens": [{"denom": "uXyrium"}]
   },
-
   "codebase": {
-
     "git_repo": "https://github.com/rizkimaryanto7-creator/xyra-chain",
-
-    "recommended_version": "v2.0.0",
-
-    "compatible_versions": ["v2.0.0"],
-
+    "recommended_version": "v1.0.0",
+    "compatible_versions": ["v1.0.0"],
     "genesis": {
-
       "genesis_url": "https://raw.githubusercontent.com/rizkimaryanto7-creator/xyra-chain/master/genesis.json"
-
     }
-
   },
-
-  "description": "Xyra Chain is a high-performance Layer 1 blockchain protocol.",
-
-  "website": "https://www.xyra-mainnet.org",
-
-  "apis": {
-
-    "rpc": [
-
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/rizkimaryanto7-creator/xyra-chain/main/images/xyra.png",
+    "svg": "https://raw.githubusercontent.com/rizkimaryanto7-creator/xyra-chain/main/images/xyra.svg"
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
       {
-
-        "address": "https://rpc.xyra-mainnet.org",
-
+        "id": "b1577b70e4b30ba2f850e35cbccc0c0199edf77e",
+        "address": "72.62.121.184:26656",
         "provider": "Xyra-Labs"
-
       }
-
-    ],
-
-    "rest": [
-
-      {
-
-        "address": "https://api.xyra-mainnet.org",
-
-        "provider": "Xyra-Labs"
-
-      }
-
     ]
-
   },
-
+  "apis": {
+    "rpc": [{"address": "https://rpc.xyra-mainnet.org", "provider": "Xyra-Labs"}],
+    "rest": [{"address": "https://api.xyra-mainnet.org", "provider": "Xyra-Labs"}]
+  },
   "explorers": [
-
     {
-
       "kind": "ping.pub",
-
       "url": "https://explorer.xyra-mainnet.org",
-
       "tx_page": "https://explorer.xyra-mainnet.org/xyra/tx/${txHash}"
-
     }
-
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/rizkimaryanto7-creator/xyra-chain/main/images/xyra.png",
+      "svg": "https://raw.githubusercontent.com/rizkimaryanto7-creator/xyra-chain/main/images/xyra.svg"
+    }
   ]
-
 }
