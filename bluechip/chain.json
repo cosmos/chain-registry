@@ -2,24 +2,21 @@
   "$schema": "../chain.schema.json",
   "chain_name": "bluechip",
   "status": "live",
-  "website": "https://www.bluechip.link",
   "network_type": "mainnet",
-  "pretty_name": "BlueChip",
+  "pretty_name": "Bluechip",
   "chain_type": "cosmos",
-  "chain_id": "bluechip-2",
-  "bech32_prefix": "bcp",
-  "daemon_name": "bluechipd",
-  "node_home": "$HOME/.bluechip",
+  "chain_id": "bluechip-3",
+  "bech32_prefix": "bluechip",
+  "daemon_name": "bluechipchaind",
+  "node_home": "$HOME/.bluechipChain",
+  "key_algos": ["secp256k1"],
   "slip44": 118,
-  "key_algos": [
-    "secp256k1"
-  ],
   "fees": {
     "fee_tokens": [
       {
         "denom": "ubluechip",
         "fixed_min_gas_price": 0,
-        "low_gas_price": 0,
+        "low_gas_price": 0.01,
         "average_gas_price": 0.025,
         "high_gas_price": 0.04
       }
@@ -32,37 +29,51 @@
       }
     ]
   },
-  "description": "Stake to the BlueChip chain, interact with the creator pools, and subscribe through the creator subscription contracts.",
   "codebase": {
-    "git_repo": "https://github.com/Bluechip23/bluechip/tree/main",
-    "recommended_version": "v1",
+    "git_repo": "https://github.com/Bluechip23/bluechip-chain-official.git",
+    "recommended_version": "main-b038b8103e7b91c95b5b08d8eb7f809a4bbfe89f",
     "compatible_versions": [
-      "v1"
+      "main-b038b8103e7b91c95b5b08d8eb7f809a4bbfe89f"
     ],
+    "consensus": {
+      "type": "cometbft"
+    },
     "genesis": {
-      "genesis_url": "https://github.com/Bluechip23/bluechip/blob/main/genesis.json"
-    },
-    "sdk": {
-      "type": "cosmos",
-      "version": "0.47.11"
-    },
-    "cosmwasm": {
-      "enabled": true
+      "genesis_url": "https://raw.githubusercontent.com/Bluechip23/bluechip-chain-official.git/main/genesis.json"
     }
   },
   "peers": {
     "seeds": [],
     "persistent_peers": [
       {
-        "id": "8cc3f0821599561159a6157617820f1770c447d7",
-        "address": "http://67.28.8.88:26659/",
+        "id": "dad32aa4a23cb623831b9d7fd436144ca48dc2e7",
+        "address": "67.218.8.88:26659",
         "provider": "CryptoDungeon"
       }
     ]
   },
-  "images": [
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://bluechip.rpc.bluechip.link",
+        "provider": "BluechipNode"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://bluechip.api.bluechip.link",
+        "provider": "BluechipNode"
+      }
+    ],
+    "grpc": []
+  },
+  "explorers": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bluechip/images/bluechip.png"
+      "kind": "custom",
+      "url": "https://bluechipsblockexplorer.com/frontpage",
+      "tx_page": "https://bluechipsblockexplorer.com/tx/${txHash}",
+      "account_page": "https://bluechipsblockexplorer.com/account/${accountAddress}"
     }
-  ]
+  ],
+  "website": "https://www.bluechip.link/home"
 }
