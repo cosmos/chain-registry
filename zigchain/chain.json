@@ -66,7 +66,11 @@
       "darwin/amd64": "https://github.com/ZIGChain/networks/raw/refs/heads/main/zig-test-2/binaries/zigchaind-v2.0.0-darwin-amd64.tar.gz?checksum=sha256:6269882ccb1caf0af7600f2d24f5aeae7710290aba299d0d4ed607c6e63da803",
       "darwin/arm64": "https://github.com/ZIGChain/networks/raw/refs/heads/main/zig-test-2/binaries/zigchaind-v2.0.0-darwin-arm64.tar.gz?checksum=sha256:07f59514973d67e0d09c27b1be50da78f3b824518f1ee4735c09322ec1bd3789"
     },
-    "tag": "v2.0.0"
+    "tag": "v2.0.0",
+    "language": {
+      "type": "go",
+      "version": "1.25.4"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.png",
@@ -84,13 +88,58 @@
         "id": "782836bc3631ccece23edb9aba62d927956f7c5c",
         "address": "seed0.zigchain.com:26656",
         "provider": "ZIGCHAIN"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:32856",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "327fb4151de9f78f29ff10714085e347a4e3c836",
+        "address": "rpc.zigchain.nodestake.org:666",
+        "provider": "NodeStake"
       }
     ],
     "persistent_peers": [
       {
+        "id": "02012b12f72a6c25acb8a1ce5a760d949777e1af",
+        "address": "116.203.245.89:26684",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "e48a06be575b37816b62cb339979aefeb49a20f4",
+        "address": "116.203.73.109:26684",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "79b082fc208a8cd6baa0937490d15d587dc41484",
+        "address": "52.213.183.66:26656",
+        "provider": "NodeStake"
+      },
+      {
+        "id": "ce6800cf864cdb21848ac79ab29042be43cab0c3",
+        "address": "65.109.106.210:32856",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "9c7330ffa66fbdb1db4d9a586150c648e13fc532",
+        "address": "62.210.198.167:26656",
+        "provider": "Stake and Relax"
+      },
+      {
         "id": "782836bc3631ccece23edb9aba62d927956f7c5c",
         "address": "seed0.zigchain.com:26656",
         "provider": "ZIGCHAIN"
+      },
+      {
+        "id": "e79a958a3b57ecd38ba2c85b6d9e515f5cb18645",
+        "address": "151.115.90.237:26656",
+        "provider": "NodeStake"
+      },
+      {
+        "id": "bbf4a1857cdcb2c0c69dce5f10989c2f2a65a682",
+        "address": "65.21.10.181:32856",
+        "provider": "Polkachu"
       }
     ]
   },
@@ -103,6 +152,18 @@
       {
         "address": "https://rpc.zigchain.com",
         "provider": "ZIGCHAIN"
+      },
+      {
+        "address": "https://zigchain-rpc.polkachu.com:443",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://rpc.zigchain.nodestake.org:443",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://zigchain-rpc.stakeandrelax.net",
+        "provider": "Stake and Relax"
       }
     ],
     "rest": [
@@ -113,12 +174,32 @@
       {
         "address": "https://api.zigchain.com",
         "provider": "ZIGCHAIN"
+      },
+      {
+        "address": "https://zigchain-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://api.zigchain.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://zigchain-api.stakeandrelax.net",
+        "provider": "Stake and Relax"
       }
     ],
     "grpc": [
       {
         "address": "grpc.zigchain.com:9090",
         "provider": "ZIGCHAIN"
+      },
+      {
+        "address": "zigchain-grpc.polkachu.com:32890",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "grpc.zigchain.nodestake.org:443",
+        "provider": "NodeStake"
       }
     ]
   },
@@ -131,9 +212,21 @@
     },
     {
       "kind": "zigscan",
-      "url": "https://zigscan.org",
-      "tx_page": "https://zigscan.org/tx/${txHash}",
-      "account_page": "https://zigscan.org/address/${accountAddress}"
+      "url": "https://www.zigscan.org/",
+      "tx_page": "https://www.zigscan.org/tx/${txHash}",
+      "account_page": "https://www.zigscan.org/address/${accountAddress}"
+    },
+    {
+      "kind": "nodestake",
+      "url": "https://explorer.nodestake.org/zigchain",
+      "tx_page": "https://explorer.nodestake.org/zigchain/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.org/zigchain/account/${accountAddress}"
+    },
+    {
+      "kind": "stakeandrelax",
+      "url": "https://explorer.stakeandrelax.net/zigchain",
+      "tx_page": "https://explorer.stakeandrelax.net/zigchain/tx/${txHash}",
+      "account_page": "https://explorer.stakeandrelax.net/zigchain/account/${accountAddress}"
     }
   ],
   "keywords": [
