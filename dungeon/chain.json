@@ -1,0 +1,90 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "dungeon",
+  "status": "live",
+  "website": "https://dungeongames.io/",
+  "network_type": "mainnet",
+  "pretty_name": "Dungeon Chain",
+  "chain_type": "cosmos",
+  "chain_id": "dungeon-1",
+  "bech32_prefix": "dungeon",
+  "daemon_name": "dungeond",
+  "node_home": "$HOME/.dungeon",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "udgn",
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.03
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "udgn"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/dungeon-chain/dungeon"
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dungeon/images/dgn.png"
+    }
+  ],
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.dungeon.chaintools.tech",
+        "provider": "ChainTools"
+      },
+      {
+        "address": "https://rpc.dungeongames.io",
+        "provider": "Dungeon Games"
+      },
+      {
+        "address": "https://dungeon-wallet.rpc.quasarstaking.ai:443",
+        "provider": "Quasar Staking"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.dungeon.chaintools.tech",
+        "provider": "ChainTools"
+      },
+      {
+        "address": "https://api.dungeongames.io",
+        "provider": "Dungeon Games"
+      },
+      {
+        "address": "https://dungeon-wallet.api.quasarstaking.ai:443",
+        "provider": "Quasar Staking"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ChainTools",
+      "url": "https://explorer.chaintools.tech/Dungeon",
+      "tx_page": "https://explorer.chaintools.tech/Dungeon/tx/${txHash}",
+      "account_page": "https://explorer.chaintools.tech/Dungeon/account/${accountAddress}"
+    },
+    {
+      "kind": "Dungeon Games",
+      "url": "https://explorer.dungeongames.io",
+      "tx_page": "https://explorer.dungeongames.io/tx/${txHash}",
+      "account_page": "https://explorer.dungeongames.io/account/${accountAddress}"
+    },
+    {
+      "kind": "ping.pub",
+      "url": "https://ping.pub/Dungeonchain",
+      "tx_page": "https://ping.pub/Dungeonchain/tx/${txHash}"
+    }
+  ]
+}
