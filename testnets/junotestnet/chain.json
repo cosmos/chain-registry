@@ -5,7 +5,7 @@
   "network_type": "testnet",
   "pretty_name": "Juno Testnet",
   "chain_type": "cosmos",
-  "chain_id": "uni-6",
+  "chain_id": "uni-7",
   "bech32_prefix": "juno",
   "daemon_name": "junod",
   "node_home": "$HOME/.juno",
@@ -32,101 +32,43 @@
   },
   "codebase": {
     "git_repo": "https://github.com/CosmosContracts/juno",
-    "recommended_version": "v15.0.0-alpha.2",
+    "recommended_version": "v27.0.0",
     "compatible_versions": [
-      "v15.0.0",
-      "v15.0.0-alpha.2"
+      "v27.0.0"
     ],
-    "cosmos_sdk_version": "0.45",
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
+      "type": "cometbft",
+      "version": "v0.37.8"
     },
-    "cosmwasm_version": "0.31",
-    "cosmwasm_enabled": true,
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/CosmosContracts/testnets/main/uni-6/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/CosmosContracts/testnets/main/uni-7/genesis.zip"
     },
-    "versions": [
-      {
-        "name": "v13.0.0-beta.1",
-        "recommended_version": "v13.0.0-beta.1",
-        "compatible_versions": [
-          "v13.0.0-beta.1"
-        ],
-        "cosmos_sdk_version": "0.45",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "cosmwasm_version": "0.30",
-        "cosmwasm_enabled": true,
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.45"
-        },
-        "cosmwasm": {
-          "version": "0.30",
-          "enabled": true
-        },
-        "ibc": {
-          "type": "go",
-          "version": "4.3.0"
-        }
-      },
-      {
-        "name": "v14.0.0-alpha.1",
-        "recommended_version": "v14.0.0-alpha.1",
-        "compatible_versions": [
-          "v14.0.0-alpha.1"
-        ],
-        "cosmos_sdk_version": "0.45",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "cosmwasm_version": "0.30",
-        "cosmwasm_enabled": true,
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.45"
-        },
-        "cosmwasm": {
-          "version": "0.30",
-          "enabled": true
-        },
-        "ibc": {
-          "type": "go",
-          "version": "4.3.0"
-        }
-      }
-    ],
     "sdk": {
       "type": "cosmos",
-      "version": "0.45"
+      "version": "v0.47.15"
     },
     "ibc": {
       "type": "go",
-      "version": "4.3.1"
+      "version": "v7.6.0"
     },
     "cosmwasm": {
-      "version": "0.31",
+      "version": "v0.46",
       "enabled": true
     }
   },
   "peers": {
     "seeds": [
       {
-        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
-        "address": "testnet-seed.rhinostake.com:12656",
-        "provider": "RHINO"
+        "id": "3d98a19309914f782595f0db73fb4f24a776bf1b",
+        "address": "188.245.196.88:26656",
+        "provider": "Kintsugi Tech"
       }
     ],
     "persistent_peers": [
       {
-        "id": "c54bf418fb542634495f57a1e36c9bd057d55e1b",
-        "address": "5.161.80.115:26656",
-        "provider": "Reecepbcups"
+        "id": "682ab357c76c71d3bc7802d9190c030064ffb984",
+        "address": "65.109.61.50:26656",
+        "provider": "Kintsugi Tech"
       }
     ]
   },
@@ -135,6 +77,14 @@
       {
         "address": "https://juno-testnet-rpc.polkachu.com",
         "provider": "Polkachu"
+      },
+      {
+        "address": "https://rpc-uni.junonetwork.io",
+        "provider": "Juno Network"
+      },
+      {
+        "address": "https://junotestnet-rpc.kleomedes.network",
+        "provider": "Kleomedes"
       }
     ],
     "rest": [
@@ -143,23 +93,35 @@
         "provider": "Polkachu"
       },
       {
-        "address": "https://juno.api.t.stavr.tech",
-        "provider": "🔥STAVR🔥"
+        "address": "https://lcd-uni.junonetwork.io",
+        "provider": "Juno Network"
+      },
+      {
+        "address": "https://junotestnet-api.kleomedes.network",
+        "provider": "Kleomedes"
       }
     ],
     "grpc": [
       {
         "address": "juno-testnet-grpc.polkachu.com:12690",
         "provider": "Polkachu"
+      },
+      {
+        "address": "junotestnet.gprc.kleomedes.network",
+        "provider": "Kleomedes"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "🔥STAVR🔥",
+      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
       "url": "https://explorer.stavr.tech/Juno-Testnet",
       "tx_page": "https://explorer.stavr.tech/Juno-Testnet/txs/${txHash}",
       "account_page": "https://explorer.stavr.tech/Juno-Testnet/account/${accountAddress}"
+    },
+    {
+      "kind": "Stake Hub by Kleomedes",
+      "url": "https://www.stake-hub.xyz/junotestnet"
     }
   ]
 }

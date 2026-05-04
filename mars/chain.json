@@ -1,7 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "mars",
-  "status": "live",
+  "status": "killed",
   "network_type": "mainnet",
   "website": "https://www.marsprotocol.io/",
   "pretty_name": "Mars Hub",
@@ -42,50 +42,13 @@
       "v1.0.0",
       "v1.0.2"
     ],
-    "cosmos_sdk_version": "0.46.7",
     "consensus": {
       "type": "tendermint",
       "version": "0.34.24"
     },
-    "cosmwasm_version": "0.30.0",
-    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://github.com/mars-protocol/networks/raw/main/mars-1/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1",
-        "tag": "v1.0.0",
-        "height": 0,
-        "recommended_version": "v1.0.2",
-        "compatible_versions": [
-          "v1.0.0",
-          "v1.0.2"
-        ],
-        "cosmos_sdk_version": "0.46.7",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34.24"
-        },
-        "cosmwasm_version": "0.30.0",
-        "cosmwasm_enabled": true,
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.46.7"
-        },
-        "cosmwasm": {
-          "version": "0.30.0",
-          "enabled": true
-        },
-        "ibc": {
-          "type": "go",
-          "version": "6.1.0",
-          "ics_enabled": [
-            "ics20-1"
-          ]
-        }
-      }
-    ],
     "sdk": {
       "type": "cosmos",
       "version": "0.46.7"
@@ -100,7 +63,8 @@
     "cosmwasm": {
       "version": "0.30.0",
       "enabled": true
-    }
+    },
+    "tag": "v1.0.0"
   },
   "description": "Lend, borrow and earn with an autonomous credit protocol in the Cosmos universe. Open to all, closed to none.",
   "peers": {
@@ -291,19 +255,6 @@
       "url": "https://ping.pub/mars",
       "tx_page": "https://ping.pub/mars/tx/${txHash}",
       "account_page": "https://ping.pub/mars/account/${accountAddress}"
-    }
-  ],
-  "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-protocol.png",
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-protocol.svg"
-  },
-  "images": [
-    {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-protocol.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-protocol.svg",
-      "theme": {
-        "primary_color_hex": "#040404"
-      }
     }
   ]
 }

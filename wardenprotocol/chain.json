@@ -1,0 +1,136 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "wardenprotocol",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://wardenprotocol.org/",
+  "pretty_name": "Warden",
+  "chain_type": "cosmos",
+  "chain_id": "warden_8765-1",
+  "bech32_prefix": "warden",
+  "daemon_name": "wardend",
+  "node_home": "$HOME/.warden",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "award",
+        "fixed_min_gas_price": 140000000000,
+        "low_gas_price": 196000000000,
+        "average_gas_price": 225400000000,
+        "high_gas_price": 254800000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "award"
+      }
+    ],
+    "lock_duration": {
+      "time": "1209600s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/warden-protocol/wardenprotocol",
+    "recommended_version": "v0.7.0",
+    "compatible_versions": [
+      "v0.7.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/warden-protocol/wardenprotocol/releases/download/v0.7.0/wardend-v0.7.0-linux-amd64",
+      "linux/arm64": "https://github.com/warden-protocol/wardenprotocol/releases/download/v0.7.0/wardend-v0.7.0-linux-arm64"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.18"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/warden-protocol/networks/raw/main/mainnet/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.53.4"
+    },
+    "tag": "v0.7.0"
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/wardenprotocol/images/ward.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/wardenprotocol/images/ward.svg"
+  },
+  "description": "Warden is building the Global Agent Network, the foundation of the Agent economy. Through its full-stack platform—Warden Studio, Warden Chain, and Warden Agent Hub—developers can create and deploy AI Agents with onchain identity, trust, and monetization, while users access them through Warden, the 'Everything App' for crypto.",
+  "peers": {
+    "seeds": [
+      {
+        "id": "7dbf2c58286b59aae1d9c121f1cee59fc21a59ef",
+        "address": "54.220.127.230:26656",
+        "provider": "Warden Labs"
+      },
+      {
+        "id": "02810bc9ed25af587213a4ddb1fa4ab3a0e9978d",
+        "address": "54.74.49.211:26656",
+        "provider": "Warden Labs"
+      },
+      {
+        "id": "e5ce023918478f61a3606e93b9642ca24e027328",
+        "address": "63.33.179.20:26656",
+        "provider": "Warden Labs"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "7dbf2c58286b59aae1d9c121f1cee59fc21a59ef",
+        "address": "54.220.127.230:26656",
+        "provider": "Warden Labs"
+      },
+      {
+        "id": "02810bc9ed25af587213a4ddb1fa4ab3a0e9978d",
+        "address": "54.74.49.211:26656",
+        "provider": "Warden Labs"
+      },
+      {
+        "id": "e5ce023918478f61a3606e93b9642ca24e027328",
+        "address": "63.33.179.20:26656",
+        "provider": "Warden Labs"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.wardenprotocol.org",
+        "provider": "Warden Labs"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.wardenprotocol.org",
+        "provider": "Warden Labs"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.wardenprotocol.org",
+        "provider": "Warden Labs"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Warden Labs",
+      "url": "https://explorer.wardenprotocol.org/",
+      "tx_page": "https://explorer.wardenprotocol.org/tx/${txHash}",
+      "account_page": "https://explorer.wardenprotocol.org/address/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/wardenprotocol/images/ward.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/wardenprotocol/images/ward.svg"
+    }
+  ]
+}

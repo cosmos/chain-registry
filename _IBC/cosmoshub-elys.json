@@ -1,0 +1,49 @@
+{
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "cosmoshub",
+    "chain_id": "cosmoshub-4",
+    "client_id": "07-tendermint-1339",
+    "connection_id": "connection-1073"
+  },
+  "chain_2": {
+    "chain_name": "elys",
+    "chain_id": "elys-1",
+    "client_id": "07-tendermint-0",
+    "connection_id": "connection-1"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-1265",
+        "port_id": "provider"
+      },
+      "chain_2": {
+        "channel_id": "channel-0",
+        "port_id": "consumer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
+      }
+    },
+    {
+      "chain_1": {
+        "channel_id": "channel-1266",
+        "port_id": "transfer"
+      },
+      "chain_2": {
+        "channel_id": "channel-1",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
+      }
+    }
+  ]
+}

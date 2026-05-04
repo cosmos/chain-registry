@@ -28,14 +28,11 @@
   "codebase": {
     "git_repo": "https://github.com/wormhole-foundation/wormhole",
     "recommended_version": "v2.23.0",
-    "cosmos_sdk_version": "github.com/wormhole-foundation/cosmos-sdk@v0.45.9-wormhole-2",
     "consensus": {
       "type": "tendermint",
       "version": "v0.34.24",
       "repo": "https://github.com/tendermint/tendermint"
     },
-    "cosmwasm_version": "github.com/wormhole-foundation/wasmd@v0.30.0-wormchain-2",
-    "cosmwasm_enabled": true,
     "genesis": {
       "name": "v1",
       "genesis_url": "https://github.com/wormhole-foundation/wormhole/blob/main/wormchain/mainnet/genesis.json"
@@ -58,24 +55,16 @@
       "version": "v0.30.0",
       "tag": "v0.30.0-wormchain-2",
       "enabled": true
-    }
+    },
+    "compatible_versions": [
+      "v2.23.0"
+    ]
   },
   "images": [
     {
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gateway/images/wormhole_icon.svg",
       "theme": {
-        "background_color_hex": "#231b3b",
-        "primary_color_hex": "#231b3b",
         "circle": false
-      }
-    },
-    {
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gateway/images/wormhole_circle.svg",
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/gateway/images/wormhole_circle.png",
-      "theme": {
-        "background_color_hex": "#231b3b",
-        "primary_color_hex": "#231b3b",
-        "circle": true
       }
     }
   ],
@@ -136,7 +125,7 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://tncnt-eu-wormchain-main-01.rpc.p2p.world/",
+        "address": "http://wormchain-mainnet-1-full.tm.p2p.org/",
         "provider": "P2P"
       },
       {
@@ -146,7 +135,7 @@
     ],
     "rest": [
       {
-        "address": "https://tncnt-eu-wormchain-main-01.rpc.p2p.world/lcd/",
+        "address": "http://wormchain-mainnet-1-full-rest.tm.p2p.org/",
         "provider": "P2P"
       },
       {
@@ -156,7 +145,7 @@
     ],
     "grpc": [
       {
-        "address": "tncnt-eu-wormchain-main-01-grpc.rpc.p2p.world:80",
+        "address": "http://wormchain-mainnet-1-full-grpc.tm.p2p.org",
         "provider": "P2P"
       }
     ]

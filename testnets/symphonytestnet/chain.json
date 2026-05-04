@@ -5,7 +5,7 @@
   "network_type": "testnet",
   "pretty_name": "Symphony Testnet",
   "chain_type": "cosmos",
-  "chain_id": "symphony-testnet-3",
+  "chain_id": "symphony-testnet-4",
   "bech32_prefix": "symphony",
   "daemon_name": "symphonyd",
   "node_home": "$HOME/.symphonyd",
@@ -33,50 +33,23 @@
   },
   "codebase": {
     "git_repo": "https://github.com/Orchestra-Labs/symphony",
-    "recommended_version": "v23.0.5",
+    "recommended_version": "v0.4.1",
     "compatible_versions": [
-      "v23.0.5"
+      "v0.4.1"
     ],
-    "cosmos_sdk_version": "0.47.8",
     "consensus": {
-      "type": "tendermint",
-      "version": "0.37.4"
+      "type": "cometbft",
+      "version": "0.38.11"
     },
-    "cosmwasm_version": "0.30",
-    "cosmwasm_enabled": true,
     "genesis": {
-      "genesis_url": "https://rpc.testnet.symphonychain.org/genesis"
+      "genesis_url": "https://raw.githubusercontent.com/Orchestra-Labs/symphony/refs/heads/main/networks/symphony-testnet-4/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v23.0.5-rc1",
-        "recommended_version": "v23.0.5-rc1",
-        "compatible_versions": [
-          "v23.0.5-rc1"
-        ],
-        "cosmos_sdk_version": "0.47.8",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.37.4"
-        },
-        "cosmwasm_version": "0.29",
-        "cosmwasm_enabled": true,
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.47.8"
-        },
-        "cosmwasm": {
-          "version": "0.29",
-          "enabled": true
-        }
-      }
-    ],
     "sdk": {
       "type": "cosmos",
-      "version": "0.47.8"
+      "version": "0.50.9"
     },
     "cosmwasm": {
-      "version": "0.30",
+      "version": "0.53.0",
       "enabled": true
     }
   },
@@ -127,6 +100,10 @@
       {
         "address": "https://symphony-testnet-rpc.cogwheel.zone/",
         "provider": "Cogwheel ⚙️"
+      },
+      {
+        "address": "https://rpc-symphonyd.vinjan.xyz",
+        "provider": "Vinjan.Inc"
       }
     ],
     "rest": [
@@ -137,6 +114,10 @@
       {
         "address": "https://symphony-testnet-api.cogwheel.zone/",
         "provider": "Cogwheel ⚙️"
+      },
+      {
+        "address": "https://api-symphonyd.vinjan.xyz",
+        "provider": "Vinjan.Inc"
       }
     ],
     "grpc": [
@@ -150,12 +131,20 @@
       }
     ]
   },
+  "explorers": [
+    {
+      "kind": "VinjanXplorer",
+      "url": "https://xplorer.vinjan.xyz/symphony-testnet",
+      "tx_page": "https://xplorer.vinjan.xyz/symphony-testnet/tx/${txHash}",
+      "account_page": "https://xplorer.vinjan.xyz/symphony-testnet/account/${accountAddress}"
+    }
+  ],
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/symphonytestnet/images/symphony_logo.png"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/symphony/images/symphony_logo.png"
   },
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/symphonytestnet/images/symphony_logo.png"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/symphony/images/symphony_logo.png"
     }
   ]
 }

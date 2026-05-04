@@ -5,6 +5,7 @@
   "description": "Asset lists are a similar mechanism to allow frontends and other UIs to fetch metadata associated with Cosmos SDK denoms, especially for assets sent over IBC.",
   "type": "object",
   "required": [
+    "$schema",
     "chain_name",
     "assets"
   ],
@@ -64,7 +65,19 @@
         "type_asset": {
           "type": "string",
           "minLength": 1,
-          "enum": ["sdk.coin", "cw20", "erc20", "ics20", "snip20", "snip25", "bitcoin-like", "evm-base", "svm-base", "substrate", "unknown"],
+          "enum": [
+            "sdk.coin",
+            "cw20",
+            "erc20",
+            "ics20",
+            "snip20",
+            "snip25",
+            "bitcoin-like",
+            "evm-base",
+            "svm-base",
+            "substrate",
+            "unknown"
+          ],
           "default": "sdk.coin",
           "description": "[OPTIONAL] The potential options for type of asset. By default, assumes sdk.coin"
         },
@@ -82,7 +95,7 @@
           "type": "string",
           "minLength": 1,
           "description": "The project name of the asset. For example Bitcoin.",
-          "maxLength": 42
+          "maxLength": 60
         },
         "display": {
           "type": "string",
@@ -92,6 +105,7 @@
         "symbol": {
           "type": "string",
           "minLength": 1,
+          "pattern": "[A-Za-z0-9._\\-]+",
           "description": "The symbol of an asset. For example BTC."
         },
         "traces": {
@@ -177,23 +191,10 @@
               "theme": {
                 "type": "object",
                 "properties": {
-                  "primary_color_hex": {
-                    "type": "string",
-                    "minLength": 1,
-                    "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
-                  },
-                  "background_color_hex": {
-                    "type": "string",
-                    "minLength": 1,
-                    "pattern": "^(#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})|none)$"
-                  },
                   "circle": {
                     "type": "boolean"
                   },
                   "dark_mode": {
-                    "type": "boolean"
-                  },
-                  "monochrome": {
                     "type": "boolean"
                   }
                 },
@@ -229,10 +230,12 @@
               "minLength": 1,
               "format": "uri"
             },
-            "twitter": {
+            "x": {
               "type": "string",
+              "description": "X (formerly Twitter)",
               "minLength": 1,
-              "format": "uri"
+              "format": "uri",
+              "pattern": "^https://(x\\.com|twitter\\.com)/.+$"
             },
             "telegram": {
               "type": "string",
@@ -387,7 +390,7 @@
             "path": {
               "type": "string",
               "minLength": 1,
-              "description": "The port/channel/denom input string that generates the 'ibc/...' denom." 
+              "description": "The port/channel/denom input string that generates the 'ibc/...' denom."
             }
           }
         }
@@ -465,7 +468,7 @@
             "path": {
               "type": "string",
               "minLength": 1,
-              "description": "The port/channel/denom input string that generates the 'ibc/...' denom." 
+              "description": "The port/channel/denom input string that generates the 'ibc/...' denom."
             }
           }
         }
@@ -515,7 +518,6 @@
             "channel_id": {
               "type": "string",
               "minLength": 1,
-              "pattern": "^channel-\\d+$",
               "description": "The counterparty IBC transfer channel(, e.g., 'channel-1')."
             }
           }
@@ -536,13 +538,12 @@
             "channel_id": {
               "type": "string",
               "minLength": 1,
-              "pattern": "^channel-\\d+$",
               "description": "The chain's IBC transfer channel(, e.g., 'channel-1')."
             },
             "path": {
               "type": "string",
               "minLength": 1,
-              "description": "The port/channel/denom input string that generates the 'ibc/...' denom." 
+              "description": "The port/channel/denom input string that generates the 'ibc/...' denom."
             }
           }
         },

@@ -36,84 +36,21 @@
     ]
   },
   "codebase": {
-    "recommended_version": "v2.1.6",
+    "recommended_version": "v2.2.8",
     "compatible_versions": [
-      "v2.1.6"
+      "v2.2.8"
     ],
-    "cosmos_sdk_version": "v0.47.10",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.5"
+      "version": "0.37.5"
     },
-    "cosmwasm_version": "v0.45.0",
-    "cosmwasm_enabled": true,
-    "cosmwasm_path": "$HOME/.routerd/wasm",
     "binaries": {
-      "linux/amd64": "https://raw.githubusercontent.com/router-protocol/router-chain-binary-release/v2.1.6/linux/routerd.tar.gz",
-      "darwin/amd64": "https://raw.githubusercontent.com/router-protocol/router-chain-binary-release/v2.1.6/debian/routerd.tar.gz"
+      "linux/amd64": "https://raw.githubusercontent.com/router-protocol/router-chain-binary-release/v2.2.8/linux/routerd.tar.gz",
+      "darwin/amd64": "https://raw.githubusercontent.com/router-protocol/router-chain-binary-release/v2.2.8/debian/routerd.tar.gz"
     },
     "genesis": {
       "genesis_url": "https://sentry.tm.rpc.routerprotocol.com/genesis"
     },
-    "versions": [
-      {
-        "name": "v2.1.1",
-        "recommended_version": "v2.1.1",
-        "compatible_versions": [
-          "v2.1.1"
-        ],
-        "binaries": {
-          "linux/amd64": "https://raw.githubusercontent.com/router-protocol/router-chain-binary-release/v2.1.1/linux/routerd.tar.gz",
-          "darwin/amd64": "https://raw.githubusercontent.com/router-protocol/router-chain-binary-release/v2.1.1/debian/routerd.tar.gz"
-        },
-        "cosmwasm_version": "v0.45.0",
-        "cosmwasm_enabled": true,
-        "next_version_name": "2.1.1-nitro-to-2.1.6",
-        "cosmwasm": {
-          "version": "v0.45.0",
-          "enabled": true
-        },
-        "ibc": {
-          "type": "go",
-          "version": "v7.4.0"
-        }
-      },
-      {
-        "name": "2.1.1-nitro-to-2.1.6",
-        "tag": "v2.1.6",
-        "height": 8649000,
-        "proposal": 169,
-        "recommended_version": "v2.1.6",
-        "compatible_versions": [
-          "v2.1.6"
-        ],
-        "cosmos_sdk_version": "v0.47.10",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.5"
-        },
-        "cosmwasm_version": "v0.45.0",
-        "cosmwasm_enabled": true,
-        "cosmwasm_path": "$HOME/.routerd/wasm",
-        "binaries": {
-          "linux/amd64": "https://raw.githubusercontent.com/router-protocol/router-chain-binary-release/v2.1.6/linux/routerd.tar.gz",
-          "darwin/amd64": "https://raw.githubusercontent.com/router-protocol/router-chain-binary-release/v2.1.6/debian/routerd.tar.gz"
-        },
-        "sdk": {
-          "type": "cosmos",
-          "version": "v0.47.10"
-        },
-        "cosmwasm": {
-          "version": "v0.45.0",
-          "path": "$HOME/.routerd/wasm",
-          "enabled": true
-        },
-        "ibc": {
-          "type": "go",
-          "version": "v7.4.0"
-        }
-      }
-    ],
     "sdk": {
       "type": "cosmos",
       "version": "v0.47.10"
@@ -126,7 +63,8 @@
       "version": "v0.45.0",
       "path": "$HOME/.routerd/wasm",
       "enabled": true
-    }
+    },
+    "tag": "v2.2.8"
   },
   "peers": {
     "seeds": [
@@ -144,11 +82,6 @@
         "id": "fbb30fa866f318e9e1c48188711526fc69f66d18",
         "address": "188.214.133.174:26656",
         "provider": "Router"
-      },
-      {
-        "id": "09ba537d6563018b97c502979c3478df4decf426",
-        "address": "seeds-node.genznodes.dev:4656",
-        "provider": "genznodes"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
@@ -173,11 +106,6 @@
         "provider": "Router"
       },
       {
-        "id": "13a59edcee8ede7afa62ae054f266b44701cedc0",
-        "address": "213.246.45.16:3656",
-        "provider": "genznodes"
-      },
-      {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "router-mainnet-seed.autostake.com:27336",
         "provider": "AutoStake 🛡️ Slash Protected"
@@ -191,16 +119,16 @@
         "provider": "Router"
       },
       {
-        "address": "https://router-rpc.genznodes.dev/",
-        "provider": "genznodes"
-      },
-      {
-        "address": "https://router.rpc.nodeshub.online:443",
-        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️"
-      },
-      {
         "address": "https://router-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://routerchain_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+      },
+      {
+        "address": "https://rpc.router.nodestake.org",
+        "provider": "NodeStake"
       }
     ],
     "rest": [
@@ -209,16 +137,16 @@
         "provider": "Router"
       },
       {
-        "address": "https://router-api.genznodes.dev/",
-        "provider": "genznodes"
-      },
-      {
-        "address": "https://router.api.nodeshub.online",
-        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️"
-      },
-      {
         "address": "https://router-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://routerchain_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+      },
+      {
+        "address": "https://api.router.nodestake.org",
+        "provider": "NodeStake"
       }
     ],
     "grpc": [
@@ -227,16 +155,12 @@
         "provider": "Router"
       },
       {
-        "address": "router-grpc.genznodes.dev:3090",
-        "provider": "genznodes"
-      },
-      {
-        "address": "router.grpc.nodeshub.online",
-        "provider": "Nodes Hub"
-      },
-      {
         "address": "router-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "grpc.router.nodestake.org:443",
+        "provider": "NodeStake"
       }
     ],
     "evm-http-jsonrpc": [
@@ -245,8 +169,8 @@
         "provider": "Router"
       },
       {
-        "address": "https://router-rpc-evm.genznodes.dev",
-        "provider": "genznodes"
+        "address": "https://routerchain_mainnet_evm.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
       }
     ]
   },
@@ -267,10 +191,16 @@
       "tx_page": "https://router.explorers.guru/transaction/${txHash}"
     },
     {
-      "kind": "Nodes Hub 🛡️ 100% Slash Protected 🛡️",
-      "url": "https://explorer.nodeshub.online/router/",
-      "tx_page": "https://explorer.nodeshub.online/router/tx/${txHash}",
-      "account_page": "https://explorer.nodeshub.online/router/accounts/${accountAddress}"
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/routerchain",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=routerchain&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=routerchain&addr=${accountAddress}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/routerchain",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/routerchain/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/routerchain/account/${accountAddress}"
     }
   ],
   "images": [
@@ -280,10 +210,7 @@
         "base_denom": "route"
       },
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/routerchain/images/router.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/routerchain/images/router.svg",
-      "theme": {
-        "primary_color_hex": "#cb0766"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/routerchain/images/router.svg"
     }
   ]
 }

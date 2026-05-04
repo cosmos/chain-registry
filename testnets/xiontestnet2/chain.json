@@ -1,0 +1,215 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "xiontestnet2",
+  "chain_type": "cosmos",
+  "chain_id": "xion-testnet-2",
+  "pretty_name": "Xion Testnet",
+  "website": "https://xion.burnt.com",
+  "status": "live",
+  "network_type": "testnet",
+  "bech32_prefix": "xion",
+  "bech32_config": {
+    "bech32PrefixAccAddr": "xion",
+    "bech32PrefixAccPub": "xionpub",
+    "bech32PrefixValAddr": "xionvaloper",
+    "bech32PrefixValPub": "xionvaloperpub",
+    "bech32PrefixConsAddr": "xionvalcons",
+    "bech32PrefixConsPub": "xionvalconspub"
+  },
+  "daemon_name": "xiond",
+  "node_home": "$HOME/.xiond",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uxion",
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.001,
+        "average_gas_price": 0.001,
+        "high_gas_price": 0.01
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uxion"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/burnt-labs/xion",
+    "tag": "v20.0.0",
+    "recommended_version": "v20.0.0",
+    "language": {
+      "type": "go",
+      "version": "v1.23"
+    },
+    "binaries": {
+      "darwin/amd64": "https://github.com/burnt-labs/xion/releases/download/v20.0.0/xiond_20.0.0_darwin_amd64.tar.gz?checksum=sha256:7476525f27194809a45e920bc6f7e934e64fdc58ab29007fe1f502c6cfc10265",
+      "darwin/arm64": "https://github.com/burnt-labs/xion/releases/download/v20.0.0/xiond_20.0.0_darwin_arm64.tar.gz?checksum=sha256:75ed3db62375fe0acddf72f72c2a9f7d4a70ddba2d4480bc08032caccd09a8eb",
+      "linux/amd64": "https://github.com/burnt-labs/xion/releases/download/v20.0.0/xiond_20.0.0_linux_amd64.tar.gz?checksum=sha256:a7a63a81e6a8095aa532e58f79b98164a7fbdffd0d0f6c98250880dc1c061a0b",
+      "linux/arm64": "https://github.com/burnt-labs/xion/releases/download/v20.0.0/xiond_20.0.0_linux_arm64.tar.gz?checksum=sha256:4c452a48078687b45b95710ccbe506b0e4cb186329b0bac243d3721a624a1001"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.53.3"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.17"
+    },
+    "cosmwasm": {
+      "version": "v0.54.0",
+      "enabled": true
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.7.0"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/burnt-labs/xion-testnet-2/main/config/genesis.json"
+    },
+    "compatible_versions": [
+      "v20.0.0"
+    ]
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "20e1000e88125698264454a884812746c2eb4807",
+        "address": "testnet-seeds.lavenderfive.com:22356",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "testnet-seeds.polkachu.com:22356",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "69e1aa5800ffa82615986eac5f99b77c2b8f1ccb",
+        "address": "burnt-testnet-seed.itrocket.net:55656",
+        "provider": "ITRocket"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "0f1c8ed0d4c4a52ecb8fb6c6b2c6f7d1856326d5",
+        "address": "65.21.10.115:22356",
+        "provider": "e1048642-f584-53e0-afff-5bc34cb31cb9"
+      },
+      {
+        "id": "5166bcee9d5db28dfede2a936f2a60e07778fa89",
+        "address": "65.109.113.219:22356",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "7108f0b946f7a4b5b88f01bd29edbaf87d4dbfb4",
+        "address": "65.109.89.19:22356",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "73b62ebfb71023900d8debb6e6dc7f1379c34686",
+        "address": "65.109.58.86:22356",
+        "provider": "b36590e9-5c8f-589e-9436-9cf5735afa8b"
+      },
+      {
+        "id": "85e868567ca46f8d94b1fba87b2fa5b42a271439",
+        "address": "141.94.240.117:22356",
+        "provider": "b9744aff-4488-5a1e-89d0-ceb895036c17"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.xion-testnet-2.burnt.com:443",
+        "provider": "🔥BurntLabs🔥"
+      },
+      {
+        "address": "https://testnet-2-rpc.xion-api.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://xion-testnet-rpc.polkachu.com:443",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://burnt-testnet-rpc.itrocket.net:443",
+        "provider": "ITRocket"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.xion-testnet-2.burnt.com",
+        "provider": "🔥BurntLabs🔥"
+      },
+      {
+        "address": "https://testnet-2-api.xion-api.com",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "https://xion-testnet-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://burnt-testnet-api.itrocket.net",
+        "provider": "ITRocket"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.xion-testnet-2.burnt.com:443",
+        "provider": "🔥BurntLabs🔥"
+      },
+      {
+        "address": "testnet-2-grpc.xion-api.com:443",
+        "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "address": "xion-testnet-grpc.polkachu.com:22390",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "burnt-testnet-grpc.itrocket.net:443",
+        "provider": "ITRocket"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "mintscan",
+      "url": "https://www.mintscan.io/xion-testnet",
+      "tx_page": "https://www.mintscan.io/xion-testnet/transactions/${txHash}",
+      "account_page": "https://www.mintscan.io/xion-testnet/accounts/${accountAddress}"
+    },
+    {
+      "url": "https://explorer.burnt.com/xion-testnet-2",
+      "tx_page": "https://explorer.burnt.com/xion-testnet-2/tx/${txHash}",
+      "account_page": "https://explorer.burnt.com/xion-testnet-2/account/${accountAddress}"
+    },
+    {
+      "kind": "ITRocket",
+      "url": "https://testnet.itrocket.net/burnt",
+      "tx_page": "https://testnet.itrocket.net/burnt/tx/${txHash}",
+      "account_page": "https://testnet.itrocket.net/burnt/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xion/images/burnt.png"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xion/images/burnt.png"
+  },
+  "description": "XION is the first walletless L1 blockchain purpose built for consumer adoption through chain abstraction.",
+  "keywords": [
+    "xion",
+    "burnt",
+    "testnet"
+  ]
+}

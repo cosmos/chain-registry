@@ -5,7 +5,7 @@
   "network_type": "testnet",
   "pretty_name": "Sunrise Testnet",
   "chain_type": "cosmos",
-  "chain_id": "sunrise-test-0.1",
+  "chain_id": "dawn-1",
   "bech32_prefix": "sunrise",
   "daemon_name": "sunrised",
   "node_home": "$HOME/.sunrise",
@@ -16,7 +16,7 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "urise",
+        "denom": "uusdrise",
         "fixed_min_gas_price": 0,
         "low_gas_price": 0.0025,
         "average_gas_price": 0.025,
@@ -33,141 +33,24 @@
   },
   "codebase": {
     "git_repo": "https://github.com/sunriselayer/sunrise",
-    "recommended_version": "v0.1.2",
+    "recommended_version": "v1.0.0",
     "compatible_versions": [
-      "v0.1.2"
+      "v1.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.1.2/sunrised"
+      "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v1.0.0/sunrised-linux-amd64"
     },
-    "cosmos_sdk_version": "0.50.2",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.0.5",
-      "repo": "https://github.com/sunriselayer/sunrise-core",
-      "tag": "v0.0.5-cmt-v0.38.2"
+      "version": "v0.38.17"
     },
-    "versions": [
-      {
-        "name": "v0.0.7",
-        "recommended_version": "v0.0.7",
-        "compatible_versions": [
-          "v0.0.7"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.0.7/sunrised"
-        },
-        "cosmos_sdk_version": "0.50.2",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.0.5",
-          "repo": "https://github.com/sunriselayer/sunrise-core",
-          "tag": "v0.0.5-cmt-v0.38.2"
-        },
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.50.2"
-        },
-        "ibc": {
-          "type": "go",
-          "version": "8.0.0",
-          "ics_enabled": [
-            "ics20-1"
-          ]
-        }
-      },
-      {
-        "name": "v0.0.8",
-        "recommended_version": "v0.0.8",
-        "compatible_versions": [
-          "v0.0.8"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.0.8/sunrised"
-        },
-        "cosmos_sdk_version": "0.50.2",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.0.5",
-          "repo": "https://github.com/sunriselayer/sunrise-core",
-          "tag": "v0.0.5-cmt-v0.38.2"
-        },
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.50.2"
-        },
-        "ibc": {
-          "type": "go",
-          "version": "8.0.0",
-          "ics_enabled": [
-            "ics20-1"
-          ]
-        }
-      },
-      {
-        "name": "v0.1.1",
-        "recommended_version": "v0.1.1",
-        "compatible_versions": [
-          "v0.1.1"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.1.1/sunrised"
-        },
-        "cosmos_sdk_version": "0.50.2",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.0.5",
-          "repo": "https://github.com/sunriselayer/sunrise-core",
-          "tag": "v0.0.5-cmt-v0.38.2"
-        },
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.50.2"
-        },
-        "ibc": {
-          "type": "go",
-          "version": "8.0.0",
-          "ics_enabled": [
-            "ics20-1"
-          ]
-        }
-      },
-      {
-        "name": "v0.1.2",
-        "recommended_version": "v0.1.2",
-        "compatible_versions": [
-          "v0.1.2"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.1.2/sunrised"
-        },
-        "cosmos_sdk_version": "0.50.2",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.0.5",
-          "repo": "https://github.com/sunriselayer/sunrise-core",
-          "tag": "v0.0.5-cmt-v0.38.2"
-        },
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.50.2"
-        },
-        "ibc": {
-          "type": "go",
-          "version": "8.0.0",
-          "ics_enabled": [
-            "ics20-1"
-          ]
-        }
-      }
-    ],
     "sdk": {
       "type": "cosmos",
-      "version": "0.50.2"
+      "version": "v0.53.2"
     },
     "ibc": {
       "type": "go",
-      "version": "8.0.0"
+      "version": "v10.3.0"
     }
   },
   "logo_URIs": {
@@ -175,26 +58,17 @@
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sunrise/images/sunrise.svg"
   },
   "peers": {
-    "seeds": [],
+    "seeds": [
+      {
+        "id": "b63465f5b61b85de1dff99a8d4bff01ae746a2ef",
+        "address": "sunrise-dawn-1.cauchye.com:26656",
+        "provider": "CauchyE"
+      }
+    ],
     "persistent_peers": [
       {
-        "id": "89e5866f0c2edd5fd1cc604e0eb173d6111d9bd8",
-        "address": "a.sunrise-test-1.cauchye.net:26656",
-        "provider": "CauchyE"
-      },
-      {
-        "id": "9cb96bd137c6fab41446f5fa36e17b1f8896b05c",
-        "address": "b.sunrise-test-1.cauchye.net:26656",
-        "provider": "CauchyE"
-      },
-      {
-        "id": "db223ecc4fba0e7135ba782c0fd710580c5213a6",
-        "address": "a-node.sunrise-test-1.cauchye.net:26656",
-        "provider": "CauchyE"
-      },
-      {
-        "id": "82bc2fdbfc735b1406b9da4181036ab9c44b63be",
-        "address": "b-node.sunrise-test-1.cauchye.net:26656",
+        "id": "b63465f5b61b85de1dff99a8d4bff01ae746a2ef",
+        "address": "sunrise-dawn-1.cauchye.com:26656",
         "provider": "CauchyE"
       }
     ]
@@ -202,36 +76,31 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://a-node.sunrise-test-1.cauchye.net/",
-        "provider": "CauchyE"
-      },
-      {
-        "address": "https://b-node.sunrise-test-1.cauchye.net/",
+        "address": "https://sunrise-dawn-1.cauchye.com",
         "provider": "CauchyE"
       }
     ],
     "rest": [
       {
-        "address": "https://a-node.sunrise-test-1.cauchye.net:1318",
-        "provider": "CauchyE"
-      },
-      {
-        "address": "https://b-node.sunrise-test-1.cauchye.net:1318",
+        "address": "https://sunrise-dawn-1.cauchye.com:1318",
         "provider": "CauchyE"
       }
     ],
     "grpc": [
       {
-        "address": "https://a.sunrise-test-1.cauchye.net:9092",
-        "provider": "CauchyE"
-      },
-      {
-        "address": "https://b.sunrise-test-1.cauchye.net:9092",
+        "address": "https://sunrise-dawn-1.cauchye.com:9092",
         "provider": "CauchyE"
       }
     ]
   },
-  "explorers": [],
+  "explorers": [
+    {
+      "kind": "Risescan",
+      "url": "https://dawn-1.risescan.sunriselayer.io",
+      "tx_page": "https://dawn-1.risescan.sunriselayer.io/txs/${txHash}",
+      "account_page": "https://dawn-1.risescan.sunriselayer.io/accounts/${accountAddress}"
+    }
+  ],
   "images": [
     {
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sunrise/images/sunrise.svg",

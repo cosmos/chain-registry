@@ -59,117 +59,13 @@
     "compatible_versions": [
       "v3.0.0"
     ],
-    "cosmos_sdk_version": "v0.50.9",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.6"
+      "version": "v0.38.11"
     },
-    "cosmwasm_version": "v0.53.0",
-    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/quasar-finance/networks/main/quasar-1/definitive-genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.1.0",
-        "recommended_version": "v0.1.1",
-        "compatible_versions": [
-          "v0.1.0",
-          "v0.1.1"
-        ],
-        "cosmos_sdk_version": "v0.45.14",
-        "consensus": {
-          "type": "tendermint",
-          "version": "v0.34.26"
-        },
-        "cosmwasm_version": "0.27",
-        "cosmwasm_enabled": true,
-        "next_version_name": "v1",
-        "sdk": {
-          "type": "cosmos",
-          "version": "v0.45.14"
-        },
-        "cosmwasm": {
-          "version": "0.27",
-          "enabled": true
-        }
-      },
-      {
-        "name": "v1",
-        "proposal": 9,
-        "height": 2249500,
-        "recommended_version": "v1.0.1",
-        "compatible_versions": [
-          "v1.0.1"
-        ],
-        "cosmos_sdk_version": "v0.45.16",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.34.27"
-        },
-        "cosmwasm_version": "0.31.0",
-        "cosmwasm_enabled": true,
-        "next_version_name": "v2",
-        "sdk": {
-          "type": "cosmos",
-          "version": "v0.45.16"
-        },
-        "cosmwasm": {
-          "version": "0.31.0",
-          "enabled": true
-        }
-      },
-      {
-        "name": "v2",
-        "proposal": 42,
-        "height": 7480400,
-        "recommended_version": "v2.0.1",
-        "compatible_versions": [
-          "v2.0.1"
-        ],
-        "cosmos_sdk_version": "v0.47.12",
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.6"
-        },
-        "cosmwasm_version": "0.45.0",
-        "cosmwasm_enabled": true,
-        "next_version_name": "v3",
-        "sdk": {
-          "type": "cosmos",
-          "version": "v0.47.12"
-        },
-        "cosmwasm": {
-          "version": "0.45.0",
-          "enabled": true
-        }
-      },
-      {
-        "name": "v3",
-        "proposal": 45,
-        "height": 7982200,
-        "recommended_version": "v3.0.0",
-        "compatible_versions": [
-          "v3.0.0"
-        ],
-        "cosmos_sdk_version": "v0.50.9",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.38.11"
-        },
-        "cosmwasm_version": "v0.53.0",
-        "cosmwasm_enabled": true,
-        "next_version_name": "",
-        "sdk": {
-          "type": "cosmos",
-          "version": "v0.50.9"
-        },
-        "cosmwasm": {
-          "version": "v0.53.0",
-          "enabled": true
-        }
-      }
-    ],
     "sdk": {
       "type": "cosmos",
       "version": "v0.50.9"
@@ -209,11 +105,6 @@
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "quasar-mainnet-seed.autostake.com:27146",
         "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "id": "86fd17151eec60145e6c1a635e8365aff70a77d7",
-        "address": "seed-quasar.ibs.team:16667",
-        "provider": "Inter Blockchain Services"
       }
     ],
     "persistent_peers": [
@@ -272,16 +163,16 @@
         "provider": "StakeTown"
       },
       {
-        "address": "https://quasar-rpc.ibs.team",
-        "provider": "Inter Blockchain Services"
-      },
-      {
         "address": "https://quasar-rpc.stakeandrelax.net",
         "provider": "Stake&Relax 🦥"
       },
       {
         "address": "https://quasar-rpc.genznodes.dev",
         "provider": "genznodes"
+      },
+      {
+        "address": "https://quasar-rpc.chainroot.io",
+        "provider": "Chainroot"
       }
     ],
     "rest": [
@@ -322,16 +213,16 @@
         "provider": "StakeTown"
       },
       {
-        "address": "https://quasar-api.ibs.team",
-        "provider": "Inter Blockchain Services"
-      },
-      {
         "address": "https://quasar-api.stakeandrelax.net",
         "provider": "Stake&Relax 🦥"
       },
       {
         "address": "https://quasar-api.genznodes.dev",
         "provider": "genznodes"
+      },
+      {
+        "address": "https://quasar-api.chainroot.io",
+        "provider": "Chainroot"
       }
     ],
     "grpc": [
@@ -370,6 +261,10 @@
       {
         "address": "quasar-grpc.genznodes.dev:29090",
         "provider": "genznodes"
+      },
+      {
+        "address": "quasar-grpc.chainroot.io:443",
+        "provider": "Chainroot"
       }
     ]
   },
@@ -387,6 +282,12 @@
       "account_page": "https://ezstaking.app/quasar/account/${accountAddress}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/quasar",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=quasar&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=quasar&addr=${accountAddress}"
+    },
+    {
       "kind": "WhisperNode 🤐",
       "url": "https://mainnet.whispernode.com/quasar",
       "tx_page": "https://mainnet.whispernode.com/quasar/tx/${txHash}",
@@ -398,10 +299,7 @@
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quasar/images/quasar.png",
-      "theme": {
-        "primary_color_hex": "#a493e4"
-      }
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quasar/images/quasar.png"
     }
   ]
 }

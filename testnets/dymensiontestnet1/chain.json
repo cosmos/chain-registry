@@ -1,0 +1,72 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "dymensiontestnet1",
+  "chain_type": "cosmos",
+  "chain_id": "dymension_3405-1",
+  "pretty_name": "Dymension Playground Testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://playground.dymension.xyz",
+  "bech32_prefix": "dym",
+  "daemon_name": "dymd",
+  "node_home": "$HOME/.dymension",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "adym",
+        "low_gas_price": 5000000000,
+        "average_gas_price": 5500000000,
+        "high_gas_price": 6000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "adym"
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.svg"
+  },
+  "description": "Dymension is a network of easily deployable and lightning fast modular blockchains called RollApps.",
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.svg"
+    }
+  ],
+  "codebase": {
+    "git_repo": "https://github.com/dymensionxyz/dymension"
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-dymension-playground35.mzonder.com",
+        "provider": "mzonder"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-dymension-playground35.mzonder.com",
+        "provider": "mzonder"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "dymscan",
+      "url": "https://pg.dym.fyi/",
+      "tx_page": "https://pg.dym.fyi/tx/${txHash}"
+    }
+  ]
+}

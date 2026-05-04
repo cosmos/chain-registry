@@ -6,7 +6,7 @@
   "pretty_name": "Int3face",
   "status": "live",
   "network_type": "mainnet",
-  "website": "https://int3face.io/",
+  "website": "https://int3face.zone/",
   "bech32_prefix": "int3",
   "daemon_name": "int3",
   "node_home": "$HOME/.int3faced",
@@ -18,10 +18,45 @@
     "fee_tokens": [
       {
         "denom": "uint3",
-        "fixed_min_gas_price": 0.0025,
-        "low_gas_price": 0.0025,
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
         "average_gas_price": 0.025,
         "high_gas_price": 0.04
+      },
+      {
+        "denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/bitcoin-btc",
+        "fixed_min_gas_price": 1e-7,
+        "low_gas_price": 1e-7,
+        "average_gas_price": 0.0000025,
+        "high_gas_price": 0.000004
+      },
+      {
+        "denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/bitcoin-cash-bch",
+        "fixed_min_gas_price": 0.000001,
+        "low_gas_price": 0.000001,
+        "average_gas_price": 0.000025,
+        "high_gas_price": 0.00004
+      },
+      {
+        "denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/litecoin-ltc",
+        "fixed_min_gas_price": 0.000001,
+        "low_gas_price": 0.000001,
+        "average_gas_price": 0.000025,
+        "high_gas_price": 0.00004
+      },
+      {
+        "denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/dogecoin-doge",
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.001,
+        "average_gas_price": 0.0025,
+        "high_gas_price": 0.004
+      },
+      {
+        "denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/ton-ton",
+        "fixed_min_gas_price": 0.0001,
+        "low_gas_price": 0.0001,
+        "average_gas_price": 0.00025,
+        "high_gas_price": 0.0004
       }
     ]
   },
@@ -38,7 +73,6 @@
     "compatible_versions": [
       "v0.2.7"
     ],
-    "cosmos_sdk_version": "github.com/cosmos/cosmos-sdk v0.50.8",
     "consensus": {
       "type": "cometbft",
       "version": "v0.38.10"
@@ -46,16 +80,6 @@
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/Int3facechain/networks/main/int3face-1/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.2.7",
-        "recommended_version": "v0.2.7",
-        "compatible_versions": [
-          "v0.2.7"
-        ],
-        "next_version_name": "v0.2.8"
-      }
-    ],
     "sdk": {
       "type": "cosmos",
       "repo": "https://github.com/cosmos/cosmos-sdk",
@@ -119,13 +143,19 @@
         "address": "https://api.mainnet.int3face.zone",
         "provider": "Int3face.io"
       }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.mainnet.int3face.zone:443",
+        "provider": "Int3face.io"
+      }
     ]
   },
   "explorers": [
     {
       "kind": "ping.pub",
       "url": "https://explorer.int3face.zone",
-      "tx_page": "https://explorer.int3face.zone/tx/${txHash}"
+      "tx_page": "https://explorer.int3face.zone/int3face-1/tx/${txHash}"
     }
   ],
   "images": [
@@ -134,15 +164,11 @@
         "chain_name": "int3face",
         "base_denom": "uint3"
       },
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/int3.png",
-      "theme": {
-        "primary_color_hex": "#040404"
-      }
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/int3.png"
     },
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/int3face-chain-logo.png",
       "theme": {
-        "primary_color_hex": "#040404",
         "circle": false
       }
     }

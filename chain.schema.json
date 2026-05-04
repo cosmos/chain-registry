@@ -4,7 +4,12 @@
   "title": "Chain",
   "description": "Chain.json is a metadata file that contains information about a blockchain.",
   "type": "object",
-  "required": [ "chain_name", "chain_type" ],
+  "required": [
+    "$schema",
+    "chain_name",
+    "chain_type",
+    "status"
+  ],
   "properties": {
     "$schema": {
       "type": "string",
@@ -196,34 +201,20 @@
             "minLength": 1
           }
         },
+        "tag": {
+          "$ref": "#/$defs/tag"
+        },
         "language": {
           "$ref": "#/$defs/language"
         },
         "binaries": {
           "$ref": "#/$defs/binaries"
         },
-        "cosmos_sdk_version": {
-          "type": "string",
-          "minLength": 1
-        },
         "sdk": {
           "$ref": "#/$defs/sdk"
         },
         "consensus": {
           "$ref": "#/$defs/consensus"
-        },
-        "cosmwasm_version": {
-          "type": "string",
-          "minLength": 1
-        },
-        "cosmwasm_enabled": {
-          "type": "boolean"
-        },
-        "cosmwasm_path": {
-          "type": "string",
-          "minLength": 1,
-          "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
-          "pattern": "^\\$HOME.*$"
         },
         "cosmwasm": {
           "$ref": "#/$defs/cosmwasm"
@@ -250,90 +241,6 @@
               "minLength": 1,
               "format": "uri"
             }
-          }
-        },
-        "versions": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [ "name" ],
-            "properties": {
-              "name": {
-                "type": "string",
-                "minLength": 1,
-                "description": "Official Upgrade Name"
-              },
-              "tag": {
-                "type": "string",
-                "minLength": 1,
-                "description": "Git Upgrade Tag"
-              },
-              "height": {
-                "type": "number",
-                "description": "Block Height"
-              },
-              "proposal": {
-                "type": "number",
-                "description": "Proposal that will officially signal community acceptance of the upgrade."
-              },
-              "previous_version_name": {
-                "type": "string",
-                "minLength": 1,
-                "description": "[Optional] Name of the previous version"
-              },
-              "next_version_name": {
-                "type": "string",
-                "minLength": 0,
-                "description": "[Optional] Name of the following version"
-              },
-              "recommended_version": {
-                "type": "string",
-                "minLength": 1
-              },
-              "compatible_versions": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "language": {
-                "$ref": "#/$defs/language"
-              },
-              "cosmos_sdk_version": {
-                "type": "string",
-                "minLength": 1
-              },
-              "sdk": {
-                "$ref": "#/$defs/sdk"
-              },
-              "consensus": {
-                "$ref": "#/$defs/consensus"
-              },
-              "cosmwasm_version": {
-                "type": "string",
-                "minLength": 1
-              },
-              "cosmwasm_enabled": {
-                "type": "boolean"
-              },
-              "cosmwasm_path": {
-                "type": "string",
-                "minLength": 1,
-                "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
-                "pattern": "^\\$HOME.*$"
-              },
-              "cosmwasm": {
-                "$ref": "#/$defs/cosmwasm"
-              },
-              "ibc": {
-                "$ref": "#/$defs/ibc"
-              },
-              "binaries": {
-                "$ref": "#/$defs/binaries"
-              }
-            },
-            "additionalProperties": false
           }
         }
       },
@@ -362,23 +269,10 @@
           "theme": {
             "type": "object",
             "properties": {
-              "primary_color_hex": {
-                "type": "string",
-                "minLength": 1,
-                "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
-              },
-              "background_color_hex": {
-                "type": "string",
-                "minLength": 1,
-                "pattern": "^(#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})|none)$"
-              },
               "circle": {
                 "type": "boolean"
               },
               "dark_mode": {
-                "type": "boolean"
-              },
-              "monochrome": {
                 "type": "boolean"
               }
             },
@@ -640,8 +534,8 @@
     "tag": {
       "type": "string",
       "minLength": 1,
-      "pattern": "^v?\\d+(\\.\\d+){0,2}(-[\\w\\.\\-]+)?$",
-      "description": "Detailed version identifier (e.g., 'v1.0.0-a1s2f43g')."
+      "pattern": "^[A-Za-z0-9._/@-]+$",
+      "description": "Git Upgrade Tag"
     },
     "sdk": {
       "type": "object",
@@ -729,7 +623,7 @@
         "type": {
           "type": "string",
           "minLength": 1,
-          "enum": [ "tendermint", "cometbft", "sei-tendermint" ]
+          "enum": [ "tendermint", "cometbft", "sei-tendermint", "cometbls" ]
         },
         "version": {
           "$ref": "#/$defs/version"

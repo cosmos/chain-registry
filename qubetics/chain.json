@@ -1,0 +1,213 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "qubetics",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://www.qubetics.com/",
+  "pretty_name": "Qubetics",
+  "chain_type": "cosmos",
+  "chain_id": "qubetics_9030-1",
+  "bech32_prefix": "qubetics",
+  "node_home": "$HOME/.qubeticsd",
+  "daemon_name": "qubeticsd",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "tics",
+        "fixed_min_gas_price": 250000000,
+        "low_gas_price": 20000000000,
+        "average_gas_price": 25000000000,
+        "high_gas_price": 40000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "tics"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Qubetics/qubetics-chain",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.9"
+    },
+    "binaries": {
+      "linux/amd64": "https://github.com/Qubetics/qubetics-mainnetnode-script/tree/main/ubuntu22.04build/qubeticsd"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/Qubetics/qubetics-mainnetnode-script/blob/main/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.12"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v7.6.0"
+    },
+    "tag": "v1.0.0"
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/qubetics/images/qubetics.png"
+  },
+  "description": "Developers use qubetics as the Ethereum Chain to deploy applications of the future. Get all the functionalities of Ethereum with the power of IBC and Interchain composability.",
+  "peers": {
+    "seeds": [
+      {
+        "id": "ad8e2053470a347d87f5125d54fe04d86155f7c4",
+        "address": "159.138.134.250:26656",
+        "provider": "Qubetics"
+      },
+      {
+        "id": "1cb538b9950c4f3ce89848101e6698bbf68ad40c",
+        "address": "150.40.237.123:26656",
+        "provider": "Qubetics"
+      },
+      {
+        "id": "41f8e8b5479374a21e69be09911a0c0dc6f41b23",
+        "address": "49.0.247.123:26656",
+        "provider": "Qubetics"
+      },
+      {
+        "id": "a02814cab952219fe6413d60c46ef25e3d5d1217",
+        "address": "190.92.208.225:26656",
+        "provider": "Qubetics"
+      },
+      {
+        "id": "8aae3361bca8bf7a65d24c5b02fb9dfc9d4c70c1",
+        "address": "150.40.161.160:26656",
+        "provider": "Qubetics"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "ad8e2053470a347d87f5125d54fe04d86155f7c4",
+        "address": "159.138.134.250:26656",
+        "provider": "Qubetics"
+      },
+      {
+        "id": "1cb538b9950c4f3ce89848101e6698bbf68ad40c",
+        "address": "150.40.237.123:26656",
+        "provider": "Qubetics"
+      },
+      {
+        "id": "41f8e8b5479374a21e69be09911a0c0dc6f41b23",
+        "address": "49.0.247.123:26656",
+        "provider": "Qubetics"
+      },
+      {
+        "id": "a02814cab952219fe6413d60c46ef25e3d5d1217",
+        "address": "190.92.208.225:26656",
+        "provider": "Qubetics"
+      },
+      {
+        "id": "8aae3361bca8bf7a65d24c5b02fb9dfc9d4c70c1",
+        "address": "150.40.161.160:26656",
+        "provider": "Qubetics"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://tendermint.qubetics.com",
+        "provider": "Qubetics"
+      },
+      {
+        "address": "https://node.veritics.ch",
+        "provider": "Veritics"
+      },
+      {
+        "address": "https://rpc.qubenode.space",
+        "provider": "Qubenode"
+      },
+      {
+        "address": "https://qubeticstralbo.eu/",
+        "provider": "TicsForge-Node"
+      },
+      {
+        "address": "https://tics.stakings.id/",
+        "provider": "BlockDock"
+      },
+      {
+        "address": "https://node.dragon-node.com",
+        "provider": "Dragon-Node"
+      },
+      {
+        "address": "https://jblfg.org",
+        "provider": "Belfour Node"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://swagger.qubetics.com",
+        "provider": "Qubetics"
+      },
+      {
+        "address": "https://swagger.node.veritics.ch",
+        "provider": "Veritics"
+      },
+      {
+        "address": "https://rest.qubenode.space",
+        "provider": "Qubenode"
+      },
+      {
+        "address": "https://rest.qubeticstralbo.eu",
+        "provider": "TicsForge-Node"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.qubetics.com",
+        "provider": "Qubetics"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://rpc.qubetics.com",
+        "provider": "Qubetics"
+      },
+      {
+        "address": "https://evm.qubenode.space",
+        "provider": "Qubenode"
+      },
+      {
+        "address": "https://evm.qubeticstralbo.eu",
+        "provider": "TicsForge-Node"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "qubetics",
+      "url": "https://ticsscan.com",
+      "tx_page": "https://ticsscan.com/tx/${txHash}",
+      "account_page": "https://ticsscan.com/address/${accountAddress}"
+    },
+    {
+      "kind": "🚀 Qubetics 🌕 Native 🔥",
+      "url": "https://native.ticsscan.com/qubetics",
+      "tx_page": "https://native.ticsscan.com/qubetics/tx/${txHash}",
+      "account_page": "https://native.ticsscan.com/qubetics/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/qubetics/images/qubetics.png"
+    }
+  ]
+}

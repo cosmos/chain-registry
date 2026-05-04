@@ -36,66 +36,19 @@
     "git_repo": "https://github.com/oraichain/orai",
     "recommended_version": "v0.42.4",
     "compatible_versions": [
+      "v0.42.0",
+      "v0.42.1",
+      "v0.42.2",
+      "v0.42.3",
       "v0.42.4"
     ],
     "sdk": {
       "type": "cosmos",
       "version": "v0.45.16"
     },
-    "cosmwasm_version": "0.33.0",
-    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.40",
-        "height": 2098755,
-        "proposal": 32,
-        "recommended_version": "v0.40.3",
-        "compatible_versions": [
-          "v0.40.0",
-          "v0.40.1",
-          "v0.40.2",
-          "v0.40.3"
-        ],
-        "next_version_name": "v0.41"
-      },
-      {
-        "name": "v0.41",
-        "height": 9058418,
-        "proposal": 116,
-        "recommended_version": "v0.41.8",
-        "compatible_versions": [
-          "v0.41.0",
-          "v0.41.1",
-          "v0.41.2",
-          "v0.41.3",
-          "v0.41.4",
-          "v0.41.5",
-          "v0.41.6",
-          "v0.41.7",
-          "v0.41.8"
-        ],
-        "previous_version_name": "v0.40",
-        "next_version_name": "v0.42"
-      },
-      {
-        "name": "v0.42",
-        "height": 21627705,
-        "proposal": 234,
-        "recommended_version": "v0.42.4",
-        "compatible_versions": [
-          "v0.42.0",
-          "v0.42.1",
-          "v0.42.2",
-          "v0.42.3",
-          "v0.42.4"
-        ],
-        "previous_version_name": "v0.41",
-        "next_version_name": ""
-      }
-    ],
     "cosmwasm": {
       "version": "0.33.0",
       "enabled": true
@@ -161,6 +114,11 @@
         "id": "1c6e0f2b3317fefb772fb528269c151735a5f0cb",
         "address": "seeds.owallet.io:10005",
         "provider": "OWALLET"
+      },
+      {
+        "id": "d5999814f9d3bf34d1d4505a0d5dc4f56d202772",
+        "address": "oraichain-mainnet-seed.itrocket.net:16656",
+        "provider": "ITRocket"
       }
     ],
     "persistent_peers": [
@@ -188,6 +146,11 @@
         "id": "bdf3f54758e6a712d13fbcda9f49b01f3c1c73b2",
         "address": "seed.orai.mortysnode.nl:26656",
         "provider": "Morty's Nodes"
+      },
+      {
+        "id": "42cfd3780c6a26870af437083cb05f7cbfdf13b3",
+        "address": "oraichain-mainnet-peer.itrocket.net:16656",
+        "provider": "ITRocket"
       }
     ]
   },
@@ -240,6 +203,10 @@
       {
         "address": "https://orai-rpc.owallet.io",
         "provider": "OWALLET"
+      },
+      {
+        "address": "https://oraichain-mainnet-rpc.itrocket.net",
+        "provider": "ITRocket"
       }
     ],
     "rest": [
@@ -274,6 +241,10 @@
       {
         "address": "https://orai-rest.owallet.io",
         "provider": "OWALLET"
+      },
+      {
+        "address": "https://oraichain-mainnet-api.itrocket.net",
+        "provider": "ITRocket"
       }
     ],
     "grpc": [
@@ -308,6 +279,10 @@
       {
         "address": "orai-grpc.owallet.io:9999",
         "provider": "OWALLET"
+      },
+      {
+        "address": "oraichain-mainnet-grpc.itrocket.net:443",
+        "provider": "ITRocket"
       }
     ]
   },
@@ -334,6 +309,12 @@
       "account_page": "https://atomscan.com/orai/accounts/${accountAddress}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/oraichain",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=oraichain&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=oraichain&addr=${accountAddress}"
+    },
+    {
       "kind": "KonsorTech Explorer",
       "url": "https://explorer.konsortech.xyz/oraichain",
       "tx_page": "https://explorer.konsortech.xyz/oraichain/transactions/${txHash}",
@@ -350,6 +331,12 @@
       "url": "https://explorer.imdev.app/oraichain",
       "tx_page": "https://explorer.imdev.app/oraichain/tx/${txHash}",
       "account_page": "https://explorer.imdev.app/oraichain/account/${accountAddress}"
+    },
+    {
+      "kind": "ITRocket",
+      "url": "https://mainnet.itrocket.net/oraichain",
+      "tx_page": "https://mainnet.itrocket.net/oraichain/tx/${txHash}",
+      "account_page": "https://mainnet.itrocket.net/oraichain/account/${accountAddress}"
     }
   ],
   "images": [
@@ -358,8 +345,7 @@
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/oraichain/images/orai.svg",
       "theme": {
         "circle": false,
-        "dark_mode": false,
-        "primary_color_hex": "#000000"
+        "dark_mode": false
       }
     }
   ]

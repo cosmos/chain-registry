@@ -3,8 +3,8 @@
   "chain_name": "fxcore",
   "chain_type": "cosmos",
   "chain_id": "fxcore",
-  "website": "https://functionx.io",
-  "pretty_name": "f(x)Core",
+  "website": "https://fx.pundi.ai",
+  "pretty_name": "Pundi AIFX",
   "status": "live",
   "network_type": "mainnet",
   "bech32_prefix": "fx",
@@ -20,230 +20,52 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "FX",
-        "fixed_min_gas_price": 4000000000000,
-        "low_gas_price": 4000000000000,
-        "average_gas_price": 4200000000000,
-        "high_gas_price": 5000000000000
+        "denom": "apundiai",
+        "fixed_min_gas_price": 5000000000,
+        "low_gas_price": 5000000000,
+        "average_gas_price": 5100000000,
+        "high_gas_price": 5200000000
       }
     ]
   },
   "staking": {
     "staking_tokens": [
       {
-        "denom": "FX"
+        "denom": "apundiai"
       }
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/functionx/fx-core",
-    "recommended_version": "v7.5.0",
+    "git_repo": "https://github.com/PundiAI/fx-core",
+    "recommended_version": "v8.5.0",
     "compatible_versions": [
-      "v7.5.0"
+      "v8.5.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-linux-amd64",
-      "linux/arm64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-linux-arm64",
-      "darwin/amd64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-darwin-amd64",
-      "darwin/arm64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-darwin-amd64",
-      "windows/amd64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-windows-amd64.exe"
+      "linux/amd64": "https://github.com/PundiAI/fx-core/releases/download/v8.5.0/fxcored-v8.5.0-linux-amd64",
+      "linux/arm64": "https://github.com/PundiAI/fx-core/releases/download/v8.5.0/fxcored-v8.5.0-linux-arm64",
+      "darwin/amd64": "https://github.com/PundiAI/fx-core/releases/download/v8.5.0/fxcored-v8.5.0-darwin-amd64",
+      "darwin/arm64": "https://github.com/PundiAI/fx-core/releases/download/v8.5.0/fxcored-v8.5.0-darwin-amd64",
+      "windows/amd64": "https://github.com/PundiAI/fx-core/releases/download/v8.5.0/fxcored-v8.5.0-windows-amd64.exe"
     },
     "genesis": {
       "name": "fxv1",
-      "genesis_url": "https://github.com/functionx/fx-core/raw/main/public/mainnet/genesis.json"
+      "genesis_url": "https://github.com/PundiAI/fx-core/raw/main/public/mainnet/genesis.json"
     },
-    "cosmos_sdk_version": "v0.47.13",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.6"
+      "version": "v0.38.13"
     },
-    "versions": [
-      {
-        "name": "fxv1",
-        "tag": "v1.1.2",
-        "height": 0,
-        "next_version_name": "fxv2",
-        "recommended_version": "v1.1.2",
-        "compatible_versions": [
-          "v1.1.2"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/FunctionX/fx-core/releases/download/v1.1.2/fx-core_1.1.2_Linux_x86_64.tar.gz",
-          "linux/arm64": "https://github.com/FunctionX/fx-core/releases/download/v1.1.2/fx-core_1.1.2_Linux_arm64.tar.gz",
-          "darwin/amd64": "https://github.com/FunctionX/fx-core/releases/download/v1.1.2/fx-core_1.1.2_Darwin_x86_64.tar.gz",
-          "darwin/arm64": "https://github.com/FunctionX/fx-core/releases/download/v1.1.2/fx-core_1.1.2_Darwin_arm64.tar.gz",
-          "windows/amd64": "https://github.com/FunctionX/fx-core/releases/download/v1.1.2/fx-core_1.1.2_Windows_x86_64.zip"
-        }
-      },
-      {
-        "name": "fxv2",
-        "tag": "v2.4.2",
-        "height": 5713000,
-        "proposal": 10,
-        "next_version_name": "fxv3",
-        "recommended_version": "v2.4.2",
-        "compatible_versions": [
-          "v2.4.2"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/FunctionX/fx-core/releases/download/v2.4.2/fx-core_2.4.2_Linux_x86_64.tar.gz",
-          "linux/arm64": "https://github.com/FunctionX/fx-core/releases/download/v2.4.2/fx-core_2.4.2_Linux_arm64.tar.gz",
-          "darwin/amd64": "https://github.com/FunctionX/fx-core/releases/download/v2.4.2/fx-core_2.4.2_Darwin_x86_64.tar.gz",
-          "darwin/arm64": "https://github.com/FunctionX/fx-core/releases/download/v2.4.2/fx-core_2.4.2_Darwin_arm64.tar.gz",
-          "windows/amd64": "https://github.com/FunctionX/fx-core/releases/download/v2.4.2/fx-core_2.4.2_Windows_x86_64.zip"
-        }
-      },
-      {
-        "name": "fxv3",
-        "tag": "v3.1.0",
-        "height": 8756000,
-        "proposal": 29,
-        "next_version_name": "v4.2.x",
-        "recommended_version": "v3.1.0",
-        "compatible_versions": [
-          "v3.1.0"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/FunctionX/fx-core/releases/download/v3.1.0/fx-core_3.1.0_Linux_x86_64.tar.gz",
-          "linux/arm64": "https://github.com/FunctionX/fx-core/releases/download/v3.1.0/fx-core_3.1.0_Linux_arm64.tar.gz",
-          "darwin/amd64": "https://github.com/FunctionX/fx-core/releases/download/v3.1.0/fx-core_3.1.0_Darwin_x86_64.tar.gz",
-          "darwin/arm64": "https://github.com/FunctionX/fx-core/releases/download/v3.1.0/fx-core_3.1.0_Darwin_arm64.tar.gz",
-          "windows/amd64": "https://github.com/FunctionX/fx-core/releases/download/v3.1.0/fx-core_3.1.0_Windows_x86_64.zip"
-        }
-      },
-      {
-        "name": "v4.2.x",
-        "tag": "v4.2.1",
-        "height": 10477500,
-        "proposal": 36,
-        "recommended_version": "v4.2.1",
-        "compatible_versions": [
-          "v4.2.1"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Linux_x86_64.tar.gz",
-          "linux/arm64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Linux_arm64.tar.gz",
-          "darwin/amd64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Darwin_x86_64.tar.gz",
-          "darwin/arm64": "https://github.com/FunctionX/fx-core/releases/download/v4.2.1/fx-core_Darwin_arm64.tar.gz",
-          "windows/amd64": "https://github.com/functionx/fx-core/releases/download/v4.2.1/fx-core_Windows_x86_64.zip"
-        },
-        "cosmos_sdk_version": "0.46",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.46"
-        }
-      },
-      {
-        "name": "v5.0.x",
-        "tag": "v5.0.0",
-        "height": 11601700,
-        "proposal": 41,
-        "previous_version_name": "v4.2.x",
-        "next_version_name": "v6.0.x",
-        "recommended_version": "v5.0.0",
-        "compatible_versions": [
-          "v5.0.0"
-        ],
-        "cosmos_sdk_version": "v0.46.13",
-        "consensus": {
-          "type": "tendermint",
-          "version": "v0.34.28"
-        },
-        "sdk": {
-          "type": "cosmos",
-          "version": "v0.46.13"
-        },
-        "ibc": {
-          "type": "go",
-          "version": "v6.1.1"
-        },
-        "binaries": {
-          "darwin/arm64": "https://github.com/functionX/fx-core/releases/download/v5.0.0/fx-core_Darwin_arm64.tar.gz",
-          "darwin/amd64": "https://github.com/functionX/fx-core/releases/download/v5.0.0/fx-core_Darwin_amd64.tar.gz",
-          "linux/arm64": "https://github.com/functionX/fx-core/releases/download/v5.0.0/fx-core_Linux_arm64.tar.gz",
-          "linux/amd64": "https://github.com/functionX/fx-core/releases/download/v5.0.0/fx-core_Linux_amd64.tar.gz",
-          "windows/amd64": "https://github.com/functionX/fx-core/releases/download/v5.0.0/fx-core_Windows_x86_64.zip"
-        }
-      },
-      {
-        "name": "v6.0.x",
-        "tag": "v6.1.0",
-        "height": 13598000,
-        "proposal": 47,
-        "previous_version_name": "v5.0.x",
-        "next_version_name": "v7.5.x",
-        "recommended_version": "v6.1.0",
-        "compatible_versions": [
-          "v6.1.0"
-        ],
-        "cosmos_sdk_version": "v0.46.13",
-        "sdk": {
-          "type": "cosmos",
-          "version": "v0.46.13"
-        },
-        "consensus": {
-          "type": "tendermint",
-          "version": "v0.34.28"
-        },
-        "ibc": {
-          "type": "go",
-          "version": "v6.1.1"
-        },
-        "binaries": {
-          "darwin/arm64": "https://github.com/functionX/fx-core/releases/download/v6.1.0/fx-core_Darwin_arm64.tar.gz",
-          "darwin/amd64": "https://github.com/functionX/fx-core/releases/download/v6.1.0/fx-core_Darwin_amd64.tar.gz",
-          "linux/arm64": "https://github.com/functionX/fx-core/releases/download/v6.1.0/fx-core_Linux_arm64.tar.gz",
-          "linux/amd64": "https://github.com/functionX/fx-core/releases/download/v6.1.0/fx-core_Linux_amd64.tar.gz",
-          "windows/amd64": "https://github.com/functionX/fx-core/releases/download/v6.1.0/fx-core_Windows_x86_64.zip"
-        }
-      },
-      {
-        "name": "v7.5.x",
-        "tag": "v7.5.0",
-        "height": 16838000,
-        "proposal": 63,
-        "previous_version_name": "v6.0.x",
-        "next_version_name": "",
-        "recommended_version": "v7.5.0",
-        "compatible_versions": [
-          "v7.5.0"
-        ],
-        "cosmos_sdk_version": "v0.47.13",
-        "sdk": {
-          "type": "cosmos",
-          "version": "v0.47.13",
-          "tag": "v0.47.13"
-        },
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.37.9"
-        },
-        "ibc": {
-          "type": "go",
-          "version": "v7.6.0"
-        },
-        "binaries": {
-          "linux/amd64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-linux-amd64",
-          "linux/arm64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-linux-arm64",
-          "darwin/amd64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-darwin-amd64",
-          "darwin/arm64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-darwin-amd64",
-          "windows/amd64": "https://github.com/FunctionX/fx-core/releases/download/v7.5.0/fxcored-v7.5.0-windows-amd64.exe"
-        }
-      }
-    ],
     "sdk": {
       "type": "cosmos",
-      "version": "v0.47.13",
-      "tag": "v0.47.13"
+      "version": "v0.50.11",
+      "tag": "v0.50.11"
     },
     "ibc": {
       "type": "go",
-      "version": "v7.6.0"
-    }
+      "version": "v8.5.2"
+    },
+    "tag": "v8.5.0"
   },
   "peers": {
     "seeds": [
@@ -292,7 +114,7 @@
       {
         "id": "637077d431f618181597706810a65c826524fd74",
         "address": "functionx.rpc.nodeshub.online:24256",
-        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+        "provider": "NodesHub"
       }
     ]
   },
@@ -304,7 +126,7 @@
       },
       {
         "address": "https://functionx.rpc.nodeshub.online:443",
-        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+        "provider": "NodesHub"
       }
     ],
     "rest": [
@@ -314,7 +136,7 @@
       },
       {
         "address": "https://functionx.api.nodeshub.online:443",
-        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+        "provider": "NodesHub"
       }
     ],
     "grpc": [
@@ -357,7 +179,7 @@
       "tx_page": "https://ping.pub/fxcore/tx/${txHash}"
     },
     {
-      "kind": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅",
+      "kind": "NodesHub",
       "url": "https://explorer.nodeshub.online/fxcore/",
       "tx_page": "https://explorer.nodeshub.online/fxcore/tx/${txHash}",
       "account_page": "https://explorer.nodeshub.online/fxcore/accounts/${accountAddress}"

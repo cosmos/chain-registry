@@ -1,0 +1,57 @@
+{
+  "$schema": "../versions.schema.json",
+  "chain_name": "examplechain",
+  "versions": [
+    {
+      "name": "v1",
+      "recommended_version": "v1.0.0",
+      "compatible_versions": [
+        "v1.0.0"
+      ],
+      "binaries": {
+        "linux/amd64": "OPTIONAL, REMOVE IF NOT NEEDED"
+      },
+      "next_version_name": "v2"
+    },
+    {
+      "name": "v2",
+      "recommended_version": "v2.0.2",
+      "compatible_versions": [
+        "v2.0.2",
+        "v2.0.0"
+      ],
+      "consensus": {
+        "type": "cometbft",
+        "version": "osmosis-labs/cometbft v0.37.4-v25-osmo-2"
+      },
+      "language": {
+        "type": "go",
+        "version": "1.21.4"
+      },
+      "sdk": {
+        "type": "cosmos",
+        "repo": "https://github.com/osmosis-labs/cosmos-sdk",
+        "version": "v0.47.5",
+        "tag": "v0.47.5-v25-osmo-1"
+      },
+      "ibc": {
+        "type": "go",
+        "version": "v7.4.0",
+        "ics_enabled": [
+          "ics20-1"
+        ]
+      },
+      "cosmwasm": {
+        "version": "v0.45.0",
+        "repo": "https://github.com/osmosis-labs/wasmd",
+        "tag": "v0.45.0-osmo",
+        "path": "$HOME/.example/data/wasm",
+        "enabled": true
+      },
+      "binaries": {
+        "linux/amd64": "OPTIONAL, REMOVE IF NOT NEEDED"
+      },
+      "previous_verion_name": "v1"
+    }
+  ]
+}

@@ -7,7 +7,7 @@
   "status": "live",
   "network_type": "devnet",
   "bech32_prefix": "kyve",
-  "daemon_name": "chaind",
+  "daemon_name": "kyved",
   "node_home": "$HOME/.kyve",
   "key_algos": [
     "secp256k1"
@@ -17,46 +17,35 @@
     "fee_tokens": [
       {
         "denom": "tkyve",
-        "fixed_min_gas_price": 0
+        "fixed_min_gas_price": 62.5,
+        "low_gas_price": 62.5,
+        "average_gas_price": 80,
+        "high_gas_price": 125
       }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/KYVENetwork/chain",
-    "recommended_version": "v0.6.3",
+    "recommended_version": "v2.2.0",
     "compatible_versions": [
-      "v0.6.3"
+      "v2.2.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/KYVENetwork/chain/releases/download/v0.6.3/chain_linux_amd64.tar.gz"
+      "linux/amd64": "https://github.com/KYVENetwork/chain/releases/download/v2.2.0/kyved_kaon_linux_amd64",
+      "linux/arm64": "https://github.com/KYVENetwork/chain/releases/download/v2.2.0/kyved_kaon_linux_arm64",
+      "darwin/amd64": "https://github.com/KYVENetwork/chain/releases/download/v2.2.0/kyved_kaon_darwin_amd64",
+      "darwin/arm64": "https://github.com/KYVENetwork/chain/releases/download/v2.2.0/kyved_kaon_darwin_arm64"
     },
     "genesis": {
-      "genesis_url": "https://github.com/KYVENetwork/chain/releases/download/v0.0.1/genesis.json"
-    },
-    "versions": [
-      {
-        "name": "v0.6.3",
-        "recommended_version": "v0.6.3",
-        "compatible_versions": [
-          "v0.6.3"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/KYVENetwork/chain/releases/download/v0.6.3/chain_linux_amd64.tar.gz"
-        }
-      }
-    ]
+      "genesis_url": "https://files.kyve.network/korellia-2/genesis.json"
+    }
   },
   "peers": {
-    "seeds": [
-      {
-        "id": "02dd2c26948ea758a25d3dbc91744f8897681652",
-        "address": "3.73.27.185:26656"
-      }
-    ],
+    "seeds": [],
     "persistent_peers": [
       {
-        "id": "70556c82352b9919fb6f339b9da0ebc587e9148c",
-        "address": "3.68.232.117:26656"
+        "id": "42ad60464c5104aa61a08e032e2d1bd9aeaa2524",
+        "address": "148.113.187.189:46656"
       }
     ]
   },
@@ -76,9 +65,10 @@
   },
   "explorers": [
     {
-      "kind": "explorers.guru",
-      "url": "https://kyve.explorers.guru/",
-      "tx_page": "https://kyve.explorers.guru/transaction/${txHash}"
+      "kind": "KYVE Explorer",
+      "url": "https://explorer.kyve.network/korellia",
+      "tx_page": "https://explorer.kyve.network/korellia/tx/${txHash}",
+      "account_page": "https://explorer.kyve.network/korellia/account/${accountAddress}"
     }
   ]
 }

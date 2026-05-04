@@ -1,0 +1,190 @@
+{
+  "$schema": "../../assetlist.schema.json",
+  "chain_name": "zigchaintestnet",
+  "assets": [
+    {
+      "description": "The native token of ZIGChain",
+      "denom_units": [
+        {
+          "denom": "uzig",
+          "exponent": 0,
+          "aliases": [
+            "microzig"
+          ]
+        },
+        {
+          "denom": "mzig",
+          "exponent": 3,
+          "aliases": [
+            "millizig"
+          ]
+        },
+        {
+          "denom": "zig",
+          "exponent": 6
+        }
+      ],
+      "base": "uzig",
+      "name": "ZIG",
+      "display": "zig",
+      "symbol": "ZIG",
+      "traces": [
+        {
+          "type": "test-mintage",
+          "counterparty": {
+            "chain_name": "zigchain",
+            "base_denom": "uzig"
+          },
+          "provider": "ZIGChain"
+        }
+      ],
+      "coingecko_id": "zignaly",
+      "keywords": [
+        "zigchain",
+        "zig",
+        "staking",
+        "delegating",
+        "governance",
+        "defi"
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "zigchain",
+            "base_denom": "uzig"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.svg"
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "socials": {
+        "website": "https://zigchain.com/",
+        "telegram": "https://t.me/ZignalyHQ",
+        "discord": "https://discord.com/invite/zignaly-the-better-way-to-invest-in-crypto-486954374845956097",
+        "medium": "https://medium.com/zignaly",
+        "x": "https://x.com/zigchain"
+      }
+    },
+    {
+      "description": "Staked Zig Token by Valdora Finance - Decentralized staking with stZIG",
+      "denom_units": [
+        {
+          "denom": "coin.zig1q5cuxuekvjdsl3l2t87jv83gdwjryc4hmh8s90y7mwgpyfwkqutsy9tqak.stzig",
+          "exponent": 0
+        },
+        {
+          "denom": "stzig",
+          "exponent": 6
+        }
+      ],
+      "base": "coin.zig1q5cuxuekvjdsl3l2t87jv83gdwjryc4hmh8s90y7mwgpyfwkqutsy9tqak.stzig",
+      "name": "Staked Zig",
+      "display": "stzig",
+      "symbol": "STZIG",
+      "traces": [
+        {
+          "type": "test-mintage",
+          "counterparty": {
+            "chain_name": "zigchain",
+            "base_denom": "coin.zig109f7g2rzl2aqee7z6gffn8kfe9cpqx0mjkk7ethmx8m2hq4xpe9snmaam2.stzig"
+          },
+          "provider": "ZIGChain"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/stzig.png"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "zigchain",
+            "base_denom": "coin.zig109f7g2rzl2aqee7z6gffn8kfe9cpqx0mjkk7ethmx8m2hq4xpe9snmaam2.stzig"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/stzig.png"
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "socials": {
+        "website": "https://dev.valdora.finance",
+        "telegram": "https://t.me/ValdoraWarriors",
+        "discord": "http://discord.gg/valdora",
+        "x": "https://x.com/Valdora_finance"
+      }
+    },
+    {
+      "description": "Noble USDC on ZIGChain",
+      "denom_units": [
+        {
+          "denom": "ibc/5260516290F7883EC893AADA09A6B8CEC790F2EEF3196F440037908749785BE8",
+          "exponent": 0,
+          "aliases": [
+            "microusdc",
+            "uusdc"
+          ]
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/5260516290F7883EC893AADA09A6B8CEC790F2EEF3196F440037908749785BE8",
+      "name": "Noble USDC",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "forex",
+            "base_denom": "USD"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "test-mintage",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc"
+          },
+          "provider": "Circle"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "nobletestnet",
+            "base_denom": "uusdc",
+            "channel_id": "channel-704"
+          },
+          "chain": {
+            "channel_id": "channel-44",
+            "path": "transfer/channel-44/uusdc"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "nobletestnet",
+            "base_denom": "uusdc"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "theme": {
+            "circle": true
+          }
+        }
+      ],
+      "coingecko_id": "usd-coin"
+    }
+  ]
+}

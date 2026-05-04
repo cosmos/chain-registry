@@ -7,154 +7,27 @@
   "chain_type": "cosmos",
   "chain_id": "morocco-1",
   "bech32_prefix": "terp",
+  "slip44": 118,
   "daemon_name": "terp",
   "node_home": "$HOME/.terp",
   "codebase": {
     "git_repo": "https://github.com/terpnetwork/terp-core.git",
-    "recommended_version": "v4.2.2",
-    "consensus": {
-      "type": "cometbft",
-      "version": "0.37.2"
-    },
-    "compatible_versions": [
-      "v4.2.0"
-    ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/terpnetwork/networks/main/mainnet/morocco-1/genesis.json"
     },
-    "binaries": {
-      "linux/amd64": "https://github.com/terpnetwork/terp-core/releases/download/v4.2.2/terpd-linux-amd64",
-      "linux/arm64": "https://github.com/terpnetwork/terp-core/releases/download/v4.2.2/terpd-linux-arm64"
+    "recommended_version": "v5.0.3",
+    "compatible_versions": [
+      "v5.0.2",
+      "v5.0.3"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.21"
     },
-    "versions": [
-      {
-        "name": "v1.0.0-stable",
-        "recommended_version": "v1.0.0-stable",
-        "compatible_versions": [
-          "v1.0.0",
-          "v1.0.0-stable"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.0"
-        }
-      },
-      {
-        "name": "huckleberry",
-        "recommended_version": "huckleberry",
-        "compatible_versions": [
-          "huckleberry"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.0"
-        }
-      },
-      {
-        "name": "barberry",
-        "recommended_version": "barberry",
-        "compatible_versions": [
-          "barberry"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.1"
-        }
-      },
-      {
-        "name": "v2.0.0",
-        "recommended_version": "v2.0.0",
-        "compatible_versions": [
-          "v2.0.0"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        }
-      },
-      {
-        "name": "v3.0.0",
-        "recommended_version": "v3.0.0",
-        "compatible_versions": [
-          "v3.0.0"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        }
-      },
-      {
-        "name": "v2-pigeonfall",
-        "recommended_version": "v2-pigeonfall",
-        "compatible_versions": [
-          "v2-pigeonfall"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        }
-      },
-      {
-        "name": "v3-pigeonfall",
-        "recommended_version": "v3-pigeonfall",
-        "compatible_versions": [
-          "v3-pigeonfall"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        },
-        "next_version_name": "v4.1.0"
-      },
-      {
-        "name": "v4.1.0",
-        "proposal": 30,
-        "height": 3698609,
-        "recommended_version": "v4.1.0",
-        "compatible_versions": [
-          "v4.1.0"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        },
-        "next_version_name": "v4.2.0"
-      },
-      {
-        "name": "v4.2.0",
-        "recommended_version": "v4.2.0",
-        "compatible_versions": [],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        },
-        "next_version_name": "v4.2.1"
-      },
-      {
-        "name": "v4.2.1",
-        "recommended_version": "v4.2.1",
-        "compatible_versions": [
-          "v4.2.0"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        },
-        "next_version_name": "v4.2.2"
-      },
-      {
-        "name": "v4.2.2",
-        "recommended_version": "v4.2.2",
-        "compatible_versions": [
-          "v4.2.1"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.37.2"
-        },
-        "next_version_name": ""
-      }
-    ]
+    "binaries": {
+      "linux/amd64": "https://github.com/terpnetwork/terp-core/releases/download/v5.0.3/terpd-linux-amd64",
+      "linux/arm64": "https://github.com/terpnetwork/terp-core/releases/download/v5.0.3/terpd-linux-arm64"
+    }
   },
   "fees": {
     "fee_tokens": [
@@ -172,7 +45,7 @@
     ]
   },
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terpnetwork/images/logo.png"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terpnetwork/images/terp.png"
   },
   "peers": {
     "seeds": [
@@ -203,8 +76,8 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-terp.zenchainlabs.io/",
-        "provider": "ZenChainLabs"
+        "address": "https://rpc-mainnet.terp.network:443",
+        "provider": "TerpNet Foundation"
       },
       {
         "address": "https://terp-mainnet-rpc.itrocket.net:443",
@@ -217,7 +90,7 @@
     ],
     "rest": [
       {
-        "address": "https://api-terp.zenchainlabs.io:443",
+        "address": "https://api-mainnet.terp.network.io:443",
         "provider": "ZenChainLabs"
       },
       {
@@ -234,6 +107,10 @@
       }
     ],
     "grpc": [
+      {
+        "address": "grpc-mainnet.terp.network.io:443",
+        "provider": "TerpNet Foundation"
+      },
       {
         "address": "https://grpc.terp.nodestake.top:443",
         "provider": "NodeStake"
@@ -262,12 +139,6 @@
       "account_page": "https://explorer.nodestake.top/terp/account/{$accountAddress}"
     },
     {
-      "kind": "ZenChainLabs",
-      "url": "https://terp.zenscan.io/",
-      "tx_page": "https://terp.zenscan.io/transaction.php?hash=${txHash}",
-      "account_page": "https://terp.zenscan.io/address.php?address=${accountAddress}"
-    },
-    {
       "kind": "🔥STAVR🔥",
       "url": "https://explorer.stavr.tech/Terp-Mainnet",
       "tx_page": "https://explorer.stavr.tech/Terp-Mainnet/tx/${txHash}",
@@ -276,10 +147,7 @@
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terpnetwork/images/logo.png",
-      "theme": {
-        "primary_color_hex": "#a2cd9a"
-      }
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terpnetwork/images/terp.png"
     }
   ]
 }

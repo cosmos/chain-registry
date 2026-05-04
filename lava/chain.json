@@ -18,8 +18,8 @@
     "fee_tokens": [
       {
         "denom": "ulava",
-        "fixed_min_gas_price": 2e-05,
-        "low_gas_price": 2e-05,
+        "fixed_min_gas_price": 0.00002,
+        "low_gas_price": 0.00002,
         "average_gas_price": 0.025,
         "high_gas_price": 0.05
       }
@@ -47,12 +47,10 @@
     "binaries": {
       "linux/amd64": "https://github.com/lavanet/lava/releases/download/v3.1.0/lavad-v3.1.0-linux-amd64"
     },
-    "cosmos_sdk_version": "lavanet/cosmos-sdk v0.47.13-lava-cosmos",
     "consensus": {
       "type": "cometbft",
-      "version": "0.37.4"
+      "version": "0.37.5"
     },
-    "cosmwasm_enabled": false,
     "language": {
       "type": "go",
       "version": "1.20"
@@ -72,14 +70,12 @@
     },
     "cosmwasm": {
       "enabled": false
-    }
+    },
+    "tag": "v3.1.0"
   },
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lava/images/lava.png",
-      "theme": {
-        "primary_color_hex": "#6f043e"
-      }
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lava/images/lava.png"
     }
   ],
   "logo_URIs": {
@@ -137,6 +133,16 @@
         "id": "6086779c98b6864aea1ae595b96a412aa11ec6c7",
         "address": "lava.seed.stakevillage.net:17760",
         "provider": "Stake Village"
+      },
+      {
+        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
+        "address": "seed.rhinostake.com:19956",
+        "provider": "RHINO 🦏"
+      },
+      {
+        "id": "8d6039e20830a805a9304857f15e67565df0f3c9",
+        "address": "seed-lava.maouam.xyz:29656",
+        "provider": "MaouamNodelab"
       }
     ],
     "persistent_peers": [
@@ -213,6 +219,26 @@
       {
         "address": "https://lava.rpc.stakevillage.net:443",
         "provider": "Stake Village"
+      },
+      {
+        "address": "https://rpc-lava.maouam.xyz:443",
+        "provider": "MaouamNodelab"
+      },
+      {
+        "address": "https://rpc-lava.winnode.xyz",
+        "provider": "Winnode"
+      },
+      {
+        "address": "https://rpc-lava.vinjan-inc.com",
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "https://lava-mainnet-rpc.shazoes.xyz",
+        "provider": "Shazoes"
+      },
+      {
+        "address": "https://lava-rpc.linknode.org",
+        "provider": "AstroStake"
       }
     ],
     "rest": [
@@ -271,6 +297,26 @@
       {
         "address": "https://lava.api.stakevillage.net:443",
         "provider": "Stake Village"
+      },
+      {
+        "address": "https://api-lava.maouam.xyz:443",
+        "provider": "MaouamNodelab"
+      },
+      {
+        "address": "https://api-lava.winnode.xyz",
+        "provider": "Winnode"
+      },
+      {
+        "address": "https://api-lava.vinjan-inc.com",
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "https://lava-mainnet-api.shazoes.xyz",
+        "provider": "Shazoes"
+      },
+      {
+        "address": "https://lava-api.linknode.org",
+        "provider": "AstroStake"
       }
     ],
     "grpc": [
@@ -313,6 +359,26 @@
       {
         "address": "grpc.lava-mainnet-1.lava.aviaone.com:9104/",
         "provider": "AVIAONE 🟢"
+      },
+      {
+        "address": "grpc-lava.maouam.xyz:443",
+        "provider": "MaouamNodelab"
+      },
+      {
+        "address": "grpc-lava.winnode.xyz:443",
+        "provider": "Winnode"
+      },
+      {
+        "address": "grpc-lava.vinjan-inc.com:29990",
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "lava-mainnet-grpc.shazoes.xyz:30790",
+        "provider": "Shazoes"
+      },
+      {
+        "address": "lava-grpc.linknode.org:443",
+        "provider": "AstroStake"
       }
     ]
   },
@@ -336,6 +402,12 @@
       "account_page": "https://lava-explorer.w3coins.io/Lava/account/${accountAddress}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/lava",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=lava&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=lava&addr=${accountAddress}"
+    },
+    {
       "kind": "Stake Village",
       "url": "https://exp.stakevillage.net/lava-mainnet",
       "tx_page": "https://exp.stakevillage.net/lava-mainnet/tx/${txHash}",
@@ -352,6 +424,24 @@
       "url": "https://explorer.stavr.tech/Lava-Mainnet",
       "tx_page": "https://explorer.stavr.tech/Lava-Mainnet/tx/${txHash}",
       "account_page": "https://explorer.stavr.tech/Lava-Mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "MaouamNodelab",
+      "url": "https://explorer.maouam.xyz/lava-mainnet",
+      "tx_page": "https://explorer.maouam.xyz/lava-mainnet/tx/${txHash}",
+      "account_page": "https://explorer.maouam.xyz/lava-mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "Winnode",
+      "url": "https://winnode.xyz/explorer/lava",
+      "tx_page": "https://winnode.xyz/explorer/lava/tx/${txHash}",
+      "account_page": "https://winnode.xyz/explorer/lava/account/${accountAddress}"
+    },
+    {
+      "kind": "AstroStake",
+      "url": "https://stake.astrostake.xyz/lava",
+      "tx_page": "https://stake.astrostake.xyz/lava/tx/${txHash}",
+      "account_page": "https://stake.astrostake.xyz/lava/address/${accountAddress}"
     }
   ],
   "keywords": [

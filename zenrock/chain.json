@@ -1,0 +1,131 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "zenrock",
+  "status": "live",
+  "website": "https://zenrocklabs.io",
+  "network_type": "mainnet",
+  "chain_type": "cosmos",
+  "pretty_name": "Zenrock Mainnet",
+  "chain_id": "diamond-1",
+  "bech32_prefix": "zen",
+  "daemon_name": "zenrockd",
+  "node_home": "$HOME/.zenrockd",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "urock",
+        "fixed_min_gas_price": 2.5,
+        "low_gas_price": 2.5,
+        "average_gas_price": 2.75,
+        "high_gas_price": 3
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "urock"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/zenrock-foundation/zrchain",
+    "genesis": {
+      "genesis_url": "https://rpc.diamond.zenrocklabs.io/genesis"
+    },
+    "recommended_version": "5.3.8",
+    "compatible_versions": [
+      "5.3.8"
+    ],
+    "binaries": {
+      "linux/arm64": "https://github.com/zenrocklabs/zrchain/releases/download/v5.3.8/zenrockd"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/zenrocklabs/cosmos-sdk",
+      "version": "v0.50.10",
+      "tag": "v0.50.10-zenrock"
+    },
+    "cosmwasm": {
+      "version": "v0.53.0",
+      "enabled": true
+    },
+    "tag": "v5.3.8"
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zenrock/images/zenrock.png"
+    }
+  ],
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "a5c64669d5d5c27fcde2c37e89da57c6d0576a7b",
+        "address": "sentry-1.diamond.zenrocklabs.io:26656"
+      },
+      {
+        "id": "5ad8a5de6318529994da817043b268ef617e37ba",
+        "address": "sentry-2.diamond.zenrocklabs.io:36656"
+      },
+      {
+        "id": "4f93fec81eadc205dee1b63e766cc33d9f2e6767",
+        "address": "sentry-3.diamond.zenrocklabs.io:46656"
+      },
+      {
+        "id": "36840303211712d936647da0f74d1498a7e298d1",
+        "address": "sentry-4.diamond.zenrocklabs.io:56656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.diamond.zenrocklabs.io/",
+        "provider": "zenrock"
+      },
+      {
+        "address": "https://rpc.zenrock.nodestake.org",
+        "provider": "NodeStake"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.diamond.zenrocklabs.io/",
+        "provider": "zenrock"
+      },
+      {
+        "address": "https://api.zenrock.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://zenrock.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.diamond.zenrocklabs.io/",
+        "provider": "zenrock"
+      },
+      {
+        "address": "https://grpc.zenrock.nodestake.org",
+        "provider": "NodeStake"
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zenrock/images/zenrock.png"
+  },
+  "keywords": [
+    "mpc"
+  ]
+}

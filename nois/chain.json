@@ -1,7 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "nois",
-  "status": "live",
+  "status": "killed",
   "network_type": "mainnet",
   "website": "https://nois.network",
   "pretty_name": "Nois",
@@ -42,44 +42,14 @@
       "v1.0.0",
       "v1.0.4"
     ],
-    "cosmos_sdk_version": "v0.45.15",
     "consensus": {
       "type": "cometbft",
       "version": "v0.34.29"
     },
-    "cosmwasm_version": "v0.31.0",
-    "cosmwasm_enabled": true,
     "genesis": {
       "name": "v1",
       "genesis_url": "https://raw.githubusercontent.com/noislabs/networks/nois1.final.1/nois-1/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1",
-        "tag": "v1.0.4",
-        "height": 0,
-        "recommended_version": "v1.0.4",
-        "compatible_versions": [
-          "v1.0.0",
-          "v1.0.4"
-        ],
-        "cosmos_sdk_version": "v0.45.15",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.34.29"
-        },
-        "cosmwasm_version": "v0.31.0",
-        "cosmwasm_enabled": true,
-        "sdk": {
-          "type": "cosmos",
-          "version": "v0.45.15"
-        },
-        "cosmwasm": {
-          "version": "v0.31.0",
-          "enabled": true
-        }
-      }
-    ],
     "sdk": {
       "type": "cosmos",
       "version": "v0.45.15"
@@ -87,21 +57,16 @@
     "cosmwasm": {
       "version": "v0.31.0",
       "enabled": true
-    }
+    },
+    "tag": "v1.0.4"
   },
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nois/images/nois.png",
-      "theme": {
-        "primary_color_hex": "#0C0914"
-      }
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nois/images/nois.png"
     },
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nois/images/nois.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nois/images/nois.svg",
-      "theme": {
-        "primary_color_hex": "#0c0c14"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nois/images/nois.svg"
     }
   ],
   "logo_URIs": {
@@ -113,11 +78,6 @@
         "id": "b3e3bd436ee34c39055a4c9946a02feec232988c",
         "address": "seeds.cros-nest.com:56656",
         "provider": "Cros-Nest"
-      },
-      {
-        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
-        "address": "seed.rhinostake.com:17356",
-        "provider": "RHINO"
       },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
@@ -133,11 +93,6 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:17356",
         "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "id": "c8db99691545545402a1c45fa897f3cb1a05aea6",
-        "address": "nois-mainnet-seed.itrocket.net:36656",
-        "provider": "itrocket"
       },
       {
         "id": "1de5c83c5a5eb223c814401f0506b44b742741da",
@@ -180,10 +135,6 @@
       {
         "address": "https://rpc-nois.ezstaking.dev",
         "provider": "EZStaking"
-      },
-      {
-        "address": "https://nois-mainnet-rpc.itrocket.net",
-        "provider": "itrocket"
       },
       {
         "address": "https://rpc-nois.d-stake.xyz",
@@ -238,14 +189,6 @@
       {
         "address": "http://nois.grpc.m.stavr.tech:191",
         "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "nois-mainnet-grpc.itrocket.net:36090",
-        "provider": "itrocket"
-      },
-      {
-        "address": "nois-mainnet-grpc.itrocket.net:36090",
-        "provider": "itrocket"
       },
       {
         "address": "https://grpc.nois.nodestake.top",
@@ -310,10 +253,6 @@
         "provider": "🔥STAVR🔥"
       },
       {
-        "address": "https://nois-mainnet-api.itrocket.net",
-        "provider": "itrocket"
-      },
-      {
         "address": "https://api-nois.d-stake.xyz",
         "provider": "D-Stake"
       },
@@ -349,6 +288,12 @@
       "url": "https://ezstaking.app/nois",
       "tx_page": "https://ezstaking.app/nois/txs/${txHash}",
       "account_page": "https://ezstaking.app/nois/account/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/nois",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=nois&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=nois&addr=${accountAddress}"
     },
     {
       "kind": "🔥STAVR🔥",

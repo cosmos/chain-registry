@@ -1,0 +1,161 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "int3facetestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "Int3face Testnet",
+  "chain_type": "cosmos",
+  "chain_id": "int3-test-2",
+  "bech32_prefix": "int3",
+  "daemon_name": "int3faced",
+  "node_home": "$HOME/.int3faced",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uint3",
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      },
+      {
+        "denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/bitcoin-btc",
+        "fixed_min_gas_price": 1e-7,
+        "low_gas_price": 1e-7,
+        "average_gas_price": 0.0000025,
+        "high_gas_price": 0.000004
+      },
+      {
+        "denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/bitcoin-cash-bch",
+        "fixed_min_gas_price": 0.000001,
+        "low_gas_price": 0.000001,
+        "average_gas_price": 0.000025,
+        "high_gas_price": 0.00004
+      },
+      {
+        "denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/litecoin-ltc",
+        "fixed_min_gas_price": 0.000001,
+        "low_gas_price": 0.000001,
+        "average_gas_price": 0.000025,
+        "high_gas_price": 0.00004
+      },
+      {
+        "denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/dogecoin-doge",
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.001,
+        "average_gas_price": 0.0025,
+        "high_gas_price": 0.004
+      },
+      {
+        "denom": "factory/int31zlefkpe3g0vvm9a4h0jf9000lmqutlh99h7fsd/ton-ton",
+        "fixed_min_gas_price": 0.0001,
+        "low_gas_price": 0.0001,
+        "average_gas_price": 0.00025,
+        "high_gas_price": 0.0004
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uint3"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Int3facechain/bridge",
+    "recommended_version": "v0.2.7",
+    "compatible_versions": [
+      "v0.2.7"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.10"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-2/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/cosmos/cosmos-sdk",
+      "version": "v0.50.8",
+      "tag": "v0.50.8"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.4.0"
+    },
+    "cosmwasm": {
+      "version": "v0.50.0",
+      "enabled": true
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/int3face-chain-logo.png"
+  },
+  "description": "Int3face is a cross-chain bridge that connects the Cosmos ecosystem with other blockchains.",
+  "peers": {
+    "seeds": [
+      {
+        "id": "05ab5550947168e740377c093893434b9ce0aca9",
+        "address": "65.109.1.30:26656",
+        "provider": "int3face-node-30"
+      },
+      {
+        "id": "35f2b39d451a4bdbbe687bd233037b83f2a35cea",
+        "address": "65.108.86.114:26656",
+        "provider": "int3face-node-114"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "05ab5550947168e740377c093893434b9ce0aca9",
+        "address": "65.109.1.30:26656"
+      },
+      {
+        "id": "35f2b39d451a4bdbbe687bd233037b83f2a35cea",
+        "address": "65.108.86.114:26656"
+      },
+      {
+        "id": "c08c24b120c27be437ac02a419b22f9cd3a02b28",
+        "address": "5.78.111.245:26656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.testnet.int3face.zone",
+        "provider": "Int3face.io"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.testnet.int3face.zone",
+        "provider": "Int3face.io"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.mainnet.testnet.zone:443",
+        "provider": "Int3face.io"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://testnet.explorer.int3face.zone",
+      "tx_page": "https://testnet.explorer.int3face.zone/int3face-1/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/int3face/images/int3face-chain-logo.png"
+    }
+  ]
+}

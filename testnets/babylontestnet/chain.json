@@ -2,13 +2,14 @@
   "$schema": "../../chain.schema.json",
   "chain_name": "babylontestnet",
   "status": "live",
-  "website": "https://www.babylonchain.io",
+  "website": "https://babylonlabs.io/",
   "network_type": "testnet",
-  "pretty_name": "Babylon Testnet 3",
+  "pretty_name": "Babylon Testnet",
   "chain_type": "cosmos",
-  "chain_id": "bbn-test3",
+  "chain_id": "bbn-test-5",
   "pre_fork_chain_name": "babylontestnet1",
   "bech32_prefix": "bbn",
+  "slip44": 118,
   "daemon_name": "babylond",
   "node_home": "$HOME/.babylond",
   "key_algos": [
@@ -17,7 +18,10 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "ubbn"
+        "denom": "ubbn",
+        "low_gas_price": 0.007,
+        "average_gas_price": 0.007,
+        "high_gas_price": 0.01
       }
     ]
   },
@@ -29,23 +33,14 @@
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/babylonchain/babylon",
-    "recommended_version": "v0.8.4",
+    "git_repo": "https://github.com/babylonlabs-io/babylon",
+    "recommended_version": "v1.0.0-rc.4",
     "compatible_versions": [
-      "v0.8.4"
+      "v1.0.0-rc.4"
     ],
     "genesis": {
-      "genesis_url": "https://github.com/babylonchain/networks/raw/main/bbn-test3/genesis.tar.bz2"
-    },
-    "versions": [
-      {
-        "name": "v0.8.4",
-        "recommended_version": "v0.8.4",
-        "compatible_versions": [
-          "v0.8.4"
-        ]
-      }
-    ]
+      "genesis_url": "https://github.com/babylonlabs-io/networks/raw/main/bbn-test-5/network-artifacts/genesis.json"
+    }
   },
   "logo_URIs": {
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/babylontestnet/images/logo.svg"
@@ -53,100 +48,45 @@
   "peers": {
     "seeds": [
       {
-        "id": "8da45f9ff83b4f8dd45bbcb4f850999637fbfe3b",
-        "address": "seed0.testnet.babylonchain.io:26656",
-        "provider": "Babylon foundation"
-      },
-      {
-        "id": "4b1f8a774220ba1073a4e9f4881de218b8a49c99",
-        "address": "seed1.testnet.babylonchain.io:26656",
-        "provider": "Babylon foundation"
+        "id": "be232be53f7ac3c4a6628f98becb48fd25df1adf",
+        "address": "babylon-testnet-seed.nodes.guru:55706",
+        "provider": "Nodes.Guru"
       },
       {
         "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
         "address": "testnet-seeds.polkachu.com:20656",
         "provider": "Polkachu"
+      },
+      {
+        "id": "59df4b3832446cd0f9c369da01f2aa5fe9647248",
+        "address": "65.109.49.115:16256",
+        "provider": "Contribution DAO"
       }
     ],
     "persistent_peers": [
       {
-        "id": "03ce5e1b5be3c9a81517d415f65378943996c864",
-        "address": "18.207.168.204:26656",
-        "provider": "Babylon foundation"
-      },
-      {
-        "id": "a5fabac19c732bf7d814cf22e7ffc23113dc9606",
-        "address": "34.238.169.221:26656",
-        "provider": "Babylon foundation"
-      },
-      {
-        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
-        "address": "testnet-seeds.polkachu.com:20656",
-        "provider": "Polkachu"
-      },
-      {
-        "id": "798836777efb5555cfb940129e2073b44f9117e5",
-        "address": "141.94.143.203:55706",
+        "id": "fe62e0a38eb7694080c83a84225a6bb33be01fed",
+        "address": "babylon-testnet-rpc-pruned-1.nodes.guru:55706",
         "provider": "Nodes.Guru"
       },
       {
-        "id": "86e9a68f0fd82d6d711aa20cc2083c836fb8c083",
-        "address": "222.106.187.14:56000",
-        "provider": "Cosmostation"
-      },
-      {
-        "id": "326fee158e9e24a208e53f6703c076e1465e739d",
-        "address": "babylon-testnet.cosmos-spaces.zone:26659",
-        "provider": "CosmosSpaces"
-      },
-      {
-        "id": "5e02bb2c9a644afae6109bf2c264d356fad27618",
-        "address": "15.165.166.210:26656",
-        "provider": "B-Harvest"
-      },
-      {
-        "id": "35abd10cba77f9d2b9b575dfa0c7c8c329bf4da3",
-        "address": "104.196.182.128:26656",
-        "provider": "DoraFactory"
-      },
-      {
-        "id": "fad3a0485745a49a6f95a9d61cda0615dcc6beff",
-        "address": "89.58.62.213:26501",
-        "provider": "EquinoxDAO"
-      },
-      {
-        "id": "a25c37941e272b5ed0ea40e8f39e95c0d9c55083",
-        "address": "178.63.105.185:26656",
-        "provider": "Everstake"
-      },
-      {
-        "id": "90eac330252ff51bf461602e7b8df054ce8583ae",
-        "address": "65.109.64.57:26656",
-        "provider": "Stakin"
-      },
-      {
-        "id": "3f5fcc3c8638f0af476e37658e76984d6025038b",
-        "address": "134.209.203.147:26656",
-        "provider": "Allnodes"
-      },
-      {
-        "id": "c3e82156a0e2f3d5373d5c35f7879678f29eaaad",
-        "address": "144.76.28.163:46656",
-        "provider": "HoodRun"
+        "id": "4a3dd7deb4770c06e05849a4128fea1a7439a9d9",
+        "address": "65.109.106.210:20656",
+        "provider": "Contribution DAO"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "rpc.testnet3.babylonchain.io:443",
-        "provider": "Babylon foundation"
+        "address": "https://babylon-testnet-rpc.nodes.guru",
+        "provider": "NodesGuru"
       }
     ],
     "rest": [
       {
-        "address": "lcd.testnet3.babylonchain.io:443",
-        "provider": "Babylon foundation"
+        "address": "https://babylon-testnet-api.nodes.guru",
+        "provider": "NodesGuru"
       }
     ],
     "grpc": []
@@ -154,7 +94,8 @@
   "explorers": [
     {
       "kind": "babylonscan",
-      "url": "https://babylonscan.io"
+      "url": "https://babylon-testnet.l2scan.co",
+      "tx_page": "https://babylon-testnet.l2scan.co/tx/${txHash}"
     },
     {
       "kind": "explorers.guru",

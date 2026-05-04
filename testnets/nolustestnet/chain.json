@@ -6,7 +6,7 @@
   "network_type": "testnet",
   "pretty_name": "Nolus Testnet",
   "chain_type": "cosmos",
-  "chain_id": "rila-1",
+  "chain_id": "rila-3",
   "bech32_prefix": "nolus",
   "daemon_name": "nolusd",
   "node_home": "$HOME/.nolusd",
@@ -36,81 +36,52 @@
   },
   "codebase": {
     "git_repo": "https://github.com/nolus-protocol/nolus-core",
-    "recommended_version": "v0.4.0",
+    "recommended_version": "0.6.8-rc",
     "compatible_versions": [],
-    "cosmos_sdk_version": "0.45",
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
+      "type": "cometbft",
+      "version": "v0.38.11"
     },
-    "cosmwasm_version": "0.31",
-    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/nolus-protocol/nolus-networks/main/testnet/rila-1/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.3.0",
-        "recommended_version": "v0.3.0",
-        "compatible_versions": [],
-        "cosmos_sdk_version": "0.45",
-        "cosmwasm_version": "0.31",
-        "cosmwasm_enabled": true,
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.45"
-        },
-        "cosmwasm": {
-          "version": "0.31",
-          "enabled": true
-        },
-        "ibc": {
-          "type": "go",
-          "version": "4.3.0",
-          "ics_enabled": [
-            "ics20-1",
-            "ics27-1"
-          ]
-        }
-      }
-    ],
     "sdk": {
       "type": "cosmos",
-      "version": "0.45"
+      "version": "0.50.9"
     },
     "ibc": {
       "type": "go",
-      "version": "4.3.0",
+      "version": "8.5.1",
       "ics_enabled": [
         "ics20-1",
         "ics27-1"
       ]
     },
     "cosmwasm": {
-      "version": "0.31",
+      "version": "0.53.0",
       "enabled": true
     }
   },
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/nolustestnet/images/nolus.png",
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/nolustestnet/images/nolus.svg"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.svg"
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rila-cl.nolus.network:26657",
+        "address": "https://rila-rpc.nolus.network",
         "provider": "NolusProtocol"
       }
     ],
     "rest": [
       {
-        "address": "https://rila-cl.nolus.network:1317",
+        "address": "https://rila-lcd.nolus.network",
         "provider": "NolusProtocol"
       }
     ],
     "grpc": [
       {
-        "address": "https://rila-cl.nolus.network:9090",
+        "address": "https://rila-grpc.nolus.network",
         "provider": "NolusProtocol"
       }
     ]
@@ -118,9 +89,9 @@
   "explorers": [
     {
       "kind": "Nolus Explorer",
-      "url": "https://explorer-rila.nolus.io/rila-1/",
-      "tx_page": "https://explorer-rila.nolus.io/rila-1/tx/${txHash}",
-      "account_page": "https://explorer-rila.nolus.io/rila-1/account/${accountAddress}"
+      "url": "https://testnet.ping.pub/nolus/",
+      "tx_page": "https://testnet.ping.pub/nolus/tx/${txHash}",
+      "account_page": "https://testnet.ping.pub/nolus/account/${accountAddress}"
     }
   ],
   "keywords": [
@@ -128,8 +99,11 @@
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/nolustestnet/images/nolus.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/nolustestnet/images/nolus.svg"
+      "image_sync": {
+        "chain_name": "nolus"
+      },
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nolus/images/nolus.svg"
     }
   ]
 }

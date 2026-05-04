@@ -5,6 +5,7 @@
   "description": "Versions.json is a metadata file that contains information about a cosmos sdk based chain's current and historical versions.",
   "type": "object",
   "required": [
+    "$schema",
     "chain_name",
     "versions"
   ],
@@ -31,6 +32,8 @@
           },
           "tag": {
             "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._/@-]+$",
             "description": "Git Upgrade Tag"
           },
           "height": {
@@ -58,50 +61,20 @@
               "type": "string"
             }
           },
-          "cosmos_sdk_version": {
-            "type": "string"
-          },
           "sdk": {
             "$ref": "#/$defs/sdk"
           },
           "consensus": {
             "$ref": "#/$defs/consensus"
           },
-          "cosmwasm_version": {
-            "type": "string"
-          },
-          "cosmwasm_enabled": {
-            "type": "boolean"
-          },
-          "cosmwasm_path": {
-            "type": "string",
-            "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
-            "pattern": "^\\$HOME.*$"
-          },
           "cosmwasm": {
             "$ref": "#/$defs/cosmwasm"
-          },
-          "ibc_go_version": {
-            "type": "string"
           },
           "ibc": {
             "$ref": "#/$defs/ibc"
           },
           "language": {
             "$ref": "#/$defs/language"
-          },
-          "ics_enabled": {
-            "type": "array",
-            "description": "List of IBC apps (usually corresponding to a ICS standard) which have been enabled on the network.",
-            "items": {
-              "type": "string",
-              "description": "IBC app or ICS standard.",
-              "enum": [
-                "ics20-1",
-                "ics27-1",
-                "mauth"
-              ]
-            }
           },
           "binaries": {
             "$ref": "#/$defs/binaries"
@@ -217,7 +190,7 @@
         "type": {
           "type": "string",
           "minLength": 1,
-          "enum": [ "tendermint", "cometbft", "sei-tendermint" ]
+          "enum": [ "tendermint", "cometbft", "sei-tendermint", "cometbls" ]
         },
         "version": {
           "$ref": "#/$defs/version"

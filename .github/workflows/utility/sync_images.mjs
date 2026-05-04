@@ -52,10 +52,9 @@
 //
 // write changes to chain_reg
 
+import * as chain_reg from './chain_registry.mjs';
 
-import * as fs from 'fs';
-import * as path from 'path';
-import * as chain_reg from './chain_registry_local.mjs';
+const chainRegistryRoot = "../../..";
 
 function createImagesArray(){
 
@@ -262,7 +261,7 @@ function getLinkedImage(chain_name, base_denom){
   if (base_denom) {
     images = chain_reg.getAssetProperty(chain_name, base_denom, "images");
   } else {
-    images = chain_reg.getFileProperty(chain_name, "chain", "images")
+    images = chain_reg.getFileProperty(chain_name, "chain", "images");
   }
   if (!images) { return; }
   let image = images[0];
@@ -329,7 +328,7 @@ function defineImageSync() {
 
     let traces = chain_reg.getAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "traces");
     if (!traces) { return; }
-    let lastTrace = traces[traces.length - 1];
+    let lastTrace = traces[traces.length - 1]; //the origin should have no image_sync
     let originAssetPointer = {
       chain_name: lastTrace.counterparty.chain_name,
       base_denom: lastTrace.counterparty.base_denom
@@ -337,7 +336,7 @@ function defineImageSync() {
 
     let images = chain_reg.getAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images");
     
-    //find out of any of the images are synced with the origin
+    //find out if any of the images are synced with the origin
     for (let i = 0; i < images.length; ++i) {
       if (
         images[i].image_sync?.chain_name === originAssetPointer.chain_name &&
@@ -383,12 +382,6 @@ function defineImageSync() {
 
     if (HAS_UPDATED) {
       chain_reg.setAssetProperty(assetPointer.chain_name, assetPointer.base_denom, "images", newImages);
-      if (assetPointer.base_denom === "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7") {
-        console.log(assetPointer.chain_name);
-        console.log(assetPointer.base_denom);
-        console.log(images);
-        console.log(newImages);
-      }
       HAS_UPDATED = false;
     }
 
@@ -396,7 +389,8 @@ function defineImageSync() {
 
 }
 
-function main(){
+function main() {
+  chain_reg.setup(chainRegistryRoot);
   createImagesArray();
   defineImageSync();
   getLinkedImages();

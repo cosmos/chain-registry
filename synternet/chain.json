@@ -7,6 +7,7 @@
   "pretty_name": "Synternet",
   "status": "live",
   "network_type": "mainnet",
+  "slip44": 118,
   "bech32_prefix": "synt",
   "daemon_name": "syntd",
   "node_home": "$HOME/.amber",
@@ -37,7 +38,6 @@
     "compatible_versions": [
       "v0.14.0"
     ],
-    "cosmos_sdk_version": "v0.47.11",
     "consensus": {
       "type": "cometbft",
       "version": "v0.37.5"
@@ -45,55 +45,6 @@
     "genesis": {
       "genesis_url": "https://github.com/Synternet/synternet-chain-releases/blob/main/networks/mainnet/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v11",
-        "tag": "v0.11.0",
-        "recommended_version": "v0.11.0",
-        "compatible_versions": [
-          "v0.11.0"
-        ],
-        "cosmos_sdk_version": "v0.47.11",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.37.5"
-        },
-        "height": 1,
-        "next_version_name": "v14",
-        "sdk": {
-          "type": "cosmos",
-          "version": "v0.47.11"
-        },
-        "ibc": {
-          "type": "go",
-          "version": "v7.1.0"
-        }
-      },
-      {
-        "name": "v14",
-        "tag": "v0.14.0",
-        "proposal": 1,
-        "height": 505094,
-        "recommended_version": "v0.14.0",
-        "compatible_versions": [
-          "v0.14.0"
-        ],
-        "cosmos_sdk_version": "v0.47.11",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.37.5"
-        },
-        "next_version_name": "",
-        "sdk": {
-          "type": "cosmos",
-          "version": "v0.47.11"
-        },
-        "ibc": {
-          "type": "go",
-          "version": "v7.1.0"
-        }
-      }
-    ],
     "sdk": {
       "type": "cosmos",
       "version": "v0.47.11"
@@ -101,7 +52,8 @@
     "ibc": {
       "type": "go",
       "version": "v7.1.0"
-    }
+    },
+    "tag": "v0.14.0"
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/synternet/images/synt.png",
@@ -109,7 +61,13 @@
   },
   "description": "Synternet is the backbone of the Data Layer, a protocol serving as the customizable execution layer between all blockchains. It enables builders to See, Interpret and Act on any data from any chain, supercharging their applications.",
   "peers": {
-    "seeds": [],
+    "seeds": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "Synternet-mainnet-seed.autostake.com:27416",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "2eed7e175d204680af243e008e21950f81b8d455",
@@ -135,6 +93,11 @@
         "id": "95b14ec701608044c261ebd15d0b3bd84e295acb",
         "address": "72.46.84.135:26656",
         "provider": "Restake"
+      },
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "Synternet-mainnet-peer.autostake.com:27416",
+        "provider": "AutoStake 🛡️ Slash Protected"
       }
     ]
   },
@@ -143,12 +106,42 @@
       {
         "address": "https://rpc.synternet.com/",
         "provider": "Synternet"
+      },
+      {
+        "address": "https://synternet_mainnet_rpc.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+      },
+      {
+        "address": "https://synternet-mainnet-rpc.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://synternet-mainnet-rpc.shazoes.xyz",
+        "provider": "Shazoes"
       }
     ],
     "rest": [
       {
         "address": "https://api.synternet.com/",
         "provider": "Synternet"
+      },
+      {
+        "address": "https://synternet_mainnet_api.chain.whenmoonwhenlambo.money",
+        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+      },
+      {
+        "address": "https://synternet-mainnet-lcd.autostake.com:443",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      },
+      {
+        "address": "https://synternet-mainnet-api.shazoes.xyz",
+        "provider": "Shazoes"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "synternet-mainnet-grpc.shazoes.xyz:11090",
+        "provider": "Shazoes"
       }
     ]
   },
@@ -157,15 +150,24 @@
       "kind": "Big Dipper",
       "url": "https://explorer.synternet.com/",
       "tx_page": "https://explorer.synternet.com/transactions/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/synternet",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=synternet&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=synternet&addr=${accountAddress}"
+    },
+    {
+      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
+      "url": "https://explorer.whenmoonwhenlambo.money/synternet",
+      "tx_page": "https://explorer.whenmoonwhenlambo.money/synternet/tx/${txHash}",
+      "account_page": "https://explorer.whenmoonwhenlambo.money/synternet/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/synternet/images/synt.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/synternet/images/synt.svg",
-      "theme": {
-        "primary_color_hex": "#272d45"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/synternet/images/synt.svg"
     }
   ]
 }

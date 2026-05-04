@@ -3,7 +3,7 @@
   "chain_name": "sentinel",
   "status": "live",
   "network_type": "mainnet",
-  "website": "https://sentinel.co/",
+  "website": "https://sentinel.co",
   "pretty_name": "Sentinel",
   "chain_type": "cosmos",
   "chain_id": "sentinelhub-2",
@@ -33,52 +33,13 @@
   },
   "codebase": {
     "git_repo": "https://github.com/sentinel-official/hub",
-    "recommended_version": "v0.11.3",
+    "recommended_version": "v12.0.0",
     "compatible_versions": [
-      "v0.11.2",
-      "v0.11.1"
+      "v12.0.0"
     ],
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/sentinel-official/networks/main/sentinelhub-2/genesis.zip"
-    },
-    "versions": [
-      {
-        "name": "upgrade-1",
-        "recommended_version": "v0.7.0",
-        "compatible_versions": [
-          "v0.7.0"
-        ]
-      },
-      {
-        "name": "upgrade-2",
-        "recommended_version": "v0.8.3",
-        "compatible_versions": [
-          "v0.8.3"
-        ]
-      },
-      {
-        "name": "upgrade-3",
-        "recommended_version": "v0.9.3",
-        "compatible_versions": [
-          "v0.9.3"
-        ]
-      },
-      {
-        "name": "upgrade-4",
-        "recommended_version": "v0.10.1",
-        "compatible_versions": [
-          "v0.10.1"
-        ]
-      },
-      {
-        "name": "v11",
-        "recommended_version": "v0.11.3",
-        "compatible_versions": [
-          "v0.11.2",
-          "v0.11.1"
-        ]
-      }
-    ]
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sentinel/images/dvpn.png",
@@ -113,9 +74,9 @@
         "provider": "BlueStake 🚀"
       },
       {
-        "id": "10ed1e176d874c8bb3c7c065685d2da6a4b86475",
-        "address": "seed-sentinel.ibs.team:16683",
-        "provider": "Inter Blockchain Services"
+        "id": "880b172bc0b9513671b386b6c81779b6ad2c6319",
+        "address": "seed.sentinel.validatus.com:2150",
+        "provider": "Validatus"
       }
     ],
     "persistent_peers": [
@@ -274,9 +235,9 @@
         "provider": "Roomit"
       },
       {
-        "id": "637077d431f618181597706810a65c826524fd74",
-        "address": "sentinel.rpc.nodeshub.online:23956",
-        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+        "id": "f67d330612d639972c84db44116f5443e8b4faa6",
+        "address": "91.223.3.148:56656",
+        "provider": "Quasar"
       }
     ]
   },
@@ -335,10 +296,6 @@
         "provider": "Decloud Nodes Lab"
       },
       {
-        "address": "https://sentinel.rpc.nodeshub.online:443",
-        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
-      },
-      {
         "address": "https://rpc.dvpn.me:443",
         "provider": "MathNodes China"
       },
@@ -355,8 +312,12 @@
         "provider": "chainvibes"
       },
       {
-        "address": "https://sentinel-rpc.ibs.team:443",
-        "provider": "Inter Blockchain Services"
+        "address": "https://sentinel.rpc.quasarstaking.ai:443",
+        "provider": "Quasar"
+      },
+      {
+        "address": "https://rpc.sentinel.validatus.com",
+        "provider": "Validatus"
       }
     ],
     "rest": [
@@ -405,10 +366,6 @@
         "provider": "Decloud Nodes Lab"
       },
       {
-        "address": "https://sentinel.api.nodeshub.online:443",
-        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
-      },
-      {
         "address": "https://api.dvpn.me:443",
         "provider": "MathNodes China"
       },
@@ -425,8 +382,12 @@
         "provider": "chainvibes"
       },
       {
-        "address": "https://sentinel-api.ibs.team:443",
-        "provider": "Inter Blockchain Services"
+        "address": "https://sentinel.api.quasarstaking.ai:443",
+        "provider": "Quasar"
+      },
+      {
+        "address": "https://api.sentinel.validatus.com",
+        "provider": "Validatus"
       }
     ],
     "grpc": [
@@ -455,10 +416,6 @@
         "provider": "Decloud Nodes Lab"
       },
       {
-        "address": "https://sentinel.grpc.nodeshub.online",
-        "provider": "Nodes Hub"
-      },
-      {
         "address": "https://grpc.dvpn.me:443",
         "provider": "MathNodes China"
       },
@@ -481,27 +438,47 @@
       {
         "address": "https://grpc.noncompliant.network:9090",
         "provider": "Noncompliant Network (Insecure)"
+      },
+      {
+        "address": "sentinel.grpc.quasarstaking.ai:80",
+        "provider": "Quasar"
+      },
+      {
+        "address": "grpc.sentinel.validatus.com:443",
+        "provider": "Validatus"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "mintscan",
-      "url": "https://www.mintscan.io/sentinel",
-      "tx_page": "https://www.mintscan.io/sentinel/transactions/${txHash}",
-      "account_page": "https://www.mintscan.io/sentinel/accounts/${accountAddress}"
+      "kind": "Sentinel",
+      "url": "https://explorer.sentinel.co",
+      "tx_page": "https://explorer.sentinel.co/transactions/${txHash}",
+      "account_page": "https://explorer.sentinel.co/accounts/${accountAddress}"
     },
     {
-      "kind": "ezstaking",
+      "kind": "ChainRoot",
+      "url": "https://explorer.chainroot.io/sentinel",
+      "tx_page": "https://explorer.chainroot.io/sentinel/transactions/${txHash}",
+      "account_page": "https://explorer.chainroot.io/sentinel/accounts/${accountAddress}"
+    },
+    {
+      "kind": "EZ Staking App",
       "url": "https://ezstaking.app/sentinel",
       "tx_page": "https://ezstaking.app/sentinel/txs/${txHash}",
       "account_page": "https://ezstaking.app/sentinel/account/${accountAddress}"
     },
     {
-      "kind": "atomscan",
+      "kind": "ATOMScan",
       "url": "https://atomscan.com/sentinel",
       "tx_page": "https://atomscan.com/sentinel/transactions/${txHash}",
       "account_page": "https://atomscan.com/sentinel/accounts/${accountAddress}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/sentinel",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=sentinel&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=sentinel&addr=${accountAddress}"
     },
     {
       "kind": "Roomit",
@@ -515,30 +492,15 @@
       "tx_page": "https://explorer.validatornode.com/sentinel/tx/${txHash}"
     },
     {
-      "kind": "Decloud Nodes Lab",
+      "kind": "DNL Explorer",
       "url": "https://explorer.declab.pro/Sentinel",
       "tx_page": "https://explorer.declab.pro/Sentinel/tx/${txHash}"
-    },
-    {
-      "kind": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅",
-      "url": "https://explorer.nodeshub.online/sentinel/",
-      "tx_page": "https://explorer.nodeshub.online/sentinel/tx/${txHash}",
-      "account_page": "https://explorer.nodeshub.online/sentinel/accounts/${accountAddress}"
-    },
-    {
-      "kind": "WhisperNode 🤐",
-      "url": "https://mainnet.whispernode.com/sentinel",
-      "tx_page": "https://mainnet.whispernode.com/sentinel/tx/${txHash}",
-      "account_page": "https://mainnet.whispernode.com/sentinel/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sentinel/images/dvpn.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sentinel/images/dvpn.svg",
-      "theme": {
-        "primary_color_hex": "#10a7ef"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sentinel/images/dvpn.svg"
     }
   ]
 }

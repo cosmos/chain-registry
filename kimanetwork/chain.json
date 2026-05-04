@@ -4,22 +4,24 @@
   "status": "live",
   "website": "https://www.kima.network/",
   "network_type": "mainnet",
-  "pretty_name": "Kima Network",
   "chain_type": "cosmos",
+  "pretty_name": "Kima Network",
   "chain_id": "kima_network",
   "bech32_prefix": "kima",
-  "daemon_name": "uKIMA",
-  "node_home": "$HOME/.kimad",
-  "key_algos": ["secp256k1"],
+  "daemon_name": "kimad",
+  "node_home": "$HOME/.kima",
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
       {
         "denom": "uKIMA",
         "fixed_min_gas_price": 0,
-        "low_gas_price": 0.0025,
+        "low_gas_price": 0.01,
         "average_gas_price": 0.025,
-        "high_gas_price": 0.04
+        "high_gas_price": 0.05
       }
     ]
   },
@@ -28,28 +30,45 @@
       {
         "denom": "uKIMA"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/kima-finance/kima-blockchain",
-    "recommended_version": "v0.4.3",
-    "compatible_versions": ["v0.4.3"],
     "genesis": {
+      "name": "v1",
       "genesis_url": "https://archive.kima.network/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.4.3",
-        "recommended_version": "v0.4.3",
-        "compatible_versions": ["v0.4.3"],
-        "sdk": {
-          "type": "cosmos",
-          "repo": "https://github.com/cosmos/cosmos-sdk",
-          "version": "v0.47.4",
-          "tag": "v0.47.4"
-        }
-      }      
-    ]
+    "recommended_version": "v0.4.6",
+    "compatible_versions": [
+      "v0.4.6"
+    ],
+    "tag": "v0.4.6",
+    "language": {
+      "type": "go",
+      "version": "1.21.13"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/cosmos/cosmos-sdk",
+      "version": "v0.47.4",
+      "tag": "v0.47.4"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.37.2",
+      "repo": "https://github.com/cometbft/cometbft",
+      "tag": "v0.37.2"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "7.3.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    }
   },
   "images": [
     {
@@ -57,6 +76,10 @@
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kimanetwork/images/kima.svg"
     }
   ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kimanetwork/images/kima.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kimanetwork/images/kima.svg"
+  },
   "peers": {
     "seeds": [
       {
@@ -108,7 +131,11 @@
     {
       "kind": "Kima Network Explorer",
       "url": "https://explorer.kima.network/",
-      "tx_page": "https://explorer.kima.network/transactions/${txHash}"
+      "tx_page": "https://explorer.kima.network/transactions/${txHash}",
+      "account_page": "https://explorer.kima.network/accounts/?address=${accountAddress}"
     }
+  ],
+  "keywords": [
+    "interoperability"
   ]
 }

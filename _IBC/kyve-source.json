@@ -1,32 +1,34 @@
 {
-    "$schema": "../ibc_data.schema.json",
-    "chain_1": {
-      "chain_name": "kyve",
-      "client_id": "07-tendermint-3",
-      "connection_id": "connection-5"
-    },
-    "chain_2": {
-      "chain_name": "source",
-      "client_id": "07-tendermint-15",
-      "connection_id": "connection-16"
-    },
-    "channels": [
-      {
-        "chain_1": {
-          "channel_id": "channel-3",
-          "port_id": "transfer"
-        },
-        "chain_2": {
-          "channel_id": "channel-2",
-          "port_id": "transfer"
-        },
-        "ordering": "unordered",
-        "version": "ics20-1",
-        "fee_version": "ics29-1",
-        "tags": {
-          "status": "live",
-          "preferred": true
-        }
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "kyve",
+    "chain_id": "kyve-1",
+    "client_id": "07-tendermint-3",
+    "connection_id": "connection-5"
+  },
+  "chain_2": {
+    "chain_name": "source",
+    "chain_id": "source-1",
+    "client_id": "07-tendermint-15",
+    "connection_id": "connection-16"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-3",
+        "port_id": "transfer"
+      },
+      "chain_2": {
+        "channel_id": "channel-2",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "fee_version": "ics29-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
       }
-    ]
-  }
+    }
+  ]
+}

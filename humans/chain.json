@@ -41,7 +41,6 @@
     "compatible_versions": [
       "v1.0.0"
     ],
-    "cosmos_sdk_version": "0.46.11",
     "consensus": {
       "type": "cometbft",
       "version": "0.34.27"
@@ -49,26 +48,12 @@
     "genesis": {
       "genesis_url": "https://github.com/humansdotai/mainnets/blob/main/mainnet/1/genesis_1089-1.json"
     },
-    "versions": [
-      {
-        "name": "v1.0.0",
-        "recommended_version": "v1.0.0",
-        "compatible_versions": [
-          "v1.0.0"
-        ],
-        "consensus": {
-          "type": "cometbft",
-          "version": "0.34.27"
-        }
-      }
-    ],
     "sdk": {
       "type": "cosmos",
       "version": "0.46.11"
     }
   },
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/humans/images/heart-dark-mode.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/humans/images/heart-dark-mode.svg"
   },
   "peers": {
@@ -82,11 +67,6 @@
         "id": "f8006da7d742777eeca0194b94586c8f147be4f6",
         "address": "humans-mainnet-seed.itrocket.net:17656",
         "provider": "itrocket"
-      },
-      {
-        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
-        "address": "seed.rhinostake.com:18456",
-        "provider": "RHINO"
       },
       {
         "id": "0e959a22dfdd34ac16f9af82d76ec6ae5f0e8e73",
@@ -109,11 +89,6 @@
         "id": "5e51671241340f1d1e1409a9e0cc4474820bf782",
         "address": "humans-mainnet-peer.itrocket.net:17656",
         "provider": "itrocket"
-      },
-      {
-        "id": "52ce913cd01c55b9471b0d13338d6db242f7b509",
-        "address": "humans.rpc.nodeshub.online:18456",
-        "provider": "Nodes Hub"
       },
       {
         "id": "0a1a56a1854923cd3b54edbe870d7d32ca870c4f",
@@ -140,16 +115,12 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.humans.nodestake.top",
+        "address": "https://rpc.humans.nodestake.org",
         "provider": "NodeStake"
       },
       {
         "address": "https://humans.rpc.kjnodes.com",
         "provider": "kjnodes"
-      },
-      {
-        "address": "https://humans.rpc.nodeshub.online",
-        "provider": "NodesHub"
       },
       {
         "address": "https://humans-mainnet-rpc.itrocket.net",
@@ -198,16 +169,12 @@
     ],
     "rest": [
       {
-        "address": "https://api.humans.nodestake.top",
+        "address": "https://api.humans.nodestake.org",
         "provider": "NodeStake"
       },
       {
         "address": "https://humans.api.kjnodes.com",
         "provider": "kjnodes"
-      },
-      {
-        "address": "https://humans.api.nodeshub.online",
-        "provider": "NodesHub"
       },
       {
         "address": "https://humans-mainnet-api.itrocket.net",
@@ -252,7 +219,7 @@
     ],
     "grpc": [
       {
-        "address": "https://grpc.humans.nodestake.top:443",
+        "address": "https://grpc.humans.nodestake.org:443",
         "provider": "NodeStake"
       },
       {
@@ -264,7 +231,7 @@
         "provider": "Nodeist"
       },
       {
-        "address": "humans-mainnet-grpc.itrocket.net:17090",
+        "address": "humans-mainnet-grpc.itrocket.net:443",
         "provider": "itrocket"
       },
       {
@@ -294,7 +261,7 @@
     ],
     "evm-http-jsonrpc": [
       {
-        "address": "https://jsonrpc.humans.nodestake.top/",
+        "address": "https://jsonrpc.humans.nodestake.org/",
         "provider": "NodeStake"
       },
       {
@@ -346,6 +313,12 @@
       "tx_page": "https://humans.explorers.guru/transaction/${txHash}"
     },
     {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/humans",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=humans&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=humans&addr=${accountAddress}"
+    },
+    {
       "kind": "exploreme",
       "url": "https://humansai.exploreme.pro/",
       "tx_page": "https://humans.exploreme.pro/transaction/${txHash}"
@@ -361,15 +334,17 @@
       "url": "https://explorer.posthuman.digital/humans",
       "tx_page": "https://explorer.posthuman.digital/humans/tx/${txHash}",
       "account_page": "https://explorer.posthuman.digital/humans/account/${accountAddress}"
+    },
+    {
+      "kind": "NodeStake",
+      "url": "https://explorer.nodestake.org/humans/staking",
+      "tx_page": "https://explorer.nodestake.org/humans/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.org/humans/account/${accountAddress}"
     }
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/humans/images/heart-dark-mode.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/humans/images/heart-dark-mode.svg",
-      "theme": {
-        "primary_color_hex": "#f3f3f3"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/humans/images/heart-dark-mode.svg"
     }
   ]
 }

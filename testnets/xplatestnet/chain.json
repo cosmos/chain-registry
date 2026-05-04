@@ -1,0 +1,138 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "xplatestnet",
+  "status": "live",
+  "website": "https://xpla.io",
+  "network_type": "testnet",
+  "pretty_name": "XPLA Testnet",
+  "chain_type": "cosmos",
+  "chain_id": "cube_47-5",
+  "bech32_prefix": "xpla",
+  "daemon_name": "xplad",
+  "node_home": "$HOME/.xpla",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "axpla",
+        "fixed_min_gas_price": 280000000000,
+        "low_gas_price": 280000000000,
+        "average_gas_price": 280000000000,
+        "high_gas_price": 280000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "axpla"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/xpladev/xpla",
+    "recommended_version": "v1.8.0-cube",
+    "compatible_versions": [
+      "v1.8.0-cube"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.17"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/xpladev/testnets/blob/main/cube_47-5/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/xpladev/cosmos-sdk",
+      "version": "v0.53.4",
+      "tag": "v0.53.4-xpla"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v10.3.0"
+    },
+    "cosmwasm": {
+      "version": "v0.60.1"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.svg"
+  },
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "9034c13d61d7f4ebbe3f5673a8d10dc742566e59",
+        "address": "35.212.215.88:26656",
+        "provider": "DELIGHT"
+      },
+      {
+        "id": "b216988031686e36351c3cb042e522ac98c29a23",
+        "address": "34.64.212.239:26656",
+        "provider": "ZenaAD"
+      },
+      {
+        "id": "a674688aa3cb052cfbf5f81228ef0dd5d4a7b5b9",
+        "address": "34.64.46.211:26656",
+        "provider": "ZenaAD"
+      },
+      {
+        "id": "cf8c6a464bf5bc92744d6c74e0298114955856b8",
+        "address": "34.64.165.123:26656",
+        "provider": "Holdings"
+      },
+      {
+        "id": "fdd6a1c61cc5b84a9c914e520f0e3f31a1505b23",
+        "address": "34.64.250.213:26656",
+        "provider": "Holdings"
+      },
+      {
+        "id": "43fbd86b84b3e8cb38c418f2d74b74f79a376d97",
+        "address": "34.64.47.240:26656",
+        "provider": "Holdings"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://cube-rpc.xpla.dev",
+        "provider": "Holdings"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://cube-lcd.xpla.dev",
+        "provider": "Holdings"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://cube-evm-rpc.xpla.dev",
+        "provider": "Holdings"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "explorer.xpla",
+      "url": "https://explorer.xpla.io/testnet",
+      "tx_page": "https://explorer.xpla.io/testnet/mainnet/tx/${txHash}"
+    },
+    {
+      "kind": "finder",
+      "url": "https://finder.xpla.io/testnet",
+      "tx_page": "https://finder.xpla.io/testnet/tx/${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpla/images/xpla.svg"
+    }
+  ]
+}

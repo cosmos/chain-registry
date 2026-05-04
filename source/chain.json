@@ -38,40 +38,13 @@
     "compatible_versions": [
       "v3.0.3"
     ],
-    "cosmos_sdk_version": "0.45",
     "consensus": {
       "type": "tendermint",
       "version": "0.34"
     },
-    "cosmwasm_version": "0.30",
-    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/Source-Protocol-Cosmos/mainnet/master/source-1/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v3.0.0",
-        "recommended_version": "v3.0.3",
-        "compatible_versions": [
-          "v3.0.3"
-        ],
-        "cosmos_sdk_version": "0.45",
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "cosmwasm_version": "0.30",
-        "cosmwasm_enabled": true,
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.45"
-        },
-        "cosmwasm": {
-          "version": "0.30",
-          "enabled": true
-        }
-      }
-    ],
     "sdk": {
       "type": "cosmos",
       "version": "0.45"
@@ -100,13 +73,13 @@
       },
       {
         "id": "738be29546d9504b3845d781b9dc35bc6f996c5f",
-        "address": "rpc.source.nodestake.top:666",
+        "address": "rpc.source.nodestake.org:666",
         "provider": "NodeStake"
       },
       {
         "id": "637077d431f618181597706810a65c826524fd74",
         "address": "source.rpc.nodeshub.online:15856",
-        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
+        "provider": "NodesHub"
       },
       {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
@@ -183,13 +156,18 @@
         "id": "73ef1c0f9bc77fd925decf7fa41f22a35b5dc76d",
         "address": "source.declab.pro:26606",
         "provider": "Decloud Nodes Lab"
+      },
+      {
+        "id": "fd5ac274af9ed6d7d45428d0ab944bca93668858",
+        "address": "source-rpc.moonbridge.org:19907",
+        "provider": "Moonbridge"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.source.nodestake.top",
+        "address": "https://rpc.source.nodestake.org",
         "provider": "NodeStake"
       },
       {
@@ -197,8 +175,8 @@
         "provider": "BccNodes"
       },
       {
-        "address": "https://source.rpc.moonbridge.team/",
-        "provider": "MoonBridge"
+        "address": "https://source-rpc.moonbridge.org",
+        "provider": "Moonbridge"
       },
       {
         "address": "https://source.rpc.m.stavr.tech",
@@ -267,7 +245,7 @@
     ],
     "rest": [
       {
-        "address": "https://api.source.nodestake.top",
+        "address": "https://api.source.nodestake.org",
         "provider": "NodeStake"
       },
       {
@@ -291,8 +269,8 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://source.api.moonbridge.team/",
-        "provider": "MoonBridge"
+        "address": "https://source-api.moonbridge.org",
+        "provider": "Moonbridge"
       },
       {
         "address": "https://api-source.sr20de.xyz",
@@ -327,10 +305,6 @@
         "provider": "posthuman"
       },
       {
-        "address": "https://source.api.staking-explorer.com",
-        "provider": "Daily DROP | 3% Fee"
-      },
-      {
         "address": "https://source.declab.pro:443",
         "provider": "Decloud Nodes Lab"
       },
@@ -349,7 +323,7 @@
     ],
     "grpc": [
       {
-        "address": "source-mainnet-grpc.itrocket.net:32090",
+        "address": "source-mainnet-grpc.itrocket.net:443",
         "provider": "ITRocket"
       },
       {
@@ -365,7 +339,7 @@
         "provider": "Nodeist"
       },
       {
-        "address": "https://grpc.source.nodestake.top:443",
+        "address": "https://grpc.source.nodestake.org:443",
         "provider": "NodeStake"
       },
       {
@@ -399,6 +373,10 @@
       {
         "address": "https://source.declab.pro:9003",
         "provider": "Decloud Nodes Lab"
+      },
+      {
+        "address": "source-grpc.moonbridge.org:443",
+        "provider": "Moonbridge"
       }
     ]
   },
@@ -416,16 +394,16 @@
       "account_page": "https://exp.nodeist.net/source/accounts/${accountAddress}"
     },
     {
-      "kind": "MoonBridge",
-      "url": "https://explorer.moonbridge.team/source",
-      "tx_page": "https://explorer.moonbridge.team/source/tx/${txHash}",
-      "account_page": "https://explorer.moonbridge.team/source/accounts/${accountAddress}"
+      "kind": "Moonbridge",
+      "url": "https://explorer.moonbridge.org/source",
+      "tx_page": "https://explorer.moonbridge.org/source/tx/${txHash}",
+      "account_page": "https://explorer.moonbridge.org/source/accounts/${accountAddress}"
     },
     {
       "kind": "NodeStake",
-      "url": "https://explorer.nodestake.top/source",
-      "tx_page": "https://explorer.nodestake.top/source/tx/${txHash}",
-      "account_page": "https://explorer.nodestake.top/source/accounts/${accountAddress}"
+      "url": "https://explorer.nodestake.org/source",
+      "tx_page": "https://explorer.nodestake.org/source/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.org/source/accounts/${accountAddress}"
     },
     {
       "kind": "Sr20de",
@@ -437,6 +415,12 @@
       "kind": "TC Network",
       "url": "https://explorer.tcnetwork.io/source",
       "tx_page": "https://explorer.tcnetwork.io/source/transaction/${txHash}"
+    },
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/source",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=source&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=source&addr=${accountAddress}"
     },
     {
       "kind": "Indonode",
@@ -467,7 +451,7 @@
       "account_page": "https://explorer.whenmoonwhenlambo.money/source/account/${accountAddress}"
     },
     {
-      "kind": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅",
+      "kind": "NodesHub",
       "url": "https://explorer.nodeshub.online/source/",
       "tx_page": "https://explorer.nodeshub.online/source/tx/${txHash}",
       "account_page": "https://explorer.nodeshub.online/source/accounts/${accountAddress}"
@@ -476,10 +460,7 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/source/images/source.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/source/images/source.svg",
-      "theme": {
-        "primary_color_hex": "#39a5fc"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/source/images/source.svg"
     }
   ],
   "logo_URIs": {

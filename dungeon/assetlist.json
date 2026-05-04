@@ -4,39 +4,35 @@
   "assets": [
     {
       "description": "The native staking and governance token of Dungeon Chain.",
+      "extended_description": "Dungeon Chain is a Cosmos SDK + CosmWasm chain operated by Crypto Dungeon LLC, hosting on-chain games (Kosmic Dungeon idle RPG, casino, fantasy sports) and a White-Whale-fork DEX. DGN powers gas, staking, governance, and game economies across the platform.",
       "denom_units": [
-        {
-          "denom": "udgn",
-          "exponent": 0
-        },
-        {
-          "denom": "dgn",
-          "exponent": 6
-        }
+        { "denom": "udgn", "exponent": 0 },
+        { "denom": "dgn", "exponent": 6 }
       ],
       "type_asset": "sdk.coin",
       "base": "udgn",
       "name": "Dungeon Coin",
       "display": "dgn",
       "symbol": "DGN",
+      "coingecko_id": "dragon-coin-2",
+      "socials": {
+        "website": "https://dungeongames.io",
+        "twitter": "https://x.com/cryptodungeonma"
+      },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dungeon/images/dgn.png"
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dungeon/images/dgn.png",
+          "theme": {
+            "circle": true
+          }
         }
-      ],
-      "coingecko_id": "dragon-coin-2"
+      ]
     },
     {
       "description": "DRAGUU is a tokenfactory token on Dungeon Chain, used for Castle staking and combat buffs in Kosmic Dungeon.",
       "denom_units": [
-        {
-          "denom": "factory/dungeon10w427atus8vrwnl2308282khg3nfllzjzmey25/draguu",
-          "exponent": 0
-        },
-        {
-          "denom": "draguu",
-          "exponent": 6
-        }
+        { "denom": "factory/dungeon10w427atus8vrwnl2308282khg3nfllzjzmey25/draguu", "exponent": 0 },
+        { "denom": "draguu", "exponent": 6 }
       ],
       "type_asset": "sdk.coin",
       "base": "factory/dungeon10w427atus8vrwnl2308282khg3nfllzjzmey25/draguu",
@@ -48,6 +44,212 @@
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dungeon/images/draguu.png"
         }
       ]
+    },
+    {
+      "description": "The native staking and governance token of the Cosmos Hub.",
+      "denom_units": [
+        {
+          "denom": "ibc/C3988DBA4BA195F3514EA2E02497B9F66019CE53EFB96D4982CE95CA6A51BBCE",
+          "exponent": 0,
+          "aliases": ["uatom"]
+        },
+        { "denom": "atom", "exponent": 6 }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/C3988DBA4BA195F3514EA2E02497B9F66019CE53EFB96D4982CE95CA6A51BBCE",
+      "name": "Cosmos Hub Atom",
+      "display": "atom",
+      "symbol": "ATOM",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom",
+            "channel_id": "channel-1560"
+          },
+          "chain": {
+            "channel_id": "channel-5308",
+            "path": "transfer/channel-5308/uatom"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "cosmoshub",
+            "base_denom": "uatom"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg"
+        }
+      ],
+      "coingecko_id": "cosmos"
+    },
+    {
+      "description": "The native staking and governance token of Osmosis.",
+      "denom_units": [
+        {
+          "denom": "ibc/AC72F1D0BF72A358CD9D7E3AC8F868F96EDA9042DE00A72DB4AEA859065B7EB5",
+          "exponent": 0,
+          "aliases": ["uosmo"]
+        },
+        { "denom": "osmo", "exponent": 6 }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/AC72F1D0BF72A358CD9D7E3AC8F868F96EDA9042DE00A72DB4AEA859065B7EB5",
+      "name": "Osmosis",
+      "display": "osmo",
+      "symbol": "OSMO",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "osmosis",
+            "base_denom": "uosmo",
+            "channel_id": "channel-101249"
+          },
+          "chain": {
+            "channel_id": "channel-5305",
+            "path": "transfer/channel-5305/uosmo"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "osmosis",
+            "base_denom": "uosmo"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg"
+        }
+      ],
+      "coingecko_id": "osmosis"
+    },
+    {
+      "description": "The native staking and governance token of AtomOne.",
+      "denom_units": [
+        {
+          "denom": "ibc/295196BD505E32B9679BA0CFDB70B4FF2AADE80A3B73A2F234284D7A709844DA",
+          "exponent": 0,
+          "aliases": ["uatone"]
+        },
+        { "denom": "atone", "exponent": 6 }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/295196BD505E32B9679BA0CFDB70B4FF2AADE80A3B73A2F234284D7A709844DA",
+      "name": "AtomOne",
+      "display": "atone",
+      "symbol": "ATONE",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "atomone",
+            "base_denom": "uatone",
+            "channel_id": "channel-9"
+          },
+          "chain": {
+            "channel_id": "channel-5310",
+            "path": "transfer/channel-5310/uatone"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "atomone",
+            "base_denom": "uatone"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/atomone.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/atomone.svg"
+        }
+      ],
+      "coingecko_id": "atomone"
+    },
+    {
+      "description": "The fee token of AtomOne.",
+      "denom_units": [
+        {
+          "denom": "ibc/BD2C670DB4465BCB862F988EF4FD7595C56AE2ECB9CC9EF14AF7A776091E88AE",
+          "exponent": 0,
+          "aliases": ["uphoton"]
+        },
+        { "denom": "photon", "exponent": 6 }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/BD2C670DB4465BCB862F988EF4FD7595C56AE2ECB9CC9EF14AF7A776091E88AE",
+      "name": "Photon",
+      "display": "photon",
+      "symbol": "PHOTON",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "atomone",
+            "base_denom": "uphoton",
+            "channel_id": "channel-9"
+          },
+          "chain": {
+            "channel_id": "channel-5310",
+            "path": "transfer/channel-5310/uphoton"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "atomone",
+            "base_denom": "uphoton"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/photon.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/photon.svg"
+        }
+      ],
+      "coingecko_id": "photon-2"
+    },
+    {
+      "description": "USDC issued by Circle on Noble.",
+      "denom_units": [
+        {
+          "denom": "ibc/489C406A3029B50486F991E468CB8A7D5F039757327A40B0684C530BFF96C543",
+          "exponent": 0,
+          "aliases": ["uusdc"]
+        },
+        { "denom": "usdc", "exponent": 6 }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/489C406A3029B50486F991E468CB8A7D5F039757327A40B0684C530BFF96C543",
+      "name": "USDC",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-150"
+          },
+          "chain": {
+            "channel_id": "channel-5307",
+            "path": "transfer/channel-5307/uusdc"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "noble",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": { "circle": true }
+        }
+      ],
+      "coingecko_id": "usd-coin"
     }
   ]
 }

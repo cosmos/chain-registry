@@ -6,7 +6,7 @@
   "website": "https://epix.zone/",
   "pretty_name": "Epix",
   "chain_type": "cosmos",
-  "chain_id": "epix_4242-1",
+  "chain_id": "epix_1916-1",
   "bech32_prefix": "epix",
   "daemon_name": "epixd",
   "node_home": "$HOME/.epixd",
@@ -42,30 +42,20 @@
       "v1.0.0"
     ],
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/EpixZone/Epix/refs/heads/main/Networks/Mainnet/epix_4242-0/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/EpixZone/Epix/refs/heads/main/Networks/Mainnet/epix_1916-0/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1.0.0",
-        "recommended_version": "v1.0.0",
-        "compatible_versions": [
-          "v1.0.0"
-        ],
-        "next_version_name": "",
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.46"
-        },
-        "consensus": {
-          "type": "tendermint",
-          "version": "0.34"
-        },
-        "ibc": {
-          "type": "go",
-          "version": "v6.1.0"
-        }
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.46"
+    },
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v6.1.0"
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/epix/images/epix.png",
@@ -78,43 +68,82 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://epix.rpc.silknodes.io/",
-        "provider": "Silk Nodes"
+        "address": "https://rpc.epix.zone",
+        "provider": "Epix"
+      },
+      {
+        "address": "https://rpc-epix.onenov.xyz",
+        "provider": "OneNov"
+      },
+      {
+        "address": "https://rpc-m.epix.vinjan-inc.com",
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "https://rpc-epix.dnsarz.net:443",
+        "provider": "dnsarz"
       }
     ],
     "rest": [
       {
-        "address": "https://epix.api.silknodes.io",
-        "provider": "Silk Nodes"
+        "address": "https://api.epix.zone",
+        "provider": "Epix"
+      },
+      {
+        "address": "https://api-epix.onenov.xyz",
+        "provider": "OneNov"
+      },
+      {
+        "address": "https://api-m.epix.vinjan-inc.com",
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "https://api-epix.dnsarz.net",
+        "provider": "dnsarz"
       }
     ],
     "grpc": [
       {
-        "address": "https://epix.grpc.silknodes.io:443",
-        "provider": "Silk Nodes"
+        "address": "grpc.epix.zone:15067",
+        "provider": "Epix"
+      },
+      {
+        "address": "grpc-m.epix.vinjan-inc.com:39990",
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "grpc-epix.dnsarz.net:443",
+        "provider": "dnsarz"
       }
     ],
     "evm-http-jsonrpc": [
       {
-        "address": "https://epix.emvrpc.silknodes.io/",
-        "provider": "Silk Nodes"
+        "address": "https://evmrpc.epix.zone/",
+        "provider": "Epix"
       }
     ]
   },
   "explorers": [
     {
-      "kind": "Silk Nodes Explorer",
-      "url": "https://explorer.silknodes.io/epix",
-      "tx_page": "https://explorer.silknodes.io/osmosis/tx/${txHash}"
+      "kind": "L1",
+      "url": "https://explorer.epix.zone/",
+      "tx_page": "https://explorer.epix.zone/epix/tx/${txHash}"
+    },
+    {
+      "kind": "OneNov",
+      "url": "https://explorer.onenov.xyz",
+      "tx_page": "https://explorer.onenov.xyz/epix/tx/${txHash}"
+    },
+    {
+      "kind": "EVM",
+      "url": "https://scan.epix.zone/",
+      "tx_page": "https://scan.epix.zone/tx/${txHash}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/epix/images/epix.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/epix/images/epix.svg",
-      "theme": {
-        "primary_color_hex": "#69e9f5"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/epix/images/epix.svg"
     }
   ]
 }

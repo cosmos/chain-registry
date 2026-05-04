@@ -1,0 +1,108 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "zenrocktestnet",
+  "status": "live",
+  "website": "https://zenrocklabs.io",
+  "network_type": "testnet",
+  "chain_type": "cosmos",
+  "pretty_name": "Zenrock Gardia Testnet",
+  "chain_id": "gardia-9",
+  "bech32_prefix": "zen",
+  "daemon_name": "zenrockd",
+  "node_home": "$HOME/.zenrockd",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "urock",
+        "fixed_min_gas_price": 2.5,
+        "low_gas_price": 2.5,
+        "average_gas_price": 2.75,
+        "high_gas_price": 3
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "urock"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/zenrock-foundation/zrchain",
+    "genesis": {
+      "genesis_url": "https://rpc.gardia.zenrocklabs.io/genesis"
+    },
+    "recommended_version": "5.3.8",
+    "compatible_versions": [
+      "5.3.8"
+    ],
+    "binaries": {
+      "linux/arm64": "https://github.com/zenrocklabs/zrchain/releases/download/v5.3.8/zenrockd"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/zenrocklabs/cosmos-sdk",
+      "version": "v0.50.10",
+      "tag": "v0.50.10-zenrock"
+    },
+    "cosmwasm": {
+      "version": "v0.53.0",
+      "enabled": true
+    },
+    "tag": "v5.3.8"
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "6ef43e8d5be8d0499b6c57eb15d3dd6dee809c1e",
+        "address": "sentry-1.gardia.zenrocklabs.io:26656"
+      },
+      {
+        "id": "1dfbd854bab6ca95be652e8db078ab7a069eae6f",
+        "address": "sentry-2.gardia.zenrocklabs.io:36656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.gardia.zenrocklabs.io/",
+        "provider": "zenrock"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.gardia.zenrocklabs.io/",
+        "provider": "zenrock"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.gardia.zenrocklabs.io/",
+        "provider": "zenrock"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Big Dipper",
+      "url": "https://explorer.gardia.zenrocklabs.io/",
+      "tx_page": "https://explorer.gardia.zenrocklabs.io/tx/${txHash}",
+      "account_page": "https://explorer.gardia.zenrocklabs.io/account/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "mpc",
+    "testnet"
+  ]
+}

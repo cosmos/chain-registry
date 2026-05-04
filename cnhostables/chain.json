@@ -16,7 +16,7 @@
       {
         "denom": "ucnho",
         "fixed_min_gas_price": 0.000005,
-        "low_gas_price": 0.000001,
+        "low_gas_price": 0.000005,
         "average_gas_price": 0.00001,
         "high_gas_price": 0.025
       }
@@ -35,29 +35,9 @@
     "compatible_versions": [
       "v1"
     ],
-    "cosmos_sdk_version": "v0.46.7",
-    "cosmwasm_enabled": false,
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/alashooinc/ChainCNHO/master/mainnet/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1",
-        "recommended_version": "v1",
-        "compatible_versions": [
-          "v1"
-        ],
-        "cosmos_sdk_version": "v0.46.7",
-        "cosmwasm_enabled": false,
-        "sdk": {
-          "type": "cosmos",
-          "version": "v0.46.7"
-        },
-        "cosmwasm": {
-          "enabled": false
-        }
-      }
-    ],
     "sdk": {
       "type": "cosmos",
       "version": "v0.46.7"
@@ -106,12 +86,20 @@
       {
         "address": "https://cnhostables_mainnet_rpc.chain.whenmoonwhenlambo.money",
         "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
+      },
+      {
+        "address": "https://rpc-cnho.onenov.xyz",
+        "provider": "OneNov"
       }
     ],
     "rest": [
       {
         "address": "https://api.cnho.io",
         "provider": "CNHO Stables"
+      },
+      {
+        "address": "https://api-cnho.onenov.xyz",
+        "provider": "OneNov"
       },
       {
         "address": "https://cnhostables_mainnet_api.chain.whenmoonwhenlambo.money",
@@ -122,6 +110,10 @@
       {
         "address": "159.138.232.248:9090",
         "provider": "CNHO Stables"
+      },
+      {
+        "address": "grpc-cnho.onenov.xyz:9191",
+        "provider": "OneNov"
       }
     ]
   },
@@ -136,6 +128,12 @@
       "url": "https://explorer.whenmoonwhenlambo.money/cnhostables",
       "tx_page": "https://explorer.whenmoonwhenlambo.money/cnhostables/tx/${txHash}",
       "account_page": "https://explorer.whenmoonwhenlambo.money/cnhostables/account/${accountAddress}"
+    },
+    {
+      "kind": "OneNov",
+      "url": "https://explorer.onenov.xyz/cnho",
+      "tx_page": "https://explorer.onenov.xyz/cnho/tx/${txHash}",
+      "account_page": "https://explorer.onenov.xyz/cnho/account/${accountAddress}"
     }
   ],
   "keywords": [
@@ -144,10 +142,7 @@
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cnhostables/images/chain.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cnhostables/images/chain.svg",
-      "theme": {
-        "primary_color_hex": "#708ffc"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cnhostables/images/chain.svg"
     }
   ]
 }

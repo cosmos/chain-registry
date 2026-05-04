@@ -1,0 +1,37 @@
+{
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "manifest",
+    "chain_id": "manifest-ledger-mainnet",
+    "client_id": "07-tendermint-0",
+    "connection_id": "connection-1"
+  },
+  "chain_2": {
+    "chain_name": "osmosis",
+    "chain_id": "osmosis-1",
+    "client_id": "07-tendermint-3448",
+    "connection_id": "connection-10605"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-0",
+        "port_id": "transfer",
+        "client_id": "07-tendermint-0",
+        "connection_id": "connection-1"
+      },
+      "chain_2": {
+        "channel_id": "channel-100418",
+        "port_id": "transfer",
+        "client_id": "07-tendermint-3448",
+        "connection_id": "connection-10605"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
+      }
+    }
+  ]
+}

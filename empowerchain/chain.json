@@ -37,20 +37,9 @@
     "compatible_versions": [
       "v1.0.0"
     ],
-    "cosmwasm_version": "0.45",
-    "cosmwasm_enabled": true,
     "genesis": {
       "genesis_url": "https://github.com/EmpowerPlastic/empowerchain/raw/main/mainnet/empowerchain-1/genesis.tar.gz"
     },
-    "versions": [
-      {
-        "name": "v1.0.0",
-        "recommended_version": "v1.0.0",
-        "compatible_versions": [
-          "v1.0.0"
-        ]
-      }
-    ],
     "cosmwasm": {
       "version": "0.45",
       "enabled": true
@@ -93,6 +82,11 @@
         "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
         "address": "seeds.bluestake.net:21956",
         "provider": "BlueStake 🚀"
+      },
+      {
+        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
+        "address": "seed.rhinostake.com:17456",
+        "provider": "RHINO 🦏"
       }
     ],
     "persistent_peers": [
@@ -136,10 +130,6 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-empowerchain.ecostake.com:443",
-        "provider": "ecostake"
-      },
-      {
         "address": "https://empowerchain-mainnet-rpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
       },
@@ -164,10 +154,6 @@
         "provider": "vinjan"
       },
       {
-        "address": "https://rpc.empower.nodestake.top",
-        "provider": "NodeStake"
-      },
-      {
         "address": "https://mainnet-empower-rpc.konsortech.xyz",
         "provider": "KonsorTech"
       },
@@ -190,13 +176,13 @@
       {
         "address": "https://empower-rpc.bluestake.net:443",
         "provider": "BlueStake 🚀"
+      },
+      {
+        "address": "https://empower-rpc.moonbridge.org",
+        "provider": "Moonbridge"
       }
     ],
     "rest": [
-      {
-        "address": "https://rest-empowerchain.ecostake.com:443",
-        "provider": "ecostake"
-      },
       {
         "address": "https://empowerchain-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
@@ -216,10 +202,6 @@
       {
         "address": "https://api-empower.vinjan.xyz:443",
         "provider": "vinjan"
-      },
-      {
-        "address": "https://api.empower.nodestake.top",
-        "provider": "NodeStake"
       },
       {
         "address": "https://mainnet-empower-api.konsortech.xyz",
@@ -244,6 +226,10 @@
       {
         "address": "https://empower-api.bluestake.net",
         "provider": "BlueStake 🚀"
+      },
+      {
+        "address": "https://empower-api.moonbridge.org",
+        "provider": "Moonbridge"
       }
     ],
     "grpc": [
@@ -272,10 +258,6 @@
         "provider": "vinjan"
       },
       {
-        "address": "https://grpc.empower.nodestake.top:443",
-        "provider": "NodeStake"
-      },
-      {
         "address": "empower.grpc.stakevillage.net:16890",
         "provider": "Stake Village"
       },
@@ -290,10 +272,20 @@
       {
         "address": "empower-grpc.noders.services:25090",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "empower-grpc.moonbridge.org:443",
+        "provider": "Moonbridge"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/empowerchain",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=empowerchain&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=empowerchain&addr=${accountAddress}"
+    },
     {
       "kind": "🔥STAVR🔥",
       "url": "https://explorer.stavr.tech/Empower-Mainnet",
@@ -302,9 +294,9 @@
     },
     {
       "kind": "NodeStake Explorer",
-      "url": "https://explorer.nodestake.top/empower",
-      "tx_page": "https://explorer.nodestake.top/empower/tx/${txHash}",
-      "account_page": "https://explorer.nodestake.top/empower/account/{$accountAddress}"
+      "url": "https://explorer.nodestake.org/empower",
+      "tx_page": "https://explorer.nodestake.org/empower/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.org/empower/account/{$accountAddress}"
     },
     {
       "kind": "Stake Village",
@@ -323,6 +315,12 @@
       "url": "https://mainnet.whispernode.com/empowerchain",
       "tx_page": "https://mainnet.whispernode.com/empowerchain/tx/${txHash}",
       "account_page": "https://mainnet.whispernode.com/empowerchain/account/${accountAddress}"
+    },
+    {
+      "kind": "Moonbridge",
+      "url": "https://explorer.moonbridge.org/empower",
+      "tx_page": "https://explorer.moonbridge.org/empower/tx/${txHash}",
+      "account_page": "https://explorer.moonbridge.org/empower/account/${accountAddress}"
     }
   ],
   "images": [
@@ -333,16 +331,12 @@
       },
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/empowerchain/images/mpwr.svg",
       "theme": {
-        "primary_color_hex": "#00e33a",
-        "background_color_hex": "#00e33a",
         "circle": true
       }
     },
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/empowerchain/images/mpwr.png",
       "theme": {
-        "primary_color_hex": "#00e33a",
-        "background_color_hex": "#00e33a",
         "circle": false
       }
     }

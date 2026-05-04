@@ -1,31 +1,33 @@
 {
-    "$schema": "../ibc_data.schema.json",
-    "chain_1": {
-      "chain_name": "agoric",
-      "client_id": "07-tendermint-70",
-      "connection_id": "connection-64"
-    },
-    "chain_2": {
-      "chain_name": "composable",
-      "client_id": "07-tendermint-51",
-      "connection_id": "connection-20"
-    },
-    "channels": [
-      {
-        "chain_1": {
-          "channel_id": "channel-55",
-          "port_id": "transfer"
-        },
-        "chain_2": {
-          "channel_id": "channel-13",
-          "port_id": "transfer"
-        },
-        "ordering": "unordered",
-        "version": "ics20-1",
-        "tags": {
-          "status": "live",
-          "preferred": true
-        }
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "agoric",
+    "chain_id": "agoric-3",
+    "client_id": "07-tendermint-70",
+    "connection_id": "connection-64"
+  },
+  "chain_2": {
+    "chain_name": "composable",
+    "chain_id": "centauri-1",
+    "client_id": "07-tendermint-51",
+    "connection_id": "connection-20"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-55",
+        "port_id": "transfer"
+      },
+      "chain_2": {
+        "channel_id": "channel-13",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
       }
-    ]
-  }
+    }
+  ]
+}

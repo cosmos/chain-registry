@@ -32,63 +32,23 @@
     "git_repo": "https://github.com/furysport/furya-chain",
     "recommended_version": "v2.0.0",
     "compatible_versions": [
-      "v1.0.0",
       "v2.0.0"
     ],
     "genesis": {
       "genesis_url": "https://github.com/furysport/furya-chain/blob/main/network/mainnet/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v1.0.0",
-        "proposal": -1,
-        "recommended_version": "v1.0.0",
-        "compatible_versions": [
-          "v1.0.0"
-        ],
-        "cosmos_sdk_version": "v0.45.7",
-        "consensus": {
-          "type": "tendermint",
-          "version": "v0.37.2"
-        },
-        "cosmwasm_version": "v0.20.0",
-        "cosmwasm_enabled": true,
-        "next_version_name": "v2.0.0",
-        "sdk": {
-          "type": "cosmos",
-          "version": "v0.45.7"
-        },
-        "cosmwasm": {
-          "version": "v0.20.0",
-          "enabled": true
-        }
-      },
-      {
-        "name": "v2.0.0",
-        "proposal": 3,
-        "height": 2839877,
-        "recommended_version": "v2.0.0",
-        "compatible_versions": [
-          "v1.0.0"
-        ],
-        "cosmos_sdk_version": "v0.47.8",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.37.4"
-        },
-        "cosmwasm_version": "v0.41.0",
-        "cosmwasm_enabled": true,
-        "next_version_name": "",
-        "sdk": {
-          "type": "cosmos",
-          "version": "v0.47.8"
-        },
-        "cosmwasm": {
-          "version": "v0.41.0",
-          "enabled": true
-        }
-      }
-    ]
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.47.8"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.37.4"
+    },
+    "cosmwasm": {
+      "version": "v0.41.0",
+      "enabled": true
+    }
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/furya/images/chain.png",
@@ -122,11 +82,6 @@
         "id": "906ba6fd7cc9349d63c26608736ac91fe09437fb",
         "address": "85.215.65.44:26656",
         "provider": "Starsquid"
-      },
-      {
-        "id": "637077d431f618181597706810a65c826524fd74",
-        "address": "furya.rpc.nodeshub.online:26956",
-        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
       }
     ]
   },
@@ -135,28 +90,15 @@
       {
         "address": "https://furya-rpc.synergynodes.com",
         "provider": "synergynodes"
-      },
-      {
-        "address": "https://furya.rpc.nodeshub.online:443",
-        "provider": "nodeshub"
       }
     ],
     "rest": [
       {
         "address": "https://furya.api.nodeshub.online",
         "provider": "synergynodes"
-      },
-      {
-        "address": "https://furya.api.nodeshub.online:443",
-        "provider": "Nodes Hub 🛡️ 100% Slash Protected 🛡️ | Restake ✅"
       }
     ],
-    "grpc": [
-      {
-        "address": "https://furya.grpc.nodeshub.online",
-        "provider": "Nodes Hub"
-      }
-    ]
+    "grpc": []
   },
   "explorers": [
     {
@@ -166,19 +108,16 @@
       "account_page": "https://explorer.furya.network/furya-1/account/${accountAddress}"
     },
     {
-      "kind": "Nodeshub Explorer",
-      "url": "https://explorer.nodeshub.online/furya",
-      "tx_page": "https://explorer.nodeshub.online/furya/txs/${txHash}",
-      "account_page": "https://explorer.nodeshub.online/furya/account/${accountAddress}"
+      "kind": "staking-explorer.com",
+      "url": "https://staking-explorer.com/explorer/furya",
+      "tx_page": "https://staking-explorer.com/transaction.php?chain=furya&tx=${txHash}",
+      "account_page": "https://staking-explorer.com/account.php?chain=furya&addr=${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/furya/images/chain.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/furya/images/chain.svg",
-      "theme": {
-        "primary_color_hex": "#040404"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/furya/images/chain.svg"
     }
   ]
 }

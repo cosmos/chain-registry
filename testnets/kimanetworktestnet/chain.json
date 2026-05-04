@@ -4,13 +4,15 @@
   "status": "live",
   "website": "https://www.kima.network/",
   "network_type": "testnet",
-  "pretty_name": "Kima Network Testnet",
   "chain_type": "cosmos",
+  "pretty_name": "Kima Network Testnet",
   "chain_id": "kima_testnet",
   "bech32_prefix": "kima",
-  "daemon_name": "uKIMA",
+  "daemon_name": "kimad",
   "node_home": "$HOME/.kima",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -23,49 +25,76 @@
       }
     ]
   },
-  "codebase": {
-    "git_repo": "https://github.com/kima-finance/kima-blockchain",
-    "recommended_version": "v0.4.3",
-    "compatible_versions": ["v0.4.3"],
-    "genesis": {
-      "genesis_url": "http://data-testnet.kima.finance/genesis.json"
-    },
-    "versions": [
+  "staking": {
+    "staking_tokens": [
       {
-        "name": "v0.4.3",
-        "recommended_version": "v0.4.3",
-        "compatible_versions": ["v0.4.3"],
-        "sdk": {
-          "type": "cosmos",
-          "repo": "https://github.com/cosmos/cosmos-sdk",
-          "version": "v0.47.4",
-          "tag": "v0.47.4"
-        }
+        "denom": "uKIMA"
       }
-    ]
+    ],
+    "lock_duration": {
+      "time": "259200s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/kima-finance/kima-blockchain/",
+    "genesis": {
+      "name": "v1",
+      "genesis_url": "https://archive.sardis.kima.network/genesis.json"
+    },
+    "recommended_version": "v0.4.8",
+    "compatible_versions": [
+      "v0.4.8"
+    ],
+    "tag": "v0.4.8",
+    "language": {
+      "type": "go",
+      "version": "1.21.13"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/cosmos/cosmos-sdk",
+      "version": "v0.47.4",
+      "tag": "v0.47.4"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.37.2",
+      "repo": "https://github.com/cometbft/cometbft",
+      "tag": "v0.37.2"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "7.3.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    }
+  },
+  "images": [
+    {
+      "image_sync": {
+        "chain_name": "kimanetwork"
+      },
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kimanetwork/images/kima.svg",
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kimanetwork/images/kima.png"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kimanetwork/images/kima.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kimanetwork/images/kima.svg"
   },
   "peers": {
     "seeds": [
       {
-        "id": "cb88ded3ce56d5f58155028f74116e492d9b48d3",
-        "address": "137.135.97.61:26656",
+        "id": "3d901cbae3b2b4be186aee02fe174b4cf230a0c2",
+        "address": "sentry-0.sardis.kima.network:26656",
         "provider": "Kima Network"
       }
     ],
     "persistent_peers": [
       {
-        "id": "63e795c7b06e04b59193d1cd5dd080324857be14",
-        "address": "172.173.165.59:26656",
-        "provider": "Kima Network"
-      },
-      {
-        "id": "26f8f89e4d937d04b3a55e01c94757d531b21756",
-        "address": "52.233.74.60:26656",
-        "provider": "Kima Network"
-      },
-      {
-        "id": "ed81adb437d1c74420eae069303acabe388621cc",
-        "address": "13.83.91.8:26656",
+        "id": "3d901cbae3b2b4be186aee02fe174b4cf230a0c2",
+        "address": "sentry-0.sardis.kima.network:26656",
         "provider": "Kima Network"
       }
     ]
@@ -73,13 +102,19 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-testnet.kima.finance/",
+        "address": "https://rpc.sardis.kima.network/",
+        "provider": "Kima Network"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.sardis.kima.network",
         "provider": "Kima Network"
       }
     ],
     "rest": [
       {
-        "address": "https://api-testnet.kima.finance",
+        "address": "https://api.sardis.kima.network/",
         "provider": "Kima Network"
       }
     ]
@@ -87,8 +122,12 @@
   "explorers": [
     {
       "kind": "Kima Network",
-      "url": "https://explorer-testnet.kima.finance/",
-      "tx_page": "https://explorer-testnet.kima.finance/transactions/${txHash}"
+      "url": "https://explorer.sardis.kima.network/",
+      "tx_page": "https://explorer.sardis.kima.network/transactions/${txHash}",
+      "account_page": "https://explorer.sardis.kima.network/accounts/?address=${accountAddress}"
     }
+  ],
+  "keywords": [
+    "interoperability"
   ]
 }

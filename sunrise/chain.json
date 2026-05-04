@@ -1,7 +1,7 @@
 {
   "$schema": "../chain.schema.json",
   "chain_name": "sunrise",
-  "status": "upcoming",
+  "status": "live",
   "network_type": "mainnet",
   "website": "https://sunriselayer.io/",
   "pretty_name": "Sunrise",
@@ -17,7 +17,7 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "urise",
+        "denom": "uusdrise",
         "fixed_min_gas_price": 0.002,
         "low_gas_price": 0.01,
         "average_gas_price": 0.02,
@@ -32,118 +32,29 @@
       }
     ],
     "lock_duration": {
-      "time": "1209600s"
+      "time": "1814400s"
     }
   },
   "codebase": {
     "git_repo": "https://github.com/sunriselayer/sunrise",
-    "recommended_version": "v0.1.1",
+    "recommended_version": "v1.0.0",
     "compatible_versions": [
-      "v0.1.1"
+      "v1.0.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.1.1/sunrised"
+      "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v1.0.0/sunrised-linux-amd64"
     },
-    "cosmos_sdk_version": "0.50.2",
     "consensus": {
       "type": "cometbft",
-      "version": "v0.0.5",
-      "repo": "https://github.com/sunriselayer/sunrise-core",
-      "tag": "v0.0.5-cmt-v0.38.2"
+      "version": "v0.38.17"
     },
-    "versions": [
-      {
-        "name": "v0.0.7",
-        "recommended_version": "v0.0.7",
-        "compatible_versions": [
-          "v0.0.7"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.0.7/sunrised"
-        },
-        "cosmos_sdk_version": "0.50.2",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.0.5",
-          "repo": "https://github.com/sunriselayer/sunrise-core",
-          "tag": "v0.0.5-cmt-v0.38.2"
-        },
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.50.2"
-        },
-        "ibc": {
-          "type": "go",
-          "version": "8.0.0",
-          "ics_enabled": [
-            "ics20-1"
-          ]
-        }
-      },
-      {
-        "name": "v0.0.8",
-        "recommended_version": "v0.0.8",
-        "compatible_versions": [
-          "v0.0.8"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.0.8/sunrised"
-        },
-        "cosmos_sdk_version": "0.50.2",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.0.5",
-          "repo": "https://github.com/sunriselayer/sunrise-core",
-          "tag": "v0.0.5-cmt-v0.38.2"
-        },
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.50.2"
-        },
-        "ibc": {
-          "type": "go",
-          "version": "8.0.0",
-          "ics_enabled": [
-            "ics20-1"
-          ]
-        }
-      },
-      {
-        "name": "v0.1.1",
-        "recommended_version": "v0.1.1",
-        "compatible_versions": [
-          "v0.1.1"
-        ],
-        "binaries": {
-          "linux/amd64": "https://github.com/sunriselayer/sunrise/releases/download/v0.1.1/sunrised"
-        },
-        "cosmos_sdk_version": "0.50.2",
-        "consensus": {
-          "type": "cometbft",
-          "version": "v0.0.5",
-          "repo": "https://github.com/sunriselayer/sunrise-core",
-          "tag": "v0.0.5-cmt-v0.38.2"
-        },
-        "sdk": {
-          "type": "cosmos",
-          "version": "0.50.2"
-        },
-        "ibc": {
-          "type": "go",
-          "version": "8.0.0",
-          "ics_enabled": [
-            "ics20-1"
-          ]
-        }
-      }
-    ],
     "sdk": {
       "type": "cosmos",
-      "version": "0.50.2"
+      "version": "v0.53.2"
     },
     "ibc": {
       "type": "go",
-      "version": "8.0.0"
+      "version": "v10.3.0"
     }
   },
   "logo_URIs": {
@@ -151,22 +62,489 @@
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sunrise/images/sunrise.svg"
   },
   "peers": {
-    "seeds": [],
-    "persistent_peers": []
+    "seeds": [
+      {
+        "id": "41e61c0441f0086caf17186950fc440d45870bf5",
+        "address": "a.consensus.sunrise-1.sunriselayer.io:26656",
+        "provider": "Sunrise Team"
+      },
+      {
+        "id": "327fb4151de9f78f29ff10714085e347a4e3c836",
+        "address": "rpc.sunrise.nodestake.org:666",
+        "provider": "NodeStake"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "41e61c0441f0086caf17186950fc440d45870bf5",
+        "address": "a.consensus.sunrise-1.sunriselayer.io:26656",
+        "provider": "Sunrise Team"
+      }
+    ]
   },
   "apis": {
-    "rpc": [],
-    "rest": [],
-    "grpc": []
+    "rpc": [
+      {
+        "address": "https://a.consensus.sunrise-1.sunriselayer.io",
+        "provider": "Sunrise Team"
+      },
+      {
+        "address": "https://rpc-sunrise.infrasingularity.com",
+        "provider": "Infrasingularity"
+      },
+      {
+        "address": "https://sunrise-mainnet-rpc.mekonglabs.tech",
+        "provider": "MekongLabs"
+      },
+      {
+        "address": "https://sunrise-rpc.noders.services",
+        "provider": "[NODERS]"
+      },
+      {
+        "address": "https://rpc-sunrise.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://rpc.sunrise.tcnetwork.io",
+        "provider": "TC Network"
+      },
+      {
+        "address": "https://rpc.sunrise.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://sunrise-rpc.krews.xyz",
+        "provider": "Krews"
+      },
+      {
+        "address": "https://sunrise-rpc-2.krews.xyz",
+        "provider": "Krews"
+      },
+      {
+        "address": "https://sunrise-mainnet-rpc.denodes.xyz/",
+        "provider": "deNodes"
+      },
+      {
+        "address": "http://sunrise.rpc.decentrio.ventures",
+        "provider": "Decentrio"
+      },
+      {
+        "address": "https://sunrise-rpc.synergynodes.com",
+        "provider": "Synergy Nodes"
+      },
+      {
+        "address": "https://sunrise.rpc.m.anode.team",
+        "provider": "Anode.team"
+      },
+      {
+        "address": "https://sunrise-rpc.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
+      },
+      {
+        "address": "https://sunrise.blocksync.me/rpc",
+        "provider": "BlockSync"
+      },
+      {
+        "address": "https://rpc-sunrise.winnode.xyz",
+        "provider": "Winnode"
+      },
+      {
+        "address": "https://rpc-sunrise.blockval.io/",
+        "provider": "Blockval"
+      },
+      {
+        "address": "https://sunrise-rpc.onenov.xyz",
+        "provider": "OneNov"
+      },
+      {
+        "address": "https://rpc-sunrice-mainnet.catsmile.space",
+        "provider": "catsmile"
+      },
+      {
+        "address": "https://rpc-sunrise-m.winsnip.xyz",
+        "provider": "Winsnip"
+      },
+      {
+        "address": "https://rpc-sunrise.maouam.xyz",
+        "provider": "MaouamNodelab"
+      },
+      {
+        "address": "https://rpc-sunrise.nodegod20.cloud",
+        "provider": "nodegod20"
+      },
+      {
+        "address": "https://rpc-sunrise.divinzzo.xyz",
+        "provider": "divinzzo"
+      },
+      {
+        "address": "https://rpc-sunrise.veriznode.xyz",
+        "provider": "veriznode"
+      },
+      {
+        "address": "https://rpc-sunrise.nagagininode.xyz",
+        "provider": "nagagini"
+      },
+      {
+        "address": "https://rpc-sunrise.nodeyus.cloud",
+        "provider": "nodeyus"
+      },
+      {
+        "address": "https://rpc-sunrice.batana.space",
+        "provider": "batana"
+      },
+      {
+        "address": "https://rpc-sunrise.gombezzz.xyz",
+        "provider": "GombezzZ"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://a.consensus.sunrise-1.sunriselayer.io:1318",
+        "provider": "Sunrise Team"
+      },
+      {
+        "address": "https://sunrise-api.noders.services",
+        "provider": "[NODERS]"
+      },
+      {
+        "address": "https://sunrise-mainnet-api.mekonglabs.tech",
+        "provider": "MekongLabs"
+      },
+      {
+        "address": "https://api-sunrise.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://rest.sunrise.tcnetwork.io",
+        "provider": "TC Network"
+      },
+      {
+        "address": "https://api.sunrise.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://sunrise-api.krews.xyz",
+        "provider": "Krews"
+      },
+      {
+        "address": "https://sunrise-api-2.krews.xyz",
+        "provider": "Krews"
+      },
+      {
+        "address": "https://sunrise-mainnet-api.denodes.xyz/",
+        "provider": "deNodes"
+      },
+      {
+        "address": "https://sunrise.api.decentrio.ventures",
+        "provider": "Decentrio"
+      },
+      {
+        "address": "https://sunrise-api.synergynodes.com",
+        "provider": "Synergy Nodes"
+      },
+      {
+        "address": "https://sunrise.api.m.anode.team",
+        "provider": "Anode.team"
+      },
+      {
+        "address": "https://sunrise-api.stakeandrelax.net",
+        "provider": "Stake&Relax 🦥"
+      },
+      {
+        "address": "https://sunrise.blocksync.me/api",
+        "provider": "BlockSync"
+      },
+      {
+        "address": "https://api-sunrise.winnode.xyz",
+        "provider": "Winnode"
+      },
+      {
+        "address": "https://api-sunrise.blockval.io",
+        "provider": "Blockval"
+      },
+      {
+        "address": "https://sunrise-api.onenov.xyz",
+        "provider": "OneNov"
+      },
+      {
+        "address": "https://api-sunrice-mainnet.catsmile.space",
+        "provider": "catsmile"
+      },
+      {
+        "address": "https://api-sunrise-m.winsnip.xyz",
+        "provider": "Winsnip"
+      },
+      {
+        "address": "https://api-sunrise.maouam.xyz",
+        "provider": "MaouamNodelab"
+      },
+      {
+        "address": "https://api-sunrise.nodegod20.cloud",
+        "provider": "nodegod20"
+      },
+      {
+        "address": "https://api-sunrise.divinzzo.xyz",
+        "provider": "divinzzo"
+      },
+      {
+        "address": "https://api-sunrise.veriznode.xyz",
+        "provider": "veriznode"
+      },
+      {
+        "address": "https://api-sunrise.nagagininode.xyz",
+        "provider": "nagagini"
+      },
+      {
+        "address": "https://api-sunrise.nodeyus.cloud",
+        "provider": "nodeyus"
+      },
+      {
+        "address": "https://api-sunrice.batana.space",
+        "provider": "batana"
+      },
+      {
+        "address": "https://api-sunrise.gombezzz.xyz",
+        "provider": "GombezzZ"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://a.consensus.sunrise-1.sunriselayer.io:9092",
+        "provider": "Sunrise Team"
+      },
+      {
+        "address": "https://grpc-sunrise.nodeist.net",
+        "provider": "Nodeist"
+      },
+      {
+        "address": "https://sunrise-grpc.noders.services:443",
+        "provider": "[NODERS]"
+      },
+      {
+        "address": "https://grpc.sunrise.nodestake.org:443",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://sunrise-mainnet-grpc.denodes.xyz:443",
+        "provider": "deNodes"
+      },
+      {
+        "address": "https://sunrise.grpc.decentrio.ventures:443",
+        "provider": "Decentrio"
+      },
+      {
+        "address": "https://sunrise-grpc.synergynodes.com:443",
+        "provider": "Synergy Nodes"
+      },
+      {
+        "address": "http://sunrise.grpc.m.anode.team",
+        "provider": "Anode.team"
+      },
+      {
+        "address": "http://sunrise-grpc.stakeandrelax.net:28390",
+        "provider": "Stake&Relax 🦥"
+      },
+      {
+        "address": "http://sunrise.blocksync.me:22090",
+        "provider": "BlockSync"
+      },
+      {
+        "address": "https://grpc-sunrise.winnode.xyz:443",
+        "provider": "Winnode"
+      },
+      {
+        "address": "grpc-sunrise.blockval.io:443",
+        "provider": "Blockval"
+      },
+      {
+        "address": "https://sunrise-grpc.onenov.xyz:443",
+        "provider": "OneNov"
+      },
+      {
+        "address": "grpc-sunrice-mainnet.catsmile.space:443",
+        "provider": "catsmile"
+      },
+      {
+        "address": "https://grpc-sunrise-m.winsnip.xyz:443",
+        "provider": "Winsnip"
+      },
+      {
+        "address": "grpc-sunrise.maouam.xyz:443",
+        "provider": "MaouamNodelab"
+      },
+      {
+        "address": "grpc-sunrise.nodegod20.cloud:443",
+        "provider": "nodegod20"
+      },
+      {
+        "address": "grpc-sunrise.divinzzo.xyz:443",
+        "provider": "divinzzo"
+      },
+      {
+        "address": "grpc-sunrise.veriznode.xyz:443",
+        "provider": "veriznode"
+      },
+      {
+        "address": "grpc-sunrise.nagagininode.xyz:443",
+        "provider": "nagagini"
+      },
+      {
+        "address": "grpc-sunrise.nodeyus.cloud:443",
+        "provider": "nodeyus"
+      },
+      {
+        "address": "grpc-sunrice.batana.space:443",
+        "provider": "batana"
+      },
+      {
+        "address": "grpc-sunrise.gombezzz.xyz:443",
+        "provider": "GombezzZ"
+      }
+    ]
   },
-  "explorers": [],
+  "explorers": [
+    {
+      "kind": "TC Network",
+      "url": "https://explorer.tcnetwork.io/sunrise",
+      "tx_page": "https://explorer.tcnetwork.io/sunrise/transaction/${txHash}"
+    },
+    {
+      "kind": "Risescan",
+      "url": "https://risescan.sunriselayer.io",
+      "tx_page": "https://risescan.sunriselayer.io/txs/${txHash}",
+      "account_page": "https://risescan.sunriselayer.io/accounts/${accountAddress}"
+    },
+    {
+      "kind": "MekongLabs Explorer",
+      "url": "https://explorer.mekonglabs.tech/sunrise/staking",
+      "tx_page": "https://explorer.mekonglabs.tech/sunrise/tx/${txHash}",
+      "account_page": "https://explorer.mekonglabs.tech/sunrise/account/${accountAddress}"
+    },
+    {
+      "kind": "Explorer.ist",
+      "url": "https://explorer.ist/sunrise",
+      "tx_page": "https://explorer.ist/sunrise/tx/${txHash}",
+      "account_page": "https://explorer.ist/sunrise/account/${accountAddress}"
+    },
+    {
+      "kind": "NodeStake explorer",
+      "url": "https://explorer.nodestake.org/sunrise",
+      "tx_page": "https://explorer.nodestake.org/sunrise/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.org/sunrise/account/${accountAddress}"
+    },
+    {
+      "kind": "Krews",
+      "url": "https://risescan.krews.xyz",
+      "tx_page": "https://risescan.krews.xyz/sunrise/tx/${txHash}",
+      "account_page": "https://risescan.krews.xyz/sunrise/account/${accountAddress}"
+    },
+    {
+      "kind": "deNodes",
+      "url": "https://risescan.denodes.app/",
+      "tx_page": "https://risescan.denodes.app/sunrise/tx/${txHash}",
+      "account_page": "https://risescan.denodes.app/sunrise/account/${accountAddress}"
+    },
+    {
+      "kind": "Synergy Nodes Explorer",
+      "url": "https://cosmosrun.info/sunrise",
+      "tx_page": "https://cosmosrun.info/sunrise/tx/${txHash}",
+      "account_page": "https://cosmosrun.info/sunrise/account/${accountAddress}"
+    },
+    {
+      "kind": "Anode.team",
+      "url": "https://main.anode.team/sunrise",
+      "tx_page": "https://main.anode.team/sunrise/tx/${txHash}",
+      "account_page": "https://main.anode.team/sunrise/account/${accountAddress}"
+    },
+    {
+      "kind": "Stake&Relax 🦥 explorer",
+      "url": "https://explorer.stakeandrelax.net/sunrise",
+      "tx_page": "https://explorer.stakeandrelax.net/sunrise/tx/${txHash}",
+      "account_page": "https://explorer.stakeandrelax.net/sunrise/account/${accountAddress}"
+    },
+    {
+      "kind": "BlockSync Explorer",
+      "url": "https://dashboard.blocksync.me/sunrise",
+      "tx_page": "https://dashboard.blocksync.me/sunrise/tx/${txHash}",
+      "account_page": "https://dashboard.blocksync.me/sunrise/account/${accountAddress}"
+    },
+    {
+      "kind": "Winnode explorer",
+      "url": "https://explorer.winnode.xyz/Sunrise-Mainnet",
+      "tx_page": "https://explorer.winnode.xyz/Sunrise-Mainnet/tx/${txHash}",
+      "account_page": "https://explorer.winnode.xyz/Sunrise-Mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "OneNov Explorer",
+      "url": "https://explorer.onenov.xyz/Sunrise-Mainnet",
+      "tx_page": "https://explorer.onenov.xyz/Sunrise-Mainnet/transaction/${txHash}",
+      "account_page": "https://explorer.onenov.xyz/Sunrise-Mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "catsmile explorer",
+      "url": "https://explorer.catsmile.cloud/sunrice-mainnet",
+      "tx_page": "https://explorer.catsmile.cloud/sunrice-mainnet/tx/${txHash}",
+      "account_page": "https://explorer.catsmile.cloud/sunrice-mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "Winsnip explorer",
+      "url": "https://portal.winsnip.xyz/Sunrise-Mainnet",
+      "tx_page": "https://portal.winsnip.xyz/Sunrise-Mainnet/tx/${txHash}",
+      "account_page": "https://portal.winsnip.xyz/Sunrise-Mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "Maouam explorer",
+      "url": "https://explorer.maouam.xyz/sunrise-mainnet",
+      "tx_page": "https://explorer.maouam.xyz/sunrise-mainnet/tx/${txHash}",
+      "account_page": "https://explorer.maouam.xyz/sunrise-mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "nodegod20 explorer",
+      "url": "https://explorer.nodegod20.cloud/sunrice-mainnet",
+      "tx_page": "https://explorer.nodegod20.cloud/sunrice-mainnet/tx/${txHash}",
+      "account_page": "https://explorer.nodegod20.cloud/sunrice-mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "Divinzzo explorer",
+      "url": "https://explorer.divinzzo.xyz/sunrise-mainnet",
+      "tx_page": "https://explorer.divinzzo.xyz/sunrise-mainnet/tx/${txHash}",
+      "account_page": "https://explorer.divinzzo.xyz/sunrise-mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "veriznode explorer",
+      "url": "https://explorer.veriznode.xyz/sunrise-mainnet",
+      "tx_page": "https://explorer.veriznode.xyz/sunrise-mainnet/tx/${txHash}",
+      "account_page": "https://explorer.veriznode.xyz/sunrise-mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "nagagini explorer",
+      "url": "https://explorer.nagagininode.xyz/sunrise-mainnet",
+      "tx_page": "https://explorer.nagagininode.xyz/sunrise-mainnet/tx/${txHash}",
+      "account_page": "https://explorer.nagagininode.xyz/sunrise-mainnet/${accountAddress}"
+    },
+    {
+      "kind": "nodeyus explorer",
+      "url": "https://explorer.divinzzo.xyz/sunrise-mainnet",
+      "tx_page": "https://explorer.divinzzo.xyz/sunrise-mainnet/tx/${txHash}",
+      "account_page": "https://explorer.divinzzo.xyz/sunrise-mainnet/account/${accountAddress}"
+    },
+    {
+      "kind": "batana explorer",
+      "url": "https://explorer.batana.space/sunrise-mainnet",
+      "tx_page": "https://explorer.batana.space/sunrise-mainnet/tx/${txHash}",
+      "account_page": "https://explorer.batana.space/sunrise-mainnet/${accountAddress}"
+    },
+    {
+      "kind": "GombezzZ explorer",
+      "url": "https://explorer.gombezzz.xyz/sunrise-mainnet",
+      "tx_page": "https://explorer.gombezzz.xyz/sunrise-mainnet/tx/${txHash}",
+      "account_page": "https://explorer.gombezzz.xyz/sunrise-mainnet/${accountAddress}"
+    }
+  ],
   "images": [
     {
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sunrise/images/sunrise.svg",
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sunrise/images/sunrise.png",
-      "theme": {
-        "primary_color_hex": "#ecbc64"
-      }
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/sunrise/images/sunrise.png"
     }
   ]
 }
