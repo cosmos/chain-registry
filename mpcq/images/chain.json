@@ -1,0 +1,51 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "mpcq",
+  "chain_id": "262144",
+  "website": "https://mpcq.moneypoolscash.com",
+  "pretty_name": "MPCQ Network",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "cosmos",
+  "daemon_name": "evmd",
+  "node_home": "$HOME/.evmd",
+  "key_algos": ["ethsecp256k1"],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ampcq",
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.001,
+        "average_gas_price": 0.01,
+        "high_gas_price": 0.025
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ampcq"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {"address": "https://rpc.moneypoolscash.com", "provider": "MPCQ"},
+      {"address": "https://cosmos.moneypoolscash.com", "provider": "MPCQ"}
+    ],
+    "rest": [
+      {"address": "https://rest.moneypoolscash.com", "provider": "MPCQ"}
+    ],
+    "evm-http-jsonrpc": [
+      {"address": "https://rpc.moneypoolscash.com", "provider": "MPCQ"}
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "blockscout",
+      "url": "https://evm-explorer.mpcq.moneypoolscash.com",
+      "tx_page": "https://evm-explorer.mpcq.moneypoolscash.com/tx/${txHash}"
+    }
+  ]
+}
