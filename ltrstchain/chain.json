@@ -1,0 +1,106 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "ltrstchain",
+  "chain_type": "cosmos",
+  "chain_id": "ltrst-chain-1",
+  "pretty_name": "LTRST Chain",
+  "website": "https://larrytrustee.ai",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "ltrst",
+  "daemon_name": "ltrstchaind",
+  "node_home": "$HOME/.ltrstchain",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ultrst",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ultrst"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Larrytrustee/ltrst-chain-l1",
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.17"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "8.5.2",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "cosmwasm": {
+      "enabled": false
+    },
+    "genesis": {
+      "genesis_url": "https://chain.larrytrustee.ai/trpc/genesis"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "948731cf3500d931757ec5cc312496b9a5e3719b",
+        "address": "45.32.222.33:26656",
+        "provider": "LarryTrustee.AI"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "948731cf3500d931757ec5cc312496b9a5e3719b",
+        "address": "45.32.222.33:26656",
+        "provider": "LarryTrustee.AI"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://chain.larrytrustee.ai/trpc/",
+        "provider": "LarryTrustee.AI"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://chain.larrytrustee.ai/tapi/",
+        "provider": "LarryTrustee.AI"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "LarryTrustee Explorer",
+      "url": "https://dex.larrytrustee.ai/explorer",
+      "tx_page": "https://dex.larrytrustee.ai/explorer/tx/${txHash}",
+      "account_page": "https://dex.larrytrustee.ai/explorer/address/${accountAddress}"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/ltrstchain/images/ltrst.png"
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/ltrstchain/images/ltrst.png"
+    }
+  ],
+  "description": "LTRST Chain is a Cosmos SDK Layer 1 with privacy primitives at the protocol level, built so a family's living trust never has to live on a server owned by someone who could sell it, breach it, or quietly mine its data."
+}
