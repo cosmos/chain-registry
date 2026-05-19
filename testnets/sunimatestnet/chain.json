@@ -1,0 +1,75 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "sunimatestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://sunima.uk",
+  "pretty_name": "Sunima Testnet",
+  "chain_type": "cosmos",
+  "chain_id": "sunima_8081-1",
+  "bech32_prefix": "sunima",
+  "daemon_name": "sunimad",
+  "node_home": "$HOME/.sunima",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "asuna",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 1000000000,
+        "average_gas_price": 2500000000,
+        "high_gas_price": 5000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      { "denom": "asuna" }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/sunima-labs/sunima-chain",
+    "recommended_version": "v0.1.0",
+    "compatible_versions": ["v0.1.0"],
+    "binaries": {
+      "linux/amd64": "https://sunima.uk/install/sunimad-linux-amd64"
+    },
+    "cosmos_sdk_version": "0.50.13",
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.17"
+    },
+    "cosmwasm_enabled": false,
+    "genesis": {
+      "name": "v0.1.0",
+      "genesis_url": "https://sunima.uk/chain/genesis.json"
+    }
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://sunima.uk/chain-rpc",
+        "provider": "Sunima"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://sunima.uk/chain-rest",
+        "provider": "Sunima"
+      }
+    ]
+  },
+  "explorers": [],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/sunimatestnet/images/suna.png",
+      "theme": {
+        "primary_color_hex": "#22d3ee"
+      }
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/sunimatestnet/images/suna.png"
+  }
+}
