@@ -1,0 +1,37 @@
+{
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "infra",
+    "client_id": "TODO_VERIFY_CURRENT_CLIENT_ID",
+    "connection_id": "TODO_VERIFY_CURRENT_CONNECTION_ID",
+    "channel_id": "channel-4",
+    "port_id": "transfer"
+  },
+  "chain_2": {
+    "chain_name": "dydx",
+    "client_id": "TODO_VERIFY_CURRENT_CLIENT_ID",
+    "connection_id": "TODO_VERIFY_CURRENT_CONNECTION_ID",
+    "channel_id": "channel-100",
+    "port_id": "transfer"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-4",
+        "port_id": "transfer"
+      },
+      "chain_2": {
+        "channel_id": "channel-100",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "status": "open",
+        "preferred": true,
+        "source": "ops/relayer/MAINNET_RELAYER_FUNDING_20260529.md current route table after Infra reset",
+        "infra_voucher_denom": "ibc/524C6E4E2BCF4E2D22AC664E55214624739C6683368AF8B3BB1C49FBD4B55C22"
+      }
+    }
+  ]
+}
