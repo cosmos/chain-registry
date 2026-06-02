@@ -1,0 +1,79 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "infra",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://infra.uquad.org/",
+  "pretty_name": "Infra",
+  "chain_type": "cosmos",
+  "chain_id": "infra",
+  "bech32_prefix": "infra",
+  "daemon_name": "infrad",
+  "node_home": "$HOME/.infra",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ubight",
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.0125,
+        "high_gas_price": 0.025
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ubight"
+      }
+    ]
+  },
+  "codebase": {
+    "cosmos_sdk_version": "0.50.15",
+    "ibc_go_version": "8.8.0",
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.20"
+    },
+    "genesis": {
+      "genesis_url": "https://infra.uquad.org/genesis.json"
+    }
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://infra.uquad.org/rpc",
+        "provider": "Infra"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://infra.uquad.org/rest",
+        "provider": "Infra"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "infra.uquad.org:443",
+        "provider": "Infra"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Infra",
+      "url": "https://infra.uquad.org/",
+      "tx_page": "https://infra.uquad.org/tx?hash=${txHash}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://infra.uquad.org/assets/bight_token.png",
+      "svg": "https://infra.uquad.org/assets/bight_token.svg"
+    }
+  ]
+}
