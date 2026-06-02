@@ -30,7 +30,8 @@ def add_primary_color_to_image(image):
 
     try:
         hex = get_primary_color(png)
-    except:
+    except (IOError, OSError, ValueError) as e:
+        print(f"Error processing image {png}: {e}")
         return
 
     image.setdefault("theme", {})["primary_color_hex"] = hex
@@ -52,10 +53,10 @@ for item in chain_registry.rglob("*"):
             data = json.load(f)
 
             if "images" in data.keys():
-                for image in data["images"]:
+                for i, image in enumerate(data["images"]):
                     new_image = add_primary_color_to_image(image)
                     if new_image:
-                        image = new_image
+                        data["images"][i] = new_image
 
             if "assets" in data.keys():
                 for asset in data["assets"]:
@@ -63,10 +64,10 @@ for item in chain_registry.rglob("*"):
                     print(asset["symbol"])
 
                     if "images" in asset.keys():
-                        for image in asset["images"]:
+                        for i, image in enumerate(asset["images"]):
                             new_image = add_primary_color_to_image(image)
                             if new_image:
-                                image = new_image
+                                asset["images"][i] = new_image
 
             print(data)
             item.write_text(json.dumps(data, indent=2, ensure_ascii=False))
