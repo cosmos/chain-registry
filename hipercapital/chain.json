@@ -1,0 +1,84 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "hipercapital",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "HiperCapital Finance",
+  "chain_type": "cosmos",
+  "chain_id": "hipcf_7777-1",
+  "bech32_prefix": "cosmos",
+  "daemon_name": "evmd",
+  "node_home": "$HOME/.evmd",
+  "key_algos": [
+    "eth_secp256k1"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ahip",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 1000000000,
+        "average_gas_price": 5000000000,
+        "high_gas_price": 10000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ahip"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/cosmos/evm",
+    "recommended_version": "4ab7ba4",
+    "consensus": {
+      "type": "cometbft"
+    },
+    "genesis": {
+      "genesis_url": "https://rpc-cosmos.hipercapitalfinance.com/genesis.json"
+    },
+    "compatible_versions": [
+      "4ab7ba4"
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-cosmos.hipercapitalfinance.com",
+        "provider": "HiperCapital Finance"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-cosmos.hipercapitalfinance.com",
+        "provider": "HiperCapital Finance"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://evm-cosmos.hipercapitalfinance.com",
+        "provider": "HiperCapital Finance"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "HiperCapital Explorer",
+      "url": "https://explorer.hipercapitalfinance.com"
+    }
+  ],
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "0aa667e1a857b0df8fad80c8c0951215a61ab2cc",
+        "address": "173.249.21.48:26756",
+        "provider": "HiperCapital Finance"
+      }
+    ]
+  },
+  "website": "https://hipercapitalfinance.com"
+}
