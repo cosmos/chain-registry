@@ -1040,7 +1040,8 @@
       "coingecko_id": "terrausd"
     },
     {
-      "description": "The native token of Stargaze",
+      "description": "(Deprecated) STARS bridged from legacy Stargaze. STARS has migrated to the Cosmos Hub.",
+      "deprecated": true,
       "denom_units": [
         {
           "denom": "ibc/987C17B11ABC2B20019178ACE62929FE9840202CE79498E29FE8E5CB02B7C0A4",
@@ -1058,7 +1059,7 @@
       "base": "ibc/987C17B11ABC2B20019178ACE62929FE9840202CE79498E29FE8E5CB02B7C0A4",
       "name": "Stargaze",
       "display": "stars",
-      "symbol": "STARS",
+      "symbol": "STARS.og",
       "traces": [
         {
           "type": "ibc",
@@ -1088,6 +1089,55 @@
         }
       ],
       "coingecko_id": "stargaze"
+    },
+    {
+      "description": "The native STARS token, migrated from Stargaze to the Cosmos Hub.",
+      "denom_units": [
+        {
+          "denom": "ibc/68BAF19F76BAC04C4CEA06325EF91D43E8637AE43EAC7887CE6211B4B99E1EC0",
+          "exponent": 0,
+          "aliases": [
+            "factory/cosmos1s8qx0zvz8yd6e4x0mqmqf7fr9vvfn6226hkvrq/ustars"
+          ]
+        },
+        {
+          "denom": "stars",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/68BAF19F76BAC04C4CEA06325EF91D43E8637AE43EAC7887CE6211B4B99E1EC0",
+      "name": "Stargaze",
+      "display": "stars",
+      "symbol": "STARS",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "factory/cosmos1s8qx0zvz8yd6e4x0mqmqf7fr9vvfn6226hkvrq/ustars",
+            "channel_id": "channel-141"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/factory/cosmos1s8qx0zvz8yd6e4x0mqmqf7fr9vvfn6226hkvrq/ustars"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/stars.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/stars.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "cosmoshub",
+            "base_denom": "factory/cosmos1s8qx0zvz8yd6e4x0mqmqf7fr9vvfn6226hkvrq/ustars"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/stars.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/stars.svg"
+        }
+      ]
     },
     {
       "description": "The native token of Chihuahua Chain",
