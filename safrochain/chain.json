@@ -9,12 +9,12 @@
   "chain_id": "safrochain-1",
   "bech32_prefix": "addr_safro",
   "bech32_config": {
-    "bech32_prefix_acc_addr": "addr_safro",
-    "bech32_prefix_acc_pub": "addr_safropub",
-    "bech32_prefix_val_addr": "addr_safrovaloper",
-    "bech32_prefix_val_pub": "addr_safrovaloperpub",
-    "bech32_prefix_cons_addr": "addr_safrovalcons",
-    "bech32_prefix_cons_pub": "addr_safrovalconspub"
+    "bech32PrefixAccAddr": "addr_safro",
+    "bech32PrefixAccPub": "addr_safropub",
+    "bech32PrefixValAddr": "addr_safrovaloper",
+    "bech32PrefixValPub": "addr_safrovaloperpub",
+    "bech32PrefixConsAddr": "addr_safrovalcons",
+    "bech32PrefixConsPub": "addr_safrovalconspub"
   },
   "daemon_name": "safrochaind",
   "node_home": "$HOME/.safrochain",
@@ -50,24 +50,24 @@
       "name": "v0.2.2",
       "genesis_url": "https://rpc1.safrochain.network/genesis.json"
     },
-    "versions": [
-      {
-        "name": "v0.2.2",
-        "recommended_version": "v0.2.2",
-        "compatible_versions": ["v0.2.2"],
-        "cosmos_sdk_version": "0.50",
-        "consensus": { "type": "cometbft", "version": "0.38" },
-        "cosmwasm_version": "0.51",
-        "cosmwasm_enabled": true,
-        "ibc_go_version": "8.0",
-        "ics_enabled": ["ics20-1", "ics27-1", "ics29-1"]
-      }
-    ],
-    "cosmos_sdk_version": "0.50",
-    "cosmwasm_version": "0.51",
-    "cosmwasm_enabled": true,
-    "ibc_go_version": "8.0",
-    "ics_enabled": ["ics20-1", "ics27-1", "ics29-1"]
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50"
+    },
+    "cosmwasm": {
+      "version": "0.51",
+      "enabled": true
+    },
+    "ibc": {
+      "type": "go",
+      "version": "8.0",
+      "ics_enabled": ["ics20-1", "ics27-1"]
+    },
+    "tag": "v0.2.2"
   },
   "images": [
     {
@@ -76,10 +76,7 @@
         "base_denom": "usaf"
       },
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/safrochain/images/saf.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/safrochain/images/saf.svg",
-      "theme": {
-        "primary_color_hex": "#1D4ED8"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/safrochain/images/saf.svg"
     }
   ],
   "description": "Safrochain is an Africa-first Cosmos SDK Layer-1 secured by CometBFT, built for mobile-first users, everyday payments, remittances, and real utility. It features CosmWasm smart contracts, IBC interoperability, and predictable fees for cross-chain applications.",
