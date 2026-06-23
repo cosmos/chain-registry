@@ -1,0 +1,149 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "safrochain",
+  "status": "upcoming",
+  "network_type": "mainnet",
+  "website": "https://safrochain.network",
+  "pretty_name": "Safrochain",
+  "chain_type": "cosmos",
+  "chain_id": "safrochain-1",
+  "bech32_prefix": "addr_safro",
+  "bech32_config": {
+    "bech32_prefix_acc_addr": "addr_safro",
+    "bech32_prefix_acc_pub": "addr_safropub",
+    "bech32_prefix_val_addr": "addr_safrovaloper",
+    "bech32_prefix_val_pub": "addr_safrovaloperpub",
+    "bech32_prefix_cons_addr": "addr_safrovalcons",
+    "bech32_prefix_cons_pub": "addr_safrovalconspub"
+  },
+  "daemon_name": "safrochaind",
+  "node_home": "$HOME/.safrochain",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "usaf",
+        "fixed_min_gas_price": 0.05,
+        "low_gas_price": 0.05,
+        "average_gas_price": 0.075,
+        "high_gas_price": 0.1
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      { "denom": "usaf" }
+    ],
+    "lock_duration": {
+      "time": "1209600s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Safrochain-Org/safrochain-node",
+    "recommended_version": "v0.2.2",
+    "compatible_versions": ["v0.2.2"],
+    "binaries": {
+      "linux/amd64": "https://github.com/Safrochain-Org/safrochain-node/releases/download/v0.2.2/safrochaind-linux-amd64.tar.gz"
+    },
+    "genesis": {
+      "name": "v0.2.2",
+      "genesis_url": "https://rpc1.safrochain.network/genesis.json"
+    },
+    "versions": [
+      {
+        "name": "v0.2.2",
+        "recommended_version": "v0.2.2",
+        "compatible_versions": ["v0.2.2"],
+        "cosmos_sdk_version": "0.50",
+        "consensus": { "type": "cometbft", "version": "0.38" },
+        "cosmwasm_version": "0.51",
+        "cosmwasm_enabled": true,
+        "ibc_go_version": "8.0",
+        "ics_enabled": ["ics20-1", "ics27-1", "ics29-1"]
+      }
+    ],
+    "cosmos_sdk_version": "0.50",
+    "cosmwasm_version": "0.51",
+    "cosmwasm_enabled": true,
+    "ibc_go_version": "8.0",
+    "ics_enabled": ["ics20-1", "ics27-1", "ics29-1"]
+  },
+  "images": [
+    {
+      "image_sync": {
+        "chain_name": "safrochain",
+        "base_denom": "usaf"
+      },
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/safrochain/images/saf.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/safrochain/images/saf.svg",
+      "theme": {
+        "primary_color_hex": "#1D4ED8"
+      }
+    }
+  ],
+  "description": "Safrochain is an Africa-first Cosmos SDK Layer-1 secured by CometBFT, built for mobile-first users, everyday payments, remittances, and real utility. It features CosmWasm smart contracts, IBC interoperability, and predictable fees for cross-chain applications.",
+  "peers": {
+    "seeds": [
+      {
+        "id": "TBD_seed_node_id",
+        "address": "seed.safrochain.network:26656",
+        "provider": "Safrochain Foundation"
+      },
+      {
+        "id": "TBD_seed2_node_id",
+        "address": "seed2.safrochain.network:26656",
+        "provider": "Safrochain Foundation"
+      }
+    ],
+    "persistent_peers": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc1.safrochain.network",
+        "provider": "Safrochain Foundation"
+      },
+      {
+        "address": "https://rpc2.safrochain.network",
+        "provider": "Safrochain Foundation"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api1.safrochain.network",
+        "provider": "Safrochain Foundation"
+      },
+      {
+        "address": "https://api2.safrochain.network",
+        "provider": "Safrochain Foundation"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc1.safrochain.network:443",
+        "provider": "Safrochain Foundation"
+      },
+      {
+        "address": "grpc2.safrochain.network:443",
+        "provider": "Safrochain Foundation"
+      }
+    ],
+    "grpc-web": [
+      {
+        "address": "https://grpc-web.safrochain.network",
+        "provider": "Safrochain Foundation"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "callisto",
+      "url": "https://explorer.safrochain.network",
+      "tx_page": "https://explorer.safrochain.network/transactions/${txHash}",
+      "account_page": "https://explorer.safrochain.network/accounts/${accountAddress}"
+    }
+  ],
+  "keywords": ["mainnet", "cosmwasm", "ibc", "feeshare", "feepay", "tokenfactory", "horcrux"],
+  "extra_codecs": []
+}
