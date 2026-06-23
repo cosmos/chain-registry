@@ -3,8 +3,9 @@
   "chain_name": "stargaze",
   "assets": [
     {
-      "description": "Stargaze is a decentralized blockchain platform designed specifically for non-fungible tokens (NFTs), enabling creators to mint, trade, and interact with NFTs in a fully decentralized environment.",
+      "description": "(Deprecated) The original native STARS token of Stargaze. STARS has migrated to the Cosmos Hub as the tokenfactory denom factory/cosmos1s8qx0zvz8yd6e4x0mqmqf7fr9vvfn6226hkvrq/ustars, convertible 1:1 via Osmosis. This asset is retained for historical reference.",
       "extended_description": "Stargaze is an innovative platform in the Cosmos ecosystem focused on NFTs. It provides a decentralized space where creators can mint, trade, and manage their NFTs with ease. The platform's decentralized nature ensures that creators retain full control over their digital assets, enhancing security and ownership rights. Stargaze's user-friendly interface and robust infrastructure make it an ideal choice for artists and collectors looking to engage with NFTs in a decentralized manner.",
+      "deprecated": true,
       "denom_units": [
         {
           "denom": "ustars",
@@ -18,24 +19,30 @@
       "base": "ustars",
       "name": "Stargaze",
       "display": "stars",
-      "symbol": "STARS",
+      "symbol": "STARS.legacy",
+      "traces": [
+        {
+          "type": "legacy-mintage",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "factory/cosmos1s8qx0zvz8yd6e4x0mqmqf7fr9vvfn6226hkvrq/ustars"
+          },
+          "provider": "Stargaze"
+        }
+      ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg"
       },
-      "coingecko_id": "stargaze",
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg",
-          "theme": {
-            "primary_color_hex": "#db2777"
-          }
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg"
         }
       ],
       "socials": {
         "website": "https://www.stargaze.zone/",
-        "twitter": "https://twitter.com/StargazeZone"
+        "x": "https://x.com/StargazeZone"
       },
       "type_asset": "sdk.coin"
     },
@@ -56,16 +63,11 @@
       "display": "strdst",
       "symbol": "STRDST",
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/dust.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/dust.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/dust.png"
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/dust.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/dust.svg",
-          "theme": {
-            "primary_color_hex": "#c9720c"
-          }
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/dust.png"
         }
       ],
       "type_asset": "sdk.coin"
@@ -87,16 +89,11 @@
       "display": "GAZE",
       "symbol": "GAZE",
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/gaze.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/gaze.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/gaze.png"
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/gaze.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/gaze.svg",
-          "theme": {
-            "primary_color_hex": "#b3a584"
-          }
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/gaze.png"
         }
       ],
       "type_asset": "sdk.coin"
@@ -118,16 +115,11 @@
       "display": "BRNCH",
       "symbol": "BRNCH",
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/brnch.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/brnch.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/brnch.png"
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/brnch.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/brnch.svg",
-          "theme": {
-            "primary_color_hex": "#70372a"
-          }
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/brnch.png"
         }
       ],
       "type_asset": "sdk.coin"
@@ -149,16 +141,11 @@
       "display": "OHH",
       "symbol": "OHH",
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/ohh.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/ohh.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/ohh.png"
       },
       "images": [
         {
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/ohh.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/ohh.svg",
-          "theme": {
-            "primary_color_hex": "#dcc0c2"
-          }
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/ohh.png"
         }
       ],
       "type_asset": "sdk.coin"
@@ -186,10 +173,7 @@
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/sneaky.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/sneaky.svg",
-          "theme": {
-            "primary_color_hex": "#fbcaca"
-          }
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/sneaky.svg"
         }
       ],
       "type_asset": "sdk.coin"
@@ -235,13 +219,9 @@
           "image_sync": {
             "chain_name": "osmosis",
             "base_denom": "factory/osmo17fel472lgzs87ekt9dvk0zqyh5gl80sqp4sk4n/LAB"
-          },
-          "theme": {
-            "primary_color_hex": "#bcdd76"
           }
         }
-      ],
-      "coingecko_id": "mad-scientists"
+      ]
     },
     {
       "description": "CDT - Membrane's solvency preserving stablecoin",
@@ -362,8 +342,7 @@
         }
       ],
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.png"
       },
       "images": [
         {
@@ -371,11 +350,7 @@
             "chain_name": "neutron",
             "base_denom": "factory/neutron1ffus553eet978k024lmssw0czsxwr97mggyv85lpcsdkft8v9ufsz3sa07/astro"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.svg",
-          "theme": {
-            "primary_color_hex": "#4056e9"
-          }
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/astro.png"
         }
       ],
       "coingecko_id": "astroport-fi"
@@ -521,10 +496,7 @@
             "chain_name": "osmosis",
             "base_denom": "factory/osmo1hg0zf0c9can4tvtulh5gmmxe4jpflre3yewxjl/XTRUMP"
           },
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/XTRUMP.png",
-          "theme": {
-            "primary_color_hex": "#b02b27"
-          }
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/XTRUMP.png"
         }
       ],
       "logo_URIs": {
@@ -681,7 +653,6 @@
             "base_denom": "factory/osmo1q77cw0mmlluxu0wr29fcdd0tdnh78gzhkvhe4n6ulal9qvrtu43qtd0nh8/shitmos"
           },
           "theme": {
-            "primary_color_hex": "#639BFF",
             "circle": true
           },
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/shitmos.svg"
@@ -731,16 +702,12 @@
             "base_denom": "factory/omniflix1fwphj5p6qd8gtkehkzfgac38eur4uqzgz97uwvf6hsc0vjl004gqfj0xnv/ygata"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/omniflixhub/images/ygata.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/omniflixhub/images/ygata.svg",
-          "theme": {
-            "primary_color_hex": "#7b5aff"
-          }
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/omniflixhub/images/ygata.svg"
         }
       ],
-      "coingecko_id": "yield-gata",
       "socials": {
         "website": "https://gatahub.zone",
-        "twitter": "https://x.com/GataHubZone"
+        "x": "https://x.com/GataHubZone"
       }
     },
     {
@@ -788,10 +755,7 @@
             "base_denom": "erc20/0xfbF4318d24a93753F11d365A6dcF8b830e98Ab0F"
           },
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/crowdp.png",
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/crowdp.svg",
-          "theme": {
-            "primary_color_hex": "#04fbfb"
-          }
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/crowdp.svg"
         }
       ]
     },
@@ -890,8 +854,7 @@
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Prim-Col.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Prim-Col.svg",
           "theme": {
-            "circle": true,
-            "primary_color_hex": "#fba0c1"
+            "circle": true
           }
         },
         {
@@ -899,8 +862,7 @@
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Darkmatt.svg",
           "theme": {
             "dark_mode": true,
-            "circle": true,
-            "primary_color_hex": "#342c2c"
+            "circle": true
           }
         },
         {
@@ -908,12 +870,10 @@
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-WHT.svg",
           "theme": {
             "dark_mode": false,
-            "circle": true,
-            "primary_color_hex": "#342c2c"
+            "circle": true
           }
         }
-      ],
-      "coingecko_id": "mantra-dao"
+      ]
     },
     {
       "description": "The community token for The Fortunate Few, a multi chain NFT community platform.",
@@ -942,7 +902,7 @@
       ],
       "socials": {
         "website": "https://ffsc.site",
-        "twitter": "https://x.com/FortunateFewNFT"
+        "x": "https://x.com/FortunateFewNFT"
       },
       "type_asset": "sdk.coin"
     },
@@ -987,10 +947,6 @@
           "image_sync": {
             "chain_name": "mantrachain",
             "base_denom": "factory/mantra1vtpg8z82gz9qe3adf7t9z0qwuvkpzmqu9ds4ej/BIKE"
-          },
-          "theme": {
-            "primary_color_hex": "#80c75d",
-            "circle": true
           }
         }
       ]
@@ -1040,7 +996,7 @@
         }
       ]
     },
- {
+    {
       "description": "Stealth Mode: Always On",
       "extended_description": "$STLTH is the official token powering the Stealth Creations ecosystem — a multi-collection NFT project that launched entirely through free mints and airdrops on Stargaze. Built with decentralization and community-first values, $STLTH is on Osmosis and stakeable through DAO DAO, with rewards distributed in cosmos tokens",
       "denom_units": [
@@ -1081,13 +1037,39 @@
           "image_sync": {
             "chain_name": "osmosis",
             "base_denom": "factory/osmo1q77cw0mmlluxu0wr29fcdd0tdnh78gzhkvhe4n6ulal9qvrtu43qtd0nh8/stlth"
-          },
-          "theme": {
-            "primary_color_hex": "#645dc7",
-            "circle": true
           }
         }
       ]
-    }  
+    },
+    {
+      "description": "The official token of the Clown Society, originating on Stargaze.",
+      "denom_units": [
+        {
+          "denom": "factory/stars1khzuhuhv02vaturh9x9lz4jach824x9umcgghl/uCLW",
+          "exponent": 0
+        },
+        {
+          "denom": "CLW",
+          "exponent": 6
+        }
+      ],
+      "base": "factory/stars1khzuhuhv02vaturh9x9lz4jach824x9umcgghl/uCLW",
+      "name": "Clown Society",
+      "display": "CLW",
+      "symbol": "CLW",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/clw.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/clw.png"
+        }
+      ],
+      "socials": {
+        "website": "https://www.clown-society.com/",
+        "x": "https://x.com/ClownsocieT"
+      },
+      "type_asset": "sdk.coin"
+    }
   ]
 }

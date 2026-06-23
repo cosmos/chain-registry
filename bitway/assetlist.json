@@ -1,0 +1,248 @@
+{
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "bitway",
+  "assets": [
+    {
+      "description": "The native token of Bitway.",
+      "denom_units": [
+        {
+          "denom": "ubtw",
+          "exponent": 0
+        },
+        {
+          "denom": "btw",
+          "exponent": 6
+        }
+      ],
+      "base": "ubtw",
+      "name": "Bitway native token",
+      "display": "btw",
+      "symbol": "BTW",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.svg"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.svg"
+        }
+      ],
+      "socials": {
+        "website": "https://bitway.com",
+        "x": "https://x.com/BitwayOfficial"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "BTC-pegged token on Bitway.",
+      "extended_description": "BTCT is the native token of the Bitway, fully pegged 1:1 to BTC held in a vault secured by 21 TSS signers on the Bitcoin mainnet. As a synthetic asset, BTCT enables Bitcoin liquidity to seamlessly flow into the Bitway and the broader Cosmos ecosystem.",
+      "denom_units": [
+        {
+          "denom": "sat",
+          "exponent": 0
+        },
+        {
+          "denom": "BTCT",
+          "exponent": 8
+        }
+      ],
+      "base": "sat",
+      "name": "Bitway Bitcoin",
+      "display": "BTCT",
+      "symbol": "BTCT",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "bitcoin",
+            "base_denom": "sat"
+          },
+          "provider": "Bitway"
+        }
+      ],
+      "images": [
+        {
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/BTCT.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/BTCT.png"
+        }
+      ],
+      "socials": {
+        "website": "https://bitway.com",
+        "x": "https://x.com/BitwayOfficial"
+      },
+      "type_asset": "sdk.coin"
+    },
+    {
+      "description": "Noble USDC on Bitway.",
+      "denom_units": [
+        {
+          "denom": "ibc/B9E4FD154C92D3A23BEA029906C4C5FF2FE74CB7E3A058290B77197A263CF88B",
+          "exponent": 0
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/B9E4FD154C92D3A23BEA029906C4C5FF2FE74CB7E3A058290B77197A263CF88B",
+      "name": "Noble USDC",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-172"
+          },
+          "chain": {
+            "channel_id": "channel-13",
+            "path": "transfer/channel-13/uusdc"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "noble",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      },
+      "coingecko_id": "usd-coin"
+    },
+    {
+      "description": "Tether USD via Eureka",
+      "denom_units": [
+        {
+          "denom": "ibc/F03F09579E9B70EBE7801B6541502C6BC71609ED2642E69FB5FE59CCC56D7BF1",
+          "exponent": 0
+        },
+        {
+          "denom": "usdt",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/F03F09579E9B70EBE7801B6541502C6BC71609ED2642E69FB5FE59CCC56D7BF1",
+      "name": "Tether USD",
+      "display": "usdt",
+      "symbol": "USDT",
+      "traces": [
+        {
+          "type": "ibc-bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "08-wasm-1369",
+            "path": "transfer/08-wasm-1369/0xdac17f958d2ee523a2206206994597c13d831ec7"
+          },
+          "provider": "Eureka"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "ibc/E7E51FFF94A8B55BE84CEB0345E5CAF0A5DAEB374C6806CE908098B8996C7782",
+            "channel_id": "channel-1556"
+          },
+          "chain": {
+            "channel_id": "channel-14",
+            "path": "transfer/channel-14/transfer/08-wasm-1369/0xdac17f958d2ee523a2206206994597c13d831ec7"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
+          "theme": {
+            "circle": true
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg"
+      }
+    },
+    {
+      "description": "Ether via Eureka",
+      "denom_units": [
+        {
+          "denom": "ibc/5F5E7D25BBAD0BB09FCE567C75EC8527590CA8AC5F947BAF8E533FBF7E270A44",
+          "exponent": 0
+        },
+        {
+          "denom": "eth",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/5F5E7D25BBAD0BB09FCE567C75EC8527590CA8AC5F947BAF8E533FBF7E270A44",
+      "name": "Ethereum",
+      "display": "eth",
+      "symbol": "ETH",
+      "traces": [
+        {
+          "type": "ibc-bridge",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "08-wasm-1369",
+            "path": "transfer/08-wasm-1369/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+          },
+          "provider": "Eureka"
+        },
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "ibc/C0B53D3D23827AE38058BED0BDCD554229278AF530A8D265FCF6DFF7C4B2ADFF",
+            "channel_id": "channel-1556"
+          },
+          "chain": {
+            "channel_id": "channel-14",
+            "path": "transfer/channel-14/transfer/08-wasm-1369/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "wei"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.svg"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.svg"
+      }
+    }
+  ]
+}

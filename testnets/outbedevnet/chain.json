@@ -1,0 +1,93 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "outbedevnet",
+  "chain_type": "cosmos",
+  "status": "live",
+  "website": "https://www.outbe.com",
+  "network_type": "devnet",
+  "pretty_name": "outbe-node",
+  "chain_id": "outbe-devnet-1",
+  "bech32_prefix": "outbe",
+  "daemon_name": "outbe-noded",
+  "node_home": "$HOME/.outbe-node",
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "unit",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "unit"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/outbe/outbe-node",
+    "recommended_version": "v0.0.1-wasm",
+    "compatible_versions": [
+      "v0.0.1-wasm"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.17"
+    },
+    "genesis": {
+      "name": "v1",
+      "genesis_url": "https://github.com/outbe/outbe-node/networks/raw/main/genesis.json"
+    },
+    "tag": "v0.0.1-wasm",
+    "binaries": {
+      "linux/amd64": "https://github.com/outbe/outbe-node/releases/download/v0.0.1-wasm/outbe-node_0.0.1-wasm_linux_amd64.tar.gz"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.11",
+      "repo": "https://github.com/cosmos/cosmos-sdk",
+      "tag": "v0.50.11"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.7.0",
+      "repo": "https://github.com/cosmos/ibc-go",
+      "tag": "v8.7.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    }
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/outbedevnet/images/outbe.png"
+    }
+  ],
+  "peers": {},
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.dev.outbe.net:26657",
+        "provider": "Outbe DevNet"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rpc.dev.outbe.net:1317",
+        "provider": "Outbe DevNet"
+      }
+    ]
+  },
+  "explorers": [],
+  "keywords": [
+    "cosmos"
+  ]
+}

@@ -1,32 +1,33 @@
 {
-    "$schema": "../ibc_data.schema.json",
-    "chain_1": {
-      "chain_name": "axelar",
-      "client_id": "07-tendermint-37",
-      "connection_id": "connection-20"
-    },
-    "chain_2": {
-      "chain_name": "injective",
-      "client_id": "07-tendermint-113",
-      "connection_id": "connection-93"
-    },
-    "channels": [
-      {
-        "chain_1": {
-          "channel_id": "channel-10",
-          "port_id": "transfer"
-        },
-        "chain_2": {
-          "channel_id": "channel-84",
-          "port_id": "transfer"
-        },
-        "ordering": "unordered",
-        "version": "ics20-1",
-        "tags": {
-          "status": "live",
-          "preferred": true,
-          "dex":"osmosis"
-        }
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "axelar",
+    "chain_id": "axelar-dojo-1",
+    "client_id": "07-tendermint-37",
+    "connection_id": "connection-20"
+  },
+  "chain_2": {
+    "chain_name": "injective",
+    "chain_id": "injective-1",
+    "client_id": "07-tendermint-113",
+    "connection_id": "connection-93"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-10",
+        "port_id": "transfer"
+      },
+      "chain_2": {
+        "channel_id": "channel-84",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
       }
-    ]
-  }
+    }
+  ]
+}

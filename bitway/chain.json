@@ -1,0 +1,304 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "bitway",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://bitway.com/",
+  "pretty_name": "Bitway",
+  "chain_type": "cosmos",
+  "chain_id": "bitway-1",
+  "bech32_prefix": "bc",
+  "daemon_name": "bitwayd",
+  "node_home": "$HOME/.bitway",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ubtw",
+        "fixed_min_gas_price": 0.0006,
+        "low_gas_price": 0.0006,
+        "average_gas_price": 0.0008,
+        "high_gas_price": 0.001
+      },
+      {
+        "denom": "sat",
+        "fixed_min_gas_price": 0.000001,
+        "low_gas_price": 0.000001,
+        "average_gas_price": 0.0000015,
+        "high_gas_price": 0.000002
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ubtw"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/bitwaylabs/bitway",
+    "recommended_version": "v2.0.1",
+    "compatible_versions": [
+      "v2.0.1"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.12"
+    },
+    "genesis": {
+      "genesis_url": "https://github.com/bitwaylabs/networks/raw/main/mainnet/bitway-1/genesis.tar.gz"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.14"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.5.3"
+    },
+    "cosmwasm": {
+      "version": "v0.53.0",
+      "enabled": true
+    },
+    "tag": "v2.0.1"
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.svg"
+  },
+  "description": "A fully Bitcoin-Compatible L1 blockchain for the BTCFi",
+  "peers": {
+    "seeds": [
+      {
+        "id": "e804ac4601bf787577fee7f5dcfacf2845a4f2fc",
+        "address": "bitway-mainnet-seed.itrocket.net:60656",
+        "provider": "ITRocket"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:26356",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "327fb4151de9f78f29ff10714085e347a4e3c836",
+        "address": "rpc.bitway.nodestake.org:666",
+        "provider": "NodeStake"
+      },
+      {
+        "id": "5cb7b6a0fadf4753df00aa369f3a6ff5156b7a8e",
+        "address": "bitway.seed.mandragora.io:25656",
+        "provider": "Mandragora"
+      },
+      {
+        "id": "6f6a3a908634b79b6fe7c4988efec2553f188234",
+        "address": "bitway.seed.nodeshub.online:24356",
+        "provider": "NodesHub"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "ab68cefc837ed11989dea304f2364e0f84d5124c",
+        "address": "209.250.232.135:26656",
+        "provider": "Bitway Labs"
+      },
+      {
+        "id": "ac5e9176ea17ec6a0e5e60a91913c5638b1851e2",
+        "address": "202.182.119.24:26656",
+        "provider": "Ping Pub"
+      },
+      {
+        "id": "1639816b3a93fd7027e8feeb1a8b4291323027e6",
+        "address": "23.88.77.253:60656",
+        "provider": "NodeStake"
+      },
+      {
+        "id": "333e2cedef39f9db7065323df653fb0611e69d8a",
+        "address": "65.109.80.26:28656",
+        "provider": "NodeStake"
+      },
+      {
+        "id": "d7d113af01d57ec3b7b3bd98716425d52e750e6f",
+        "address": "bitway-mainnet-peer.itrocket.net:14656",
+        "provider": "ITRocket"
+      },
+      {
+        "id": "897bdf9bb5a5341985ed63fde5a65ed3f75237f7",
+        "address": "65.109.61.125:26356",
+        "provider": "Polkachu"
+      },
+      {
+        "id": "a4e4527d8d7b28ac2272ef45eecafb11b986138a",
+        "address": "185.119.116.244:26656"
+      },
+      {
+        "id": "333e2cedef39f9db7065323df653fb0611e69d8a",
+        "address": "65.109.80.26:28656"
+      },
+      {
+        "id": "f2ce33e9ceebb72bf35bc52a2c92e82fe7732b65",
+        "address": "51.195.104.64:1656"
+      },
+      {
+        "id": "495e9bc844d9b28a41ae12d4acf61f3ab86b42df",
+        "address": "34.196.121.146:26656"
+      },
+      {
+        "id": "ef5bbb38929e2cdfef81f7f36abb7968cba7a5fb",
+        "address": "85.10.201.125:46656"
+      },
+      {
+        "id": "62d4c6a3bd2e6788193d2b36da84036660c764c4",
+        "address": "bitway.peer.mandragora.io:23656",
+        "provider": "Mandragora"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.bitway.com",
+        "provider": "Bitway Labs"
+      },
+      {
+        "address": "https://rpc.bitway.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://bitway-rpc.synergynodes.com/",
+        "provider": "Synergy Nodes"
+      },
+      {
+        "address": "https://bitway.publicnode.com/",
+        "provider": "Allnodes"
+      },
+      {
+        "address": "https://bitway.rpc.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://bitway-mainnet-rpc.itrocket.net",
+        "provider": "ITRocket"
+      },
+      {
+        "address": "https://bitway.rpc.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://bitway.rpc.mandragora.io",
+        "provider": "Mandragora"
+      },
+      {
+        "address": "https://bitway.rpc.nodeshub.online:443",
+        "provider": "NodesHub"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.bitway.com",
+        "provider": "Bitway Labs"
+      },
+      {
+        "address": "https://api.bitway.nodestake.org",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://bitway-api.synergynodes.com",
+        "provider": "Synergy Nodes"
+      },
+      {
+        "address": "https://bitway-rest.publicnode.com",
+        "provider": "Allnodes"
+      },
+      {
+        "address": "https://bitway.api.kjnodes.com",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "https://bitway-mainnet-api.itrocket.net",
+        "provider": "ITRocket"
+      },
+      {
+        "address": "https://bitway.api.m.stavr.tech",
+        "provider": "🔥STAVR🔥"
+      },
+      {
+        "address": "https://bitway.api.mandragora.io",
+        "provider": "Mandragora"
+      },
+      {
+        "address": "https://bitway.api.nodeshub.online",
+        "provider": "NodesHub"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.bitway.com:443",
+        "provider": "Bitway Labs"
+      },
+      {
+        "address": "https://grpc.bitway.nodestake.org:443",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "bitway-grpc.synergynodes.com:443",
+        "provider": "Synergy Nodes"
+      },
+      {
+        "address": "bitway-grpc.publicnode.com:443",
+        "provider": "Allnodes"
+      },
+      {
+        "address": "bitway.grpc.kjnodes.com:443",
+        "provider": "kjnodes"
+      },
+      {
+        "address": "bitway-mainnet-grpc.itrocket.net:443",
+        "provider": "ITRocket"
+      },
+      {
+        "address": "http://bitway.grpc.mandragora.io:9079",
+        "provider": "Mandragora"
+      },
+      {
+        "address": "bitway.grpc.nodeshub.online",
+        "provider": "Nodes Hub"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Ping Pub",
+      "url": "https://explorer.nodestake.org/bitway",
+      "tx_page": "https://explorer.nodestake.org/bitway/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.org/bitway/account/${accountAddress}"
+    },
+    {
+      "kind": "Ping Pub",
+      "url": "https://cosmosrun.info/bitway",
+      "tx_page": "https://cosmosrun.info/bitway/tx/${txHash}",
+      "account_page": "https://cosmosrun.info/bitway/account/${accountAddress}"
+    },
+    {
+      "kind": "Ping Pub",
+      "url": "https://explorer.kjnodes.com/bitway",
+      "tx_page": "https://explorer.kjnodes.com/bitway/tx/${txHash}",
+      "account_page": "https://explorer.kjnodes.com/bitway/account/${accountAddress}"
+    },
+    {
+      "kind": "Ping Pub",
+      "url": "https://explorer.stavr.tech/Bitway-Mainnet",
+      "tx_page": "https://explorer.stavr.tech/Bitway-Mainnet/tx/${txHash}",
+      "account_page": "https://explorer.stavr.tech/Bitway-Mainnet/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitway/images/btw.svg"
+    }
+  ]
+}
