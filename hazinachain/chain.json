@@ -1,0 +1,75 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "hazinachain",
+  "status": "live",
+  "network_type": "mainnet",
+  "chain_type": "cosmos",
+  "pretty_name": "HazinaChain",
+  "chain_id": "hazinachain-1",
+  "bech32_prefix": "hazina",
+  "daemon_name": "hazinad",
+  "node_home": "$HOME/.hazinachain",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uhzn",
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.001,
+        "average_gas_price": 0.0025,
+        "high_gas_price": 0.01
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uhzn"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/hazinachain/hazinachain",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/hazinachain/hazinachain/main/genesis.json"
+    }
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.hazinachain.com",
+        "provider": "HazinaChain"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.hazinachain.com",
+        "provider": "HazinaChain"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "custom",
+      "url": "https://explorer.hazinachain.com",
+      "tx_page": "https://explorer.hazinachain.com/tx/${txHash}"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/hazinachain/images/hazinachain.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/hazinachain/images/hazinachain.svg"
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/hazinachain/images/hazinachain.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/hazinachain/images/hazinachain.svg"
+    }
+  ]
+}

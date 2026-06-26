@@ -306,12 +306,6 @@
   },
   "explorers": [
     {
-      "kind": "Chainroot",
-      "url": "https://explorer.chainroot.io/band",
-      "tx_page": "https://explorer.chainroot.io/band/transactions/${txHash}",
-      "account_page": "https://explorer.chainroot.io/band/accounts/${accountAddress}"
-    },
-    {
       "kind": "cosmoscan",
       "url": "https://cosmoscan.io",
       "tx_page": "https://cosmoscan.io/tx/${txHash}"
@@ -363,12 +357,30 @@
       "kind": "kjnodes Explorer",
       "url": "https://explorer.kjnodes.com/band",
       "tx_page": "https://explorer.kjnodes.com/band/tx/${txHash}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://band.valopers.com/",
+      "tx_page": "https://band.valopers.com/transactions/${txHash}",
+      "account_page": "https://band.valopers.com/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.svg"
+    }
+  ],
+  "snapshots": [
+    {
+      "provider": "High Stakes 🇨🇭",
+      "url": "https://tools.highstakes.ch/snapshots/bandprotocol",
+      "latest_url": "https://tools.highstakes.ch/files/bandprotocol.tar.gz",
+      "type": "pruned",
+      "db_backend": "goleveldb",
+      "frequency": "every 3h",
+      "compression": "tar",
+      "checksum_available": true
     }
   ]
 }
