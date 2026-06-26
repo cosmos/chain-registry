@@ -1,0 +1,58 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "limonatatestnet",
+  "chain_type": "cosmos",
+  "chain_id": "limonata_10777-1",
+  "pretty_name": "Limonata Testnet",
+  "website": "https://limonata.xyz",
+  "network_type": "testnet",
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/limonatatestnet/images/limonatatestnet.png"
+  },
+  "bech32_prefix": "cosmos",
+  "daemon_name": "limonatad",
+  "node_home": "$HOME/.limonatad",
+  "key_algos": ["ethsecp256k1"],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "aLIMO",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [{ "denom": "aLIMO" }]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Limonata-Blockchain/limonata",
+    "genesis": {
+      "genesis_url": "https://limonata.xyz/genesis.json"
+    }
+  },
+  "apis": {
+    "rpc": [
+      { "address": "https://cosmos-rpc.limonata.xyz", "provider": "Limonata" }
+    ],
+    "rest": [
+      { "address": "https://rest.limonata.xyz", "provider": "Limonata" }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Limonata Explorer",
+      "url": "https://explorer.limonata.xyz",
+      "tx_page": "https://explorer.limonata.xyz/tx/${txHash}",
+      "account_page": "https://explorer.limonata.xyz/address/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/limonatatestnet/images/limonatatestnet.png"
+    }
+  ]
+}
