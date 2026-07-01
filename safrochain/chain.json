@@ -1,0 +1,167 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "safrochain",
+  "chain_type": "cosmos",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://safrochain.com",
+  "pretty_name": "Safrochain",
+  "chain_id": "safrochain-1",
+  "bech32_prefix": "addr_safro",
+  "bech32_config": {
+    "bech32PrefixAccAddr": "addr_safro",
+    "bech32PrefixAccPub": "addr_safropub",
+    "bech32PrefixValAddr": "addr_safrovaloper",
+    "bech32PrefixValPub": "addr_safrovaloperpub",
+    "bech32PrefixConsAddr": "addr_safrovalcons",
+    "bech32PrefixConsPub": "addr_safrovalconspub"
+  },
+  "daemon_name": "safrochaind",
+  "node_home": "$HOME/.safrochain",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "usaf",
+        "fixed_min_gas_price": 0.05,
+        "low_gas_price": 0.05,
+        "average_gas_price": 0.0625,
+        "high_gas_price": 0.075
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [{ "denom": "usaf" }]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Safrochain-Org/safrochain-node",
+    "recommended_version": "v0.2.2",
+    "compatible_versions": ["v0.2.2"],
+    "tag": "v0.2.2",
+    "language": { "type": "go", "version": "1.25.8" },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50.14"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.21"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "8.7.0",
+      "ics_enabled": ["ics20-1", "ics27-1"]
+    },
+    "genesis": {
+      "name": "genesis",
+      "genesis_url": "https://raw.githubusercontent.com/Safrochain-Org/mainnet-genesis/main/genesis.json"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/safrochain/images/saf.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/safrochain/images/saf.svg"
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/safrochain/images/saf.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/safrochain/images/saf.svg"
+    }
+  ],
+  "description": "Safrochain is building a mobile-first, mobile-money-powered blockchain that connects blockchain infrastructure to mobile money networks—turning mobile wallets into gateways to stablecoins, programmable finance, cross-border settlement, and lower-cost interoperable transfers across operators and borders.",
+  "peers": {
+    "seeds": [
+      {
+        "id": "bc772fdc9749e6dfd200a9428f07d86fe4fd34ec",
+        "address": "seed.safrochain.network:26666",
+        "provider": "Safrochain Foundation"
+      },
+      {
+        "id": "d323d296ba55e89fb6ce1a724f8da1740bd8cbb0",
+        "address": "seed2.safrochain.network:26670",
+        "provider": "Safrochain Foundation"
+      }
+    ],
+    "persistent_peers": []
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.safrochain.network",
+        "provider": "Safrochain Foundation"
+      },
+      {
+        "address": "https://rpc1.safrochain.network",
+        "provider": "Safrochain Foundation"
+      },
+      {
+        "address": "https://rpc2.safrochain.network",
+        "provider": "Safrochain Foundation",
+        "archive": true
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.safrochain.network",
+        "provider": "Safrochain Foundation"
+      },
+      {
+        "address": "https://api1.safrochain.network",
+        "provider": "Safrochain Foundation"
+      },
+      {
+        "address": "https://api2.safrochain.network",
+        "provider": "Safrochain Foundation",
+        "archive": true
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.safrochain.network:443",
+        "provider": "Safrochain Foundation"
+      },
+      {
+        "address": "https://grpc1.safrochain.network:443",
+        "provider": "Safrochain Foundation"
+      },
+      {
+        "address": "https://grpc2.safrochain.network:443",
+        "provider": "Safrochain Foundation",
+        "archive": true
+      }
+    ],
+    "grpc-web": [
+      {
+        "address": "https://grpc-web.safrochain.network",
+        "provider": "Safrochain Foundation"
+      }
+    ],
+    "wss": [
+      {
+        "address": "wss://rpc.safrochain.network/websocket",
+        "provider": "Safrochain Foundation"
+      },
+      {
+        "address": "wss://rpc1.safrochain.network/websocket",
+        "provider": "Safrochain Foundation"
+      }
+    ]
+  },
+  "snapshots": [
+    {
+      "provider": "Safrochain Foundation",
+      "url": "https://snapshots.safrochain.network",
+      "type": "archive"
+    }
+  ],
+  "explorers": [
+    {
+      "kind": "safroexplorer",
+      "url": "https://explorer.safrochain.com/",
+      "tx_page": "https://explorer.safrochain.com/tx/${txHash}",
+      "account_page": "https://explorer.safrochain.com/address/${accountAddress}",
+      "validator_page": "https://explorer.safrochain.com/validator/${validatorAddress}"
+    }
+  ],
+  "keywords": ["safrochain", "saf", "cosmos", "ibc", "payments"]
+}
