@@ -70,7 +70,7 @@ npx ajv-cli validate --spec=draft7 -c ajv-formats \
 
 3. **Host it over HTTPS on a domain you control.** The recommended path is `/.well-known/cosmos-registry.json`, but any stable HTTPS URL on your domain works. Keep it under 512 KB; the bot does not follow redirects off your domain.
 
-4. **Open one onboarding PR** adding yourself to [`_providers/provider-manifests.json`](../_providers/provider-manifests.json):
+4. **Open one onboarding PR** adding yourself to [`_providers/provider-allowlist.json`](../_providers/provider-allowlist.json):
 
 ```json
 {
