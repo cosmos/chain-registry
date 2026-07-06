@@ -1,8 +1,7 @@
 {
   "$id": "https://raw.githubusercontent.com/cosmos/chain-registry/master/provider-manifests.schema.json",
-  "$schema": "https://json-schema.org/draft-07/schema",
   "title": "Provider Manifest Allowlist",
-  "description": "The curated list of infrastructure providers whose self-hosted manifests (see provider-manifest.schema.json) are ingested by the sync_provider_manifests workflow. Joining this list requires a human-reviewed PR. The sync bot only ever fetches URLs listed here, and every sync still lands as an [AUTO] PR that only maintainers can merge.",
+  "description": "The curated list of infrastructure providers whose self-hosted manifests (see provider-manifest.schema.json) are ingested by the sync_provider_manifests workflow. Joining this list requires a human-reviewed PR. The sync bot only ever fetches URLs listed here, and every sync still lands as an [AUTO] PR that only maintainers can merge. NOTE: the `$schema` meta-key is intentionally omitted \u2014 @chain-registry/cli treats any JSON whose $schema is a URL as a registry schema and hard-fails on titles outside its built-in mapping (AssetList/Chain/IBCData/MemoKeys/Versions). AJV validates this file as draft-07 by default.",
   "type": "object",
   "required": [
     "$schema",

@@ -1,8 +1,7 @@
 {
   "$id": "https://raw.githubusercontent.com/cosmos/chain-registry/master/provider-manifest.schema.json",
-  "$schema": "https://json-schema.org/draft-07/schema",
   "title": "Provider Manifest",
-  "description": "DRAFT (RFC-provider-manifest). A self-hosted file published by an allowlisted infrastructure provider, declaring the operational data (apis, peers, snapshots, explorers) it serves per chain. Field shapes are IDENTICAL to chain.schema.json so the sync bot performs a structural merge, not a translation. Per-entry `provider` strings are intentionally FORBIDDEN here: the bot stamps the allowlisted provider name on every injected entry, so a manifest can never write under another provider's name. Curated fields (chain identity, slip44, fees, staking, assets, IBC, codebase) are not expressible in this schema by construction.",
+  "description": "DRAFT (RFC-provider-manifest). A self-hosted file published by an allowlisted infrastructure provider, declaring the operational data (apis, peers, snapshots, explorers) it serves per chain. Field shapes are IDENTICAL to chain.schema.json so the sync bot performs a structural merge, not a translation. Per-entry `provider` strings are intentionally FORBIDDEN here: the bot stamps the allowlisted provider name on every injected entry, so a manifest can never write under another provider's name. Curated fields (chain identity, slip44, fees, staking, assets, IBC, codebase) are not expressible in this schema by construction. NOTE: the `$schema` meta-key is intentionally omitted \u2014 @chain-registry/cli treats any JSON whose $schema is a URL as a registry schema and hard-fails on titles outside its built-in mapping (AssetList/Chain/IBCData/MemoKeys/Versions). AJV validates this file as draft-07 by default.",
   "type": "object",
   "required": [
     "manifest_version",
