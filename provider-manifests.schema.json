@@ -1,0 +1,83 @@
+{
+  "$id": "https://raw.githubusercontent.com/cosmos/chain-registry/master/provider-manifests.schema.json",
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "Provider Manifest Allowlist",
+  "description": "The curated list of infrastructure providers whose self-hosted manifests (see provider-manifest.schema.json) are ingested by the sync_provider_manifests workflow. Joining this list requires a human-reviewed PR. The sync bot only ever fetches URLs listed here, and every sync still lands as an [AUTO] PR that only maintainers can merge.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "providers"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "pattern": "^(\\.\\./)+provider-manifests\\.schema\\.json$"
+    },
+    "providers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "manifest_url",
+          "status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Canonical provider name. Must equal `provider.name` inside the provider's manifest (mismatch = hard reject), and is the exact string the bot stamps on every injected registry entry."
+          },
+          "manifest_url": {
+            "type": "string",
+            "pattern": "^https://",
+            "description": "HTTPS URL of the provider's self-hosted manifest. Must be served from a domain that verifiably belongs to the provider (checked by the reviewing maintainer at onboarding). The bot does not follow redirects off this domain."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "suspended"
+            ],
+            "description": "`suspended` freezes ingestion immediately (incident kill switch) without removing the provider's history. Flipping this is a normal data-only PR."
+          },
+          "added_by_pr": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "The onboarding PR number, for audit trail."
+          },
+          "public_key": {
+            "type": "object",
+            "description": "RESERVED (unused in prototype). Key registered at onboarding for verifying the manifest's `signature` block once signed manifests are enabled.",
+            "required": [
+              "key_id",
+              "algo",
+              "value"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "key_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "algo": {
+                "type": "string",
+                "enum": [
+                  "ed25519",
+                  "secp256k1"
+                ]
+              },
+              "value": {
+                "type": "string",
+                "description": "Base64-encoded public key bytes.",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
