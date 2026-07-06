@@ -4,7 +4,7 @@
 
 ## What this is
 
-If you operate public infrastructure (RPC/REST/gRPC endpoints, seeds, peers, snapshots, explorers) across many chains, you can publish **one JSON manifest on your own domain** instead of opening a registry PR for every change. A scheduled workflow fetches allowlisted manifests, validates them, health-checks every entry, and opens an `[AUTO]` PR with the resulting diff.
+If you operate public infrastructure (RPC/REST/gRPC endpoints, seeds, peers, snapshots) across many chains, you can publish **one JSON manifest on your own domain** instead of opening a registry PR for every change. A scheduled workflow fetches allowlisted manifests, validates them, health-checks every entry, and opens an `[AUTO]` PR with the resulting diff.
 
 **Nothing merges automatically.** Every sync PR is merged by a registry maintainer, exactly like a manual PR.
 
@@ -17,13 +17,12 @@ If you operate public infrastructure (RPC/REST/gRPC endpoints, seeds, peers, sna
 | `apis` | `rpc`, `rest`, `grpc`, `wss`, `grpc-web`, `evm-http-jsonrpc` endpoints you run |
 | `peers` | `seeds`, `persistent_peers` (node `id` must be 40-char hex) |
 | `snapshots` | `url`, `latest_url`, `type`, `db_backend`, `compression`, `frequency`, `checksum_available` |
-| `explorers` | explorers **you operate** |
 
-**Cannot (rejected at schema level):** chain identity, `fees`, `staking`, `slip44`, assets, images, IBC data, codebase/versions, new chains — and **any other provider's entries**. Your manifest may not even contain a `provider` field on entries: the bot stamps your allowlisted name on everything it injects, so you can only ever write in your own lane.
+**Cannot (rejected at schema level):** explorers (deferred from v1 — the registry explorer object carries no provider-attribution field yet), chain identity, `fees`, `staking`, `slip44`, assets, images, IBC data, codebase/versions, new chains — and **any other provider's entries**. Your manifest may not even contain a `provider` field on entries: the bot stamps your allowlisted name on everything it injects, so you can only ever write in your own lane.
 
 ## Semantics you must understand before opting in
 
-1. **Your manifest is the source of truth for your lane.** If an endpoint disappears from your manifest, the next sync PR **removes it** from the registry. (This is a feature: dead endpoints finally get cleaned up.)
+1. **Your manifest is the source of truth for your lane — per listed chain.** If an endpoint disappears from your manifest while its chain is still listed, the next sync PR **removes it** (a feature: dead endpoints finally get cleaned up). Omitting an entire chain from your manifest leaves that chain's existing entries untouched — nothing is mass-deleted just because your first manifest covers only some of your chains.
 2. **Entries failing health checks are held back.** At sync time, RPCs must report your claimed `chain_id` and `catching_up: false`; REST must answer LCD queries; snapshot `latest_url` must exist. Failing entries are dropped from that run and listed in the PR body.
 3. **Your allowlisted name is canonical.** It is stamped verbatim on every entry — pick the exact capitalization you want once.
 4. **Suspension is immediate.** Maintainers can freeze ingestion of your manifest at any time by flipping `status: suspended` in the allowlist.
@@ -89,7 +88,7 @@ The reviewing maintainer will verify the domain is genuinely yours (existing PR 
 
 - **Allowlist is curated** — this is not open enrollment; providers are onboarded on existing track record.
 - **Provider-scoped writes** — a manifest can only add/update/remove entries carrying its own provider name; the curated core of the registry is not expressible in the manifest format.
-- **Independent CI check** — every sync PR is re-verified by CI to touch only `apis`/`peers`/`snapshots`/`explorers` entries belonging to that provider.
+- **Independent CI check** — every sync PR is re-verified by CI to touch only `apis`/`peers`/`snapshots` entries belonging to that provider.
 - **Maintainer merge gate** — the bot cannot approve or merge its own PRs.
 - **Signature-ready** — the manifest format reserves a `signature` block (and the allowlist a `public_key` slot) so signed manifests can be required later without a format change.
 
