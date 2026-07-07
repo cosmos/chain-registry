@@ -25,8 +25,9 @@ If you operate public infrastructure (RPC/REST/gRPC endpoints, seeds, peers, sna
 1. **List each `chain_id` at most once.** The whole manifest is rejected (nothing syncs that run) if any `chain_id` appears twice — there is no merge-across-duplicates behavior to rely on.
 2. **Your manifest is the source of truth for your lane — per listed chain.** If an endpoint disappears from your manifest while its chain is still listed, the next sync PR **removes it** (a feature: dead endpoints finally get cleaned up). Omitting an entire chain from your manifest leaves that chain's existing entries untouched — nothing is mass-deleted just because your first manifest covers only some of your chains.
 3. **Entries failing health checks are held back — never destructively.** At sync time, RPCs must report your claimed `chain_id` and `catching_up: false`; REST must answer LCD queries; snapshot `latest_url` must exist. A failing entry is not **added** that run; if it is already in the registry and still in your manifest, it is **kept** (a transient blip never removes an entry — removal happens only when you delete it from your manifest). Every added/updated/removed/retained/held-back entry is itemized in the sync PR body and the run's report artifact.
-4. **Your allowlisted name is canonical.** It is stamped verbatim on every entry — pick the exact capitalization you want once.
-5. **Suspension is immediate.** Maintainers can freeze ingestion of your manifest at any time by flipping `status: suspended` in the allowlist.
+4. **You cannot claim an address already registered to another provider.** If your manifest lists an endpoint, peer, or snapshot whose address is already in the registry under a different provider name, it is not added — the sync PR reports it as a conflict for maintainers to adjudicate. (If you genuinely took over infrastructure, the old entry must be removed first — by its owner's manifest or a manual PR.)
+5. **Your allowlisted name is canonical.** It is stamped verbatim on every entry — pick the exact capitalization you want once.
+6. **Suspension is immediate.** Maintainers can freeze ingestion of your manifest at any time by flipping `status: suspended` in the allowlist.
 
 ## How to onboard
 
