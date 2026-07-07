@@ -20,7 +20,8 @@
         "required": [
           "name",
           "manifest_url",
-          "status"
+          "status",
+          "added_by_pr"
         ],
         "additionalProperties": false,
         "properties": {
@@ -31,7 +32,8 @@
           },
           "manifest_url": {
             "type": "string",
-            "pattern": "^https://",
+            "format": "uri",
+            "pattern": "^https://[^\\s/]+\\.[^\\s/]+(/\\S*)?$",
             "description": "HTTPS URL of the provider's self-hosted manifest. Must be served from a domain that verifiably belongs to the provider (checked by the reviewing maintainer at onboarding). The bot does not follow redirects off this domain."
           },
           "status": {
@@ -45,7 +47,7 @@
           "added_by_pr": {
             "type": "integer",
             "minimum": 1,
-            "description": "The onboarding PR number, for audit trail."
+            "description": "The onboarding PR number, for audit trail. The number is assigned when the onboarding PR is opened; fill it in with a follow-up commit on that same PR."
           },
           "public_key": {
             "type": "object",
