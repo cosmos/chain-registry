@@ -99,7 +99,7 @@ The reviewing maintainer will verify the domain is genuinely yours (existing PR 
 ## FAQ
 
 **I run one chain. Should I use this?**
-Probably not — a manifest is more work than the one or two PRs a year you'd otherwise open. This exists for providers maintaining entries across many chains.
+No — a manifest is more work than the one or two PRs a year you'd otherwise open. This exists for providers maintaining entries across many chains.
 
 **Does this replace my existing registry entries?**
 Entries carrying your provider name become managed by your manifest once you onboard (including removal if absent). Entries under other names are untouched.
