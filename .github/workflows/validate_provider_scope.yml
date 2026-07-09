@@ -1,0 +1,48 @@
+name: Validate Provider Scope
+
+# Runs on every PR whose branch is a provider-manifest sync branch and
+# independently re-verifies the diff never leaves the provider's lane.
+# Complements (does not replace) the normal validate/lint workflows,
+# which also run on these PRs.
+
+on:
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  scope:
+    # Only meaningful for sync branches; skipped (green) for everything else.
+    if: startsWith(github.head_ref, 'auto/provider-manifest/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Resolve expected provider from branch slug
+        id: who
+        run: |
+          SLUG="${GITHUB_HEAD_REF#auto/provider-manifest/}"
+          NAME=$(node -e '
+            const fs = require("fs");
+            const slug = process.argv[1];
+            const al = JSON.parse(fs.readFileSync("_providers/provider-allowlist.json"));
+            const hit = al.providers.find(p => p.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") === slug);
+            if (!hit) { console.error("no allowlisted provider for slug: " + slug); process.exit(1); }
+            console.log(hit.name);
+          ' "$SLUG")
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Recompute and verify diff scope
+        env:
+          EXPECTED_PROVIDER: ${{ steps.who.outputs.name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node .github/workflows/utility/validate_provider_scope.mjs
