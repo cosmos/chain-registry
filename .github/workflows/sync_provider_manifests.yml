@@ -101,6 +101,7 @@ jobs:
             console.log(`\n**Removed — absent from manifest (${r.removed.length})**\n${li(r.removed)}`);
             console.log(`\n**Retained despite failed check (${(r.retained||[]).length})**\n${li(r.retained||[])}`);
             console.log(`\n**Held back — failed health check, not added (${r.held_back.length})**\n${li(r.held_back)}`);
+            console.log(`\n**Unverified — synced, but liveness check inconclusive (${(r.unverified||[]).length})**\n${li(r.unverified||[])}`);
             console.log(`\n**Conflicts — address already registered to another provider, not added (${(r.conflicts||[]).length})**\n${li(r.conflicts||[])}`);
             if (r.skipped_chains.length) console.log(`\n**Skipped unknown chain_ids:** ${r.skipped_chains.join(", ")}`);
           ' "$F")

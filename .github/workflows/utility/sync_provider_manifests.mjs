@@ -31,7 +31,7 @@ if (!providerName) { console.error('PROVIDER_NAME env var required'); process.ex
 
 const report = { provider: providerName, fetched_at: new Date().toISOString(),
                  manifest_url: null, manifest_sha256: null,
-                 added: [], updated: [], removed: [], retained: [], held_back: [], conflicts: [], skipped_chains: [] };
+                 added: [], updated: [], removed: [], retained: [], held_back: [], unverified: [], conflicts: [], skipped_chains: [] };
 
 // ---------- 1. Allowlist lookup ----------
 const allowlist = JSON.parse(fs.readFileSync(ALLOWLIST, 'utf8'));
@@ -150,11 +150,42 @@ const checks = {
   async wss() { return 'not probed (reachability only in v1)'; },
   async 'grpc-web'() { return 'not probed'; },
 };
-async function checkSnapshot(s) {
+// Advisory snapshot probe. A snapshot is best-effort, provider-owned infra, and
+// a liveness check cannot verify its contents — so the probe INFORMS rather than
+// gates. Verdicts:
+//   verified   - got a 2xx; reachable.
+//   dead       - definitively gone (404/410) or host unreachable (only network
+//                errors / timeouts, never an HTTP response) -> held back.
+//   unverified - reachable but non-2xx (e.g. a WAF returning 403/405/429, or a
+//                5xx) -> still synced, flagged, because that is not proof of
+//                absence. Tries HEAD then GET (some hosts block HEAD) with a
+//                browser-like UA (some WAFs reject default agents), and never
+//                downloads the payload.
+const SNAPSHOT_UA = 'Mozilla/5.0 (compatible; cosmos-chain-registry-sync/1.0; +https://github.com/cosmos/chain-registry)';
+async function probeSnapshot(s) {
   const url = s.latest_url ?? s.url;
-  const res = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(HEALTH_TIMEOUT_MS), redirect: 'follow' });
-  if (!res.ok) throw new Error(`HEAD ${url} -> HTTP ${res.status}`);
-  return `exists${res.headers.get('content-length') ? ', ' + res.headers.get('content-length') + 'B' : ''}`;
+  let blockedStatus = null;   // an HTTP status that is reachable-but-not-2xx (403/405/429/5xx)
+  let netError = null;        // a network/timeout/DNS error (no HTTP response at all)
+  for (const method of ['HEAD', 'GET']) {
+    try {
+      const res = await fetch(url, { method, redirect: 'follow',
+        headers: { 'user-agent': SNAPSHOT_UA }, signal: AbortSignal.timeout(HEALTH_TIMEOUT_MS) });
+      if (method === 'GET') { try { await res.body?.cancel(); } catch { /* never download the payload */ } }
+      if (res.ok) {
+        const len = res.headers.get('content-length');
+        return { verdict: 'verified', note: `reachable${len ? `, ${len}B` : ''}` };
+      }
+      if (res.status === 404 || res.status === 410) return { verdict: 'dead', note: `HTTP ${res.status}` };
+      blockedStatus = res.status;
+    } catch (err) {
+      netError = err.message;
+    }
+  }
+  // No 2xx and no definitive 404/410. A reachable-but-blocked status wins over a
+  // network error (a server that answered 403 is present, not dead).
+  if (blockedStatus !== null)
+    return { verdict: 'unverified', note: `HTTP ${blockedStatus} (check inconclusive; not confirmed dead)` };
+  return { verdict: 'dead', note: netError || 'unreachable' };
 }
 
 // ---------- 7. Provider-scoped merge ----------
@@ -232,10 +263,18 @@ for (const chain of manifest.chains) {
   }
   for (const [peerType, entries] of Object.entries(chain.peers ?? {})) desired.peers[peerType] = entries;
   for (const s of chain.snapshots ?? []) {
-    try { await checkSnapshot(s); desired.snapshots.push(s); }
-    catch (err) {
-      report.held_back.push({ chain: chain.chain_id, type: 'snapshot', address: s.url, reason: err.message });
+    const { verdict, note } = await probeSnapshot(s);
+    // `address` stays s.url — the snapshot's identity key, matching the merge
+    // and the added/removed lines. When a different latest_url was the URL
+    // actually probed, name it in the note so a maintainer can reproduce.
+    const reason = s.latest_url && s.latest_url !== s.url ? `${note} [probed ${s.latest_url}]` : note;
+    if (verdict === 'dead') {
+      report.held_back.push({ chain: chain.chain_id, type: 'snapshot', address: s.url, reason });
       markHeld('snapshots', s.url);
+    } else {
+      desired.snapshots.push(s);   // verified or unverified: snapshots are advisory, so sync them
+      if (verdict === 'unverified')
+        report.unverified.push({ chain: chain.chain_id, type: 'snapshot', address: s.url, reason });
     }
   }
 
