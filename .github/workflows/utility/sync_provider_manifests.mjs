@@ -11,6 +11,8 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
+import * as net from 'net';
+import * as tls from 'tls';
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 
@@ -127,6 +129,42 @@ async function httpJson(url, opts = {}) {
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
 }
+// TCP/TLS reachability probe for endpoint types we can't identity-check with a
+// plain fetch: grpc is HTTP/2+protobuf, wss is a websocket upgrade, grpc-web
+// varies by gateway. This proves ONLY that the socket accepts a connection --
+// not which chain it serves (that needs a full gRPC/ws client + reflection).
+// Honest reachability, strictly better than the old no-op pass-through.
+//   - bare "host:port" (grpc)            -> plain TCP connect
+//   - wss:// / https:// (wss, grpc-web)  -> TLS handshake must complete
+//   - ws:// / http://                    -> plain TCP connect
+function reach(addr) {
+  let host, port, useTls;
+  if (addr.includes('://')) {
+    const u = new URL(addr);
+    host = u.hostname;
+    useTls = u.protocol === 'wss:' || u.protocol === 'https:';
+    port = u.port ? Number(u.port) : (useTls ? 443 : 80);
+  } else {
+    const i = addr.lastIndexOf(':');
+    if (i < 0) return Promise.reject(new Error(`no port in "${addr}"`));
+    host = addr.slice(0, i);
+    port = Number(addr.slice(i + 1));
+    useTls = false;                          // bare host:port (grpc): TCP reach
+  }
+  if (!host || !Number.isInteger(port)) return Promise.reject(new Error(`unparseable address "${addr}"`));
+  return new Promise((resolve, reject) => {
+    // rejectUnauthorized:false -- this is a reachability probe, not a cert check;
+    // we only need the handshake to complete, and identity is out of scope here.
+    const socket = useTls
+      ? tls.connect({ host, port, servername: host, timeout: HEALTH_TIMEOUT_MS, rejectUnauthorized: false })
+      : net.connect({ host, port, timeout: HEALTH_TIMEOUT_MS });
+    const finish = (err, msg) => { socket.destroy(); err ? reject(err) : resolve(msg); };
+    socket.once(useTls ? 'secureConnect' : 'connect',
+      () => finish(null, `reachable (${useTls ? 'tls' : 'tcp'} ${host}:${port})`));
+    socket.once('timeout', () => finish(new Error('timeout')));
+    socket.once('error', finish);
+  });
+}
 const checks = {
   async rpc(addr, chainId) {
     const j = await httpJson(joinPath(addr, '/status'));
@@ -146,9 +184,9 @@ const checks = {
     if (!j.result) throw new Error('no eth_chainId result');
     return `eth_chainId ${j.result}`;
   },
-  async grpc() { return 'not probed (reachability only in v1)'; },
-  async wss() { return 'not probed (reachability only in v1)'; },
-  async 'grpc-web'() { return 'not probed'; },
+  async grpc(addr) { return reach(addr); },
+  async wss(addr) { return reach(addr); },
+  async 'grpc-web'(addr) { return reach(addr); },
 };
 // Advisory snapshot probe. A snapshot is best-effort, provider-owned infra, and
 // a liveness check cannot verify its contents — so the probe INFORMS rather than
