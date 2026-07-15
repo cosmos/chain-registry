@@ -151,12 +151,14 @@ function reach(addr) {
     port = Number(addr.slice(i + 1));
     useTls = false;                          // bare host:port (grpc): TCP reach
   }
-  if (!host || !Number.isInteger(port)) return Promise.reject(new Error(`unparseable address "${addr}"`));
+  if (!host || !Number.isInteger(port) || port < 1 || port > 65535)
+    return Promise.reject(new Error(`unparseable address "${addr}"`));
   return new Promise((resolve, reject) => {
     // rejectUnauthorized:false -- this is a reachability probe, not a cert check;
     // we only need the handshake to complete, and identity is out of scope here.
+    // Omit SNI for raw IPs (RFC 6066 forbids an IP ServerName; Node warns and will drop it).
     const socket = useTls
-      ? tls.connect({ host, port, servername: host, timeout: HEALTH_TIMEOUT_MS, rejectUnauthorized: false })
+      ? tls.connect({ host, port, servername: net.isIP(host) ? undefined : host, timeout: HEALTH_TIMEOUT_MS, rejectUnauthorized: false })
       : net.connect({ host, port, timeout: HEALTH_TIMEOUT_MS });
     const finish = (err, msg) => { socket.destroy(); err ? reject(err) : resolve(msg); };
     socket.once(useTls ? 'secureConnect' : 'connect',
