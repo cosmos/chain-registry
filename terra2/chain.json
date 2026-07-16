@@ -144,10 +144,6 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://terra-rpc.polkachu.com",
-        "provider": "polkachu"
-      },
-      {
         "address": "https://terra-rpc.stakely.io:443/",
         "provider": "stakely"
       },
@@ -182,6 +178,10 @@
       {
         "address": "https://terra-m-rpc.onnode.org",
         "provider": "OnNode"
+      },
+      {
+        "address": "https://terra-rpc.polkachu.com:443",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
@@ -216,6 +216,10 @@
       {
         "address": "https://terra-m-api.onnode.org",
         "provider": "OnNode"
+      },
+      {
+        "address": "https://terra-api.polkachu.com",
+        "provider": "Polkachu"
       }
     ],
     "grpc": [
@@ -308,12 +312,37 @@
       "url": "https://explorer.onnode.org/terra",
       "tx_page": "https://explorer.onnode.org/terra/transactions/${txHash}",
       "account_page": "https://explorer.onnode.org/terra/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://terra.valopers.com/",
+      "tx_page": "https://terra.valopers.com/transactions/${txHash}",
+      "account_page": "https://terra.valopers.com/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.svg"
+    }
+  ],
+  "snapshots": [
+    {
+      "provider": "High Stakes 🇨🇭",
+      "url": "https://tools.highstakes.ch/snapshots/terra",
+      "latest_url": "https://tools.highstakes.ch/files/terra.tar.gz",
+      "type": "pruned",
+      "db_backend": "goleveldb",
+      "frequency": "every 3h",
+      "compression": "tar",
+      "checksum_available": true
+    },
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/terra",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
     }
   ]
 }

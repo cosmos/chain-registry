@@ -80,15 +80,16 @@
         "id": "b85358e035343a3b15e77e1102857dcdaf70053b",
         "address": "seeds.bluestake.net:25556",
         "provider": "BlueStake 🚀"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:21556",
+        "provider": "Polkachu"
       }
     ]
   },
   "apis": {
     "rpc": [
-      {
-        "address": "https://noble-rpc.polkachu.com",
-        "provider": "polkachu"
-      },
       {
         "address": "https://rpc.lavenderfive.com:443/noble",
         "provider": "Lavender.Five Nodes 🐝"
@@ -96,12 +97,16 @@
       {
         "address": "https://noble-rpc.owallet.io",
         "provider": "OWALLET"
+      },
+      {
+        "address": "https://noble-rpc.polkachu.com:443",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
       {
         "address": "https://noble-api.polkachu.com",
-        "provider": "polkachu"
+        "provider": "Polkachu"
       },
       {
         "address": "https://rest.lavenderfive.com:443/noble",
@@ -115,7 +120,7 @@
     "grpc": [
       {
         "address": "noble-grpc.polkachu.com:21590",
-        "provider": "polkachu"
+        "provider": "Polkachu"
       },
       {
         "address": "noble.lavenderfive.com:443",
@@ -144,12 +149,34 @@
       "kind": "Stakeflow",
       "url": "https://stakeflow.io/noble",
       "account_page": "https://stakeflow.io/noble/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://noble.valopers.com/",
+      "tx_page": "https://noble.valopers.com/transactions/${txHash}",
+      "account_page": "https://noble.valopers.com/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/stake.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/stake.svg"
+    }
+  ],
+  "snapshots": [
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/noble",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
+    },
+    {
+      "url": "https://polkachu.com/archive_snapshots/noble",
+      "type": "archive",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
     }
   ]
 }

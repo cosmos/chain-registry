@@ -110,6 +110,11 @@
         "id": "10ed1e176d874c8bb3c7c065685d2da6a4b86475",
         "address": "seed-band.ibs.team:16672",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:22956",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
@@ -155,10 +160,6 @@
         "provider": "bandprotocol"
       },
       {
-        "address": "https://rpc-bandchain-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
-      },
-      {
         "address": "https://band.ibs.team:443/rpc",
         "provider": "Inter Blockchain Services"
       },
@@ -201,16 +202,16 @@
       {
         "address": "https://band-rpc.noders.services",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://band-rpc.polkachu.com:443",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
       {
         "address": "https://laozi1.bandchain.org/api",
         "provider": "bandprotocol"
-      },
-      {
-        "address": "https://api-bandchain-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
       },
       {
         "address": "https://band.ibs.team:443/api",
@@ -255,13 +256,13 @@
       {
         "address": "https://band-api.noders.services",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://band-api.polkachu.com",
+        "provider": "Polkachu"
       }
     ],
     "grpc": [
-      {
-        "address": "grpc-bandchain-ia.cosmosia.notional.ventures:443",
-        "provider": "Notional"
-      },
       {
         "address": "bandchain-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
@@ -301,6 +302,10 @@
       {
         "address": "band-grpc.noders.services:30090",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "band-grpc.polkachu.com:22990",
+        "provider": "Polkachu"
       }
     ]
   },
@@ -357,12 +362,37 @@
       "kind": "kjnodes Explorer",
       "url": "https://explorer.kjnodes.com/band",
       "tx_page": "https://explorer.kjnodes.com/band/tx/${txHash}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://band.valopers.com/",
+      "tx_page": "https://band.valopers.com/transactions/${txHash}",
+      "account_page": "https://band.valopers.com/account/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bandchain/images/band.svg"
+    }
+  ],
+  "snapshots": [
+    {
+      "provider": "High Stakes 🇨🇭",
+      "url": "https://tools.highstakes.ch/snapshots/bandprotocol",
+      "latest_url": "https://tools.highstakes.ch/files/bandprotocol.tar.gz",
+      "type": "pruned",
+      "db_backend": "goleveldb",
+      "frequency": "every 3h",
+      "compression": "tar",
+      "checksum_available": true
+    },
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/band",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
     }
   ]
 }

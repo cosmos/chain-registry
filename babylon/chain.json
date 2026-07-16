@@ -111,21 +111,6 @@
         "provider": "Nodes.Guru"
       },
       {
-        "id": "4c1406cb6867232b7ea130ed3a3d25996ca06844",
-        "address": "23.88.6.237:20656",
-        "provider": "Polkachu"
-      },
-      {
-        "id": "b40a147910a608018c47a0e0225106d00d2651ed",
-        "address": "5.9.99.42:20656",
-        "provider": "Polkachu"
-      },
-      {
-        "id": "184db83783c9158a3e99809ffed3752e180597be",
-        "address": "65.108.205.121:20656",
-        "provider": "Polkachu"
-      },
-      {
         "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
         "address": "babylon-mainnet-seed.autostake.com:27116",
         "provider": "AutoStake 🛡️ Slash Protected"
@@ -144,18 +129,6 @@
         "provider": "Nodes.Guru"
       },
       {
-        "address": "https://babylon-archive.nodes.guru/rpc",
-        "provider": "Nodes.Guru"
-      },
-      {
-        "address": "https://babylon-rpc.polkachu.com",
-        "provider": "Polkachu"
-      },
-      {
-        "address": "https://babylon-archive-rpc.polkachu.com",
-        "provider": "Polkachu"
-      },
-      {
         "address": "https://babylon-rpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
       },
@@ -164,24 +137,12 @@
         "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
-        "address": "https://community.nuxian-node.ch:6797/babylon/trpc",
-        "provider": "PRO Delegators"
-      },
-      {
-        "address": "https://babylon-mainnet-rpc.shazoe.xyz",
-        "provider": "Shazoe"
-      },
-      {
-        "address": "https://babylon.rpc.nodeshub.online:443",
-        "provider": "NodesHub"
-      },
-      {
-        "address": "https://babylon-mainnet-rpc.shazoes.xyz",
-        "provider": "Shazoes"
-      },
-      {
         "address": "https://rpc.babylon.validatus.com",
         "provider": "Validatus"
+      },
+      {
+        "address": "https://babylon-rpc.polkachu.com:443",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
@@ -190,15 +151,7 @@
         "provider": "Nodes.Guru"
       },
       {
-        "address": "https://babylon-archive.nodes.guru/api",
-        "provider": "Nodes.Guru"
-      },
-      {
         "address": "https://babylon-api.polkachu.com",
-        "provider": "Polkachu"
-      },
-      {
-        "address": "https://babylon-archive-api.polkachu.com",
         "provider": "Polkachu"
       },
       {
@@ -208,22 +161,6 @@
       {
         "address": "https://babylon-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://community.nuxian-node.ch:6797/babylon/crpc",
-        "provider": "PRO Delegators"
-      },
-      {
-        "address": "https://babylon-mainnet-api.shazoe.xyz",
-        "provider": "Shazoe"
-      },
-      {
-        "address": "https://babylon.api.nodeshub.online",
-        "provider": "NodesHub"
-      },
-      {
-        "address": "https://babylon-mainnet-api.shazoes.xyz",
-        "provider": "Shazoes"
       },
       {
         "address": "https://api.babylon.validatus.com",
@@ -236,15 +173,7 @@
         "provider": "Nodes.Guru"
       },
       {
-        "address": "babylon-archive.nodes.guru:443/grpc",
-        "provider": "Nodes.Guru"
-      },
-      {
         "address": "babylon-grpc.polkachu.com:20690",
-        "provider": "Polkachu"
-      },
-      {
-        "address": "babylon-archive-grpc.polkachu.com:20690",
         "provider": "Polkachu"
       },
       {
@@ -254,18 +183,6 @@
       {
         "address": "babylon-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "babylon-mainnet-grpc.shazoe.xyz:30190",
-        "provider": "Shazoe"
-      },
-      {
-        "address": "babylon.grpc.nodeshub.online",
-        "provider": "NodesHub"
-      },
-      {
-        "address": "babylon-mainnet-grpc.shazoes.xyz:30190",
-        "provider": "Shazoes"
       },
       {
         "address": "grpc.babylon.validatus.com:443",
@@ -291,6 +208,12 @@
       "url": "https://explorer.nodeshub.online/babylon/",
       "tx_page": "https://explorer.nodeshub.online/babylon/tx/${txHash}",
       "account_page": "https://explorer.nodeshub.online/babylon/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://babylon.valopers.com/",
+      "tx_page": "https://babylon.valopers.com/transactions/${txHash}",
+      "account_page": "https://babylon.valopers.com/account/${accountAddress}"
     }
   ],
   "images": [
@@ -298,5 +221,21 @@
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/babylon/images/logo.svg"
     }
   ],
-  "description": "Babylon Genesis enables Bitcoin tokens to be used as an economic security layer for Proof of Stake (PoS) systems without relying on bridges, wrapping, or third-party custody."
+  "description": "Babylon Genesis enables Bitcoin tokens to be used as an economic security layer for Proof of Stake (PoS) systems without relying on bridges, wrapping, or third-party custody.",
+  "snapshots": [
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/babylon",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
+    },
+    {
+      "url": "https://polkachu.com/archive_snapshots/babylon",
+      "type": "archive",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
+    }
+  ]
 }
