@@ -95,13 +95,35 @@ jobs:
           BODY=$(node -e '
             const r = require(process.argv[1]);
             const li = (xs) => xs.length ? xs.map(x => "- " + (typeof x === "string" ? x : `${x.chain} ${x.type} ${x.address} — ${x.reason}`)).join("\n") : "- none";
+            // Reconciliation keys. held_back/unverified carry {chain,type,address}; retained/added are
+            // "label: key" strings where label is `${chain}/apis.${type}` (or `${chain}/snapshots`).
+            const hbKey = (h) => h.type === "snapshot" ? `${h.chain}/snapshots: ${h.address}` : `${h.chain}/apis.${h.type}: ${h.address}`;
+            const retainedKeys = new Set((r.retained||[]).map(s => s.replace(/ \(health check failed this run; kept[^)]*\)$/, "")));
+            const reasonOf = new Map((r.held_back||[]).map(h => [hbKey(h), h.reason]));
+            const addedKeys = new Set(r.added||[]);
+            // Fix 1: an entry that failed the health check but is already registered AND still in the
+            // manifest is RETAINED, not excluded. Only failures that were NOT retained are truly
+            // "held back / not added" — so subtract the retained set to end the double-listing.
+            const heldExcluded = (r.held_back||[]).filter(h => !retainedKeys.has(hbKey(h)));
+            // Fold each failure reason into its Retained line so "kept" also shows WHY it failed.
+            const retainedLines = (r.retained||[]).map(s => {
+              const key = s.replace(/ \(health check failed this run; kept[^)]*\)$/, "");
+              const reason = reasonOf.get(key);
+              return "- " + (reason ? `${key} — ${reason} (kept; still in manifest)` : s);
+            });
+            // Fix 2: "synced" overstated the run — most inconclusive entries were already present and
+            // unchanged. Split by what actually entered this run (appears in Added) vs pre-existing.
+            const uvNew = (r.unverified||[]).filter(u => addedKeys.has(hbKey(u)));
+            const uvExisting = (r.unverified||[]).filter(u => !addedKeys.has(hbKey(u)));
             console.log(`**Sync report** (manifest sha256 \`${(r.manifest_sha256||"").slice(0,12)}\`, fetched ${r.fetched_at})`);
             console.log(`\n**Added (${r.added.length})**\n${li(r.added)}`);
             console.log(`\n**Updated (${r.updated.length})**\n${li(r.updated)}`);
             console.log(`\n**Removed — absent from manifest (${r.removed.length})**\n${li(r.removed)}`);
-            console.log(`\n**Retained despite failed check (${(r.retained||[]).length})**\n${li(r.retained||[])}`);
-            console.log(`\n**Held back — failed health check, not added (${r.held_back.length})**\n${li(r.held_back)}`);
-            console.log(`\n**Unverified — synced, but liveness check inconclusive (${(r.unverified||[]).length})**\n${li(r.unverified||[])}`);
+            console.log(`\n**Retained — failed this run's health check but kept, still in manifest (${retainedLines.length})**\n${retainedLines.length ? retainedLines.join("\n") : "- none"}`);
+            console.log(`\n**Held back — failed health check, not added (${heldExcluded.length})**\n${li(heldExcluded)}`);
+            console.log(`\n**Liveness inconclusive — advisory, not treated as dead (${(r.unverified||[]).length} total: ${uvNew.length} newly added, ${uvExisting.length} already present & unchanged)**`);
+            console.log(`\n_Newly added this run (${uvNew.length}):_\n${li(uvNew)}`);
+            console.log(`\n_Already present, re-checked, unchanged (${uvExisting.length}):_\n${li(uvExisting)}`);
             console.log(`\n**Conflicts — address already registered to another provider, not added (${(r.conflicts||[]).length})**\n${li(r.conflicts||[])}`);
             if (r.skipped_chains.length) console.log(`\n**Skipped unknown chain_ids:** ${r.skipped_chains.join(", ")}`);
           ' "$F")
