@@ -69,7 +69,7 @@ npx ajv-cli validate --spec=draft7 -c ajv-formats \
   -s provider-manifest.schema.json -d your-manifest.json
 ```
 
-3. **Host it over HTTPS on a domain you control.** The recommended path is `/.well-known/cosmos-registry.json`, but any stable HTTPS URL on your domain works. Keep it under 512 KB; the bot does not follow redirects off your domain.
+3. **Host it over HTTPS at `/.well-known/cosmos-registry.json` on a domain you control.** The manifest **must** be served at a `/.well-known/cosmos-registry.json` path — i.e. the URL ends with `/.well-known/cosmos-registry.json` (e.g. `https://your-domain/.well-known/cosmos-registry.json`) — so every provider's manifest lives at one predictable, standardized location. Keep it under 512 KB; the bot does not follow redirects off your domain.
 
 4. **Open one onboarding PR** adding yourself to [`_providers/provider-allowlist.json`](../_providers/provider-allowlist.json):
 
