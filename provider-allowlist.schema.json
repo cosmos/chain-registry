@@ -33,8 +33,8 @@
           "manifest_url": {
             "type": "string",
             "format": "uri",
-            "pattern": "^https://[^\\s/]+\\.[^\\s/]+(/\\S*)?$",
-            "description": "HTTPS URL of the provider's self-hosted manifest. Must be served from a domain that verifiably belongs to the provider (checked by the reviewing maintainer at onboarding). The bot does not follow redirects off this domain."
+            "pattern": "^https://[^\\s/]+\\.[^\\s/]+/(\\S*/)?\\.well-known/cosmos-registry\\.json$",
+            "description": "HTTPS URL of the provider's self-hosted manifest. MUST be served at a `/.well-known/cosmos-registry.json` path (the URL must end with `/.well-known/cosmos-registry.json`) so every provider's manifest lives at one predictable location. Must be on a domain that verifiably belongs to the provider (checked by the reviewing maintainer at onboarding). The bot does not follow redirects off this domain."
           },
           "status": {
             "type": "string",
