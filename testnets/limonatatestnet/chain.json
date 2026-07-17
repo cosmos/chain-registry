@@ -13,7 +13,9 @@
   "bech32_prefix": "cosmos",
   "daemon_name": "limonatad",
   "node_home": "$HOME/.limonatad",
-  "key_algos": ["ethsecp256k1"],
+  "key_algos": [
+    "ethsecp256k1"
+  ],
   "slip44": 60,
   "fees": {
     "fee_tokens": [
@@ -27,7 +29,11 @@
     ]
   },
   "staking": {
-    "staking_tokens": [{ "denom": "aLIMO" }]
+    "staking_tokens": [
+      {
+        "denom": "aLIMO"
+      }
+    ]
   },
   "codebase": {
     "git_repo": "https://github.com/Limonata-Blockchain/limonata",
@@ -35,12 +41,52 @@
       "genesis_url": "https://limonata.xyz/genesis.json"
     }
   },
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "f8bef28f14306bb9b70e026bcc3c89b6188a6688",
+        "address": "95.216.102.220:19156"
+      },
+      {
+        "id": "39ddd439892f6609ccb5d9da0c05c00c6e6651b2",
+        "address": "155.133.22.148:33656"
+      }
+    ]
+  },
   "apis": {
     "rpc": [
-      { "address": "https://cosmos-rpc.limonata.xyz", "provider": "Limonata" }
+      {
+        "address": "https://cosmos-rpc.limonata.xyz",
+        "provider": "Limonata"
+      },
+      {
+        "address": "https://rpc-t.limonata.vinjan-inc.com",
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "https://rpc.limo-test.onenov.xyz",
+        "provider": "OneNov"
+      }
     ],
     "rest": [
-      { "address": "https://rest.limonata.xyz", "provider": "Limonata" }
+      {
+        "address": "https://rest.limonata.xyz",
+        "provider": "Limonata"
+      },
+      {
+        "address": "https://api-t.limonata.vinjan-inc.com",
+        "provider": "Vinjan.Inc"
+      },
+      {
+        "address": "https://api.limo-test.onenov.xyz",
+        "provider": "OneNov"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://rpc.limonata.xyz",
+        "provider": "Limonata"
+      }
     ]
   },
   "explorers": [
@@ -49,6 +95,14 @@
       "url": "https://explorer.limonata.xyz",
       "tx_page": "https://explorer.limonata.xyz/tx/${txHash}",
       "account_page": "https://explorer.limonata.xyz/address/${accountAddress}"
+    },
+    {
+      "kind": "OneNov Explorer",
+      "url": "https://explorer.onenov.xyz/limonata-test",
+      "tx_page": "https://explorer.onenov.xyz/limonata-test/tx/${txHash}",
+      "account_page": "https://explorer.onenov.xyz/limonata-test/account/${accountAddress}",
+      "validator_page": "https://explorer.onenov.xyz/limonata-test/validator/${validatorAddress}",
+      "block_page": "https://explorer.onenov.xyz/limonata-test/block/${block}"
     }
   ],
   "images": [

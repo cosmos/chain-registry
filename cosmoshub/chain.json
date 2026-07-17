@@ -34,17 +34,17 @@
   },
   "codebase": {
     "git_repo": "https://github.com/cosmos/gaia",
-    "recommended_version": "v27.4.0",
+    "recommended_version": "v27.5.0",
     "compatible_versions": [
-      "v27.4.0"
+      "v27.5.0"
     ],
     "consensus": {
       "type": "cometbft",
       "version": "v0.38.23"
     },
     "binaries": {
-      "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v27.4.0/gaiad-v27.4.0-darwin-amd64",
-      "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v27.4.0/gaiad-v27.4.0-linux-amd64"
+      "darwin/amd64": "https://github.com/cosmos/gaia/releases/download/v27.5.0/gaiad-v27.5.0-darwin-amd64",
+      "linux/amd64": "https://github.com/cosmos/gaia/releases/download/v27.5.0/gaiad-v27.5.0-linux-amd64"
     },
     "genesis": {
       "genesis_url": "https://github.com/cosmos/mainnet/raw/master/genesis/genesis.cosmoshub-4.json.gz"
@@ -56,14 +56,14 @@
     },
     "ibc": {
       "type": "go",
-      "version": "v10.6.0"
+      "version": "v10.7.0"
     },
     "cosmwasm": {
       "version": "v0.60.7",
       "repo": "https://github.com/CosmWasm/wasmd",
       "tag": "v0.60.7"
     },
-    "tag": "v27.4.0"
+    "tag": "v27.5.0"
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
@@ -226,10 +226,6 @@
         "provider": "GetBlock RPC Nodes"
       },
       {
-        "address": "https://cosmos-rpc.polkachu.com",
-        "provider": "Polkachu"
-      },
-      {
         "address": "https://cosmos-rpc.staketab.org:443",
         "provider": "Staketab"
       },
@@ -272,10 +268,6 @@
       {
         "address": "https://cosmos-rpc.w3coins.io",
         "provider": "w3coins"
-      },
-      {
-        "address": "https://community.nuxian-node.ch:6797/gaia/trpc",
-        "provider": "PRO Delegators"
       },
       {
         "address": "https://cosmos-rpc.highstakes.ch",
@@ -336,6 +328,10 @@
       {
         "address": "https://rpc.sbsconstrutionnconsultancy.com",
         "provider": "bapimondal-server"
+      },
+      {
+        "address": "https://cosmos-rpc.polkachu.com:443",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
@@ -405,10 +401,6 @@
         "provider": "w3coins"
       },
       {
-        "address": "https://community.nuxian-node.ch:6797/gaia/crpc",
-        "provider": "PRO Delegators"
-      },
-      {
         "address": "https://cosmos-api.highstakes.ch",
         "provider": "High Stakes 🇨🇭"
       },
@@ -459,6 +451,10 @@
       {
         "address": "https://cosmoshub.api.pocket.network",
         "provider": "Pocket Network"
+      },
+      {
+        "address": "https://cosmos-api.polkachu.com",
+        "provider": "Polkachu"
       }
     ],
     "grpc": [
@@ -682,6 +678,13 @@
       "frequency": "every 3h",
       "compression": "tar",
       "checksum_available": true
+    },
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/cosmos",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
     }
   ]
 }

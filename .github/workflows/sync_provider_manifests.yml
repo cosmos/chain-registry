@@ -1,0 +1,170 @@
+name: Sync Provider Manifests
+
+# NOTE for maintainers: PRs opened with the default GITHUB_TOKEN do not
+# trigger `pull_request` workflows (GitHub's anti-recursion rule — the
+# existing sync_versions [AUTO] PRs behave the same way). To run CI on an
+# [AUTO] sync PR (validate_data, the provider scope guard), close/reopen
+# the PR or push to its branch.
+
+on:
+  workflow_dispatch:   # manual trigger for maintainers
+  schedule:
+    - cron: '23 6 * * 1,4'   # Mon & Thu 06:23 UTC
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency: sync-provider-manifests
+
+jobs:
+
+  # Job 1: read the allowlist, emit one matrix entry per ACTIVE provider
+  plan:
+    name: Read allowlist
+    runs-on: ubuntu-latest
+    outputs:
+      providers: ${{ steps.list.outputs.providers }}
+      count: ${{ steps.list.outputs.count }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: list
+        run: |
+          node -e '
+            const fs = require("fs");
+            const al = JSON.parse(fs.readFileSync("_providers/provider-allowlist.json"));
+            const active = al.providers.filter(p => p.status === "active")
+              .map(p => ({ name: p.name, slug: p.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") }));
+            fs.appendFileSync(process.env.GITHUB_OUTPUT,
+              `providers=${JSON.stringify(active)}\ncount=${active.length}\n`);
+          '
+
+  # Job 2: one isolated sync per provider — a failing provider never blocks the others
+  sync:
+    name: Sync ${{ matrix.provider.name }}
+    needs: plan
+    if: needs.plan.outputs.count != '0'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        provider: ${{ fromJSON(needs.plan.outputs.providers) }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # ajv/ajv-formats are the sync script's only external imports.
+      # --no-save/--no-package-lock: node_modules is gitignored and no
+      # package.json or lockfile is written, so the commit step below can
+      # never pick up dependency files.
+      - name: Install script dependencies
+        working-directory: ./.github/workflows/utility
+        run: npm install --no-save --no-package-lock ajv@8 ajv-formats@3
+
+      - name: Fetch, validate, health-check, and apply manifest
+        id: apply
+        working-directory: ./.github/workflows/utility
+        env:
+          PROVIDER_NAME: ${{ matrix.provider.name }}
+        # Script exit codes: 0 = changes staged; 78 = clean run, no changes
+        # (skip PR); anything else = hard error, which FAILS the job so it is
+        # visible in the Actions UI (fail-fast:false already isolates providers).
+        run: |
+          set +e
+          node sync_provider_manifests.mjs
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          if [ "$code" = "0" ] || [ "$code" = "78" ]; then exit 0; fi
+          exit "$code"
+
+      # Rendered even on no-change and hard-error runs: conflicts and
+      # held-back entries must surface somewhere when no PR opens.
+      - name: Render sync report (job summary + PR body)
+        if: always()
+        id: report
+        run: |
+          F=$(ls "$RUNNER_TEMP"/sync-report-*.json 2>/dev/null | head -1 || true)
+          if [ -z "$F" ]; then echo "No sync report produced." >> "$GITHUB_STEP_SUMMARY"; exit 0; fi
+          BODY=$(node -e '
+            const r = require(process.argv[1]);
+            const li = (xs) => xs.length ? xs.map(x => "- " + (typeof x === "string" ? x : `${x.chain} ${x.type} ${x.address} — ${x.reason}`)).join("\n") : "- none";
+            // Reconciliation keys. held_back/unverified carry {chain,type,address}; retained/added are
+            // "label: key" strings where label is `${chain}/apis.${type}` (or `${chain}/snapshots`).
+            const hbKey = (h) => h.type === "snapshot" ? `${h.chain}/snapshots: ${h.address}` : `${h.chain}/apis.${h.type}: ${h.address}`;
+            const retainedKeys = new Set((r.retained||[]).map(s => s.replace(/ \(health check failed this run; kept[^)]*\)$/, "")));
+            const reasonOf = new Map((r.held_back||[]).map(h => [hbKey(h), h.reason]));
+            const addedKeys = new Set(r.added||[]);
+            // Fix 1: an entry that failed the health check but is already registered AND still in the
+            // manifest is RETAINED, not excluded. Only failures that were NOT retained are truly
+            // "held back / not added" — so subtract the retained set to end the double-listing.
+            const heldExcluded = (r.held_back||[]).filter(h => !retainedKeys.has(hbKey(h)));
+            // Fold each failure reason into its Retained line so "kept" also shows WHY it failed.
+            const retainedLines = (r.retained||[]).map(s => {
+              const key = s.replace(/ \(health check failed this run; kept[^)]*\)$/, "");
+              const reason = reasonOf.get(key);
+              return "- " + (reason ? `${key} — ${reason} (kept; still in manifest)` : s);
+            });
+            // Fix 2: "synced" overstated the run — most inconclusive entries were already present and
+            // unchanged. Split by what actually entered this run (appears in Added) vs pre-existing.
+            const uvNew = (r.unverified||[]).filter(u => addedKeys.has(hbKey(u)));
+            const uvExisting = (r.unverified||[]).filter(u => !addedKeys.has(hbKey(u)));
+            console.log(`**Sync report** (manifest sha256 \`${(r.manifest_sha256||"").slice(0,12)}\`, fetched ${r.fetched_at})`);
+            console.log(`\n**Added (${r.added.length})**\n${li(r.added)}`);
+            console.log(`\n**Updated (${r.updated.length})**\n${li(r.updated)}`);
+            console.log(`\n**Removed — absent from manifest (${r.removed.length})**\n${li(r.removed)}`);
+            console.log(`\n**Retained — failed this run's health check but kept, still in manifest (${retainedLines.length})**\n${retainedLines.length ? retainedLines.join("\n") : "- none"}`);
+            console.log(`\n**Held back — failed health check, not added (${heldExcluded.length})**\n${li(heldExcluded)}`);
+            console.log(`\n**Liveness inconclusive — advisory, not treated as dead (${(r.unverified||[]).length} total: ${uvNew.length} newly added, ${uvExisting.length} already present & unchanged)**`);
+            console.log(`\n_Newly added this run (${uvNew.length}):_\n${li(uvNew)}`);
+            console.log(`\n_Already present, re-checked, unchanged (${uvExisting.length}):_\n${li(uvExisting)}`);
+            console.log(`\n**Conflicts — address already registered to another provider, not added (${(r.conflicts||[]).length})**\n${li(r.conflicts||[])}`);
+            if (r.skipped_chains.length) console.log(`\n**Skipped unknown chain_ids:** ${r.skipped_chains.join(", ")}`);
+          ' "$F")
+          echo "$BODY" >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo "summary<<SYNC_REPORT_EOF"
+            echo "$BODY"
+            echo "SYNC_REPORT_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push provider branch
+        if: steps.apply.outputs.exit_code == '0'
+        uses: devops-infra/action-commit-push@master
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          add_timestamp: false
+          commit_prefix: "[AUTO]"
+          commit_message: "Sync ${{ matrix.provider.name }} provider manifest"
+          force: true
+          target_branch: auto/provider-manifest/${{ matrix.provider.slug }}
+
+      - name: Open PR (maintainer merge required)
+        if: steps.apply.outputs.exit_code == '0'
+        uses: devops-infra/action-pull-request@v0.5.5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_branch: auto/provider-manifest/${{ matrix.provider.slug }}
+          target_branch: master
+          title: "[AUTO] Sync ${{ matrix.provider.name }} provider manifest"
+          label: automated,provider-manifest
+          get_diff: true
+          body: |
+            **Automated provider-manifest sync** for `${{ matrix.provider.name }}`.
+            Only maintainers can merge. If closing, delete the branch.
+
+            ${{ steps.report.outputs.summary }}
+
+      - name: Upload sync report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-report-${{ matrix.provider.slug }}
+          path: ${{ runner.temp }}/sync-report-*.json
+          if-no-files-found: ignore
