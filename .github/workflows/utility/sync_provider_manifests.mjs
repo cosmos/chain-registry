@@ -235,12 +235,16 @@ async function probeSnapshot(s) {
 const keyOf = {
   endpoint: e => e.address,
   peer: p => `${p.id}@${p.address}`,
-  // A provider may publish several snapshots at one browse `url` that differ
-  // only by artifact (e.g. goleveldb `x.tar.gz` vs pebbledb `x_pebbledb.tar.gz`).
-  // Keying by `url` alone collapsed them into one — every variant but the last
-  // was dropped and the drop mis-reported as "absent from manifest". Key by the
-  // downloadable artifact (`latest_url`), falling back to `url` when absent.
-  snapshot: s => s.latest_url ?? s.url,
+  // A provider may publish several snapshots at one browse `url` differing only
+  // by variant (e.g. goleveldb `x.tar.gz` vs pebbledb `x_pebbledb.tar.gz`) — the
+  // key must keep those DISTINCT. But `latest_url` CHURNS (artifacts get renamed
+  // / re-dated), and keying by it makes a churn read as remove-old + add-new: if
+  // the new artifact blips (e.g. 404 mid-rotation) the live existing entry is
+  // dropped AND its replacement held back = data loss, because the retain-on-blip
+  // guard can't match a key that just changed. Key by STABLE identity — browse
+  // `url` + `type` + `db_backend` — so variants stay distinct while a latest_url
+  // change is an in-place update (and a blip retains the existing entry).
+  snapshot: s => [s.url ?? s.latest_url ?? '', s.type ?? '', s.db_backend ?? ''].join(' | '),
 };
 
 // order-insensitive structural compare: `{...d, provider}` re-orders keys, which
@@ -318,11 +322,13 @@ for (const chain of manifest.chains) {
   for (const [peerType, entries] of Object.entries(chain.peers ?? {})) desired.peers[peerType] = entries;
   for (const s of chain.snapshots ?? []) {
     const { verdict, note } = await probeSnapshot(s);
-    // identity = keyOf.snapshot (latest_url ?? url) so held/unverified lines
-    // reconcile against the merge's added/removed/retained keys. Name the browse
-    // page in the note when it differs so a maintainer can still locate it.
+    // identity = keyOf.snapshot (stable: url|type|db_backend) so held/unverified
+    // lines reconcile against the merge's added/removed/retained keys. The probed
+    // artifact (latest_url) is NOT in the key, so name it in the note when it
+    // differs, letting a maintainer see exactly which file the probe hit.
     const sk = keyOf.snapshot(s);
-    const reason = s.url && s.url !== sk ? `${note} [snapshot page ${s.url}]` : note;
+    const probed = s.latest_url ?? s.url;
+    const reason = probed && probed !== sk ? `${note} [artifact ${probed}]` : note;
     if (verdict === 'dead') {
       report.held_back.push({ chain: chain.chain_id, type: 'snapshot', address: sk, reason });
       markHeld('snapshots', sk);
