@@ -119,7 +119,7 @@ jobs:
             console.log(`\n**Added (${r.added.length})**\n${li(r.added)}`);
             console.log(`\n**Updated (${r.updated.length})**\n${li(r.updated)}`);
             console.log(`\n**Removed — absent from manifest (${r.removed.length})**\n${li(r.removed)}`);
-            console.log(`\n**Retained — failed this run's health check but kept, still in manifest (${retainedLines.length})**\n${retainedLines.length ? retainedLines.join("\n") : "- none"}`);
+            console.log(`\n**Retained — failed the health check this run but kept, still in manifest (${retainedLines.length})**\n${retainedLines.length ? retainedLines.join("\n") : "- none"}`);
             console.log(`\n**Held back — failed health check, not added (${heldExcluded.length})**\n${li(heldExcluded)}`);
             console.log(`\n**Liveness inconclusive — advisory, not treated as dead (${(r.unverified||[]).length} total: ${uvNew.length} newly added, ${uvExisting.length} already present & unchanged)**`);
             console.log(`\n_Newly added this run (${uvNew.length}):_\n${li(uvNew)}`);
