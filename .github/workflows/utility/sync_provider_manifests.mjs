@@ -235,8 +235,20 @@ async function probeSnapshot(s) {
 const keyOf = {
   endpoint: e => e.address,
   peer: p => `${p.id}@${p.address}`,
-  snapshot: s => s.url,
+  // A provider may publish several snapshots at one browse `url` that differ
+  // only by artifact (e.g. goleveldb `x.tar.gz` vs pebbledb `x_pebbledb.tar.gz`).
+  // Keying by `url` alone collapsed them into one — every variant but the last
+  // was dropped and the drop mis-reported as "absent from manifest". Key by the
+  // downloadable artifact (`latest_url`), falling back to `url` when absent.
+  snapshot: s => s.latest_url ?? s.url,
 };
+
+// order-insensitive structural compare: `{...d, provider}` re-orders keys, which
+// must NOT read as a change (it produced churn + a bogus "updated" count each run).
+const canon = (o) => Array.isArray(o) ? `[${o.map(canon).join(',')}]`
+  : (o && typeof o === 'object')
+    ? `{${Object.keys(o).sort().map(k => JSON.stringify(k) + ':' + canon(o[k])).join(',')}}`
+    : JSON.stringify(o);
 
 function mergeArray(existing = [], desired = [], kind, label, held = new Set()) {
   const ours = new Map(desired.map(d => [keyOf[kind](d), { ...d, provider: providerName }]));
@@ -253,8 +265,10 @@ function mergeArray(existing = [], desired = [], kind, label, held = new Set()) 
     const k = keyOf[kind](cur);
     if (ours.has(k)) {
       const next = ours.get(k); ours.delete(k);
-      if (JSON.stringify(next) !== JSON.stringify(cur)) report.updated.push(`${label}: ${k}`);
-      out.push(next);
+      // content compare (not key order): keep the existing entry when unchanged
+      // so a re-ordered-but-identical entry is neither rewritten nor reported.
+      if (canon(next) !== canon(cur)) { report.updated.push(`${label}: ${k}`); out.push(next); }
+      else out.push(cur);
     } else if (held.has(k)) {
       // still in the manifest but failed THIS run's health check: keep the
       // existing entry — the health gate guards what ENTERS; only
@@ -304,34 +318,45 @@ for (const chain of manifest.chains) {
   for (const [peerType, entries] of Object.entries(chain.peers ?? {})) desired.peers[peerType] = entries;
   for (const s of chain.snapshots ?? []) {
     const { verdict, note } = await probeSnapshot(s);
-    // `address` stays s.url — the snapshot's identity key, matching the merge
-    // and the added/removed lines. When a different latest_url was the URL
-    // actually probed, name it in the note so a maintainer can reproduce.
-    const reason = s.latest_url && s.latest_url !== s.url ? `${note} [probed ${s.latest_url}]` : note;
+    // identity = keyOf.snapshot (latest_url ?? url) so held/unverified lines
+    // reconcile against the merge's added/removed/retained keys. Name the browse
+    // page in the note when it differs so a maintainer can still locate it.
+    const sk = keyOf.snapshot(s);
+    const reason = s.url && s.url !== sk ? `${note} [snapshot page ${s.url}]` : note;
     if (verdict === 'dead') {
-      report.held_back.push({ chain: chain.chain_id, type: 'snapshot', address: s.url, reason });
-      markHeld('snapshots', s.url);
+      report.held_back.push({ chain: chain.chain_id, type: 'snapshot', address: sk, reason });
+      markHeld('snapshots', sk);
     } else {
       desired.snapshots.push(s);   // verified or unverified: snapshots are advisory, so sync them
       if (verdict === 'unverified')
-        report.unverified.push({ chain: chain.chain_id, type: 'snapshot', address: s.url, reason });
+        report.unverified.push({ chain: chain.chain_id, type: 'snapshot', address: sk, reason });
     }
   }
 
   const before = JSON.stringify([cj.apis, cj.peers, cj.snapshots]);
+  const touched = new Set();          // only slots THIS run merged may be pruned when empty
   cj.apis ??= {};
   for (const t of ['rpc', 'rest', 'grpc', 'wss', 'grpc-web', 'evm-http-jsonrpc'])
-    if ((desired.apis[t] ?? []).length || (cj.apis[t] ?? []).some(e => e.provider === providerName))
+    if ((desired.apis[t] ?? []).length || (cj.apis[t] ?? []).some(e => e.provider === providerName)) {
       cj.apis[t] = mergeArray(cj.apis[t], desired.apis[t], 'endpoint', `${chain.chain_id}/apis.${t}`, heldKeys[`apis.${t}`]);
+      touched.add(`apis.${t}`);
+    }
   cj.peers ??= {};
   for (const t of ['seeds', 'persistent_peers'])
-    if ((desired.peers[t] ?? []).length || (cj.peers[t] ?? []).some(p => p.provider === providerName))
+    if ((desired.peers[t] ?? []).length || (cj.peers[t] ?? []).some(p => p.provider === providerName)) {
       cj.peers[t] = mergeArray(cj.peers[t], desired.peers[t], 'peer', `${chain.chain_id}/peers.${t}`);
+      touched.add(`peers.${t}`);
+    }
   if (desired.snapshots.length || (cj.snapshots ?? []).some(s => s.provider === providerName))
     cj.snapshots = mergeArray(cj.snapshots, desired.snapshots, 'snapshot', `${chain.chain_id}/snapshots`, heldKeys['snapshots']);
-  // drop blocks we created but left empty (cosmetics: never write "peers": {})
+  // drop ONLY slots this run emptied (cosmetics: never write "peers": {}). A
+  // pre-existing empty array we never merged (e.g. someone else's
+  // "persistent_peers": []) is left alone — pruning it was an unreported,
+  // out-of-provider-scope edit. Empty blocks we ourselves created via ??= are
+  // still cleaned up so we never emit "apis": {}.
   for (const block of ['apis', 'peers']) {
-    for (const k of Object.keys(cj[block] ?? {})) if (!cj[block][k]?.length) delete cj[block][k];
+    for (const k of Object.keys(cj[block] ?? {}))
+      if (!cj[block][k]?.length && touched.has(`${block}.${k}`)) delete cj[block][k];
     if (cj[block] && !Object.keys(cj[block]).length) delete cj[block];
   }
   if (cj.snapshots && !cj.snapshots.length) delete cj.snapshots;
