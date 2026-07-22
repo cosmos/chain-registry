@@ -1,7 +1,7 @@
 {
   "$id": "https://raw.githubusercontent.com/cosmos/chain-registry/master/provider-manifest.schema.json",
   "title": "Provider Manifest",
-  "description": "DRAFT (RFC-provider-manifest). A self-hosted file published by an allowlisted infrastructure provider, declaring the operational data (apis, peers, snapshots) it serves per chain. Field shapes are IDENTICAL to chain.schema.json so the sync bot performs a structural merge, not a translation. Per-entry `provider` strings are intentionally FORBIDDEN here: the bot stamps the allowlisted provider name on every injected entry, so a manifest can never write under another provider's name. Curated fields (chain identity, slip44, fees, staking, assets, IBC, codebase) are not expressible in this schema by construction. NOTE: the `$schema` meta-key is intentionally omitted \u2014 @chain-registry/cli treats any JSON whose $schema is a URL as a registry schema and hard-fails on titles outside its built-in mapping (AssetList/Chain/IBCData/MemoKeys/Versions). AJV validates this file as draft-07 by default. Explorers are deferred from v1: the registry's explorer object has no provider-attribution field (additionalProperties:false), so provider-scoped ownership cannot be expressed until chain.schema.json adds one.",
+  "description": "DRAFT (RFC-provider-manifest). A self-hosted file published by an allowlisted infrastructure provider, declaring the operational data (apis, peers, snapshots) it serves per chain. Field shapes are IDENTICAL to chain.schema.json so the sync bot performs a structural merge, not a translation. Per-entry `provider` strings are intentionally FORBIDDEN here: the bot stamps the allowlisted provider name on every injected entry, so a manifest can never write under another provider's name. Curated fields (chain identity, slip44, fees, staking, assets, IBC, codebase) are not expressible in this schema by construction. NOTE: the `$schema` meta-key is intentionally omitted \u2014 @chain-registry/cli treats any JSON whose $schema is a URL as a registry schema and hard-fails on titles outside its built-in mapping (AssetList/Chain/IBCData/MemoKeys/Versions). AJV validates this file as draft-07 by default. Explorers are deferred from v1: the registry's explorer object has no provider-attribution field (additionalProperties:false), so provider-scoped ownership cannot be expressed until chain.schema.json adds one. Address fields carry per-type FORMAT patterns (http(s) URL for rpc/rest/evm-http-jsonrpc; ws(s) URL for wss; URL-or-host:port for grpc/grpc-web; host:port for peers; http(s) URL for snapshot urls) — a manifest-side tightening only (field shapes still mirror the registry schema, which is unchanged): a malformed address rejects the whole manifest upfront rather than reaching the merge stage, where an address reformat reads as remove-live-entry + add-held-back-entry.",
   "type": "object",
   "required": [
     "manifest_version",
@@ -90,37 +90,37 @@
               "rpc": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/$defs/endpoint"
+                  "$ref": "#/$defs/endpoint_http"
                 }
               },
               "rest": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/$defs/endpoint"
+                  "$ref": "#/$defs/endpoint_http"
                 }
               },
               "grpc": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/$defs/endpoint"
+                  "$ref": "#/$defs/endpoint_grpc"
                 }
               },
               "wss": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/$defs/endpoint"
+                  "$ref": "#/$defs/endpoint_ws"
                 }
               },
               "grpc-web": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/$defs/endpoint"
+                  "$ref": "#/$defs/endpoint_grpc"
                 }
               },
               "evm-http-jsonrpc": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/$defs/endpoint"
+                  "$ref": "#/$defs/endpoint_http"
                 }
               }
             }
@@ -154,9 +154,9 @@
     }
   },
   "$defs": {
-    "endpoint": {
+    "endpoint_http": {
       "type": "object",
-      "description": "Mirror of chain.schema.json $defs/endpoint MINUS `provider` (stamped by the bot).",
+      "description": "Mirror of chain.schema.json $defs/endpoint MINUS `provider` (stamped by the bot), PLUS an address format pattern: rpc/rest/evm-http-jsonrpc addresses must be http(s) URLs. A malformed address fails validation upfront (whole-manifest reject) instead of reaching the health/merge stage, where a reformatted address reads as remove-old-entry + add-held-back-entry and silently drops live registry data.",
       "required": [
         "address"
       ],
@@ -164,7 +164,43 @@
       "properties": {
         "address": {
           "type": "string",
-          "minLength": 1
+          "pattern": "^https?://\\S+$"
+        },
+        "archive": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "endpoint_ws": {
+      "type": "object",
+      "description": "Same as endpoint_http but for websocket endpoints: address must be a ws(s) URL.",
+      "required": [
+        "address"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^wss?://\\S+$"
+        },
+        "archive": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "endpoint_grpc": {
+      "type": "object",
+      "description": "Same as endpoint_http but for grpc/grpc-web: BOTH registry conventions are accepted — an http(s) URL (TLS on 443 implied) or a bare host:port. A bare hostname without a port is rejected: it is not dialable and is the single format the health check can never pass.",
+      "required": [
+        "address"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^(https?://\\S+|[^\\s/]+:\\d{1,5})$"
         },
         "archive": {
           "type": "boolean",
@@ -174,7 +210,7 @@
     },
     "peer": {
       "type": "object",
-      "description": "Mirror of chain.schema.json $defs/peer MINUS `provider` (stamped by the bot).",
+      "description": "Mirror of chain.schema.json $defs/peer MINUS `provider` (stamped by the bot). Address must be host:port — a portless peer cannot be dialed by any node.",
       "required": [
         "id",
         "address"
@@ -188,7 +224,7 @@
         },
         "address": {
           "type": "string",
-          "minLength": 1
+          "pattern": "^[^\\s/]+:\\d{1,5}$"
         }
       }
     },
@@ -202,11 +238,11 @@
       "properties": {
         "url": {
           "type": "string",
-          "minLength": 1
+          "pattern": "^https?://\\S+$"
         },
         "latest_url": {
           "type": "string",
-          "minLength": 1
+          "pattern": "^https?://\\S+$"
         },
         "type": {
           "type": "string",
