@@ -336,10 +336,10 @@ function checkEndpointAddressFormat(id, context, objectType, checks, errorMsgs) 
     "rest": /^https?:\/\/\S+$/,
     "evm-http-jsonrpc": /^https?:\/\/\S+$/,
     "wss": /^wss?:\/\/\S+$/,
-    "grpc": /^(https?:\/\/\S+|[^\s/]+:\d{1,5})$/,
-    "grpc-web": /^(https?:\/\/\S+|[^\s/]+:\d{1,5})$/,
+    "grpc": /^(https?:\/\/\S+|[^\s/]+:(?:[0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))$/,
+    "grpc-web": /^(https?:\/\/\S+|[^\s/]+:(?:[0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))$/,
   };
-  const peerPattern = /^[^\s/]+:\d{1,5}$/;
+  const peerPattern = /^[^\s/]+:(?:[0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$/;
   const expected = (t) => t === "wss" ? "a ws(s):// URL"
     : (t === "grpc" || t === "grpc-web") ? "an http(s):// URL or host:port"
     : "an http(s):// URL";
