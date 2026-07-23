@@ -1,0 +1,40 @@
+{
+  "chain_name": "islamicchain",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "IslamicChain",
+  "chain_id": "islamicchain-1",
+  "bech32_prefix": "islamicchain",
+  "daemon_name": "islamicchaind",
+  "node_home": "$HOME/.islamicchain",
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "unfuel",
+        "fixed_min_gas_price": 0.100
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "http://127.0.0.1:8090",
+        "provider": "IslamicChain"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://signer.islamicchain.org/sign",
+        "provider": "IslamicChain"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Explorer",
+      "url": "https:/islamicchain.org",
+      "tx_page": "https://islamicchain.org/transaction.php?hash=<tx_hash>"
+    }
+  ]
+}
