@@ -319,7 +319,29 @@ for (const chain of manifest.chains) {
       }
     }
   }
-  for (const [peerType, entries] of Object.entries(chain.peers ?? {})) desired.peers[peerType] = entries;
+  // Peers get an ADVISORY TCP dial — mirroring the snapshot probe philosophy,
+  // NOT a gate. Pilot evidence: hardened operators firewall their seed/P2P
+  // ports against unknown dialers (all of Polkachu seed ports actively REFUSE
+  // from datacenter IPs while the operator is demonstrably live), so a
+  // refused/timed-out connect proves reachability-from-HERE, not absence.
+  // Entries always sync; failures are flagged in the liveness-inconclusive
+  // report section. The node ID is not verified either way — proving it needs
+  // a Tendermint P2P secret-connection handshake (the ID is the peer pubkey
+  // hash, only provable in-protocol), deferred from v1.
+  for (const [peerType, entries] of Object.entries(chain.peers ?? {})) {
+    desired.peers[peerType] = [];
+    for (const p of entries) {
+      const pk = keyOf.peer(p);
+      desired.peers[peerType].push(p);
+      try {
+        const evidence = await reach(p.address);
+        console.log(`  ok  ${chain.chain_id} peers.${peerType} ${pk} (${evidence})`);
+      } catch (err) {
+        report.unverified.push({ chain: chain.chain_id, type: `peers.${peerType}`, address: pk, reason: `dial failed: ${err.message} (inconclusive; P2P ports are commonly firewalled)` });
+        console.log(`  DIAL? ${chain.chain_id} peers.${peerType} ${pk}: ${err.message}`);
+      }
+    }
+  }
   for (const s of chain.snapshots ?? []) {
     const { verdict, note } = await probeSnapshot(s);
     // identity = keyOf.snapshot (stable: url|type|db_backend) so held/unverified
@@ -350,7 +372,7 @@ for (const chain of manifest.chains) {
   cj.peers ??= {};
   for (const t of ['seeds', 'persistent_peers'])
     if ((desired.peers[t] ?? []).length || (cj.peers[t] ?? []).some(p => p.provider === providerName)) {
-      cj.peers[t] = mergeArray(cj.peers[t], desired.peers[t], 'peer', `${chain.chain_id}/peers.${t}`);
+      cj.peers[t] = mergeArray(cj.peers[t], desired.peers[t], 'peer', `${chain.chain_id}/peers.${t}`, heldKeys[`peers.${t}`]);
       touched.add(`peers.${t}`);
     }
   if (desired.snapshots.length || (cj.snapshots ?? []).some(s => s.provider === providerName))

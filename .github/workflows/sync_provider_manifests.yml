@@ -96,8 +96,8 @@ jobs:
             const r = require(process.argv[1]);
             const li = (xs) => xs.length ? xs.map(x => "- " + (typeof x === "string" ? x : `${x.chain} ${x.type} ${x.address} — ${x.reason}`)).join("\n") : "- none";
             // Reconciliation keys. held_back/unverified carry {chain,type,address}; retained/added are
-            // "label: key" strings where label is `${chain}/apis.${type}` (or `${chain}/snapshots`).
-            const hbKey = (h) => h.type === "snapshot" ? `${h.chain}/snapshots: ${h.address}` : `${h.chain}/apis.${h.type}: ${h.address}`;
+            // "label: key" strings where label is `${chain}/apis.${type}`, `${chain}/peers.${type}`, or `${chain}/snapshots`.
+            const hbKey = (h) => h.type === "snapshot" ? `${h.chain}/snapshots: ${h.address}` : h.type.startsWith("peers.") ? `${h.chain}/${h.type}: ${h.address}` : `${h.chain}/apis.${h.type}: ${h.address}`;
             const retainedKeys = new Set((r.retained||[]).map(s => s.replace(/ \(health check failed this run; kept[^)]*\)$/, "")));
             const reasonOf = new Map((r.held_back||[]).map(h => [hbKey(h), h.reason]));
             const addedKeys = new Set(r.added||[]);
