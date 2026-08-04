@@ -1,0 +1,129 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "kiichaintestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "pretty_name": "KiiChain Testnet",
+  "chain_type": "cosmos",
+  "chain_id": "oro_1336-1",
+  "bech32_prefix": "kii",
+  "daemon_name": "kiichaind",
+  "node_home": "$HOME/.kiichain",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "akii",
+        "low_gas_price": 600000000,
+        "average_gas_price": 750000000,
+        "high_gas_price": 1000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "akii"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/KiiChain/kiichain",
+    "recommended_version": "v7.2.0",
+    "compatible_versions": [
+      "v7.2.0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.53"
+    },
+    "cosmwasm": {
+      "enabled": true
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/main/testnet_oro/genesis.json"
+    },
+    "tag": "v7.2.0"
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "5b6aa55124c0fd28e47d7da091a69973964a9fe1",
+        "address": "uno.sentry.testnet.v3.kiivalidator.com:26656"
+      },
+      {
+        "id": "26656,5e6b283c8879e8d1b0866bda20949f9886aff967",
+        "address": "dos.sentry.testnet.v3.kiivalidator.com:26656"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.uno.sentry.testnet.v3.kiivalidator.com",
+        "provider": "Kiichain"
+      },
+      {
+        "address": "https://rpc.dos.sentry.testnet.v3.kiivalidator.com",
+        "provider": "Kiichain"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lcd.uno.sentry.testnet.v3.kiivalidator.com",
+        "provider": "Kiichain"
+      },
+      {
+        "address": "https://lcd.dos.sentry.testnet.v3.kiivalidator.com",
+        "provider": "Kiichain"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.uno.sentry.testnet.v3.kiivalidator.com:443",
+        "provider": "Kiichain"
+      },
+      {
+        "address": "grpc.dos.sentry.testnet.v3.kiivalidator.com:443",
+        "provider": "Kiichain"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://json-rpc.uno.sentry.testnet.v3.kiivalidator.com",
+        "provider": "Kiichain"
+      },
+      {
+        "address": "https://json-rpc.dos.sentry.testnet.v3.kiivalidator.com",
+        "provider": "Kiichain"
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/kiichaintestnet/images/kii.png"
+  },
+  "explorers": [
+    {
+      "kind": "custom",
+      "url": "https://explorer.kiichain.io",
+      "account_page": "https://explorer.kiichain.io/address/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "RWA",
+    "stablecoins",
+    "kii"
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/kiichaintestnet/images/kii.png"
+    }
+  ]
+}
