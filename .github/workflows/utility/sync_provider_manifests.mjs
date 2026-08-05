@@ -6,8 +6,9 @@
 //
 // Invocation:  PROVIDER_NAME="Example Infra" node sync_provider_manifests.mjs
 // Exit codes:  0 = changes applied (commit+PR)
-//             78 = clean run, no changes (workflow skips PR)
-//              1 = hard error (bad manifest, identity mismatch, fetch failure)
+//             78 = clean run, no changes (workflow skips PR), or the manifest was
+//                  unreachable after retries (transient: timeout/DNS/429/5xx)
+//              1 = hard error (bad manifest, identity mismatch, HTTP 4xx)
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -20,7 +21,12 @@ const REPO_ROOT = path.join(process.cwd(), '..', '..', '..');
 const ALLOWLIST = path.join(REPO_ROOT, '_providers', 'provider-allowlist.json');
 const MANIFEST_SCHEMA = path.join(REPO_ROOT, 'provider-manifest.schema.json');
 
-const FETCH_TIMEOUT_MS = 10_000;
+// 25s, not 10s: providers serving from a bare origin (cumulo.pro answers from its own
+// HTTPd, not a CDN edge) pay full RTT + TLS from the runner and overran a 10s budget on
+// the 2026-07-30 and 2026-08-03 scheduled runs.
+const FETCH_TIMEOUT_MS = 25_000;
+const FETCH_ATTEMPTS = 3;
+const FETCH_BACKOFF_MS = [2_000, 5_000];
 const MAX_MANIFEST_BYTES = 512 * 1024;
 const HEALTH_TIMEOUT_MS = 15_000;
 
@@ -33,7 +39,8 @@ if (!providerName) { console.error('PROVIDER_NAME env var required'); process.ex
 
 const report = { provider: providerName, fetched_at: new Date().toISOString(),
                  manifest_url: null, manifest_sha256: null,
-                 added: [], updated: [], removed: [], retained: [], held_back: [], unverified: [], conflicts: [], skipped_chains: [] };
+                 added: [], updated: [], removed: [], retained: [], held_back: [], unverified: [], conflicts: [], skipped_chains: [],
+                 error: null };   // set when the manifest never arrived, so a neutral exit still shows why
 
 // ---------- 1. Allowlist lookup ----------
 const allowlist = JSON.parse(fs.readFileSync(ALLOWLIST, 'utf8'));
@@ -43,26 +50,90 @@ report.manifest_url = entry.manifest_url;
 const allowedOrigin = new URL(entry.manifest_url).origin;
 
 // ---------- 2. Fetch (size cap, timeout, no cross-origin redirects) ----------
+// Network faults that a provider must fix and that never heal on their own. Retrying them
+// is futile, and letting them exit neutral would strand a provider silently: the run stays
+// green while it quietly stops syncing. EAI_AGAIN is the retryable DNS code and is absent
+// here on purpose; ENOTFOUND is NXDOMAIN, i.e. the manifest host no longer exists.
+const PERMANENT_NET_CODES = new Set([
+  'CERT_HAS_EXPIRED', 'CERT_NOT_YET_VALID', 'DEPTH_ZERO_SELF_SIGNED_CERT',
+  'SELF_SIGNED_CERT_IN_CHAIN', 'UNABLE_TO_VERIFY_LEAF_SIGNATURE',
+  'UNABLE_TO_GET_ISSUER_CERT', 'UNABLE_TO_GET_ISSUER_CERT_LOCALLY',
+  'ERR_TLS_CERT_ALTNAME_INVALID', 'ERR_SSL_WRONG_VERSION_NUMBER',
+  'ENOTFOUND',
+]);
+
+// Node's fetch reports the real reason on .cause and leaves the top-level message as the
+// useless "fetch failed"; AbortSignal.timeout instead throws a DOMException directly, whose
+// numeric legacy .code must not be mistaken for an error string.
+function classifyNetError(e) {
+  const raw = e?.cause?.code ?? e?.code;
+  const code = typeof raw === 'string' ? raw : undefined;
+  const msg = e?.cause?.message || e?.message || String(e);
+  const err = new Error(code ? `${msg} (${code})` : msg);
+  err.transient = !(code && PERMANENT_NET_CODES.has(code));
+  return err;
+}
+
 async function fetchManifest(url, hops = 0) {
   if (hops > 5) throw new Error('too many redirects');
-  const res = await fetch(url, {
-    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-    redirect: 'manual',
-  });
+  let res;
+  try {
+    res = await fetch(url, {
+      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      redirect: 'manual',
+    });
+  } catch (e) {
+    throw classifyNetError(e);                           // no HTTP response at all
+  }
   if (res.status >= 300 && res.status < 400) {
     const loc = new URL(res.headers.get('location'), url);
     if (loc.origin !== allowedOrigin) throw new Error(`redirect off-domain: ${loc.origin}`);
     return fetchManifest(loc.href, hops + 1);            // same-origin redirect ok
   }
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const buf = Buffer.from(await res.arrayBuffer());
+  if (!res.ok) {
+    const err = new Error(`HTTP ${res.status}`);
+    err.transient = res.status === 429 || res.status >= 500;   // 4xx = the manifest is really gone
+    throw err;
+  }
+  let buf;
+  try {
+    buf = Buffer.from(await res.arrayBuffer());
+  } catch (e) {
+    // Headers arrived but the body did not: a reset or a timeout mid-stream is the same
+    // infrastructure class as a failure before the response, so it retries too.
+    throw classifyNetError(e);
+  }
   if (buf.length > MAX_MANIFEST_BYTES) throw new Error(`manifest too large: ${buf.length}B`);
   return buf;
 }
 
+// Retry only the transient classes; a 404 or an off-domain redirect is answered the same
+// way on every attempt, so retrying it just burns runner minutes.
+async function fetchManifestWithRetry(url) {
+  for (let attempt = 1; ; attempt++) {
+    try { return await fetchManifest(url); }
+    catch (e) {
+      if (!e.transient || attempt >= FETCH_ATTEMPTS) throw e;
+      const wait = FETCH_BACKOFF_MS[attempt - 1] ?? FETCH_BACKOFF_MS.at(-1);
+      console.error(`Fetch attempt ${attempt}/${FETCH_ATTEMPTS} failed (${e.message}); retrying in ${wait}ms`);
+      await new Promise(r => setTimeout(r, wait));
+    }
+  }
+}
+
 let manifestRaw;
-try { manifestRaw = await fetchManifest(entry.manifest_url); }
-catch (e) { console.error(`Fetch failed: ${e.message}`); writeReport(); process.exit(1); }
+try { manifestRaw = await fetchManifestWithRetry(entry.manifest_url); }
+catch (e) {
+  console.error(`Fetch failed: ${e.message}`);
+  report.error = e.transient
+    ? `manifest unreachable after ${FETCH_ATTEMPTS} attempts: ${e.message}`
+    : `manifest fetch failed: ${e.message}`;
+  writeReport();
+  // Unreachable is not the same as wrong. Exit 78 (neutral, no PR) so a provider-side
+  // blip doesn't fail the whole scheduled matrix; real faults still exit 1. report.error
+  // keeps the neutral case visible in the job summary instead of reading as a clean run.
+  process.exit(e.transient ? 78 : 1);
+}
 report.manifest_sha256 = (await import('crypto')).createHash('sha256').update(manifestRaw).digest('hex');
 
 // ---------- 3. Schema validation (whole-file reject on any error) ----------
