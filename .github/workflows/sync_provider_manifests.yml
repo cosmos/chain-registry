@@ -116,6 +116,8 @@ jobs:
             const uvNew = (r.unverified||[]).filter(u => addedKeys.has(hbKey(u)));
             const uvExisting = (r.unverified||[]).filter(u => !addedKeys.has(hbKey(u)));
             console.log(`**Sync report** (manifest sha256 \`${(r.manifest_sha256||"").slice(0,12)}\`, fetched ${r.fetched_at})`);
+            // A neutral exit must not read as a clean run: say so loudly when nothing arrived.
+            if (r.error) console.log(`\n> [!WARNING]\n> **No manifest was applied this run.** ${r.error}`);
             console.log(`\n**Added (${r.added.length})**\n${li(r.added)}`);
             console.log(`\n**Updated (${r.updated.length})**\n${li(r.updated)}`);
             console.log(`\n**Removed — absent from manifest (${r.removed.length})**\n${li(r.removed)}`);
