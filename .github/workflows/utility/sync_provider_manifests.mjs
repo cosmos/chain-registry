@@ -6,8 +6,9 @@
 //
 // Invocation:  PROVIDER_NAME="Example Infra" node sync_provider_manifests.mjs
 // Exit codes:  0 = changes applied (commit+PR)
-//             78 = clean run, no changes (workflow skips PR)
-//              1 = hard error (bad manifest, identity mismatch, fetch failure)
+//             78 = clean run, no changes (workflow skips PR), or the manifest was
+//                  unreachable after retries (transient: timeout/DNS/429/5xx)
+//              1 = hard error (bad manifest, identity mismatch, HTTP 4xx)
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -20,7 +21,12 @@ const REPO_ROOT = path.join(process.cwd(), '..', '..', '..');
 const ALLOWLIST = path.join(REPO_ROOT, '_providers', 'provider-allowlist.json');
 const MANIFEST_SCHEMA = path.join(REPO_ROOT, 'provider-manifest.schema.json');
 
-const FETCH_TIMEOUT_MS = 10_000;
+// 25s, not 10s: providers serving from a bare origin (cumulo.pro answers from its own
+// HTTPd, not a CDN edge) pay full RTT + TLS from the runner and overran a 10s budget on
+// the 2026-07-30 and 2026-08-03 scheduled runs.
+const FETCH_TIMEOUT_MS = 25_000;
+const FETCH_ATTEMPTS = 3;
+const FETCH_BACKOFF_MS = [2_000, 5_000];
 const MAX_MANIFEST_BYTES = 512 * 1024;
 const HEALTH_TIMEOUT_MS = 15_000;
 
@@ -45,24 +51,57 @@ const allowedOrigin = new URL(entry.manifest_url).origin;
 // ---------- 2. Fetch (size cap, timeout, no cross-origin redirects) ----------
 async function fetchManifest(url, hops = 0) {
   if (hops > 5) throw new Error('too many redirects');
-  const res = await fetch(url, {
-    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-    redirect: 'manual',
-  });
+  let res;
+  try {
+    res = await fetch(url, {
+      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      redirect: 'manual',
+    });
+  } catch (e) {
+    // No HTTP response at all (timeout / DNS / reset). AbortSignal.timeout throws a
+    // DOMException, so re-wrap rather than tagging it in place.
+    const err = new Error(e?.message || String(e));
+    err.transient = true;
+    throw err;
+  }
   if (res.status >= 300 && res.status < 400) {
     const loc = new URL(res.headers.get('location'), url);
     if (loc.origin !== allowedOrigin) throw new Error(`redirect off-domain: ${loc.origin}`);
     return fetchManifest(loc.href, hops + 1);            // same-origin redirect ok
   }
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  if (!res.ok) {
+    const err = new Error(`HTTP ${res.status}`);
+    err.transient = res.status === 429 || res.status >= 500;   // 4xx = the manifest is really gone
+    throw err;
+  }
   const buf = Buffer.from(await res.arrayBuffer());
   if (buf.length > MAX_MANIFEST_BYTES) throw new Error(`manifest too large: ${buf.length}B`);
   return buf;
 }
 
+// Retry only the transient classes; a 404 or an off-domain redirect is answered the same
+// way on every attempt, so retrying it just burns runner minutes.
+async function fetchManifestWithRetry(url) {
+  for (let attempt = 1; ; attempt++) {
+    try { return await fetchManifest(url); }
+    catch (e) {
+      if (!e.transient || attempt >= FETCH_ATTEMPTS) throw e;
+      const wait = FETCH_BACKOFF_MS[attempt - 1] ?? FETCH_BACKOFF_MS.at(-1);
+      console.error(`Fetch attempt ${attempt}/${FETCH_ATTEMPTS} failed (${e.message}); retrying in ${wait}ms`);
+      await new Promise(r => setTimeout(r, wait));
+    }
+  }
+}
+
 let manifestRaw;
-try { manifestRaw = await fetchManifest(entry.manifest_url); }
-catch (e) { console.error(`Fetch failed: ${e.message}`); writeReport(); process.exit(1); }
+try { manifestRaw = await fetchManifestWithRetry(entry.manifest_url); }
+catch (e) {
+  console.error(`Fetch failed: ${e.message}`);
+  writeReport();
+  // Unreachable is not the same as wrong. Exit 78 (neutral, no PR) so a provider-side
+  // blip doesn't fail the whole scheduled matrix; real faults still exit 1.
+  process.exit(e.transient ? 78 : 1);
+}
 report.manifest_sha256 = (await import('crypto')).createHash('sha256').update(manifestRaw).digest('hex');
 
 // ---------- 3. Schema validation (whole-file reject on any error) ----------
