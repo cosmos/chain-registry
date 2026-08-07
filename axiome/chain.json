@@ -1,0 +1,77 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "axiome",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://axiome.pro/",
+  "pretty_name": "Axiome",
+  "chain_type": "cosmos",
+  "chain_id": "axiome-1",
+  "bech32_prefix": "axm",
+  "daemon_name": "axmd",
+  "node_home": "$HOME/.axmd",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 546,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uaxm",
+        "fixed_min_gas_price": 1,
+        "low_gas_price": 1,
+        "average_gas_price": 1.65,
+        "high_gas_price": 7.4
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/axiome-pro/axm-node",
+    "recommended_version": "v2.2.1",
+    "compatible_versions": [
+      "v2.2.1"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.5"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.3"
+    },
+    "cosmwasm": {
+      "version": "v0.50.0",
+      "enabled": true
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axiome/images/axiome.png"
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://api-chain.axiomechain.org",
+        "provider": "Axiome"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://axm-lcd.trickle.pro",
+        "provider": "Trickle"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Axiome Explorer",
+      "url": "https://axiomechain.pro",
+      "tx_page": "https://axiomechain.pro/transactions/${txHash}",
+      "account_page": "https://axiomechain.pro/address/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/axiome/images/axiome.png"
+    }
+  ]
+}
