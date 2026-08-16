@@ -149,6 +149,11 @@
         "id": "9b1d22c3a78487d1a664a4b6a331fce527d14fb4",
         "address": "seed.celestia.mainnet.dteam.tech:27656",
         "provider": "DTEAM"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:11656",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
@@ -163,19 +168,9 @@
         "provider": "Stakeflow"
       },
       {
-        "id": "6de4ce5baa9d2bed33c0c53b9518b907cfaab33b",
-        "address": "65.108.128.201:11656",
-        "provider": "Polkachu"
-      },
-      {
         "id": "a26091f9c247c1e68410a4e8b107a715a0e886f6",
         "address": "65.108.226.26:29656",
         "provider": "[NODERS]TEAM"
-      },
-      {
-        "id": "c48d92566837d95f1eeae5815ac7e70fb80416f7",
-        "address": "74.208.94.42:26656",
-        "provider": "Cumulo"
       },
       {
         "id": "8de3b1534abc9d565f232982c0fb7933c0038ead",
@@ -206,6 +201,10 @@
   },
   "apis": {
     "rpc": [
+      {
+        "address": "https://celestia.rpc.uquad.org:443",
+        "provider": "QUAD"
+      },
       {
         "address": "https://public-celestia-rpc.numia.xyz",
         "provider": "Numia"
@@ -239,10 +238,6 @@
         "provider": "kjnodes"
       },
       {
-        "address": "https://celestia-rpc.polkachu.com",
-        "provider": "Polkachu"
-      },
-      {
         "address": "https://rpc-celestia.mzonder.com",
         "provider": "MZONDER"
       },
@@ -265,10 +260,6 @@
       {
         "address": "https://rpc.freshstaking.com/celestia",
         "provider": "FreshSTAKING"
-      },
-      {
-        "address": "https://celestia.cumulo.org.es/",
-        "provider": "Cumulo"
       },
       {
         "address": "https://rpc.celestia-app.bronbro.io",
@@ -301,9 +292,21 @@
       {
         "address": "https://rpc.archive.celestia.validatus.com",
         "provider": "Validatus"
+      },
+      {
+        "address": "https://celestia-rpc.polkachu.com:443",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://celestia.cumulo.org.es",
+        "provider": "Cumulo"
       }
     ],
     "rest": [
+      {
+        "address": "https://celestia.rpc.uquad.org:443",
+        "provider": "QUAD"
+      },
       {
         "address": "https://public-celestia-lcd.numia.xyz",
         "provider": "Numia"
@@ -387,6 +390,10 @@
       {
         "address": "https://api.archive.celestia.validatus.com",
         "provider": "Validatus"
+      },
+      {
+        "address": "https://celestia-api.polkachu.com",
+        "provider": "Polkachu"
       }
     ],
     "grpc": [
@@ -431,10 +438,6 @@
         "provider": "Validatus"
       },
       {
-        "address": "celestia.grpc.cumulo.org.es",
-        "provider": "Cumulo"
-      },
-      {
         "address": "grpc.celestia-app.bronbro.io:443",
         "provider": "Bro_n_Bro"
       },
@@ -457,6 +460,20 @@
       {
         "address": "grpc.archive.celestia.validatus.com:2125",
         "provider": "Validatus"
+      },
+      {
+        "address": "celestia-grpc.polkachu.com:11690",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://celestia.grpc.cumulo.org.es",
+        "provider": "Cumulo"
+      }
+    ],
+    "wss": [
+      {
+        "address": "wss://celestia.cumulo.org.es/websocket",
+        "provider": "Cumulo"
       }
     ]
   },
@@ -543,12 +560,27 @@
       "url": "https://celestia.valopers.com/",
       "tx_page": "https://celestia.valopers.com/transactions/${txHash}",
       "account_page": "https://celestia.valopers.com/account/${accountAddress}"
+    },
+    {
+      "kind": "moon-runners",
+      "url": "https://moon-runners.net/celestia/mainnet",
+      "tx_page": "https://moon-runners.net/celestia/mainnet/finder?search=${txHash}",
+      "account_page": "https://moon-runners.net/celestia/mainnet/finder?search=${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg"
+    }
+  ],
+  "snapshots": [
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/celestia",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
     }
   ]
 }

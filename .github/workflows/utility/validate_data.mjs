@@ -316,6 +316,66 @@ function checkSlip44(id, context, objectType, checks, errorMsgs) {
 
 }
 
+function checkEndpointAddressFormat(id, context, objectType, checks, errorMsgs) {
+
+  //--Name--
+  const checkType = "checkEndpointAddressFormat";
+  const errorNotice = "Some API or peer addresses are malformed!";
+
+  //--Prerequisistes--
+  const prerequisites = [];
+  for (const checkType of prerequisites) {
+    if (!getCheckStatus(checks, id, checkType)) return false;
+  }
+
+  // Per-type address formats, kept in lockstep with provider-manifest.schema.json:
+  //   rpc/rest/evm-http-jsonrpc -> http(s) URL; wss -> ws(s) URL;
+  //   grpc/grpc-web -> http(s) URL OR bare host:port (no path); peers -> host:port.
+  const apiPatterns = {
+    "rpc": /^https?:\/\/\S+$/,
+    "rest": /^https?:\/\/\S+$/,
+    "evm-http-jsonrpc": /^https?:\/\/\S+$/,
+    "wss": /^wss?:\/\/\S+$/,
+    "grpc": /^(https?:\/\/\S+|[^\s/]+:(?:[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))$/,
+    "grpc-web": /^(https?:\/\/\S+|[^\s/]+:(?:[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))$/,
+  };
+  const peerPattern = /^[^\s/]+:(?:[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$/;
+  const expected = (t) => t === "wss" ? "a ws(s):// URL"
+    : (t === "grpc" || t === "grpc-web") ? "an http(s):// URL or host:port"
+    : "an http(s):// URL";
+
+  //--Logic--
+  let pass = true;
+  let chain_name = chain_reg.getFileProperty(id.chain_name, "chain", "chain_name");
+  if (!chain_name) return; //Skip check if there is no chain.json file
+  const apis = chain_reg.getFileProperty(id.chain_name, "chain", "apis") || {};
+  for (const [apiType, entries] of Object.entries(apis)) {
+    const pattern = apiPatterns[apiType];
+    if (!pattern) continue;
+    for (const e of entries || []) {
+      if (typeof e?.address === "string" && pattern.test(e.address)) continue;
+      //--Error--
+      const errorMsg = `Chain ${id.chain_name} apis.${apiType} address "${e?.address}" is malformed (expected ${expected(apiType)}).`;
+      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+      pass = false;
+    }
+  }
+  const peers = chain_reg.getFileProperty(id.chain_name, "chain", "peers") || {};
+  for (const [peerType, entries] of Object.entries(peers)) {
+    for (const p of entries || []) {
+      if (typeof p?.address === "string" && peerPattern.test(p.address)) continue;
+      //--Error--
+      const errorMsg = `Chain ${id.chain_name} peers.${peerType} address "${p?.address}" is malformed (expected host:port).`;
+      addErrorInstance(errorMsgs, objectType, checkType, errorNotice, errorMsg);
+      pass = false;
+    }
+  }
+
+  setCheckStatus(checks, id, checkType, pass);
+  return pass;
+
+}
+
 function checkFeeTokenHasDenom(id, context, objectType, checks, errorMsgs) {
 
   //--Name--
@@ -2052,6 +2112,9 @@ export async function validate_chains(errorMsgs) {
 
     //check for slip44
     checkSlip44(id, context, objectType, checks, errorMsgs);
+
+    //check api endpoint and peer address formats
+    checkEndpointAddressFormat(id, context, objectType, checks, errorMsgs);
 
     //check fee_tokens
     checkFeeTokens(id, context, objectType, checks, errorMsgs);

@@ -241,12 +241,12 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-akash.ecostake.com:443",
-        "provider": "ecostake"
+        "address": "https://akash.rpc.uquad.org:443",
+        "provider": "QUAD"
       },
       {
-        "address": "https://akash-rpc.polkachu.com",
-        "provider": "Polkachu"
+        "address": "https://rpc-akash.ecostake.com:443",
+        "provider": "ecostake"
       },
       {
         "address": "https://akash-rpc.kleomedes.network",
@@ -267,9 +267,17 @@
       {
         "address": "https://akash.api.pocket.network",
         "provider": "Pocket Network"
+      },
+      {
+        "address": "https://akash-rpc.polkachu.com:443",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
+      {
+        "address": "https://akash.rpc.uquad.org:443",
+        "provider": "QUAD"
+      },
       {
         "address": "https://rest-akash.ecostake.com",
         "provider": "ecostake"
@@ -315,6 +323,10 @@
       {
         "address": "akash-grpc.publicnode.com:443",
         "provider": "Allnodes ⚡️ Nodes & Staking"
+      },
+      {
+        "address": "akash-grpc.polkachu.com:12890",
+        "provider": "Polkachu"
       }
     ]
   },
@@ -374,6 +386,12 @@
       "url": "https://akash.valopers.com/",
       "tx_page": "https://akash.valopers.com/transactions/${txHash}",
       "account_page": "https://akash.valopers.com/account/${accountAddress}"
+    },
+    {
+      "kind": "moon-runners",
+      "url": "https://moon-runners.net/akash/mainnet",
+      "tx_page": "https://moon-runners.net/akash/mainnet/finder?search=${txHash}",
+      "account_page": "https://moon-runners.net/akash/mainnet/finder?search=${accountAddress}"
     }
   ],
   "images": [
@@ -392,6 +410,20 @@
       "frequency": "every 3h",
       "compression": "tar",
       "checksum_available": true
+    },
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/akash",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
+    },
+    {
+      "url": "https://kleomedes.cloud/chains/akash",
+      "latest_url": "https://api.kleomedes.network/api/v2/snapshots/akash/latest",
+      "type": "pruned",
+      "compression": "zstd",
+      "provider": "Kleomedes"
     }
   ]
 }
