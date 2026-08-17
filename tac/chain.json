@@ -1,0 +1,156 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "tac",
+  "status": "live",
+  "website": "https://tac.build/",
+  "network_type": "mainnet",
+  "pretty_name": "TAC",
+  "chain_type": "cosmos",
+  "chain_id": "tacchain_239-1",
+  "bech32_prefix": "tac",
+  "daemon_name": "tacchaind",
+  "node_home": "$HOME/.tacchaind",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "utac",
+        "fixed_min_gas_price": 25000000000,
+        "low_gas_price": 320000000000,
+        "average_gas_price": 400000000000,
+        "high_gas_price": 800000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "utac"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/TacBuild/tacchain",
+    "recommended_version": "v1.6.0",
+    "compatible_versions": [
+      "v1.6.0"
+    ],
+    "tag": "v1.6.0",
+    "language": {
+      "type": "go",
+      "version": "1.23.8"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/cosmos/cosmos-sdk",
+      "version": "v0.53.6"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.21"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v10.3.1",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/TacBuild/tacchain/main/networks/tacchain_239-1/genesis.json"
+    }
+  },
+  "description": "TAC is a Cosmos SDK-based EVM Layer 1 that lets Ethereum applications serve Telegram users through the TON ecosystem.",
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "d0a80c43a10a6b60475864728db6d9ba4ead42d2",
+        "address": "107.6.113.60:58960",
+        "provider": "TAC"
+      },
+      {
+        "id": "10550a03e4f7fa487c78fbd07e0770e2b0f085c7",
+        "address": "64.46.115.78:58960",
+        "provider": "TAC"
+      },
+      {
+        "id": "0efae9d157f0ef60ad7d25507d6939799f832e34",
+        "address": "173.244.202.99:58960",
+        "provider": "TAC"
+      },
+      {
+        "id": "78079166d06e345dbf4a5c932ee3c69a04148e92",
+        "address": "107.6.91.38:58960",
+        "provider": "TAC"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.ankr.com/http/tac_tendermint",
+        "provider": "Ankr"
+      },
+      {
+        "address": "https://rpc.tac.nodestake.org",
+        "provider": "NodeStake"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rpc.ankr.com/http/tac_cosmos",
+        "provider": "NodeStake"
+      },
+      {
+        "address": "https://api.tac.nodestake.org",
+        "provider": "NodeStake"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.rpc.tac.build:443",
+        "provider": "TAC"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://rpc.tac.build",
+        "provider": "TAC"
+      },
+      {
+        "address": "https://rpc.ankr.com/tac",
+        "provider": "Ankr"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "NodeStake",
+      "url": "https://explorer.nodestake.org/tac",
+      "tx_page": "https://explorer.nodestake.org/tac/tx/${txHash}",
+      "account_page": "https://explorer.nodestake.org/tac/account/${accountAddress}"
+    },
+    {
+      "kind": "blockscout",
+      "url": "https://evm.explorer.tac.build/",
+      "tx_page": "https://evm.explorer.tac.build/tx/${txHash}",
+      "account_page": "https://evm.explorer.tac.build/address/${accountAddress}",
+      "block_page": "https://evm.explorer.tac.build/block/${blockHeight}"
+    }
+  ],
+  "logo_URIs": {
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tac/images/tac.svg"
+  },
+  "images": [
+    {
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tac/images/tac.svg"
+    }
+  ]
+}
