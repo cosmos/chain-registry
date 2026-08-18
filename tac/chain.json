@@ -68,7 +68,13 @@
   },
   "description": "TAC is a Cosmos SDK-based EVM Layer 1 that lets Ethereum applications serve Telegram users through the TON ecosystem.",
   "peers": {
-    "seeds": [],
+    "seeds": [
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:32156",
+        "provider": "Polkachu"
+      }
+    ],
     "persistent_peers": [
       {
         "id": "d0a80c43a10a6b60475864728db6d9ba4ead42d2",
@@ -101,6 +107,10 @@
       {
         "address": "https://rpc.tac.nodestake.org",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://tacchain-rpc.polkachu.com:443",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
@@ -111,12 +121,20 @@
       {
         "address": "https://api.tac.nodestake.org",
         "provider": "NodeStake"
+      },
+      {
+        "address": "https://tacchain-api.polkachu.com",
+        "provider": "Polkachu"
       }
     ],
     "grpc": [
       {
         "address": "grpc.rpc.tac.build:443",
         "provider": "TAC"
+      },
+      {
+        "address": "tacchain-grpc.polkachu.com:32190",
+        "provider": "Polkachu"
       }
     ],
     "evm-http-jsonrpc": [
@@ -151,6 +169,15 @@
   "images": [
     {
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/tac/images/tac.svg"
+    }
+  ],
+  "snapshots": [
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/tacchain",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
     }
   ]
 }
