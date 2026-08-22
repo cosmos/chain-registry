@@ -1,0 +1,58 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "hickory",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://hickoryblockchain.com",
+  "pretty_name": "Hickory",
+  "chain_type": "cosmos",
+  "chain_id": "Hickory",
+  "bech32_prefix": "hic",
+  "daemon_name": "hickoryd",
+  "node_home": "$HOME/.hickory",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uhic",
+        "fixed_min_gas_price": 0.0025,
+        "low_gas_price": 0.0025,
+        "average_gas_price": 0.003,
+        "high_gas_price": 0.005
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uhic"
+      }
+    ]
+  },
+  "codebase": {
+    "recommended_version": "1.0.0",
+    "compatible_versions": ["1.0.0"]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.hickoryblockchain.com",
+        "provider": "Hickory"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.hickoryblockchain.com",
+        "provider": "Hickory"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "HICScan",
+      "url": "https://hicscan.com",
+      "tx_page": "https://hicscan.com/tx/${txHash}"
+    }
+  ]
+}
