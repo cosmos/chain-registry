@@ -1,0 +1,151 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "celestiatestnet4",
+  "chain_type": "cosmos",
+  "chain_id": "mocha-5",
+  "pre_fork_chain_name": "celestiatestnet3",
+  "pretty_name": "Mocha Testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "bech32_prefix": "celestia",
+  "daemon_name": "celestia-appd",
+  "node_home": "$HOME/.celestia-app",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "utia",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.02,
+        "high_gas_price": 0.1
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "utia"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/celestiaorg/celestia-app",
+    "recommended_version": "v9.0.6-mocha",
+    "compatible_versions": [
+      "v9.0.6-mocha"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6-mocha/celestia-app_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6-mocha/celestia-app_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6-mocha/celestia-app_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6-mocha/celestia-app_Darwin_arm64.tar.gz"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.40.8",
+      "repo": "https://github.com/celestiaorg/celestia-core",
+      "tag": "v0.40.8"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/mocha-5/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/celestiaorg/cosmos-sdk",
+      "version": "v0.52.8",
+      "tag": "v0.52.8"
+    },
+    "ibc": {
+      "type": "go",
+      "repo": "https://github.com/celestiaorg/ibc-go",
+      "version": "v8.7.2",
+      "tag": "v8.7.2"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "ee9f90974f85c59d3861fc7f7edb10894f6ac3c8",
+        "address": "84.32.215.148:26656"
+      },
+      {
+        "id": "b402fe40f3474e9e208840702e1b7aa37f2edc4b",
+        "address": "celestia-testnet-seed.itrocket.net:14656",
+        "provider": "itrocket"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-mocha.pops.one",
+        "provider": "P-OPs"
+      },
+      {
+        "address": "https://rpc-1.testnet.celestia.nodes.guru",
+        "provider": "Nodes.Guru"
+      },
+      {
+        "address": "https://rpc-2.testnet.celestia.nodes.guru",
+        "provider": "Nodes.Guru"
+      },
+      {
+        "address": "https://celestia-testnet-rpc.itrocket.net",
+        "provider": "itrocket"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api-mocha.pops.one",
+        "provider": "P-OPs"
+      },
+      {
+        "address": "https://api-1.testnet.celestia.nodes.guru",
+        "provider": "Nodes.Guru"
+      },
+      {
+        "address": "https://api-2.testnet.celestia.nodes.guru",
+        "provider": "Nodes.Guru"
+      },
+      {
+        "address": "https://celestia-testnet-api.itrocket.net",
+        "provider": "itrocket"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc-mocha.pops.one:9090",
+        "provider": "P-OPs"
+      },
+      {
+        "address": "grpc-1.testnet.celestia.nodes.guru:10790",
+        "provider": "Nodes.Guru"
+      },
+      {
+        "address": "grpc-2.testnet.celestia.nodes.guru:10790",
+        "provider": "Nodes.Guru"
+      },
+      {
+        "address": "celestia-testnet-grpc.itrocket.net:443",
+        "provider": "itrocket"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Valopers",
+      "url": "https://testnet.celestia.valopers.com/",
+      "tx_page": "https://testnet.celestia.valopers.com/transactions/${txHash}",
+      "account_page": "https://testnet.celestia.valopers.com/account/${accountAddress}"
+    },
+    {
+      "kind": "NodeStake Explorer",
+      "url": "https://explorer.nodestake.org/celestia-testnet",
+      "tx_page": "https://explorer.nodestake.org/celestia-testnet/tx/${txHash}"
+    }
+  ]
+}
