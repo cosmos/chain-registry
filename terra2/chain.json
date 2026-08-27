@@ -144,10 +144,6 @@
         "provider": "Lavender.Five Nodes 🐝"
       },
       {
-        "address": "https://terra-rpc.polkachu.com",
-        "provider": "polkachu"
-      },
-      {
         "address": "https://terra-rpc.stakely.io:443/",
         "provider": "stakely"
       },
@@ -158,10 +154,6 @@
       {
         "address": "https://rpc-terra-01.stakeflow.io",
         "provider": "Stakeflow"
-      },
-      {
-        "address": "https://rpc-terra.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://terra-phoenix-rpc.highstakes.ch",
@@ -176,12 +168,16 @@
         "provider": "cosmosrescue"
       },
       {
-        "address": "https://terra-rpc.node39.top",
-        "provider": "Node39"
+        "address": "https://terra2-rpc.meshrpc.com",
+        "provider": "Mesh"
       },
       {
         "address": "https://terra-m-rpc.onnode.org",
         "provider": "OnNode"
+      },
+      {
+        "address": "https://terra-rpc.polkachu.com:443",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
@@ -210,12 +206,20 @@
         "provider": "Chainroot"
       },
       {
-        "address": "https://terra-api.node39.top",
-        "provider": "Node39"
+        "address": "https://terra2-api.meshrpc.com",
+        "provider": "Mesh"
       },
       {
         "address": "https://terra-m-api.onnode.org",
         "provider": "OnNode"
+      },
+      {
+        "address": "https://terra-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://terra-phoenix-api.highstakes.ch",
+        "provider": "High Stakes 🇨🇭"
       }
     ],
     "grpc": [
@@ -240,10 +244,6 @@
         "provider": "r93AX Nodes"
       },
       {
-        "address": "grpc-terra.cosmos-spaces.cloud:2690",
-        "provider": "Cosmos Spaces"
-      },
-      {
         "address": "grpc-terra-01.stakeflow.io:1102",
         "provider": "Stakeflow"
       },
@@ -256,8 +256,12 @@
         "provider": "Chainroot"
       },
       {
-        "address": "terra-grpc.node39.top:443",
-        "provider": "Node39"
+        "address": "https://terra2-grpc.meshrpc.com",
+        "provider": "Mesh"
+      },
+      {
+        "address": "https://terra-phoenix-grpc.highstakes.ch",
+        "provider": "High Stakes 🇨🇭"
       }
     ]
   },
@@ -308,6 +312,12 @@
       "url": "https://explorer.onnode.org/terra",
       "tx_page": "https://explorer.onnode.org/terra/transactions/${txHash}",
       "account_page": "https://explorer.onnode.org/terra/accounts/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://terra.valopers.com/",
+      "tx_page": "https://terra.valopers.com/transactions/${txHash}",
+      "account_page": "https://terra.valopers.com/account/${accountAddress}"
     }
   ],
   "images": [
@@ -317,15 +327,22 @@
     }
   ],
   "snapshots": [
-   {
-    "provider": "High Stakes 🇨🇭",
-    "url": "https://tools.highstakes.ch/snapshots/terra",
-    "latest_url": "https://tools.highstakes.ch/files/terra.tar.gz",
-    "type": "pruned",
-    "db_backend": "goleveldb",
-    "frequency": "every 3h",
-    "compression": "tar",
-    "checksum_available": true
-  }
-  ]   
+    {
+      "provider": "High Stakes 🇨🇭",
+      "url": "https://tools.highstakes.ch/snapshots/terra",
+      "latest_url": "https://tools.highstakes.ch/files/terra.tar.gz",
+      "type": "pruned",
+      "db_backend": "goleveldb",
+      "frequency": "every 3h",
+      "compression": "tar",
+      "checksum_available": true
+    },
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/terra",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
+    }
+  ]
 }

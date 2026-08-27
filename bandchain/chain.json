@@ -110,6 +110,11 @@
         "id": "10ed1e176d874c8bb3c7c065685d2da6a4b86475",
         "address": "seed-band.ibs.team:16672",
         "provider": "Inter Blockchain Services"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:22956",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
@@ -132,11 +137,6 @@
         "provider": "🔥STAVR🔥"
       },
       {
-        "id": "420994846f175d0413796be9caea49e07ad3a503",
-        "address": "p2p.tendermint.roomit.xyz:166006",
-        "provider": "Roomit"
-      },
-      {
         "id": "4ded49b3a718828eb64cf35da1ed791ecb201bc1",
         "address": "peer-band-01.stakeflow.io:25017",
         "provider": "Stakeflow"
@@ -155,10 +155,6 @@
         "provider": "bandprotocol"
       },
       {
-        "address": "https://rpc-bandchain-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
-      },
-      {
         "address": "https://band.ibs.team:443/rpc",
         "provider": "Inter Blockchain Services"
       },
@@ -173,10 +169,6 @@
       {
         "address": "https://rpc-band-01.stakeflow.io",
         "provider": "Stakeflow"
-      },
-      {
-        "address": "https://rpc-band.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://band-rpc.w3coins.io",
@@ -201,6 +193,10 @@
       {
         "address": "https://band-rpc.noders.services",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://band-rpc.polkachu.com:443",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
@@ -209,16 +205,8 @@
         "provider": "bandprotocol"
       },
       {
-        "address": "https://api-bandchain-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
-      },
-      {
         "address": "https://band.ibs.team:443/api",
         "provider": "Inter Blockchain Services"
-      },
-      {
-        "address": "https://api-band.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://band.api.m.stavr.tech",
@@ -255,20 +243,16 @@
       {
         "address": "https://band-api.noders.services",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "https://band-api.polkachu.com",
+        "provider": "Polkachu"
       }
     ],
     "grpc": [
       {
-        "address": "grpc-bandchain-ia.cosmosia.notional.ventures:443",
-        "provider": "Notional"
-      },
-      {
         "address": "bandchain-mainnet-grpc.autostake.com:443",
         "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "grpc-band.cosmos-spaces.cloud:2240",
-        "provider": "Cosmos Spaces"
       },
       {
         "address": "grpc-band-01.stakeflow.io:2502",
@@ -301,6 +285,14 @@
       {
         "address": "band-grpc.noders.services:30090",
         "provider": "[NODERS]TEAM"
+      },
+      {
+        "address": "band-grpc.polkachu.com:22990",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://bandprotocol-grpc.highstakes.ch",
+        "provider": "High Stakes 🇨🇭"
       }
     ]
   },
@@ -357,6 +349,12 @@
       "kind": "kjnodes Explorer",
       "url": "https://explorer.kjnodes.com/band",
       "tx_page": "https://explorer.kjnodes.com/band/tx/${txHash}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://band.valopers.com/",
+      "tx_page": "https://band.valopers.com/transactions/${txHash}",
+      "account_page": "https://band.valopers.com/account/${accountAddress}"
     }
   ],
   "images": [
@@ -366,15 +364,22 @@
     }
   ],
   "snapshots": [
-  {
-    "provider": "High Stakes 🇨🇭",
-    "url": "https://tools.highstakes.ch/snapshots/bandprotocol",
-    "latest_url": "https://tools.highstakes.ch/files/bandprotocol.tar.gz",
-    "type": "pruned",
-    "db_backend": "goleveldb",
-    "frequency": "every 3h",
-    "compression": "tar",
-    "checksum_available": true
-  }
-]   
+    {
+      "provider": "High Stakes 🇨🇭",
+      "url": "https://tools.highstakes.ch/snapshots/bandprotocol",
+      "latest_url": "https://tools.highstakes.ch/files/bandprotocol.tar.gz",
+      "type": "pruned",
+      "db_backend": "goleveldb",
+      "frequency": "every 3h",
+      "compression": "tar",
+      "checksum_available": true
+    },
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/band",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
+    }
+  ]
 }

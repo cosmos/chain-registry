@@ -1,0 +1,282 @@
+{
+  "$id": "https://raw.githubusercontent.com/cosmos/chain-registry/master/provider-manifest.schema.json",
+  "title": "Provider Manifest",
+  "description": "DRAFT (RFC-provider-manifest). A self-hosted file published by an allowlisted infrastructure provider, declaring the operational data (apis, peers, snapshots) it serves per chain. Field shapes are IDENTICAL to chain.schema.json so the sync bot performs a structural merge, not a translation. Per-entry `provider` strings are intentionally FORBIDDEN here: the bot stamps the allowlisted provider name on every injected entry, so a manifest can never write under another provider's name. Curated fields (chain identity, slip44, fees, staking, assets, IBC, codebase) are not expressible in this schema by construction. NOTE: the `$schema` meta-key is intentionally omitted \u2014 @chain-registry/cli treats any JSON whose $schema is a URL as a registry schema and hard-fails on titles outside its built-in mapping (AssetList/Chain/IBCData/MemoKeys/Versions). AJV validates this file as draft-07 by default. Explorers are deferred from v1: the registry's explorer object has no provider-attribution field (additionalProperties:false), so provider-scoped ownership cannot be expressed until chain.schema.json adds one. Address fields carry per-type FORMAT patterns (http(s) URL for rpc/rest/evm-http-jsonrpc; ws(s) URL for wss; URL-or-host:port for grpc/grpc-web; host:port for peers; http(s) URL for snapshot urls) — a manifest-side tightening only (field shapes still mirror the registry schema, which is unchanged): a malformed address rejects the whole manifest upfront rather than reaching the merge stage, where an address reformat reads as remove-live-entry + add-held-back-entry.",
+  "type": "object",
+  "required": [
+    "manifest_version",
+    "provider",
+    "chains"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "type": "string",
+      "description": "Semver of the manifest format. Bots reject majors they don't know.",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "provider": {
+      "type": "object",
+      "description": "Self-declared identity. MUST match the allowlist entry in the registry (name + domain); mismatch = hard reject.",
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Canonical provider name. The bot stamps exactly this string on every injected entry (fixes today's naming fragmentation, e.g. 8 variants of one operator)."
+        },
+        "website": {
+          "type": "string",
+          "format": "uri"
+        },
+        "contact": {
+          "type": "string",
+          "pattern": "^(https://\\S+|[^\\s@]+@[^\\s@]+\\.[^\\s@]+)$",
+          "description": "Email address or HTTPS URL maintainers can use when health checks fail repeatedly."
+        }
+      }
+    },
+    "signature": {
+      "type": "object",
+      "description": "RESERVED (designed in from day one, unused in prototype). Detached signature over the canonicalized `chains` payload, verifying against a public key registered at allowlist onboarding. Upgrade path that closes the domain-takeover residual (threat T2) without a breaking format change.",
+      "required": [
+        "key_id",
+        "algo",
+        "value"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "key_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "algo": {
+          "type": "string",
+          "enum": [
+            "ed25519",
+            "secp256k1"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "description": "Base64 signature bytes.",
+          "minLength": 1
+        }
+      }
+    },
+    "chains": {
+      "type": "array",
+      "minItems": 1,
+      "description": "One entry per chain. Each chain_id may appear AT MOST ONCE: JSON Schema cannot express uniqueness on a sub-property, so the sync bot enforces it and hard-rejects any manifest listing the same chain_id twice.",
+      "items": {
+        "type": "object",
+        "required": [
+          "chain_id"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "chain_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "On-chain chain ID (e.g. cosmoshub-4). The bot resolves this to the registry directory; unknown chain_ids are skipped and reported, never created."
+          },
+          "apis": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "rpc": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/endpoint_http"
+                }
+              },
+              "rest": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/endpoint_http"
+                }
+              },
+              "grpc": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/endpoint_grpc"
+                }
+              },
+              "wss": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/endpoint_ws"
+                }
+              },
+              "grpc-web": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/endpoint_grpc"
+                }
+              },
+              "evm-http-jsonrpc": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/endpoint_http"
+                }
+              }
+            }
+          },
+          "peers": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "seeds": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/peer"
+                }
+              },
+              "persistent_peers": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/peer"
+                }
+              }
+            }
+          },
+          "snapshots": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/snapshot"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "endpoint_http": {
+      "type": "object",
+      "description": "Mirror of chain.schema.json $defs/endpoint MINUS `provider` (stamped by the bot), PLUS an address format pattern: rpc/rest/evm-http-jsonrpc addresses must be http(s) URLs. A malformed address fails validation upfront (whole-manifest reject) instead of reaching the health/merge stage, where a reformatted address reads as remove-old-entry + add-held-back-entry and silently drops live registry data.",
+      "required": [
+        "address"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^https?://\\S+$"
+        },
+        "archive": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "endpoint_ws": {
+      "type": "object",
+      "description": "Same as endpoint_http but for websocket endpoints: address must be a ws(s) URL.",
+      "required": [
+        "address"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^wss?://\\S+$"
+        },
+        "archive": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "endpoint_grpc": {
+      "type": "object",
+      "description": "Same as endpoint_http but for grpc/grpc-web: BOTH registry conventions are accepted — an http(s) URL (TLS on 443 implied) or a bare host:port. A bare hostname without a port is rejected: it is not dialable and is the single format the health check can never pass.",
+      "required": [
+        "address"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^(https?://\\S+|[^\\s/]+:([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))$"
+        },
+        "archive": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "peer": {
+      "type": "object",
+      "description": "Mirror of chain.schema.json $defs/peer MINUS `provider` (stamped by the bot). Address must be host:port — a portless peer cannot be dialed by any node.",
+      "required": [
+        "id",
+        "address"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "40-char hex node ID.",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "address": {
+          "type": "string",
+          "pattern": "^[^\\s/]+:([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$"
+        }
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "description": "Mirror of chain.schema.json $defs/snapshot MINUS `provider` (stamped by the bot). Enums kept in lockstep with the registry schema.",
+      "required": [
+        "url"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "pattern": "^https?://\\S+$"
+        },
+        "latest_url": {
+          "type": "string",
+          "pattern": "^https?://\\S+$"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "pruned",
+            "archive"
+          ]
+        },
+        "db_backend": {
+          "type": "string",
+          "enum": [
+            "goleveldb",
+            "pebbledb"
+          ]
+        },
+        "frequency": {
+          "type": "string",
+          "minLength": 1
+        },
+        "compression": {
+          "type": "string",
+          "enum": [
+            "lz4",
+            "zstd",
+            "gzip",
+            "tar",
+            "none"
+          ]
+        },
+        "checksum_available": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    }
+  }
+}

@@ -34,20 +34,21 @@
   },
   "codebase": {
     "git_repo": "https://github.com/celestiaorg/celestia-app",
-    "recommended_version": "v3.3.1",
+    "recommended_version": "v9.0.6",
     "compatible_versions": [
-      "v3.3.1",
-      "v3.3.0",
-      "v3.2.0",
-      "v3.1.1",
-      "v3.0.2",
-      "v3.0.1"
+      "v9.0.6"
     ],
+    "binaries": {
+      "linux/amd64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6/celestia-app_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6/celestia-app_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6/celestia-app_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6/celestia-app_Darwin_arm64.tar.gz"
+    },
     "consensus": {
-      "type": "tendermint",
-      "version": "v1.45.0",
+      "type": "cometbft",
+      "version": "v0.40.8",
       "repo": "https://github.com/celestiaorg/celestia-core",
-      "tag": "v1.45.0-tm-v0.34.35"
+      "tag": "v0.40.8"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/celestia/genesis.json"
@@ -55,12 +56,14 @@
     "sdk": {
       "type": "cosmos",
       "repo": "https://github.com/celestiaorg/cosmos-sdk",
-      "version": "v1.27.0",
-      "tag": "v1.27.0-sdk-v0.46.16"
+      "version": "v0.52.8",
+      "tag": "v0.52.8"
     },
     "ibc": {
       "type": "go",
-      "version": "v6.2.2"
+      "repo": "https://github.com/celestiaorg/ibc-go",
+      "version": "v8.7.2",
+      "tag": "v8.7.2"
     }
   },
   "logo_URIs": {
@@ -149,6 +152,11 @@
         "id": "9b1d22c3a78487d1a664a4b6a331fce527d14fb4",
         "address": "seed.celestia.mainnet.dteam.tech:27656",
         "provider": "DTEAM"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:11656",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
@@ -163,19 +171,9 @@
         "provider": "Stakeflow"
       },
       {
-        "id": "6de4ce5baa9d2bed33c0c53b9518b907cfaab33b",
-        "address": "65.108.128.201:11656",
-        "provider": "Polkachu"
-      },
-      {
         "id": "a26091f9c247c1e68410a4e8b107a715a0e886f6",
         "address": "65.108.226.26:29656",
         "provider": "[NODERS]TEAM"
-      },
-      {
-        "id": "c48d92566837d95f1eeae5815ac7e70fb80416f7",
-        "address": "74.208.94.42:26656",
-        "provider": "Cumulo"
       },
       {
         "id": "8de3b1534abc9d565f232982c0fb7933c0038ead",
@@ -207,12 +205,12 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://public-celestia-rpc.numia.xyz",
-        "provider": "Numia"
+        "address": "https://celestia.rpc.uquad.org:443",
+        "provider": "QUAD"
       },
       {
-        "address": "https://celestia-rpc.mesa.newmetric.xyz",
-        "provider": "Newmetric"
+        "address": "https://public-celestia-rpc.numia.xyz",
+        "provider": "Numia"
       },
       {
         "address": "https://rpc.lunaroasis.net",
@@ -225,18 +223,6 @@
       {
         "address": "https://rpc.lavenderfive.com:443/celestia",
         "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://rpc-celestia-01.stakeflow.io",
-        "provider": "Stakeflow"
-      },
-      {
-        "address": "https://rpc-celestia.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
-      },
-      {
-        "address": "http://celestia.rpc.nodersteam.com:29657",
-        "provider": "[NODERS]TEAM"
       },
       {
         "address": "https://celestia.rpc.interchain.validao.xyz",
@@ -253,10 +239,6 @@
       {
         "address": "https://celestia.rpc.kjnodes.com",
         "provider": "kjnodes"
-      },
-      {
-        "address": "https://celestia-rpc.polkachu.com",
-        "provider": "Polkachu"
       },
       {
         "address": "https://rpc-celestia.mzonder.com",
@@ -279,24 +261,8 @@
         "provider": "Validatus"
       },
       {
-        "address": "https://celestia-rpc.sr20de.xyz",
-        "provider": "Sr20de"
-      },
-      {
-        "address": "https://rpc-celestia-full.avril14th.org",
-        "provider": "Avril 14th"
-      },
-      {
         "address": "https://rpc.freshstaking.com/celestia",
         "provider": "FreshSTAKING"
-      },
-      {
-        "address": "https://celestia.cumulo.org.es/",
-        "provider": "Cumulo"
-      },
-      {
-        "address": "https://celestia-rpc.stake-town.com",
-        "provider": "StakeTown"
       },
       {
         "address": "https://rpc.celestia-app.bronbro.io",
@@ -329,20 +295,24 @@
       {
         "address": "https://rpc.archive.celestia.validatus.com",
         "provider": "Validatus"
+      },
+      {
+        "address": "https://celestia-rpc.polkachu.com:443",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://celestia.cumulo.org.es",
+        "provider": "Cumulo"
       }
     ],
     "rest": [
       {
+        "address": "https://celestia.rpc.uquad.org:443",
+        "provider": "QUAD"
+      },
+      {
         "address": "https://public-celestia-lcd.numia.xyz",
         "provider": "Numia"
-      },
-      {
-        "address": "https://celestia-rest.mesa.newmetric.xyz",
-        "provider": "Newmetric"
-      },
-      {
-        "address": "http://celestia.rpc.nodersteam.com:1617",
-        "provider": "[NODERS]TEAM"
       },
       {
         "address": "https://api.lunaroasis.net",
@@ -355,14 +325,6 @@
       {
         "address": "https://rest.lavenderfive.com:443/celestia",
         "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "https://api-celestia-01.stakeflow.io",
-        "provider": "Stakeflow"
-      },
-      {
-        "address": "https://api-celestia.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://celestia.rest.interchain.validao.xyz",
@@ -397,24 +359,12 @@
         "provider": "Validatus"
       },
       {
-        "address": "https://celestia-api.sr20de.xyz",
-        "provider": "Sr20de"
-      },
-      {
         "address": "https://celestia-mainnet-lcd.autostake.com:443",
         "provider": "AutoStake | Delegate for StakeDrops"
       },
       {
-        "address": "https://api-celestia-full.avril14th.org",
-        "provider": "Avril 14th"
-      },
-      {
         "address": "https://celestia.api.cumulo.org.es",
         "provider": "Cumulo"
-      },
-      {
-        "address": "https://celestia-api.stake-town.com",
-        "provider": "StakeTown"
       },
       {
         "address": "https://lcd.celestia-app.bronbro.io",
@@ -443,6 +393,10 @@
       {
         "address": "https://api.archive.celestia.validatus.com",
         "provider": "Validatus"
+      },
+      {
+        "address": "https://celestia-api.polkachu.com",
+        "provider": "Polkachu"
       }
     ],
     "grpc": [
@@ -457,18 +411,6 @@
       {
         "address": "celestia.lavenderfive.com:443",
         "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "celestia.grpc.nodersteam.com:9690",
-        "provider": "[NODERS]TEAM"
-      },
-      {
-        "address": "grpc-celestia-01.stakeflow.io:15002",
-        "provider": "Stakeflow"
-      },
-      {
-        "address": "grpc-celestia.cosmos-spaces.cloud:443",
-        "provider": "Cosmos Spaces"
       },
       {
         "address": "celestia.grpc.interchain.validao.xyz:443",
@@ -499,22 +441,6 @@
         "provider": "Validatus"
       },
       {
-        "address": "celestia-grpc.sr20de.xyz",
-        "provider": "Sr20de"
-      },
-      {
-        "address": "grpc-celestia-full.avril14th.org",
-        "provider": "Avril 14th"
-      },
-      {
-        "address": "celestia.grpc.cumulo.org.es",
-        "provider": "Cumulo"
-      },
-      {
-        "address": "https://celestia-grpc.stake-town.com",
-        "provider": "StakeTown"
-      },
-      {
         "address": "grpc.celestia-app.bronbro.io:443",
         "provider": "Bro_n_Bro"
       },
@@ -527,10 +453,6 @@
         "provider": "itrocket"
       },
       {
-        "address": "grpc.celestia.mainnet.dteam.tech:28090",
-        "provider": "DTEAM"
-      },
-      {
         "address": "http://celestia-grpc.stakeandrelax.net:11690",
         "provider": "Stake&Relax Validator 🦥"
       },
@@ -541,6 +463,20 @@
       {
         "address": "grpc.archive.celestia.validatus.com:2125",
         "provider": "Validatus"
+      },
+      {
+        "address": "celestia-grpc.polkachu.com:11690",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://celestia.grpc.cumulo.org.es",
+        "provider": "Cumulo"
+      }
+    ],
+    "wss": [
+      {
+        "address": "wss://celestia.cumulo.org.es/websocket",
+        "provider": "Cumulo"
       }
     ]
   },
@@ -627,12 +563,27 @@
       "url": "https://celestia.valopers.com/",
       "tx_page": "https://celestia.valopers.com/transactions/${txHash}",
       "account_page": "https://celestia.valopers.com/account/${accountAddress}"
+    },
+    {
+      "kind": "moon-runners",
+      "url": "https://moon-runners.net/celestia/mainnet",
+      "tx_page": "https://moon-runners.net/celestia/mainnet/finder?search=${txHash}",
+      "account_page": "https://moon-runners.net/celestia/mainnet/finder?search=${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg"
+    }
+  ],
+  "snapshots": [
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/celestia",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
     }
   ]
 }

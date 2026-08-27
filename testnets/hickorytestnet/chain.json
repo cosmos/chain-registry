@@ -1,0 +1,113 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "hickorytestnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://hickoryblockchain.com",
+  "pretty_name": "Hickory Testnet",
+  "chain_type": "cosmos",
+  "chain_id": "Hickory",
+  "bech32_prefix": "hic",
+  "daemon_name": "hickoryd",
+  "node_home": "$HOME/.hickory",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uhic",
+        "average_gas_price": 0.025
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uhic"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/HicDevs/hickory-blockchain",
+    "language": {
+      "type": "go",
+      "version": "1.24.6"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.53.3"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.17"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "10.2.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/HicDevs/hickory-blockchain/79b16f2971b5b203a5d4a6594d1e2bcb9e089919/networks/hickory-testnet/genesis.json"
+    }
+  },
+  "description": "Hickory is a Cosmos SDK public test network for developing and validating the HIC ecosystem, validator operations, staking, governance, wallets and IBC-ready infrastructure.",
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "3c1ae17751f0b7e06d5450c5207271520cdf4eba",
+        "address": "82.223.121.245:26656",
+        "provider": "Hickory"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.hickoryblockchain.com",
+        "provider": "Hickory"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.hickoryblockchain.com",
+        "provider": "Hickory"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.hickoryblockchain.com:443",
+        "provider": "Hickory"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "HICScan",
+      "url": "https://hicscan.com",
+      "tx_page": "https://hicscan.com/tx/${txHash}",
+      "account_page": "https://hicscan.com/address/${accountAddress}",
+      "validator_page": "https://hicscan.com/validator/${validatorAddress}",
+      "block_page": "https://hicscan.com/block/${blockHeight}"
+    }
+  ],
+  "keywords": [
+    "cosmos-sdk",
+    "testnet",
+    "staking"
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/hickorytestnet/images/hic.png",
+      "theme": {
+        "circle": true
+      }
+    }
+  ]
+}

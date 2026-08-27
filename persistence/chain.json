@@ -162,16 +162,8 @@
         "provider": "Persistence"
       },
       {
-        "address": "https://rpc-persistent-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
-      },
-      {
         "address": "https://persistence.rpc.m.stavr.tech",
         "provider": "🔥STAVR🔥"
-      },
-      {
-        "address": "https://persistence-rpc.polkachu.com",
-        "provider": "Polkachu"
       },
       {
         "address": "https://persistence-rpc.kleomedes.network",
@@ -180,10 +172,6 @@
       {
         "address": "https://rpc-persistence.architectnodes.com",
         "provider": "Architect Nodes"
-      },
-      {
-        "address": "https://rpc-persistence.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://persistence-mainnet-rpc.cosmonautstakes.com",
@@ -244,6 +232,10 @@
       {
         "address": "https://persistence.api.pocket.network",
         "provider": "Pocket Network"
+      },
+      {
+        "address": "https://persistence-rpc.polkachu.com:443",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
@@ -252,20 +244,12 @@
         "provider": "Persistence"
       },
       {
-        "address": "https://api-persistent-ia.cosmosia.notional.ventures/",
-        "provider": "Notional"
-      },
-      {
         "address": "https://persistence.api.m.stavr.tech",
         "provider": "🔥STAVR🔥"
       },
       {
         "address": "https://persistence-api.polkachu.com",
         "provider": "Polkachu"
-      },
-      {
-        "address": "https://api-persistence.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
       },
       {
         "address": "https://persistence-api.kleomedes.network",
@@ -342,10 +326,6 @@
         "provider": "Persistence"
       },
       {
-        "address": "grpc-persistent-ia.cosmosia.notional.ventures:443",
-        "provider": "Notional"
-      },
-      {
         "address": "persistence.grpc.m.stavr.tech:410",
         "provider": "🔥STAVR🔥"
       },
@@ -360,10 +340,6 @@
       {
         "address": "grpc.persistence.posthuman.digital:80",
         "provider": "POSTHUMAN∞DVS"
-      },
-      {
-        "address": "grpc-persistence.cosmos-spaces.cloud:1180",
-        "provider": "Cosmos Spaces"
       },
       {
         "address": "141.95.33.97:9090",
@@ -400,6 +376,10 @@
       {
         "address": "persistence.grpc.quantnode.xyz:22990",
         "provider": "QuantNode"
+      },
+      {
+        "address": "https://persistence-grpc.highstakes.ch",
+        "provider": "High Stakes 🇨🇭"
       }
     ]
   },
@@ -457,15 +437,29 @@
     }
   ],
   "snapshots": [
-   {
-    "provider": "High Stakes 🇨🇭",
-    "url": "https://tools.highstakes.ch/snapshots/persistence",
-    "latest_url": "https://tools.highstakes.ch/files/persistence.tar.gz",
-    "type": "pruned",
-    "db_backend": "goleveldb",
-    "frequency": "every 3h",
-    "compression": "tar",
-    "checksum_available": true
-  }
+    {
+      "provider": "High Stakes 🇨🇭",
+      "url": "https://tools.highstakes.ch/snapshots/persistence",
+      "latest_url": "https://tools.highstakes.ch/files/persistence.tar.gz",
+      "type": "pruned",
+      "db_backend": "goleveldb",
+      "frequency": "every 3h",
+      "compression": "tar",
+      "checksum_available": true
+    },
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/persistence",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
+    },
+    {
+      "url": "https://kleomedes.cloud/chains/persistence",
+      "latest_url": "https://api.kleomedes.network/api/v2/snapshots/persistence/latest",
+      "type": "pruned",
+      "compression": "zstd",
+      "provider": "Kleomedes"
+    }
   ]
 }
