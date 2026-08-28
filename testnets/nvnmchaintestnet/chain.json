@@ -1,11 +1,11 @@
 {
-  "$schema": "../chain.schema.json",
-  "chain_name": "nvnmchain",
+  "$schema": "../../chain.schema.json",
+  "chain_name": "nvnmchaintestnet",
   "chain_type": "cosmos",
-  "chain_id": "nvnm-1",
-  "pretty_name": "NVNM Chain",
+  "chain_id": "nvnm-testnet-1",
+  "pretty_name": "NVNM Chain Testnet",
   "status": "live",
-  "network_type": "mainnet",
+  "network_type": "testnet",
   "website": "https://nvnmchain.io",
   "bech32_prefix": "nvnm",
   "daemon_name": "nvnmchaind",
@@ -20,7 +20,7 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "ibc/93575DF9D4BC5B2C85D967DE020E5DEA1863FDD108AD509A36DA6C83E3398227",
+        "denom": "ibc/00E24F149F01782E2C423BDB114C98D6C657DFC583124389192187BF8DC3A1AD",
         "fixed_min_gas_price": 40000000000,
         "low_gas_price": 40000000000,
         "average_gas_price": 80000000000,
@@ -47,31 +47,25 @@
       "version": "v10.5.1"
     },
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/NVNM-Chain/net/refs/heads/main/nvnm-1/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/NVNM-Chain/net/refs/heads/main/nvnm-testnet-1/genesis.json"
     }
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.nvnmchain.io",
+        "address": "https://rpc.testnet.nvnmchain.io",
         "provider": "NVNM Chain"
       }
     ],
     "rest": [
       {
-        "address": "https://api.nvnmchain.io",
-        "provider": "NVNM Chain"
-      }
-    ],
-    "grpc": [
-      {
-        "address": "grpc.nvnmchain.io:443",
+        "address": "https://api.testnet.nvnmchain.io",
         "provider": "NVNM Chain"
       }
     ],
     "evm-http-jsonrpc": [
       {
-        "address": "https://evm.nvnmchain.io",
+        "address": "https://evm.testnet.nvnmchain.io",
         "provider": "NVNM Chain"
       }
     ]
@@ -79,21 +73,22 @@
   "explorers": [
     {
       "kind": "ping.pub",
-      "url": "https://explorer.nvnmchain.io/NVNM%20Mainnet",
-      "tx_page": "https://explorer.nvnmchain.io/NVNM%20Mainnet/tx/${txHash}",
-      "account_page": "https://explorer.nvnmchain.io/NVNM%20Mainnet/account/${accountAddress}"
+      "url": "https://explorer.nvnmchain.io/NVNM%20Testnet",
+      "tx_page": "https://explorer.nvnmchain.io/NVNM%20Testnet/tx/${txHash}",
+      "account_page": "https://explorer.nvnmchain.io/NVNM%20Testnet/account/${accountAddress}"
     },
     {
       "kind": "blockscout",
-      "url": "https://evm.explorer.nvnmchain.io",
-      "tx_page": "https://evm.explorer.nvnmchain.io/tx/${txHash}",
-      "account_page": "https://evm.explorer.nvnmchain.io/address/${accountAddress}"
+      "url": "https://explorer.evm.testnet.nvnmchain.io",
+      "tx_page": "https://explorer.evm.testnet.nvnmchain.io/tx/${txHash}",
+      "account_page": "https://explorer.evm.testnet.nvnmchain.io/address/${accountAddress}"
     }
   ],
   "keywords": [
     "ai",
     "evm",
-    "anchoring"
+    "anchoring",
+    "testnet"
   ],
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nvnmchain/images/nvnm-token-primary.png",

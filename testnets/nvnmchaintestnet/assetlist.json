@@ -1,0 +1,41 @@
+{
+  "$schema": "../../assetlist.schema.json",
+  "chain_name": "nvnmchaintestnet",
+  "assets": [
+    {
+      "description": "Wrapped mantraUSD bridged from MANTRA Dukong testnet over IBC; the gas and staking token of NVNM Chain Testnet.",
+      "denom_units": [
+        {
+          "denom": "ibc/00E24F149F01782E2C423BDB114C98D6C657DFC583124389192187BF8DC3A1AD",
+          "exponent": 0,
+          "aliases": [
+            "erc20:0x36A28B8C8FFD00bEE440dB8273D57451FBeAf767"
+          ]
+        },
+        {
+          "denom": "wmantrausd",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/00E24F149F01782E2C423BDB114C98D6C657DFC583124389192187BF8DC3A1AD",
+      "name": "Wrapped mantraUSD",
+      "display": "wmantrausd",
+      "symbol": "wmantraUSD",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "mantrachaintestnet2",
+            "base_denom": "erc20:0x36A28B8C8FFD00bEE440dB8273D57451FBeAf767",
+            "channel_id": "channel-13"
+          },
+          "chain": {
+            "channel_id": "channel-1",
+            "path": "transfer/channel-1/erc20:0x36A28B8C8FFD00bEE440dB8273D57451FBeAf767"
+          }
+        }
+      ]
+    }
+  ]
+}
