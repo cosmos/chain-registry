@@ -1,60 +1,72 @@
 {
   "$schema": "../assetlist.schema.json",
-  "chain_name": "mantrachain",
+  "chain_name": "nvnmchain",
   "assets": [
     {
-      "description": "USDC is a fully collateralized US Dollar stablecoin developed by CENTRE, with Circle as the first issuer.",
+      "description": "Governance and utility token for NVNM Chain.",
       "denom_units": [
         {
-          "denom": "ibc/65D0BEC6DAD96C7F5043D1E54E54B6BB5D5B3AEC3FF6CEBB75B9E059F3580EA3",
-          "exponent": 0,
-          "aliases": [
-            "microusdc",
-            "uusdc"
-          ]
+          "denom": "anvnm",
+          "exponent": 0
         },
         {
-          "denom": "usdc",
-          "exponent": 6
+          "denom": "nvnm",
+          "exponent": 18
         }
       ],
-      "type_asset": "ics20",
-      "base": "ibc/65D0BEC6DAD96C7F5043D1E54E54B6BB5D5B3AEC3FF6CEBB75B9E059F3580EA3",
-      "name": "USDC",
-      "display": "usdc",
-      "symbol": "USDC",
-      "traces": [
-        {
-          "type": "ibc",
-          "counterparty": {
-            "chain_name": "noble",
-            "base_denom": "uusdc",
-            "channel_id": "channel-101"
-          },
-          "chain": {
-            "channel_id": "channel-1",
-            "path": "transfer/channel-1/uusdc"
-          }
-        }
-      ],
+      "type_asset": "sdk.coin",
+      "base": "anvnm",
+      "name": "NVNM",
+      "display": "nvnm",
+      "symbol": "NVNM",
       "logo_URIs": {
-        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
-        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nvnmchain/images/nvnm-token-primary.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nvnmchain/images/nvnm-token-primary.svg"
       },
       "images": [
         {
-          "image_sync": {
-            "chain_name": "ethereum",
-            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-          },
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
-          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nvnmchain/images/nvnm-token-primary.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nvnmchain/images/nvnm-token-primary.svg",
           "theme": {
             "circle": true
           }
         }
+      ]
+    },
+    {
+      "description": "The wrapped version of mantraUSD, which is the ERC20 token bridged from the provider chain and used as the gas token on the consumer chain.",
+      "denom_units": [
+        {
+          "denom": "ibc/93575DF9D4BC5B2C85D967DE020E5DEA1863FDD108AD509A36DA6C83E3398227",
+          "exponent": 0,
+          "aliases": [
+            "erc20:0x5EB619e3dcA586c321Bb83282D2916577B5c383d"
+          ]
+        },
+        {
+          "denom": "wmantrausd",
+          "exponent": 18
+        }
       ],
-      "coingecko_id": "usd-coin"
+      "type_asset": "ics20",
+      "base": "ibc/93575DF9D4BC5B2C85D967DE020E5DEA1863FDD108AD509A36DA6C83E3398227",
+      "name": "Wrapped mantraUSD",
+      "display": "wmantrausd",
+      "symbol": "wmantraUSD",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "mantrachain",
+            "base_denom": "erc20:0x5EB619e3dcA586c321Bb83282D2916577B5c383d",
+            "channel_id": "channel-9"
+          },
+          "chain": {
+            "channel_id": "channel-1",
+            "path": "transfer/channel-1/erc20:0x5EB619e3dcA586c321Bb83282D2916577B5c383d"
+          }
+        }
+      ]
     }
   ]
 }
