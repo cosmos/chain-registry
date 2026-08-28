@@ -1,0 +1,150 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "nvnmchain",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "NVNM",
+  "chain_type": "cosmos",
+  "chain_id": "nvnm-1",
+  "bech32_prefix": "nvnm",
+  "daemon_name": "nvnmchaind",
+  "node_home": "$HOME/.nvnmchain",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "mantrausd",
+        "fixed_min_gas_price": 40000000000,
+        "low_gas_price": 40000000000,
+        "average_gas_price": 80000000000,
+        "high_gas_price": 120000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "mantrausd"
+      }
+    ],
+    "lock_duration": {
+      "time": "691200s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/NVNM-Chain/nvnmchain",
+    "recommended_version": "v1.3.0",
+    "compatible_versions": [
+      "v1.3.0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.21"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.53.4",
+      "repo": "https://github.com/NVNM-Chain/cosmos-sdk",
+      "tag": "v0.53.4-v1-nvnm-2"
+    },
+    "cosmwasm": {
+      "version": "v0.61.1",
+      "enabled": true
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v10.4.0"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/NVNM-Chain/net/refs/heads/main/nvnm-1/genesis.json"
+    }
+  },
+  "peers": {
+    "seeds": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "mantrachain-mainnet-seed.autostake.com:27536",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
+        "address": "mantrachain-mainnet-peer.autostake.com:27536",
+        "provider": "AutoStake 🛡️ Slash Protected"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.nvnmchain.io",
+        "provider": "NVNMCHAIN"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.mantrachain.io",
+        "provider": "NVNMCHAIN"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "https://grpc.mantrachain.io",
+        "provider": "NVNMCHAIN"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://evm.nvnmchain.io",
+        "provider": "NVNMCHAIN"
+      }
+    ]
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nvnmchain/images/nvnm-token-primary.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nvnmchain/images/nvnm-token-primary.svg"
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer.nvnmchain.io",
+      "tx_page": "https://explorer.nvnmchain.io/tx/${txHash}",
+      "account_page": "https://explorer.nvnmchain.io/address/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "ai",
+    "wasm",
+    "evm",
+    "anchoring"
+  ],
+  "images": [
+    {
+      "image_sync": {
+        "chain_name": "nvnmchain",
+        "base_denom": "mantrausd"
+      },
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nvnmchain/images/nvnm-token-primary.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nvnmchain/images/nvnm-token-primary.svg",
+      "theme": {
+        "circle": true
+      }
+    }
+  ],
+  "snapshots": [
+    {
+      "url": "https://snapshots.nvnmchain.io",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "NVNM Chain"
+    }
+  ]
+}
