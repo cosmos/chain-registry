@@ -62,35 +62,36 @@
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/neutron-org/neutron",
-    "recommended_version": "v5.0.2",
+    "git_repo": "https://github.com/solva-solutions/neutron",
+    "recommended_version": "v11.2.0",
     "compatible_versions": [
-      "v5.0.2"
+      "v11.2.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/neutron-org/neutron/releases/download/v5.0.2/neutrond-linux-amd64"
+      "linux/amd64": "https://github.com/solva-solutions/neutron/releases/download/v11.2.0/neutrond-linux-amd64"
     },
     "consensus": {
       "type": "cometbft",
-      "version": "v0.38.15"
+      "version": "v0.38.21"
     },
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/neutron-org/mainnet-assets/main/neutron-1-genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/solva-solutions/neutron-mainnet-assets/main/neutron-1-genesis.json"
     },
     "sdk": {
       "type": "cosmos",
-      "repo": "https://github.com/neutron-org/cosmos-sdk",
-      "version": "v0.50.10",
-      "tag": "v0.50.10-neutron"
+      "repo": "https://github.com/solva-solutions/neutron-cosmos-sdk",
+      "version": "v0.53.4",
+      "tag": "v0.53.4-neutron"
     },
     "ibc": {
       "type": "go",
-      "version": "v8.5.2"
+      "version": "v10.5.0"
     },
     "cosmwasm": {
-      "version": "v0.53.0",
-      "repo": "https://github.com/neutron-org/wasmd",
-      "enabled": true
+      "version": "v0.61.14",
+      "repo": "https://github.com/solva-solutions/neutron-wasmd",
+      "enabled": true,
+      "tag": "v0.61.14-neutron"
     }
   },
   "logo_URIs": {
@@ -100,16 +101,6 @@
   "description": "The most secure CosmWasm platform in Cosmos, Neutron lets smart-contracts leverage bleeding-edge Interchain technology with minimal overhead.",
   "peers": {
     "seeds": [
-      {
-        "id": "74f3a4a0423e72334f4439b438b29934e5f0dbbd",
-        "address": "p2p-xyphion.neutron-1.neutron.org:26656",
-        "provider": "Neutron"
-      },
-      {
-        "id": "65beeffac5c0f29e6c3749687f03b2040d265895",
-        "address": "p2p-talzor.neutron-1.neutron.org:26656",
-        "provider": "Neutron"
-      },
       {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:19156",
@@ -149,22 +140,6 @@
         "address": "https://rpc-archive.neutron.solva.solutions:443",
         "provider": "solva.solutions",
         "archive": true
-      },
-      {
-        "address": "https://rpc-lb.neutron.org",
-        "provider": "Neutron"
-      },
-      {
-        "address": "https://rpc-solara.neutron-1.neutron.org",
-        "provider": "Neutron"
-      },
-      {
-        "address": "https://rpc-vertexa.neutron-1.neutron.org",
-        "provider": "Neutron"
-      },
-      {
-        "address": "https://rpc.novel.remedy.tm.p2p.org",
-        "provider": "P2P"
       },
       {
         "address": "https://rpc.lavenderfive.com:443/neutron",
@@ -349,6 +324,13 @@
       "compression": "lz4",
       "checksum_available": false,
       "provider": "Polkachu"
+    },
+    {
+      "url": "https://github.com/solva-solutions/solva-solutions/blob/main/chains/neutron/service_Node_Snapshot.md",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": true,
+      "provider": "Solva"
     }
   ]
 }
