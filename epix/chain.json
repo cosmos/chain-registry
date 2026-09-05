@@ -36,34 +36,48 @@
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/EpixZone/Epix",
-    "recommended_version": "v1.0.0",
+    "git_repo": "https://github.com/EpixZone/EpixChain",
+    "recommended_version": "v0.7.3",
     "compatible_versions": [
-      "v1.0.0"
+      "v0.7.3"
     ],
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/EpixZone/Epix/refs/heads/main/Networks/Mainnet/epix_1916-0/genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/EpixZone/EpixChain/main/artifacts/genesis/mainnet/genesis.json"
+    },
+    "language": {
+      "type": "go",
+      "version": "1.25.9"
     },
     "sdk": {
       "type": "cosmos",
-      "version": "0.46"
+      "version": "v0.54.3"
     },
     "consensus": {
-      "type": "tendermint",
-      "version": "0.34"
+      "type": "cometbft",
+      "version": "v0.39.3"
     },
     "ibc": {
       "type": "go",
-      "version": "v6.1.0"
+      "version": "v11.1.0"
+    },
+    "cosmwasm": {
+      "enabled": false
     }
   },
+  "description": "Epix is designed to power a completely decentralized internet, where websites are hosted by everyone and controlled by no one, making the web unstoppable.",
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/epix/images/epix.png",
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/epix/images/epix.svg"
   },
   "peers": {
     "seeds": [],
-    "persistent_peers": []
+    "persistent_peers": [
+      {
+        "id": "1b7b67ff660e8609ad8dc75149509fafff7bd82b",
+        "address": "84.203.116.103:26656",
+        "provider": "Silk Nodes"
+      }
+    ]
   },
   "apis": {
     "rpc": [
@@ -104,16 +118,8 @@
     ],
     "grpc": [
       {
-        "address": "grpc.epix.zone:15067",
-        "provider": "Epix"
-      },
-      {
         "address": "grpc-epix.vinjan-inc.com:39990",
         "provider": "Vinjan.Inc"
-      },
-      {
-        "address": "grpc-epix.dnsarz.net:443",
-        "provider": "dnsarz"
       }
     ],
     "evm-http-jsonrpc": [
@@ -125,19 +131,25 @@
   },
   "explorers": [
     {
-      "kind": "L1",
+      "kind": "Epix",
       "url": "https://explorer.epix.zone/",
-      "tx_page": "https://explorer.epix.zone/epix/tx/${txHash}"
+      "tx_page": "https://explorer.epix.zone/#/tx/${txHash}",
+      "account_page": "https://explorer.epix.zone/#/account/${accountAddress}",
+      "block_page": "https://explorer.epix.zone/#/block/${blockHeight}",
+      "proposal_page": "https://explorer.epix.zone/#/gov/${proposalId}"
     },
     {
       "kind": "OneNov",
-      "url": "https://explorer.onenov.xyz",
-      "tx_page": "https://explorer.onenov.xyz/epix/tx/${txHash}"
+      "url": "https://explorer.onenov.xyz/epix",
+      "tx_page": "https://explorer.onenov.xyz/epix/tx/${txHash}",
+      "account_page": "https://explorer.onenov.xyz/epix/account/${accountAddress}"
     },
     {
-      "kind": "EVM",
+      "kind": "Blockscout",
       "url": "https://scan.epix.zone/",
-      "tx_page": "https://scan.epix.zone/tx/${txHash}"
+      "tx_page": "https://scan.epix.zone/tx/${txHash}",
+      "account_page": "https://scan.epix.zone/address/${accountAddress}",
+      "block_page": "https://scan.epix.zone/block/${blockHeight}"
     }
   ],
   "images": [
