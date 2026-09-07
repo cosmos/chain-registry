@@ -1,67 +1,62 @@
+
 {
+  "$schema": "../chain.schema.json",
   "chain_name": "blg24",
-  "chain_id": "BLG24",
-  "pretty_name": "Gold24Coin",
   "status": "live",
   "network_type": "mainnet",
   "chain_type": "cosmos",
+  "pretty_name": "BLG24",
+  "chain_id": "BLG24",
   "bech32_prefix": "blg24",
-  "daemon_name": "blg24d",
+  "daemon_name": "blg24",
   "node_home": "$HOME/.blg24",
-
-  "genesis": {
-    "genesis_url": "https://raw.githubusercontent.com/blg24chain/blg24-registry/master/blg24/genesis.json"
-  },
-
-  "logo": "https://raw.githubusercontent.com/blg24chain/blg24-registry/master/blg24/images/g24.png",
-
-  "codebase": {
-    "git_repo": "https://github.com/blg24chain/blg24",
-    "recommended_version": "v1.0.0",
-    "compatible_versions": ["v1.0.0"]
-  },
-
-  "peers": {
-    "seeds": [
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
       {
-        "id": "SEED_NODE_ID_AQUI",
-        "address": "SEED_IP_AQUI:26656"
-      }
-    ],
-    "persistent_peers": [
-      {
-        "id": "VALOPER_NODE_ID_AQUI",
-        "address": "VALOPER_IP_AQUI:26656"
+        "denom": "ug24",
+        "fixed_min_gas_price": 0.005,
+        "low_gas_price": 0.005,
+        "average_gas_price": 0.01,
+        "high_gas_price": 0.02
       }
     ]
   },
-
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ug24"
+      }
+    ]
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/VICTOR-1969/chain-registry/VICTOR-1969-patch-1/blg24/images/g24.png"
+    }
+  ],
+  "codebase": {
+    "git_repo": "",
+    "recommended_version": "",
+    "compatible_versions": [],
+    "cosmos_sdk_version": "0.50",
+    "cometbft_version": "0.38",
+    "ibc_go_version": "8.3.2"
+  },
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc.blg24scan.com",
+        "address": "https://node.gold24coin.com",
         "provider": "BLG24"
       }
     ],
     "rest": [
       {
-        "address": "https://api.blg24scan.com",
-        "provider": "BLG24"
-      }
-    ],
-    "grpc": [
-      {
-        "address": "grpc.blg24scan.com:9090",
+        "address": "https://api.gold24coin.com",
         "provider": "BLG24"
       }
     ]
-  },
-
-  "explorers": [
-    {
-      "kind": "blg24scan",
-      "url": "https://blg24scan.com",
-      "tx_page": "https://blg24scan.com/tx/${txHash}"
-    }
-  ]
+  }
 }
