@@ -1,0 +1,76 @@
+{
+  "$schema": "../../assetlist.schema.json",
+  "chain_name": "abakossandbox",
+  "assets": [
+    {
+      "description": "ABA is the native settlement, staking and mining-payout asset of Abakos, a zero-fee EVM-compatible Proof-of-Stake compute chain.",
+      "denom_units": [
+        {
+          "denom": "uaba",
+          "exponent": 0
+        },
+        {
+          "denom": "aba",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "uaba",
+      "name": "Abakos",
+      "display": "aba",
+      "symbol": "ABA",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/abakossandbox/images/abakos.png"
+      },
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/abakossandbox/images/abakos.png"
+        }
+      ]
+    },
+    {
+      "description": "Noble USDC bridged to Abakos Sandbox over IBC",
+      "denom_units": [
+        {
+          "denom": "ibc/8E27BA2D5493AF5636760E354E46004562C46AB7EC0CC4C1CA14E9E20E2545B5",
+          "exponent": 0
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/8E27BA2D5493AF5636760E354E46004562C46AB7EC0CC4C1CA14E9E20E2545B5",
+      "name": "Noble USDC",
+      "display": "usdc",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "noble",
+            "base_denom": "uusdc",
+            "channel_id": "channel-600"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/uusdc"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "noble",
+            "base_denom": "uusdc"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.png"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/USDCoin.png"
+      }
+    }
+  ]
+}
