@@ -9,24 +9,36 @@
   "bech32_prefix": "terp",
   "slip44": 118,
   "daemon_name": "terp",
-  "node_home": "$HOME/.terp",
+  "node_home": "$HOME/.terpd",
   "codebase": {
     "git_repo": "https://github.com/terpnetwork/terp-core.git",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/terpnetwork/networks/main/mainnet/morocco-1/genesis.json"
     },
-    "recommended_version": "v5.0.3",
+    "recommended_version": "v6.0.1",
     "compatible_versions": [
-      "v5.0.2",
-      "v5.0.3"
+      "v6.0.1"
     ],
     "consensus": {
       "type": "cometbft",
-      "version": "0.38.21"
+      "version": "0.39.3"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.54.3"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v11.2.0"
+    },
+    "cosmwasm": {
+      "version": "0.70.3",
+      "enabled": true,
+      "path": "$HOME/.terpd/data/wasm"
     },
     "binaries": {
-      "linux/amd64": "https://github.com/terpnetwork/terp-core/releases/download/v5.0.3/terpd-linux-amd64",
-      "linux/arm64": "https://github.com/terpnetwork/terp-core/releases/download/v5.0.3/terpd-linux-arm64"
+      "linux/amd64": "https://s3.terp.network/releases/terp-core/v6.0.1/terpd-6.0.1-linux-amd64.tar.gz?checksum=sha256:e4dd72f5a6cba3af602b49e51ee79229432f5de02dc23e586c5c6b7768dc285c",
+      "linux/arm64": "https://s3.terp.network/releases/terp-core/v6.0.1/terpd-6.0.1-linux-arm64.tar.gz?checksum=sha256:0b8d21b0bbe3cb593fb77c5cdd413d712aaf9465981180e2ca1f074f81c5cbc8"
     }
   },
   "fees": {
