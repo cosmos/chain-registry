@@ -62,6 +62,18 @@ If you operate public infrastructure (RPC/REST/gRPC endpoints, seeds, peers, sna
 }
 ```
 
+**Address formats are schema-enforced per type** — a single malformed address rejects the whole manifest (nothing syncs that run), so validate locally before publishing:
+
+| Field | Required format | Examples |
+|---|---|---|
+| `rpc`, `rest`, `evm-http-jsonrpc` | `http(s)://` URL | `https://cosmos-rpc.example.com` |
+| `wss` | `ws(s)://` URL | `wss://cosmos-rpc.example.com/websocket` |
+| `grpc`, `grpc-web` | `http(s)://` URL **or** bare `host:port` | `https://grpc.example.com` or `cosmos-grpc.example.com:14990` |
+| peer `address` | `host:port` | `seeds.example.com:26656` |
+| snapshot `url` / `latest_url` | `http(s)://` URL | `https://snapshots.example.com/cosmos/latest.tar.lz4` |
+
+A bare hostname with no scheme and no port (e.g. `grpc.example.com`) is rejected everywhere — it is not dialable, and it is the format that historically caused live registry entries to be dropped when a provider reformatted an address.
+
 2. **Validate locally:**
 
 ```bash
@@ -69,7 +81,7 @@ npx ajv-cli validate --spec=draft7 -c ajv-formats \
   -s provider-manifest.schema.json -d your-manifest.json
 ```
 
-3. **Host it over HTTPS on a domain you control.** The recommended path is `/.well-known/cosmos-registry.json`, but any stable HTTPS URL on your domain works. Keep it under 512 KB; the bot does not follow redirects off your domain.
+3. **Host it over HTTPS at `/.well-known/cosmos-registry.json` on a domain you control.** The manifest **must** be served at a `/.well-known/cosmos-registry.json` path — i.e. the URL ends with `/.well-known/cosmos-registry.json` (e.g. `https://your-domain/.well-known/cosmos-registry.json`) — so every provider's manifest lives at one predictable, standardized location. Keep it under 512 KB; the bot does not follow redirects off your domain.
 
 4. **Open one onboarding PR** adding yourself to [`_providers/provider-allowlist.json`](../_providers/provider-allowlist.json):
 

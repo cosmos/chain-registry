@@ -6,11 +6,14 @@
 //
 // Invocation:  PROVIDER_NAME="Example Infra" node sync_provider_manifests.mjs
 // Exit codes:  0 = changes applied (commit+PR)
-//             78 = clean run, no changes (workflow skips PR)
-//              1 = hard error (bad manifest, identity mismatch, fetch failure)
+//             78 = clean run, no changes (workflow skips PR), or the manifest was
+//                  unreachable after retries (transient: timeout/DNS/429/5xx)
+//              1 = hard error (bad manifest, identity mismatch, HTTP 4xx)
 
 import * as fs from 'fs';
 import * as path from 'path';
+import * as net from 'net';
+import * as tls from 'tls';
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 
@@ -18,7 +21,12 @@ const REPO_ROOT = path.join(process.cwd(), '..', '..', '..');
 const ALLOWLIST = path.join(REPO_ROOT, '_providers', 'provider-allowlist.json');
 const MANIFEST_SCHEMA = path.join(REPO_ROOT, 'provider-manifest.schema.json');
 
-const FETCH_TIMEOUT_MS = 10_000;
+// 25s, not 10s: providers serving from a bare origin (cumulo.pro answers from its own
+// HTTPd, not a CDN edge) pay full RTT + TLS from the runner and overran a 10s budget on
+// the 2026-07-30 and 2026-08-03 scheduled runs.
+const FETCH_TIMEOUT_MS = 25_000;
+const FETCH_ATTEMPTS = 3;
+const FETCH_BACKOFF_MS = [2_000, 5_000];
 const MAX_MANIFEST_BYTES = 512 * 1024;
 const HEALTH_TIMEOUT_MS = 15_000;
 
@@ -31,7 +39,8 @@ if (!providerName) { console.error('PROVIDER_NAME env var required'); process.ex
 
 const report = { provider: providerName, fetched_at: new Date().toISOString(),
                  manifest_url: null, manifest_sha256: null,
-                 added: [], updated: [], removed: [], retained: [], held_back: [], unverified: [], conflicts: [], skipped_chains: [] };
+                 added: [], updated: [], removed: [], retained: [], held_back: [], unverified: [], conflicts: [], skipped_chains: [],
+                 error: null };   // set when the manifest never arrived, so a neutral exit still shows why
 
 // ---------- 1. Allowlist lookup ----------
 const allowlist = JSON.parse(fs.readFileSync(ALLOWLIST, 'utf8'));
@@ -41,26 +50,90 @@ report.manifest_url = entry.manifest_url;
 const allowedOrigin = new URL(entry.manifest_url).origin;
 
 // ---------- 2. Fetch (size cap, timeout, no cross-origin redirects) ----------
+// Network faults that a provider must fix and that never heal on their own. Retrying them
+// is futile, and letting them exit neutral would strand a provider silently: the run stays
+// green while it quietly stops syncing. EAI_AGAIN is the retryable DNS code and is absent
+// here on purpose; ENOTFOUND is NXDOMAIN, i.e. the manifest host no longer exists.
+const PERMANENT_NET_CODES = new Set([
+  'CERT_HAS_EXPIRED', 'CERT_NOT_YET_VALID', 'DEPTH_ZERO_SELF_SIGNED_CERT',
+  'SELF_SIGNED_CERT_IN_CHAIN', 'UNABLE_TO_VERIFY_LEAF_SIGNATURE',
+  'UNABLE_TO_GET_ISSUER_CERT', 'UNABLE_TO_GET_ISSUER_CERT_LOCALLY',
+  'ERR_TLS_CERT_ALTNAME_INVALID', 'ERR_SSL_WRONG_VERSION_NUMBER',
+  'ENOTFOUND',
+]);
+
+// Node's fetch reports the real reason on .cause and leaves the top-level message as the
+// useless "fetch failed"; AbortSignal.timeout instead throws a DOMException directly, whose
+// numeric legacy .code must not be mistaken for an error string.
+function classifyNetError(e) {
+  const raw = e?.cause?.code ?? e?.code;
+  const code = typeof raw === 'string' ? raw : undefined;
+  const msg = e?.cause?.message || e?.message || String(e);
+  const err = new Error(code ? `${msg} (${code})` : msg);
+  err.transient = !(code && PERMANENT_NET_CODES.has(code));
+  return err;
+}
+
 async function fetchManifest(url, hops = 0) {
   if (hops > 5) throw new Error('too many redirects');
-  const res = await fetch(url, {
-    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-    redirect: 'manual',
-  });
+  let res;
+  try {
+    res = await fetch(url, {
+      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      redirect: 'manual',
+    });
+  } catch (e) {
+    throw classifyNetError(e);                           // no HTTP response at all
+  }
   if (res.status >= 300 && res.status < 400) {
     const loc = new URL(res.headers.get('location'), url);
     if (loc.origin !== allowedOrigin) throw new Error(`redirect off-domain: ${loc.origin}`);
     return fetchManifest(loc.href, hops + 1);            // same-origin redirect ok
   }
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const buf = Buffer.from(await res.arrayBuffer());
+  if (!res.ok) {
+    const err = new Error(`HTTP ${res.status}`);
+    err.transient = res.status === 429 || res.status >= 500;   // 4xx = the manifest is really gone
+    throw err;
+  }
+  let buf;
+  try {
+    buf = Buffer.from(await res.arrayBuffer());
+  } catch (e) {
+    // Headers arrived but the body did not: a reset or a timeout mid-stream is the same
+    // infrastructure class as a failure before the response, so it retries too.
+    throw classifyNetError(e);
+  }
   if (buf.length > MAX_MANIFEST_BYTES) throw new Error(`manifest too large: ${buf.length}B`);
   return buf;
 }
 
+// Retry only the transient classes; a 404 or an off-domain redirect is answered the same
+// way on every attempt, so retrying it just burns runner minutes.
+async function fetchManifestWithRetry(url) {
+  for (let attempt = 1; ; attempt++) {
+    try { return await fetchManifest(url); }
+    catch (e) {
+      if (!e.transient || attempt >= FETCH_ATTEMPTS) throw e;
+      const wait = FETCH_BACKOFF_MS[attempt - 1] ?? FETCH_BACKOFF_MS.at(-1);
+      console.error(`Fetch attempt ${attempt}/${FETCH_ATTEMPTS} failed (${e.message}); retrying in ${wait}ms`);
+      await new Promise(r => setTimeout(r, wait));
+    }
+  }
+}
+
 let manifestRaw;
-try { manifestRaw = await fetchManifest(entry.manifest_url); }
-catch (e) { console.error(`Fetch failed: ${e.message}`); writeReport(); process.exit(1); }
+try { manifestRaw = await fetchManifestWithRetry(entry.manifest_url); }
+catch (e) {
+  console.error(`Fetch failed: ${e.message}`);
+  report.error = e.transient
+    ? `manifest unreachable after ${FETCH_ATTEMPTS} attempts: ${e.message}`
+    : `manifest fetch failed: ${e.message}`;
+  writeReport();
+  // Unreachable is not the same as wrong. Exit 78 (neutral, no PR) so a provider-side
+  // blip doesn't fail the whole scheduled matrix; real faults still exit 1. report.error
+  // keeps the neutral case visible in the job summary instead of reading as a clean run.
+  process.exit(e.transient ? 78 : 1);
+}
 report.manifest_sha256 = (await import('crypto')).createHash('sha256').update(manifestRaw).digest('hex');
 
 // ---------- 3. Schema validation (whole-file reject on any error) ----------
@@ -127,6 +200,44 @@ async function httpJson(url, opts = {}) {
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
 }
+// TCP/TLS reachability probe for endpoint types we can't identity-check with a
+// plain fetch: grpc is HTTP/2+protobuf, wss is a websocket upgrade, grpc-web
+// varies by gateway. This proves ONLY that the socket accepts a connection --
+// not which chain it serves (that needs a full gRPC/ws client + reflection).
+// Honest reachability, strictly better than the old no-op pass-through.
+//   - bare "host:port" (grpc)            -> plain TCP connect
+//   - wss:// / https:// (wss, grpc-web)  -> TLS handshake must complete
+//   - ws:// / http://                    -> plain TCP connect
+function reach(addr) {
+  let host, port, useTls;
+  if (addr.includes('://')) {
+    const u = new URL(addr);
+    host = u.hostname;
+    useTls = u.protocol === 'wss:' || u.protocol === 'https:';
+    port = u.port ? Number(u.port) : (useTls ? 443 : 80);
+  } else {
+    const i = addr.lastIndexOf(':');
+    if (i < 0) return Promise.reject(new Error(`no port in "${addr}"`));
+    host = addr.slice(0, i);
+    port = Number(addr.slice(i + 1));
+    useTls = false;                          // bare host:port (grpc): TCP reach
+  }
+  if (!host || !Number.isInteger(port) || port < 1 || port > 65535)
+    return Promise.reject(new Error(`unparseable address "${addr}"`));
+  return new Promise((resolve, reject) => {
+    // rejectUnauthorized:false -- this is a reachability probe, not a cert check;
+    // we only need the handshake to complete, and identity is out of scope here.
+    // Omit SNI for raw IPs (RFC 6066 forbids an IP ServerName; Node warns and will drop it).
+    const socket = useTls
+      ? tls.connect({ host, port, servername: net.isIP(host) ? undefined : host, timeout: HEALTH_TIMEOUT_MS, rejectUnauthorized: false })
+      : net.connect({ host, port, timeout: HEALTH_TIMEOUT_MS });
+    const finish = (err, msg) => { socket.destroy(); err ? reject(err) : resolve(msg); };
+    socket.once(useTls ? 'secureConnect' : 'connect',
+      () => finish(null, `reachable (${useTls ? 'tls' : 'tcp'} ${host}:${port})`));
+    socket.once('timeout', () => finish(new Error('timeout')));
+    socket.once('error', finish);
+  });
+}
 const checks = {
   async rpc(addr, chainId) {
     const j = await httpJson(joinPath(addr, '/status'));
@@ -146,9 +257,9 @@ const checks = {
     if (!j.result) throw new Error('no eth_chainId result');
     return `eth_chainId ${j.result}`;
   },
-  async grpc() { return 'not probed (reachability only in v1)'; },
-  async wss() { return 'not probed (reachability only in v1)'; },
-  async 'grpc-web'() { return 'not probed'; },
+  async grpc(addr) { return reach(addr); },
+  async wss(addr) { return reach(addr); },
+  async 'grpc-web'(addr) { return reach(addr); },
 };
 // Advisory snapshot probe. A snapshot is best-effort, provider-owned infra, and
 // a liveness check cannot verify its contents — so the probe INFORMS rather than
@@ -195,8 +306,24 @@ async function probeSnapshot(s) {
 const keyOf = {
   endpoint: e => e.address,
   peer: p => `${p.id}@${p.address}`,
-  snapshot: s => s.url,
+  // A provider may publish several snapshots at one browse `url` differing only
+  // by variant (e.g. goleveldb `x.tar.gz` vs pebbledb `x_pebbledb.tar.gz`) — the
+  // key must keep those DISTINCT. But `latest_url` CHURNS (artifacts get renamed
+  // / re-dated), and keying by it makes a churn read as remove-old + add-new: if
+  // the new artifact blips (e.g. 404 mid-rotation) the live existing entry is
+  // dropped AND its replacement held back = data loss, because the retain-on-blip
+  // guard can't match a key that just changed. Key by STABLE identity — browse
+  // `url` + `type` + `db_backend` — so variants stay distinct while a latest_url
+  // change is an in-place update (and a blip retains the existing entry).
+  snapshot: s => [s.url ?? s.latest_url ?? '', s.type ?? '', s.db_backend ?? ''].join(' | '),
 };
+
+// order-insensitive structural compare: `{...d, provider}` re-orders keys, which
+// must NOT read as a change (it produced churn + a bogus "updated" count each run).
+const canon = (o) => Array.isArray(o) ? `[${o.map(canon).join(',')}]`
+  : (o && typeof o === 'object')
+    ? `{${Object.keys(o).sort().map(k => JSON.stringify(k) + ':' + canon(o[k])).join(',')}}`
+    : JSON.stringify(o);
 
 function mergeArray(existing = [], desired = [], kind, label, held = new Set()) {
   const ours = new Map(desired.map(d => [keyOf[kind](d), { ...d, provider: providerName }]));
@@ -213,8 +340,10 @@ function mergeArray(existing = [], desired = [], kind, label, held = new Set()) 
     const k = keyOf[kind](cur);
     if (ours.has(k)) {
       const next = ours.get(k); ours.delete(k);
-      if (JSON.stringify(next) !== JSON.stringify(cur)) report.updated.push(`${label}: ${k}`);
-      out.push(next);
+      // content compare (not key order): keep the existing entry when unchanged
+      // so a re-ordered-but-identical entry is neither rewritten nor reported.
+      if (canon(next) !== canon(cur)) { report.updated.push(`${label}: ${k}`); out.push(next); }
+      else out.push(cur);
     } else if (held.has(k)) {
       // still in the manifest but failed THIS run's health check: keep the
       // existing entry — the health gate guards what ENTERS; only
@@ -261,37 +390,72 @@ for (const chain of manifest.chains) {
       }
     }
   }
-  for (const [peerType, entries] of Object.entries(chain.peers ?? {})) desired.peers[peerType] = entries;
+  // Peers get an ADVISORY TCP dial — mirroring the snapshot probe philosophy,
+  // NOT a gate. Pilot evidence: hardened operators firewall their seed/P2P
+  // ports against unknown dialers (all of Polkachu seed ports actively REFUSE
+  // from datacenter IPs while the operator is demonstrably live), so a
+  // refused/timed-out connect proves reachability-from-HERE, not absence.
+  // Entries always sync; failures are flagged in the liveness-inconclusive
+  // report section. The node ID is not verified either way — proving it needs
+  // a Tendermint P2P secret-connection handshake (the ID is the peer pubkey
+  // hash, only provable in-protocol), deferred from v1.
+  for (const [peerType, entries] of Object.entries(chain.peers ?? {})) {
+    desired.peers[peerType] = [];
+    for (const p of entries) {
+      const pk = keyOf.peer(p);
+      desired.peers[peerType].push(p);
+      try {
+        const evidence = await reach(p.address);
+        console.log(`  ok  ${chain.chain_id} peers.${peerType} ${pk} (${evidence})`);
+      } catch (err) {
+        report.unverified.push({ chain: chain.chain_id, type: `peers.${peerType}`, address: pk, reason: `dial failed: ${err.message} (inconclusive; P2P ports are commonly firewalled)` });
+        console.log(`  DIAL? ${chain.chain_id} peers.${peerType} ${pk}: ${err.message}`);
+      }
+    }
+  }
   for (const s of chain.snapshots ?? []) {
     const { verdict, note } = await probeSnapshot(s);
-    // `address` stays s.url — the snapshot's identity key, matching the merge
-    // and the added/removed lines. When a different latest_url was the URL
-    // actually probed, name it in the note so a maintainer can reproduce.
-    const reason = s.latest_url && s.latest_url !== s.url ? `${note} [probed ${s.latest_url}]` : note;
+    // identity = keyOf.snapshot (stable: url|type|db_backend) so held/unverified
+    // lines reconcile against the merge's added/removed/retained keys. The probed
+    // artifact (latest_url) is NOT in the key, so name it in the note when it
+    // differs, letting a maintainer see exactly which file the probe hit.
+    const sk = keyOf.snapshot(s);
+    const probed = s.latest_url ?? s.url;
+    const reason = probed && probed !== sk ? `${note} [artifact ${probed}]` : note;
     if (verdict === 'dead') {
-      report.held_back.push({ chain: chain.chain_id, type: 'snapshot', address: s.url, reason });
-      markHeld('snapshots', s.url);
+      report.held_back.push({ chain: chain.chain_id, type: 'snapshot', address: sk, reason });
+      markHeld('snapshots', sk);
     } else {
       desired.snapshots.push(s);   // verified or unverified: snapshots are advisory, so sync them
       if (verdict === 'unverified')
-        report.unverified.push({ chain: chain.chain_id, type: 'snapshot', address: s.url, reason });
+        report.unverified.push({ chain: chain.chain_id, type: 'snapshot', address: sk, reason });
     }
   }
 
   const before = JSON.stringify([cj.apis, cj.peers, cj.snapshots]);
+  const touched = new Set();          // only slots THIS run merged may be pruned when empty
   cj.apis ??= {};
   for (const t of ['rpc', 'rest', 'grpc', 'wss', 'grpc-web', 'evm-http-jsonrpc'])
-    if ((desired.apis[t] ?? []).length || (cj.apis[t] ?? []).some(e => e.provider === providerName))
+    if ((desired.apis[t] ?? []).length || (cj.apis[t] ?? []).some(e => e.provider === providerName)) {
       cj.apis[t] = mergeArray(cj.apis[t], desired.apis[t], 'endpoint', `${chain.chain_id}/apis.${t}`, heldKeys[`apis.${t}`]);
+      touched.add(`apis.${t}`);
+    }
   cj.peers ??= {};
   for (const t of ['seeds', 'persistent_peers'])
-    if ((desired.peers[t] ?? []).length || (cj.peers[t] ?? []).some(p => p.provider === providerName))
-      cj.peers[t] = mergeArray(cj.peers[t], desired.peers[t], 'peer', `${chain.chain_id}/peers.${t}`);
+    if ((desired.peers[t] ?? []).length || (cj.peers[t] ?? []).some(p => p.provider === providerName)) {
+      cj.peers[t] = mergeArray(cj.peers[t], desired.peers[t], 'peer', `${chain.chain_id}/peers.${t}`, heldKeys[`peers.${t}`]);
+      touched.add(`peers.${t}`);
+    }
   if (desired.snapshots.length || (cj.snapshots ?? []).some(s => s.provider === providerName))
     cj.snapshots = mergeArray(cj.snapshots, desired.snapshots, 'snapshot', `${chain.chain_id}/snapshots`, heldKeys['snapshots']);
-  // drop blocks we created but left empty (cosmetics: never write "peers": {})
+  // drop ONLY slots this run emptied (cosmetics: never write "peers": {}). A
+  // pre-existing empty array we never merged (e.g. someone else's
+  // "persistent_peers": []) is left alone — pruning it was an unreported,
+  // out-of-provider-scope edit. Empty blocks we ourselves created via ??= are
+  // still cleaned up so we never emit "apis": {}.
   for (const block of ['apis', 'peers']) {
-    for (const k of Object.keys(cj[block] ?? {})) if (!cj[block][k]?.length) delete cj[block][k];
+    for (const k of Object.keys(cj[block] ?? {}))
+      if (!cj[block][k]?.length && touched.has(`${block}.${k}`)) delete cj[block][k];
     if (cj[block] && !Object.keys(cj[block]).length) delete cj[block];
   }
   if (cj.snapshots && !cj.snapshots.length) delete cj.snapshots;

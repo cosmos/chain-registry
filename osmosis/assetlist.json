@@ -4239,6 +4239,7 @@
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/genesisl1/images/l1.svg"
         }
       ],
+      "coingecko_id": "genesisl1",
       "keywords": [
         "osmosis_unstable"
       ]
@@ -5253,8 +5254,7 @@
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/usdx.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/usdx.svg"
         }
-      ],
-      "coingecko_id": "usdx"
+      ]
     },
     {
       "description": "BLD is the token used to secure the Agoric chain through staking and to backstop Inter Protocol.",
@@ -11276,6 +11276,56 @@
       ]
     },
     {
+      "description": "USD Coin issued natively on Injective by Circle",
+      "denom_units": [
+        {
+          "denom": "ibc/794C7D7F3B857713878A3A1927251FA6AC1EEE520424C1F6FAFE9BA26D476138",
+          "exponent": 0
+        },
+        {
+          "denom": "usdc",
+          "exponent": 6
+        }
+      ],
+      "base": "ibc/794C7D7F3B857713878A3A1927251FA6AC1EEE520424C1F6FAFE9BA26D476138",
+      "name": "Injective USDC",
+      "display": "usdc",
+      "symbol": "USDC.inj",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      },
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "injective",
+            "base_denom": "erc20:0xa00C59fF5a080D2b954d0c75e46E22a0c371235a",
+            "channel_id": "channel-8"
+          },
+          "chain": {
+            "channel_id": "channel-122",
+            "path": "transfer/channel-122/erc20:0xa00C59fF5a080D2b954d0c75e46E22a0c371235a"
+          }
+        }
+      ],
+      "type_asset": "ics20",
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "injective",
+            "base_denom": "erc20:0xa00C59fF5a080D2b954d0c75e46E22a0c371235a"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "theme": {
+            "circle": true
+          }
+        }
+      ],
+      "coingecko_id": "usd-coin"
+    },
+    {
       "description": "USDC is a fully collateralized US Dollar stablecoin developed by CENTRE, the open source project with Circle being the first of several forthcoming issuers.",
       "denom_units": [
         {
@@ -11295,7 +11345,7 @@
       "base": "ibc/498A0751C798A0D9A389AA3691123DADA57DAA4FE165D5C75894505B876BA6E4",
       "name": "USDC",
       "display": "usdc",
-      "symbol": "USDC",
+      "symbol": "USDC.n",
       "traces": [
         {
           "type": "ibc",
@@ -11320,8 +11370,8 @@
             "chain_name": "ethereum",
             "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
           },
-          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
           "theme": {
             "circle": true
           }
@@ -18214,6 +18264,53 @@
       ],
       "keywords": [
         "osmosis_unlisted"
+      ]
+    },
+    {
+      "description": "An alloy of USDC asset variants on Osmosis.",
+      "extended_description": "Multiple USD Coin variants on Osmosis comprise the liquidity backing of a tokenized transmuter pool to create an alloy of USDC.",
+      "denom_units": [
+        {
+          "denom": "factory/osmo147h5x9pcj7lm0cttlaefx6sqq5vdfnmwfcqxkmjd7exqm9gc7grqhr75m0/alloyed/allUSDC",
+          "exponent": 0
+        },
+        {
+          "denom": "allUSDC",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "address": "osmo147h5x9pcj7lm0cttlaefx6sqq5vdfnmwfcqxkmjd7exqm9gc7grqhr75m0",
+      "base": "factory/osmo147h5x9pcj7lm0cttlaefx6sqq5vdfnmwfcqxkmjd7exqm9gc7grqhr75m0/alloyed/allUSDC",
+      "name": "USD Coin",
+      "display": "allUSDC",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "synthetic",
+          "counterparty": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "provider": "Osmosis"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "ethereum",
+            "base_denom": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.png",
+          "theme": {
+            "circle": true
+          }
+        }
       ]
     },
     {
@@ -28281,6 +28378,186 @@
       "socials": {
         "website": "https://aoe2war.com"
       }
+    },
+    {
+      "description": "pARTy (ART) - where art meets party in the interchain. A fair-launched community art token minted natively on Cosmos Hub via tokenfactory.",
+      "denom_units": [
+        {
+          "denom": "ibc/7D72341AF4AB0B2975BF933A425B81DAC2C940E50E7549207E2B3C6B14A9DAB2",
+          "exponent": 0
+        },
+        {
+          "denom": "art",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/7D72341AF4AB0B2975BF933A425B81DAC2C940E50E7549207E2B3C6B14A9DAB2",
+      "name": "pARTy",
+      "display": "art",
+      "symbol": "ART",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "factory/cosmos1w9ee57gnduzm4l9h6xwn9tee9pyh8wlr4r9r35/art",
+            "channel_id": "channel-141"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/factory/cosmos1w9ee57gnduzm4l9h6xwn9tee9pyh8wlr4r9r35/art"
+          }
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "cosmoshub",
+            "base_denom": "factory/cosmos1w9ee57gnduzm4l9h6xwn9tee9pyh8wlr4r9r35/art"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/art.png"
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/art.png"
+      },
+      "socials": {
+        "website": "https://pic.zone",
+        "x": "https://x.com/pARTy_in_Cosmos"
+      }
+    },
+    {
+      "description": "EURC via Eureka",
+      "denom_units": [
+        {
+          "denom": "ibc/D48A8DD25E1470CAE78CB83D41B5C2D0EF118FD7CAA00AB4C146F419793F5CC7",
+          "exponent": 0
+        },
+        {
+          "denom": "eurc",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/D48A8DD25E1470CAE78CB83D41B5C2D0EF118FD7CAA00AB4C146F419793F5CC7",
+      "name": "Euro Coin",
+      "display": "eurc",
+      "symbol": "EURC",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "ibc/5512EB544A275E5375CE4D82233BDAA2D03002E352A9C6B0049175BD368DF10E",
+            "channel_id": "channel-141"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/transfer/08-wasm-1369/0x1abaea1f7c830bd89acc67ec4af516284b1bc33c"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eurc.png"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "cosmoshub",
+            "base_denom": "ibc/5512EB544A275E5375CE4D82233BDAA2D03002E352A9C6B0049175BD368DF10E"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eurc.png"
+        }
+      ]
+    },
+    {
+      "description": "Tether Gold via Eureka",
+      "denom_units": [
+        {
+          "denom": "ibc/F20FE45BF7122CF10559EDEA032E37956D3314774EA6D8D1D46B87D138290C45",
+          "exponent": 0
+        },
+        {
+          "denom": "xaut",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/F20FE45BF7122CF10559EDEA032E37956D3314774EA6D8D1D46B87D138290C45",
+      "name": "Tether Gold",
+      "display": "xaut",
+      "symbol": "XAUt",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "ibc/A96C4DBCB7E36F8D265E92240510DB0F29F39CE4AAF52DBDE686E448BA447886",
+            "channel_id": "channel-141"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/transfer/08-wasm-1369/0x68749665ff8d2d112fa859aa293f07a622782f38"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/xaut.png"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "cosmoshub",
+            "base_denom": "ibc/A96C4DBCB7E36F8D265E92240510DB0F29F39CE4AAF52DBDE686E448BA447886"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/xaut.png"
+        }
+      ]
+    },
+    {
+      "description": "Wrapped Lido Staked Ether via Eureka",
+      "denom_units": [
+        {
+          "denom": "ibc/41395C34786CBF147112C037494AEDC78A6FB9A6408F558DB19C2382CCA357F9",
+          "exponent": 0
+        },
+        {
+          "denom": "wsteth",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "ics20",
+      "base": "ibc/41395C34786CBF147112C037494AEDC78A6FB9A6408F558DB19C2382CCA357F9",
+      "name": "Wrapped Lido Staked Ether",
+      "display": "wsteth",
+      "symbol": "wstETH",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "ibc/1568B2266E9CF742A068567F052D6057366121943C61F62D82518AEEC4C07C7F",
+            "channel_id": "channel-141"
+          },
+          "chain": {
+            "channel_id": "channel-0",
+            "path": "transfer/channel-0/transfer/08-wasm-1369/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wsteth.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "cosmoshub",
+            "base_denom": "ibc/1568B2266E9CF742A068567F052D6057366121943C61F62D82518AEEC4C07C7F"
+          },
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wsteth.svg"
+        }
+      ]
     }
   ]
 }

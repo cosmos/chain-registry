@@ -163,10 +163,6 @@
         "provider": "nodes.guru"
       },
       {
-        "address": "https://axelar-rpc.polkachu.com",
-        "provider": "Polkachu"
-      },
-      {
         "address": "https://axelar.rpc.stakin-nodes.com",
         "provider": "Stakin"
       },
@@ -197,6 +193,10 @@
       {
         "address": "https://axelar.drpc.org",
         "provider": "dRPC"
+      },
+      {
+        "address": "https://axelar-rpc.polkachu.com:443",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
@@ -323,6 +323,12 @@
       "url": "https://axelar.valopers.com/",
       "tx_page": "https://axelar.valopers.com/transactions/${txHash}",
       "account_page": "https://axelar.valopers.com/account/${accountAddress}"
+    },
+    {
+      "kind": "moon-runners",
+      "url": "https://moon-runners.net/axelar/mainnet",
+      "tx_page": "https://moon-runners.net/axelar/mainnet/finder?search=${txHash}",
+      "account_page": "https://moon-runners.net/axelar/mainnet/finder?search=${accountAddress}"
     }
   ],
   "images": [
@@ -340,6 +346,15 @@
       "theme": {
         "circle": false
       }
+    }
+  ],
+  "snapshots": [
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/axelar",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
     }
   ]
 }

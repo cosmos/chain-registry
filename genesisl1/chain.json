@@ -30,19 +30,24 @@
   },
   "codebase": {
     "git_repo": "https://github.com/GenesisL1/genesis-crypto",
-    "recommended_version": "v1.0.0",
+    "recommended_version": "v1.6.2",
     "compatible_versions": [
-      "v1.0.0"
+      "v1.6.2"
     ],
+    "binaries": {
+      "linux/amd64": "https://github.com/GenesisL1/genesis-crypto/releases/download/v1.6.2/genesis_1.6.2_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/GenesisL1/genesis-crypto/releases/download/v1.6.2/genesis_1.6.2_Linux_arm64.tar.gz",
+      "windows/amd64": "https://github.com/GenesisL1/genesis-crypto/releases/download/v1.6.2/genesis_1.6.2_Windows_x86_64.tar.gz"
+    },
     "genesis": {
       "name": "plan_ethermint",
       "genesis_url": "https://raw.githubusercontent.com/GenesisL1/genesis-parameters/main/genesis_29-2/genesis.json"
     },
     "sdk": {
       "type": "cosmos",
-      "version": "0.46.15"
+      "version": "0.50.6"
     },
-    "tag": "v1.0.0"
+    "tag": "v1.6.2"
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/genesisl1/images/l1.png",
@@ -117,6 +122,16 @@
         "id": "1d07c049908e614f5d00bf64539581178a2a7f0d",
         "address": "192.99.5.180:26656",
         "provider": "genesismint"
+      },
+      {
+        "id": "814ad290aae4f10b4764b5d52f1e92d17de4e099",
+        "address": "162.250.190.64:36656",
+        "provider": "GL1Infra"
+      },
+      {
+        "id": "f61bd5785f60eee7b5fe165330352789165dd632",
+        "address": "162.250.191.184:36656",
+        "provider": "GL1Infra"
       }
     ]
   },
@@ -127,8 +142,12 @@
         "provider": "GenesisL1"
       },
       {
-        "address": "https://genesisl1-rpc.zenode.app",
-        "provider": "anodeofzen"
+        "address": "https://rpc.gl1infra.online",
+        "provider": "GL1Infra"
+      },
+      {
+        "address": "https://rpc.vicky.gl1infra.online",
+        "provider": "GL1Infra"
       }
     ],
     "rest": [
@@ -139,31 +158,61 @@
       {
         "address": "https://1317.genesisl1.org",
         "provider": "GenesisL1"
+      },
+      {
+        "address": "https://api.gl1infra.online",
+        "provider": "GL1Infra"
+      },
+      {
+        "address": "https://api.vicky.gl1infra.online",
+        "provider": "GL1Infra"
       }
     ],
     "evm-http-jsonrpc": [
       {
         "address": "https://rpc.genesisl1.org",
         "provider": "GenesisL1"
+      },
+      {
+        "address": "https://evm.gl1infra.online",
+        "provider": "GL1Infra"
+      },
+      {
+        "address": "https://evm.vicky.gl1infra.online",
+        "provider": "GL1Infra"
       }
     ]
   },
   "explorers": [
     {
+      "kind": "GenesisL1",
+      "url": "https://explorer.genesisl1.org",
+      "tx_page": "https://explorer.genesisl1.org/tx/${txHash}",
+      "account_page": "https://explorer.genesisl1.org/address/${accountAddress}"
+    },
+    {
+      "kind": "GenesisL1",
+      "url": "https://l1coin.com/explorer.html",
+      "tx_page": "https://l1coin.com/explorer.html#/tx/${txHash}",
+      "account_page": "https://l1coin.com/explorer.html#/address/${accountAddress}"
+    },
+    {
       "kind": "ping.pub",
       "url": "https://ping.pub/genesisL1",
-      "tx_page": "https://ping.pub/genesisL1/tx/${txHash}"
+      "tx_page": "https://ping.pub/genesisL1/tx/${txHash}",
+      "account_page": "https://ping.pub/genesisL1/account/${accountAddress}"
     },
     {
       "kind": "ping.pub",
       "url": "https://exp.utsa.tech/genesis",
-      "tx_page": "https://exp.utsa.tech/genesis/tx/${txHash}"
+      "tx_page": "https://exp.utsa.tech/genesis/tx/${txHash}",
+      "account_page": "https://exp.utsa.tech/genesis/account/${accountAddress}"
     },
     {
-      "kind": "🔥STAVR🔥",
+      "kind": "ping.pub",
       "url": "https://explorer.stavr.tech/Genesisl1",
       "tx_page": "https://explorer.stavr.tech/Genesisl1/tx/${txHash}",
-      "account_page": "https://explorer.stavr.tech/Genesisl1/accounts/${accountAddress}"
+      "account_page": "https://explorer.stavr.tech/Genesisl1/account/${accountAddress}"
     },
     {
       "kind": "atomscan",
@@ -176,6 +225,15 @@
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/genesisl1/images/l1.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/genesisl1/images/l1.svg"
+    }
+  ],
+  "snapshots": [
+    {
+      "url": "https://lcserve.zip",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": true,
+      "provider": "LCserve"
     }
   ]
 }

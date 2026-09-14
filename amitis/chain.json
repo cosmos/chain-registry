@@ -9,7 +9,9 @@
   "bech32_prefix": "amitis",
   "daemon_name": "amisd",
   "node_home": "$HOME/.amitis",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -23,17 +25,30 @@
     ]
   },
   "staking": {
-    "staking_tokens": [{"denom": "uamts"}],
-    "lock_duration": {"time": "1814400s"}
+    "staking_tokens": [
+      {
+        "denom": "uamts"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
   },
   "codebase": {
     "git_repo": "https://github.com/amitis-network/amitis-network",
     "recommended_version": "v1.0.0",
-    "compatible_versions": ["v1.0.0"],
-    "consensus": {"type": "cometbft", "version": "0.38.11"},
-    "genesis": {"genesis_url": "https://rpc.amitis.network/genesis"}
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.11"
+    },
+    "genesis": {
+      "genesis_url": "https://rpc.amitis.network/genesis"
+    }
   },
-  "description": "Amitis Network is a cooperative Layer 1 blockchain built on the Cosmos SDK. Our philosophy is friendship through shared prosperity — the network returns 80% of transaction fees directly to users at the protocol level, making it one of the most user-aligned blockchains in the Cosmos ecosystem. Amitis features 21 fixed validator slots, a native DEX, and native liquid staking built directly into the protocol.",
+  "description": "Amitis Network is a cooperative Layer 1 blockchain built on the Cosmos SDK. 80% of all transaction fees are returned directly to users at the protocol level. Amitis features 21 fixed validator slots (petals), a native DEX, CosmWasm smart contracts, and IBC connectivity \u2014 building blockchain infrastructure where economics serve users, not insiders.",
   "peers": {
     "seeds": [],
     "persistent_peers": [
@@ -45,9 +60,40 @@
     ]
   },
   "apis": {
-    "rpc": [{"address": "https://rpc.amitis.network", "provider": "Amitis Network"}],
-    "rest": [{"address": "https://rest.amitis.network", "provider": "Amitis Network"}]
+    "rpc": [
+      {
+        "address": "https://rpc.amitis.network",
+        "provider": "Amitis Network"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.amitis.network",
+        "provider": "Amitis Network"
+      }
+    ]
   },
-  "explorers": [],
-  "keywords": ["cosmos", "fee-rebate", "dex", "cooperative", "layer1"]
+  "explorers": [
+    {
+      "kind": "Amitis Explorer",
+      "url": "https://app.amitis.network/explorer",
+      "tx_page": "https://app.amitis.network/explorer/tx/${txHash}",
+      "account_page": "https://app.amitis.network/explorer/address/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "cosmos",
+    "fee-rebate",
+    "cooperative",
+    "layer1",
+    "cosmwasm"
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/amitis/images/amts.png"
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/amitis/images/amts.png"
+    }
+  ]
 }
