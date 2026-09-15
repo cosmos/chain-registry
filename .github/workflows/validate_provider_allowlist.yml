@@ -1,0 +1,42 @@
+name: Validate Provider Allowlist
+
+# Schema-validates _providers/provider-allowlist.json on every PR that touches
+# it (or the schema / this workflow's own files). The onboarding path had no
+# PR-time validation of the allowlist file: sync_provider_manifests runs only
+# on dispatch/schedule, validate_provider_scope skips non-sync branches, and
+# @chain-registry/cli does not know about _providers/. This is a targeted,
+# non-required check — a PR that does not touch these paths never runs it.
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - '_providers/provider-allowlist.json'
+      - 'provider-allowlist.schema.json'
+      - '.github/workflows/validate_provider_allowlist.yml'
+      - '.github/workflows/utility/validate_provider_allowlist.mjs'
+
+permissions:
+  contents: read
+
+jobs:
+  allowlist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # ajv/ajv-formats are the validator's only imports — same versions the
+      # sync bot pins. --no-save/--no-package-lock so no dependency files are
+      # written into the checkout.
+      - name: Install validator dependencies
+        working-directory: ./.github/workflows/utility
+        run: npm install --no-save --no-package-lock ajv@8 ajv-formats@3
+
+      - name: Validate allowlist against schema
+        working-directory: ./.github/workflows/utility
+        run: node validate_provider_allowlist.mjs

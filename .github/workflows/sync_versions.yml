@@ -3,10 +3,10 @@ on:
   schedule:
     - cron: '0 0 1,15 * *'  # runs at midnight on the 1st and 15th
 
-name: Sync Images
+name: Sync Versions
 jobs:
-  sync_images:
-    name: Sync Images
+  sync_versions:
+    name: Sync Versions
     runs-on: ubuntu-latest
     
     defaults:
@@ -48,7 +48,7 @@ jobs:
           target_branch: master
           title: Sync Versions
           body: "**Automated pull request** If closing, remember to delete the branch!"
-          old_string: "**THIS IS AN AUTOMATED UPDATE OF IMAGES**"
+          old_string: "**THIS IS AN AUTOMATED UPDATE OF VERSIONS**"
           new_string: "** Automatic pull request**"
           get_diff: true
           ignore_users: "dependabot"

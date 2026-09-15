@@ -1,0 +1,84 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "skyzennet",
+  "chain_type": "cosmos",
+  "status": "live",
+  "description": "Skyzen Network is a Proof-of-Stake (PoS) blockchain.",
+  "network_type": "testnet",
+  "pretty_name": "Skyzen Network Testnet",
+  "chain_id": "skyzen-1",
+  "bech32_prefix": "skyz",
+  "daemon_name": "skyzennetworkd",
+  "node_home": "$HOME/.skyzennetwork",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uskyz",
+        "fixed_min_gas_price": 0.0001,
+        "low_gas_price": 0.0001,
+        "average_gas_price": 0.0002,
+        "high_gas_price": 0.0005
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uskyz"
+      }
+    ]
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "86a45af7eaa0a8ecf14ca438bbcbfe591dd7b6a5",
+        "address": "peers.testnet.skyzennet.xyz:26656"
+      }
+    ]
+  },
+  "codebase": {
+    "genesis": {
+      "genesis_url": "https://github.com/skyzennetwork/testnets/raw/main/genesis/genesis.json"
+    },
+    "git_repo": "https://github.com/skyzennetwork/testnets",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "binaries": {
+      "linux/amd64": "https://github.com/skyzennetwork/testnets/releases/download/v1/skyzennetworkd"
+    }
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.testnet.skyzennet.xyz/",
+        "provider": "skyzennet"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.testnet.skyzennet.xyz/",
+        "provider": "skyzennet"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer.skyzennet.xyz",
+      "tx_page": "https://explorer.skyzennet.xyz/skyzen/tx/${txHash}",
+      "account_page": "https://explorer.skyzennet.xyz/skyzen/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/skyzennet/images/skyzen-main.png"
+    }
+  ]
+}

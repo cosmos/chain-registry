@@ -3,8 +3,9 @@
   "chain_name": "stargaze",
   "assets": [
     {
-      "description": "Stargaze is a decentralized blockchain platform designed specifically for non-fungible tokens (NFTs), enabling creators to mint, trade, and interact with NFTs in a fully decentralized environment.",
+      "description": "(Deprecated) The original native STARS token of Stargaze. STARS has migrated to the Cosmos Hub as the tokenfactory denom factory/cosmos1s8qx0zvz8yd6e4x0mqmqf7fr9vvfn6226hkvrq/ustars, convertible 1:1 via Osmosis. This asset is retained for historical reference.",
       "extended_description": "Stargaze is an innovative platform in the Cosmos ecosystem focused on NFTs. It provides a decentralized space where creators can mint, trade, and manage their NFTs with ease. The platform's decentralized nature ensures that creators retain full control over their digital assets, enhancing security and ownership rights. Stargaze's user-friendly interface and robust infrastructure make it an ideal choice for artists and collectors looking to engage with NFTs in a decentralized manner.",
+      "deprecated": true,
       "denom_units": [
         {
           "denom": "ustars",
@@ -18,12 +19,21 @@
       "base": "ustars",
       "name": "Stargaze",
       "display": "stars",
-      "symbol": "STARS",
+      "symbol": "STARS.legacy",
+      "traces": [
+        {
+          "type": "legacy-mintage",
+          "counterparty": {
+            "chain_name": "cosmoshub",
+            "base_denom": "factory/cosmos1s8qx0zvz8yd6e4x0mqmqf7fr9vvfn6226hkvrq/ustars"
+          },
+          "provider": "Stargaze"
+        }
+      ],
       "logo_URIs": {
         "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
         "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg"
       },
-      "coingecko_id": "stargaze",
       "images": [
         {
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.png",
@@ -252,8 +262,7 @@
             "base_denom": "factory/osmo1s794h9rxggytja3a4pmwul53u98k06zy2qtrdvjnfuxruh7s8yjs6cyxgd/ucdt"
           }
         }
-      ],
-      "coingecko_id": "collateralized-debt-token"
+      ]
     },
     {
       "description": "MBRN - Membrane's network token",
@@ -294,8 +303,7 @@
             "base_denom": "factory/osmo1s794h9rxggytja3a4pmwul53u98k06zy2qtrdvjnfuxruh7s8yjs6cyxgd/umbrn"
           }
         }
-      ],
-      "coingecko_id": "membrane"
+      ]
     },
     {
       "description": "Astroport is a neutral marketplace where anyone, from anywhere in the galaxy, can dock to trade their wares.",
@@ -863,8 +871,7 @@
             "circle": true
           }
         }
-      ],
-      "coingecko_id": "mantra-dao"
+      ]
     },
     {
       "description": "The community token for The Fortunate Few, a multi chain NFT community platform.",

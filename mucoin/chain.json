@@ -1,0 +1,103 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "mucoin",
+  "status": "live",
+  "website": "https://mucoin.org",
+  "network_type": "mainnet",
+  "pretty_name": "MuCoin",
+  "chain_type": "cosmos",
+  "chain_id": "mucoin-1",
+  "bech32_prefix": "muc",
+  "daemon_name": "mucoind",
+  "node_home": "$HOME/.mucoin",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "description": "MuCoin is a Cosmos SDK blockchain created for the MuCoin ecosystem and inspired by the world of MU Online.",
+  "keywords": [
+    "mucoin",
+    "muc",
+    "cosmos",
+    "ibc",
+    "gaming",
+    "mu-online"
+  ],
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "umuc",
+        "fixed_min_gas_price": 0.0025,
+        "low_gas_price": 0.0025,
+        "average_gas_price": 0.005,
+        "high_gas_price": 0.01
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "umuc"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/dasgrid/mucoin",
+    "recommended_version": "rewards-v0.7.0",
+    "compatible_versions": [
+      "rewards-v0.7.0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.21"
+    },
+    "language": {
+      "type": "go",
+      "version": "1.26.5"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/cosmos/cosmos-sdk",
+      "version": "v0.53.6"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v10.4.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "genesis": {
+      "name": "mucoin-1",
+      "genesis_url": "https://raw.githubusercontent.com/dasgrid/mucoin/main/networks/mucoin-1/genesis.json"
+    }
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mucoin/images/mucoin.png"
+    }
+  ],
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "32361fe4a8e26a1096261c031a951ed31bb07598",
+        "address": "169.58.22.139:26656",
+        "provider": "MuCoin"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.mucoin.org",
+        "provider": "MuCoin"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.mucoin.org",
+        "provider": "MuCoin"
+      }
+    ]
+  }
+}
