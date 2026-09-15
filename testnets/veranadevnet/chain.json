@@ -1,0 +1,54 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "veranadevnet",
+  "chain_type": "cosmos",
+  "chain_id": "vna-devnet-1",
+  "pretty_name": "Verana Devnet",
+  "status": "live",
+  "network_type": "devnet",
+  "website": "https://verana.io",
+  "bech32_prefix": "verana",
+  "slip44": 118,
+  "key_algos": [
+    "secp256k1"
+  ],
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uvna",
+        "fixed_min_gas_price": 1,
+        "low_gas_price": 1,
+        "average_gas_price": 3,
+        "high_gas_price": 4
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uvna"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "http://node1.devnet.verana.network:26657",
+        "provider": "Verana"
+      }
+    ],
+    "rest": [
+      {
+        "address": "http://node1.devnet.verana.network:1317",
+        "provider": "Verana"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Verana Explorer",
+      "url": "https://explorer.devnet.verana.network",
+      "tx_page": "https://explorer.devnet.verana.network/tx/${txHash}"
+    }
+  ]
+}
