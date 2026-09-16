@@ -77,6 +77,12 @@
         "address": "celestia-testnet-seed.itrocket.net:14656",
         "provider": "itrocket"
       }
+    ],
+    "persistent_peers": [
+      {
+        "id": "2481dbc3cc64ed023decc598dcb6be9206511fae",
+        "address": "65.109.93.124:28656"
+      }
     ]
   },
   "apis": {
@@ -100,6 +106,10 @@
       {
         "address": "https://mocha5.celestia.rpc.cumulo.me",
         "provider": "Cumulo"
+      },
+      {
+        "address": "https://celestia-testnet-rpc.crouton.digital",
+        "provider": "Crouton Digital"
       }
     ],
     "rest": [
@@ -122,6 +132,10 @@
       {
         "address": "https://mocha5.celestia.api.cumulo.me",
         "provider": "Cumulo"
+      },
+      {
+        "address": "https://celestia-testnet-api.crouton.digital",
+        "provider": "Crouton Digital"
       }
     ],
     "grpc": [
@@ -144,6 +158,10 @@
       {
         "address": "https://mocha5.celestia.grpc.cumulo.me",
         "provider": "Cumulo"
+      },
+      {
+        "address": "celestia-testnet-grpc.crouton.digital:28690",
+        "provider": "Crouton Digital"
       }
     ],
     "wss": [
@@ -153,6 +171,14 @@
       }
     ]
   },
+  "snapshots": [
+      {
+        "provider": "Crouton Digital",
+        "url": "https://storage.crouton.digital/testnet/celestia/snapshots/celestia_latest.tar.lz4",
+        "type": "pruned",
+        "compression": "lz4"
+      }
+    ],
   "explorers": [
     {
       "kind": "Valopers",
@@ -164,6 +190,12 @@
       "kind": "NodeStake Explorer",
       "url": "https://explorer.nodestake.org/celestia-testnet",
       "tx_page": "https://explorer.nodestake.org/celestia-testnet/tx/${txHash}"
+    },
+    {
+      "kind": "Crouton Digital",
+      "url": "https://explorer.crouton.digital/testnets/celestia/overview",
+      "tx_page": "https://explorer.crouton.digital/testnets/celestia/transactions/${txHash}",
+      "account_page": "https://explorer.crouton.digital/testnets/celestia/account/${accountAddress}"
     }
   ]
 }
