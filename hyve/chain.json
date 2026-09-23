@@ -1,0 +1,98 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "hyve",
+  "chain_type": "cosmos",
+  "chain_id": "hyve_7847-1",
+  "pretty_name": "HyveChain",
+  "website": "https://hyvechain.com",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "hyve",
+  "daemon_name": "hyved",
+  "node_home": "$HOME/.hyved",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ahyve",
+        "fixed_min_gas_price": 10000000000,
+        "low_gas_price": 10000000000,
+        "average_gas_price": 15000000000,
+        "high_gas_price": 20000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ahyve"
+      }
+    ]
+  },
+  "codebase": {
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.18"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.53.4"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v10.3.1"
+    }
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/hyve/images/hyve.png"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/hyve/images/hyve.png"
+  },
+  "description": "HyveChain is an EVM-compatible Cosmos SDK chain with a fixed supply and a native shielded-pool privacy layer. It settles both Ethereum-style transactions and Cosmos messages on one state machine, and connects to the Interchain over IBC.",
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://tendermint.hyvechain.com",
+        "provider": "HyveChain"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.hyvechain.com",
+        "provider": "HyveChain"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.hyvechain.com:443",
+        "provider": "HyveChain"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://rpc.hyvechain.com",
+        "provider": "HyveChain"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "HyveChain Explorer",
+      "url": "https://explorer.hyvechain.com",
+      "tx_page": "https://explorer.hyvechain.com/tx/${txHash}",
+      "account_page": "https://explorer.hyvechain.com/address/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "evm",
+    "privacy",
+    "dex",
+    "ibc"
+  ]
+}
