@@ -30,8 +30,9 @@ trap cleanup EXIT
 is_sha() { [[ "$1" =~ ^[0-9a-f]{40}$ ]]; }
 
 # --- guard: only ever write bot branches -----------------------------------
-if [[ ! "$TARGET_BRANCH" =~ ^(update|auto)/[A-Za-z0-9._/-]+$ ]]; then
-  echo "::error::Refusing to write '$TARGET_BRANCH': bot branches must start with update/ or auto/."
+if [[ ! "$TARGET_BRANCH" =~ ^(update|auto)/[A-Za-z0-9._/-]+$ ]] \
+   || ! git check-ref-format --branch "$TARGET_BRANCH" >/dev/null 2>&1; then
+  echo "::error::Refusing to write '$TARGET_BRANCH': bot branches must be a valid ref under update/ or auto/."
   exit 1
 fi
 DEFAULT_BRANCH="$(gh api "repos/$REPO" --jq .default_branch)"
@@ -45,8 +46,10 @@ is_sha "$BASE" || { echo "::error::Could not resolve HEAD: $BASE"; exit 1; }
 
 # --- collect changes (same set `git add -A` would commit; .gitignore applies)
 git add -A
+# -z: NUL-separated, so paths are never C-quoted; changes.txt is display-only.
+git diff --cached --name-status --no-renames -z HEAD > "$WORK/changes.z"
 git -c core.quotePath=false diff --cached --name-status --no-renames HEAD > "$WORK/changes.txt"
-if [[ ! -s "$WORK/changes.txt" ]]; then
+if [[ ! -s "$WORK/changes.z" ]]; then
   echo "No files changed; nothing to commit."
   echo "changed=false" >> "$GITHUB_OUTPUT"
   echo "sha=" >> "$GITHUB_OUTPUT"
@@ -57,7 +60,10 @@ echo "Files changed:"; cat "$WORK/changes.txt"
 # --- guard: never overwrite a human fix on an open bot PR -------------------
 # Bot commits (old and new) all start with "[AUTO]". Anything else on an open
 # PR from this branch is a manual edit that a force-move would destroy.
-for pr in $(gh api "repos/$REPO/pulls?state=open&head=$GITHUB_REPOSITORY_OWNER:$TARGET_BRANCH" --jq '.[].number'); do
+# Assign first: a failing $(...) inside a for-list does NOT trip set -e, which
+# would silently skip this guard.
+open_prs="$(gh api "repos/$REPO/pulls?state=open&head=$GITHUB_REPOSITORY_OWNER:$TARGET_BRANCH" --jq '.[].number')"
+for pr in $open_prs; do
   manual="$(gh api --paginate "repos/$REPO/pulls/$pr/commits" \
     --jq '.[] | select(.commit.message | startswith("[AUTO]") | not) | .sha[:8]')"
   if [[ -n "$manual" ]]; then
@@ -70,14 +76,14 @@ done
 # File contents go through files (--rawfile/--slurpfile), never argv: a large
 # base64 blob in one argument hits the kernel's per-argument size limit.
 : > "$WORK/add.jsonl"; : > "$WORK/del.jsonl"
-while IFS=$'\t' read -r status path; do
+while IFS= read -r -d '' status && IFS= read -r -d '' path; do
   case "$status" in
     D) jq -n --arg path "$path" '{path: $path}' >> "$WORK/del.jsonl" ;;
     *) base64 -w0 -- "$path" > "$WORK/blob.b64"
        jq -n --arg path "$path" --rawfile contents "$WORK/blob.b64" \
          '{path: $path, contents: $contents}' >> "$WORK/add.jsonl" ;;
   esac
-done < "$WORK/changes.txt"
+done < "$WORK/changes.z"
 
 TMP_BRANCH="tmp/signed-commit/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/${TARGET_BRANCH}"
 
