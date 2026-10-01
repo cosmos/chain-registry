@@ -8,6 +8,9 @@ permissions:
   contents: write
   pull-requests: write
 
+# One run at a time: overlapping runs would race on the same bot branch.
+concurrency: sync-images
+
 jobs:
   sync_images:
     name: Sync Images

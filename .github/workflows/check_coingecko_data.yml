@@ -8,6 +8,9 @@ permissions:
   contents: write
   pull-requests: write
 
+# One run at a time: overlapping runs would race on the same bot branch.
+concurrency: update-coingecko-data
+
 jobs:
   update_coingecko_data:
     name: Update Coingecko Data

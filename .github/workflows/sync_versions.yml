@@ -8,6 +8,9 @@ permissions:
   contents: write
   pull-requests: write
 
+# One run at a time: overlapping runs would race on the same bot branch.
+concurrency: sync-versions
+
 jobs:
   sync_versions:
     name: Sync Versions
