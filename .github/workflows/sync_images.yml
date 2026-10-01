@@ -4,6 +4,10 @@ on:
     - cron: '0 0 8,22 * *'  # runs at midnight on the 8th and 22nd
 
 name: Sync Images
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   sync_images:
     name: Sync Images
@@ -30,17 +34,18 @@ jobs:
         working-directory: ./.github/workflows/utility
         run: node sync_images.mjs
       
+      # Signed commit via the GitHub API: master requires signed commits,
+      # and a plain `git push` from a workflow is unsigned.
       - name: Add Commit Push
-        uses: devops-infra/action-commit-push@master
+        id: commit
+        uses: ./.github/actions/signed-commit
         with:
-          github_token: "${{ secrets.GITHUB_TOKEN }}"
-          add_timestamp: false
-          commit_prefix: "[AUTO]"
-          commit_message: "Sync Images"
-          force: false
-          target_branch: update/images
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: update/images
+          message: "[AUTO]Sync Images"
       
       - name: Create A PR
+        if: steps.commit.outputs.changed == 'true'
         uses: devops-infra/action-pull-request@v0.4.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

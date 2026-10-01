@@ -1,0 +1,38 @@
+name: Signed commit to bot branch
+description: >
+  Commits the working-tree changes onto a bot branch through the GitHub API
+  (createCommitOnBranch), so GitHub signs the commit. Required since the org
+  ruleset on master enforces signed commits; a plain `git push` from a
+  workflow is unsigned and blocks the PR from merging.
+
+  The bot branch is always rebuilt as <checked-out commit> + one commit.
+
+inputs:
+  token:
+    description: Token used for the API calls. Its owner becomes the commit author.
+    required: true
+  branch:
+    description: Bot branch to (re)write, e.g. update/coingecko. Must start with update/ or auto/.
+    required: true
+  message:
+    description: Commit headline, e.g. "[AUTO]Update Coingecko Data".
+    required: true
+
+outputs:
+  changed:
+    description: "'true' if a commit was made, 'false' if there was nothing to commit."
+    value: ${{ steps.commit.outputs.changed }}
+  sha:
+    description: The new commit sha (empty when nothing changed).
+    value: ${{ steps.commit.outputs.sha }}
+
+runs:
+  using: composite
+  steps:
+    - id: commit
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+        TARGET_BRANCH: ${{ inputs.branch }}
+        COMMIT_MESSAGE: ${{ inputs.message }}
+      run: bash "$GITHUB_ACTION_PATH/signed-commit.sh"
