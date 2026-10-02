@@ -1,0 +1,58 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "lightdao",
+  "chain_type": "cosmos",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "LightDAO",
+  "chain_id": "lightdao-mainnet-1",
+  "bech32_prefix": "wasm",
+  "daemon_name": "wasmd",
+  "node_home": "$HOME/.wasmd",
+  "key_algos": ["secp256k1"],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ulight",
+        "fixed_min_gas_price": 0.2,
+        "low_gas_price": 0.2,
+        "average_gas_price": 0.25,
+        "high_gas_price": 0.4
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ulight"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://lightdao.net/rpc/",
+        "provider": "LightDAO"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://lightdao.net/api/",
+        "provider": "LightDAO"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "lightdao-explorer",
+      "url": "https://lightdao.net/explorer.html",
+      "tx_page": "https://lightdao.net/explorer.html",
+      "account_page": "https://lightdao.net/explorer.html"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/main/lightdao/images/lightdao.png"
+  },
+  "keywords": ["depin", "browser-mining", "proof-of-contribution", "dao", "cosmwasm"]
+}
