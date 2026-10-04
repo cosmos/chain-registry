@@ -34,21 +34,21 @@
   },
   "codebase": {
     "git_repo": "https://github.com/celestiaorg/celestia-app",
-    "recommended_version": "v9.0.6-mocha",
+    "recommended_version": "v10.2.0-mocha",
     "compatible_versions": [
-      "v9.0.6-mocha"
+      "v10.2.0-mocha"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6-mocha/celestia-app_Linux_x86_64.tar.gz",
-      "linux/arm64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6-mocha/celestia-app_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6-mocha/celestia-app_Darwin_x86_64.tar.gz",
-      "darwin/arm64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6-mocha/celestia-app_Darwin_arm64.tar.gz"
+      "linux/amd64": "https://github.com/celestiaorg/celestia-app/releases/download/v10.2.0-mocha/celestia-app_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/celestiaorg/celestia-app/releases/download/v10.2.0-mocha/celestia-app_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/celestiaorg/celestia-app/releases/download/v10.2.0-mocha/celestia-app_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/celestiaorg/celestia-app/releases/download/v10.2.0-mocha/celestia-app_Darwin_arm64.tar.gz"
     },
     "consensus": {
       "type": "cometbft",
-      "version": "v0.40.8",
+      "version": "v0.42.1",
       "repo": "https://github.com/celestiaorg/celestia-core",
-      "tag": "v0.40.8"
+      "tag": "v0.42.1"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/mocha-5/genesis.json"
@@ -56,8 +56,8 @@
     "sdk": {
       "type": "cosmos",
       "repo": "https://github.com/celestiaorg/cosmos-sdk",
-      "version": "v0.52.8",
-      "tag": "v0.52.8"
+      "version": "v0.52.11",
+      "tag": "v0.52.11"
     },
     "ibc": {
       "type": "go",
@@ -76,6 +76,12 @@
         "id": "b402fe40f3474e9e208840702e1b7aa37f2edc4b",
         "address": "celestia-testnet-seed.itrocket.net:14656",
         "provider": "itrocket"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "2481dbc3cc64ed023decc598dcb6be9206511fae",
+        "address": "65.109.93.124:28656"
       }
     ]
   },
@@ -100,6 +106,10 @@
       {
         "address": "https://mocha5.celestia.rpc.cumulo.me",
         "provider": "Cumulo"
+      },
+      {
+        "address": "https://celestia-testnet-rpc.crouton.digital",
+        "provider": "Crouton Digital"
       }
     ],
     "rest": [
@@ -122,6 +132,10 @@
       {
         "address": "https://mocha5.celestia.api.cumulo.me",
         "provider": "Cumulo"
+      },
+      {
+        "address": "https://celestia-testnet-api.crouton.digital",
+        "provider": "Crouton Digital"
       }
     ],
     "grpc": [
@@ -144,6 +158,10 @@
       {
         "address": "https://mocha5.celestia.grpc.cumulo.me",
         "provider": "Cumulo"
+      },
+      {
+        "address": "celestia-testnet-grpc.crouton.digital:28690",
+        "provider": "Crouton Digital"
       }
     ],
     "wss": [
@@ -153,6 +171,14 @@
       }
     ]
   },
+  "snapshots": [
+      {
+        "provider": "Crouton Digital",
+        "url": "https://storage.crouton.digital/testnet/celestia/snapshots/celestia_latest.tar.lz4",
+        "type": "pruned",
+        "compression": "lz4"
+      }
+    ],
   "explorers": [
     {
       "kind": "Valopers",
@@ -164,6 +190,12 @@
       "kind": "NodeStake Explorer",
       "url": "https://explorer.nodestake.org/celestia-testnet",
       "tx_page": "https://explorer.nodestake.org/celestia-testnet/tx/${txHash}"
+    },
+    {
+      "kind": "Crouton Digital",
+      "url": "https://explorer.crouton.digital/testnets/celestia/overview",
+      "tx_page": "https://explorer.crouton.digital/testnets/celestia/transactions/${txHash}",
+      "account_page": "https://explorer.crouton.digital/testnets/celestia/account/${accountAddress}"
     }
   ]
 }

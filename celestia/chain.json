@@ -34,21 +34,22 @@
   },
   "codebase": {
     "git_repo": "https://github.com/celestiaorg/celestia-app",
-    "recommended_version": "v9.0.6",
+    "recommended_version": "v9.0.8",
     "compatible_versions": [
-      "v9.0.6"
+      "v9.0.6",
+      "v9.0.8"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6/celestia-app_Linux_x86_64.tar.gz",
-      "linux/arm64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6/celestia-app_Linux_arm64.tar.gz",
-      "darwin/amd64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6/celestia-app_Darwin_x86_64.tar.gz",
-      "darwin/arm64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.6/celestia-app_Darwin_arm64.tar.gz"
+      "linux/amd64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.8/celestia-app_Linux_x86_64.tar.gz",
+      "linux/arm64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.8/celestia-app_Linux_arm64.tar.gz",
+      "darwin/amd64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.8/celestia-app_Darwin_x86_64.tar.gz",
+      "darwin/arm64": "https://github.com/celestiaorg/celestia-app/releases/download/v9.0.8/celestia-app_Darwin_arm64.tar.gz"
     },
     "consensus": {
       "type": "cometbft",
-      "version": "v0.40.8",
+      "version": "v0.40.9",
       "repo": "https://github.com/celestiaorg/celestia-core",
-      "tag": "v0.40.8"
+      "tag": "v0.40.9"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/celestiaorg/networks/master/celestia/genesis.json"
@@ -199,6 +200,11 @@
         "id": "65a6d964e0598e282b5b413a4884adda22a4f54a",
         "address": "seed.archive.celestia.validatus.com:2131",
         "provider": "Validatus"
+      },
+      {
+        "id": "fb779c787dda02b66c061ce030f77682494cc4c8",
+        "address": "65.21.231.168:11656",
+        "provider": "Crouton Digital"
       }
     ]
   },
@@ -307,6 +313,10 @@
       {
         "address": "https://celestia-rpc.cogwheel.zone",
         "provider": "Cogwheel ⚙️"
+      },
+      {
+        "address": "https://celestia-mainnet-rpc.crouton.digital",
+        "provider": "Crouton Digital"
       }
     ],
     "rest": [
@@ -405,6 +415,10 @@
       {
         "address": "https://celestia-api.cogwheel.zone",
         "provider": "Cogwheel ⚙️"
+      },
+      {
+        "address": "https://celestia-mainnet-api.crouton.digital",
+        "provider": "Crouton Digital"
       }
     ],
     "grpc": [
@@ -483,6 +497,10 @@
       {
         "address": "celestia-grpc.cogwheel.zone:443",
         "provider": "Cogwheel ⚙️"
+      },
+      {
+        "address": "celestia-mainnet-grpc.crouton.digital:11690",
+        "provider": "Crouton Digital"
       }
     ],
     "wss": [
@@ -585,6 +603,12 @@
       "url": "https://moon-runners.net/celestia/mainnet",
       "tx_page": "https://moon-runners.net/celestia/mainnet/finder?search=${txHash}",
       "account_page": "https://moon-runners.net/celestia/mainnet/finder?search=${accountAddress}"
+    },
+    {
+      "kind": "Crouton Digital",
+      "url": "https://explorer.crouton.digital/mainnets/celestia/overview",
+      "tx_page": "https://explorer.crouton.digital/mainnets/celestia/transactions/${txHash}",
+      "account_page": "https://explorer.crouton.digital/mainnets/celestia/account/${accountAddress}"
     }
   ],
   "images": [
@@ -600,6 +624,12 @@
       "compression": "lz4",
       "checksum_available": false,
       "provider": "Polkachu"
+    },
+    {
+      "provider": "Crouton Digital",
+      "url": "https://storage.crouton.digital/mainnet/celestia/snapshots/celestia_latest.tar.lz4",
+      "type": "pruned",
+      "compression": "lz4"
     }
   ]
 }
