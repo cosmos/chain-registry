@@ -136,19 +136,19 @@ jobs:
             echo "SYNC_REPORT_EOF"
           } >> "$GITHUB_OUTPUT"
 
+      # Signed commit via the GitHub API: master requires signed commits,
+      # and a plain `git push` from a workflow is unsigned.
       - name: Commit and push provider branch
+        id: commit
         if: steps.apply.outputs.exit_code == '0'
-        uses: devops-infra/action-commit-push@master
+        uses: ./.github/actions/signed-commit
         with:
-          github_token: "${{ secrets.GITHUB_TOKEN }}"
-          add_timestamp: false
-          commit_prefix: "[AUTO]"
-          commit_message: "Sync ${{ matrix.provider.name }} provider manifest"
-          force: true
-          target_branch: auto/provider-manifest/${{ matrix.provider.slug }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: auto/provider-manifest/${{ matrix.provider.slug }}
+          message: "[AUTO]Sync ${{ matrix.provider.name }} provider manifest"
 
       - name: Open PR (maintainer merge required)
-        if: steps.apply.outputs.exit_code == '0'
+        if: steps.apply.outputs.exit_code == '0' && steps.commit.outputs.changed == 'true'
         uses: devops-infra/action-pull-request@v0.5.5
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
