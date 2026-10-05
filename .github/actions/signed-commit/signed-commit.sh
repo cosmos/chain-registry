@@ -57,20 +57,29 @@ if [[ ! -s "$WORK/changes.z" ]]; then
 fi
 echo "Files changed:"; cat "$WORK/changes.txt"
 
-# --- guard: never overwrite a human fix on an open bot PR -------------------
-# Bot commits (old and new) all start with "[AUTO]". Anything else on an open
-# PR from this branch is a manual edit that a force-move would destroy.
-# Assign first: a failing $(...) inside a for-list does NOT trip set -e, which
-# would silently skip this guard.
-open_prs="$(gh api "repos/$REPO/pulls?state=open&head=$GITHUB_REPOSITORY_OWNER:$TARGET_BRANCH" --jq '.[].number')"
-for pr in $open_prs; do
-  manual="$(gh api --paginate "repos/$REPO/pulls/$pr/commits" \
-    --jq '.[] | select(.commit.message | startswith("[AUTO]") | not) | .sha[:8]')"
-  if [[ -n "$manual" ]]; then
-    echo "::error::Open PR #$pr from $TARGET_BRANCH has non-[AUTO] commits ($(echo $manual)). Merge or close it first, so they are not overwritten."
+# --- guard: never overwrite a human commit on the bot branch ----------------
+# Bot commits (old and new) all start with "[AUTO]". Any other commit on the
+# branch that the checked-out commit doesn't already contain is a manual edit
+# that the force-move below would drop, whether or not a PR is open for it.
+# Assign first: a failing $(...) inside a for-list or [[ ]] does NOT trip
+# set -e, which would silently skip this guard.
+TARGET_SHA=""
+if gh api "repos/$REPO/git/ref/heads/$TARGET_BRANCH" >/dev/null 2>&1; then
+  TARGET_SHA="$(gh api "repos/$REPO/git/ref/heads/$TARGET_BRANCH" --jq .object.sha)"
+  is_sha "$TARGET_SHA" || { echo "::error::Could not resolve $TARGET_BRANCH: $TARGET_SHA"; exit 1; }
+  compare="$(gh api "repos/$REPO/compare/$BASE...$TARGET_SHA" \
+    --jq '[.total_commits, ([.commits[] | select(.commit.message | startswith("[AUTO]") | not) | .sha[:8]] | join(" "))] | @tsv')"
+  IFS=$'\t' read -r total manual <<< "$compare"
+  [[ "$total" =~ ^[0-9]+$ ]] || { echo "::error::Could not compare $TARGET_BRANCH with $BASE: $compare"; exit 1; }
+  if (( total > 250 )); then
+    echo "::error::$TARGET_BRANCH has $total commits not in $BASE; too many to check. Clean it up by hand."
     exit 1
   fi
-done
+  if [[ -n "$manual" ]]; then
+    echo "::error::$TARGET_BRANCH has non-[AUTO] commits ($manual). Merge or drop them first, so they are not overwritten."
+    exit 1
+  fi
+fi
 
 # --- build the createCommitOnBranch request ---------------------------------
 # File contents go through files (--rawfile/--slurpfile), never argv: a large
@@ -106,16 +115,21 @@ gh api "repos/$REPO/git/refs" -f "ref=refs/heads/$TMP_BRANCH" -f "sha=$BASE" >/d
 NEW="$(gh api graphql --input "$WORK/request.json" --jq '.data.createCommitOnBranch.commit.oid')"
 is_sha "$NEW" || { echo "::error::createCommitOnBranch did not return a commit: $NEW"; exit 1; }
 
+# Check the signature BEFORE touching the bot branch: an unsigned commit would
+# only produce a PR that the signed-commits rule blocks.
+VERIFIED="$(gh api "repos/$REPO/commits/$NEW" --jq '.commit.verification.verified')"
+if [[ "$VERIFIED" != "true" ]]; then
+  echo "::error::Commit $NEW is not signed (verified: $VERIFIED); leaving $TARGET_BRANCH untouched."
+  exit 1
+fi
+
 # --- 3. point the bot branch at it ------------------------------------------
-if gh api "repos/$REPO/git/ref/heads/$TARGET_BRANCH" >/dev/null 2>&1; then
+if [[ -n "$TARGET_SHA" ]]; then
   gh api -X PATCH "repos/$REPO/git/refs/heads/$TARGET_BRANCH" -f "sha=$NEW" -F force=true >/dev/null
 else
   gh api "repos/$REPO/git/refs" -f "ref=refs/heads/$TARGET_BRANCH" -f "sha=$NEW" >/dev/null
 fi
-
-VERIFIED="$(gh api "repos/$REPO/commits/$NEW" --jq '.commit.verification.verified')"
-echo "Committed $NEW to $TARGET_BRANCH (signature verified: $VERIFIED)."
-[[ "$VERIFIED" == "true" ]] || echo "::warning::Commit $NEW is not signed; the PR will be blocked by the signed-commits rule."
+echo "Committed $NEW to $TARGET_BRANCH (signed)."
 
 echo "changed=true" >> "$GITHUB_OUTPUT"
 echo "sha=$NEW" >> "$GITHUB_OUTPUT"
