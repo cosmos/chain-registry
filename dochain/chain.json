@@ -1,0 +1,138 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "dochain",
+  "chain_type": "cosmos",
+  "chain_id": "Do-Chain",
+  "pretty_name": "Do-Chain",
+  "website": "https://www.do-chain.com",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "do",
+  "bech32_config": {
+    "bech32PrefixAccAddr": "do",
+    "bech32PrefixAccPub": "dopub",
+    "bech32PrefixValAddr": "dovaloper",
+    "bech32PrefixValPub": "dovaloperpub",
+    "bech32PrefixConsAddr": "dovalcons",
+    "bech32PrefixConsPub": "dovalconspub"
+  },
+  "daemon_name": "dochaind",
+  "node_home": "$HOME/.do",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 888,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "udo",
+        "fixed_min_gas_price": 10000000,
+        "low_gas_price": 10000000,
+        "average_gas_price": 10000000,
+        "high_gas_price": 25000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "udo"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Do-Chain/dochain-core",
+    "recommended_version": "1.0.2-v25",
+    "compatible_versions": [
+      "1.0.2-v25"
+    ],
+    "language": {
+      "type": "go",
+      "version": "1.25.12"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.53.6",
+      "repo": "https://github.com/Do-Chain/dochain-cosmos-sdk"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.19"
+    },
+    "cosmwasm": {
+      "enabled": true,
+      "version": "v0.61.13"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v10.5.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    },
+    "genesis": {
+      "genesis_url": "https://www.do-chain.com/genesis.json"
+    }
+  },
+  "images": [
+    {
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dochain/images/dochain.svg",
+      "theme": {
+        "circle": false,
+        "dark_mode": false
+      }
+    }
+  ],
+  "logo_URIs": {
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dochain/images/dochain.svg"
+  },
+  "description": "Do-Chain is a Cosmos SDK chain with native DO and DODx assets, CosmWasm support, DODEX contracts, IBC transfer channels, oracle functionality, and Do-Chain public RPC, REST, and gRPC endpoints.",
+  "peers": {
+    "seeds": [
+      {
+        "id": "40109d540388140720b7fee5a5c2ade325be7255",
+        "address": "178.63.79.250:26656",
+        "provider": "Do Foundation"
+      }
+    ],
+    "persistent_peers": [
+      {
+        "id": "40109d540388140720b7fee5a5c2ade325be7255",
+        "address": "178.63.79.250:26656",
+        "provider": "Do Foundation"
+      },
+      {
+        "id": "e661d50d0c13923a2b1a12ea4fcc7eb68cc9b53b",
+        "address": "135.181.163.83:26656",
+        "provider": "Do Foundation"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://www.do-chain.com/rpc",
+        "provider": "Do Foundation"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://www.do-chain.com/lcd",
+        "provider": "Do Foundation"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "178.63.79.250:9090",
+        "provider": "Do Foundation"
+      }
+    ]
+  },
+  "keywords": [
+    "dochain",
+    "do",
+    "cosmos",
+    "cosmwasm",
+    "dodex"
+  ]
+}
