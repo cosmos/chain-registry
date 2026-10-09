@@ -18,7 +18,7 @@
     "fee_tokens": [
       {
         "denom": "uhuahua",
-        "fixed_min_gas_price": 0,
+        "fixed_min_gas_price": 500,
         "low_gas_price": 500,
         "average_gas_price": 1250,
         "high_gas_price": 2000
@@ -34,27 +34,32 @@
   },
   "codebase": {
     "git_repo": "https://github.com/ChihuahuaChain/chihuahua/",
-    "recommended_version": "v7.0.2",
+    "recommended_version": "v10.0.0",
     "compatible_versions": [
-      "v7.0.2"
+      "v10.0.0"
     ],
+    "tag": "v10.0.0",
+    "binaries": {
+      "linux/amd64": "https://github.com/ChihuahuaChain/chihuahua/releases/download/v10.0.0/chihuahuad_linux_amd64?checksum=sha256:03e1c02639463a09c67a9c4bb0f27ab9ee9e82eeabc4ec31266be096af144444",
+      "linux/arm64": "https://github.com/ChihuahuaChain/chihuahua/releases/download/v10.0.0/chihuahuad_linux_arm64?checksum=sha256:a307b6bdd2a37414244a13ce28a048ed2f286ce753b3d4a9ac48ec01a11ee0f2"
+    },
     "consensus": {
       "type": "cometbft",
-      "version": "v0.37.4"
+      "version": "v0.39.4"
     },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/ChihuahuaChain/chihuahua/main/mainnet/genesis.json"
     },
     "sdk": {
       "type": "cosmos",
-      "version": "v0.47.8"
+      "version": "v0.54.4"
     },
     "ibc": {
       "type": "go",
-      "version": "v7.4.0"
+      "version": "v11.2.0"
     },
     "cosmwasm": {
-      "version": "v0.41.0",
+      "version": "v0.70.4",
       "path": "$HOME/.chihuahuad/data/wasm",
       "enabled": true
     }
@@ -66,63 +71,12 @@
   "peers": {
     "seeds": [
       {
-        "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
-        "address": "seed.rhinostake.com:12956",
-        "provider": "RHINO 🦏"
-      },
-      {
-        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
-        "address": "seeds.polkachu.com:12956",
-        "provider": "Polkachu"
-      },
-      {
-        "id": "20e1000e88125698264454a884812746c2eb4807",
-        "address": "seeds.lavenderfive.com:12956",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "id": "cd835cfc413755184239a3dcd24a1f9b5a98627b",
-        "address": "chihua.seed.stavr.tech:2016",
-        "provider": "🔥STAVR🔥"
-      },
-      {
-        "id": "77cbb35d1df17f48a42e9f157f12f55b691e9f5e",
-        "address": "seeds.goldenratiostaking.net:1620",
-        "provider": "Golden Ratio Staking"
-      },
-      {
-        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "chihuahua-mainnet-seed.autostake.com:27186",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
         "provider": "Allnodes ⚡️ Nodes & Staking"
-      },
-      {
-        "id": "e562451b5aee3ed56bccfae8ad4ae11c7c0e7a9f",
-        "address": "seed.chihuahua.validatus.com:2010",
-        "provider": "Validatus"
       }
     ],
-    "persistent_peers": [
-      {
-        "id": "89b576c3eb72a4f0c66dc0899bec7c21552ea2a5",
-        "address": "23.88.7.73:29538",
-        "provider": "Mercury"
-      },
-      {
-        "id": "ebc272824924ea1a27ea3183dd0b9ba713494f83",
-        "address": "chihuahua-mainnet-peer.autostake.com:27186",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "id": "637077d431f618181597706810a65c826524fd74",
-        "address": "chihuahua.rpc.nodeshub.online:12956",
-        "provider": "NodesHub"
-      }
-    ]
+    "persistent_peers": []
   },
   "apis": {
     "rpc": [
@@ -135,24 +89,12 @@
         "provider": "Kleomedes"
       },
       {
-        "address": "https://chihuahua-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://chihuahua-rpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
-      },
-      {
         "address": "https://rpc.chihuahua.validatus.com",
         "provider": "Validatus"
       },
       {
         "address": "https://chihuahua.api.pocket.network",
         "provider": "Pocket Network"
-      },
-      {
-        "address": "https://chihuahua-rpc.polkachu.com:443",
-        "provider": "Polkachu"
       }
     ],
     "rest": [
@@ -161,20 +103,8 @@
         "provider": "Chihuahua"
       },
       {
-        "address": "https://chihuahua-api.polkachu.com",
-        "provider": "Polkachu"
-      },
-      {
         "address": "https://chihuahua-api.kleomedes.network",
         "provider": "Kleomedes"
-      },
-      {
-        "address": "https://chihuahua-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "https://chihuahua-rest.publicnode.com",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "https://api.chihuahua.validatus.com",
@@ -187,28 +117,21 @@
     ],
     "grpc": [
       {
-        "address": "chihuahua-grpc.polkachu.com:12990",
-        "provider": "Polkachu"
-      },
-      {
-        "address": "chihuahua.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes 🐝"
-      },
-      {
-        "address": "chihuahua-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
-        "address": "chihuahua-grpc.publicnode.com:443",
-        "provider": "Allnodes ⚡️ Nodes & Staking"
-      },
-      {
         "address": "grpc.chihuahua.validatus.com:443",
         "provider": "Validatus"
       }
     ]
   },
   "explorers": [
+    {
+      "kind": "Chihuahua Explorer",
+      "url": "https://explorer.chihuahua.wtf",
+      "tx_page": "https://explorer.chihuahua.wtf/tx/${txHash}",
+      "account_page": "https://explorer.chihuahua.wtf/account/${accountAddress}",
+      "validator_page": "https://explorer.chihuahua.wtf/validator/${validatorAddress}",
+      "proposal_page": "https://explorer.chihuahua.wtf/proposal/${proposalId}",
+      "block_page": "https://explorer.chihuahua.wtf/block/${blockHeight}"
+    },
     {
       "kind": "ping.pub",
       "url": "https://ping.pub/chihuahua",
@@ -258,11 +181,13 @@
   ],
   "snapshots": [
     {
-      "url": "https://polkachu.com/tendermint_snapshots/chihuahua",
+      "url": "https://snapshots.chihuahua.wtf",
+      "latest_url": "https://snapshots.chihuahua.wtf/chihuahua_latest.tar.lz4",
+      "provider": "Chihuahua",
       "type": "pruned",
+      "frequency": "12h",
       "compression": "lz4",
-      "checksum_available": false,
-      "provider": "Polkachu"
+      "checksum_available": true
     }
   ]
 }
