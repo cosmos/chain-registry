@@ -1,0 +1,41 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "toogchain",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "TOOG Chain",
+  "chain_id": "9001",
+  "bech32_prefix": "cosmos",
+  "daemon_name": "evmd",
+  "node_home": "$HOME/.evmd",
+  "key_algos": ["ethsecp256k1"],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "atest",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0.00000001,
+        "high_gas_price": 0.00000002
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [{ "denom": "atest" }]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/toogchain/toogchain"
+  },
+  "apis": {
+    "rpc": [{ "address": "https://toog-proxy.toog-chain.workers.dev/tendermint", "provider": "TOOG" }],
+    "rest": [{ "address": "https://toog-proxy.toog-chain.workers.dev/api", "provider": "TOOG" }]
+  },
+  "explorers": [
+    {
+      "kind": "TOOG Explorer",
+      "url": "https://toog-proxy.toog-chain.workers.dev/",
+      "tx_page": "https://toog-proxy.toog-chain.workers.dev/tx/${txHash}"
+    }
+  ]
+}
