@@ -38,6 +38,54 @@
       "type_asset": "sdk.coin"
     },
     {
+      "description": "xDGN is liquid-staked DGN. Staking DGN into the Dungeon liquid staking hub mints xDGN, which accrues staking rewards through a rising exchange rate and can be unstaked for DGN after the chain's 20-day unbonding period.",
+      "extended_description": "xDGN is issued by the Dungeon Chain liquid staking hub (an Eris Amplifier tokenfactory hub operated by Crypto Dungeon LLC). DGN bonded through the hub is delegated across the active validator set; rewards are compounded and reflected in the xDGN/DGN exchange rate. xDGN trades on Dungeon DEX and can be used as liquidity while it keeps earning.",
+      "denom_units": [
+        {
+          "denom": "factory/dungeon1ff6n48czwwhmhhp85a9qsx6053fjat7rp6cezxrr876l924aaczssw74p2/xDGN",
+          "exponent": 0
+        },
+        {
+          "denom": "xdgn",
+          "exponent": 6
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "factory/dungeon1ff6n48czwwhmhhp85a9qsx6053fjat7rp6cezxrr876l924aaczssw74p2/xDGN",
+      "name": "Staked DGN",
+      "display": "xdgn",
+      "symbol": "xDGN",
+      "traces": [
+        {
+          "type": "liquid-stake",
+          "counterparty": {
+            "chain_name": "dungeon",
+            "base_denom": "udgn"
+          },
+          "provider": "Dungeon"
+        }
+      ],
+      "images": [
+        {
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dungeon/images/xdgn.png",
+          "theme": {
+            "circle": true
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dungeon/images/xdgn.png"
+      },
+      "keywords": [
+        "liquid-staking",
+        "lst"
+      ],
+      "socials": {
+        "website": "https://dex.dungeongames.io/dungeon/stake",
+        "x": "https://x.com/cryptodungeonma"
+      }
+    },
+    {
       "description": "The native staking and governance token of the Cosmos Hub.",
       "denom_units": [
         {
