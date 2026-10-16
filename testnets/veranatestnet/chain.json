@@ -1,0 +1,54 @@
+{
+  "$schema": "../../chain.schema.json",
+  "chain_name": "veranatestnet",
+  "chain_type": "cosmos",
+  "chain_id": "vna-testnet-1",
+  "pretty_name": "Verana Testnet",
+  "status": "live",
+  "network_type": "testnet",
+  "website": "https://verana.io",
+  "bech32_prefix": "verana",
+  "slip44": 118,
+  "key_algos": [
+    "secp256k1"
+  ],
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uvna",
+        "fixed_min_gas_price": 1,
+        "low_gas_price": 1,
+        "average_gas_price": 3,
+        "high_gas_price": 4
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uvna"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.testnet.verana.network",
+        "provider": "Verana"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.testnet.verana.network",
+        "provider": "Verana"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Verana Explorer",
+      "url": "https://explorer.testnet.verana.network",
+      "tx_page": "https://explorer.testnet.verana.network/tx/${txHash}"
+    }
+  ]
+}
