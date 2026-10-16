@@ -1,0 +1,125 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "blockmaze",
+  "chain_type": "cosmos",
+  "chain_id": "blockmaze_6165-1",
+  "pretty_name": "Blockmaze",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://blockmaze.com",
+  "bech32_prefix": "bmz",
+  "daemon_name": "blockmazed",
+  "node_home": "$HOME/.blockmazed",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "Rho18",
+        "fixed_min_gas_price": 150000000000,
+        "low_gas_price": 150000000000,
+        "average_gas_price": 175000000000,
+        "high_gas_price": 200000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "Rho18"
+      }
+    ],
+    "lock_duration": {
+      "time": "604800s"
+    }
+  },
+  "codebase": {
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "tag": "v1.0.0",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.21"
+    },
+    "binaries": {
+      "linux/amd64": "https://github.com/NodeNavigator/blockmaze-mainnet-script/releases/download/blockmazed/blockmazed"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/NodeNavigator/blockmaze-mainnet-script/main/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.53.4"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.5.2"
+    }
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/blockmaze/images/bmz.png"
+    }
+  ],
+  "description": "Blockmaze is a Layer 1 blockchain for regulated real-world assets (RWAs). It is EVM-compatible and built on the Cosmos SDK, with BMZ as its native staking and gas token.",
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "97efbfbf81b0f31e2833cdd4bc42e9817fcbcff6",
+        "address": "18.156.105.47:26656",
+        "provider": "Blockmaze"
+      },
+      {
+        "id": "d62c2c80737ce66deaf45cd4f16c6deb9248d5d8",
+        "address": "13.206.25.204:26656",
+        "provider": "Blockmaze"
+      },
+      {
+        "id": "47ecf0cba6844d634881cc3d2404936ce1a57689",
+        "address": "3.111.123.210:26656",
+        "provider": "Blockmaze"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://native-rpc.blockmaze.org",
+        "provider": "Blockmaze"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.blockmaze.org",
+        "provider": "Blockmaze"
+      }
+    ],
+    "wss": [
+      {
+        "address": "wss://native-rpc.blockmaze.org/websocket",
+        "provider": "Blockmaze"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://rpc.blockmaze.org",
+        "provider": "Blockmaze"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "bmzscan",
+      "url": "https://bmzscan.com",
+      "tx_page": "https://bmzscan.com/evm/tx/0x${txHash}",
+      "account_page": "https://bmzscan.com/evm/address/${accountAddress}"
+    }
+  ]
+}
