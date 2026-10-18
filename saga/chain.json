@@ -67,7 +67,8 @@
     },
     "cosmwasm": {
       "enabled": false
-    }
+    },
+    "tag": "v0.2.1"
   },
   "peers": {
     "seeds": [
@@ -80,6 +81,11 @@
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:24956",
         "provider": "Lavender.Five Nodes 🐝"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:24956",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
@@ -145,6 +151,10 @@
       {
         "address": "https://saga-rpc.chainroot.io",
         "provider": "Chainroot"
+      },
+      {
+        "address": "https://saga-rpc.polkachu.com:443",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
@@ -183,6 +193,10 @@
       {
         "address": "https://saga-api.chainroot.io",
         "provider": "Chainroot"
+      },
+      {
+        "address": "https://saga-api.polkachu.com",
+        "provider": "Polkachu"
       }
     ],
     "grpc": [
@@ -217,6 +231,10 @@
       {
         "address": "saga-grpc.chainroot.io:443",
         "provider": "Chainroot"
+      },
+      {
+        "address": "saga-grpc.polkachu.com:24990",
+        "provider": "Polkachu"
       }
     ]
   },
@@ -249,21 +267,21 @@
       "url": "https://explorer.nodestake.org/saga",
       "tx_page": "https://explorer.nodestake.org/saga/tx/${txHash}",
       "account_page": "https://explorer.nodestake.org/saga/account/${accountAddress}"
-    },
-    {
-      "kind": "Chainroot",
-      "url": "https://explorer.chainroot.io/saga",
-      "tx_page": "https://explorer.chainroot.io/saga/transactions/${txHash}",
-      "account_page": "https://explorer.chainroot.io/saga/accounts/${accountAddress}"
     }
   ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/saga/images/saga.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/saga/images/saga.svg",
-      "theme": {
-        "primary_color_hex": "#040404"
-      }
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/saga/images/saga.svg"
+    }
+  ],
+  "snapshots": [
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/saga",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
     }
   ]
 }

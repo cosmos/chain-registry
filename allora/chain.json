@@ -15,10 +15,10 @@
     "fee_tokens": [
       {
         "denom": "uallo",
-        "fixed_min_gas_price": 10,
-        "low_gas_price": 10,
-        "average_gas_price": 10,
-        "high_gas_price": 12
+        "fixed_min_gas_price": 250000000,
+        "low_gas_price": 500000000,
+        "average_gas_price": 1000000000,
+        "high_gas_price": 1500000000
       }
     ]
   },
@@ -45,6 +45,20 @@
     },
     "genesis": {
       "genesis_url": "https://github.com/allora-network/networks/blob/main/allora-mainnet-1/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.11"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.15",
+      "repo": "https://github.com/cometbft/cometbft",
+      "tag": "v0.38.15"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v8.5.2"
     }
   },
   "logo_URIs": {
@@ -64,7 +78,12 @@
       {
         "id": "babc3f3f7804933265ec9c40ad94f4da8e9e0017",
         "address": "seed.rhinostake.com:26756",
-        "provider": "RHINO \ud83e\udd8f"
+        "provider": "RHINO 🦏"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:26756",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
@@ -87,18 +106,30 @@
       {
         "address": "https://allora-rpc.mainnet.allora.network",
         "provider": "allora"
+      },
+      {
+        "address": "https://allora-rpc.polkachu.com:443",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
       {
         "address": "https://allora-api.mainnet.allora.network",
         "provider": "allora"
+      },
+      {
+        "address": "https://allora-api.polkachu.com",
+        "provider": "Polkachu"
       }
     ],
     "grpc": [
       {
         "address": "allora-grpc.mainnet.allora.network:443",
         "provider": "allora"
+      },
+      {
+        "address": "allora-grpc.polkachu.com:26790",
+        "provider": "Polkachu"
       }
     ]
   },
@@ -114,6 +145,15 @@
     {
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/allora/images/allora.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/allora/images/allora.svg"
+    }
+  ],
+  "snapshots": [
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/allora",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
     }
   ]
 }

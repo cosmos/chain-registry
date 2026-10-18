@@ -62,35 +62,36 @@
     ]
   },
   "codebase": {
-    "git_repo": "https://github.com/neutron-org/neutron",
-    "recommended_version": "v5.0.2",
+    "git_repo": "https://github.com/solva-solutions/neutron",
+    "recommended_version": "v11.2.0",
     "compatible_versions": [
-      "v5.0.2"
+      "v11.2.0"
     ],
     "binaries": {
-      "linux/amd64": "https://github.com/neutron-org/neutron/releases/download/v5.0.2/neutrond-linux-amd64"
+      "linux/amd64": "https://github.com/solva-solutions/neutron/releases/download/v11.2.0/neutrond-linux-amd64"
     },
     "consensus": {
       "type": "cometbft",
-      "version": "v0.38.15"
+      "version": "v0.38.21"
     },
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/neutron-org/mainnet-assets/main/neutron-1-genesis.json"
+      "genesis_url": "https://raw.githubusercontent.com/solva-solutions/neutron-mainnet-assets/main/neutron-1-genesis.json"
     },
     "sdk": {
       "type": "cosmos",
-      "repo": "https://github.com/neutron-org/cosmos-sdk",
-      "version": "v0.50.10",
-      "tag": "v0.50.10-neutron"
+      "repo": "https://github.com/solva-solutions/neutron-cosmos-sdk",
+      "version": "v0.53.4",
+      "tag": "v0.53.4-neutron"
     },
     "ibc": {
       "type": "go",
-      "version": "v8.5.2"
+      "version": "v10.5.0"
     },
     "cosmwasm": {
-      "version": "v0.53.0",
-      "repo": "https://github.com/neutron-org/wasmd",
-      "enabled": true
+      "version": "v0.61.14",
+      "repo": "https://github.com/solva-solutions/neutron-wasmd",
+      "enabled": true,
+      "tag": "v0.61.14-neutron"
     }
   },
   "logo_URIs": {
@@ -101,34 +102,24 @@
   "peers": {
     "seeds": [
       {
-        "id": "74f3a4a0423e72334f4439b438b29934e5f0dbbd",
-        "address": "p2p-xyphion.neutron-1.neutron.org:26656",
-        "provider": "Neutron"
-      },
-      {
-        "id": "65beeffac5c0f29e6c3749687f03b2040d265895",
-        "address": "p2p-talzor.neutron-1.neutron.org:26656",
-        "provider": "Neutron"
-      },
-      {
         "id": "20e1000e88125698264454a884812746c2eb4807",
         "address": "seeds.lavenderfive.com:19156",
-        "provider": "Lavender.Five Nodes \ud83d\udc1d"
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "id": "c28827cb96c14c905b127b92065a3fb4cd77d7f6",
         "address": "seeds.whispernode.com:19156",
-        "provider": "WhisperNode \ud83e\udd10"
+        "provider": "WhisperNode 🤐"
       },
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
-        "id": "10ed1e176d874c8bb3c7c065685d2da6a4b86475",
-        "address": "seed-neutron.ibs.team:16686",
-        "provider": "Inter Blockchain Services"
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:19156",
+        "provider": "Polkachu"
       }
     ],
     "persistent_peers": [
@@ -142,48 +133,21 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-lb.neutron.org",
-        "provider": "Neutron"
+        "address": "https://rpc.neutron.solva.solutions:443",
+        "provider": "solva.solutions"
       },
       {
-        "address": "https://rpc-solara.neutron-1.neutron.org",
-        "provider": "Neutron"
-      },
-      {
-        "address": "https://rpc-vertexa.neutron-1.neutron.org",
-        "provider": "Neutron"
-      },
-      {
-        "address": "https://rpc-voidara.neutron-1.neutron.org",
-        "provider": "Neutron"
-      },
-      {
-        "address": "https://rpc-pulsarix.neutron-1.neutron.org",
-        "provider": "Neutron"
-      },
-      {
-        "address": "https://rpc.novel.remedy.tm.p2p.org",
-        "provider": "P2P"
+        "address": "https://rpc-archive.neutron.solva.solutions:443",
+        "provider": "solva.solutions",
+        "archive": true
       },
       {
         "address": "https://rpc.lavenderfive.com:443/neutron",
-        "provider": "Lavender.Five Nodes \ud83d\udc1d"
-      },
-      {
-        "address": "https://rpc-neutron.whispernode.com",
-        "provider": "WhisperNode \ud83e\udd10"
-      },
-      {
-        "address": "https://rpc-neutron.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://neutron-rpc.publicnode.com:443",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
-      },
-      {
-        "address": "https://community.nuxian-node.ch:6797/neutron/trpc",
-        "provider": "PRO Delegators"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "https://rpc.neutron.bronbro.io:443",
@@ -191,18 +155,31 @@
       },
       {
         "address": "https://rpc.neutron.quokkastake.io",
-        "provider": "\ud83d\udc39 Quokka Stake"
+        "provider": "🐹 Quokka Stake"
       },
       {
         "address": "https://neutron.drpc.org",
         "provider": "dRPC"
       },
       {
-        "address": "https://neutron-rpc.ibs.team",
-        "provider": "Inter Blockchain Services"
+        "address": "https://neutron.rpc.uquad.org:443",
+        "provider": "QUAD"
+      },
+      {
+        "address": "https://neutron-rpc.polkachu.com:443",
+        "provider": "Polkachu"
       }
     ],
     "rest": [
+      {
+        "address": "https://rest.neutron.solva.solutions:443",
+        "provider": "solva.solutions"
+      },
+      {
+        "address": "https://rest-archive.neutron.solva.solutions:443",
+        "provider": "solva.solutions",
+        "archive": true
+      },
       {
         "address": "https://rest-lb.neutron.org",
         "provider": "Neutron"
@@ -229,23 +206,11 @@
       },
       {
         "address": "https://rest.lavenderfive.com:443/neutron",
-        "provider": "Lavender.Five Nodes \ud83d\udc1d"
-      },
-      {
-        "address": "https://lcd-neutron.whispernode.com",
-        "provider": "WhisperNode \ud83e\udd10"
-      },
-      {
-        "address": "https://api-neutron.cosmos-spaces.cloud",
-        "provider": "Cosmos Spaces"
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "https://neutron-rest.publicnode.com",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
-      },
-      {
-        "address": "https://community.nuxian-node.ch:6797/neutron/crpc",
-        "provider": "PRO Delegators"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "https://lcd.neutron.bronbro.io:443",
@@ -253,16 +218,29 @@
       },
       {
         "address": "https://api.neutron.quokkastake.io",
-        "provider": "\ud83d\udc39 Quokka Stake"
+        "provider": "🐹 Quokka Stake"
       },
       {
-        "address": "https://neutron-api.ibs.team",
-        "provider": "Inter Blockchain Services"
+        "address": "https://neutron.rpc.uquad.org:443",
+        "provider": "QUAD"
+      },
+      {
+        "address": "https://neutron-api.polkachu.com",
+        "provider": "Polkachu"
       }
     ],
     "grpc": [
       {
-        "address": "grpc-lb.neutron.org:80",
+        "address": "grpc.neutron.solva.solutions:443",
+        "provider": "solva.solutions"
+      },
+      {
+        "address": "grpc-archive.neutron.solva.solutions:443",
+        "provider": "solva.solutions",
+        "archive": true
+      },
+      {
+        "address": "grpc-lb.neutron.org:443",
         "provider": "Neutron"
       },
       {
@@ -270,24 +248,12 @@
         "provider": "Neutron"
       },
       {
-        "address": "neutron-grpc-pub.rpc.p2p.world:3001",
-        "provider": "P2P"
-      },
-      {
         "address": "neutron.lavenderfive.com:443",
-        "provider": "Lavender.Five Nodes \ud83d\udc1d"
-      },
-      {
-        "address": "grpc-neutron.whispernode.com:443",
-        "provider": "WhisperNode \ud83e\udd10"
-      },
-      {
-        "address": "grpc-neutron.cosmos-spaces.cloud:3090",
-        "provider": "Cosmos Spaces"
+        "provider": "Lavender.Five Nodes 🐝"
       },
       {
         "address": "neutron-grpc.publicnode.com:443",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       },
       {
         "address": "https://grpc.neutron.bronbro.io:443",
@@ -295,7 +261,11 @@
       },
       {
         "address": "rpc.neutron.quokkastake.io:9090",
-        "provider": "\ud83d\udc39 Quokka Stake"
+        "provider": "🐹 Quokka Stake"
+      },
+      {
+        "address": "neutron-grpc.polkachu.com:19190",
+        "provider": "Polkachu"
       }
     ]
   },
@@ -313,10 +283,22 @@
       "account_page": "https://ezstaking.app/neutron/account/${accountAddress}"
     },
     {
-      "kind": "WhisperNode \ud83e\udd10",
+      "kind": "WhisperNode 🤐",
       "url": "https://mainnet.whispernode.com/neutron",
       "tx_page": "https://mainnet.whispernode.com/neutron/tx/${txHash}",
       "account_page": "https://mainnet.whispernode.com/neutron/account/${accountAddress}"
+    },
+    {
+      "kind": "Validatorinfo",
+      "url": "https://validatorinfo.com/networks/neutron/overview",
+      "validator_page": "https://validatorinfo.com/networks/neutron/validators",
+      "proposal_page": "https://validatorinfo.com/networks/neutron/governance"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://neutron.valopers.com/",
+      "tx_page": "https://neutron.valopers.com/transactions/${txHash}",
+      "account_page": "https://neutron.valopers.com/account/${accountAddress}"
     }
   ],
   "images": [
@@ -324,23 +306,31 @@
       "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-raw.png",
       "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-raw.svg",
       "theme": {
-        "primary_color_hex": "#000000",
-        "background_color_hex": "#00000000",
         "circle": false
       }
     },
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/ntrn.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/ntrn.svg",
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron.svg",
       "theme": {
-        "primary_color_hex": "#040404",
-        "background_color_hex": "#000000",
-        "circle": true
+        "circle": false
       }
+    }
+  ],
+  "snapshots": [
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/neutron",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
     },
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-black-logo.png",
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-black-logo.svg"
+      "url": "https://github.com/solva-solutions/solva-solutions/blob/main/chains/neutron/service_Node_Snapshot.md",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": true,
+      "provider": "Solva"
     }
   ]
 }

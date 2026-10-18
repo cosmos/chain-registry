@@ -1,0 +1,109 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "zerone",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://zerone.ai/",
+  "pretty_name": "Zerone",
+  "chain_type": "cosmos",
+  "chain_id": "zerone-1",
+  "bech32_prefix": "zrn",
+  "bech32_config": {
+    "bech32PrefixAccAddr": "zrn",
+    "bech32PrefixAccPub": "zrnpub",
+    "bech32PrefixValAddr": "zrnvaloper",
+    "bech32PrefixValPub": "zrnvaloperpub",
+    "bech32PrefixConsAddr": "zrnvalcons",
+    "bech32PrefixConsPub": "zrnvalconspub"
+  },
+  "daemon_name": "zeroned",
+  "node_home": "$HOME/.zeroned",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uzrn",
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.025,
+        "average_gas_price": 1,
+        "high_gas_price": 1.2,
+        "gas_costs": {
+          "cosmos_send": 200000
+        }
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uzrn"
+      }
+    ],
+    "lock_duration": {
+      "time": "1814400s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/cambridgetcg/zerone-core",
+    "language": {
+      "type": "go",
+      "version": "1.24.0"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.50.15",
+      "repo": "https://github.com/cosmos/cosmos-sdk"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.20",
+      "repo": "https://github.com/cometbft/cometbft"
+    },
+    "genesis": {
+      "name": "zerone-1",
+      "genesis_url": "https://raw.githubusercontent.com/cambridgetcg/zerone-core/main/deploy/mainnet/artifacts/genesis.json"
+    }
+  },
+  "images": [
+    {
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zerone/images/zrn.svg",
+      "theme": {
+        "circle": false
+      }
+    }
+  ],
+  "description": "Zerone is a Cosmos SDK blockchain that records challenged agent work, knowledge, and provenance. ZRN is its native staking, governance, and fee token.",
+  "peers": {
+    "seeds": [
+      {
+        "id": "ed8c8d49dc23f3478b2f3eddb49b8f8087828b6e",
+        "address": "169.155.55.44:26656",
+        "provider": "Zerone"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "http://169.155.55.44:26657",
+        "provider": "Zerone"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Zerone Dashboard",
+      "url": "https://zerone.ai/"
+    }
+  ],
+  "keywords": [
+    "ai",
+    "agents",
+    "knowledge",
+    "provenance",
+    "proof-of-truth"
+  ]
+}

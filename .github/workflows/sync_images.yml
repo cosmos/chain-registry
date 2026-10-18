@@ -1,5 +1,16 @@
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:   # manual trigger
+  schedule:
+    - cron: '0 0 8,22 * *'  # runs at midnight on the 8th and 22nd
+
 name: Sync Images
+permissions:
+  contents: write
+  pull-requests: write
+
+# One run at a time: overlapping runs would race on the same bot branch.
+concurrency: sync-images
+
 jobs:
   sync_images:
     name: Sync Images
@@ -26,25 +37,29 @@ jobs:
         working-directory: ./.github/workflows/utility
         run: node sync_images.mjs
       
+      # Signed commit via the GitHub API: master requires signed commits,
+      # and a plain `git push` from a workflow is unsigned.
       - name: Add Commit Push
-        uses: devops-infra/action-commit-push@master
+        id: commit
+        uses: ./.github/actions/signed-commit
         with:
-          github_token: "${{ secrets.GITHUB_TOKEN }}"
-          add_timestamp: false
-          commit_prefix: "[AUTO]"
-          commit_message: "Sync Images"
-          force: false
-          target_branch: update/images
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: update/images
+          message: "[AUTO]Sync Images"
       
       - name: Create A PR
+        if: steps.commit.outputs.changed == 'true'
         uses: devops-infra/action-pull-request@v0.4.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           source_branch: update/images
           target_branch: master
           title: Sync Images
-          body: "**Automated pull request**"
+          body: "**Automated pull request** If closing, remember to delete the branch!"
           old_string: "**THIS IS AN AUTOMATED UPDATE OF IMAGES**"
           new_string: "** Automatic pull request**"
           get_diff: true
           ignore_users: "dependabot"
+
+
+

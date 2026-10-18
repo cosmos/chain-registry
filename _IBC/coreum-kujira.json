@@ -1,31 +1,33 @@
 {
-    "$schema": "../ibc_data.schema.json",
-    "chain_1": {
-      "chain_name": "coreum",
-      "client_id": "07-tendermint-28",
-      "connection_id": "connection-19"
-    },
-    "chain_2": {
-      "chain_name": "kujira",
-      "client_id": "07-tendermint-163",
-      "connection_id": "connection-126"
-    },
-    "channels": [
-      {
-        "chain_1": {
-          "channel_id": "channel-17",
-          "port_id": "transfer"
-        },
-        "chain_2": {
-          "channel_id": "channel-122",
-          "port_id": "transfer"
-        },
-        "ordering": "unordered",
-        "version": "ics20-1",
-        "tags": {
-          "status": "live",
-          "preferred": true
-        }
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "coreum",
+    "chain_id": "coreum-mainnet-1",
+    "client_id": "07-tendermint-28",
+    "connection_id": "connection-19"
+  },
+  "chain_2": {
+    "chain_name": "kujira",
+    "chain_id": "kaiyo-1",
+    "client_id": "07-tendermint-163",
+    "connection_id": "connection-126"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-17",
+        "port_id": "transfer"
+      },
+      "chain_2": {
+        "channel_id": "channel-122",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
       }
-    ]
+    }
+  ]
 }

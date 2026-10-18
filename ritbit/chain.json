@@ -1,0 +1,113 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "ritbit",
+  "status": "live",
+  "website": "https://rubin.trade/",
+  "network_type": "mainnet",
+  "pretty_name": "Rubin",
+  "chain_type": "cosmos",
+  "chain_id": "ritbit-mainnet",
+  "bech32_prefix": "rit",
+  "daemon_name": "ritbitd",
+  "node_home": "$HOME/.ritbit",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "urit",
+        "fixed_min_gas_price": 25000000000,
+        "low_gas_price": 25000000000,
+        "average_gas_price": 25000000000,
+        "high_gas_price": 40000000000
+      },
+      {
+        "denom": "uusdc",
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.025,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.03
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "urit"
+      }
+    ]
+  },
+  "codebase": {
+    "recommended_version": "v27.6",
+    "compatible_versions": [
+      "v27.6"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.39.3"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.54.3"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v11.2.0"
+    },
+    "genesis": {
+      "genesis_url": "https://cdn.rubin.trade/scripts/genesis.json"
+    },
+    "binaries": {
+      "linux/amd64": "https://storage.yandexcloud.net/ritbit-upgrade/v27.6/ritbitd-v27.6-linux-amd64.tar.gz?checksum=sha256:9f6134e883fc52e44033b2ba52a90edf705c99799a7b4e885a8dce15938a6502"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/ritbit/images/ritbit.png"
+  },
+  "description": "Rubin is a self-custody decentralized exchange for crypto perpetual futures and spot trading.",
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.mainnet.rubin.trade",
+        "provider": "Rubin"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rest.mainnet.rubin.trade",
+        "provider": "Rubin"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.mainnet.rubin.trade:443",
+        "provider": "Rubin"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "rubin",
+      "url": "https://explorer.rubin.trade/ritbit-mainnet",
+      "tx_page": "https://explorer.rubin.trade/ritbit-mainnet/tx/${txHash}",
+      "account_page": "https://explorer.rubin.trade/ritbit-mainnet/account/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/ritbit/images/ritbit.png"
+    }
+  ],
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "f907537d0ea47759e369f7bac5cb2c22be5e3c93",
+        "address": "213.165.223.41:26656",
+        "provider": "Rubin Lab"
+      }
+    ]
+  }
+}

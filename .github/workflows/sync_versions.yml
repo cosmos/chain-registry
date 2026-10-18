@@ -1,0 +1,62 @@
+on:
+  workflow_dispatch:   # manual trigger
+  schedule:
+    - cron: '0 0 1,15 * *'  # runs at midnight on the 1st and 15th
+
+name: Sync Versions
+permissions:
+  contents: write
+  pull-requests: write
+
+# One run at a time: overlapping runs would race on the same bot branch.
+concurrency: sync-versions
+
+jobs:
+  sync_versions:
+    name: Sync Versions
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        shell: bash
+    
+    steps:
+    
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
+          
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 19.6.0
+          
+      - name: Run code to Sync Versions
+        working-directory: ./.github/workflows/utility
+        run: node sync_versions.mjs
+      
+      # Signed commit via the GitHub API: master requires signed commits,
+      # and a plain `git push` from a workflow is unsigned.
+      - name: Add Commit Push
+        id: commit
+        uses: ./.github/actions/signed-commit
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: update/versions
+          message: "[AUTO]Sync Versions"
+      
+      - name: Create A PR
+        if: steps.commit.outputs.changed == 'true'
+        uses: devops-infra/action-pull-request@v0.4.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_branch: update/versions
+          target_branch: master
+          title: Sync Versions
+          body: "**Automated pull request** If closing, remember to delete the branch!"
+          old_string: "**THIS IS AN AUTOMATED UPDATE OF VERSIONS**"
+          new_string: "** Automatic pull request**"
+          get_diff: true
+          ignore_users: "dependabot"

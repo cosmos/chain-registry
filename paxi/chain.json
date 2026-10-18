@@ -1,0 +1,145 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "paxi",
+  "status": "live",
+  "website": "https://paxinet.io",
+  "network_type": "mainnet",
+  "chain_type": "cosmos",
+  "pretty_name": "Paxi",
+  "chain_id": "paxi-mainnet",
+  "bech32_prefix": "paxi",
+  "daemon_name": "paxid",
+  "node_home": "$HOME/.paxi",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "upaxi",
+        "fixed_min_gas_price": 0.05,
+        "low_gas_price": 0.05,
+        "average_gas_price": 0.1,
+        "high_gas_price": 0.25
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "upaxi"
+      }
+    ],
+    "lock_duration": {
+      "time": "604800s"
+    }
+  },
+  "codebase": {
+    "git_repo": "https://github.com/paxi-web3/paxi",
+    "genesis": {
+      "name": "paxi-mainnet",
+      "genesis_url": "https://mainnet-rpc.paxinet.io/genesis"
+    }
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/paxi/images/paxi.png",
+      "theme": {
+        "circle": false
+      }
+    }
+  ],
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "d411fc096e0d946bbd2bdea34f0f9da928c1a714",
+        "address": "139.99.68.32:26656",
+        "provider": "Paxi Foundation"
+      },
+      {
+        "id": "a15ff764aa634bbbca93b352d559f1b74e78af31",
+        "address": "139.99.68.235:26656",
+        "provider": "Paxi Foundation"
+      },
+      {
+        "id": "4f26d3ecfb1aa81f2304850af20e74462ed1d341",
+        "address": "66.70.181.55:26656",
+        "provider": "Paxi Foundation"
+      },
+      {
+        "id": "57b44498315f013558e342827f352db790d5d90c",
+        "address": "142.44.142.121:26656",
+        "provider": "Paxi Foundation"
+      },
+      {
+        "id": "3f348c056aadccef0a5c6ea254b0a5a0096c1c7a",
+        "address": "51.75.54.185:26656",
+        "provider": "Paxi Foundation"
+      },
+      {
+        "id": "9e64baa45042ae29d999f2677084c9579972722c",
+        "address": "139.99.69.74:26656",
+        "provider": "Paxi Foundation"
+      },
+      {
+        "id": "2ec06a24a4a9c434ad9d45d34870c8f4cbedaf23",
+        "address": "rpc.paxi.indonode.net:33656",
+        "provider": "Indonode"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://mainnet-rpc.paxinet.io",
+        "provider": "Paxi Foundation"
+      },
+      {
+        "address": "https://rpc.paxi.indonode.net",
+        "provider": "Indonode"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://mainnet-lcd.paxinet.io",
+        "provider": "Paxi Foundation"
+      },
+      {
+        "address": "https://api.paxi.indonode.net",
+        "provider": "Indonode"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "mainnet-rpc.paxinet.io:443",
+        "provider": "Paxi Foundation"
+      },
+      {
+        "address": "grpc.paxi.indonode.net:443",
+        "provider": "Indonode"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "paxi-explorer",
+      "url": "https://explorer.paxinet.io",
+      "tx_page": "https://explorer.paxinet.io/tx/${txHash}",
+      "account_page": "https://explorer.paxinet.io/address/${accountAddress}"
+    },
+    {
+      "kind": "Indonode",
+      "url": "https://explorer.indonode.net/paxi",
+      "tx_page": "https://explorer.indonode.net/paxi/tx/${txHash}",
+      "account_page": "https://explorer.indonode.net/paxi/address/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "ibc",
+    "staking",
+    "dex",
+    "wasm"
+  ]
+}

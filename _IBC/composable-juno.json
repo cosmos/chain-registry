@@ -1,31 +1,33 @@
 {
-    "$schema": "../ibc_data.schema.json",
-    "chain_1": {
-      "chain_name": "composable",
-      "client_id": "07-tendermint-30",
-      "connection_id": "connection-15"
-    },
-    "chain_2": {
-      "chain_name": "juno",
-      "client_id": "07-tendermint-382",
-      "connection_id": "connection-376"
-    },
-    "channels": [
-      {
-        "chain_1": {
-          "channel_id": "channel-8",
-          "port_id": "transfer"
-        },
-        "chain_2": {
-          "channel_id": "channel-280",
-          "port_id": "transfer"
-        },
-        "ordering": "unordered",
-        "version": "ics20-1",
-        "tags": {
-          "status": "live",
-          "preferred": true
-        }
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "composable",
+    "chain_id": "centauri-1",
+    "client_id": "07-tendermint-30",
+    "connection_id": "connection-15"
+  },
+  "chain_2": {
+    "chain_name": "juno",
+    "chain_id": "juno-1",
+    "client_id": "07-tendermint-382",
+    "connection_id": "connection-376"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-8",
+        "port_id": "transfer"
+      },
+      "chain_2": {
+        "channel_id": "channel-280",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
       }
-    ]
-  }
+    }
+  ]
+}

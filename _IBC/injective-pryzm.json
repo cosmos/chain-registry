@@ -1,79 +1,81 @@
 {
-    "$schema": "../ibc_data.schema.json",
-    "chain_1": {
-        "chain_name": "injective",
-        "client_id": "07-tendermint-267",
-        "connection_id": "connection-268"
-    },
-    "chain_2": {
-      "chain_name": "pryzm",
-      "client_id": "07-tendermint-1",
-      "connection_id": "connection-1"
-    },
-    "channels": [
-      {
-        "chain_1": {
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "injective",
+    "chain_id": "injective-1",
+    "client_id": "07-tendermint-267",
+    "connection_id": "connection-268"
+  },
+  "chain_2": {
+    "chain_name": "pryzm",
+    "chain_id": "pryzm-1",
+    "client_id": "07-tendermint-1",
+    "connection_id": "connection-1"
+  },
+  "channels": [
+    {
+      "chain_1": {
         "channel_id": "channel-284",
         "port_id": "transfer"
-        },
-        "chain_2": {
-          "channel_id": "channel-1",
-          "port_id": "transfer"
-        },
-        "ordering": "unordered",
-        "version": "ics20-1",
-        "tags": {
-          "status": "live",
-          "preferred": true
-        }
       },
-      {
-        "chain_1": {
-          "channel_id": "channel-285",
-          "port_id": "icahost"
-        },
-        "chain_2": {
-          "channel_id": "channel-10",
-          "port_id": "icacontroller-delegation-inj"
-        },
-        "ordering": "ordered",
-        "version": "ics27-1",
-        "tags": {
-          "status": "live",
-          "preferred": true
-        }
+      "chain_2": {
+        "channel_id": "channel-1",
+        "port_id": "transfer"
       },
-      {
-        "chain_1": {
-          "channel_id": "channel-286",
-          "port_id": "icahost"
-        },
-        "chain_2": {
-          "channel_id": "channel-11",
-          "port_id": "icacontroller-reward-inj"
-        },
-        "ordering": "ordered",
-        "version": "ics27-1",
-        "tags": {
-          "status": "live",
-          "preferred": true
-        }
-      },
-      {
-        "chain_1": {
-          "channel_id": "channel-287",
-          "port_id": "icahost"
-        },
-        "chain_2": {
-          "channel_id": "channel-12",
-          "port_id": "icacontroller-sweep-inj"
-        },
-        "ordering": "ordered",
-        "version": "ics27-1",
-        "tags": {
-          "status": "live",
-          "preferred": true
-        }
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
       }
-    ]
-  }
+    },
+    {
+      "chain_1": {
+        "channel_id": "channel-285",
+        "port_id": "icahost"
+      },
+      "chain_2": {
+        "channel_id": "channel-10",
+        "port_id": "icacontroller-delegation-inj"
+      },
+      "ordering": "ordered",
+      "version": "ics27-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
+      }
+    },
+    {
+      "chain_1": {
+        "channel_id": "channel-286",
+        "port_id": "icahost"
+      },
+      "chain_2": {
+        "channel_id": "channel-11",
+        "port_id": "icacontroller-reward-inj"
+      },
+      "ordering": "ordered",
+      "version": "ics27-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
+      }
+    },
+    {
+      "chain_1": {
+        "channel_id": "channel-287",
+        "port_id": "icahost"
+      },
+      "chain_2": {
+        "channel_id": "channel-12",
+        "port_id": "icacontroller-sweep-inj"
+      },
+      "ordering": "ordered",
+      "version": "ics27-1",
+      "tags": {
+        "preferred": true,
+        "status": "ACTIVE"
+      }
+    }
+  ]
+}

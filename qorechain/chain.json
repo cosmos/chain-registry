@@ -1,0 +1,97 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "qorechain",
+  "chain_type": "cosmos",
+  "chain_id": "qorechain-vladi",
+  "pretty_name": "QoreChain",
+  "website": "https://www.qorechain.io",
+  "status": "live",
+  "network_type": "mainnet",
+  "bech32_prefix": "qor",
+  "daemon_name": "qorechaind",
+  "node_home": "$HOME/.qorechaind",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "description": "QoreChain is a quantum-safe Layer 1. Every transaction is signed with a hybrid post-quantum scheme (ML-DSA-87, FIPS 204, plus classical secp256k1), enforced by default, with SHAKE-256 as the default hash. Accounts use standard secp256k1 keys (coin type 118) and the hybrid post-quantum signature is carried alongside and verified on-chain. QoreChain also runs EVM (chain id 9801) and SVM execution over a single unified account: the 20-byte account is shared across VMs, so the bech32 address (qor1...) maps to the same bytes as the EVM 0x address, and the SVM address is those 20 bytes right-padded to 32 and base58-encoded. All VMs read one native bank balance (1 QOR = 1,000,000 uqor).",
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uqor",
+        "fixed_min_gas_price": 0.1,
+        "low_gas_price": 0.1,
+        "average_gas_price": 0.15,
+        "high_gas_price": 0.25
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uqor"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/qorechain/qorechain-core",
+    "recommended_version": "v3.1.82",
+    "compatible_versions": [
+      "v3.1.82"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.19"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/qorechain/images/qorechain.png"
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/qorechain/images/qorechain.png"
+    }
+  ],
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.qore.host",
+        "provider": "QoreChain"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.qore.host",
+        "provider": "QoreChain"
+      }
+    ],
+    "wss": [
+      {
+        "address": "wss://rpc.qore.host/websocket",
+        "provider": "QoreChain"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://evm.qore.host",
+        "provider": "QoreChain"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "QoreChain Explorer",
+      "url": "https://explore.qore.network",
+      "tx_page": "https://explore.qore.network/tx/${txHash}",
+      "account_page": "https://explore.qore.network/address/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "mainnet",
+    "quantum-safe",
+    "post-quantum",
+    "pqc",
+    "evm",
+    "svm"
+  ]
+}

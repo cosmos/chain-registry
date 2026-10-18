@@ -16,6 +16,7 @@ export let chainRegistryRoot = "../../../chain-registry"; //default assumption i
 export const networkTypeToDirectoryNameMap = new Map();
 networkTypeToDirectoryNameMap.set("mainnet", "");
 networkTypeToDirectoryNameMap.set("testnet", "testnets");
+networkTypeToDirectoryNameMap.set("devnet", "testnets");
 const networkTypes = Array.from(networkTypeToDirectoryNameMap.keys());
 
 export const domainToDirectoryNameMap = new Map();
@@ -132,17 +133,19 @@ export function readJsonFile(file) {
   try {
     return JSON.parse(fs.readFileSync(file));
   } catch (err) {
+    console.log(file);
     console.log(err);
   }
 }
 
 export function writeJsonFile(file, object) {
+
   try {
-    fs.writeFileSync((file), JSON.stringify(object,null,2), (err) => {
-      if (err) throw err;
-    });
+    fs.writeFileSync(file, JSON.stringify(object, null, 2));//, (err)) => {
+      //if (err) throw err;
+    //});
   } catch (err) {
-    console.log(err);
+    console.log("Failed to write file:", file, err);
   }
 }
 
@@ -154,7 +157,7 @@ export function getDirectoryContents(directory) {
       return list;
     });
   } catch (err) {
-    console.log(err);
+    //console.log(err);
   }
   return array;
 }
@@ -182,6 +185,13 @@ export async function calculateIbcHash(ibcHashInput) {
 
 // -- CHAIN REGISTRY MODULES --
 
+function isChainDirectory(directory) {
+  if (!fs.statSync(directory).isDirectory()) return false;
+  const CHAIN_FILE_EXISTS = fs.existsSync(path.join(directory, fileToFileNameMap.get("chain")));
+  const ASSETLIST_FILE_EXISTS = fs.existsSync(path.join(directory, fileToFileNameMap.get("assetlist")));
+  return CHAIN_FILE_EXISTS || ASSETLIST_FILE_EXISTS;
+}
+
 
 export function populateChainDirectories() {
   for (let [networkType, networkTypeDirectoryName] of networkTypeToDirectoryNameMap) {
@@ -189,6 +199,9 @@ export function populateChainDirectories() {
       chains = setDifferenceArray(
         getDirectoryContents(path.join(chainRegistryRoot, networkTypeDirectoryName, domainDirectoryName)),
         nonChainDirectories
+      );
+      chains = chains.filter(directoryName =>
+        isChainDirectory(path.join(chainRegistryRoot, networkTypeDirectoryName, domainDirectoryName, directoryName))
       );
       chains.forEach((chainName) => {
         chainNameToDirectoryMap.set(
@@ -211,17 +224,33 @@ export function getFileProperty(chainName, file, property) {
   }
 }
 
+function getFileSchema(chainName, file) {
+  let schema = schemas.get(file);
+  schema = "../" + schema;
+  if (getFileProperty(chainName, "chain", "network_type") === "testnet") {
+    schema = "../" + schema;
+  }
+  if (getFileProperty(chainName, "chain", "chain_type") !== "cosmos") {
+    schema = "../" + schema;
+  }
+  return schema;
+}
+
 export function setFileProperty(chainName, file, property, value) {
   const chainDirectory = chainNameToDirectoryMap.get(chainName);
   if(chainDirectory) {
     const filePath = path.join(chainDirectory,fileToFileNameMap.get(file));
     const FILE_EXISTS = fs.existsSync(filePath);
-    if(FILE_EXISTS) {
-      let json = readJsonFile(filePath);
-      json[property] = value;
-      writeJsonFile(filePath, json);
-      return;
+    let json = {};
+    if (FILE_EXISTS) {
+      json = readJsonFile(filePath);
+    } else {
+      json.$schema = getFileSchema(chainName, file);
+      json.chain_name = chainName;
     }
+    json[property] = value;
+    writeJsonFile(filePath, json);
+
   }
 }
 
@@ -255,6 +284,43 @@ export function getIBCFileProperty(chainName1, chainName2, property) {
 
   if (fs.existsSync(filePath)) {
     return readJsonFile(filePath)[property];
+  }
+
+}
+
+export function setIBCFileProperty(chainName1, chainName2, property, value) {
+  const chain1Directory = chainNameToDirectoryMap.get(chainName1);
+  const chain2Directory = chainNameToDirectoryMap.get(chainName2);
+  if (!chain1Directory || !chain2Directory) {
+    return; // One or both chains are missing from the directory map
+  }
+
+
+  // Check which directory has the _IBC folder
+  let ibcDirectory;
+  if (fs.existsSync(path.join(chain1Directory, "..", "_IBC"))) {
+    ibcDirectory = path.join(chain1Directory, "..", "_IBC");
+  } else if (fs.existsSync(path.join(chain2Directory, "..", "_IBC"))) {
+    ibcDirectory = path.join(chain2Directory, "..", "_IBC");
+  } else if (fs.existsSync(path.join(chainRegistryRoot, "_IBC"))) {
+    ibcDirectory = path.join(chainRegistryRoot, "_IBC");
+  } else if (fs.existsSync(path.join(chainRegistryRoot, "testnets", "_IBC"))) {
+    ibcDirectory = path.join(chainRegistryRoot, "testnets", "_IBC");
+  } else {
+    console.log("No _IBC directory found!");
+    return; // No _IBC directory found
+  }
+
+  // Ensure file ordering is consistent
+  let list = [chainName1, chainName2].sort();
+  const fileName = `${list[0]}-${list[1]}.json`;
+  const filePath = path.join(ibcDirectory, fileName);
+
+  let jsonFile;
+  if (fs.existsSync(filePath)) {
+    jsonFile = readJsonFile(filePath);
+    jsonFile[property] = value;
+    writeJsonFile(filePath, jsonFile);
   }
 
 }

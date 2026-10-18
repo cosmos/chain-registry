@@ -10,7 +10,9 @@
   "bech32_prefix": "pokt",
   "daemon_name": "pocketd",
   "node_home": "$HOME/.pocket",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "description": "Pocket Network is a decentralized infrastructure protocol that incentivizes a global network of node operators to provide reliable and cost-effective data access for applications across multiple platforms, including blockchains, AI services, and other APIs.",
   "fees": {
@@ -34,7 +36,9 @@
   "codebase": {
     "git_repo": "https://github.com/pokt-network/poktroll",
     "recommended_version": "v0.1.1",
-    "compatible_versions": ["v0.1.1"],
+    "compatible_versions": [
+      "v0.1.1"
+    ],
     "binaries": {
       "linux/amd64": "https://github.com/pokt-network/poktroll/releases/download/v0.1.1/pocket_linux_amd64.tar.gz",
       "linux/arm64": "https://github.com/pokt-network/poktroll/releases/download/v0.1.1/pocket_linux_arm64.tar.gz",
@@ -59,7 +63,8 @@
     },
     "cosmwasm": {
       "enabled": false
-    }
+    },
+    "tag": "v0.1.1"
   },
   "images": [
     {
@@ -84,20 +89,71 @@
         "id": "b5b11240b89c9fb86fb8dc78915d454fa0527465",
         "address": "shannon-grove-seed1.mainnet.poktroll.com:26656",
         "provider": "Grove"
+      },
+      {
+        "id": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0",
+        "address": "seeds.polkachu.com:33456",
+        "provider": "Polkachu"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
-        "address": "https://shannon-grove-rpc.mainnet.poktroll.com",
-        "provider": "Grove"
+        "address": "https://sauron-rpc.infra.pocket.network:443",
+        "provider": "Pocket Network"
+      },
+      {
+        "address": "https://pocket.api.pocket.network:443",
+        "provider": "Pocket Network"
+      },
+      {
+        "address": "https://rpc-pocket.blockval.io:443",
+        "provider": "Blockval"
+      },
+      {
+        "address": "https://pocket-rpc.polkachu.com:443",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://rpc.pocket.chaintools.tech:443",
+        "provider": "ChainTools"
+      },
+      {
+        "address": "https://pocket-rpc.kleomedes.network",
+        "provider": "Kleomedes"
       }
     ],
     "rest": [
       {
-        "address": "https://shannon-grove-api.mainnet.poktroll.com",
-        "provider": "Grove"
+        "address": "https://sauron-api.infra.pocket.network:443",
+        "provider": "Pocket Network"
+      },
+      {
+        "address": "https://pocket.api.pocket.network:443",
+        "provider": "Pocket Network"
+      },
+      {
+        "address": "https://api-pocket.blockval.io:443",
+        "provider": "Blockval"
+      },
+      {
+        "address": "https://api.pocket.chaintools.tech:443",
+        "provider": "ChainTools"
+      },
+      {
+        "address": "https://pocket-api.polkachu.com",
+        "provider": "Polkachu"
+      },
+      {
+        "address": "https://pocket-api.kleomedes.network",
+        "provider": "Kleomedes"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "pocket-grpc.polkachu.com:33490",
+        "provider": "Polkachu"
       }
     ]
   },
@@ -121,5 +177,19 @@
       "account_page": "https://explorer.blockval.io/pocket/account/${accountAddress}"
     }
   ],
-  "keywords": ["rpc", "api", "modular", "data"]
+  "keywords": [
+    "rpc",
+    "api",
+    "modular",
+    "data"
+  ],
+  "snapshots": [
+    {
+      "url": "https://polkachu.com/tendermint_snapshots/pocket",
+      "type": "pruned",
+      "compression": "lz4",
+      "checksum_available": false,
+      "provider": "Polkachu"
+    }
+  ]
 }

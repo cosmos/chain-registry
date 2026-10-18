@@ -8,28 +8,40 @@
   "chain_id": "morocco-1",
   "bech32_prefix": "terp",
   "slip44": 118,
-  "daemon_name": "terp",
-  "node_home": "$HOME/.terp",
+  "daemon_name": "terpd",
+  "node_home": "$HOME/.terpd",
   "codebase": {
     "git_repo": "https://github.com/terpnetwork/terp-core.git",
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/terpnetwork/networks/main/mainnet/morocco-1/genesis.json"
     },
-    "recommended_version": "v4.2.2",
+    "recommended_version": "v6.2.0",
     "compatible_versions": [
-      "v4.1.0",
-      "v4.2.0",
-      "v4.2.1",
-      "v4.2.2"
+      "v6.2.0"
     ],
     "consensus": {
       "type": "cometbft",
-      "version": "0.37.2"
+      "version": "0.40.0"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.55.0"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v11.2.0"
+    },
+    "cosmwasm": {
+      "version": "0.70.3",
+      "enabled": true,
+      "path": "$HOME/.terpd/data/wasm"
     },
     "binaries": {
-      "linux/amd64": "https://github.com/terpnetwork/terp-core/releases/download/v4.2.2/terpd-linux-amd64",
-      "linux/arm64": "https://github.com/terpnetwork/terp-core/releases/download/v4.2.2/terpd-linux-arm64"
-    }
+      "linux/amd64": "https://s3.terp.network/releases/terp-core/v6.2.0/terpd-6.2.0-linux-amd64.tar.gz?checksum=sha256:38c15e1f54bc8234d07883c05e665ded68fdc0434c1c9db08de796d15ef491f6",
+      "linux/arm64": "https://s3.terp.network/releases/terp-core/v6.2.0/terpd-6.2.0-linux-arm64.tar.gz?checksum=sha256:148eedb6e8f1dd97e2436bc1b36dfebdbc915d23c14e6bad483924b0a4052c3d",
+      "darwin/arm64": "https://s3.terp.network/releases/terp-core/v6.2.0/terpd-6.2.0-darwin-arm64.tar.gz?checksum=sha256:f6953962782df3178ef99852054144106622df6763bbbf3d72679f30aace8de0"
+    },
+    "tag": "v6.2.0"
   },
   "fees": {
     "fee_tokens": [
@@ -47,7 +59,7 @@
     ]
   },
   "logo_URIs": {
-    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terpnetwork/images/logo.png"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terpnetwork/images/terp.png"
   },
   "peers": {
     "seeds": [
@@ -64,7 +76,7 @@
       {
         "id": "8542cd7e6bf9d260fef543bc49e59be5a3fa9074",
         "address": "seed.publicnode.com:26656",
-        "provider": "Allnodes \u26a1\ufe0f Nodes & Staking"
+        "provider": "Allnodes ⚡️ Nodes & Staking"
       }
     ],
     "persistent_peers": [
@@ -78,8 +90,8 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-terp.zenchainlabs.io/",
-        "provider": "ZenChainLabs"
+        "address": "https://rpc-mainnet.terp.network:443",
+        "provider": "TerpNet Foundation"
       },
       {
         "address": "https://terp-mainnet-rpc.itrocket.net:443",
@@ -92,7 +104,7 @@
     ],
     "rest": [
       {
-        "address": "https://api-terp.zenchainlabs.io:443",
+        "address": "https://api-mainnet.terp.network.io:443",
         "provider": "ZenChainLabs"
       },
       {
@@ -105,10 +117,14 @@
       },
       {
         "address": "https://terp.api.m.stavr.tech",
-        "provider": "\ud83d\udd25STAVR\ud83d\udd25"
+        "provider": "🔥STAVR🔥"
       }
     ],
     "grpc": [
+      {
+        "address": "grpc-mainnet.terp.network.io:443",
+        "provider": "TerpNet Foundation"
+      },
       {
         "address": "https://grpc.terp.nodestake.top:443",
         "provider": "NodeStake"
@@ -137,13 +153,7 @@
       "account_page": "https://explorer.nodestake.top/terp/account/{$accountAddress}"
     },
     {
-      "kind": "ZenChainLabs",
-      "url": "https://terp.zenscan.io/",
-      "tx_page": "https://terp.zenscan.io/transaction.php?hash=${txHash}",
-      "account_page": "https://terp.zenscan.io/address.php?address=${accountAddress}"
-    },
-    {
-      "kind": "\ud83d\udd25STAVR\ud83d\udd25",
+      "kind": "🔥STAVR🔥",
       "url": "https://explorer.stavr.tech/Terp-Mainnet",
       "tx_page": "https://explorer.stavr.tech/Terp-Mainnet/tx/${txHash}",
       "account_page": "https://explorer.stavr.tech/Terp-Mainnet/account/{$accountAddress}"
@@ -151,10 +161,7 @@
   ],
   "images": [
     {
-      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terpnetwork/images/logo.png",
-      "theme": {
-        "primary_color_hex": "#a2cd9a"
-      }
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/terpnetwork/images/terp.png"
     }
   ]
 }
