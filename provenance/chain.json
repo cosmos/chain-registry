@@ -34,16 +34,16 @@
   },
   "codebase": {
     "git_repo": "https://github.com/provenance-io/provenance",
-    "recommended_version": "v1.26.0",
+    "recommended_version": "v1.31.0",
     "compatible_versions": [
-      "v1.26.0"
+      "v1.31.0"
     ],
     "consensus": {
       "type": "cometbft",
-      "version": "0.38.19"
+      "version": "0.38.23"
     },
     "binaries": {
-      "linux/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.26.0/provenance-linux-amd64-v1.26.0.zip"
+      "linux/amd64": "https://github.com/provenance-io/provenance/releases/download/v1.31.0/provenance-linux-amd64-v1.31.0.zip"
     },
     "genesis": {
       "name": "v1.0.1",
@@ -51,21 +51,21 @@
     },
     "sdk": {
       "type": "cosmos",
-      "version": "0.50.14"
+      "version": "0.53.8"
     },
     "ibc": {
       "type": "go",
-      "version": "8.6.1",
+      "version": "10.7.0",
       "ics_enabled": [
         "ics20-1",
         "ics27-1"
       ]
     },
     "cosmwasm": {
-      "version": "0.52",
+      "version": "0.61.15",
       "enabled": true
     },
-    "tag": "v1.26.0"
+    "tag": "v1.31.0"
   },
   "logo_URIs": {
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/provenance/images/prov.png",
@@ -130,16 +130,8 @@
   "apis": {
     "rpc": [
       {
-        "address": "https://rpc-provenance.takeshi.team/",
-        "provider": "TAKESHI"
-      },
-      {
         "address": "https://rpc.provenance.io/",
         "provider": "Figure"
-      },
-      {
-        "address": "https://provenance-mainnet-rpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
       },
       {
         "address": "https://provenance.ibs.team:443/rpc",
@@ -152,18 +144,6 @@
       {
         "address": "https://provenance-rpc.panthea.eu",
         "provider": "Panthea EU"
-      },
-      {
-        "address": "https://provenance_mainnet_rpc.chain.whenmoonwhenlambo.money",
-        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
-      },
-      {
-        "address": "https://rpc.pio-mainnet-1.provenance.aviaone.com",
-        "provider": "AVIAONE 🟢"
-      },
-      {
-        "address": "https://provenance-mainnet-rpc.shazoes.xyz",
-        "provider": "Shazoes"
       },
       {
         "address": "https://provenance.api.pocket.network",
@@ -179,14 +159,6 @@
       }
     ],
     "rest": [
-      {
-        "address": "https://api-provenance.takeshi.team",
-        "provider": "TAKESHI"
-      },
-      {
-        "address": "https://provenance-mainnet-lcd.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
       {
         "address": "https://api.provenance.io",
         "provider": "Figure"
@@ -208,18 +180,6 @@
         "provider": "Panthea EU"
       },
       {
-        "address": "https://provenance_mainnet_api.chain.whenmoonwhenlambo.money",
-        "provider": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥"
-      },
-      {
-        "address": "https://api.pio-mainnet-1.provenance.aviaone.com",
-        "provider": "AVIAONE 🟢"
-      },
-      {
-        "address": "https://provenance-mainnet-api.shazoes.xyz",
-        "provider": "Shazoes"
-      },
-      {
         "address": "https://provenance.api.pocket.network",
         "provider": "Pocket Network"
       },
@@ -234,24 +194,8 @@
     ],
     "grpc": [
       {
-        "address": "grpc-provenance.takeshi.team:443",
-        "provider": "TAKESHI"
-      },
-      {
-        "address": "provenance-mainnet-grpc.autostake.com:443",
-        "provider": "AutoStake 🛡️ Slash Protected"
-      },
-      {
         "address": "provenance-grpc.panthea.eu:16780",
         "provider": "Panthea EU"
-      },
-      {
-        "address": "grpc.pio-mainnet-1.provenance.aviaone.com:9231",
-        "provider": "AVIAONE 🟢"
-      },
-      {
-        "address": "provenance-mainnet-grpc.shazoes.xyz:12090",
-        "provider": "Shazoes"
       },
       {
         "address": "provenance-grpc.polkachu.com:27090",
@@ -265,30 +209,21 @@
   },
   "explorers": [
     {
-      "kind": "Provenance",
-      "url": "https://explorer.provenance.io",
-      "tx_page": "https://explorer.provenance.io/tx/${txHash}"
-    },
-    {
-      "kind": "hubble",
-      "url": "https://hubble.figment.io/provenance/chains/pio-mainnet-1",
-      "tx_page": "https://hubble.figment.io/provenance/chains/pio-mainnet-1/${block}/transactions/${txHash}"
-    },
-    {
-      "kind": "ping.pub",
-      "url": "https://ping.pub/provenance",
-      "tx_page": "https://ping.pub/provenance/tx/${txHash}"
+      "kind": "Zonescan",
+      "url": "https://zonescan.io/provenance",
+      "tx_page": "https://zonescan.io/provenance/transactions/${txHash}",
+      "account_page": "https://zonescan.io/provenance/accounts/${accountAddress}"
     },
     {
       "kind": "mintscan",
       "url": "https://www.mintscan.io/provenance",
-      "tx_page": "https://www.mintscan.io/provenance/transactions/${txHash}",
-      "account_page": "https://www.mintscan.io/provenance/accounts/${accountAddress}"
+      "tx_page": "https://www.mintscan.io/provenance/tx/${txHash}",
+      "account_page": "https://www.mintscan.io/provenance/address/${accountAddress}"
     },
     {
       "kind": "🔥STAVR🔥",
       "url": "https://explorer.stavr.tech/Provenance",
-      "tx_page": "https://explorer.stavr.tech/Provenance/txs/${txHash}",
+      "tx_page": "https://explorer.stavr.tech/Provenance/tx/${txHash}",
       "account_page": "https://explorer.stavr.tech/Provenance/account/${accountAddress}"
     },
     {
@@ -302,24 +237,6 @@
       "url": "https://atomscan.com/provenance",
       "tx_page": "https://atomscan.com/provenance/transactions/${txHash}",
       "account_page": "https://atomscan.com/provenance/accounts/${accountAddress}"
-    },
-    {
-      "kind": "staking-explorer.com",
-      "url": "https://staking-explorer.com/explorer/provenance",
-      "tx_page": "https://staking-explorer.com/transaction.php?chain=provenance&tx=${txHash}",
-      "account_page": "https://staking-explorer.com/account.php?chain=provenance&addr=${accountAddress}"
-    },
-    {
-      "kind": "🚀 WHEN MOON 🌕 WHEN LAMBO 🔥",
-      "url": "https://explorer.whenmoonwhenlambo.money/provenance",
-      "tx_page": "https://explorer.whenmoonwhenlambo.money/provenance/tx/${txHash}",
-      "account_page": "https://explorer.whenmoonwhenlambo.money/provenance/account/${accountAddress}"
-    },
-    {
-      "kind": "AVIAONE 🟢",
-      "url": "https://mainnet.explorer.aviaone.com/provenance",
-      "tx_page": "https://mainnet.explorer.aviaone.com/provenance/tx/${txHash}",
-      "account_page": "https://mainnet.explorer.aviaone.com/provenance/account/${accountAddress}"
     },
     {
       "kind": "moon-runners",

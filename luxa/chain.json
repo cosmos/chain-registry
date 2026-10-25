@@ -1,0 +1,103 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "luxa",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://luxaecosystem.xyz",
+  "pretty_name": "LUXA Network",
+  "chain_type": "cosmos",
+  "chain_id": "luxa-1",
+  "bech32_prefix": "luxa",
+  "daemon_name": "luxad",
+  "node_home": "$HOME/.luxa",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uluxa",
+        "fixed_min_gas_price": 0.01,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.04
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uluxa"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/luxaecosystem/luxa-chain",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38.12"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50.10"
+    },
+    "cosmwasm": {
+      "version": "v0.50.0",
+      "enabled": true
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/luxa/images/luxa.png"
+  },
+  "peers": {
+    "seeds": [],
+    "persistent_peers": [
+      {
+        "id": "c6eb98f7a65a5fd23ef5c9004d792ec9a8e0b803",
+        "address": "51.170.130.74:26656",
+        "provider": "LUXA Core"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.luxaecosystem.xyz",
+        "provider": "LUXA Ecosystem"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.luxaecosystem.xyz",
+        "provider": "LUXA Ecosystem"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "Ping.pub",
+      "url": "https://explorer.luxaecosystem.xyz/luxa",
+      "tx_page": "https://explorer.luxaecosystem.xyz/luxa/tx/${txHash}",
+      "account_page": "https://explorer.luxaecosystem.xyz/luxa/account/${accountAddress}"
+    },
+    {
+      "kind": "LUXA Explorer",
+      "url": "https://luxaecosystem.xyz/explorer.html",
+      "tx_page": "https://luxaecosystem.xyz/explorer.html?tx=${txHash}",
+      "account_page": "https://luxaecosystem.xyz/explorer.html?account=${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/luxa/images/luxa.png",
+      "theme": {
+        "circle": true
+      }
+    }
+  ]
+}

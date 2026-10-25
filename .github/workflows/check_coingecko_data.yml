@@ -4,6 +4,13 @@ on:
     - cron: '0 0 1,15 * *'  # runs at midnight on the 1st and 15th
 
 name: Update Coingecko Data
+permissions:
+  contents: write
+  pull-requests: write
+
+# One run at a time: overlapping runs would race on the same bot branch.
+concurrency: update-coingecko-data
+
 jobs:
   update_coingecko_data:
     name: Update Coingecko Data
@@ -34,17 +41,18 @@ jobs:
         working-directory: ./.github/workflows/utility
         run: node update_coingecko_data.mjs removeInvalidCoingeckoIds
       
+      # Signed commit via the GitHub API: master requires signed commits,
+      # and a plain `git push` from a workflow is unsigned.
       - name: Add Commit Push
-        uses: devops-infra/action-commit-push@master
+        id: commit
+        uses: ./.github/actions/signed-commit
         with:
-          github_token: "${{ secrets.GITHUB_TOKEN }}"
-          add_timestamp: false
-          commit_prefix: "[AUTO]"
-          commit_message: "Update Coingecko Data"
-          force: false
-          target_branch: update/coingecko
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: update/coingecko
+          message: "[AUTO]Update Coingecko Data"
       
       - name: Create A PR
+        if: steps.commit.outputs.changed == 'true'
         uses: devops-infra/action-pull-request@v0.4.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
