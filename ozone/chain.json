@@ -1,0 +1,99 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "ozone",
+  "status": "live",
+  "website": "https://ozonechain.com",
+  "network_type": "mainnet",
+  "pretty_name": "Ozone",
+  "chain_type": "cosmos",
+  "chain_id": "os_10121-1",
+  "bech32_prefix": "ethm",
+  "daemon_name": "ozoned",
+  "node_home": "$HOME/.ethermintd",
+  "key_algos": [
+    "ethsecp256k1"
+  ],
+  "extra_codecs": [
+    "ethermint"
+  ],
+  "slip44": 60,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "aphoton",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 1000000000,
+        "average_gas_price": 1500000000,
+        "high_gas_price": 2000000000
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "aphoton"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/OA-Technology-Inc/Validator",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "consensus": {
+      "type": "tendermint",
+      "version": "0.34.27"
+    },
+    "genesis": {
+      "genesis_url": "https://cosmos.ozonescan.com/genesis"
+    }
+  },
+  "description": "Ozone Chain is a public EVM-compatible blockchain built with Cosmos SDK and CometBFT. OZONE is used for gas, staking, and governance.",
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/ozone/images/ozone.png",
+      "theme": {
+        "circle": true
+      }
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/ozone/images/ozone.png"
+  },
+  "peers": {
+    "persistent_peers": [
+      {
+        "id": "9b940d9ec87b0c1d06247f4e9575db5b08f1cffe",
+        "address": "3.7.150.86:26656",
+        "provider": "Ozone"
+      }
+    ]
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://cosmos.ozonescan.com",
+        "provider": "OzoneScan"
+      }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://chain.ozonescan.com",
+        "provider": "OzoneScan"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ozonescan",
+      "url": "https://ozonescan.com",
+      "tx_page": "https://ozonescan.com/tx/${txHash}",
+      "account_page": "https://ozonescan.com/address/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "evm",
+    "ethermint"
+  ]
+}
