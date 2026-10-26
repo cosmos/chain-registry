@@ -22,9 +22,9 @@
       {
         "denom": "aphoton",
         "fixed_min_gas_price": 0,
-        "low_gas_price": 1000000000,
-        "average_gas_price": 1500000000,
-        "high_gas_price": 2000000000
+        "low_gas_price": 7,
+        "average_gas_price": 7,
+        "high_gas_price": 10
       }
     ]
   },
@@ -41,9 +41,16 @@
     "compatible_versions": [
       "v1.0.0"
     ],
+    "tag": "v1.0.0",
+    "binaries": {
+      "linux/amd64": "https://github.com/OA-Technology-Inc/Validator/raw/v1.0.0/ozoned"
+    },
     "consensus": {
       "type": "tendermint",
       "version": "0.34.27"
+    },
+    "genesis": {
+      "genesis_url": "https://rpc-testnet.ozonescan.com/api/genesis"
     }
   },
   "description": "Ozone Chain testnet. tOZONE is used for gas on the EVM test network.",
@@ -63,6 +70,18 @@
     "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/ozone/images/ozone.png"
   },
   "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc-testnet.ozonescan.com/api",
+        "provider": "OzoneScan"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://rpc-testnet.ozonescan.com/cosmos-api",
+        "provider": "OzoneScan"
+      }
+    ],
     "evm-http-jsonrpc": [
       {
         "address": "https://rpc-testnet.ozonescan.com",
@@ -73,9 +92,7 @@
   "explorers": [
     {
       "kind": "ozonescan",
-      "url": "https://testnet.ozonescan.com",
-      "tx_page": "https://testnet.ozonescan.com/tx/${txHash}",
-      "account_page": "https://testnet.ozonescan.com/address/${accountAddress}"
+      "url": "https://testnet.ozonescan.com"
     }
   ],
   "keywords": [

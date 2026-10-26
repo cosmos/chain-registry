@@ -22,9 +22,9 @@
       {
         "denom": "aphoton",
         "fixed_min_gas_price": 0,
-        "low_gas_price": 1000000000,
-        "average_gas_price": 1500000000,
-        "high_gas_price": 2000000000
+        "low_gas_price": 7,
+        "average_gas_price": 7,
+        "high_gas_price": 10
       }
     ]
   },
@@ -41,6 +41,10 @@
     "compatible_versions": [
       "v1.0.0"
     ],
+    "tag": "v1.0.0",
+    "binaries": {
+      "linux/amd64": "https://github.com/OA-Technology-Inc/Validator/raw/v1.0.0/ozoned"
+    },
     "consensus": {
       "type": "tendermint",
       "version": "0.34.27"
@@ -77,6 +81,12 @@
         "provider": "OzoneScan"
       }
     ],
+    "rest": [
+      {
+        "address": "https://cosmos.ozonescan.com/api",
+        "provider": "OzoneScan"
+      }
+    ],
     "evm-http-jsonrpc": [
       {
         "address": "https://chain.ozonescan.com",
@@ -87,9 +97,7 @@
   "explorers": [
     {
       "kind": "ozonescan",
-      "url": "https://ozonescan.com",
-      "tx_page": "https://ozonescan.com/tx/${txHash}",
-      "account_page": "https://ozonescan.com/address/${accountAddress}"
+      "url": "https://ozonescan.com"
     }
   ],
   "keywords": [
