@@ -15,9 +15,16 @@
     "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/zigchain/images/zigchain.svg"
   },
   "key_algos": [
+    "ethsecp256k1",
     "secp256k1"
   ],
-  "slip44": 118,
+  "extra_codecs": [
+    "ethermint"
+  ],
+  "slip44": 60,
+  "alternative_slip44s": [
+    118
+  ],
   "description": "ZIGChain (ZIG) is a Layer 1 blockchain focused on unlocking financial opportunities for everyone - regardless of their income, location, or level of knowledge.",
   "fees": {
     "fee_tokens": [
@@ -90,13 +97,19 @@
         "address": "grpc-t.zigchain.nodestake.org:443",
         "provider": "NodeStake"
       }
+    ],
+    "evm-http-jsonrpc": [
+      {
+        "address": "https://public-zigchain-testnet-evm-rpc.numia.xyz",
+        "provider": "Numia"
+      }
     ]
   },
   "codebase": {
     "git_repo": "https://github.com/ZIGChain/zigchain",
-    "recommended_version": "5.1.0",
+    "recommended_version": "6.0.0",
     "compatible_versions": [
-      "5.1.0"
+      "6.0.0"
     ],
     "consensus": {
       "type": "cometbft",
@@ -118,12 +131,14 @@
       "genesis_url": "https://github.com/ZIGChain/networks/raw/main/zig-test-2/genesis.json"
     },
     "binaries": {
-      "linux/amd64": "https://github.com/ZIGChain/networks/raw/refs/heads/main/binaries/v5.1.0/zigchaind-v5.1.0-linux-amd64.tar.gz?checksum=sha256:93f2be769ebafb369ed6fee03a0159ee6699e5aaae27d5ca165bc2b88b42d914"
+      "linux/amd64": "https://github.com/ZIGChain/networks/raw/refs/heads/main/binaries/v6.0.0/zigchaind-v6.0.0-linux-amd64.tar.gz?checksum=sha256:4373e53d7a05ff0f50037a1cd83801d5f0d972207e7ff50f3cc5d8ded62867a4",
+      "darwin/amd64": "https://github.com/ZIGChain/networks/raw/refs/heads/main/binaries/v6.0.0/zigchaind-v6.0.0-darwin-amd64.tar.gz?checksum=sha256:e37dc2a8b12a2d2d226bb766651b0342bc71d6cccd424bb13b10f22240951b8f",
+      "darwin/arm64": "https://github.com/ZIGChain/networks/raw/refs/heads/main/binaries/v6.0.0/zigchaind-v6.0.0-darwin-arm64.tar.gz?checksum=sha256:7233dd163f6f5e04aaecc3b63091b96babb03d265ea432fa140579ccdf6842d1"
     },
-    "tag": "v5.1.0",
+    "tag": "v6.0.0",
     "language": {
       "type": "go",
-      "version": "1.25.13"
+      "version": "1.26.9"
     }
   },
   "peers": {
@@ -197,6 +212,7 @@
     "rwa",
     "staking",
     "wasm",
+    "evm",
     "testnet"
   ],
   "images": [
