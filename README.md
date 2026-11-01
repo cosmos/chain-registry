@@ -45,6 +45,10 @@ Endpoints that consistently fail to respond successfully may be removed without 
 
 Providers ready to be tested daily should be whitelisted here: `.github/workflows/tests/apis.py`
 
+For historical blocks, execution results, or transaction-index queries, see
+[Finding RPC endpoints for historical queries](RPC-ARCHIVES.md). Reachability alone
+does not establish archive coverage.
+
 # chain.json
 
 ## Sample
