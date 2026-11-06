@@ -1,0 +1,84 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "xpex",
+  "chain_type": "cosmos",
+  "status": "live",
+  "website": "https://xpexpex.com",
+  "network_type": "mainnet",
+  "pretty_name": "XPEX",
+  "chain_id": "xpex-2",
+  "bech32_prefix": "xpex",
+  "daemon_name": "xpexd",
+  "node_home": "$HOME/.xpex",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uxpx",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uxpx"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/tutu4881/xpex-chain",
+    "recommended_version": "release/xpex-2",
+    "compatible_versions": [
+      "release/xpex-2"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.39.4"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "repo": "https://github.com/cosmos/cosmos-sdk",
+      "version": "v0.54.4"
+    },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/tutu4881/xpex-chain/release/xpex-2/railway-config/config/genesis.json"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpex/images/xpx.png"
+  },
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.xpexpex.com",
+        "provider": "XPEX"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.xpexpex.com",
+        "provider": "XPEX"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "xpex",
+      "url": "https://xpexpex.com/explorer",
+      "tx_page": "https://xpexpex.com/explorer/tx/${txHash}",
+      "account_page": "https://xpexpex.com/explorer/address/${accountAddress}"
+    }
+  ],
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/xpex/images/xpx.png"
+    }
+  ]
+}
