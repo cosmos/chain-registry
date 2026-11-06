@@ -14,7 +14,7 @@
     "secp256k1"
   ],
   "slip44": 118,
-  "description": "QoreChain is a quantum-safe Layer 1. Every transaction is signed with a hybrid post-quantum scheme (ML-DSA-87, FIPS 204, plus classical secp256k1), enforced by default, with SHAKE-256 as the default hash. Accounts use standard secp256k1 keys (coin type 118) and the hybrid post-quantum signature is carried alongside and verified on-chain. QoreChain also runs EVM (chain id 9801) and SVM execution over a single unified account: the 20-byte account is shared across VMs, so the bech32 address (qor1...) maps to the same bytes as the EVM 0x address, and the SVM address is those 20 bytes right-padded to 32 and base58-encoded. All VMs read one native bank balance (1 QOR = 1,000,000 uqor).",
+  "description": "QoreChain is a Layer 1 blockchain. Native transactions carry a hybrid signature, ML-DSA-87 (FIPS 204) plus classical secp256k1, enforced by default, with SHAKE-256 as the default hash. Accounts use standard secp256k1 keys (coin type 118) and the ML-DSA-87 signature is carried alongside and verified on chain. QoreChain also runs EVM (chain id 9801) and SVM execution over a single unified account: the 20-byte account is shared across VMs, so the bech32 address (qor1...) maps to the same bytes as the EVM 0x address, and the SVM address is those 20 bytes right-padded to 32 and base58-encoded. All VMs read one native bank balance (1 QOR = 1,000,000 uqor).",
   "fees": {
     "fee_tokens": [
       {
@@ -35,9 +35,9 @@
   },
   "codebase": {
     "git_repo": "https://github.com/qorechain/qorechain-core",
-    "recommended_version": "v3.1.82",
+    "recommended_version": "v3.2.5",
     "compatible_versions": [
-      "v3.1.82"
+      "v3.2.5"
     ],
     "consensus": {
       "type": "cometbft",
@@ -88,9 +88,9 @@
   ],
   "keywords": [
     "mainnet",
-    "quantum-safe",
     "post-quantum",
     "pqc",
+    "ml-dsa",
     "evm",
     "svm"
   ]
