@@ -1,0 +1,74 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "encryptlock",
+  "chain_type": "cosmos",
+  "status": "live",
+  "website": "https://encryptlock.pages.dev",
+  "network_type": "mainnet",
+  "pretty_name": "EncryptLock",
+  "chain_id": "encryptlock-1",
+  "bech32_prefix": "lock",
+  "daemon_name": "lockkeeper",
+  "node_home": "%LOCALAPPDATA%/EncryptLock/lockkeeper",
+  "key_algos": [
+    "ed25519"
+  ],
+  "slip44": 4041,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "lockunit",
+        "fixed_min_gas_price": 0,
+        "low_gas_price": 0,
+        "average_gas_price": 0,
+        "high_gas_price": 0
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "lockunit"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/filipejardim/encryptlock-codigo",
+    "recommended_version": "1.0.22",
+    "compatible_versions": [
+      "1.0.22"
+    ],
+    "binaries": {
+      "windows/amd64": "https://github.com/filipejardim/encryptlock-downloads/releases/latest/download/EncryptLock-Windows.exe"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.55.0"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.40.0"
+    }
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/encryptlock/images/encryptlock.png"
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/encryptlock/images/encryptlock.png"
+  },
+  "description": "EncryptLock is an independent Layer-1 blockchain built with Cosmos SDK and CometBFT, live since 18 October 2026. It is run by LockKeepers: ordinary Windows computers that run the blockchain, create the blocks and earn LOCK; each proves it is a real, separate computer with its TPM 2.0 chip (one computer, one vote). Every account signs every transaction with Ed25519 and ML-DSA-65 (NIST post-quantum, FIPS 204), and consensus votes use ML-DSA-65. Transfers must be accepted by the receiver within 1 hour or they return by themselves, and the chain has a freeze button, second-device approval, daily limits, a Sovereign Vault with 7 to 365 day withdrawal delays, inheritance and recovery by trusted people. Its built-in order-book market trades LOCK for USDC on Polygon through atomic swaps. Fees are a percentage of the amount (0.1% for transfers, 0.25% on the market), not gas prices. Maximum supply: 40,000,000 LOCK.",
+  "explorers": [
+    {
+      "kind": "EncryptLock Explorer",
+      "url": "https://encryptlock.pages.dev/explorador/"
+    }
+  ],
+  "keywords": [
+    "post-quantum",
+    "ml-dsa",
+    "tpm",
+    "layer-1"
+  ]
+}
