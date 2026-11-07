@@ -6,7 +6,7 @@
   "network_type": "testnet",
   "pretty_name": "Sunima Testnet",
   "chain_type": "cosmos",
-  "chain_id": "sunima-testnet-1",
+  "chain_id": "sunima_8081-2",
   "bech32_prefix": "sunima",
   "daemon_name": "sunimad",
   "node_home": "$HOME/.sunima",
@@ -17,33 +17,41 @@
   "fees": {
     "fee_tokens": [
       {
-        "denom": "tsuna",
-        "fixed_min_gas_price": 0,
-        "low_gas_price": 0,
-        "average_gas_price": 0.025,
-        "high_gas_price": 0.04
+        "denom": "asuna",
+        "fixed_min_gas_price": 1000000000,
+        "low_gas_price": 1000000000,
+        "average_gas_price": 2500000000,
+        "high_gas_price": 5000000000
       }
     ]
   },
   "staking": {
     "staking_tokens": [
       {
-        "denom": "tsuna"
+        "denom": "asuna"
       }
     ]
   },
   "codebase": {
     "genesis": {
       "genesis_url": "https://sunima.uk/chain/genesis.json"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.50.15"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.38"
     }
   },
   "logo_URIs": {
-    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/sunimatestnet/images/sunima.svg"
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/sunimatestnet/images/sunima.png"
   },
   "peers": {
     "seeds": [
       {
-        "id": "26b7a844f1840bf8bc9535b5329de93d8bd8f45f",
+        "id": "aff977ea01bbd3d1aeb9d8286234b3dc68c4eef7",
         "address": "seed.sunima.uk:26656",
         "provider": "Sunima Labs"
       }
@@ -66,7 +74,19 @@
   },
   "images": [
     {
-      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/sunimatestnet/images/sunima.svg"
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/sunimatestnet/images/sunima.png"
     }
+  ],
+  "explorers": [
+    {
+      "kind": "Sunima Scan",
+      "url": "https://scan.sunima.uk",
+      "tx_page": "https://scan.sunima.uk/#/tx/${txHash}"
+    }
+  ],
+  "description": "Sunima is a privacy-focused Layer 1 built with the Cosmos SDK: transfers are private by default, and disclosure is possible only by court order approved by most validators.",
+  "keywords": [
+    "privacy",
+    "testnet"
   ]
 }
