@@ -2,17 +2,23 @@
 // Independent CI guard for provider-manifest sync PRs (threat T6: even a
 // compromised bot/token cannot land an out-of-lane change past this check).
 //
-// Recomputes the base..head diff from scratch and FAILS unless EVERY change:
+// Recomputes the PR's own diff (merge-base..head, i.e. what GitHub shows as
+// "Files changed") from scratch and FAILS unless EVERY change:
 //   1. touches only */chain.json files (sync reports live in RUNNER_TEMP and
 //      never enter the checkout),
 //   2. touches only the managed blocks: apis / peers / snapshots,
 //   3. only adds/updates/removes entries whose `provider` === EXPECTED_PROVIDER,
+//   3b. keeps other providers' surviving entries in their original order,
 //   4. never adds an entry whose identity key (address / id@address / url) is
-//      already registered to a DIFFERENT provider in the base revision — the
-//      bot reports such collisions as conflicts instead of adding them, so a
-//      diff containing one means the bot was bypassed or compromised.
+//      already registered to a DIFFERENT provider at the merge-base or the
+//      current base tip — the bot reports such collisions as conflicts instead
+//      of adding them, so a diff containing one means the bot was bypassed or
+//      compromised.
+// It also fails closed if the PR has more than one merge-base (criss-cross
+// history), where a single merge-base diff can hide what actually lands.
 //
-// Invocation (from repo root, in a PR checkout with the base ref fetched):
+// Invocation (from repo root, in a PR checkout with full history, i.e.
+// actions/checkout fetch-depth: 0):
 //   EXPECTED_PROVIDER="Example Infra" BASE_SHA=<sha> HEAD_SHA=<sha> node .github/workflows/utility/validate_provider_scope.mjs
 
 import { execSync } from 'child_process';
@@ -24,7 +30,20 @@ if (!provider || !base || !head) { console.error('EXPECTED_PROVIDER, BASE_SHA, H
 const MANAGED = ['apis', 'peers', 'snapshots'];  // explorers deferred (no provider field in registry explorer object)
 const violations = [];
 
-const changedFiles = execSync(`git diff --name-only ${base} ${head}`, { encoding: 'utf8' })
+// BASE_SHA is the base branch TIP when the event fired, not the commit the bot
+// branched from. If master moved after the bot opened the PR, a base..head diff
+// shows every newer master commit as if this PR reverted it. Diff from the
+// merge-base instead. Without full history `git merge-base` errors out, which
+// fails the check (closed). With several merge-bases, fail closed too.
+const mergeBases = execSync(`git merge-base --all ${base} ${head}`, { encoding: 'utf8' })
+  .trim().split('\n').filter(Boolean);
+if (mergeBases.length !== 1) {
+  console.error(`❌ expected exactly 1 merge-base between base and head, found ${mergeBases.length}; rebase the branch onto the base branch`);
+  process.exit(1);
+}
+const mergeBase = mergeBases[0];
+
+const changedFiles = execSync(`git diff --name-only ${mergeBase} ${head}`, { encoding: 'utf8' })
   .trim().split('\n').filter(Boolean);
 
 for (const file of changedFiles) {
@@ -34,11 +53,13 @@ for (const file of changedFiles) {
     continue;
   }
   const read = (ref) => {
-    try { return JSON.parse(execSync(`git show ${ref}:${file}`, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })); }
+    try { return JSON.parse(execSync(`git show ${ref}:${file}`, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'ignore'] })); }
     catch { return null; }
   };
-  const a = read(base), b = read(head);
+  const a = read(mergeBase), b = read(head);
   if (!a || !b) { violations.push(`${file}: added or deleted whole chain.json — never in scope`); continue; }
+  const tip = read(base);  // current base tip, used by rule 4
+  if (!tip) { violations.push(`${file}: no longer exists on the base branch`); continue; }
 
   // Rule 2: nothing outside managed blocks may differ
   for (const key of new Set([...Object.keys(a), ...Object.keys(b)])) {
@@ -53,7 +74,7 @@ for (const file of changedFiles) {
     ...Object.fromEntries(Object.entries(o.peers ?? {}).map(([k, v]) => [`peers.${k}`, v])),
     snapshots: o.snapshots ?? [],
   });
-  const A = arrays(a), B = arrays(b);
+  const A = arrays(a), B = arrays(b), T = arrays(tip);
   for (const slot of new Set([...Object.keys(A), ...Object.keys(B)])) {
     const sig = (e) => JSON.stringify(e);
     const before = new Map((A[slot] ?? []).map(e => [sig(e), e]));
@@ -65,16 +86,21 @@ for (const file of changedFiles) {
   }
 
   // Rule 4: a NEW entry may not claim a key already registered to a different
-  // provider in the base (attribution squatting). Keyed like the bot's merge:
-  // endpoints by address, peers by id@address, snapshots by url. A key the
-  // expected provider ALREADY held in the base is not a new claim (updates of
-  // a pre-existing same-key duplicate stay legal).
+  // provider (attribution squatting). Keyed like the bot's merge: endpoints by
+  // address, peers by id@address, snapshots by url. Other providers' keys count
+  // if present at the merge-base OR the current base tip, so a key added to
+  // master after the bot branched is still protected. Ownership is decided by
+  // the base tip (what the PR lands on): a key the expected provider still
+  // holds there is not a new claim (updates of a pre-existing same-key
+  // duplicate stay legal), but a key it held at the merge-base and that was
+  // since re-attributed on master is.
   const keyFor = (slot, e) => slot.startsWith('peers.') ? `${e.id}@${e.address}`
                             : slot === 'snapshots' ? e.url : e.address;
   for (const slot of new Set([...Object.keys(A), ...Object.keys(B)])) {
-    const baseOthers = new Map((A[slot] ?? []).filter(e => e.provider !== provider)
-                                              .map(e => [keyFor(slot, e), e.provider ?? '(unattributed)']));
-    const baseOurs = new Set((A[slot] ?? []).filter(e => e.provider === provider)
+    const baseOthers = new Map([...(A[slot] ?? []), ...(T[slot] ?? [])]
+                                 .filter(e => e.provider !== provider)
+                                 .map(e => [keyFor(slot, e), e.provider ?? '(unattributed)']));
+    const baseOurs = new Set((T[slot] ?? []).filter(e => e.provider === provider)
                                             .map(e => keyFor(slot, e)));
     const beforeSigs = new Set((A[slot] ?? []).map(e => JSON.stringify(e)));
     for (const e of (B[slot] ?? [])) {
