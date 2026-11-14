@@ -58,7 +58,7 @@ whitelist = {
 
 def generate_endpoint_tests():
     test_cases = []
-    files_found = glob.glob('*/chain.json', recursive=True)
+    files_found = sorted(glob.glob('*/chain.json', recursive=True))
 
     if not files_found:
         warnings.warn("No chain.json files found in the current directory or its subdirectories.")
@@ -124,8 +124,9 @@ def generate_test_function(test_case):
 class Test:
     pass
 
-for test_case in test_cases:
-    test_name = f"chain: {test_case.chain.capitalize()[:15].ljust(15)} ▌ {test_case.endpoint.upper()[:4].ljust(4)} ▌ {re.sub(r'[^a-zA-Z0-9]+', ' ', test_case.provider)[:30].ljust(30)}"
+for index, test_case in enumerate(test_cases):
+    # Display labels can collide; keep every endpoint and identify it in reports.
+    test_name = f"chain: {test_case.chain.capitalize()[:15].ljust(15)} ▌ {test_case.endpoint.upper()[:4].ljust(4)} ▌ {re.sub(r'[^a-zA-Z0-9]+', ' ', test_case.provider)[:30].ljust(30)} ▌ {index}: {test_case.address}"
     generate_tests = generate_test_function(test_case)
     setattr(Test, test_name, generate_tests)
 
