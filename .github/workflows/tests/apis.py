@@ -8,6 +8,7 @@ import json
 import logging
 import re
 import warnings
+from urllib.parse import urlsplit
 
 # Setup basic configuration for logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -96,9 +97,13 @@ def generate_endpoint_tests():
                                     warnings.warn(f"Missing 'address' key in '{api_type}' of file '{filename}'.")
                                     continue
                                 if api_type == 'rpc':
-                                    address += '/status'
+                                    suffix = '/status'
                                 elif api_type == 'rest':
-                                    address += '/cosmos/base/tendermint/v1beta1/syncing'
+                                    suffix = '/cosmos/base/tendermint/v1beta1/syncing'
+                                parsed_address = urlsplit(address)
+                                address = parsed_address._replace(
+                                    path=parsed_address.path.rstrip('/') + suffix
+                                ).geturl()
                                 test_cases.append(EndpointTest(chain=chain_name, endpoint=api_type, provider=api['provider'], address=address))
                 else:
                     warnings.warn(f"Missing 'apis' key in file '{filename}'.")
