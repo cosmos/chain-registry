@@ -1,0 +1,81 @@
+{
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "steemvm",
+  "assets": [
+    {
+      "description": "STEEM bridged 1:1 from the Steem blockchain. The gas and staking token of SteemVM.",
+      "denom_units": [
+        {
+          "denom": "asteem",
+          "exponent": 0
+        },
+        {
+          "denom": "steem",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "asteem",
+      "name": "Steem",
+      "display": "steem",
+      "symbol": "STEEM",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "steem",
+            "base_denom": "@@000000021"
+          },
+          "provider": "SteemVM"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "steem",
+            "base_denom": "@@000000021"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/steem/images/steem.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/steem/images/steem.svg"
+        }
+      ]
+    },
+    {
+      "description": "SBD bridged 1:1 from the Steem blockchain.",
+      "denom_units": [
+        {
+          "denom": "asbd",
+          "exponent": 0
+        },
+        {
+          "denom": "sbd",
+          "exponent": 18
+        }
+      ],
+      "type_asset": "sdk.coin",
+      "base": "asbd",
+      "name": "Steem Dollars",
+      "display": "sbd",
+      "symbol": "SBD",
+      "traces": [
+        {
+          "type": "bridge",
+          "counterparty": {
+            "chain_name": "steem",
+            "base_denom": "@@000000013"
+          },
+          "provider": "SteemVM"
+        }
+      ],
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "steem",
+            "base_denom": "@@000000013"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/steem/images/sbd.png"
+        }
+      ]
+    }
+  ]
+}
