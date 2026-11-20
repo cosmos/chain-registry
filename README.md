@@ -35,6 +35,13 @@ Once schemas have matured and client needs are better understood Chain Registry 
 
 Please give Pull Requests a title that somewhat describes the change more precisely than the default title given to a Commit. PRs titled 'Update chain.json' difficult to navigate when searching through the backlog of Pull Requests. Some recommended details would be: the affected Chain Name, API types, or Provider to give some more detail; e.g., "Add Cosmos Hub APIs for Acme Validator".
 
+### Upgrade pull requests
+
+For chain upgrades, use the optional [upgrade PR template](.github/PULL_REQUEST_TEMPLATE/upgrade_template.md) and a title such as `[upgrade] cosmoshub v25.0.0`.
+On the [compare page](https://github.com/cosmos/chain-registry/compare?expand=1&template=upgrade_template.md), select your fork and branch, then create the pull request. If opening a comparison directly, append `template=upgrade_template.md` to its query parameters. If the body is not populated, copy the template into your PR description.
+
+Include the official release link and, for scheduled upgrades, the estimated UTC time, height and governance proposal. Use `N/A` for fields that do not apply to a compatible patch. The template is opt-in; other contributions do not need upgrade details.
+
 ### Endpoints reachability
 
 The endpoints added here are being tested via CI daily at 00:00 UTC. It is expected that your endpoints return an HTTP 200 in the following paths:
