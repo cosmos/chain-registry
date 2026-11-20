@@ -1,0 +1,90 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "bharatcoin",
+  "status": "live",
+  "network_type": "mainnet",
+  "website": "https://<DOMAIN>",
+  "pretty_name": "Bharatcoin",
+  "chain_id": "bharatcoin-1",
+  "bech32_prefix": "bhc",
+  "daemon_name": "bharatcoind",
+  "node_home": "$HOME/.bharatcoin",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ubhc",
+        "fixed_min_gas_price": 0.001,
+        "low_gas_price": 0.001,
+        "average_gas_price": 0.005,
+        "high_gas_price": 0.01
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ubhc"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/bharatcoinbhc-ctrl/bharat-coin-bhc",
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "cosmos_sdk_version": "v0.55.0",
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.17"
+    },
+    "ibc_go_version": "v8.5.1"
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bharatcoin/images/bhc.png",
+      "theme": {
+        "primary_color_hex": "#0C1B33"
+      }
+    }
+  ],
+  "apis": {
+    "rpc": [
+      {
+        "address": "https://rpc.<DOMAIN>",
+        "provider": "Bharatcoin Foundation"
+      }
+    ],
+    "rest": [
+      {
+        "address": "https://api.<DOMAIN>",
+        "provider": "Bharatcoin Foundation"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "grpc.<DOMAIN>:9090",
+        "provider": "Bharatcoin Foundation"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer.<DOMAIN>/bharatcoin",
+      "tx_page": "https://explorer.<DOMAIN>/bharatcoin/tx/${txHash}",
+      "account_page": "https://explorer.<DOMAIN>/bharatcoin/account/${accountAddress}"
+    }
+  ],
+  "keywords": [
+    "dex",
+    "cosmos",
+    "bharatcoin",
+    "ibc",
+    "osmosis"
+  ]
+}
