@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="ld-v2" lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LightDAO — 不靠质押生息，靠贡献分账</title>
+<meta name="description" content="LightDAO：不靠质押生息，靠贡献分账。浏览器即节点,零成本贡献带宽;投资谁、收购谁,社区提案与投票说了算,每笔资金链上实时可查。">
+<style>
+:root{--bg:#0b0e17;--bg2:#0e1322;--card:#141a2a;--line:#232b42;--mut:#8b94ad;--txt:#e8ebf5;--acc:#7c8cff;--acc2:#c86bfa;--ok:#39d98a;--warn:#ffb454}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.75 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:9;background:rgba(11,14,23,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:16px;height:58px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:19px;background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav a{color:var(--mut);text-decoration:none;font-size:14px}
+.nav a:hover{color:var(--txt)}
+.ctl{margin-left:auto;display:flex;gap:8px;align-items:center}
+.ctl button,.ctl select{background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:9px;padding:5px 9px;font-size:13px}
+section{padding:66px 0;border-bottom:1px solid var(--line)}
+.k{color:var(--acc);font-size:13px;letter-spacing:.14em;font-weight:700}
+h1{font-size:clamp(30px,5.4vw,50px);line-height:1.22;margin:14px 0 10px;font-weight:800}
+h2{font-size:clamp(22px,3.4vw,30px);margin:12px 0 14px;font-weight:800}
+p.lead{color:#c6cde4;font-size:17px;margin:10px 0}
+.sub{color:var(--mut)}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 8px}
+.btn{display:inline-block;padding:13px 22px;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px}
+.btn.p{background:linear-gradient(90deg,var(--acc),var(--acc2));color:#fff}
+.btn.g{border:1px solid var(--line);color:var(--txt);background:var(--card)}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.pill{font-size:13px;color:#aee9c8;border:1px solid #1d4634;background:#0e1f17;padding:5px 11px;border-radius:99px}
+.stats{display:flex;gap:22px;flex-wrap:wrap;margin:22px 0 0;padding:14px 18px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--mut)}
+.stats b{color:var(--txt);font-size:16px;margin-right:5px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.person{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.person b{display:block;font-size:16px;margin-bottom:6px}
+.person .no{color:var(--warn);font-weight:700}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px}
+td,th{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--bg2);color:var(--mut);font-weight:600}
+td.good{color:#aee9c8}
+.steps{counter-reset:s;display:grid;gap:14px;margin-top:22px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 18px 16px;position:relative}
+.step:before{counter-increment:s;content:counter(s);position:absolute;top:-14px;left:18px;width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
+.step h3{margin:4px 0 6px;font-size:17px}
+ul{margin:8px 0;padding-left:20px}li{margin:5px 0}
+.risk{background:#1a1410;border:1px solid #4a3416;border-radius:14px;padding:18px;color:#f0d9b0}
+.foot{padding:34px 0 60px;color:var(--mut);font-size:13px}
+.foot a{color:var(--acc)}
+@media(max-width:760px){.grid3{grid-template-columns:1fr}.nav a.hide-s{display:none}}
+#net{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.45}
+section,footer,header{position:relative;z-index:1}
+:focus-visible{outline:2px solid #4da3ff;outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-9999px;top:0}.skip:focus{left:8px;top:8px;background:#4da3ff;color:#04101f;padding:8px 14px;border-radius:8px;z-index:99}
+</style>
+<script src="/js/index_1.js?v=1.10.67" integrity="sha384-g8CUZOGtmzU4wpKrUeCU75oJbwM0NbUvySZh8wAKjqt+HtPZnYgrxFxVJXkt8tc6" crossorigin="anonymous"></script>
+<script src="/js/go.js?v=1.10.67" integrity="sha384-ieH6YudAuEPKt8/oEvSkWzINqi6hSQa0TDoI1b1gKKjyioNPN/MTYTxPPRPnmUfn" crossorigin="anonymous"></script>
+<script src="/js/wfix.js?v=1.10.67" integrity="sha384-3YmhFo8XgiBYr4lDUSIT/JZpXWEYntFFBK7PFI5HXnIJWwThaEoh7ihjixezX1oh" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/theme2.css?v=1.10.67" integrity="sha384-GA0o+bqIt0eLyeUoWavjcnr2r89P3MTyruetxpmVIbibIt7mKsXlAqpgl+ORxN7C" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/nav.css" integrity="sha384-Vf8+3ce7sf3qk2Snc0RrEyCw+IxchMML+x2CRGkTBK8wW7dM1MdCRJh+VvmPfjpf" crossorigin="anonymous">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LightDAO">
+<meta property="og:title" content="LightDAO — 浏览器即节点，赚原生 LIGHT">
+<meta property="og:description" content="不装软件、不买设备：浏览器贡献带宽+区块验证即挖矿，每日约 65 万 LIGHT 释放，每笔可链上自证。">
+<meta property="og:url" content="https://lightdao.net/">
+<meta property="og:image" content="https://lightdao.net/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@lightdaoproto">
+<meta name="twitter:title" content="LightDAO — 浏览器即节点，赚原生 LIGHT">
+<meta name="twitter:description" content="不装软件、不买设备：浏览器贡献带宽+区块验证即挖矿，每日约 65 万 LIGHT 释放，每笔可链上自证。">
+<meta name="twitter:image" content="https://lightdao.net/og.png">
+<style>
+.ld-livebar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px}
+.ld-livebar .chip{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;
+ border:1px solid var(--line);background:var(--card);font-size:13px;color:var(--mute)}
+.ld-livebar .chip b{color:var(--txt);font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<a class="skip" href="#why">Skip to content</a>
+<canvas id="net" aria-hidden="true"></canvas>
+<header><div class="wrap nav">
+<span class="logo">◆ LightDAO</span>
+<a href="#why" data-i="nvWhy">为什么</a><a href="#how" data-i="nvHow">三步参与</a><a class="hide-s" href="#engine" data-i="nvEng">双引擎</a><a class="hide-s" href="#live" data-i="nvLive">主网实况</a><a href="#token" data-i="nvTok">代币</a><a href="#risk" data-i="nvRisk">风险</a><a href="/app.html" data-i="nvMine">挖矿</a>
+<span class="ctl"><button id="themeT" aria-label="toggle theme">◐</button><select class="lang" id="lang" aria-label="language"></select></span>
+</div></header>
+
+<section class="ld-hero" style="border-bottom:none;padding-top:80px">
+<div class="wrap">
+<div class="ld-hero-l">
+<div class="k" data-i="hk">LIGHTDAO · 首个链上私募自治组织</div>
+<h1 data-i="ht">传统私募的早期额度，<br>普通人从来拿不到。<br><em>这一次，你的浏览器就是入场券。</em></h1>
+<p class="lead" data-i="hb">浏览器即节点:挖矿 0 成本、零硬件;投资谁、收购谁,社区提案与投票说了算,每笔资金链上实时可查。</p>
+<p class="sub" data-i="hm">主网已上线:10 验证者全部 BONDED · Gas 经济已实测 · Passkey 无种子登录运行中。</p>
+<div class="ld-livebar" id="ldLiveBar" aria-live="polite">
+  <span class="chip"><b id="ldBarH">—</b> 主网高度</span>
+  <span class="chip"><b id="ldBarDay">—</b> 第几天</span>
+  <span class="chip"><b>650,685</b> 今日释放 (LIGHT)</span>
+</div>
+<div class="btns">
+<a class="btn p" href="/app.html" data-i="ctaMine">连接钱包,开始挖矿</a>
+<a class="btn g" href="/explorer.html" data-i="ctaLive">查看主网实况</a>
+<p class="mini" style="margin:6px 0 0;color:var(--mute)">约 30 秒开始挖矿 · 无需安装 · 手机可用</p>
+</div>
+<div class="badges">
+<span class="pill">✓ lightdao-mainnet-1</span><span class="pill" data-i="bg1">✓ 50% 手续费销毁</span><span class="pill" data-i="bg2">✓ Merkle 根 5 签上链</span><span class="pill" data-i="bg3">✓ 开源可自验</span>
+</div>
+</div>
+<div class="stats">
+<span><b id="sH">—</b> <span data-i="stH">区块高度</span></span>
+<span><b id="sBurn">—</b> <span data-i="stBurn">已销毁</span></span>
+<span><b id="sDay">—</b> <span data-i="stDay">赛季日</span></span>
+<span><b id="sP">—</b> <span data-i="stPrice">LIGHT 价</span></span>
+<span><b id="sS">—</b> <span data-i="stSupply">总供应</span></span>
+<span><b id="sBt" data-btime>—</b> <span data-i="stBt">出块时间</span></span>
+<span><b id="sysStatus">…</b> <span data-i="stSys">系统状态</span></span>
+</div>
+</div>
+</section>
+
+<section id="why"><div class="wrap">
+<div class="k" data-i="whyK">WHY · 三个人,一种困境</div>
+<h2 data-i="whyH">他们不缺判断力,缺的是一张入场券。</h2>
+<div class="grid3">
+<div class="person"><b>Maria · <span>马尼拉外卖骑手</span></b><span data-i="p1">月入 $270。想入股隔壁奶茶店,对方说:</span><span class="no" data-i="p1n">最低 $25,000。</span></div>
+<div class="person"><b>Kwame · <span>拉各斯网约车司机</span></b><span data-i="p2">看好 AI 赛道。机构说:</span><span class="no" data-i="p2n">最低 $100,000,锁 5 年。</span></div>
+<div class="person"><b>Elena · <span>圣保罗退休教师</span></b><span data-i="p3">月养老金 $550。</span><span class="no" data-i="p3n">看不懂白皮书,也买不起矿机。</span></div>
+</div>
+<p class="lead" style="margin-top:18px" data-i="whyL">全球后 50% 人口(约 40 亿人)仅拥有约 2% 的总财富;优质资产被合格投资者门槛挡在门外。LightDAO 就是为这三个人设计的。</p>
+</div></section>
+
+<section><div class="wrap">
+<div class="k" data-i="ctK">CONTRAST · 对比冲击</div>
+<h2 data-i="ctH">同一个私募,两种命运。</h2>
+<table>
+<tr><th></th><th data-i="ctT1">传统私募</th><th>LightDAO</th></tr>
+<tr><td data-i="r0a">门槛</td><td data-i="r0b">$25万–$100万起投</td><td class="good" data-i="r0c">挖矿 0 成本;投资侧最低额度由治理首笔提案设定(目标 ≤10U)</td></tr>
+<tr><td data-i="r1a">决策</td><td data-i="r1b">少数 GP 说了算</td><td class="good" data-i="r1c">社区提案 + 持币权重/地址数双维度投票</td></tr>
+<tr><td data-i="r2a">透明</td><td data-i="r2b">季度报告,滞后</td><td class="good" data-i="r2c">每笔资金链上实时可查</td></tr>
+<tr><td data-i="r3a">退出</td><td data-i="r3b">锁仓 3–5 年</td><td class="good" data-i="r3c">子代币可转让(30 天锁定期)</td></tr>
+<tr><td data-i="r4a">早期机会</td><td data-i="r4b">普通人拿不到</td><td class="good" data-i="r4c">早期矿工即合伙人</td></tr>
+</table>
+</div></section>
+
+<section id="how"><div class="wrap">
+<div class="k" data-i="howK">HOW · 三步参与</div>
+<h2 data-i="howH">六十秒开始,规则替你执行。</h2>
+<div class="steps">
+<div class="step"><h3 data-i="s1t">浏览器挖矿</h3><span data-i="s1b">访问 lightdao.net,Passkey 无种子登录。贡献带宽、会话、区块验证,零成本获得 LIGHT。</span></div>
+<div class="step"><h3 data-i="s2t">提案 / 投票</h3><span data-i="s2b">投哪个项目、收购哪个资产,你提案、你投票。持币权重 + 地址数量双维度,巨鲸和散户都有话语权。</span></div>
+<div class="step"><h3 data-i="s3t">分润 / 退出</h3><span data-i="s3b">利润按链上规则分配:40% 子代币持有者 / 30% 金库 / 20% 回购销毁 / 10% 保险基金。</span></div>
+</div>
+</div></section>
+
+<section id="engine"><div class="wrap">
+<div class="k" data-i="engK">MODEL · 双引擎</div>
+<h2 data-i="engH">守得住现金流,攻得向增长。</h2>
+<table>
+<tr><th data-i="e0a">引擎</th><th data-i="e0b">方向</th><th data-i="e0c">配置</th></tr>
+<tr><td data-i="e1a">🛡 现金流引擎(守)</td><td data-i="e1b">社区级刚性消费资产</td><td>70%</td></tr>
+<tr><td data-i="e2a">🚀 增长引擎(攻)</td><td data-i="e2b">前沿科技公司</td><td>30%</td></tr>
+</table>
+<p class="sub" data-i="engN1">投资通过开曼 SPV 执行,风险隔离。子代币 = SPV 收益分配请求权凭证,不附带股东权利。</p>
+<p class="sub" data-i="engN2">配置纪律:单一标的 ≤ 金库 25%,行业 ≤ 40%,地域 ≤ 30%(白皮书条款,由治理执行)。</p>
+</div></section>
+
+<section id="live"><div class="wrap">
+<div class="k" data-i="liveK">LIVE · 主网已跑通的事</div>
+<h2 data-i="liveH">不承诺,只展示已验证的。</h2>
+<ul>
+<li data-i="lv1"><b>链</b>:lightdao-mainnet-1,10 验证者全部 BONDED。</li>
+<li data-i="lv2"><b>Gas 经济</b>:USD 锚定 min-gas(动态价 2026-10-01 提案生效后启用);50/30/20 已实测精确分配。</li>
+<li data-i="lv3"><b>Passkey 钱包</b>:WebAuthn 无种子登录 + Shamir 3-of-5 社交恢复;解锁密码/生物识别二次验证。</li>
+<li data-i="lv4"><b>WebRTC 中继</b>:8 节点 coturn + WSS 信令,端到端实测通过。</li>
+<li data-i="lv5"><b>挖矿闭环</b>:浏览器贡献 → 网关定稿 → Merkle 根 5 签上链 → 凭 proof 领取。</li>
+<li data-i="lv6"><b>价格预言机</b>:外部中位数喂价现役;验证者轮值 + TWAP 主源切换排期中;当前参考价 $0.05。</li>
+<li data-i="lv7"><b>合约</b>:开源、可自验;持续自审 + 每日独立对账;第三方审计排期中。</li>
+</ul>
+</div></section>
+
+<section id="token"><div class="wrap">
+<div class="k" data-i="tokK">TOKEN · 关键数字</div>
+<h2 data-i="tokH">25 亿硬顶,永不增发。</h2>
+<table>
+<tr><th data-i="t0a">指标</th><th data-i="t0b">数值</th></tr>
+<tr><td data-i="t1a">LIGHT 总量</td><td data-i="t1b">25 亿枚,永不增发</td></tr>
+<tr><td data-i="t2a">挖矿产出</td><td data-i="t2b">10 亿枚,每 2 年减半</td></tr>
+<tr><td data-i="t3a">投资金库</td><td data-i="t3b">8.5 亿枚(基准可部署 ≈ $1 亿)</td></tr>
+<tr><td data-i="t4a">首纪元日释放</td><td data-i="t4b">≈ 68.49 万枚</td></tr>
+<tr><td data-i="t5a">通缩底线</td><td data-i="t5b">流通 ≤ 10 亿枚时停止销毁(白皮书条款,合约开关排期中)</td></tr>
+<tr><td data-i="t6a">提案门槛</td><td data-i="t6b">链上现行质押 5,000 LIGHT;白皮书资格线 5,000 LIGHT + 连续质押 30 天</td></tr>
+<tr><td data-i="t7a">委员会门槛</td><td data-i="t7b">≥ 50,000 LIGHT(竞选质押)</td></tr>
+</table>
+</div></section>
+
+<section id="risk"><div class="wrap">
+<div class="k" data-i="riskK">RISK · 透明才可信</div>
+<div class="risk">
+<ul>
+<li data-i="rk1">链上投资仍有归零风险,参与需谨慎。</li>
+<li data-i="rk2">投票权按份额计算,非一人一票。</li>
+<li data-i="rk3">智能合约开源并持续自审,但非绝对安全。</li>
+<li data-i="rk4">退出流动性取决于市场,不保证随时成交。</li>
+<li data-i="rk5">LIGHT 不是证券,不具内在价值,价格可能归零。</li>
+</ul>
+</div>
+</div></section>
+
+<section style="border-bottom:none"><div class="wrap" style="text-align:center">
+<h2 data-i="finH">传统私募的早期额度,普通人从来拿不到。<br>这一次,你的浏览器就是入场券。</h2>
+<div class="btns" style="justify-content:center">
+<a class="btn p" href="/app.html" data-i="ctaJoin">连接钱包,加入 LightDAO</a>
+<a class="btn g" href="/whitepaper.html" data-i="ctaWp">读白皮书 V2.4</a>
+</div>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+<span data-i="ftTag">浏览器即节点 · 全民可参与 · 利润按规则共享</span> · © 2026 LightDAO<br>
+<a href="/privacy.html" data-i="ftPriv">隐私</a> · <a href="/terms.html" data-i="ftTerms">条款</a> · <a href="/governance.html" data-i="ftGov">治理</a> · <a href="/nodes.html" data-i="ftNodes">节点</a> · <a href="/invest.html" data-i="ftInv">投资</a> · <a href="/season.html" data-i="ftSeason">赛季</a> · <a href="/blog.html" data-i="ftBlog">博客</a> · <a href="https://t.me/lightdao_news" target="_blank" rel="noopener">Telegram</a> · <a href="https://discord.gg/aBWEatEkUX" target="_blank" rel="noopener">Discord</a> · <a href="https://x.com/lightdaoproto" target="_blank" rel="noopener">X</a>
+</div> · <a href="/contracts.html">链上合约与地址</a> · <a href="/institutions.html">治理制度</a> · <a href="/funds.html">资金与释放</a></footer>
+<script src="/js/index_2.js?v=1.10.67" integrity="sha384-EL3O2qtVGRCvn8WakjxOfhzmAm+GfubXfwXscaJzyTDeeUvQjNfyFUFHHFNNQnrB" crossorigin="anonymous"></script>
+<script src="/js/i18n.js" integrity="sha384-LG0sM4WSekjgFNW6Jkiv0JWY0onCKkVBFgU/+2K9BEWS4HlvaSwe3yQUO4eqBCiA" crossorigin="anonymous"></script><script src="/js/i18n_core.js" integrity="sha384-kajQT8hf5obaZOs9dnlw0fCxxnFAN7Mgt2mpK1k7yj/5g0KA88EK0+RVB8c8E1Fq" crossorigin="anonymous"></script><script src="/js/i18n_pages_en.js" integrity="sha384-yQ0lc+NOop9uAYHI3MJoWg4sfH233JdlxDxy/G3w9RbGaWrk/YEmDeJxzLHOFRRq" crossorigin="anonymous"></script><script src="/js/i18n_pages_en2.js" integrity="sha384-0xH+8mdD0672lZiYmBTv/snwFKP5rHTB2RT+1HN4UERh1exOpQw+J4+0SLQfYCrY" crossorigin="anonymous"></script><script src="/js/i18n_pages_en3.js" integrity="sha384-q73KtkqLFbes+UI63+IFy1MmTFh9CJak50Ir+w3WbM1nrhQ3Ljjs81Is53niLnk+" crossorigin="anonymous"></script><script src="/js/i18n_pages_en4.js" integrity="sha384-4oH6nSHvvm395+C1D1UgVMJdsMaNhs68QiaXayyU9Ep3QloqvNah9r95vTFzvf5N" crossorigin="anonymous"></script><script src="/js/i18n_pages_en5.js" integrity="sha384-5qDuSaCdm4Q5UbQ8eRCM0r5xlNwO5rtrjVH1i48gHkbe03bJIqwL/zqvKuQRXRgX" crossorigin="anonymous"></script><script src="/js/i18n_pages_en6.js" integrity="sha384-YWxxqotWiI3sUGZKk7geIKe2efyD0ApfE6ZB2OUJGv7Ur34rdicIhhwjXfxtNLjW" crossorigin="anonymous"></script><script src="/js/i18n_lat.js" integrity="sha384-NR9FuP4R79a/1dmFOFvsiXqzy+izH4lA0ouZAZrmEbJxxQw4zSMo+/CGY7Yw02/R" crossorigin="anonymous"></script><script src="/js/i18n_b2.js" integrity="sha384-plS1GYuvtWltSGCh4UTRhGTkwEJDjwPtpuLhzR6juQ3KXIt6KiiBAH/3jgy9hVm/" crossorigin="anonymous"></script><script src="/js/i18n_b3.js" integrity="sha384-AH0bwrtMfxAXOMjRAeCFACr9iE7BqKAowGl1A4xEAxRRLVB42hMdfOtKAI2s0Kcq" crossorigin="anonymous"></script><script src="/js/i18n_b4.js" integrity="sha384-Oh7ujFWzh0kczT5rZISRsLimiw7X/ToUR5OMU9TggMMNswztItmS78FXqmYpo9JX" crossorigin="anonymous"></script><script src="/js/i18n_b5.js" integrity="sha384-z6o00srU9+NBQr/w8iE4hSNX0BhbVXkEShReoSOXPmAXgmB2iuv8RYEZ3feQfiFo" crossorigin="anonymous"></script><script src="/js/i18n_b6.js" integrity="sha384-rdq7NVwOcexIyNLg2AvZqwsBtF8OvUHh5f0CB3XsaPfaeoI0PUcDfzOCLGecU5BV" crossorigin="anonymous"></script><script src="/js/i18n_b7.js" integrity="sha384-QX+2TJCxfeJVWgE8rbJUT5N7rh1tGiq6ruQ0ih9MI0BpVUJRN1yi47wOdoPo2fRs" crossorigin="anonymous"></script><script src="/js/i18n_gov_labels.js" integrity="sha384-+BY1EhYlDrmNA3M1B6qu6ESZwD/aOHcFHHwVNSmzbMejow/pBDPEsHCISsVmgOaw" crossorigin="anonymous"></script><script src="/js/i18n_lat4.js" integrity="sha384-2qE12D5UwmMugRpeaU1thngQeSjXLkSnAkQQrVjbELDtbCIg5fkTabi5Mn5uQJfI" crossorigin="anonymous"></script><script src="/js/i18n_lat5.js" integrity="sha384-xCNnjwaazStd/SBJ0Lf0FTpr0wYLUAJQh+9tBg9/R9mBHuaZ3R4phPHvRxh9+DA4" crossorigin="anonymous"></script><script src="/js/i18n_lat6.js" integrity="sha384-KWH2dhE46jWH7ujLwoVuD4kruFrjWuYt3w5Vp4koOue9/tWJUrCfYc1cddUTT3Q0" crossorigin="anonymous"></script><script src="/js/i18n_more.js" integrity="sha384-wuOMoXtLb7NQQvUI8Jq9V1wZNwVuNfeGEOUk6gpqeR7KQ+NGGBe7y7gAc8wbvLsq" crossorigin="anonymous"></script><script src="/js/i18n_mt_1.js" integrity="sha384-pCJeWjfVpKyci2DZUGxWOWiZbr11mKJ2r5+yNVcamI7Ksf4BAhTH7PZamdtNG0gR" crossorigin="anonymous"></script><script src="/js/i18n_mt_2.js" integrity="sha384-xkAk2Qe9AjnhXIVoo6XONY7IyJlxq7z58DA4ySNqw+fUOC9kE6D1qdGSuJaf7/1k" crossorigin="anonymous"></script><script src="/js/i18n_mt_3.js" integrity="sha384-HSVvpG9F8mVl1Gm9wbGfm1hcoboQVigOY+zQ5Jn0ciXaqao8nBZCkUtv1L7IOUgx" crossorigin="anonymous"></script><script src="/js/i18n_mt_4.js" integrity="sha384-9sKHzAgs5FsVoZCG09gP06MfYdPvPEE/aCxZ0iUrQfH2yZhov9ArqQNFaTvkO8Xf" crossorigin="anonymous"></script><script src="/js/i18n_mt_5.js" integrity="sha384-wv9XVni6fCC00F6bD7pkmFWAjrRIhJRVxJPJUz8oa+b1oDdujSzJuAPk6vXDkleW" crossorigin="anonymous"></script><script src="/js/i18n_mt_6.js" integrity="sha384-nYgfuvR7elvrnk19ep5IalvnyuvWhd74hAsINcP7l1MOHczZNUS4DIzhsLAQcSve" crossorigin="anonymous"></script><script src="/js/i18n_mt_7.js" integrity="sha384-YhtDkhHOhLkN6Xy7mBJ6PBkWD/sEX/Yp9jmB2IccgOsMPo9Uzwh16R2lD6KHkRW/" crossorigin="anonymous"></script><script src="/js/i18n_mt_8.js" integrity="sha384-Jnu48iqmazvFWhOyr5QHUAFA4M6/Wd1ErQBq/F3zov0Noksxmq0uxU6OTB+wyJxB" crossorigin="anonymous"></script><script src="/js/i18n_mt_9.js" integrity="sha384-KGVxbppuDVwrCYTQ5U73PHVNwWDd+bPUbL38GxurjySSD5v0ayicZkejjVKBbP+/" crossorigin="anonymous"></script><script src="/js/nav.js" defer integrity="sha384-ZOG8/dhM8DQnh/MyExkgXlc3ylSgdoBlvdekl/0jIgaGS2taFqTlTc7NhRLaFnsT" crossorigin="anonymous"></script>
+
+<script src="/js/hero_live.js?v=1.10.67" integrity="sha384-L1pr9kLcA5WdxqkJqPHp3v7x1I7SiMSyFNVGv16GCPfF7EmsHmuK+/PXTmBf2+tC" crossorigin="anonymous"></script>
+</body>
+</html>
