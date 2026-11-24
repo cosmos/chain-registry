@@ -1,0 +1,69 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "lightdao",
+  "status": "live",
+  "network_type": "mainnet",
+  "pretty_name": "LightDAO",
+  "chain_id": "lightdao-mainnet-1",
+  "bech32_prefix": "wasm",
+  "daemon_name": "wasmd",
+  "node_home": "$HOME/.wasmd",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "ulight",
+        "fixed_min_gas_price": 0.2,
+        "low_gas_price": 0.2,
+        "average_gas_price": 0.25,
+        "high_gas_price": 0.3
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "ulight"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/youqi023789/lightdao",
+    "recommended_version": "v0.50.12-wasmd-v0.55",
+    "compatible_versions": [
+      "v0.50.12-wasmd-v0.55"
+    ],
+    "binaries": {},
+    "genesis": {
+      "genesis_url": "https://github.com/youqi023789/lightdao/releases/download/v1.0.0/genesis.json"
+    }
+  },
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lightdao/images/lightdao.png"
+  },
+  "website": "https://lightdao.net",
+  "description": "LightDAO is a Cosmos SDK application chain for browser-based DePIN light-node mining. Users contribute bandwidth relay, uptime, block-header verification and stability from a browser tab; rewards settle daily from an on-chain pool and every reward is independently verifiable via a Merkle proof whose root is anchored on-chain. Treasury is a 3-of-5 multisig with a 72-hour timelock.",
+  "explorers": [
+    {
+      "kind": "custom",
+      "url": "https://lightdao.net/explorer.html",
+      "tx_page": "https://lightdao.net/explorer.html",
+      "account_page": "https://lightdao.net/explorer.html"
+    }
+  ],
+  "api": [
+    {
+      "address": "https://lightdao.net",
+      "provider": "LightDAO"
+    }
+  ],
+  "rpc": [
+    {
+      "address": "https://lightdao.net/rpc",
+      "provider": "LightDAO"
+    }
+  ]
+}
