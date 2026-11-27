@@ -5,7 +5,7 @@
   "network_type": "mainnet",
   "pretty_name": "IRISnet",
   "chain_type": "cosmos",
-  "chain_id": "irishub-1",
+  "chain_id": "irishub-2",
   "bech32_prefix": "iaa",
   "daemon_name": "iris",
   "node_home": "$HOME/.iris",
@@ -32,12 +32,12 @@
   },
   "codebase": {
     "git_repo": "https://github.com/irisnet/irishub",
-    "recommended_version": "v2.0.3",
+    "recommended_version": "v5.0.0",
     "compatible_versions": [
-      "v2.0.3"
+      "v5.0.0"
     ],
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/irisnet/mainnet/master/config/genesis.json"
+      "genesis_url": "https://irishub-snapshot.oss-ap-southeast-1.aliyuncs.com/genesis.json"
     }
   },
   "logo_URIs": {
@@ -47,11 +47,11 @@
   "peers": {
     "seeds": [
       {
-        "id": "6a6de770deaa4b8c061dffd82e9c7f4d40c2165d",
+        "id": "94d9a37f02c9157841e57a407800b8629c88de83",
         "address": "seed-1.mainnet.irisnet.org:26656"
       },
       {
-        "id": "a17d7923293203c64ba75723db4d5f28e642f469",
+        "id": "94d9a37f02c9157841e57a407800b8629c88de83",
         "address": "seed-2.mainnet.irisnet.org:26656"
       },
       {
@@ -65,17 +65,33 @@
         "id": "a19022cc07010836ed2a9c77dd56968965edb454",
         "address": "mainnet-iris.konsortech.xyz:30656",
         "provider": "KonsorTech"
+      },
+      {
+        "id": "c06fcd09af264a7aa73a88d149acf64abfd7b28d",
+        "address": "sentry-0.mainnet.irisnet.org:26656"
+      },
+      {
+        "id": "73c35b939102b6a4ea0657e79d423953073109fe",
+        "address": "sentry-1.mainnet.irisnet.org:26656"
       }
     ]
   },
   "apis": {
     "rpc": [
       {
+        "address": "https://rpc.irishub-2.irisnet.org",
+        "provider": "IRISnet"
+      },
+      {
         "address": "https://mainnet-iris-rpc.konsortech.xyz",
         "provider": "KonsorTech"
       }
     ],
     "rest": [
+      {
+        "address": "https://api.irishub-2.irisnet.org",
+        "provider": "IRISnet"
+      },
       {
         "address": "https://mainnet-iris-api.konsortech.xyz",
         "provider": "KonsorTech"
@@ -91,27 +107,33 @@
   },
   "explorers": [
     {
+      "kind": "IRIScan",
+      "url": "https://irisscan.io/",
+      "tx_page": "https://irisscan.io/#/txs/${txHash}",
+      "account_page": "https://irisscan.io/#/address/${accountAddress}"
+    },
+    {
+      "kind": "Valopers",
+      "url": "https://iris.valopers.com/",
+      "tx_page": "https://iris.valopers.com/transactions/${txHash}",
+      "account_page": "https://iris.valopers.com/account/${accountAddress}"
+    },
+    {
+      "kind": "KonsorTech",
+      "url": "https://explorer.konsortech.xyz/iris",
+      "tx_page": "https://explorer.konsortech.xyz/iris/tx/${txHash}"
+    },
+    {
       "kind": "ezstaking",
       "url": "https://ezstaking.app/irisnet",
       "tx_page": "https://ezstaking.app/irisnet/txs/${txHash}",
       "account_page": "https://ezstaking.app/irisnet/account/${accountAddress}"
     },
     {
-      "kind": "mintscan",
-      "url": "https://www.mintscan.io/iris",
-      "tx_page": "https://www.mintscan.io/iris/transactions/${txHash}",
-      "account_page": "https://www.mintscan.io/iris/accounts/${accountAddress}"
-    },
-    {
-      "kind": "ping.pub",
-      "url": "https://ping.pub/iris-network",
-      "tx_page": "https://ping.pub/iris-network/tx/${txHash}"
-    },
-    {
-      "kind": "staking-explorer.com",
-      "url": "https://staking-explorer.com/explorer/irisnet",
-      "tx_page": "https://staking-explorer.com/transaction.php?chain=irisnet&tx=${txHash}",
-      "account_page": "https://staking-explorer.com/account.php?chain=irisnet&addr=${accountAddress}"
+      "kind": "Stakeflow",
+      "url": "https://stakeflow.io/irisnet",
+      "tx_page": "https://stakeflow.io/irisnet/transactions/${txHash}",
+      "account_page": "https://stakeflow.io/irisnet/accounts/${accountAddress}"
     },
     {
       "kind": "atomscan",
@@ -120,30 +142,9 @@
       "account_page": "https://atomscan.com/iris-network/accounts/${accountAddress}"
     },
     {
-      "kind": "Stakeflow",
-      "url": "https://stakeflow.io/irisnet",
-      "account_page": "https://stakeflow.io/irisnet/accounts/${accountAddress}"
-    },
-    {
-      "kind": "Nodeist Explorer",
-      "url": "https://exp.nodeist.net/iris",
-      "tx_page": "https://exp.nodeist.net/iris/tx/${txHash}"
-    },
-    {
-      "kind": "L0vd.com ❤️",
-      "url": "https://explorers.l0vd.com/iris-mainnet",
-      "tx_page": "https://explorers.l0vd.com/iris-mainnet/tx/${txHash}"
-    },
-    {
-      "kind": "KonsorTech",
-      "url": "https://explorer.konsortech.xyz/iris",
-      "tx_page": "https://explorer.konsortech.xyz/iris/tx/${txHash}"
-    },
-    {
-      "kind": "Valopers",
-      "url": "https://iris.valopers.com/",
-      "tx_page": "https://iris.valopers.com/transactions/${txHash}",
-      "account_page": "https://iris.valopers.com/account/${accountAddress}"
+      "kind": "ping.pub",
+      "url": "https://ping.pub/iris",
+      "tx_page": "https://ping.pub/iris/tx/${txHash}"
     }
   ],
   "images": [

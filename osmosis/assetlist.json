@@ -1444,7 +1444,8 @@
       "coingecko_id": "sentinel"
     },
     {
-      "description": "The IRIS token is the native governance token for the IrisNet chain.",
+      "description": "Deprecated: IRIS voucher from the halted irishub-1 chain (transfer/channel-6/uiris), no longer redeemable. This denom also carries about 455 billion IRIS from the exploit; use the irishub-2 compensation voucher instead.",
+      "deprecated": true,
       "denom_units": [
         {
           "denom": "ibc/7C4D60AA95E5A7558B0A364860979CA34B7FF8AAF255B87AF9E879374470CEC0",
@@ -1454,20 +1455,20 @@
           ]
         },
         {
-          "denom": "iris",
+          "denom": "oldiris",
           "exponent": 6
         }
       ],
       "type_asset": "ics20",
       "base": "ibc/7C4D60AA95E5A7558B0A364860979CA34B7FF8AAF255B87AF9E879374470CEC0",
       "name": "IRISnet",
-      "display": "iris",
-      "symbol": "IRIS",
+      "display": "oldiris",
+      "symbol": "OLDIRIS",
       "traces": [
         {
           "type": "ibc",
           "counterparty": {
-            "chain_name": "irisnet",
+            "chain_name": "irisnet1",
             "base_denom": "uiris",
             "channel_id": "channel-3"
           },
@@ -1490,8 +1491,56 @@
           "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.png",
           "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.svg"
         }
+      ]
+    },
+    {
+      "description": "The IRIS compensation voucher issued on irishub-2 (1:1 for pre-attack Osmosis holdings at height 71034265).",
+      "denom_units": [
+        {
+          "denom": "ibc/E56531F1D827F47AB2BE539DBF37A71715F856D964C1F4C385E3755D27A23E4D",
+          "exponent": 0,
+          "aliases": [
+            "uiris"
+          ]
+        },
+        {
+          "denom": "iris",
+          "exponent": 6
+        }
       ],
-      "coingecko_id": "iris-network"
+      "type_asset": "ics20",
+      "base": "ibc/E56531F1D827F47AB2BE539DBF37A71715F856D964C1F4C385E3755D27A23E4D",
+      "name": "IRISnet",
+      "display": "iris",
+      "symbol": "IRIS",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "irisnet",
+            "base_denom": "uiris",
+            "channel_id": "channel-0"
+          },
+          "chain": {
+            "channel_id": "channel-111109",
+            "path": "transfer/channel-111109/uiris"
+          }
+        }
+      ],
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.png",
+        "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.svg"
+      },
+      "images": [
+        {
+          "image_sync": {
+            "chain_name": "irisnet",
+            "base_denom": "uiris"
+          },
+          "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.png",
+          "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/irisnet/images/iris.svg"
+        }
+      ]
     },
     {
       "description": "IOV coin is the token for the Starname (IOV) Asset Name Service",
