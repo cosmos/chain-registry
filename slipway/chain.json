@@ -1,0 +1,78 @@
+{
+  "$schema": "../chain.schema.json",
+  "chain_name": "slipway",
+  "chain_type": "cosmos",
+  "status": "upcoming",
+  "network_type": "mainnet",
+  "website": "https://slipway.exchange",
+  "pretty_name": "Slipway",
+  "chain_id": "slipway-1",
+  "bech32_prefix": "slip",
+  "daemon_name": "slipwayd",
+  "node_home": "$HOME/.slipway",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "uusdc",
+        "fixed_min_gas_price": 0.005,
+        "low_gas_price": 0.005,
+        "average_gas_price": 0.0075,
+        "high_gas_price": 0.01
+      },
+      {
+        "denom": "uslip"
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "uslip"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/Slipway-exchange/slipway-releases",
+    "language": {
+      "type": "go",
+      "version": "1.26.6"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "0.54.5"
+    },
+    "consensus": {
+      "type": "cometbft",
+      "version": "0.39.4"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "11.2.0",
+      "ics_enabled": [
+        "ics20-1"
+      ]
+    }
+  },
+  "images": [
+    {
+      "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/slipway/images/slip.png",
+      "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/slipway/images/slip.svg",
+      "theme": { "circle": false, "dark_mode": true }
+    }
+  ],
+  "logo_URIs": {
+    "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/slipway/images/slip.png",
+    "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/slipway/images/slip.svg"
+  },
+  "description": "Slipway is a Cosmos chain built for trading. It opens on January 1, 2027.",
+  "apis": {},
+  "keywords": [
+    "dex",
+    "exchange",
+    "order-book"
+  ]
+}
